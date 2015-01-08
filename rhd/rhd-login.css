@@ -1,0 +1,21 @@
+/**
+ * RHD Login Branding
+**/
+
+body.login {
+	background: url(http://assets.roundhouse-designs.com/images/rhd-admin-bg.png) repeat !important;
+}
+
+h1.rhd-login-site-title {
+	font-family: Tahoma;
+	font-size: 2em;
+	text-align: center;
+	margin: 10px auto 15px auto;
+	line-height: 1.1;
+}
+
+#login h1 a {
+	width: 326px;
+	background-image: url(http://assets.roundhouse-designs.com/images/rhd-login-logo.png) !important;
+	background-size: 100%;
+}
