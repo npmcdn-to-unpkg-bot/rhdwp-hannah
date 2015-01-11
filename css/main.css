@@ -95,11 +95,23 @@ textarea {
    Main Styles
    ========================================================================== */
 
+html,
+body {
+	width: 100%;
+	font-size: 16px;
+}
 
+.wrapper {
+	width: 60em;
+	margin: 0 auto;
+	position: relative;
+}
 
-
-
-
+#colophon .site-info {
+	margin: 0;
+	padding: 1em 0;
+	text-align: center;
+}
 
 
 
