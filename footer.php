@@ -14,8 +14,8 @@
                 <?php get_sidebar('footer'); ?>
                 <div class="site-info">
                         <p>
+				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?><br>
                                 site by <a href="//roundhouse-designs.com" target="_blank">roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white$
-                                <?php echo '&copy;' . date( 'Y' ) . ' SITE NAME'; ?>designs
                         </p>
                 </div><!-- .site-info -->
         </footer><!-- #colophon -->
