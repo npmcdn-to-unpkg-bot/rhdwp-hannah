@@ -113,6 +113,11 @@ body {
 	text-align: center;
 }
 
+#colophon .site-info a {
+	color: inherit;
+	text-decoration: none;
+}
+
 
 
 /* ==========================================================================
