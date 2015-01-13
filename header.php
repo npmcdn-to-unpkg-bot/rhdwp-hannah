@@ -59,7 +59,7 @@
 			);
 		?>
 		
-		<div class="sb-slidebar sb-left">
+		<div class="sb-slidebar sb-left sb-style-push">
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
 		
@@ -71,9 +71,9 @@
 					<?php wp_nav_menu( $nav_args_main ); ?>
 				</div>
 				
-				<div class="hamburger">
-					
-				</div>
+				<a class="hamburger sb-toggle-left">
+					hamburger
+				</a>
 			</header><!-- #masthead -->
 
 			<div id="main" class="clearfix">
