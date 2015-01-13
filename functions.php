@@ -20,6 +20,9 @@ function rhd_init() {
 }
 add_action( 'after_setup_theme', 'rhd_init' );
 
+/* Disable Editor */
+define( 'DISALLOW_FILE_EDIT', true );
+
 
 /* ==========================================================================
    Scripts + Styles
