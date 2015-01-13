@@ -42,23 +42,33 @@
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 		
+		<?php
+			$nav_args_main = array(
+				'menu_location' => 'primary',
+				'menu_id' => 'site-navigation',
+				'menu_class' => 'blue',
+				'container' => 'nav',
+				'container_id' => 'site-navigation-container'
+			);
+			
+			$nav_args_sb = array(
+				'menu_location' => 'primary',
+				'menu_id' => 'sb-site-navigation',
+				'container' => 'nav',
+				'container_id' => 'sb-site-navigation-container'
+			);
+		?>
+		
 		<div class="sb-slidebar sb-left">
-			<!-- LEFT SLIDEBAR -->
+			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
 		
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header" role="banner">
 				<div class="wrapper">
 					<h1 id="site-title-mast" class="site-title blue"><?php echo get_bloginfo( 'name' ); ?></h1>
-					
-					<?php
-						wp_nav_menu( array(
-							'menu_location' => 'primary',
-							'menu_id' => 'site-navigation',
-							'container' => 'nav',
-							'container_id' => 'site-navigation-container'
-						) );
-					?>
+
+					<?php wp_nav_menu( $nav_args_main ); ?>
 				</div>
 				
 				<div class="hamburger">
