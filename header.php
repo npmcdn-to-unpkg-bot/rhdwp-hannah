@@ -49,7 +49,6 @@
 						<?php
 							wp_nav_menu( array(
 								'menu_location' => 'primary',
-								'container' => 'nav',
 								'menu_id' => 'site-navigation'
 							) );
 						?>
