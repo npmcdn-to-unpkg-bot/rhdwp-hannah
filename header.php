@@ -45,15 +45,15 @@
 			<header id="masthead" class="site-header" role="banner">
 				<div class="wrapper">
 					<h1 id="site-title-mast" class="site-title blue"><?php echo get_bloginfo( 'name' ); ?></h1>
-					<div id="site-navigation">
-						<?php
-							wp_nav_menu( array(
-								'menu_location' => 'primary',
-								'container' => 'nav',
-								'menu_id' => 'site-navigation'
-							) );
-						?>
-					</div>
+					
+					<?php
+						wp_nav_menu( array(
+							'menu_location' => 'primary',
+							'menu_id' => 'site-navigation-menu',
+							'container' => 'nav',
+							'container_id' => 'site-navigation'
+						) );
+					?>
 				</div>
 			</header><!-- #masthead -->
 
