@@ -101,6 +101,10 @@ body {
 	font-size: 16px;
 }
 
+a {
+	outline: 0 !important;
+}
+
 .wrapper {
 	width: 60em;
 	margin: 0 auto;
