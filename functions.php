@@ -164,9 +164,10 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 620;
 }
 
-/**
- * Roundhouse Admin Branding
- **/
+
+/* ==========================================================================
+   Roundhouse Admin Branding
+   ========================================================================== */
 
 // External login link
 function rhd_branding_login(){
