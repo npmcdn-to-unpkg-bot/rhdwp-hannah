@@ -105,6 +105,33 @@ a {
 	outline: 0 !important;
 }
 
+#site-navigation {
+	list-style: none;
+	padding-left: 0;
+	text-align: center;
+	margin: 0;
+}
+
+#site-navigation li {
+	display: inline-block;
+	margin: 0 1em;
+}
+
+#site-navigation .menu-item a {
+	text-decoration: none;
+}
+
+#site-navigation .menu-item a:link,
+#site-navigation .menu-item a:visited {
+	color: inherit;
+}
+
+#site-navigation .menu-item a:hover,
+#site-navigation .menu-item a:active,
+#site-navigation .menu-item a:focus {
+	color: red;
+}
+
 .wrapper {
 	width: 60em;
 	margin: 0 auto;
