@@ -23,6 +23,9 @@ add_action( 'after_setup_theme', 'rhd_init' );
 /* Disable Editor */
 define( 'DISALLOW_FILE_EDIT', true );
 
+/* Google Fonts */
+$font_family = 'Lato:400,400italic,700|Rock+Salt';
+
 
 /* ==========================================================================
    Scripts + Styles
@@ -35,7 +38,7 @@ function rhd_enqueue_styles(){
 	wp_enqueue_style( 'slidebars-js-css', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.css', '', '0.10.0' );
 
 	// Web Fonts
-	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Lato:400,700|Rock+Salt' );
+	wp_enqueue_style( 'google-fonts', "http://fonts.googleapis.com/css?family={$font_family}" );
 
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
@@ -67,7 +70,7 @@ add_action( 'admin_enqueue_scripts', 'rhd_setup_admin' );
 
 function rhd_add_editor_styles() {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Lato:400,700|Rock+Salt';
+	$font_url = "//fonts.googleapis.com/css?family={$font_family}";
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
