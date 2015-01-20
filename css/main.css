@@ -105,10 +105,26 @@ a {
 	outline: 0 !important;
 }
 
+.wrapper {
+	width: 60em;
+	margin: 0 auto;
+	position: relative;
+}
+
+#site-title {
+	text-align: center;
+	margin: 0;
+}
+
+#site-navigation-container {
+	width: 100%;
+	text-align: center;
+}
+
 #site-navigation {
 	list-style: none;
 	padding-left: 0;
-	text-align: center;
+
 	margin: 0;
 }
 
@@ -132,10 +148,9 @@ a {
 	color: red;
 }
 
-.wrapper {
-	width: 60em;
-	margin: 0 auto;
-	position: relative;
+#main {
+	padding: 2em 0;
+	box-sizing: border-box;
 }
 
 #colophon .site-info {

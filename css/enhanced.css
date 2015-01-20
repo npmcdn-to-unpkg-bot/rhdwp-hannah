@@ -1,0 +1,34 @@
+.wrapper {
+	width: 60em;
+}
+
+.hamburger {
+	display: none;
+}
+
+#primary,
+#secondary {
+	position: relative;
+	box-sizing: border-box;
+}
+
+#primary {
+	width: 37.5em;
+	float: right;
+}
+
+#secondary {
+	width: 18.75em;
+	float: left;
+}
+
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
+@media screen and (min-width: 60em) {
+	.wrapper {
+		width: 64em;
+	}
+}
