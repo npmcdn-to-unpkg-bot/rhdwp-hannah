@@ -20,6 +20,20 @@
 #secondary {
 	width: 18.75em;
 	float: left;
+	margin: 0;
+}
+
+#secondary .widget {
+	width: 100%;
+	margin: 1em auto;
+}
+
+#secondary .widget:first-child {
+	margin-top: 0;
+}
+
+#secondary .widget:last-child {
+	margin-bottom: 0;
 }
 
 
