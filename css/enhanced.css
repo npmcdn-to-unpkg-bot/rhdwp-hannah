@@ -1,0 +1,48 @@
+.wrapper {
+	width: 60em;
+}
+
+.hamburger {
+	display: none;
+}
+
+#primary,
+#secondary {
+	position: relative;
+	box-sizing: border-box;
+}
+
+#primary {
+	width: 37.5em;
+	float: right;
+}
+
+#secondary {
+	width: 18.75em;
+	float: left;
+	margin: 0;
+}
+
+#secondary .widget {
+	width: 100%;
+	margin: 1em auto;
+}
+
+#secondary .widget:first-child {
+	margin-top: 0;
+}
+
+#secondary .widget:last-child {
+	margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
+@media screen and (min-width: 60em) {
+	.wrapper {
+		width: 64em;
+	}
+}

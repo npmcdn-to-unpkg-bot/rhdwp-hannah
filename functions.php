@@ -20,6 +20,9 @@ function rhd_init() {
 }
 add_action( 'after_setup_theme', 'rhd_init' );
 
+/* Disable Editor */
+define( 'DISALLOW_FILE_EDIT', true );
+
 
 /* ==========================================================================
    Scripts + Styles
@@ -28,11 +31,11 @@ add_action( 'after_setup_theme', 'rhd_init' );
 function rhd_enqueue_styles(){
 	// wp_enqueue_style('theme', get_stylesheet_uri(), array('dashicons'), '1', 'all');
 	wp_enqueue_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
-	wp_enqueue_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', array( /*'slidebars-js-css'*/ ), null, 'all' );
-	// wp_enqueue_style( 'slidebars-js-css', RHD_THEME_DIR . '/js/vendor/slidebars/slidebars.min.css', '', '0.10.0' );
+	wp_enqueue_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', array( 'slidebars-js-css' ), null, 'all' );
+	wp_enqueue_style( 'slidebars-js-css', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.css', '', '0.10.0' );
 
 	// Web Fonts
-	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Lato:400,700|Rock+Salt' );
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,400italic,700|Rock+Salt' );
 
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
@@ -42,9 +45,9 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 
 function rhd_enqueue_scripts() {
 	wp_enqueue_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', array( 'rhd-plugins', 'jquery' ), '', true );
+	wp_enqueue_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', array( 'rhd-plugins', 'jquery', 'slidebars-js' ), '', true );
 	wp_enqueue_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr-custom.js', '', '2.8.3', true );
-	// wp_enqueue_script( 'slidebars-js', RHD_THEME_DIR . '/js/vendor/slidebars/slidebars.min.js', '', '0.10.2', true );
+	wp_enqueue_script( 'slidebars-js', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.js', '', '0.10.2', true );
 
 	if ( is_singular() )
 		wp_enqueue_script( 'comment-reply' );
@@ -64,7 +67,7 @@ add_action( 'admin_enqueue_scripts', 'rhd_setup_admin' );
 
 function rhd_add_editor_styles() {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Lato:400,700|Rock+Salt';
+	$font_url = '//fonts.googleapis.com/css?family=Lato:400,400italic,700|Rock+Salt';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -161,9 +164,10 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 620;
 }
 
-/**
- * Roundhouse Admin Branding
- **/
+
+/* ==========================================================================
+   Roundhouse Admin Branding
+   ========================================================================== */
 
 // External login link
 function rhd_branding_login(){

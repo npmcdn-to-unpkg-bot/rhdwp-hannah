@@ -101,10 +101,56 @@ body {
 	font-size: 16px;
 }
 
+a {
+	outline: 0 !important;
+}
+
 .wrapper {
 	width: 60em;
 	margin: 0 auto;
 	position: relative;
+}
+
+#site-title {
+	text-align: center;
+	margin: 0;
+}
+
+#site-navigation-container {
+	width: 100%;
+	text-align: center;
+}
+
+#site-navigation {
+	list-style: none;
+	padding-left: 0;
+
+	margin: 0;
+}
+
+#site-navigation li {
+	display: inline-block;
+	margin: 0 1em;
+}
+
+#site-navigation .menu-item a {
+	text-decoration: none;
+}
+
+#site-navigation .menu-item a:link,
+#site-navigation .menu-item a:visited {
+	color: inherit;
+}
+
+#site-navigation .menu-item a:hover,
+#site-navigation .menu-item a:active,
+#site-navigation .menu-item a:focus {
+	color: red;
+}
+
+#main {
+	padding: 2em 0;
+	box-sizing: border-box;
 }
 
 #colophon .site-info {
@@ -118,6 +164,27 @@ body {
 	text-decoration: none;
 }
 
+
+/* ==========================================================================
+   TEXT FORMATTING
+   ========================================================================== */
+
+.entry-title,
+.page-title {
+	margin-top: 0;
+}
+
+
+/* ==========================================================================
+   EXTRAS
+   ========================================================================== */
+
+.invisible {
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
 
 
 /* ==========================================================================

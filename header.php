@@ -17,8 +17,9 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="viewport" content="width=device-width">
-
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
 		<title><?php wp_title(); ?></title>
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -41,9 +42,39 @@
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<div id="page" class="hfeed site">
+		
+		<?php
+			$nav_args_main = array(
+				'menu_location' => 'primary',
+				'menu_id' => 'site-navigation',
+				'menu_class' => 'blue',
+				'container' => 'nav',
+				'container_id' => 'site-navigation-container'
+			);
+			
+			$nav_args_sb = array(
+				'menu_location' => 'primary',
+				'menu_id' => 'sb-site-navigation',
+				'container' => 'nav',
+				'container_id' => 'sb-site-navigation-container'
+			);
+		?>
+		
+		<div class="sb-slidebar sb-left sb-style-push">
+			<?php wp_nav_menu( $nav_args_sb ); ?>
+		</div>
+		
+		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header" role="banner">
-				<!-- HEADER CONTENT -->
+				<div class="wrapper">
+					<h1 id="site-title-mast" class="site-title blue"><?php echo get_bloginfo( 'name' ); ?></h1>
+
+					<?php wp_nav_menu( $nav_args_main ); ?>
+				</div>
+				
+				<a class="hamburger sb-toggle-left">
+					hamburger
+				</a>
 			</header><!-- #masthead -->
 
 			<div id="main" class="clearfix">
