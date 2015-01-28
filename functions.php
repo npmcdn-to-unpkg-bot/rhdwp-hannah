@@ -29,7 +29,6 @@ define( 'DISALLOW_FILE_EDIT', true );
    ========================================================================== */
 
 function rhd_enqueue_styles(){
-	// wp_enqueue_style('theme', get_stylesheet_uri(), array('dashicons'), '1', 'all');
 	wp_enqueue_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_enqueue_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', array( 'slidebars-js-css' ), null, 'all' );
 	wp_enqueue_style( 'slidebars-js-css', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.css', '', '0.10.0' );
