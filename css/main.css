@@ -7,7 +7,7 @@
  */
 
 /* ==========================================================================
-   Base styles: opinionated defaults
+	Base styles: opinionated defaults
    ========================================================================== */
 
 html {
@@ -81,7 +81,7 @@ textarea {
 }
 
 /* ==========================================================================
-   Browser Upgrade Prompt
+	Browser Upgrade Prompt
    ========================================================================== */
 
 .browserupgrade {
@@ -92,7 +92,7 @@ textarea {
 }
 
 /* ==========================================================================
-   Main Styles
+	Main Styles
    ========================================================================== */
 
 html,
@@ -166,7 +166,7 @@ a {
 
 
 /* ==========================================================================
-   TEXT FORMATTING
+	Text Formatting
    ========================================================================== */
 
 .entry-title,
@@ -176,7 +176,7 @@ a {
 
 
 /* ==========================================================================
-   EXTRAS
+	Extras
    ========================================================================== */
 
 .invisible {
@@ -188,7 +188,7 @@ a {
 
 
 /* ==========================================================================
-   Helper classes
+	Helper classes
    ========================================================================== */
 
 /*
@@ -264,9 +264,9 @@ a {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+	EXAMPLE Media Queries for Responsive Design.
+	These examples override the primary ('mobile first') styles.
+	Modify as content requires.
    ========================================================================== */
 
 @media only screen and (min-width: 35em) {
@@ -281,9 +281,9 @@ a {
 }
 
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   http://www.phpied.com/delay-loading-your-print-css/
+	Print styles.
+	Inlined to avoid the additional HTTP request:
+	http://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
 @media print {
