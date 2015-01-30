@@ -7,7 +7,7 @@
  */
 
 /* ==========================================================================
-   Base styles: opinionated defaults
+	Base styles: opinionated defaults
    ========================================================================== */
 
 html {
@@ -81,7 +81,7 @@ textarea {
 }
 
 /* ==========================================================================
-   Browser Upgrade Prompt
+	Browser Upgrade Prompt
    ========================================================================== */
 
 .browserupgrade {
@@ -92,7 +92,7 @@ textarea {
 }
 
 /* ==========================================================================
-   Main Styles
+	Main Styles
    ========================================================================== */
 
 html,
@@ -166,7 +166,7 @@ a {
 
 
 /* ==========================================================================
-   TEXT FORMATTING
+	Text Formatting
    ========================================================================== */
 
 .entry-title,
@@ -176,7 +176,78 @@ a {
 
 
 /* ==========================================================================
-   EXTRAS
+	Gallery Styles (from Twenty Fifteen)
+   ========================================================================== */
+
+.gallery {
+	margin-bottom: 1.6em;
+}
+
+.gallery-item {
+	display: inline-block;
+	padding: 1.79104477%;
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-icon img {
+	margin: 0 auto;
+}
+
+.gallery-caption {
+	color: #707070;
+	color: rgba(51, 51, 51, 0.7);
+	display: block;
+	visibility: hidden;
+	font-size: 0.75em;
+	font-size: 1.2rem;
+	padding: 0.5em 0;
+}
+
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+	display: none;
+}
+
+
+/* ==========================================================================
+	Extras
    ========================================================================== */
 
 .invisible {
@@ -188,7 +259,7 @@ a {
 
 
 /* ==========================================================================
-   Helper classes
+	Helper classes
    ========================================================================== */
 
 /*
@@ -264,9 +335,9 @@ a {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+	EXAMPLE Media Queries for Responsive Design.
+	These examples override the primary ('mobile first') styles.
+	Modify as content requires.
    ========================================================================== */
 
 @media only screen and (min-width: 35em) {
@@ -281,9 +352,9 @@ a {
 }
 
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   http://www.phpied.com/delay-loading-your-print-css/
+	Print styles.
+	Inlined to avoid the additional HTTP request:
+	http://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
 @media print {
