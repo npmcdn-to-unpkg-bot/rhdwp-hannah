@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       }
     },
     clean : {
-      files : ['../twenty*', '.gitignore'],
+      files : ['../twenty*'],
       options : {
         force : true
       }
