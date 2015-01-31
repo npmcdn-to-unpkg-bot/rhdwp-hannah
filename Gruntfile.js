@@ -38,17 +38,4 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-modernizr');
 
   grunt.registerTask('default', ['jshint']);
-
-  grunt.registerTask('setup', function(){
-    var done = this.async();
-      var bower = require('bower').commands;
-      bower.install().on('end', function(data) {
-        done();
-      }).on('data', function(data) {
-        console.log(data);
-      }).on('error', function(err) {
-        console.error(err);
-        done();
-      });
-  });  
 };
