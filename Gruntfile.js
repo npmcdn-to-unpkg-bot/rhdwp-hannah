@@ -30,24 +30,16 @@ module.exports = function(grunt) {
         'devFile' : 'js/vendor/modernizr/modernizr-dev.js',
         'outputFile' : 'js/vendor/modernizr/modernizr-custom.js'
       }
-    },
-    clean : {
-      files : ['../twenty*'],
-      options : {
-        force : true
-      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-modernizr');
-  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('default', ['jshint']);
 
   grunt.registerTask('setup', function(){
-    grunt.task.run('clean');
     var done = this.async();
       var bower = require('bower').commands;
       bower.install().on('end', function(data) {
