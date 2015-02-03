@@ -64,7 +64,7 @@
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header" role="banner">
 				<div class="wrapper">
-					<h1 id="site-title-mast" class="site-title blue"><?php echo get_bloginfo( 'name' ); ?></h1>
+					<h1 id="site-title" class="site-title"><?php echo get_bloginfo( 'name' ); ?></h1>
 
 					<?php wp_nav_menu( $nav_args_main ); ?>
 				</div>
