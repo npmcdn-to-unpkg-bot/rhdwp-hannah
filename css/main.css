@@ -148,6 +148,18 @@ a {
 	color: red;
 }
 
+#site-navigation .sub-menu {
+	position: absolute;
+	padding-left: 0;
+	line-height: 1.7;
+	margin-top: 0.2em;
+}
+
+#site-navigation .sub-menu li {
+	display: block;
+	margin: 0;
+}
+
 #main {
 	padding: 2em 0;
 	box-sizing: border-box;
