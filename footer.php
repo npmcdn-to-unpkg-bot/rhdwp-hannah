@@ -11,7 +11,7 @@
 ?>
         </div><!-- #main .wrapper -->
         <footer id="colophon" role="contentinfo">
-                <?php get_sidebar('footer'); ?>
+                <?php get_sidebar( 'footer' ); ?>
                 <div class="site-info">
                         <p>
 							<p>
