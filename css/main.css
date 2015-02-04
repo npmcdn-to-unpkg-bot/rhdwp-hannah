@@ -111,6 +111,10 @@ a {
 	position: relative;
 }
 
+#page {
+	padding: 2em 0;
+}
+
 #site-title {
 	text-align: center;
 	margin: 0;
