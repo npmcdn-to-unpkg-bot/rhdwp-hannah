@@ -207,6 +207,14 @@ a {
 	margin-top: 0;
 }
 
+.entry-content {
+	width: 100%;
+}
+
+.entry-content img {
+	max-width: 100%;
+}
+
 
 /* ==========================================================================
 	Widget Areas and Sidebars
