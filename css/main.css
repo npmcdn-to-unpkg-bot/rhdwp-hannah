@@ -105,6 +105,29 @@ a {
 	outline: 0 !important;
 }
 
+a {
+	outline: 0 !important;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
+a:link {
+	color: red;
+}
+
+a:visited {
+	color: darkred;
+}
+
+a:hover,
+a:active,
+a:focus {
+	text-decoration: underline;
+}
+
 .wrapper {
 	width: 60em;
 	margin: 0 auto;
