@@ -214,15 +214,15 @@ a {
 
 #secondary .widget {
 	width: 100%;
-	margin: 1em auto;
-}
-
-#secondary .widget:first-child {
-	margin-top: 0;
+	margin-bottom: 1.5em;
 }
 
 #secondary .widget:last-child {
 	margin-bottom: 0;
+}
+
+#secondary .widget-title {
+	margin-top: 0;
 }
 
 
