@@ -112,7 +112,7 @@ a {
 }
 
 #page {
-	padding: 2em 0;
+	margin: 2em 0;
 }
 
 #site-title {
@@ -128,7 +128,7 @@ a {
 #site-navigation {
 	list-style: none;
 	padding-left: 0;
-
+	text-transform: uppercase;
 	margin: 0;
 }
 
