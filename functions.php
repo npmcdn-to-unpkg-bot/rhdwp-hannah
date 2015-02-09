@@ -70,7 +70,7 @@ function rhd_add_editor_styles() {
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
-	
+
 
 	add_editor_style( RHD_THEME_DIR . '/css/editor.css' );
 }
@@ -118,15 +118,6 @@ function rhd_register_sidebars() {
 		'before_title'	=> '<h2 class="widget-title">',
 		'after_title'	=> '</h2>',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>'
-	));
-
-	register_sidebar(array(
-		'name'			=> __( 'Nav Widget Area', 'rhd' ),
-		'id'			=> 'nav',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget nav-widget %2$s">',
 		'after_widget'  => '</div>'
 	));
 

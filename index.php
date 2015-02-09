@@ -18,6 +18,8 @@ get_header(); ?>
 				<?php get_template_part( 'content' ); ?>
 			<?php endwhile; ?>
 
+			<?php if ( is_single() && comments_open() ) comments_template(); ?>
+
 		<?php else : ?>
 
 			<article id="post-0" class="post no-results not-found">
