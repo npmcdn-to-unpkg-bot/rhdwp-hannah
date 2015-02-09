@@ -1,6 +1,6 @@
-/**
- * TinyMCE Styles
- **/
+/* ==========================================================================
+	Main Styles
+   ========================================================================== */
 html,
 body {
   width: 100%;
@@ -103,6 +103,9 @@ a:focus {
   position: relative;
   bottom: 0.1875em;
 }
+/* ==========================================================================
+	Text Formatting
+   ========================================================================== */
 .entry-title,
 .page-title {
   margin-top: 0;
@@ -113,6 +116,9 @@ a:focus {
 .entry-content img {
   max-width: 100%;
 }
+/* ==========================================================================
+	Widget Areas and Sidebars
+   ========================================================================== */
 #secondary .widget {
   width: 100%;
   margin-bottom: 1.5em;
@@ -123,6 +129,9 @@ a:focus {
 #secondary .widget-title {
   margin-top: 0;
 }
+/* ==========================================================================
+	Gallery Styles (from Twenty Fifteen)
+   ========================================================================== */
 .gallery {
   margin-bottom: 1.6em;
 }
@@ -176,16 +185,15 @@ a:focus {
 .gallery-columns-9 .gallery-caption {
   display: none;
 }
+/* ==========================================================================
+	Extras
+   ========================================================================== */
 .invisible {
   width: 0;
   height: 0;
   margin: 0;
   padding: 0;
 }
-/* Add overwrites as needed so that the content of the editor field is attractive and not broken */
-html,
-body {
-  height: auto !important;
-  min-height: 0 !important;
-  background: #fff;
-}
+/* ==========================================================================
+	Media Queries
+   ========================================================================== */
