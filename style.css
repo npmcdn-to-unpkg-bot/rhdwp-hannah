@@ -252,6 +252,7 @@ body {
 
 .invisible {
     visibility: hidden;
+    height: 0;
 }
 
 /*
