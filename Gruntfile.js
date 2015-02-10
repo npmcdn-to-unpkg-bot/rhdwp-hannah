@@ -1,14 +1,15 @@
 module.exports = function(grunt) {
 
 	var npmDependencies = require('./package.json').devDependencies;
-	var hasSass = npmDependencies['grunt-contrib-sass'] !== undefined;
 	var hasStylus = npmDependencies['grunt-contrib-stylus'] !== undefined;
 
 grunt.initConfig({
+	pkg: grunt.file.readJSON('package.json'),
+
 	jshint : {
 		all : ['Gruntfile.js', 'js/*.js', '!js/**/*modernizr*.js', '!js/**/*.min.js', '!js/vendor/**/*.js']
 	},
-	
+
 	watch : {
 		js : {
 			files: ['js/**/*.js'],
@@ -20,10 +21,6 @@ grunt.initConfig({
 		stylus : {
 			files: ['stylus/**/*.styl'],
 			tasks : (hasStylus) ? ['stylus:dev'] : null
-		},
-		sass : {
-			files : ['scss/**/*.scss'],
-			tasks : (hasSass) ? ['sass:dev'] : null
 		},
 		php : {
 			files : ['**/*.php'],
@@ -38,14 +35,14 @@ grunt.initConfig({
 			}
 		}
 	},
-	
+
 	modernizr : {
 		dist : {
 			'devFile' : 'js/vendor/modernizr/modernizr-dev.js',
 			'outputFile' : 'js/vendor/modernizr/modernizr-custom.js'
 		}
 	},
-	
+
 	// Stylus dev and production build tasks
 	stylus : {
 		production : {
@@ -59,7 +56,10 @@ grunt.initConfig({
 				}
 			],
 			options : {
-				compress : true
+				compress : true,
+				banner: '/***\n' +
+						'* RHD Production: Compiled at <%= grunt.template.today("h:MM:ss TT") %> on <%= grunt.template.today("dd-mm-yyyy") %>\n' +
+						'***/\n\n'
 			}
 		},
 		dev : {
@@ -73,48 +73,19 @@ grunt.initConfig({
 				}
 			],
 			options : {
-				compress : false
+				compress : false,
+				banner: '/***\n' +
+						'* RHD Dev: Compiled at <%= grunt.template.today("h:MM:ss TT") %> on <%= grunt.template.today("dd-mm-yyyy") %>\n' +
+						'***/\n\n'
 			}
 		},
-	},
-	
-	// Sass dev and production build tasks
-	sass : {
-		production : {
-			files : [
-				{
-					src : ['**/*.scss', '!**/_*.scss'],
-					cwd : 'scss',
-					dest : 'css',
-					ext : '.css',
-					expand : true
-				}
-			],
-			options : {
-				style : 'compressed'
-			}
-		},
-		dev : {
-			files : [
-				{
-					src : ['**/*.scss', '!**/_*.scss'],
-					cwd : 'scss',
-					dest : 'css',
-					ext : '.css',
-					expand : true
-				}
-			],
-			options : {
-				style : 'expanded'
-			}
-		}
-	},
+	}
 });
-	
+
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-modernizr');
-	
-	grunt.registerTask('default', ['jshint']);
+
+	grunt.registerTask('default', ['jshint', 'watch']);
 };
