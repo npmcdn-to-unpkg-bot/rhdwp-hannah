@@ -44,17 +44,18 @@
 			$nav_args_main = array(
 				'menu_location' => 'primary',
 				'menu_id' => 'site-navigation',
-				'menu_class' => 'blue',
 				'container' => 'nav',
 				'container_id' => 'site-navigation-container'
 			);
 
+/*
 			$nav_args_sb = array(
 				'menu_location' => 'primary',
 				'menu_id' => 'sb-site-navigation',
 				'container' => 'nav',
 				'container_id' => 'sb-site-navigation-container'
 			);
+*/
 		?>
 
 		<div class="sb-slidebar sb-left sb-style-push">
@@ -63,11 +64,9 @@
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header" role="banner">
-				<div class="wrapper">
-					<h1 id="site-title" class="site-title"><?php echo get_bloginfo( 'name' ); ?></h1>
+				<h1 id="site-title" class="site-title"><?php echo get_bloginfo( 'name' ); ?></h1>
 
-					<?php wp_nav_menu( $nav_args_main ); ?>
-				</div>
+				<?php wp_nav_menu( $nav_args_main ); ?>
 
 				<a class="hamburger sb-toggle-left">
 					hamburger

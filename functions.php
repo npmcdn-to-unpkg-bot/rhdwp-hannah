@@ -294,3 +294,31 @@ function rhd_add_async( $url ) {
 		return str_replace( '#async', '', $url ) . "' async";
 }
 add_filter( 'clean_url', 'rhd_add_async', 11, 1 );
+
+
+/**
+ * rhd_gallery_atts function.
+ *
+ * @access public
+ * @param mixed $out
+ * @param mixed $pairs
+ * @param mixed $atts
+ * @return void
+ */
+function rhd_gallery_atts( $out, $pairs, $atts ) {
+    $atts = shortcode_atts(
+    	array(
+			'link' => 'file'
+		), $atts );
+
+/*
+	Other example defaults:
+	$out['columns'] = $atts['columns'];
+    $out['size'] = $atts['size'];
+*/
+    $out['link'] = $atts['link'];
+
+    return $out;
+
+}
+add_filter( 'shortcode_atts_gallery', 'rhd_gallery_atts', 10, 3 );
