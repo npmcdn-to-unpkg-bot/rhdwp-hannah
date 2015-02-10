@@ -306,19 +306,19 @@ add_filter( 'clean_url', 'rhd_add_async', 11, 1 );
  * @return void
  */
 function rhd_gallery_atts( $out, $pairs, $atts ) {
-    $atts = shortcode_atts(
-    	array(
+	$atts = shortcode_atts(
+		array(
 			'link' => 'file'
 		), $atts );
+
+	$out['link'] = $atts['link'];
 
 /*
 	Other example defaults:
 	$out['columns'] = $atts['columns'];
-    $out['size'] = $atts['size'];
+	$out['size'] = $atts['size'];
 */
-    $out['link'] = $atts['link'];
 
-    return $out;
-
+	return $out;
 }
 add_filter( 'shortcode_atts_gallery', 'rhd_gallery_atts', 10, 3 );
