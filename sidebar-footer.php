@@ -10,7 +10,7 @@
 ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
-		<div id="secondary" class="widget-area" role="complementary">
+		<aside id="footer-widget-area" class="widget-area" role="complementary">
 			<?php dynamic_sidebar( 'sidebar-footer' ); ?>
-		</div><!-- #secondary -->
+		</aside><!-- #secondary -->
 	<?php endif; ?>
