@@ -27,9 +27,9 @@
 	Conditionals
    ========================================================================== */
 
-var isFrontPage = ( jQuery(body).hasClass("front-page") === true ) ? true : false;
-var isMobile = ( jQuery(body).hasClass("mobile") === true ) ? true : false;
-var isTablet = ( jQuery(body).hasClass("tablet") === true ) ? true : false;
+var isFrontPage = ( jQuery("body").hasClass("front-page") === true ) ? true : false;
+var isMobile = ( jQuery("body").hasClass("mobile") === true ) ? true : false;
+var isTablet = ( jQuery("body").hasClass("tablet") === true ) ? true : false;
 
 /* ==========================================================================
    Visiblity Toggle
