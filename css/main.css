@@ -1,7 +1,13 @@
 /***
-* RHD Dev: Compiled at 3:06:48 PM on 13-02-2015
+* RHD Dev: Compiled at 12:52:04 PM on 14-02-2015
 ***/
 
+.wrapper {
+  width: 80%;
+  max-width: 64em;
+  margin: 0 auto;
+  position: relative;
+}
 .hidden {
   display: none !important;
   visibility: hidden;
@@ -245,7 +251,7 @@ a:focus {
   bottom: 0.25em;
 }
 /* ==========================================================================
-	Text Formatting
+	Posts & Pages
    ========================================================================== */
 .entry-title,
 .page-title {
@@ -271,7 +277,7 @@ a:focus {
   margin-right: 0;
 }
 /* ==========================================================================
-	Widget Areas and Sidebars
+	Widget Areas & Sidebars
    ========================================================================== */
 #secondary .widget {
   width: 100%;

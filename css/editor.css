@@ -1,10 +1,16 @@
 /***
-* RHD Dev: Compiled at 3:06:48 PM on 13-02-2015
+* RHD Dev: Compiled at 12:52:04 PM on 14-02-2015
 ***/
 
 /**
  * TinyMCE Styles
  **/
+.wrapper {
+  width: 80%;
+  max-width: 64em;
+  margin: 0 auto;
+  position: relative;
+}
 .hidden {
   display: none !important;
   visibility: hidden;
