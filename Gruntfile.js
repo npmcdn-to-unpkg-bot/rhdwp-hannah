@@ -87,5 +87,6 @@ grunt.initConfig({
 	grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-modernizr');
 
+	grunt.registerTask('setup', ['stylus:dev']);
 	grunt.registerTask('default', ['jshint', 'watch']);
 };

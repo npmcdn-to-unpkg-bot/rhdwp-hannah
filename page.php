@@ -11,17 +11,19 @@ get_header(); ?>
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', 'page' ); ?>
-			<?php endwhile; ?>
+				<?php /* Start the Loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php endif; ?>
+					<?php get_template_part( 'content', 'page' ); ?>
 
-		</div><!-- #content -->
-	</section><!-- #primary -->
+				<?php endwhile; ?>
+
+			<?php endif; ?>
+
+			</div><!-- #content -->
+		</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -1,7 +1,7 @@
-@import "_vars.styl"
-@import "_helpers.styl"
-@import "_galleries.styl"
-
+@require "_global.styl"
+@require "_helpers.styl"
+@require "_galleries.styl"
+@require "_overrides.styl"
 
 /* ==========================================================================
 	Main Styles
@@ -12,140 +12,153 @@ html
 
 html
 body
-	width: 100%
-	font-size: 16px
+	width 100%
+	font-size 16px
 
 a
-	outline: 0 !important
+	outline 0 !important
 
 a:link
 a:visited
-	text-decoration: none
+	text-decoration none
 
 a:link
-	color: red
+	color red
 
 
 a:visited
-	color: darkred
+	color darkred
 
 a:hover
 a:active
 a:focus
-	text-decoration: underline
+	text-decoration underline
 
 .wrapper
-	width: 60em
-	margin: 0 auto
-	position: relative
+	width 60em
+	margin 0 auto
+	position relative
 
 #page
-	margin: 2em 0
+	margin 2em 0
 
 #site-title
-	text-align: center
-	margin: 0
+	text-align center
+	margin 0
 
 #site-navigation-container
-	width: 100%
-	text-align: center
+	width 100%
+	text-align center
 
 #site-navigation
-	list-style: none
-	padding-left: 0
-	margin: 0
+	list-style none
+	padding-left 0
+	margin 0
 
 	li
-		display: inline-block
-		margin: 0 1em
+		display inline-block
+		margin 0 1em
 
 		a
-			text-decoration: none
+			text-decoration none
 
 		a:link
 		a:visited
-			color: inherit;
+			color inherit;
 
 		a:hover
 		a:active
 		a:focus
-			color: red;
+			color red;
 
 		.sub-menu
-			position: absolute
-			padding-left: 0
-			line-height: 1.7
-			margin-top: 0.2em
-			z-index: 999 !important
+			position absolute
+			padding-left 0
+			line-height 1.7
+			margin-top 0.2em
+			z-index 999 !important
 
 			li
-				display: block
-				margin: 0
+				display block
+				margin 0
 
 #main
-	padding: 2em 0
-	box-sizing: border-box
+	padding 2em 0
+	box-sizing border-box
 
 
 #primary
 #secondary
-	width: 100%
-	margin: 2em auto
-	position: relative
-	box-sizing: border-box
+	width 100%
+	margin 2em auto
+	position relative
+	box-sizing border-box
 
 #colophon
-	width: 100%
+	width 100%
+	color white
 
 	.site-info
-		margin: 0
-		padding: 1em 0
-		text-align: center
-		line-height: 1.5
+		margin 0
+		padding 1em 0
+		text-align center
+		line-height 1.7
+		font-size 0.9em
 
 		a
-			color: inherit
-			text-decoration: none
+			color inherit
 
 	#rhd-logo-footer
-		width: 1.55em
-		height: 1.55em
-		margin: 0 0.05em
-		position: relative
-		bottom: 0.1875em
+		width 1.35em
+		height 1.35em
+		margin 0 0.05em
+		position relative
+		bottom 0.25em
 
 
 /* ==========================================================================
-	Text Formatting
+	Posts & Pages
    ========================================================================== */
 
 .entry-title
 .page-title
-	margin-top: 0
+	margin-top 0
 
 .entry-content
-	width: 100%
+	width 100%
 
-.entry-content img
-	max-width: 100%
+	p
+		&:first-child
+			margin-top 0
 
+		&:last-child
+			margin-bottom 0
+	img
+		max-width 100%
+		margin 1em
+
+		.alignleft
+			margin-left 0
+
+		.alignright
+			margin-right 0
 
 
 /* ==========================================================================
-	Widget Areas and Sidebars
+	Widget Areas & Sidebars
    ========================================================================== */
 
 #secondary
 	.widget
-		width: 100%
-		margin-bottom: 1.5em
+		width 100%
+		margin-bottom 1.5em
 
 	.widget:last-child
-		margin-bottom: 0
+		margin-bottom 0
 
 
 	.widget-title
-		margin-top: 0
+		margin-top 0
 
 
 /* ==========================================================================
@@ -153,10 +166,11 @@ a:focus
    ========================================================================== */
 
 .invisible
-	width: 0
-	height: 0
-	margin: 0
-	padding: 0
+	width 0
+	height 0
+	visibility hidden
+	margin 0
+	padding 0
 
 
 /* ==========================================================================
