@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:52:04 PM on 14-02-2015
+* RHD Dev: Compiled at 3:37:09 PM on 15-02-2015
 ***/
 
 /**
@@ -282,13 +282,6 @@ a:focus {
 }
 #secondary .widget-title {
   margin-top: 0;
-}
-.invisible {
-  width: 0;
-  height: 0;
-  visibility: hidden;
-  margin: 0;
-  padding: 0;
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
 html,

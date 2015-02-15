@@ -8,12 +8,21 @@
 	margin 0 auto
 	position relative
 
-border-radius()
-	-webkit-border-radius arguments
-	-moz-border-radius arguments
-	border-radius arguments
+border-radius( args )
+	-webkit-border-radius args
+	-moz-border-radius args
+	border-radius args
+
+placeholderColor( val )
+	::-webkit-input-placeholder
+		color val
+	:-moz-placeholder /* Firefox 18- */
+		color val
+	::-moz-placeholder  /* Firefox 19+ */
+		color val
+	:-ms-input-placeholder
+		color arg
 
 // Fonts
-
-someFont( size )
-	"Some Font", cursive
+someFont( style=normal, weight=normal, size=1em )
+	font style weight size "Some Font", cursive
