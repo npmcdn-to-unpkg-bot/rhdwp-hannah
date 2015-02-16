@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:38:32 PM on 15-02-2015
+* RHD Dev: Compiled at 11:21:13 AM on 16-02-2015
 ***/
 
 /**
@@ -92,14 +92,20 @@
   }
 }
 .gallery {
+  width: 100%;
   margin-bottom: 1.6em;
 }
 .gallery-item {
   display: inline-block;
   padding: 1.79104477%;
+  box-sizing: border-box;
   text-align: center;
   vertical-align: top;
   width: 100%;
+}
+.gallery-item img {
+  max-width: 100%;
+  height: auto;
 }
 .gallery-columns-2 .gallery-item {
   max-width: 50%;
