@@ -55,17 +55,6 @@ function rhd_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
-function rhd_setup_admin( $hook ) {
-	if ( $hook == 'profile.php' || $hook == 'user-edit.php' ) {
-		wp_enqueue_script('rhd-admin-js', RHD_THEME_DIR . '/js/admin.js', array('jquery'));
-		wp_enqueue_media();
-	}
-	else {
-		return;
-	}
-}
-add_action( 'admin_enqueue_scripts', 'rhd_setup_admin' );
-
 function rhd_add_editor_styles() {
 	//Google Fonts in admin editor
 	$font_url = '//fonts.googleapis.com/css?family=Lato:400,400italic,700|Rock+Salt';
