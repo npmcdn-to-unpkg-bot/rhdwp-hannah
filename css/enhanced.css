@@ -1,13 +1,7 @@
 /***
-* RHD Dev: Compiled at 11:21:13 AM on 16-02-2015
+* RHD Dev: Compiled at 5:35:49 PM on 18-02-2015
 ***/
 
-.wrapper {
-  width: 80%;
-  max-width: 64em;
-  margin: 0 auto;
-  position: relative;
-}
 .hamburger {
   display: none;
 }

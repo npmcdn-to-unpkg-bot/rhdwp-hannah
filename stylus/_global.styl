@@ -1,28 +1,53 @@
 /* ==========================================================================
-	Site Globals (Stylus)
+	Global Stylus Variables
    ========================================================================== */
 
-.wrapper
-	width 80%
+// Variables
+$yellow = #f5c419
+
+
+// Classes and Functions
+-wrapper( $topMargin = false, $bottomMargin = false )
+	width 85%
 	max-width 64em
-	margin 0 auto
 	position relative
 
-border-radius( args )
-	-webkit-border-radius args
-	-moz-border-radius args
-	border-radius args
+	if $topMargin != false and $bottomMargin != false
+		margin topMargin auto bottomMargin auto
+	else if $topMargin != false and $bottomMargin == false
+		margin $topMargin auto
+	else
+		margin 0 auto
 
-placeholderColor( val )
+
+-body-shadow( $yPos )
+	box-shadow 0em $yPos 0.85em 0em rgba(0,0,0,0.5)
+
+
+-my-font( $fam, $style = normal, $weight = normal, $size = 1em )
+	font $style $weight $size $fam, sans-serif
+
+
+-border-radius( $rad )
+	-webkit-border-radius $rad
+	-moz-border-radius $rad
+	border-radius $rad
+
+
+-placeholder-props( $famVal, $colorVal)
 	::-webkit-input-placeholder
-		color val
+		font-family $famVal
+		color $colorVal
+		letter-spacing 1px
 	:-moz-placeholder /* Firefox 18- */
-		color val
+		font-family $famVal
+		color $colorVal
+		letter-spacing 1px
 	::-moz-placeholder  /* Firefox 19+ */
-		color val
+		font-family $famVal
+		color $colorVal
+		letter-spacing 1px
 	:-ms-input-placeholder
-		color val
-
-// Fonts
-someFont( style=normal, weight=normal, size=1em )
-	font style weight size "Some Font", cursive
+		font-family $famVal
+		color $colorVal
+		letter-spacing 1px

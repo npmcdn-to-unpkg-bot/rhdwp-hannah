@@ -1,16 +1,10 @@
 /***
-* RHD Dev: Compiled at 11:21:13 AM on 16-02-2015
+* RHD Dev: Compiled at 5:35:49 PM on 18-02-2015
 ***/
 
 /**
  * TinyMCE Styles
  **/
-.wrapper {
-  width: 80%;
-  max-width: 64em;
-  margin: 0 auto;
-  position: relative;
-}
 .hidden {
   display: none !important;
   visibility: hidden;
@@ -41,6 +35,13 @@
 }
 .clearfix:after {
   clear: both;
+}
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 @media print {
   *,
@@ -176,11 +177,6 @@ a:active,
 a:focus {
   text-decoration: underline;
 }
-.wrapper {
-  width: 60em;
-  margin: 0 auto;
-  position: relative;
-}
 #page {
   margin: 2em 0;
 }
@@ -225,6 +221,10 @@ a:focus {
   margin: 0;
 }
 #main {
+  width: 85%;
+  max-width: 64em;
+  position: relative;
+  margin: 2em auto;
   padding: 2em 0;
   box-sizing: border-box;
 }
