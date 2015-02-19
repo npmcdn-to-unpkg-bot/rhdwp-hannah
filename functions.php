@@ -138,7 +138,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 // Enable themes auto-update
-add_filter( 'auto_update_theme', '__return_true' );
+add_filter( 'allow_minor_auto_core_updates', '__return_true' );
 
 // Content Width
 if ( ! isset( $content_width ) ) {
