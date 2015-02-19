@@ -222,8 +222,10 @@ function rhd_is_mobile() {
 	    $mobile_browser++;
 	}
 
-	if (strpos(strtolower($_SERVER['ALL_HTTP']),'OperaMini') > 0) {
-	    $mobile_browser++;
+	if ( array_key_exists( 'ALL_HTTP', $_SERVER ) ) {
+		if (strpos(strtolower($_SERVER['ALL_HTTP']),'OperaMini') > 0) {
+		    $mobile_browser++;
+		}
 	}
 
 	if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows') > 0) {
