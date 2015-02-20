@@ -32,7 +32,9 @@ var isMobile = ( jQuery("body").hasClass("mobile") === true ) ? true : false;
 var isTablet = ( jQuery("body").hasClass("tablet") === true ) ? true : false;
 
 // wp_data object
-var home_url = wp_data.home_url;
+var homeUrl = wp_data.home_url,
+	themeDir = wp_data.theme_dir,
+	imgDir = wp_data.img_dir;
 
 /* ==========================================================================
    Visiblity Toggle
