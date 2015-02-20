@@ -24,12 +24,15 @@
 // Place any jQuery/helper plugins in here.
 
 /* ==========================================================================
-	Conditionals
+	Conditionals and Globals
    ========================================================================== */
 
 var isFrontPage = ( jQuery("body").hasClass("front-page") === true ) ? true : false;
 var isMobile = ( jQuery("body").hasClass("mobile") === true ) ? true : false;
 var isTablet = ( jQuery("body").hasClass("tablet") === true ) ? true : false;
+
+// wp_data object
+var home_url = wp_data.home_url;
 
 /* ==========================================================================
    Visiblity Toggle

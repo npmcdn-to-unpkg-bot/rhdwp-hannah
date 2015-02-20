@@ -50,6 +50,12 @@ function rhd_enqueue_scripts() {
 
 	// wp_enqueue_script( 'slidebars-js', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.js', null, '0.10.2', true );
 
+	// Localize plugins.js for front-end use
+	$data = array(
+		'home_url' => home_url()
+	);
+	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
+
 	if ( is_singular() )
 		wp_enqueue_script( 'comment-reply' );
 }
