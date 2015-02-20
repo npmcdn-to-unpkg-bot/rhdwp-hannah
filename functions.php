@@ -55,6 +55,20 @@ function rhd_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
+
+/**
+ * register_jquery function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_register_jquery() {
+	wp_deregister_script( 'jquery' );
+	wp_register_script( 'jquery', RHD_THEME_DIR . '/js/vendor/jquery/dist/jquery.min.js' );
+	wp_enqueue_script( 'jquery' );
+}
+add_action( 'wp_enqueuescripts', 'rhd_register_jquery' );
+
 function rhd_add_editor_styles() {
 	//Google Fonts in admin editor
 	$font_url = '//fonts.googleapis.com/css?family=Lato:400,400italic,700|Rock+Salt';
