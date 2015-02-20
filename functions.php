@@ -52,7 +52,9 @@ function rhd_enqueue_scripts() {
 
 	// Localize plugins.js for front-end use
 	$data = array(
-		'home_url' => home_url()
+		'home_url' => home_url(),
+		'theme_dir' => RHD_THEME_DIR,
+		'img_dir' => RHD_IMG_DIR
 	);
 	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
 
