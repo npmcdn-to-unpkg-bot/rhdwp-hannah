@@ -167,6 +167,13 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 620;
 }
 
+/*
+function rhd_image_sizes(){
+	add_image_size( 'square', 200, 200 );
+}
+add_action( 'after_setup_theme', 'rhd_image_sizes' );
+*/
+
 
 /* ==========================================================================
    Roundhouse Admin Branding
