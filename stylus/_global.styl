@@ -38,16 +38,22 @@ $yellow = #f5c419
 	::-webkit-input-placeholder
 		font-family $famVal
 		color $colorVal
-		letter-spacing 1px
 	:-moz-placeholder /* Firefox 18- */
 		font-family $famVal
 		color $colorVal
-		letter-spacing 1px
 	::-moz-placeholder  /* Firefox 19+ */
 		font-family $famVal
 		color $colorVal
-		letter-spacing 1px
 	:-ms-input-placeholder
 		font-family $famVal
 		color $colorVal
-		letter-spacing 1px
+
+
+-unselectable()
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Not yet implemented */
+	-o-user-select: none;
+	user-select: none;
