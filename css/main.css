@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:50:38 AM on 05-03-2015
+* RHD Dev: Compiled at 12:24:54 PM on 05-03-2015
 ***/
 
 .unselectable {
@@ -165,11 +165,9 @@ body {
   font-size: 16px;
   margin: 0;
 }
-body .admin-bar .header {
+body.admin-bar #wpadminbar {
   position: fixed;
-  top: 28px;
-  z-index: 1000;
-  height: 40px;
+  top: 0;
 }
 a {
   outline: 0 !important;

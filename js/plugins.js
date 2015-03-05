@@ -36,6 +36,7 @@ var homeUrl = wp_data.home_url,
 	themeDir = wp_data.theme_dir,
 	imgDir = wp_data.img_dir;
 
+
 /* ==========================================================================
    Visiblity Toggle
    ========================================================================== */
@@ -53,3 +54,25 @@ jQuery.fn.visibilityToggle = function() {
         return (visibility == 'visible') ? 'hidden' : 'visible';
     });
 };
+
+
+/* ==========================================================================
+	Functions
+   ========================================================================== */
+
+function rhdInit() {
+	// Theme init
+}
+
+
+function wpadminbarPush() {
+	if ( $mast.hasClass("stuck") === true ) {
+		jQuery("#wpadminbar").css({
+			top: '50px',
+		});
+	} else {
+		jQuery("#wpadminbar").css({
+			top: '0'
+		});
+	}
+}
