@@ -10,18 +10,30 @@
 
 html
 	text-shadow 0 0 1px transparent
-
-html
-body
 	width 100%
 	font-size 16px
+	margin 0
+
+
+body
+	@extends html
+
+	.admin-bar
+		.header
+			position fixed
+			top 28px
+			z-index 1000
+			height 40px
+
 
 a
 	outline 0 !important
 
+
 a:link
 a:visited
 	text-decoration none
+
 
 a:link
 	color red
@@ -30,21 +42,26 @@ a:link
 a:visited
 	color darkred
 
+
 a:hover
 a:active
 a:focus
 	text-decoration underline
 
+
 #page
 	margin 2em 0
+
 
 #site-title
 	text-align center
 	margin 0
 
+
 #site-navigation-container
 	width 100%
 	text-align center
+
 
 #site-navigation
 	list-style none
@@ -78,6 +95,7 @@ a:focus
 				display block
 				margin 0
 
+
 #main
 	-wrapper(2em)
 	padding 2em 0
@@ -90,6 +108,7 @@ a:focus
 	margin 2em auto
 	position relative
 	box-sizing border-box
+
 
 #colophon
 	width 100%
@@ -120,6 +139,7 @@ a:focus
 .entry-title
 .page-title
 	margin-top 0
+
 
 .entry-content
 	width 100%
@@ -163,9 +183,4 @@ a:focus
    ========================================================================== */
 
 
-
-
-/* ==========================================================================
-	Media Queries
-   ========================================================================== */
 

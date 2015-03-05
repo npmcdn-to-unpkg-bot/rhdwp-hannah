@@ -3,60 +3,12 @@
    ========================================================================== */
 
 // Variables
-$yellow = #f5c419
+$some-yellow = #f5c419
 
 
-// Classes and Functions
--wrapper( $topMargin = false, $bottomMargin = false )
-	width 85%
-	max-width 64em
-	position relative
+// Classes
 
-	if $topMargin != false and $bottomMargin != false
-		margin topMargin auto bottomMargin auto
-	else if $topMargin != false and $bottomMargin == false
-		margin $topMargin auto
-	else
-		margin 0 auto
-
-
--body-shadow( $yPos )
-	box-shadow 0em $yPos 0.85em 0em rgba(0,0,0,0.5)
-
-
--my-font( $fam, $style = normal, $weight = normal, $size = 1em )
-	font $style $weight $size $fam, sans-serif
-
-
--border-radius( $rad )
-	-webkit-border-radius $rad
-	-moz-border-radius $rad
-	border-radius $rad
-
-
--placeholder-props( $famVal, $colorVal)
-	::-webkit-input-placeholder
-		font-family $famVal
-		color $colorVal
-	:-moz-placeholder /* Firefox 18- */
-		font-family $famVal
-		color $colorVal
-	::-moz-placeholder  /* Firefox 19+ */
-		font-family $famVal
-		color $colorVal
-	:-ms-input-placeholder
-		font-family $famVal
-		color $colorVal
-
-
-// Vendor prefixes
--opacity( $val )
-	-moz-opacity $val
-	-webkit-opacity $val
-	opacity $val
-
-
--unselectable()
+.unselectable
 	-webkit-user-select: none; /* Chrome/Safari */
 	-moz-user-select: none; /* Firefox */
 	-ms-user-select: none; /* IE10+ */
@@ -64,7 +16,41 @@ $yellow = #f5c419
 	user-select: none;
 
 
--flexbox()
+// Functions
+
+-wrapper( $topMargin = false, $bottomMargin = false )
+	width 85%
+	max-width 64em
+	position relative
+
+	if $topMargin == false
+		$topMargin = 0
+	if $bottomMargin == false
+		$bottomMargin = 0
+
+	margin $topMargin auto $bottomMargin auto
+
+
+-body-shadow( $yPos )
+	box-shadow 0em $yPos 0.45em 0em rgba(0,0,0,0.5)
+
+
+-placeholder-props( $famVal, $color)
+	&::-webkit-input-placeholder
+		font-family $famVal
+		color $color
+	&:-moz-placeholder /* Firefox 18- */
+		font-family $famVal
+		color $color
+	&::-moz-placeholder  /* Firefox 19+ */
+		font-family $famVal
+		color $color
+	&:-ms-input-placeholder
+		font-family $famVal
+		color $color
+
+
+-flexbox( $mode = space-between )
 	-ms-box-orient: horizontal;
 	display: -webkit-box;
 	display: -moz-box;
@@ -74,3 +60,9 @@ $yellow = #f5c419
 	display: flex;
 	-webkit-justify-content: $mode
 	justify-content: $mode
+
+
+-opacity( $val )
+	-moz-opacity $val
+	-webkit-opacity $val
+	opacity $val
