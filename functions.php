@@ -29,28 +29,37 @@ define( 'DISALLOW_FILE_EDIT', true );
    ========================================================================== */
 
 function rhd_enqueue_styles(){
-	wp_enqueue_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
-	wp_enqueue_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', array( 'slidebars-js-css' ), null, 'all' );
+	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
+	wp_register_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', array( 'slidebars-js-css' ), null, 'all' );
+	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 
-	// wp_enqueue_style( 'slidebars-js-css', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.css', null, '0.10.0' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,400italic,700|Rock+Salt' );
 
-	// Web Fonts
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,400italic,700|Rock+Salt' );
+	wp_enqueue_style( 'rhd-main' );
+	wp_enqueue_style( 'normalize' );
+	wp_enqueue_style( 'google-fonts' );
 
 	if ( !rhd_is_mobile() ) {
-		wp_enqueue_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
+		wp_enqueue_style( 'rhd-enhanced' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 
 function rhd_enqueue_scripts() {
-	wp_enqueue_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr-custom.js', null, '2.8.3', true );
-	wp_enqueue_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
-	wp_enqueue_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', array( 'rhd-plugins', 'jquery'/* , 'slidebars-js' */ ), null, true );
+	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr-custom.js', null, '2.8.3', true );
+	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
+	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', array( 'rhd-plugins', 'jquery' ), null, true );
 
-	// wp_enqueue_script( 'slidebars-js', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.js', null, '0.10.2', true );
+	wp_enqueue_script( 'modernizr' );
+	wp_enqueue_script( 'rhd-plugins' );
+	wp_enqueue_script( 'rhd-main' );
 
-	// Localize plugins.js for front-end use
+	if ( is_singular() )
+		wp_enqueue_script( 'comment-reply' );
+
+
+
+	// Localize data for client-side use
 	$data = array(
 		'home_url' => home_url(),
 		'theme_dir' => RHD_THEME_DIR,
@@ -58,8 +67,6 @@ function rhd_enqueue_scripts() {
 	);
 	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
 
-	if ( is_singular() )
-		wp_enqueue_script( 'comment-reply' );
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
