@@ -47,15 +47,6 @@
 				'container' => 'nav',
 				'container_id' => 'site-navigation-container'
 			);
-
-/*
-			$nav_args_sb = array(
-				'menu_location' => 'primary',
-				'menu_id' => 'sb-site-navigation',
-				'container' => 'nav',
-				'container_id' => 'sb-site-navigation-container'
-			);
-*/
 		?>
 
 		<div class="sb-slidebar sb-left sb-style-push">
@@ -73,4 +64,4 @@
 				</a>
 			</header><!-- #masthead -->
 
-			<div id="main" class="clearfix">
+			<main id="main" class="clearfix">
