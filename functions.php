@@ -174,6 +174,9 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 620;
 }
 
+// Adds RSS feed links to for posts and comments.
+add_theme_support( 'automatic-feed-links' );
+
 /*
 function rhd_image_sizes(){
 	add_image_size( 'square', 200, 200 );
