@@ -383,3 +383,22 @@ function rhd_enhance_excerpts( $text ) {
 }
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
+
+
+/**
+ * rhd_archive_pagination function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_archive_pagination() {
+	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null; ?>
+
+	<div class="pagination">
+		<?php next_posts_link( '&larr; Older', null ); ?>
+		<?php if ( $sep ) : ?>
+			<div class="pag-sep"></div>
+			<?php previous_posts_link( 'Newer &rarr;', null ); ?>
+		<?php endif; ?>
+	</div> <?php
+}

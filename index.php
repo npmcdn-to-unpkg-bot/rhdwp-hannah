@@ -54,6 +54,8 @@ get_header(); ?>
 
 		</div><!-- #content -->
 
+		<?php rhd_archive_pagination(); ?>
+
 	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
