@@ -61,18 +61,12 @@ jQuery.fn.visibilityToggle = function() {
    ========================================================================== */
 
 function rhdInit() {
-	// Theme init
+	//wpadminbarPush();
 }
 
 
-function wpadminbarPush() {
-	if ( $mast.hasClass("stuck") === true ) {
-		jQuery("#wpadminbar").css({
-			top: '50px',
-		});
-	} else {
-		jQuery("#wpadminbar").css({
-			top: '0'
-		});
-	}
+function wpadminbarPush() {	
+	jQuery("#wpadminbar").css({
+		top: '50px',
+	});
 }
