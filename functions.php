@@ -33,7 +33,7 @@ function rhd_enqueue_styles(){
 	wp_register_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', array( 'slidebars-js-css' ), null, 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,400italic,700|Rock+Salt' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,400italic,700' );
 
 	wp_enqueue_style( 'rhd-main' );
 	wp_enqueue_style( 'normalize' );
@@ -154,6 +154,9 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
 
 // Menus
 register_nav_menu( 'primary', 'Main Site Navigation' );
+
+// Includes and Requires
+require_once( 'includes/rhd-admin-panel.php' );
 
 
 /* ==========================================================================
