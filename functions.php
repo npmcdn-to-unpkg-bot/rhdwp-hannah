@@ -156,7 +156,7 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
 register_nav_menu( 'primary', 'Main Site Navigation' );
 
 // Includes and Requires
-require_once( 'includes/rhd-admin-panel.php' );
+include_once( 'includes/rhd-admin-panel.php' );
 
 
 /* ==========================================================================
