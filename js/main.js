@@ -83,10 +83,10 @@ function wpadminbarPush() {
 
 
 function rhd_youtube_responsivizer() {
-	var $allVideos = $("iframe[src^='//www.youtube.com']"),
+	var $allVideos = jQuery("iframe[src^='//www.youtube.com']"),
 
 	// The element that is fluid width
-	$fluidEl = $(".entry-content");
+	$fluidEl = jQuery(".entry-content");
 	
 	// Figure out and save aspect ratio for each video
 	$allVideos.each(function() {
@@ -106,7 +106,7 @@ function rhd_youtube_responsivizer() {
 		
 		// Resize all videos according to their own aspect ratio
 		$allVideos.each(function() {	
-			var $el = $(this);
+			var $el = jQuery(this);
 			$el
 			.width(newWidth)
 			.height(newWidth * $el.data('aspectRatio'));
