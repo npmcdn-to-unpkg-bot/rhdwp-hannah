@@ -222,34 +222,6 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
    Roundhouse Admin Branding
    ========================================================================== */
 
-// External login link
-function rhd_branding_login(){
-	return "http://roundhouse-designs.com/"; // your URL here
-}
-add_filter('login_headerurl', 'rhd_branding_login');
-
-// Site Title as "login message" (underneath RHD logo)
-function rhd_login_message() { ?>
-	<h1 class="rhd-login-site-title"><?php bloginfo('name'); ?></h1>
-<?php }
-add_action( 'login_message', 'rhd_login_message' );
-
-// Roundhouse Branding CSS
-function rhd_login() {
-	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
-}
-add_action('login_head', 'rhd_login');
-function rhd_admin() {
-	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/rhd/rhd-admin.css' );
-}
-add_action('admin_head', 'rhd_admin');
-
-// Custom WordPress Footer
-function rhd_footer_admin () {
-	echo '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="http://assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
-}
-add_filter('admin_footer_text', 'rhd_footer_admin');
-
 // Remove 'Editor' panel
 function rhd_remove_editor_menu() {
   remove_action('admin_menu', '_add_themes_utility_last', 101);
