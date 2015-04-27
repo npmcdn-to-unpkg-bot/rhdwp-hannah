@@ -43,7 +43,7 @@ jQuery.fn.visibilityToggle = function() {
 
 
 /* ==========================================================================
-	Hamburger Icons
+	Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
    ========================================================================== */
 
 (function() {
