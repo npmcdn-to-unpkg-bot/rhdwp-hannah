@@ -40,3 +40,28 @@ jQuery.fn.visibilityToggle = function() {
         return (visibility == 'visible') ? 'hidden' : 'visible';
     });
 };
+
+
+/* ==========================================================================
+	Hamburger Icons
+   ========================================================================== */
+
+(function() {
+
+	"use strict";
+
+	var toggle = document.querySelector(".cmn-toggle-switch");
+
+	toggleHandler(toggle);
+
+	function toggleHandler(toggle) {
+		toggle.addEventListener( "click", function(e) {
+			e.preventDefault();
+			if ( this.classList.contains("active") === true )
+				this.classList.remove("active");
+			else
+				this.classList.add("active");
+		});
+	}
+
+})();
