@@ -59,9 +59,11 @@
 
 				<?php wp_nav_menu( $nav_args_main ); ?>
 
-				<a class="hamburger sb-toggle-left">
-					hamburger
-				</a>
+				<div id="hamburger">
+					<button class="sb-toggle-left cmn-toggle-switch cmn-toggle-switch__htla">
+						<span>toggle menu</span>
+					</button>
+				</div>
 			</header><!-- #masthead -->
 
 			<main id="main" class="clearfix">
