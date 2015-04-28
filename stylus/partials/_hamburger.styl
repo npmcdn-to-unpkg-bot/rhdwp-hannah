@@ -2,10 +2,10 @@
 
 // vars
 
-$button-width = 108px
-$button-height = 96px
-$bar-thickness = 6px
-$button-pad = 18px
+$button-width = 40.5px
+$button-height = 36px
+$bar-thickness = 2.25px
+$button-pad = 6.75px
 $button-trans-delay = 0.3s
 
 /**
@@ -40,10 +40,8 @@ $button-trans-delay = 0.3s
 	cursor pointer
 	transition background $button-trans-delay
 
-
 	&:focus
 		outline none
-
 
 	span
 		display block
@@ -53,7 +51,6 @@ $button-trans-delay = 0.3s
 		right $button-pad
 		height $bar-thickness
 		background rgb(255,255,255)
-
 
 		&::before
 		&::after
@@ -65,10 +62,8 @@ $button-trans-delay = 0.3s
 			background-color white
 			content ""
 
-
 		&::before
 			top -(($button-height / 2) - ($bar-thickness / 2) - $button-pad)
-
 
 		&::after
 			bottom -(($button-height / 2) - ($bar-thickness / 2) - $button-pad)
@@ -156,7 +151,6 @@ $button-trans-delay = 0.3s
 	span
 		transition transform $button-trans-delay
 
-
 		&::before
 			transform-origin top right
 			transition transform $button-trans-delay, width $button-trans-delay, top $button-trans-delay
@@ -164,7 +158,6 @@ $button-trans-delay = 0.3s
 		&::after
 			transform-origin bottom right
 			transition transform $button-trans-delay, width $button-trans-delay, bottom $button-trans-delay
-
 
 	/* active state, i.e. menu open */
 	&.active
@@ -179,11 +172,15 @@ $button-trans-delay = 0.3s
 
 			&::before
 				top 0
-				transform translateX($button-width/2 - $button-pad + $bar-thickness) translateY($bar-thickness/2) rotate(45deg)
+				transform translateX($button-width/2 - $button-pad + $bar-thickness)
+				transform translateY($bar-thickness/2)
+				transform rotate(45deg)
 
 			&::after
 				bottom 0
-				transform translateX($button-width/2 - $button-pad + $bar-thickness) translateY(-($bar-thickness/2)) rotate(-45deg)
+				transform translateX($button-width/2 - $button-pad + $bar-thickness)
+				transform translateY(-($bar-thickness/2))
+				transform rotate(-45deg)
 
 
 /**
@@ -195,7 +192,7 @@ $button-trans-delay = 0.3s
 */
 
 .cmn-toggle-switch__htra
-	background-color rgb(255,150,80)
+	background-color black
 
 	span
 		transition transform $button-trans-delay
@@ -204,7 +201,6 @@ $button-trans-delay = 0.3s
 			transform-origin top left
 			transition transform $button-trans-delay, width $button-trans-delay, top $button-trans-delay
 
-
 		&::after
 			transform-origin bottom left
 			transition transform $button-trans-delay, width $button-trans-delay, bottom $button-trans-delay
@@ -212,7 +208,7 @@ $button-trans-delay = 0.3s
 
 	/* active state, i.e. menu open */
 	&.active
-		background-color darken(rgb(255,150,80), 20%)
+		//background-color darken(rgb(255,150,80), 20%)
 
 		span
 			transform rotate(180deg)
@@ -223,8 +219,12 @@ $button-trans-delay = 0.3s
 
 			&::before
 				top 0
-				transform translateX(-$bar-thickness) translateY($bar-thickness/2) rotate(-45deg)
+				transform translateX(-$bar-thickness)
+				transform translateY($bar-thickness/2)
+				transform rotate(-45deg)
 
 			&::after
 				bottom 0
-				transform translateX(-$bar-thickness) translateY(-($bar-thickness/2)) rotate(45deg)
+				transform translateX(-$bar-thickness)
+				transform translateY(-($bar-thickness/2))
+				transform rotate(45deg)
