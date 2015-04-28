@@ -38,6 +38,7 @@ $button-trans-delay = 0.3s
 	border-radius none
 	border none
 	cursor pointer
+	background-color black
 	transition background $button-trans-delay
 
 	&:focus
@@ -77,14 +78,14 @@ $button-trans-delay = 0.3s
 */
 
 .cmn-toggle-switch__rot
-	background-color rgb(40,170,220)
+	//background-color rgb(40,170,220)
 
 	span
 		transition transform $button-trans-delay
 
 	/* active state, i.e. menu open */
 	&.active
-		background-color darken(rgb(40,170,220), 20%)
+		//background-color darken(rgb(40,170,220), 20%)
 
 
 		span
@@ -99,7 +100,7 @@ $button-trans-delay = 0.3s
 */
 
 .cmn-toggle-switch__htx
-	background-color rgb(255,50,100)
+	//background-color rgb(255,50,100)
 
 	span
 		transition background 0s $button-trans-delay
@@ -119,22 +120,22 @@ $button-trans-delay = 0.3s
 
 	/* active state, i.e. menu open */
 	&.active
-		background-color darken(rgb(255,50,100), 20%)
+		//background-color darken(rgb(255,50,100), 20%)
 
 		span
 			background none
 
-		&::before
-		&::after
-			transition-delay 0s, $button-trans-delay
+			&::before
+			&::after
+				transition-delay 0s, $button-trans-delay
 
-		&::before
-			top 0
-			transform rotate(45deg)
+			&::before
+				top 0
+				transform rotate(45deg)
 
-		&::after
-			bottom 0
-			transform rotate(-45deg)
+			&::after
+				bottom 0
+				transform rotate(-45deg)
 
 
 /**
@@ -146,7 +147,7 @@ $button-trans-delay = 0.3s
 */
 
 .cmn-toggle-switch__htla
-	background-color rgb(50,220,100)
+	//background-color rgb(50,220,100)
 
 	span
 		transition transform $button-trans-delay
@@ -161,7 +162,7 @@ $button-trans-delay = 0.3s
 
 	/* active state, i.e. menu open */
 	&.active
-		background-color darken(rgb(50,220,100), 20%)
+		//background-color darken(rgb(50,220,100), 20%)
 
 		span
 			transform rotate(180deg)
@@ -172,15 +173,11 @@ $button-trans-delay = 0.3s
 
 			&::before
 				top 0
-				transform translateX($button-width/2 - $button-pad + $bar-thickness)
-				transform translateY($bar-thickness/2)
-				transform rotate(45deg)
+				transform translateX($button-width/2 - $button-pad + $bar-thickness) translateY($bar-thickness/2) rotate(45deg)
 
 			&::after
 				bottom 0
-				transform translateX($button-width/2 - $button-pad + $bar-thickness)
-				transform translateY(-($bar-thickness/2))
-				transform rotate(-45deg)
+				transform translateX($button-width/2 - $button-pad + $bar-thickness) translateY(-($bar-thickness/2)) rotate(-45deg)
 
 
 /**
@@ -192,7 +189,7 @@ $button-trans-delay = 0.3s
 */
 
 .cmn-toggle-switch__htra
-	background-color black
+	//background-color black
 
 	span
 		transition transform $button-trans-delay
@@ -219,12 +216,8 @@ $button-trans-delay = 0.3s
 
 			&::before
 				top 0
-				transform translateX(-$bar-thickness)
-				transform translateY($bar-thickness/2)
-				transform rotate(-45deg)
+				transform translateX(-($bar-thickness)) translateY($bar-thickness/2) rotate(-45deg)
 
 			&::after
 				bottom 0
-				transform translateX(-$bar-thickness)
-				transform translateY(-($bar-thickness/2))
-				transform rotate(45deg)
+				transform translateX(-($bar-thickness)) translateY(-($bar-thickness/2)) rotate(45deg)
