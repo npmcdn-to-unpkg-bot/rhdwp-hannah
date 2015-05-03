@@ -27,24 +27,15 @@ body
 a
 	outline 0 !important
 
+	&:link
+	&:visited
+		text-decoration none
+		color red
 
-a:link
-a:visited
-	text-decoration none
-
-
-a:link
-	color red
-
-
-a:visited
-	color darkred
-
-
-a:hover
-a:active
-a:focus
-	text-decoration underline
+	&:hover
+	&:active
+	&:focus
+		text-decoration underline
 
 
 #page
@@ -95,7 +86,7 @@ a:focus
 
 
 #main
-	-wrapper(2em)
+	wrapper 2em
 	padding 2em 0
 	box-sizing border-box
 
