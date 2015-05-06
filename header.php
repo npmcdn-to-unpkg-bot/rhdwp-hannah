@@ -42,7 +42,7 @@
 
 		<?php
 			$nav_args_main = array(
-				'menu_location' => 'primary',
+				'theme_location' => 'primary',
 				'menu_id' => 'site-navigation',
 				'container' => 'nav',
 				'container_id' => 'site-navigation-container'
