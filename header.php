@@ -29,6 +29,7 @@
 			$body_classes[] = ( is_front_page() ) ? 'front-page' : '';
 			$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
 			$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
+			$body_classes[] = ( is_home() || is_single() || is_archive() ) ? 'blog-area' : '';
 		?>
 
 		<?php wp_head(); ?>
