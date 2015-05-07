@@ -150,6 +150,59 @@ a
 			margin-right 0
 
 
+#comments
+	margin 2em auto
+
+	.commentlist
+		list-style none
+		padding-left 0
+
+		ul
+		ol
+			@extends #comments .commentlist
+
+		.children
+			padding 0 1.5em
+
+	.even
+		background $off-white
+
+	.odd
+		background white
+
+	.comment-body
+		padding 1em
+		box-sizing border-box
+
+	textarea
+		max-width 100%
+
+	#commentform
+		width 100%
+		min-width 18rem
+
+		p
+			margin-bottom 0.75rem
+
+		input
+		textarea
+			width 100%
+			background-color $off-white
+			font-size 0.8em
+			border none
+			box-sizing border-box
+			padding 0.5em
+			display block
+
+		textarea
+			margin-top 1.7rem
+
+		#submit
+			width auto
+			padding-left 0.8em
+			cursor pointer
+
+
 /* ==========================================================================
 	Widget Areas & Sidebars
    ========================================================================== */
@@ -168,8 +221,34 @@ a
 
 
 /* ==========================================================================
-	Extras
+	Media Queries
    ========================================================================== */
 
+@media screen and (min-width 40em)
+	#comments
+		#commentform
+			width 75%
 
+			p
+				margin-bottom 0.75rem
 
+			input
+			textarea
+				background-color $off-white
+				font-size 0.8em
+				border none
+				box-sizing border-box
+				padding 0.5em
+				display block
+
+			input
+				&[type="text"]
+				&[type="email"]
+					width 75%
+
+			textarea
+				margin-top 1.7rem
+
+			#submit
+				width auto
+				padding-left 0.8em

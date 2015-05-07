@@ -15,7 +15,10 @@ get_header(); ?>
 
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content' ); ?>
+					<?php
+						if ( is_single() ) get_template_part( 'content', 'single' );
+						else get_template_part( 'content' );
+					?>
 				<?php endwhile; ?>
 
 				<?php if ( is_single() && comments_open() ) comments_template(); ?>
@@ -58,5 +61,4 @@ get_header(); ?>
 
 	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
