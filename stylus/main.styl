@@ -38,6 +38,24 @@ a
 		text-decoration underline
 
 
+input
+textarea
+	background-color white
+	border none
+	box-sizing border-box
+	padding 0.5em
+	font-family inherit
+
+
+input[type="submit"]
+	cursor pointer
+	font-family inherit
+	transition all 0.25s
+
+	&:hover
+		background-color gray
+
+
 #page
 	margin 2em 0
 
@@ -148,6 +166,37 @@ a
 
 		.alignright
 			margin-right 0
+
+
+.blog-area
+	#main
+		.post
+			@extends .clearfix
+
+			.entry-header
+				text-align center
+				margin-bottom 1em
+
+				.entry-title
+					margin 0 0 0.25rem 0
+
+				.entry-details
+					margin 0
+
+					.sep
+						font-size 0.8em
+
+			.entry-content
+				img
+					height auto
+
+					&.alignleft
+						margin 0 1em 0 0
+					&.alignright
+						margin-right 0 0 0 1em
+					&.aligncenter
+						margin 0 auto
+						display block
 
 
 #comments

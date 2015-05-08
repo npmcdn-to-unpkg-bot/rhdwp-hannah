@@ -15,7 +15,13 @@ $some-yellow = #f5c419
 	-o-user-select: none;
 	user-select: none;
 
-// Manual Flexbox
+
+.invisible
+	visibility hidden
+	position absolute
+
+
+// Functions
 
 flexbox()
 	text-align justify
@@ -29,8 +35,6 @@ flexitem()
 	display inline-block
 
 
-// Functions
-
 wrapper( $topMargin = false, $bottomMargin = false )
 	width 85%
 	max-width 64em
@@ -42,6 +46,10 @@ wrapper( $topMargin = false, $bottomMargin = false )
 		$bottomMargin = 0
 
 	margin $topMargin auto $bottomMargin auto
+
+
+clearfix()
+	@extends .clearfix
 
 
 body-shadow( $yPos )
