@@ -428,11 +428,11 @@ function rhd_archive_pagination() {
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null; ?>
 
 	<div class="pagination">
-		<?php next_posts_link( '&larr; Older', null ); ?>
+		<span class="pag-next"><?php next_posts_link( '&larr; Older', null ); ?></span>
 		<?php if ( $sep ) : ?>
 			<div class="pag-sep"></div>
-			<?php previous_posts_link( 'Newer &rarr;', null ); ?>
 		<?php endif; ?>
+		<span class="pag-prev"><?php previous_posts_link( 'Newer &rarr;', null ); ?></span>
 	</div> <?php
 }
 

@@ -171,7 +171,7 @@ input[type="submit"]
 .blog-area
 	#main
 		.post
-			@extends .clearfix
+			clearfix()
 
 			.entry-header
 				text-align center
@@ -250,6 +250,18 @@ input[type="submit"]
 			width auto
 			padding-left 0.8em
 			cursor pointer
+
+
+.pagination
+	margin 1em auto
+	font-size 1.2em
+	clearfix()
+
+	.pag-next
+		float left
+
+	.pag-prev
+		float right
 
 
 /* ==========================================================================
