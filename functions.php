@@ -224,7 +224,7 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
 // External login link
 function rhd_branding_login(){
-	return "http://roundhouse-designs.com/"; // your URL here
+	return "//roundhouse-designs.com/";
 }
 add_filter('login_headerurl', 'rhd_branding_login');
 
@@ -246,7 +246,7 @@ add_action('admin_head', 'rhd_admin');
 
 // Custom WordPress Footer
 function rhd_footer_admin () {
-	echo '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="http://assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
+	echo '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
 }
 add_filter('admin_footer_text', 'rhd_footer_admin');
 
