@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:06:30 PM on 11-05-2015
+* RHD Dev: Compiled at 3:55:15 PM on 11-05-2015
 ***/
 
 .unselectable {
@@ -38,13 +38,16 @@
 }
 .clearfix:before,
 .blog-area #main .post:before,
+.pagination:before,
 .clearfix:after,
-.blog-area #main .post:after {
+.blog-area #main .post:after,
+.pagination:after {
   content: " ";
   display: table;
 }
 .clearfix:after,
-.blog-area #main .post:after {
+.blog-area #main .post:after,
+.pagination:after {
   clear: both;
 }
 * {
@@ -346,161 +349,54 @@ input[type="submit"]:hover {
   margin: 0 auto;
   display: block;
 }
-.pagination,
-margin 1em auto,
-font-size 1.2em,
-clearfix(),
-.pag-next,
-float left,
-.pag-prev,
-float right,
+.pagination {
+  margin: 2em auto;
+  font-size: 1.2em;
+}
+.pagination .pag-next {
+  float: left;
+}
+.pagination .pag-prev {
+  float: right;
+}
+/* ==========================================================================
+	Comments
+   ========================================================================== */
 #comments {
   margin: 2em auto;
 }
-.pagination .commentlist,
-margin 1em auto .commentlist,
-font-size 1.2em .commentlist,
-clearfix() .commentlist,
-.pag-next .commentlist,
-float left .commentlist,
-.pag-prev .commentlist,
-float right .commentlist,
 #comments .commentlist,
-.pagination .commentlist ul,
-margin 1em auto .commentlist ul,
-font-size 1.2em .commentlist ul,
-clearfix() .commentlist ul,
-.pag-next .commentlist ul,
-float left .commentlist ul,
-.pag-prev .commentlist ul,
-float right .commentlist ul,
 #comments .commentlist ul,
-.pagination .commentlist ol,
-margin 1em auto .commentlist ol,
-font-size 1.2em .commentlist ol,
-clearfix() .commentlist ol,
-.pag-next .commentlist ol,
-float left .commentlist ol,
-.pag-prev .commentlist ol,
-float right .commentlist ol,
 #comments .commentlist ol {
   list-style: none;
   padding-left: 0;
 }
-.pagination .commentlist .children,
-margin 1em auto .commentlist .children,
-font-size 1.2em .commentlist .children,
-clearfix() .commentlist .children,
-.pag-next .commentlist .children,
-float left .commentlist .children,
-.pag-prev .commentlist .children,
-float right .commentlist .children,
 #comments .commentlist .children,
-.pagination .commentlist ul .children,
-margin 1em auto .commentlist ul .children,
-font-size 1.2em .commentlist ul .children,
-clearfix() .commentlist ul .children,
-.pag-next .commentlist ul .children,
-float left .commentlist ul .children,
-.pag-prev .commentlist ul .children,
-float right .commentlist ul .children,
 #comments .commentlist ul .children,
-.pagination .commentlist ol .children,
-margin 1em auto .commentlist ol .children,
-font-size 1.2em .commentlist ol .children,
-clearfix() .commentlist ol .children,
-.pag-next .commentlist ol .children,
-float left .commentlist ol .children,
-.pag-prev .commentlist ol .children,
-float right .commentlist ol .children,
 #comments .commentlist ol .children {
   padding: 0 1.5em;
 }
-.pagination .even,
-margin 1em auto .even,
-font-size 1.2em .even,
-clearfix() .even,
-.pag-next .even,
-float left .even,
-.pag-prev .even,
-float right .even,
 #comments .even {
   background: $off-white;
 }
-.pagination .odd,
-margin 1em auto .odd,
-font-size 1.2em .odd,
-clearfix() .odd,
-.pag-next .odd,
-float left .odd,
-.pag-prev .odd,
-float right .odd,
 #comments .odd {
   background: #fff;
 }
-.pagination .comment-body,
-margin 1em auto .comment-body,
-font-size 1.2em .comment-body,
-clearfix() .comment-body,
-.pag-next .comment-body,
-float left .comment-body,
-.pag-prev .comment-body,
-float right .comment-body,
 #comments .comment-body {
   padding: 1em;
   box-sizing: border-box;
 }
-.pagination textarea,
-margin 1em auto textarea,
-font-size 1.2em textarea,
-clearfix() textarea,
-.pag-next textarea,
-float left textarea,
-.pag-prev textarea,
-float right textarea,
 #comments textarea {
   max-width: 100%;
 }
-.pagination #commentform,
-margin 1em auto #commentform,
-font-size 1.2em #commentform,
-clearfix() #commentform,
-.pag-next #commentform,
-float left #commentform,
-.pag-prev #commentform,
-float right #commentform,
 #comments #commentform {
   width: 100%;
   min-width: 18rem;
 }
-.pagination #commentform p,
-margin 1em auto #commentform p,
-font-size 1.2em #commentform p,
-clearfix() #commentform p,
-.pag-next #commentform p,
-float left #commentform p,
-.pag-prev #commentform p,
-float right #commentform p,
 #comments #commentform p {
   margin-bottom: 0.75rem;
 }
-.pagination #commentform input,
-margin 1em auto #commentform input,
-font-size 1.2em #commentform input,
-clearfix() #commentform input,
-.pag-next #commentform input,
-float left #commentform input,
-.pag-prev #commentform input,
-float right #commentform input,
 #comments #commentform input,
-.pagination #commentform textarea,
-margin 1em auto #commentform textarea,
-font-size 1.2em #commentform textarea,
-clearfix() #commentform textarea,
-.pag-next #commentform textarea,
-float left #commentform textarea,
-.pag-prev #commentform textarea,
-float right #commentform textarea,
 #comments #commentform textarea {
   width: 100%;
   background-color: $off-white;
@@ -510,25 +406,9 @@ float right #commentform textarea,
   padding: 0.5em;
   display: block;
 }
-.pagination #commentform textarea,
-margin 1em auto #commentform textarea,
-font-size 1.2em #commentform textarea,
-clearfix() #commentform textarea,
-.pag-next #commentform textarea,
-float left #commentform textarea,
-.pag-prev #commentform textarea,
-float right #commentform textarea,
 #comments #commentform textarea {
   margin-top: 1.7rem;
 }
-.pagination #commentform #submit,
-margin 1em auto #commentform #submit,
-font-size 1.2em #commentform #submit,
-clearfix() #commentform #submit,
-.pag-next #commentform #submit,
-float left #commentform #submit,
-.pag-prev #commentform #submit,
-float right #commentform #submit,
 #comments #commentform #submit {
   width: auto;
   padding-left: 0.8em;
