@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:03:15 PM on 12-05-2015
+* RHD Dev: Compiled at 5:20:10 PM on 12-05-2015
 ***/
 
 .unselectable {
@@ -638,7 +638,6 @@ input[type="submit"]:hover {
 }
 #colophon {
   width: 100%;
-  color: #fff;
 }
 #colophon .site-info {
   margin: 0;
