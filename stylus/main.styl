@@ -2,7 +2,7 @@
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
 @require "partials/_galleries.styl"
-@require "partials/_overrides.styl"
+@require "partials/_defaults.styl"
 
 /* ==========================================================================
 	Main Styles
@@ -162,11 +162,15 @@ input[type="submit"]
 		max-width 100%
 		height auto
 
-		.alignleft
-			margin-left 0
+		&.alignleft
+			margin-right 1em
 
-		.alignright
-			margin-right 0
+		&.alignright
+			margin-left 1em
+
+		&.aligncenter
+			display block
+			margin 0 auto
 
 
 .blog-area
@@ -186,18 +190,6 @@ input[type="submit"]
 
 					.sep
 						font-size 0.8em
-
-			.entry-content
-				img
-					height auto
-
-					&.alignleft
-						margin 0 1em 0 0
-					&.alignright
-						margin-right 0 0 0 1em
-					&.aligncenter
-						margin 0 auto
-						display block
 
 
 .pagination
