@@ -35,16 +35,20 @@ flexitem()
 	display inline-block
 
 
-wrapper( $topMargin = false, $bottomMargin = false )
-	width 85%
-	max-width 64em
-	position relative
+wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
+	if $customWidth == false
+		$w = 85%
+	else
+		$w = $customWidth
 
 	if $topMargin == false
 		$topMargin = 0
 	if $bottomMargin == false
 		$bottomMargin = 0
 
+	width $w
+	max-width 64em
+	position relative
 	margin $topMargin auto $bottomMargin auto
 
 
