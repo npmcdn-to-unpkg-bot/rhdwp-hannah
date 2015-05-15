@@ -74,7 +74,7 @@ function rhd_enqueue_scripts() {
 		$main_deps[] = 'packery';
 	}
 
-	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, true );
+	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
 	wp_enqueue_script( 'modernizr' );
 	wp_enqueue_script( 'rhd-plugins' );
