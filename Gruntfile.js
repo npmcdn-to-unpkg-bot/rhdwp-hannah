@@ -39,7 +39,13 @@ grunt.initConfig({
 	modernizr : {
 		dist : {
 			'devFile' : 'js/vendor/modernizr/modernizr-dev.js',
-			'outputFile' : 'js/vendor/modernizr/modernizr-custom.js'
+			'outputFile' : 'js/vendor/modernizr/modernizr-custom.js',
+			'shiv' : true,
+			'cssclasses' : true,
+			'parseFiles' : true,
+			'files' : {
+				'src' : ['../../plugins/**/*.js', '../../mu-plugins/**/*.js']
+			}
 		}
 	},
 
@@ -68,7 +74,7 @@ grunt.initConfig({
 					src : ['**/*.styl', '!**/_*.styl'],
 					cwd : 'stylus',
 					dest : 'css',
-					ext: '.css',
+					ext : '.css',
 					expand : true
 				}
 			],
