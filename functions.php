@@ -60,9 +60,6 @@ function rhd_enqueue_scripts() {
 	wp_register_script( 'Slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.js', array( 'jquery' ), '0.10.2', true );
 	wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
 
-	// wp_enqueue_script( 'packery' );
-	// wp_enqueue_script( 'Slidebars' );
-
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
@@ -70,9 +67,10 @@ function rhd_enqueue_scripts() {
 		// 'packery',
 		// 'Slidebars',
 	);
-
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
+	// wp_enqueue_script( 'packery' );
+	// wp_enqueue_script( 'Slidebars' );
 	wp_enqueue_script( 'modernizr' );
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-main' );
