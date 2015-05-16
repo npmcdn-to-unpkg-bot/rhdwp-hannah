@@ -24,6 +24,7 @@ var homeUrl = wp_data.home_url,
 var isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false;
 var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
 var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
+var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 /* ==========================================================================
