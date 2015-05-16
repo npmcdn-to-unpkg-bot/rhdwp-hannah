@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:20:10 PM on 12-05-2015
+* RHD Dev: Compiled at 12:33:47 PM on 16-05-2015
 ***/
 
 /**
@@ -600,10 +600,9 @@ input[type="submit"]:hover {
 }
 #site-navigation li a {
   text-decoration: none;
-}
-#site-navigation li a:link,
-#site-navigation li a:visited {
   color: inherit;
+  -webkit-transform: 0.25s color ease;
+  transform: 0.25s color ease;
 }
 #site-navigation li a:hover,
 #site-navigation li a:active,
@@ -632,9 +631,12 @@ input[type="submit"]:hover {
 #primary,
 #secondary {
   width: 100%;
-  margin: 2em auto;
+  margin-top: 1em;
   position: relative;
   box-sizing: border-box;
+}
+#secondary {
+  margin-bottom: 2em;
 }
 #colophon {
   width: 100%;
