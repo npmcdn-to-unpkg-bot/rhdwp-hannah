@@ -30,6 +30,7 @@
 			$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
 			$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
 			$body_classes[] = ( is_home() || is_single() || is_archive() || is_search() ) ? 'blog-area' : '';
+			$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
 		?>
 
 		<?php wp_head(); ?>

@@ -75,26 +75,26 @@ class RHD_Settings
 		);
 
 		add_settings_section(
-			'rhd_js_section', // ID
-			'Theme JS', // Title
+			'rhd_sample_section', // ID
+			'Sample Section', // Title
 			array( $this, 'print_section_info' ), // Callback
 			'rhd-settings-admin' // Page
 		);
 
 		add_settings_field(
-			'rhd_include_slidebars', // ID
-			'Slidebars', // Title
-			array( $this, 'rhd_include_slidebars_cb' ), // Callback
+			'rhd_sample_checkbox', // ID
+			'Checkbox', // Title
+			array( $this, 'rhd_sample_checkbox_cb' ), // Callback
 			'rhd-settings-admin', // Page
-			'rhd_js_section' // Section
+			'rhd_sample_section' // Section
 		);
 
 		add_settings_field(
-			'rhd_include_packery', // ID
+			'rhd_sample_text_field', // ID
 			'Packery', // Title
-			array( $this, 'rhd_include_packery_cb' ), // Callback
+			array( $this, 'rhd_sample_text_field_cb' ), // Callback
 			'rhd-settings-admin', // Page
-			'rhd_js_section' // Section
+			'rhd_sample_section' // Section
 		);
 	}
 
@@ -107,8 +107,8 @@ class RHD_Settings
 	{
 		$new_input = array();
 
-		$new_input['rhd_include_slidebars'] = $input['rhd_include_slidebars'];
-		$new_input['rhd_include_packery'] = $input['rhd_include_packery'];
+		$new_input['rhd_sample_checkbox'] = $input['rhd_sample_checkbox'];
+		$new_input['rhd_sample_text_field'] = strip_tags( $input['rhd_sample_text_field'] );
 
 		return $new_input;
 	}
@@ -118,20 +118,23 @@ class RHD_Settings
 	*/
 	public function print_section_info()
 	{
-		print 'Include the following JS libraries:';
+		print 'Sample Section description:';
 	}
 
 	/**
 	* Input callbacks
 	*/
-	public function rhd_include_slidebars_cb()
+	public function rhd_sample_checkbox_cb()
 	{
-		echo '<input type="checkbox" id="rhd_include_slidebars" name="rhd_theme_settings[rhd_include_slidebars]" value="1" ' . checked( 1, $this->options['rhd_include_slidebars'], false ) . ' />';
+		echo '<input type="checkbox" id="rhd_sample_checkbox" name="rhd_theme_settings[rhd_sample_checkbox]" value="1" ' . checked( 1, $this->options['rhd_sample_checkbox'], false ) . ' />';
 	}
 
-	public function rhd_include_packery_cb()
+	public function rhd_sample_text_field_cb()
 	{
-		echo '<input type="checkbox" id="rhd_include_packery" name="rhd_theme_settings[rhd_include_packery]" value="1" ' . checked( 1, $this->options['rhd_include_packery'], false ) . ' />';
+		printf(
+			'<input type="text" id="rhd_sample_text_field" name="rhd_damask_theme_settings[rhd_sample_text_field]" value="%s" />',
+			isset( $this->options['rhd_sample_text_field'] ) ? esc_attr( $this->options['rhd_sample_text_field'] ) : ''
+		);
 	}
 }
 
