@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:49:14 AM on 17-05-2015
+* RHD Dev: Compiled at 3:31:21 PM on 18-05-2015
 ***/
 
 /**
@@ -665,11 +665,22 @@ input[type="submit"]:hover {
 .entry-content {
   width: 100%;
 }
+.entry-content p {
+  margin: 0.25em auto;
+}
 .entry-content p:first-child {
   margin-top: 0;
 }
 .entry-content p:last-child {
   margin-bottom: 0;
+}
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  line-height: 1.1;
 }
 .entry-content ul {
   padding-left: 1em;
