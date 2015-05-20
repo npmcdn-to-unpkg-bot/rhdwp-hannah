@@ -444,7 +444,7 @@ function rhd_single_pagination() {
 	$spacer = '<div class="pag-spacer"></div>';
 
 	?>
-	<div class="pagination">
+	<div class="single-pagination">
 		<?php echo ( $next != '' ) ? $next : $spacer; ?>
 		<div class="pag-sep"></div>
 		<?php echo ( $prev != '' ) ? $prev : $spacer; ?>
