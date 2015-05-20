@@ -433,6 +433,26 @@ function rhd_archive_pagination() {
 
 
 /**
+ * rhd_lovely_single_pagination function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_single_pagination() {
+	$next = get_previous_post_link( '%link', '&lt; Older' );
+	$prev = get_next_post_link( '%link', 'Newer &gt;' );
+	$spacer = '<div class="pag-spacer"></div>';
+
+	?>
+	<div class="pagination">
+		<?php echo ( $next != '' ) ? $next : $spacer; ?>
+		<div class="pag-sep"></div>
+		<?php echo ( $prev != '' ) ? $prev : $spacer; ?>
+	</div> <?php
+}
+
+
+/**
  * rhd_ajax_pagination function.
  *
  * @access public
