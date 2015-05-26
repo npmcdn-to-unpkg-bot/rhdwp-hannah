@@ -192,29 +192,42 @@ include_once( 'includes/rhd-admin-panel.php' );
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-
-	// Set default image linking
-	if ( is_admin() )
-		update_option( 'image_default_link_type', 'none' );
+	//add_theme_support( 'post-formats', array( 'image' ) );
 }
+
 
 // Enable themes auto-update
 add_filter( 'allow_minor_auto_core_updates', '__return_true' );
 
+
 // Content Width
 if ( ! isset( $content_width ) ) {
 	$content_width = 620;
+
 }
+
+
+/**
+ * rhd_attachment_display_settings function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_attachment_display_settings() {
+	//update_option( 'image_default_align', 'left' );
+	update_option( 'image_default_link_type', 'none' );
+	update_option( 'image_default_size', 'large' );
+}
+add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
+
 
 // Adds RSS feed links to for posts and comments.
 add_theme_support( 'automatic-feed-links' );
 
-/*
 function rhd_image_sizes(){
-	add_image_size( 'square', 200, 200 );
+	//add_image_size( 'square', 200, 200, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
-*/
 
 
 /* ==========================================================================
