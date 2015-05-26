@@ -192,6 +192,10 @@ include_once( 'includes/rhd-admin-panel.php' );
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+
+	// Set default image linking
+	if ( is_admin() )
+		update_option( 'image_default_link_type', 'none' );
 }
 
 // Enable themes auto-update
