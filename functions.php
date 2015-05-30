@@ -87,8 +87,6 @@ function rhd_enqueue_scripts() {
 		'img_dir' => RHD_IMG_DIR,
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'query_vars' => json_encode( $wp_query->query ),
-		'inc_slidebars' => ( $theme_opts['rhd_include_slidebars'] == '1' ) ? true : false,
-		'inc_packery' => ( $theme_opts['rhd_include_packery'] == '1' ) ? true : false
 	);
 	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
 

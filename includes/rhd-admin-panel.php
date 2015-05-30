@@ -91,7 +91,7 @@ class RHD_Settings
 
 		add_settings_field(
 			'rhd_sample_text_field', // ID
-			'Packery', // Title
+			'Sample Text Field', // Title
 			array( $this, 'rhd_sample_text_field_cb' ), // Callback
 			'rhd-settings-admin', // Page
 			'rhd_sample_section' // Section
@@ -132,7 +132,7 @@ class RHD_Settings
 	public function rhd_sample_text_field_cb()
 	{
 		printf(
-			'<input type="text" id="rhd_sample_text_field" name="rhd_damask_theme_settings[rhd_sample_text_field]" value="%s" />',
+			'<input type="text" id="rhd_sample_text_field" name="rhd_theme_settings[rhd_sample_text_field]" value="%s" />',
 			isset( $this->options['rhd_sample_text_field'] ) ? esc_attr( $this->options['rhd_sample_text_field'] ) : ''
 		);
 	}
