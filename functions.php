@@ -188,7 +188,7 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-	//add_theme_support( 'post-formats', array( 'image' ) );
+	add_theme_support( 'infinite-scroll', array( 'container' => 'content', 'footer' => 'page' ) );
 }
 
 
