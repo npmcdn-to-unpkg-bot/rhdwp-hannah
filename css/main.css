@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:31:21 PM on 18-05-2015
+* RHD Dev: Compiled at 4:12:07 PM on 31-05-2015
 ***/
 
 .unselectable {
@@ -39,15 +39,18 @@
 .clearfix:before,
 .blog-area #main .post:before,
 .pagination:before,
+.single-pagination:before,
 .clearfix:after,
 .blog-area #main .post:after,
-.pagination:after {
+.pagination:after,
+.single-pagination:after {
   content: " ";
   display: table;
 }
 .clearfix:after,
 .blog-area #main .post:after,
-.pagination:after {
+.pagination:after,
+.single-pagination:after {
   clear: both;
 }
 * {
@@ -715,14 +718,21 @@ input[type="submit"]:hover {
 .blog-area #main .post .entry-header .entry-details .sep {
   font-size: 0.8em;
 }
-.pagination {
-  margin: 2em auto;
-  font-size: 1.2em;
+.pagination,
+.single-pagination {
+  margin: 1em auto;
+  font-size: 1.1em;
 }
-.pagination .pag-next {
+.pagination .pag-next,
+.single-pagination .pag-next,
+.pagination [rel="prev"],
+.single-pagination [rel="prev"] {
   float: left;
 }
-.pagination .pag-prev {
+.pagination .pag-prev,
+.single-pagination .pag-prev,
+.pagination [rel="next"],
+.single-pagination [rel="next"] {
   float: right;
 }
 /* ==========================================================================
