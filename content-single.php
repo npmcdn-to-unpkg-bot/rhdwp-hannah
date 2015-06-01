@@ -7,13 +7,8 @@
  */
 ?>
 
-<?php
-	$thumb_id = get_post_thumbnail_id();
-	$thumb = wp_get_attachment_image_src( $thumb_id, 'full', false );
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header" style="background-image: url(<?php echo $thumb[0]; ?>);">
+	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 		<p class="entry-details">By <?php the_author(); ?> <span class="sep">&star;</span> <?php the_time( 'n/j/y' ); ?></p>
 	</header><!-- .entry-header -->
