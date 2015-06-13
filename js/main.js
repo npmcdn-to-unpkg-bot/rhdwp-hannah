@@ -33,7 +33,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 (function($){
 	rhdInit();
-
 })(jQuery);
 
 
@@ -42,19 +41,27 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
    ========================================================================== */
 
 function rhdInit() {
-	//wpadminbarPush();
-
-	if ( wp_data.inc_slidebars === true )
-		$.slidebars();
-
-	if ( wp_data.inc_packery === true ) {
-		// Packery Initialization + Options
-	}
+	wpadminbarPush();
+	
+	// $.slidebars();
+	// toggleBurger();
 }
 
 
 function wpadminbarPush() {
 	jQuery("#wpadminbar").css({
 		top: '50px',
+	});
+}
+
+
+// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
+function toggleBurger() {
+	var toggles = jQuery(".cmn-toggle-switch");
+	
+	toggles.click(function(e){
+		e.preventDefault();  
+		jQuery(this).toggleClass('active');
+		console.log('click');
 	});
 }
