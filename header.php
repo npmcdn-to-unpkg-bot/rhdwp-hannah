@@ -61,8 +61,8 @@
 
 				<?php wp_nav_menu( $nav_args_main ); ?>
 
-				<button class="hamburger sb-toggle-left cmn-toggle-switch">
-					<span>navigation</span>
+				<button id="hamburger" class="sb-toggle-left cmn-toggle-switch cmn-toggle-switch__htla">
+					<span>Toggle nav</span>
 				</button>
 			</header><!-- #masthead -->
 

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:28:02 PM on 13-06-2015
+* RHD Dev: Compiled at 6:51:33 PM on 13-06-2015
 ***/
 
 /**
@@ -533,6 +533,164 @@ input[type="radio"] {
 .widget .search-form input[type="submit"] {
   padding: 0;
 }
+.cmn-toggle-switch {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 2em;
+  height: 1.7775em;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.cmn-toggle-switch:focus {
+  outline: none;
+}
+.cmn-toggle-switch span {
+  display: block;
+  position: absolute;
+  top: 0.83875em;
+  left: 0.3334em;
+  right: 0.3334em;
+  height: 0.1em;
+  background: #fff;
+}
+.cmn-toggle-switch span::before,
+.cmn-toggle-switch span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: #fff;
+  content: "";
+}
+.cmn-toggle-switch span::before {
+  top: -0.50535em;
+}
+.cmn-toggle-switch span::after {
+  bottom: -0.50535em;
+}
+.cmn-toggle-switch__rot {
+  background-color: #28aadc;
+}
+.cmn-toggle-switch__rot span {
+  transition: transform 0.3s;
+}
+.cmn-toggle-switch__rot.active {
+  background-color: #1d89b3;
+}
+.cmn-toggle-switch__rot.active span {
+  transform: rotate(90deg);
+}
+.cmn-toggle-switch__htx {
+  background-color: #ff3264;
+}
+.cmn-toggle-switch__htx span {
+  transition: background 0s 0.3s;
+}
+.cmn-toggle-switch__htx span::before,
+.cmn-toggle-switch__htx span::after {
+  transition-duration: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0s;
+}
+.cmn-toggle-switch__htx span::before {
+  transition-property: top, transform;
+}
+.cmn-toggle-switch__htx span::after {
+  transition-property: bottom, transform;
+}
+.cmn-toggle-switch__htx.active {
+  background-color: #f4003c;
+}
+.cmn-toggle-switch__htx.active span {
+  background: none;
+}
+.cmn-toggle-switch__htx.active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.cmn-toggle-switch__htx.active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+.cmn-toggle-switch__htx.active span::before,
+.cmn-toggle-switch__htx.active span::after {
+  transition-delay: 0s, 0.3s;
+}
+.cmn-toggle-switch__htla {
+  background-color: #32dc64;
+}
+.cmn-toggle-switch__htla span {
+  transition: transform 0.3s;
+}
+.cmn-toggle-switch__htla span::before {
+  transform-origin: top right;
+  transition: transform 0.3s, width 0.3s, top 0.3s;
+}
+.cmn-toggle-switch__htla span::after {
+  transform-origin: bottom right;
+  transition: transform 0.3s, width 0.3s, bottom 0.3s;
+}
+.cmn-toggle-switch__htla.active {
+  background-color: #20b94d;
+}
+.cmn-toggle-switch__htla.active span {
+  transform: rotate(180deg);
+}
+.cmn-toggle-switch__htla.active span::before,
+.cmn-toggle-switch__htla.active span::after {
+  width: 50%;
+}
+.cmn-toggle-switch__htla.active span::before {
+  top: 0;
+  transform: translateX(0.7666em) translateY(0.05em) rotate(45deg);
+}
+.cmn-toggle-switch__htla.active span::after {
+  bottom: 0;
+  transform: translateX(0.7666em) translateY(-0.05em) rotate(-45deg);
+}
+.cmn-toggle-switch__htra {
+  background-color: #ff9650;
+}
+.cmn-toggle-switch__htra span {
+  transition: transform 0.3s;
+}
+.cmn-toggle-switch__htra span::before {
+  transform-origin: top left;
+  transition: transform 0.3s, width 0.3s, top 0.3s;
+}
+.cmn-toggle-switch__htra span::after {
+  transform-origin: bottom left;
+  transition: transform 0.3s, width 0.3s, bottom 0.3s;
+}
+.cmn-toggle-switch__htra.active {
+  background-color: #ff6e0d;
+}
+.cmn-toggle-switch__htra.active span {
+  transform: rotate(180deg);
+}
+.cmn-toggle-switch__htra.active span::before,
+.cmn-toggle-switch__htra.active span::after {
+  width: 50%;
+}
+.cmn-toggle-switch__htra.active span::before {
+  top: 0;
+  transform: translateX(-0.1em) translateY(0.05em) rotate(-45deg);
+}
+.cmn-toggle-switch__htra.active span::after {
+  bottom: 0;
+  transform: translateX(-0.1em) translateY(-0.05em) rotate(45deg);
+}
 html,
 body {
   text-shadow: 0 0 1px transparent;
@@ -615,6 +773,13 @@ input[type="submit"]:hover {
 #site-navigation li .sub-menu li {
   display: block;
   margin: 0;
+}
+#hamburger {
+  font-size: 1.2em;
+  background-color: #000;
+}
+#hamburger.active {
+  background-color: #808080;
 }
 #main {
   width: 85%;

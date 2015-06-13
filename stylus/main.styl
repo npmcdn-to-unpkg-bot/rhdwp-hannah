@@ -3,6 +3,7 @@
 @require "partials/_helpers.styl"
 @require "partials/_galleries.styl"
 @require "partials/_defaults.styl"
+@require "partials/_hamburger.styl"
 
 /* ==========================================================================
 	Main Styles
@@ -99,6 +100,14 @@ input[type="submit"]
 			li
 				display block
 				margin 0
+
+
+#hamburger
+	font-size 1.2em // relative resizing
+	background-color black // sample bg animation color
+	
+	&.active
+		background-color gray // sample bg animation color
 
 
 #main
