@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:12:07 PM on 31-05-2015
+* RHD Dev: Compiled at 6:28:02 PM on 13-06-2015
 ***/
 
 .unselectable {
@@ -377,8 +377,6 @@ figure {
   margin: 0;
 }
 del {
-  -moz-opacity: 0.8;
-  -webkit-opacity: 0.8;
   opacity: 0.8;
 }
 -webkit-input-placeholder {
@@ -392,8 +390,6 @@ del {
 -moz-placeholder {
   color: rgba(51,51,51,0.7);
   font-family: "Noto Sans" sans-serif;
-  -moz-opacity: 1;
-  -webkit-opacity: 1;
   opacity: 1;
 }
 -ms-input-placeholder {
@@ -405,8 +401,6 @@ input,
 select,
 textarea {
   background-color: #f7f7f7;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
   border-radius: 0;
   font-size: 16px;
   font-size: 1.6rem;
@@ -444,8 +438,6 @@ input[disabled],
 select[disabled],
 textarea[disabled] {
   cursor: default;
-  -moz-opacity: 0.5;
-  -webkit-opacity: 0.5;
   opacity: 0.5;
 }
 button,
@@ -576,7 +568,8 @@ textarea {
 input[type="submit"] {
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.25s;
+  -webkit-transition: all;
+  transition: all;
 }
 input[type="submit"]:hover {
   background-color: #808080;
@@ -604,8 +597,8 @@ input[type="submit"]:hover {
 #site-navigation li a {
   text-decoration: none;
   color: inherit;
-  -webkit-transform: 0.25s color ease;
-  transform: 0.25s color ease;
+  -webkit-transform: 0.25s;
+  transform: 0.25s;
 }
 #site-navigation li a:hover,
 #site-navigation li a:active,
