@@ -69,37 +69,40 @@ input[type="submit"]
 #site-navigation-container
 	width 100%
 	text-align center
+	display none
+
+	#site-navigation
+		list-style none
+		padding-left 0
+		margin 0
+		flexbox()
+
+		li
+			flexitem()
+
+			a
+				text-decoration none
+				color inherit
+				-transform 0.25s color ease
+
+				&:hover
+				&:active
+				&:focus
+					color red
+
+			.sub-menu
+				position absolute
+				padding-left 0
+				line-height 1.7
+				margin-top 0.2em
+				z-index 999 !important
+
+				li
+					display block
+					margin 0
 
 
-#site-navigation
-	list-style none
-	padding-left 0
-	margin 0
-	flexbox()
-
-	li
-		flexitem()
-
-		a
-			text-decoration none
-			color inherit
-			-transform 0.25s color ease
-
-			&:hover
-			&:active
-			&:focus
-				color red
-
-		.sub-menu
-			position absolute
-			padding-left 0
-			line-height 1.7
-			margin-top 0.2em
-			z-index 999 !important
-
-			li
-				display block
-				margin 0
+#site-navigation-sb-container
 
 
 #hamburger

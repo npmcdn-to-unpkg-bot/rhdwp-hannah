@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:13:41 PM on 26-06-2015
+* RHD Dev: Compiled at 10:43:27 PM on 26-06-2015
 ***/
 
 /**
@@ -742,47 +742,50 @@ input[type="submit"]:hover {
 #site-navigation-container {
   width: 100%;
   text-align: center;
+  display: none;
 }
-#site-navigation {
+#site-navigation-container #site-navigation {
   list-style: none;
   padding-left: 0;
   margin: 0;
   text-align: justify;
 }
-#site-navigation:after {
+#site-navigation-container #site-navigation:after {
   width: 100%;
   display: inline-block;
   content: '';
 }
-#site-navigation li {
+#site-navigation-container #site-navigation li {
   display: inline-block;
 }
-#site-navigation li a {
+#site-navigation-container #site-navigation li a {
   text-decoration: none;
   color: inherit;
   -webkit-transform: 0.25s;
   transform: 0.25s;
 }
-#site-navigation li a:hover,
-#site-navigation li a:active,
-#site-navigation li a:focus {
+#site-navigation-container #site-navigation li a:hover,
+#site-navigation-container #site-navigation li a:active,
+#site-navigation-container #site-navigation li a:focus {
   color: #f00;
 }
-#site-navigation li .sub-menu {
+#site-navigation-container #site-navigation li .sub-menu {
   position: absolute;
   padding-left: 0;
   line-height: 1.7;
   margin-top: 0.2em;
   z-index: 999 !important;
 }
-#site-navigation li .sub-menu li {
+#site-navigation-container #site-navigation li .sub-menu li {
   display: block;
   margin: 0;
 }
+#site-navigation-sb-container,
 #hamburger {
   font-size: 1.2em;
   background-color: #000;
 }
+#site-navigation-sb-container.active,
 #hamburger.active {
   background-color: #808080;
 }
