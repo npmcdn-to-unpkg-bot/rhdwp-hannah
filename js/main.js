@@ -28,40 +28,42 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 /* ==========================================================================
-	Let 'er rip... (DOM Ready)
+	Let 'er rip...
    ========================================================================== */
 
 (function($){
-	rhdInit();
+
+	$(document).ready(function(){
+		rhdInit();
+	});
+
+
+	function rhdInit() {
+		wpadminbarPush();
+
+		$.slidebars({
+			siteClose: false,
+		});
+		toggleBurger();
+	}
+
+
+	function wpadminbarPush() {
+		$("#wpadminbar").css({
+			top: '50px',
+		});
+	}
+
+
+	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
+	function toggleBurger() {
+		var toggles = $(".cmn-toggle-switch");
+
+		toggles.click(function(e){
+			e.preventDefault();
+			$(this).toggleClass('active');
+			console.log('click');
+		});
+	}
+
 })(jQuery);
-
-
-/* ==========================================================================
-	Functions
-   ========================================================================== */
-
-function rhdInit() {
-	wpadminbarPush();
-
-	$.slidebars();
-	toggleBurger();
-}
-
-
-function wpadminbarPush() {
-	jQuery("#wpadminbar").css({
-		top: '50px',
-	});
-}
-
-
-// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
-function toggleBurger() {
-	var toggles = jQuery(".cmn-toggle-switch");
-
-	toggles.click(function(e){
-		e.preventDefault();
-		jQuery(this).toggleClass('active');
-		console.log('click');
-	});
-}
