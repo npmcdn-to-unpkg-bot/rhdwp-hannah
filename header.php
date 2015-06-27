@@ -49,6 +49,13 @@
 				'container' => 'nav',
 				'container_id' => 'site-navigation-container'
 			);
+
+			$nav_args_sb = array(
+				'theme_location' => 'slidebar',
+				'menu_id' => 'site-navigation-sb',
+				'container' => 'nav',
+				'container_id' => 'site-navigation-sb-container'
+			);
 		?>
 
 		<div class="sb-slidebar sb-left sb-style-push">

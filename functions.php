@@ -173,6 +173,7 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
 
 // Menus
 register_nav_menu( 'primary', 'Main Site Navigation' );
+register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
 
 // Includes and Requires
 //include_once( 'includes/rhd-admin-panel.php' );
