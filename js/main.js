@@ -42,9 +42,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 function rhdInit() {
 	wpadminbarPush();
-	
-	// $.slidebars();
-	// toggleBurger();
+
+	$.slidebars();
+	toggleBurger();
 }
 
 
@@ -58,9 +58,9 @@ function wpadminbarPush() {
 // Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
 function toggleBurger() {
 	var toggles = jQuery(".cmn-toggle-switch");
-	
+
 	toggles.click(function(e){
-		e.preventDefault();  
+		e.preventDefault();
 		jQuery(this).toggleClass('active');
 		console.log('click');
 	});
