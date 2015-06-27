@@ -75,10 +75,10 @@ input[type="submit"]
 	list-style none
 	padding-left 0
 	margin 0
+	flexbox()
 
 	li
-		display inline-block
-		margin 0 1em
+		flexitem()
 
 		a
 			text-decoration none
@@ -105,7 +105,7 @@ input[type="submit"]
 #hamburger
 	font-size 1.2em // relative resizing
 	background-color black // sample bg animation color
-	
+
 	&.active
 		background-color gray // sample bg animation color
 
