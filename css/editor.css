@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:43:27 PM on 26-06-2015
+* RHD Dev: Compiled at 10:49:56 PM on 26-06-2015
 ***/
 
 /**
@@ -761,8 +761,8 @@ input[type="submit"]:hover {
 #site-navigation-container #site-navigation li a {
   text-decoration: none;
   color: inherit;
-  -webkit-transform: 0.25s;
-  transform: 0.25s;
+  -webkit-transition: 0.25s color;
+  transition: 0.25s color;
 }
 #site-navigation-container #site-navigation li a:hover,
 #site-navigation-container #site-navigation li a:active,
@@ -780,12 +780,10 @@ input[type="submit"]:hover {
   display: block;
   margin: 0;
 }
-#site-navigation-sb-container,
 #hamburger {
   font-size: 1.2em;
   background-color: #000;
 }
-#site-navigation-sb-container.active,
 #hamburger.active {
   background-color: #808080;
 }
