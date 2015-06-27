@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:49:56 PM on 26-06-2015
+* RHD Dev: Compiled at 11:05:44 PM on 26-06-2015
 ***/
 
 /**
@@ -959,6 +959,12 @@ input[type="submit"]:hover {
   margin-top: 0;
 }
 @media screen and (min-width: 40em) {
+  #site-navigation-container {
+    display: block;
+  }
+  #hamburger {
+    display: none;
+  }
   #comments #commentform {
     width: 75%;
   }
