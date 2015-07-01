@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:05:44 PM on 26-06-2015
+* RHD Dev: Compiled at 6:35:18 PM on 01-07-2015
 ***/
 
 .unselectable {
@@ -530,14 +530,14 @@ input[type="radio"] {
 .widget .search-form input[type="submit"] {
   padding: 0;
 }
-.cmn-toggle-switch {
+.c-hamburger {
   display: block;
   position: relative;
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 2em;
-  height: 1.7775em;
+  width: 96px;
+  height: 96px;
   font-size: 0;
   text-indent: -9999px;
   -webkit-appearance: none;
@@ -549,144 +549,144 @@ input[type="radio"] {
   cursor: pointer;
   transition: background 0.3s;
 }
-.cmn-toggle-switch:focus {
+.c-hamburger:focus {
   outline: none;
 }
-.cmn-toggle-switch span {
+.c-hamburger span {
   display: block;
   position: absolute;
-  top: 0.83875em;
-  left: 0.3334em;
-  right: 0.3334em;
-  height: 0.1em;
+  top: 44px;
+  left: 18px;
+  right: 18px;
+  height: 8px;
   background: #fff;
 }
-.cmn-toggle-switch span::before,
-.cmn-toggle-switch span::after {
+.c-hamburger span::before,
+.c-hamburger span::after {
   position: absolute;
   display: block;
   left: 0;
   width: 100%;
-  height: 0.1em;
+  height: 8px;
   background-color: #fff;
   content: "";
 }
-.cmn-toggle-switch span::before {
-  top: -0.50535em;
+.c-hamburger span::before {
+  top: -$bar-thickness -12px;
 }
-.cmn-toggle-switch span::after {
-  bottom: -0.50535em;
+.c-hamburger span::after {
+  bottom: -$bar-thickness -12px;
 }
-.cmn-toggle-switch__rot {
+.c-hamburger--rot {
   background-color: #28aadc;
 }
-.cmn-toggle-switch__rot span {
+.c-hamburger--rot span {
   transition: transform 0.3s;
 }
-.cmn-toggle-switch__rot.active {
+.c-hamburger--rot.is-active {
   background-color: #1d89b3;
 }
-.cmn-toggle-switch__rot.active span {
+.c-hamburger--rot.is-active span {
   transform: rotate(90deg);
 }
-.cmn-toggle-switch__htx {
+.c-hamburger--htx {
   background-color: #ff3264;
 }
-.cmn-toggle-switch__htx span {
+.c-hamburger--htx span {
   transition: background 0s 0.3s;
 }
-.cmn-toggle-switch__htx span::before,
-.cmn-toggle-switch__htx span::after {
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
   transition-duration: 0.3s, 0.3s;
   transition-delay: 0.3s, 0s;
 }
-.cmn-toggle-switch__htx span::before {
+.c-hamburger--htx span::before {
   transition-property: top, transform;
 }
-.cmn-toggle-switch__htx span::after {
+.c-hamburger--htx span::after {
   transition-property: bottom, transform;
 }
-.cmn-toggle-switch__htx.active {
+.c-hamburger--htx.is-active {
   background-color: #f4003c;
 }
-.cmn-toggle-switch__htx.active span {
+.c-hamburger--htx.is-active span {
   background: none;
 }
-.cmn-toggle-switch__htx.active span::before {
+.c-hamburger--htx.is-active span::before {
   top: 0;
   transform: rotate(45deg);
 }
-.cmn-toggle-switch__htx.active span::after {
+.c-hamburger--htx.is-active span::after {
   bottom: 0;
   transform: rotate(-45deg);
 }
-.cmn-toggle-switch__htx.active span::before,
-.cmn-toggle-switch__htx.active span::after {
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
   transition-delay: 0s, 0.3s;
 }
-.cmn-toggle-switch__htla {
+.c-hamburger--htla {
   background-color: #32dc64;
 }
-.cmn-toggle-switch__htla span {
+.c-hamburger--htla span {
   transition: transform 0.3s;
 }
-.cmn-toggle-switch__htla span::before {
+.c-hamburger--htla span::before {
   transform-origin: top right;
   transition: transform 0.3s, width 0.3s, top 0.3s;
 }
-.cmn-toggle-switch__htla span::after {
+.c-hamburger--htla span::after {
   transform-origin: bottom right;
   transition: transform 0.3s, width 0.3s, bottom 0.3s;
 }
-.cmn-toggle-switch__htla.active {
+.c-hamburger--htla.is-active {
   background-color: #20b94d;
 }
-.cmn-toggle-switch__htla.active span {
+.c-hamburger--htla.is-active span {
   transform: rotate(180deg);
 }
-.cmn-toggle-switch__htla.active span::before,
-.cmn-toggle-switch__htla.active span::after {
+.c-hamburger--htla.is-active span::before,
+.c-hamburger--htla.is-active span::after {
   width: 50%;
 }
-.cmn-toggle-switch__htla.active span::before {
+.c-hamburger--htla.is-active span::before {
   top: 0;
-  transform: translateX(0.7666em) translateY(0.05em) rotate(45deg);
+  transform: translateX(38px) translateY(4px) rotate(45deg);
 }
-.cmn-toggle-switch__htla.active span::after {
+.c-hamburger--htla.is-active span::after {
   bottom: 0;
-  transform: translateX(0.7666em) translateY(-0.05em) rotate(-45deg);
+  transform: translateX(38px) translateY(-4px) rotate(-45deg);
 }
-.cmn-toggle-switch__htra {
+.c-hamburger--htra {
   background-color: #ff9650;
 }
-.cmn-toggle-switch__htra span {
+.c-hamburger--htra span {
   transition: transform 0.3s;
 }
-.cmn-toggle-switch__htra span::before {
+.c-hamburger--htra span::before {
   transform-origin: top left;
   transition: transform 0.3s, width 0.3s, top 0.3s;
 }
-.cmn-toggle-switch__htra span::after {
+.c-hamburger--htra span::after {
   transform-origin: bottom left;
   transition: transform 0.3s, width 0.3s, bottom 0.3s;
 }
-.cmn-toggle-switch__htra.active {
+.c-hamburger--htra.is-active {
   background-color: #ff6e0d;
 }
-.cmn-toggle-switch__htra.active span {
+.c-hamburger--htra.is-active span {
   transform: rotate(180deg);
 }
-.cmn-toggle-switch__htra.active span::before,
-.cmn-toggle-switch__htra.active span::after {
+.c-hamburger--htra.is-active span::before,
+.c-hamburger--htra.is-active span::after {
   width: 50%;
 }
-.cmn-toggle-switch__htra.active span::before {
+.c-hamburger--htra.is-active span::before {
   top: 0;
-  transform: translateX(-0.1em) translateY(0.05em) rotate(-45deg);
+  transform: translateX(-$bar-thickness) translateY(4px) rotate(-45deg);
 }
-.cmn-toggle-switch__htra.active span::after {
+.c-hamburger--htra.is-active span::after {
   bottom: 0;
-  transform: translateX(-0.1em) translateY(-0.05em) rotate(45deg);
+  transform: translateX(-$bar-thickness) translateY(-4px) rotate(45deg);
 }
 /* ==========================================================================
 	Main Styles

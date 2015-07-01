@@ -1,59 +1,62 @@
-/* ==========================================================================
-	Adapted from https://github.com/callmenick/Animating-Hamburger-Icons/
-   ========================================================================== */
+/* -----------------------------------------------------------------------------
 
+  HAMBURGER ICONS COMPONENT
 
-// vars (original values commented)
-$button-width = 2em; // 108px
-$button-height = 1.7775em; // 96px
-$bar-thickness = 0.1em; // 6px
-$button-pad = .3334em; // 18px
-$button-trans-delay = 0.3s;
+----------------------------------------------------------------------------- */
+
+// vars
+
+$button-width = 96px;                    // The width of the button area
+$button-height = 96px;                   // The height of the button area
+$bar-thickness = 8px;                    // The thickness of the button bars
+$button-pad = 18px;                      // The left/right padding between button area and bars.
+$button-bar-space = 12px;                // The spacing between button bars
+$button-transistion-duration = 0.3s;     // The transition duration
 
 /**
  * Toggle Switch Globals
  *
- * All switches should take on the class `cmn-toggle-switch` as well as their
+ * All switches should take on the class `c-hamburger` as well as their
  * variant that will give them unique properties. This class is an overview
  * class that acts as a reset for all versions of the icon.
  */
 
-.cmn-toggle-switch {
-  display block
-  position relative
-  overflow hidden
-  margin 0
-  padding 0
-  width $button-width
-  height $button-height
-  font-size 0
-  text-indent -9999px
-  -webkit-appearance none
-  -moz-appearance none
-  appearance none
-  box-shadow none
-  border-radius none
-  border none
-  cursor pointer
-  transition background $button-trans-delay
+.c-hamburger {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $button-width;
+  height: $button-height;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background $button-transistion-duration;
 }
 
-.cmn-toggle-switch:focus {
-  outline none
+.c-hamburger:focus {
+  outline: none;
 }
 
-.cmn-toggle-switch span {
-  display block
-  position absolute
-  top ($button-height / 2) - ($bar-thickness / 2)
-  left $button-pad
-  right $button-pad
-  height $bar-thickness
-  background rgb(255,255,255)
+.c-hamburger span {
+  display: block;
+  position: absolute;
+  top: ($button-height / 2) - ($bar-thickness / 2);
+  left: $button-pad;
+  right: $button-pad;
+  height: $bar-thickness;
+  background: rgb(255,255,255);
 }
 
-.cmn-toggle-switch span::before,
-.cmn-toggle-switch span::after {
+.c-hamburger span::before,
+.c-hamburger span::after {
   position: absolute;
   display: block;
   left: 0;
@@ -63,12 +66,12 @@ $button-trans-delay = 0.3s;
   content: "";
 }
 
-.cmn-toggle-switch span::before {
-  top: -(($button-height / 2) - ($bar-thickness / 2) - $button-pad);
+.c-hamburger span::before {
+  top: -$bar-thickness - $button-bar-space;
 }
 
-.cmn-toggle-switch span::after {
-  bottom: -(($button-height / 2) - ($bar-thickness / 2) - $button-pad);
+.c-hamburger span::after {
+  bottom: -$bar-thickness - $button-bar-space;
 }
 
 /**
@@ -78,76 +81,76 @@ $button-trans-delay = 0.3s;
  * Nothing too fancy, simple transition.
  */
 
-.cmn-toggle-switch__rot {
+.c-hamburger--rot {
   background-color: rgb(40,170,220);
 }
 
-.cmn-toggle-switch__rot span {
-  transition: transform $button-trans-delay;
+.c-hamburger--rot span {
+  transition: transform $button-transistion-duration;
 }
 
 /* active state, i.e. menu open */
 
-.cmn-toggle-switch__rot.active {
+.c-hamburger--rot.is-active {
   background-color: darken(rgb(40,170,220), 20%);
 }
 
-.cmn-toggle-switch__rot.active span {
+.c-hamburger--rot.is-active span {
   transform: rotate(90deg);
 }
 
 /**
  * Style 2
- * 
+ *
  * Hamburger to "x" (htx). Takes on a hamburger shape, bars slide
  * down to center and transform into an "x".
  */
 
-.cmn-toggle-switch__htx {
+.c-hamburger--htx {
   background-color: rgb(255,50,100);
 }
 
-.cmn-toggle-switch__htx span {
-  transition: background 0s $button-trans-delay;
+.c-hamburger--htx span {
+  transition: background 0s $button-transistion-duration;
 }
 
-.cmn-toggle-switch__htx span::before,
-.cmn-toggle-switch__htx span::after {
-  transition-duration: $button-trans-delay, $button-trans-delay;
-  transition-delay: $button-trans-delay, 0s;
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+  transition-duration: $button-transistion-duration, $button-transistion-duration;
+  transition-delay: $button-transistion-duration, 0s;
 }
 
-.cmn-toggle-switch__htx span::before {
+.c-hamburger--htx span::before {
   transition-property: top, transform;
 }
 
-.cmn-toggle-switch__htx span::after {
+.c-hamburger--htx span::after {
   transition-property: bottom, transform;
 }
 
 /* active state, i.e. menu open */
 
-.cmn-toggle-switch__htx.active {
+.c-hamburger--htx.is-active {
   background-color: darken(rgb(255,50,100), 20%);
 }
 
-.cmn-toggle-switch__htx.active span {
+.c-hamburger--htx.is-active span {
   background: none;
 }
 
-.cmn-toggle-switch__htx.active span::before {
+.c-hamburger--htx.is-active span::before {
   top: 0;
   transform: rotate(45deg);
 }
 
-.cmn-toggle-switch__htx.active span::after {
+.c-hamburger--htx.is-active span::after {
   bottom: 0;
   transform: rotate(-45deg);
 }
 
-.cmn-toggle-switch__htx.active span::before,
-.cmn-toggle-switch__htx.active span::after {
-  transition-delay: 0s, $button-trans-delay;
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+  transition-delay: 0s, $button-transistion-duration;
 }
 
 /**
@@ -158,50 +161,50 @@ $button-trans-delay = 0.3s;
  * will be close on re-click of the icon.
  */
 
-.cmn-toggle-switch__htla {
+.c-hamburger--htla {
   background-color: rgb(50,220,100);
 }
 
-.cmn-toggle-switch__htla span {
-  transition: transform $button-trans-delay;
+.c-hamburger--htla span {
+  transition: transform $button-transistion-duration;
 }
 
-.cmn-toggle-switch__htla span::before,
-.cmn-toggle-switch__htla span::after {
-  
+.c-hamburger--htla span::before,
+.c-hamburger--htla span::after {
+
 }
 
-.cmn-toggle-switch__htla span::before {
+.c-hamburger--htla span::before {
   transform-origin: top right;
-  transition: transform $button-trans-delay, width $button-trans-delay, top $button-trans-delay;
+  transition: transform $button-transistion-duration, width $button-transistion-duration, top $button-transistion-duration;
 }
 
-.cmn-toggle-switch__htla span::after {
+.c-hamburger--htla span::after {
   transform-origin: bottom right;
-  transition: transform $button-trans-delay, width $button-trans-delay, bottom $button-trans-delay;
+  transition: transform $button-transistion-duration, width $button-transistion-duration, bottom $button-transistion-duration;
 }
 
 /* active state, i.e. menu open */
 
-.cmn-toggle-switch__htla.active {
+.c-hamburger--htla.is-active {
   background-color: darken(rgb(50,220,100), 20%);
 }
 
-.cmn-toggle-switch__htla.active span {
+.c-hamburger--htla.is-active span {
   transform: rotate(180deg);
 }
 
-.cmn-toggle-switch__htla.active span::before,
-.cmn-toggle-switch__htla.active span::after {
+.c-hamburger--htla.is-active span::before,
+.c-hamburger--htla.is-active span::after {
   width: 50%;
 }
 
-.cmn-toggle-switch__htla.active span::before {
+.c-hamburger--htla.is-active span::before {
   top: 0;
   transform: translateX($button-width/2 - $button-pad + $bar-thickness) translateY($bar-thickness/2) rotate(45deg);
 }
 
-.cmn-toggle-switch__htla.active span::after {
+.c-hamburger--htla.is-active span::after {
   bottom: 0;
   transform: translateX($button-width/2 - $button-pad + $bar-thickness) translateY(-($bar-thickness)/2) rotate(-45deg);
 }
@@ -210,54 +213,54 @@ $button-trans-delay = 0.3s;
  * Style 4
  *
  * Hamburger to right-arrow (htra). Hamburger menu transforms to a
- * right-pointing arrow. Usually indicates an off canvas menu sliding in from 
+ * right-pointing arrow. Usually indicates an off canvas menu sliding in from
  * right that will be close on re-click of the icon.
  */
 
-.cmn-toggle-switch__htra {
+.c-hamburger--htra {
   background-color: rgb(255,150,80);
 }
 
-.cmn-toggle-switch__htra span {
-  transition: transform $button-trans-delay;
+.c-hamburger--htra span {
+  transition: transform $button-transistion-duration;
 }
 
-.cmn-toggle-switch__htra span::before,
-.cmn-toggle-switch__htra span::after {
-  
+.c-hamburger--htra span::before,
+.c-hamburger--htra span::after {
+
 }
 
-.cmn-toggle-switch__htra span::before {
+.c-hamburger--htra span::before {
   transform-origin: top left;
-  transition: transform $button-trans-delay, width $button-trans-delay, top $button-trans-delay;
+  transition: transform $button-transistion-duration, width $button-transistion-duration, top $button-transistion-duration;
 }
 
-.cmn-toggle-switch__htra span::after {
+.c-hamburger--htra span::after {
   transform-origin: bottom left;
-  transition: transform $button-trans-delay, width $button-trans-delay, bottom $button-trans-delay;
+  transition: transform $button-transistion-duration, width $button-transistion-duration, bottom $button-transistion-duration;
 }
 
 /* active state, i.e. menu open */
 
-.cmn-toggle-switch__htra.active {
+.c-hamburger--htra.is-active {
   background-color: darken(rgb(255,150,80), 20%);
 }
 
-.cmn-toggle-switch__htra.active span {
+.c-hamburger--htra.is-active span {
   transform: rotate(180deg);
 }
 
-.cmn-toggle-switch__htra.active span::before,
-.cmn-toggle-switch__htra.active span::after {
+.c-hamburger--htra.is-active span::before,
+.c-hamburger--htra.is-active span::after {
   width: 50%;
 }
 
-.cmn-toggle-switch__htra.active span::before {
+.c-hamburger--htra.is-active span::before {
   top: 0;
-  transform: translateX(-($bar-thickness)) translateY($bar-thickness/2) rotate(-45deg);
+  transform: translateX(-$bar-thickness) translateY($bar-thickness/2) rotate(-45deg);
 }
 
-.cmn-toggle-switch__htra.active span::after {
+.c-hamburger--htra.is-active span::after {
   bottom: 0;
-  transform: translateX(-($bar-thickness)) translateY(-($bar-thickness)/2) rotate(45deg);
+  transform: translateX(-$bar-thickness) translateY(-($bar-thickness)/2) rotate(45deg);
 }

@@ -70,7 +70,7 @@
 
 				<?php wp_nav_menu( $nav_args_main ); ?>
 
-				<button id="hamburger" class="sb-toggle-left cmn-toggle-switch cmn-toggle-switch__htla">
+				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger__htx">
 					<span>Toggle nav</span>
 				</button>
 			</header><!-- #masthead -->
