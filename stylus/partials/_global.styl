@@ -6,9 +6,9 @@
 $some-yellow = #f5c419
 
 
-// Classes
+// Functions
 
-.unselectable
+-unselectable()
 	-webkit-user-select: none; /* Chrome/Safari */
 	-moz-user-select: none; /* Firefox */
 	-ms-user-select: none; /* IE10+ */
@@ -16,14 +16,12 @@ $some-yellow = #f5c419
 	user-select: none;
 
 
-.invisible
+-invisible()
 	visibility hidden
 	position absolute
 
 
-// Functions
-
-flexbox()
+-flexbox()
 	text-align justify
 
 	&:after
@@ -31,11 +29,11 @@ flexbox()
 		display inline-block
 		content ''
 
-flexitem()
+-flexitem()
 	display inline-block
 
 
-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
+-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
 	if $customWidth == false
 		$w = 85%
 	else
@@ -52,46 +50,18 @@ wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
 	margin $topMargin auto $bottomMargin auto
 
 
-unwrapper()
+-unwrapper()
 	width 100%
 	max-width none
 	margin initial
 
 
-clearfix()
+-clearfix()
 	@extends .clearfix
 
 
-body-shadow( $yPos )
+-body-shadow( $yPos )
 	box-shadow 0em $yPos 0.45em 0em rgba(0,0,0,0.5)
-
-
-placeholder-props( $famVal, $color)
-	&::-webkit-input-placeholder
-		font-family $famVal
-		color $color
-	&:-moz-placeholder /* Firefox 18- */
-		font-family $famVal
-		color $color
-	&::-moz-placeholder  /* Firefox 19+ */
-		font-family $famVal
-		color $color
-	&:-ms-input-placeholder
-		font-family $famVal
-		color $color
-
-
-/* flexbox( $mode = space-between )
-	-ms-box-orient: horizontal;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: $mode
-	justify-content: $mode
-*/
 
 
 -opacity( $n )
@@ -114,3 +84,42 @@ placeholder-props( $famVal, $color)
 -transition( $n )
 	-webkit-transition $n
 	transition $n
+
+
+-placeholder-props( $famVal, $color, $opacity = null )
+	&::-webkit-input-placeholder
+		font-family $famVal
+		color $color
+		if $opacity != null
+			opacity( $opacity )
+
+	&:-moz-placeholder /* Firefox 18- */
+		font-family $famVal
+		color $color
+		if $opacity != null
+			opacity( $opacity )
+
+	&::-moz-placeholder  /* Firefox 19+ */
+		font-family $famVal
+		color $color
+		if $opacity != null
+			opacity( $opacity )
+
+	&:-ms-input-placeholder
+		font-family $famVal
+		color $color
+		if $opacity != null
+			opacity( $opacity )
+
+
+/* -flexbox( $mode = space-between )
+	-ms-box-orient: horizontal;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: $mode
+	justify-content: $mode
+*/

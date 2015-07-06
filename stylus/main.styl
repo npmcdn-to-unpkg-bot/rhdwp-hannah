@@ -75,10 +75,10 @@ input[type="submit"]
 		list-style none
 		padding-left 0
 		margin 0
-		flexbox()
+		-flexbox()
 
 		li
-			flexitem()
+			-flexitem()
 
 			a
 				text-decoration none
@@ -115,7 +115,7 @@ input[type="submit"]
 
 
 #main
-	wrapper 2em
+	-wrapper(2em,2em)
 	padding 2em 0
 	box-sizing border-box
 
@@ -203,7 +203,7 @@ input[type="submit"]
 .blog-area
 	#main
 		.post
-			clearfix()
+			-clearfix()
 
 			.entry-header
 				text-align center
@@ -223,7 +223,7 @@ input[type="submit"]
 .single-pagination
 	margin 1em auto
 	font-size 1.1em
-	clearfix()
+	-clearfix()
 
 	.pag-next
 	[rel="prev"]

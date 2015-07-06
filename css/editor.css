@@ -1,21 +1,10 @@
 /***
-* RHD Dev: Compiled at 6:35:18 PM on 01-07-2015
+* RHD Dev: Compiled at 8:23:50 PM on 05-07-2015
 ***/
 
 /**
  * TinyMCE Styles
  **/
-.unselectable {
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
-  -o-user-select: none;
-  user-select: none;
-}
-.invisible {
-  visibility: hidden;
-  position: absolute;
-}
 .hidden {
   display: none !important;
   visibility: hidden;
@@ -791,7 +780,7 @@ input[type="submit"]:hover {
   width: 85%;
   max-width: 64em;
   position: relative;
-  margin: 2em auto 0 auto;
+  margin: 2em auto 2em auto;
   padding: 2em 0;
   box-sizing: border-box;
 }
