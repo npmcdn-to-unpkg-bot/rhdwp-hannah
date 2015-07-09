@@ -5,6 +5,7 @@
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
+
 /* ==========================================================================
 	Main Styles
    ========================================================================== */
@@ -21,6 +22,7 @@ html
 	width 100%
 	font-size 16px
 	margin 0
+	font-family $ff_body
 
 
 body
@@ -58,7 +60,7 @@ textarea
 input[type="submit"]
 	cursor pointer
 	font-family inherit
-	-transition all 0.25s
+	-transition(all 0.25s)
 
 	&:hover
 		background-color gray
@@ -141,13 +143,18 @@ input[type="submit"]
 
 #colophon
 	width 100%
+	height 6em
 	position absolute
 	bottom 0
 	left 0
 
 	.site-info
+		width 100%
 		margin 0
-		padding 1em 0
+		position absolute
+		top 50%
+		left 0
+		-transform(translateY(-50%))
 		text-align center
 		line-height 1.7
 		font-size 0.9em
