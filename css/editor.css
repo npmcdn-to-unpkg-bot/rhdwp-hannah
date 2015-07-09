@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:23:50 PM on 05-07-2015
+* RHD Dev: Compiled at 7:15:18 PM on 09-07-2015
 ***/
 
 /**
@@ -681,6 +681,12 @@ input[type="radio"] {
   transform: translateX(-$bar-thickness) translateY(-4px) rotate(45deg);
 }
 html,
+body,
+#page,
+#main {
+  min-height: 100%;
+}
+html,
 body {
   text-shadow: 0 0 1px transparent;
   width: 100%;
@@ -796,6 +802,9 @@ input[type="submit"]:hover {
 }
 #colophon {
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 #colophon .site-info {
   margin: 0;
