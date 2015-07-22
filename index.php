@@ -11,7 +11,7 @@ get_header();
 session_start();
 ?>
 
-	<section id="primary" class="site-content blog-area">
+	<section id="primary" class="site-content blog-area <?php echo ( is_archive() || is_home() ) ? 'blog-index' : ''; ?>">
 
 		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
 

@@ -13,10 +13,11 @@ get_header(); ?>
 
 			<?php if ( have_posts() ) : ?>
 
+				<header class="page-header">
+					<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
+				</header><!-- .page-header -->
+
 				<?php while ( have_posts() ) : the_post(); ?>
-					<header class="page-header">
-						<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h1>
-					</header><!-- .page-header -->
 					<?php get_template_part( 'content' ); ?>
 				<?php endwhile; ?>
 
@@ -30,7 +31,7 @@ get_header(); ?>
 					// Show a different message to a logged-in user who can add posts.
 				?>
 					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Sorry, dude. Couldn\'t find anything. Give it another try, we believe in you.', 'rhd' ); ?></h1>
+						<h2 class="entry-title"><?php _e( 'Sorry, dude. Couldn\'t find anything. Give it another try, we believe in you.', 'rhd' ); ?></h2>
 					</header>
 
 					<div class="entry-content">
@@ -41,7 +42,7 @@ get_header(); ?>
 					// Show the default message to everyone else.
 				?>
 					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'rhd' ); ?></h1>
+						<h2 class="entry-title"><?php _e( 'Nothing Found', 'rhd' ); ?></h2>
 					</header>
 
 					<div class="entry-content">

@@ -15,7 +15,7 @@
 				<div class="rhd-dropdown-title">
 					<span class="dd-title-text">Categories</span>
 					<a class="drop" href="">
-						<span class="dd-link-text">Go</span>
+						<span class="dd-link-text">&dtri;</span>
 					</a>
 				</div>
 				<ul>
@@ -28,7 +28,7 @@
 				<div class="rhd-dropdown-title">
 					<span class="dd-title-text">Archives</span>
 					<a class="drop" href="">
-						<span class="dd-link-text">Go</span>
+						<span class="dd-link-text">&dtri;</span>
 					</a>
 				</div>
 				<ul>

@@ -2,17 +2,10 @@
 	Setup
    ========================================================================== */
 
-var $mast = jQuery('#masthead'),
-	$navCont = jQuery('#site-navigation-container'),
-	$nav = jQuery('#site-navigation'),
-	$hamburger = jQuery('#hamburger'),
-	$content = jQuery('#content'),
-	$main = jQuery('#main');
-
 var gray = "#565656";
 
 var isSingle = ( jQuery('body').hasClass('single') ) ? true : false,
-	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
+	isGrid = ( jQuery('#main').hasClass('grid') === true ) ? true : false,
 	isPaged = jQuery('body').hasClass('paged');
 
 // wp_data object
@@ -35,24 +28,24 @@ var isFrontPage,
 	$(document).ready(function(){
 		rhdInit();
 
-		console.log(isFrontPage);
-
 		// fitText
 		if ( $('#page-title-big').length )
 			fitText(document.getElementById('page-title-big'), 0.8);
 
 		if ( $('#front-page-title-caption').length )
-			fitText(document.getElementById('front-page-title-caption'), 1.6);
+			fitText(document.getElementById('front-page-title-caption'), 1.5);
 
 		// skrollr
-		$(".front-page .entry-header, .single .entry-header, .page .entry-header")
-			.attr('data-start', 'background-position: 0px 25%;')
-			.attr('data-top-bottom', 'background-position: 0px -75%;');
-		var $s = skrollr.init({
-			forceHeight: false,
-			smoothScrolling: true,
-			smoothScrollingDuration: -100
-		});
+		if ( isDesktop ) {
+			$(".front-page .entry-header, .single .entry-header, .page .entry-header")
+				.attr('data-start', 'background-position: 0px 25%;')
+				.attr('data-top-bottom', 'background-position: 0px -60%;');
+			var $s = skrollr.init({
+				forceHeight: false,
+				smoothScrolling: true,
+				smoothScrollingDuration: -100
+			});
+		}
 
 		// WPCF7 Form
 		$('.wpcf7 input, .wpcf7 textarea').each(function(){
@@ -82,7 +75,7 @@ var isFrontPage,
 			var $this = $(this),
 				$dd = $this.siblings('ul');
 
-			$dd.slideToggle();
+			$dd.slideToggle('fast');
 		});
 
 		if ( isFrontPage ) {
@@ -245,14 +238,17 @@ var isFrontPage,
 	}
 
 	function frontPageNavHandler(){
-		var $logo = $("#front-page-title > img");
+		var $logo = $("#front-page-title > img"),
+			mastHt = $("#masthead").height();
 
 		if ( !$logo.visible( true ) ) {
-			$mast.slideDown();
-			console.log('down');
+			$('#masthead').stop().animate({
+				top: 0
+			});
 		} else {
-			$mast.slideUp();
-			console.log('up');
+			$('#masthead').stop().animate({
+				top: -1*mastHt
+			});
 		}
 	}
 

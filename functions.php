@@ -34,7 +34,7 @@ function rhd_enqueue_styles(){
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), null, 'all' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Quicksand:400,700' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
 
 	$normalize_deps = array(
 		'slidebars',
@@ -67,9 +67,13 @@ function rhd_enqueue_scripts() {
 		'jquery-visible',
 		'modernizr',
 		'slidebars',
-		'fittext',
-		'skrollr'
+		'fittext'
 	);
+
+	if ( !wp_is_mobile() ) {
+		$main_deps[] = 'skrollr';
+	}
+
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 	wp_enqueue_script( 'rhd-main' );
 
@@ -107,7 +111,7 @@ add_action( 'wp_enqueuescripts', 'rhd_register_jquery' );
 
 function rhd_add_editor_styles() {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Quicksand:400,700';
+	$font_url = '//fonts.googleapis.com/css?family=Lato:300,400,700';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -153,15 +157,6 @@ add_action( 'wp_head', 'rhd_favicons' );
 
 // Sidebars
 function rhd_register_sidebars() {
-	register_sidebar(array(
-		'name'			=> __( 'Sidebar', 'rhd' ),
-		'id'			=> 'sidebar',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>'
-	));
-
 	register_sidebar(array(
 		'name'			=> __( 'Footer Widget Area', 'rhd' ),
 		'id'			=> 'footer-widget-area',
@@ -223,7 +218,7 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
 add_theme_support( 'automatic-feed-links' );
 
 function rhd_image_sizes(){
-	//add_image_size( 'square', 200, 200, true );
+	add_image_size( 'index-featured', 482, 240, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 

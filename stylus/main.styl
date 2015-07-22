@@ -2,6 +2,7 @@
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
 @require "partials/_galleries.styl"
+@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
@@ -14,7 +15,7 @@ html
 	text-shadow 0 0 1px transparent
 	font-size 16px
 	font-weight 400
-	font-family 'Quicksand', sans-serif
+	font-family $ff_body
 	color $gray
 	margin 0
 	background white
@@ -53,6 +54,7 @@ input
 textarea
 	background-color white
 	border none
+	-border-radius(0.1em)
 	box-sizing border-box
 	padding 0.5em
 	font-family inherit
@@ -146,7 +148,11 @@ input[type="submit"]
 
 			&:hover
 			&:active
-				color $gray
+				color white
+
+
+.sb-slidebar
+	background-color $gray !important
 
 
 #hamburger
@@ -160,11 +166,11 @@ input[type="submit"]
 		background-color transparent
 
 	span
-		background-color black
+		background-color $gray
 
 		&:before
 		&:after
-			background-color black
+			background-color (@background-color)
 
 
 #main
@@ -172,7 +178,6 @@ input[type="submit"]
 
 
 #primary
-#secondary
 	width 100%
 	position relative
 	box-sizing border-box
@@ -181,9 +186,11 @@ input[type="submit"]
 #primary
 	padding-top $mast-ht
 
-
-#secondary
-	margin-bottom 2em
+	.post
+		#content
+			.entry-content
+			.entry-summary
+				-wrapper(0, 0, 95%)
 
 
 #colophon
@@ -200,7 +207,6 @@ input[type="submit"]
 	text-align center
 	font-size 0.9em
 	position relative
-	line-height 1.2
 
 	> p
 		width 100%
@@ -212,8 +218,8 @@ input[type="submit"]
 		color inherit
 
 	#rhd-logo-footer
-		width 1.35em
-		height 1.35em
+		width 1.15em
+		height 1.15em
 		margin 0 0.05em
 		position relative
 		bottom 0.25em
@@ -259,11 +265,19 @@ input[type="submit"]
 
 
 .entry-content
+.entry-meta
 	-wrapper(0, 0, 90%)
-	padding 2em 0
+
+
+.entry-content
+	padding 2.5em 0
 
 	p
-		margin 0.25em auto
+		margin 1em auto
+		text-indent 1.5em
+
+		&[style*="text-align: center"]
+			text-indent 0
 
 		&:first-child
 			margin-top 0
@@ -280,7 +294,16 @@ input[type="submit"]
 		line-height 1.1
 
 	ul
-		padding-left 1em
+		width 80%
+		margin 0 auto
+		list-style-type none
+		padding-left 0
+
+		li
+			background url("../img/spear.png") no-repeat
+			background-position left 0.25em
+			background-size 0.9em auto
+			padding-left 1.25em
 
 	img
 		max-width 100%
@@ -295,7 +318,6 @@ input[type="submit"]
 		&.aligncenter
 			display block
 			margin 0 auto
-
 
 
 .post
@@ -316,10 +338,10 @@ input[type="submit"]
 				font-size 0.8em
 
 .page
-.post-single
+.single
 	.entry-header
 		width 100%
-		height 70vh
+		height 30vh
 		position relative
 		background-position center center
 		background-position fixed
@@ -327,8 +349,16 @@ input[type="submit"]
 		text-align center
 		color $orange
 
+		.overlay
+			width 100%
+			height 100%
+			position absolute
+			top 0
+			left 0
+			background-color rgba(0,0,0,0.6)
+
 		.page-title
-			-wrapper(0, 0, 60%)
+			-wrapper(0, 0, 90%)
 			height auto
 			margin 0
 			line-height 1
@@ -343,19 +373,14 @@ input[type="submit"]
 
 		.entry-date
 			position absolute
-			bottom 20%
+			bottom 8%
 			left 50%
 			padding 0.3em 0.5em
 			-border-radius(1em)
 			-transform(translateX(-50%))
 			font-size 1.2em
-			background-color rgba(255,255,255, 0.5)
+			background-color rgba(255,255,255, 0.75)
 			color $gray
-
-
-.blog-area
-	#content
-		margin-top 1em
 
 
 .pagination
@@ -379,7 +404,7 @@ input[type="submit"]
 
 .front-page
 	#masthead
-		height 0
+		top -($mast-ht)
 
 	#primary
 		padding-top 0
@@ -394,6 +419,7 @@ input[type="submit"]
 		top 50%
 		left 50%
 		-transform(translate(-50%, -50%))
+		font-weight 300
 
 		#front-page-title
 			width 75%
@@ -429,6 +455,8 @@ input[type="submit"]
 						color $orange
 
 	.entry-content
+		max-width 41em
+
 		.arm-yourself
 			margin 1.5em auto 0
 
@@ -456,7 +484,32 @@ input[type="submit"]
 				color white
 
 			.entry-sub-content-inner
-				-wrapper()
+				-wrapper(0, 0, 90%)
+
+		#about-ghostbox
+			width 100%
+			padding 1em 1em
+			margin 2em auto 1em
+			-border-radius(0.3em)
+			border 3px solid white
+			-clearfix()
+			text-align center
+
+			.ghostbox-left
+				margin-bottom 1em
+
+			p
+				text-indent 0
+				margin 0 0 1.1em 0
+
+				&:last-child
+					margin-bottom 0
+
+			.ghostbox-heading
+				font-weight 700
+				margin 0 0 0.25em
+				font-size 1.1em
+				text-transform uppercase
 
 
 /* ==========================================================================
@@ -497,118 +550,81 @@ input[type="submit"]
 		p
 			margin-bottom 0.75rem
 
-		input
+		input[type="text"]
+		input[type="email"]
 		textarea
 			width 100%
-			background-color $off-white
-			font-size 0.8em
-			border none
+			background-color white
+			border 2px solid $gray-lt
+			font-size 1em
 			box-sizing border-box
 			padding 0.5em
+			-transition(0.2s all)
 			display block
+
+			&:focus
+				border-color $orange
 
 		textarea
 			margin-top 1.7rem
 
 		#submit
 			width auto
-			padding-left 0.8em
 			cursor pointer
+			-transition(all 0.2s)
+
+		.comment-subscription-form
+			margin initial
 
 
 /* ==========================================================================
 	Blog Areas
    ========================================================================== */
 
-#blog-metabar
-	width 100%
-	height auto
-	padding 1em 0 0.75em 0
-	background $orange
+.blog-index
+	#content
+		-wrapper(2em, 2em, 90%)
 
-	#blog-metabar-content
-		-wrapper(0,0, 90%)
-		list-style none
-		padding-left 0
+	.attachment-index-featured
+	.attachment-index-featured-default
+		-border-radius(0.1em)
 
-		li
-			width 100%
-			margin-bottom 0.5em
-			display block
 
-			.drop
-			.search-submit
-				width 2em
-				height 2em
-				background $gray
-				color $white
-				text-transform uppercase
-				-transition(all 0.25s)
-				display inline-block
-				position absolute
+.attachment-index-featured-default
+	width 482px
+	height 240px
+
+
+/* ==========================================================================
+	Search results
+   ========================================================================== */
+
+.search-results
+	#content
+		-wrapper(2em, 2em)
+
+		.page-title
+			font-size 2em
+
+		.entry-header
+			height auto
+
+			.entry-title
+				margin-bottom 0
+
+			.entry-date
+				background none
+				-transform(none)
+				-border-radius(0)
+				position relative
 				top 0
 				right 0
-				font-weight 400
+				bottom 0
+				left 0
+				margin 0
+				padding 0
 				font-size 1em
-
-			.search-field
-				-placeholder-props( $ff_body, $gray, 1)
-
-			.rhd-dropdown-title
-			.search-field
-				width 100%
-				height 2em
-				padding-left 0.5em
-				background white
-				color $gray
-				position relative
-				font-family $ff_body
-
-			.rhd-dropdown-title
-				.dd-title-text
-				.dd-link-text
-					position relative
-					top 0.25em
-
-			.drop
-				text-decoration none
-				text-align center
-
-				.dd-link-text
-					color white
-
-			.rhd-dropdown
-				position relative
-				text-transform uppercase
-
-				ul
-					width 100%
-					position absolute
-					top 2em
-					overflow-y auto
-					background white
-					padding-left 0
-					margin 0
-					display none
-					z-index 999
-					box-shadow 0 3px 4px -1px rgba(0,0,0,0.5)
-
-					li
-						width 100%
-						background white
-						display block
-						padding-left 0.5em
-
-						a
-							color $gray
-							text-decoration none
-							-transition(all 0.25s)
-
-							&:hover
-							&:active
-								color $orange
-		#blog-search
-			top	0
+				line-height 1
 
 
 /* ==========================================================================
@@ -641,6 +657,9 @@ input[type="submit"]
 		line-height 1.3
 		text-align center
 
+		a
+			color white
+
 
 	.disclaimer
 		font-size 0.9em
@@ -659,9 +678,15 @@ input[type="submit"]
 			-placeholder-props($ff_body, black)
 			margin-bottom 1em
 			color $gray
+			-transition(all 0.2s)
 
 		textarea
-			height 8em
+		input[type="text"]
+		input[type="email"]
+			border 2px solid white
+
+			&:focus
+				border 2px solid $gray-lt
 
 		input
 			height 2em
@@ -675,6 +700,9 @@ input[type="submit"]
 
 				&:hover
 					background $gray-dk
+
+		textarea
+			height 8em
 
 		.ajax-loader
 			position absolute
@@ -712,6 +740,7 @@ input[type="submit"]
 				margin 0 auto
 				line-height 1
 
+
 	#blog-metabar
 		padding 0
 
@@ -729,6 +758,55 @@ input[type="submit"]
 				top	0.2em
 
 
+	.page
+	.single
+		.entry-header
+			height 55vh
+
+			.page-title
+				font-size 5em
+				width 40%
+
+
+	#primary
+		&.blog-index
+			#content
+				-wrapper(1em, 1em)
+				-clearfix()
+
+			.post
+				width 47%
+
+				&:nth-of-type(odd)
+					float left
+				&:nth-of-type(even)
+					float right
+
+
+	.entry-content
+		ul
+			padding-left 2.5em
+
+
+	.page-id-10
+		.entry-content
+			.entry-sub-content
+				.entry-sub-content-inner
+					-wrapper(0, 0, 55%)
+
+		#about-ghostbox
+			& > div
+				width 49%
+
+			.ghostbox-left
+				float left
+				margin-bottom 0
+
+			.ghostbox-right
+				float right
+
+
+
 	#comments
 		#commentform
 			width 75%
@@ -738,12 +816,7 @@ input[type="submit"]
 
 			input
 			textarea
-				background-color $off-white
-				font-size 0.8em
-				border none
-				box-sizing border-box
 				padding 0.5em
-				display block
 
 			input
 				&[type="text"]
@@ -753,9 +826,6 @@ input[type="submit"]
 			textarea
 				margin-top 1.7rem
 
-			#submit
-				width auto
-				padding-left 0.8em
 
 	#footer-widget-area
 		-wrapper(1em, 1em, 55%)

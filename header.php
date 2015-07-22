@@ -68,11 +68,11 @@
 			);
 		?>
 
-		<div class="sb-slidebar sb-right sb-style-push sb-width-thin">
+		<div class="sb-slidebar sb-right sb-style-push">
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
 
-		<header id="masthead" class="site-header" role="banner">
+		<header id="masthead" class="site-header">
 			<h1 id="site-title" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 
 			<a href="<?php echo home_url(); ?>"><img id="site-brand" src="<?php echo RHD_IMG_DIR; ?>/spear-ip-logo.png" alt="Spear IP"></a>
