@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:57:35 PM on 21-07-2015
+* RHD Dev: Compiled at 1:02:33 PM on 22-07-2015
 ***/
 
 /**
@@ -1060,6 +1060,9 @@ input[type="submit"]:hover {
   width: auto;
   padding-left: 0.8em;
   cursor: pointer;
+}
+#comments #commentform .comment-subscription-form {
+  margin: initial;
 }
 #secondary .widget {
   width: 100%;
