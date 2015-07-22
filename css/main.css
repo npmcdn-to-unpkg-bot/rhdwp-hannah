@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:02:33 PM on 22-07-2015
+* RHD Dev: Compiled at 1:24:39 PM on 22-07-2015
 ***/
 
 .hidden {
@@ -177,6 +177,7 @@ img.aligncenter {
 #blog-metabar #blog-metabar-content li .drop {
   text-decoration: none;
   text-align: center;
+  line-height: 1.3;
 }
 #blog-metabar #blog-metabar-content li .drop .dd-link-text {
   color: #fff;
