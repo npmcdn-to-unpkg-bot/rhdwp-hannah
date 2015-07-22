@@ -73,7 +73,7 @@
 		</div>
 
 		<div id="page" class="hfeed site sb-site-container">
-			<header id="masthead" class="site-header" role="banner">
+			<header id="masthead" class="site-header">
 				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
 
 				<?php wp_nav_menu( $nav_args_main ); ?>
