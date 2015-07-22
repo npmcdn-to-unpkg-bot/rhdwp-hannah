@@ -1,0 +1,795 @@
+@require "partials/_global.styl"
+@require "partials/_fonts.styl"
+@require "partials/_helpers.styl"
+@require "partials/_galleries.styl"
+@require "partials/_defaults.styl"
+@require "partials/_hamburger.styl"
+
+/* ==========================================================================
+	Main Styles
+   ========================================================================== */
+
+html
+	width 100%
+	text-shadow 0 0 1px transparent
+	font-size 16px
+	font-weight 400
+	font-family 'Quicksand', sans-serif
+	color $gray
+	margin 0
+	background white
+	overflow-x visible !important
+
+
+body
+	@extends html
+	overflow-x hidden !important
+
+	&.admin-bar
+		#wpadminbar
+			position fixed
+			top 0
+
+
+a
+	outline 0 !important
+
+	&:link
+	&:visited
+		text-decoration none
+		color $orange
+
+	&:hover
+	&:active
+	&:focus
+		text-decoration underline
+
+
+strong
+	font-weight 700
+
+
+input
+textarea
+	background-color white
+	border none
+	box-sizing border-box
+	padding 0.5em
+	font-family inherit
+	-placeholder-props( $ff_body, black )
+
+
+input[type="submit"]
+	cursor pointer
+	font-family inherit
+	-transition all 0.25s
+
+	&:hover
+		background-color gray
+
+
+#masthead
+	width 100%
+	height $mast-ht
+	position fixed
+	top 0
+	z-index 999
+	background white
+
+
+#site-brand
+	width auto
+	height 3em
+	position absolute
+	top 0.75em
+	left 2%
+
+
+.site-navigation
+	list-style none
+	padding-left 0
+
+
+#site-navigation-container
+	width 100%
+	display none
+	text-align center
+	position relative
+	top 1.55em
+	text-transform uppercase
+
+	#site-navigation
+		-flexbox()
+		margin 0
+
+		li
+			-flexitem()
+
+			a
+				text-decoration none
+				color $orange
+				-transition(0.25s color ease)
+
+				&:hover
+				&:active
+				&:focus
+					color $gray
+
+			.sub-menu
+				position absolute
+				padding-left 0
+				line-height 1.7
+				margin-top 0.2em
+				z-index 999 !important
+
+				li
+					display block
+					margin 0
+
+
+#site-navigation-sb-container
+	width 100%
+	text-align center
+	position relative
+	top $mast-ht + 1em
+
+	#site-navigation-sb
+		list-style: none
+		font-size 1.6em
+		line-height 1.4
+		text-transform uppercase
+
+		a
+			color $orange
+			text-decoration none
+			-transition(all 0.25s)
+
+			&:hover
+			&:active
+				color $gray
+
+
+#hamburger
+	position absolute
+	top 0.8em
+	right 1em
+	font-size 1.3em // relative resizing
+	background-color transparent
+
+	&.active
+		background-color transparent
+
+	span
+		background-color black
+
+		&:before
+		&:after
+			background-color black
+
+
+#main
+	box-sizing border-box
+
+
+#primary
+#secondary
+	width 100%
+	position relative
+	box-sizing border-box
+
+
+#primary
+	padding-top $mast-ht
+
+
+#secondary
+	margin-bottom 2em
+
+
+#colophon
+	width 100%
+	background $orange
+	position relative
+
+	a
+		color $gray
+
+
+#site-info
+	height $mast-ht
+	text-align center
+	font-size 0.9em
+	position relative
+	line-height 1.2
+
+	> p
+		width 100%
+		margin 0
+		position relative
+		padding 1.5em 0 2.5em
+
+	a
+		color inherit
+
+	#rhd-logo-footer
+		width 1.35em
+		height 1.35em
+		margin 0 0.05em
+		position relative
+		bottom 0.25em
+
+
+.poly
+	width 20%
+	height 100%
+	position absolute
+	display none
+
+	canvas
+		width 100%
+		height 100%
+
+	&#poly-tl
+		top 0
+		left 0
+
+
+	&#poly-tr
+		top 0
+		right 0
+
+
+	&#poly-bl
+		bottom 0
+		left 0
+
+
+	&#poly-br
+		bottom 0
+		right 0
+
+
+/* ==========================================================================
+	Posts & Pages
+   ========================================================================== */
+
+.entry-title
+.page-title
+	margin-top 0
+
+
+.entry-content
+	-wrapper(0, 0, 90%)
+	padding 2em 0
+
+	p
+		margin 0.25em auto
+
+		&:first-child
+			margin-top 0
+
+		&:last-child
+			margin-bottom 0
+
+	h1
+	h2
+	h3
+	h4
+	h5
+	h6
+		line-height 1.1
+
+	ul
+		padding-left 1em
+
+	img
+		max-width 100%
+		height auto
+
+		&.alignleft
+			margin-right 1em
+
+		&.alignright
+			margin-left 1em
+
+		&.aligncenter
+			display block
+			margin 0 auto
+
+
+
+.post
+	-clearfix()
+
+	.entry-header
+		width 100%
+		text-align center
+		margin-bottom 1em
+
+		.entry-title
+			margin 0 0 0.25rem 0
+
+		.entry-date
+			margin 0
+
+			.sep
+				font-size 0.8em
+
+.page
+.post-single
+	.entry-header
+		width 100%
+		height 70vh
+		position relative
+		background-position center center
+		background-position fixed
+		background-size cover
+		text-align center
+		color $orange
+
+		.page-title
+			-wrapper(0, 0, 60%)
+			height auto
+			margin 0
+			line-height 1
+			font-size 5em
+			text-transform uppercase
+			font-weight normal
+			display inline-block
+			position absolute
+			top 50%
+			left 50%
+			-transform(translate(-50%, -50%))
+
+		.entry-date
+			position absolute
+			bottom 20%
+			left 50%
+			padding 0.3em 0.5em
+			-border-radius(1em)
+			-transform(translateX(-50%))
+			font-size 1.2em
+			background-color rgba(255,255,255, 0.5)
+			color $gray
+
+
+.blog-area
+	#content
+		margin-top 1em
+
+
+.pagination
+.single-pagination
+	margin 1em auto
+	font-size 1.1em
+	-clearfix()
+
+	.pag-next
+	[rel="prev"]
+		float left
+
+	.pag-prev
+	[rel="next"]
+		float right
+
+
+/* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.front-page
+	#masthead
+		height 0
+
+	#primary
+		padding-top 0
+
+	.entry-header
+		height auto
+		min-height 70vh
+
+	#splash
+		width 95%
+		position absolute
+		top 50%
+		left 50%
+		-transform(translate(-50%, -50%))
+
+		#front-page-title
+			width 75%
+			margin 0 auto
+
+			img
+				width 100%
+
+			#front-page-title-caption
+				position relative
+				bottom 1.2em
+				left 0.2em
+				text-transform uppercase
+				color $gray
+				margin 0
+
+		#front-page-mini-nav-container
+			margin 2em auto
+
+			#front-page-mini-nav
+				font-size 2em
+				margin 0
+				line-height 1.3
+				text-transform uppercase
+
+				a
+					color $gray
+					-transition(all 0.25s)
+					text-decoration none
+
+					&:hover
+					&:active
+						color $orange
+
+	.entry-content
+		.arm-yourself
+			margin 1.5em auto 0
+
+
+/* ==========================================================================
+	About Page
+   ========================================================================== */
+
+.page-id-10
+	.entry-content
+		-unwrapper()
+		padding 0
+		margin 0
+
+		.entry-sub-content
+			width 100%
+			padding $section-padding
+
+			&.white
+				background white
+				color $gray
+
+			&.orange
+				background $orange
+				color white
+
+			.entry-sub-content-inner
+				-wrapper()
+
+
+/* ==========================================================================
+	Comments
+   ========================================================================== */
+
+#comments
+	-wrapper(2em, 2em)
+
+	.commentlist
+		list-style none
+		padding-left 0
+
+		ul
+		ol
+			@extends #comments .commentlist
+
+		.children
+			padding 0 1.5em
+
+	.even
+		background $off-white
+
+	.odd
+		background white
+
+	.comment-body
+		padding 1em
+		box-sizing border-box
+
+	textarea
+		max-width 100%
+
+	#commentform
+		width 100%
+		min-width 18rem
+
+		p
+			margin-bottom 0.75rem
+
+		input
+		textarea
+			width 100%
+			background-color $off-white
+			font-size 0.8em
+			border none
+			box-sizing border-box
+			padding 0.5em
+			display block
+
+		textarea
+			margin-top 1.7rem
+
+		#submit
+			width auto
+			padding-left 0.8em
+			cursor pointer
+
+
+/* ==========================================================================
+	Blog Areas
+   ========================================================================== */
+
+#blog-metabar
+	width 100%
+	height auto
+	padding 1em 0 0.75em 0
+	background $orange
+
+	#blog-metabar-content
+		-wrapper(0,0, 90%)
+		list-style none
+		padding-left 0
+
+		li
+			width 100%
+			margin-bottom 0.5em
+			display block
+
+			.drop
+			.search-submit
+				width 2em
+				height 2em
+				background $gray
+				color $white
+				text-transform uppercase
+				-transition(all 0.25s)
+				display inline-block
+				position absolute
+				top 0
+				right 0
+				font-weight 400
+				font-size 1em
+
+			.search-field
+				-placeholder-props( $ff_body, $gray, 1)
+
+			.rhd-dropdown-title
+			.search-field
+				width 100%
+				height 2em
+				padding-left 0.5em
+				background white
+				color $gray
+				position relative
+				font-family $ff_body
+
+			.rhd-dropdown-title
+				.dd-title-text
+				.dd-link-text
+					position relative
+					top 0.25em
+
+			.drop
+				text-decoration none
+				text-align center
+
+				.dd-link-text
+					color white
+
+			.rhd-dropdown
+				position relative
+				text-transform uppercase
+
+				ul
+					width 100%
+					position absolute
+					top 2em
+					overflow-y auto
+					background white
+					padding-left 0
+					margin 0
+					display none
+					z-index 999
+					box-shadow 0 3px 4px -1px rgba(0,0,0,0.5)
+
+					li
+						width 100%
+						background white
+						display block
+						padding-left 0.5em
+
+						a
+							color $gray
+							text-decoration none
+							-transition(all 0.25s)
+
+							&:hover
+							&:active
+								color $orange
+		#blog-search
+			top	0
+
+
+/* ==========================================================================
+	Widget Areas & Sidebars
+   ========================================================================== */
+
+#footer-widget-area
+	-wrapper(1em, 1em, 95%)
+
+	.widget
+		-wrapper(1em, 1em, 85%)
+
+	.rhd_social_icons_simple
+		-wrapper(2em, 1em, 20em)
+		max-width 100%
+		-flexbox()
+
+		li
+			width 3em
+			height 3em
+			-flexitem()
+
+			img
+				width 100%
+				height 100%
+
+	.contact-info
+		color white
+		font-size 1.1em
+		line-height 1.3
+		text-align center
+
+
+	.disclaimer
+		font-size 0.9em
+		text-align center
+		line-height 1.3
+
+	.wpcf7
+		p
+			margin initial
+
+		input
+		textarea
+			width 100%
+			font-size 1em
+			font-family $ff_body
+			-placeholder-props($ff_body, black)
+			margin-bottom 1em
+			color $gray
+
+		textarea
+			height 8em
+
+		input
+			height 2em
+
+			&[type="submit"]
+				-transition(all 0.25s)
+				color white
+				background $gray
+				padding 0
+				margin-bottom 0
+
+				&:hover
+					background $gray-dk
+
+		.ajax-loader
+			position absolute
+
+
+/* ==========================================================================
+	Media Queries
+   ========================================================================== */
+
+@media screen and (min-width 40em)
+	#hamburger
+		display none
+
+	#site-brand
+		left 1%
+
+	#site-navigation-container
+		display block
+
+		#site-navigation
+			width 74%
+			float right
+			padding-right 1%
+			font-size 0.75em
+
+	.poly
+		display block
+
+	.front-page
+		#splash
+			width 60%
+
+			#front-page-title
+				width 50%
+				margin 0 auto
+				line-height 1
+
+	#blog-metabar
+		padding 0
+
+		#blog-metabar-content
+			-wrapper()
+			-flexbox()
+			top 0.95em
+
+			li
+				width 30%
+				-flexitem()
+
+			#blog-search
+				position relative
+				top	0.2em
+
+
+	#comments
+		#commentform
+			width 75%
+
+			p
+				margin-bottom 0.75rem
+
+			input
+			textarea
+				background-color $off-white
+				font-size 0.8em
+				border none
+				box-sizing border-box
+				padding 0.5em
+				display block
+
+			input
+				&[type="text"]
+				&[type="email"]
+					width 75%
+
+			textarea
+				margin-top 1.7rem
+
+			#submit
+				width auto
+				padding-left 0.8em
+
+	#footer-widget-area
+		-wrapper(1em, 1em, 55%)
+		-clearfix()
+
+		.widget
+			-unwrapper()
+
+			&:first-of-type
+				wraper(1em, 1em, 50%)
+
+			&:nth-of-type(n+2)
+				width 47%
+
+			&:nth-of-type(odd)
+				float left
+
+			&:nth-of-type(even)
+				float right
+
+			&:last-of-type
+				width 100%
+				margin 1em auto
+
+		.contact-info
+			font-size 1.2em
+			text-align left
+
+
+@media screen and (min-width 50em)
+	#site-brand
+		left 2%
+
+	#site-navigation-container
+		#site-navigation
+			font-size 0.9em
+			padding-right 2%
