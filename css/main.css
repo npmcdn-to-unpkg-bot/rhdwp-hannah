@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:58:49 PM on 22-07-2015
+* RHD Dev: Compiled at 6:10:15 PM on 22-07-2015
 ***/
 
 .hidden {
@@ -1050,6 +1050,7 @@ input[type="submit"]:hover {
 #comments #commentform {
   width: 100%;
   min-width: 18rem;
+  max-width: 100%;
 }
 #comments #commentform p {
   margin-bottom: 0.75rem;
