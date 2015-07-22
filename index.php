@@ -71,5 +71,3 @@ session_start();
 	</section><!-- #primary -->
 
 <?php get_footer(); ?>
-
-<?php echo $_SESSION['blog_area']; ?>

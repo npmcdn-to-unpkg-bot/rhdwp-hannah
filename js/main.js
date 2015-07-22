@@ -18,6 +18,8 @@ var isFrontPage,
 	isTablet,
 	isDesktop;
 
+var sb;
+
 
 /* ==========================================================================
 	Let 'er rip...
@@ -63,9 +65,15 @@ var isFrontPage,
 		$('a[href="#contact"]').click(function(e){
 			e.preventDefault();
 
+			// Check Slidebars, close if open
+			if ( sb.slidebars.active( 'right' ) === true ) {
+				sb.slidebars.close();
+				$(".cmn-toggle-switch").removeClass('active');
+			}
+
 			$('html, body').animate({
-				scrollTop: $("#contact").offset().top + $mast.height()
-			}, 1000, 'easeInOutSine');
+				scrollTop: $("#contact").offset().top + $('#masthead').height()
+			}, 1000, 'easeInOutQuart');
 		});
 
 		// Metabar dropdowns
@@ -101,7 +109,7 @@ var isFrontPage,
 
 		wpadminbarPush();
 
-		$.slidebars({
+		sb = new $.slidebars({
 			siteClose: false,
 		});
 		toggleBurger();
@@ -251,6 +259,5 @@ var isFrontPage,
 			});
 		}
 	}
-
 
 })(jQuery);

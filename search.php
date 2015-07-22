@@ -6,7 +6,13 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+
+// search only posts
+global $wp_query;
+$args = array_merge( $wp_query->query, array( 'post_type' => 'post' ) );
+query_posts( $args );
+?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">

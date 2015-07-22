@@ -12,8 +12,6 @@
 			<?php if ( !is_search() ) : ?>
 				<?php if ( has_post_thumbnail() ) : ?>
 					<a href="<?php the_permalink(); ?>" title="Permalink to <?php the_title(); ?>"><?php the_post_thumbnail( 'index-featured' ); ?></a>
-				<?php else : ?>
-					<a href="<?php the_permalink(); ?>" title="Permalink to <?php the_title(); ?>"><img class="attachment-index-featured-default" src="<?php echo content_url(); ?>/uploads/2015/06/more-spear.jpg" alt="Default featured image"></a>
 				<?php endif; ?>
 			<?php endif; ?>
 
