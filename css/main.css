@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:10:15 PM on 22-07-2015
+* RHD Dev: Compiled at 12:36:32 PM on 23-07-2015
 ***/
 
 .hidden {
@@ -833,6 +833,8 @@ input[type="submit"] {
   font-family: inherit;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 input[type="submit"]:hover {
   background-color: #808080;
