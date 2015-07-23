@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:36:32 PM on 23-07-2015
+* RHD Dev: Compiled at 12:37:59 PM on 23-07-2015
 ***/
 
 .hidden {
@@ -506,6 +506,8 @@ textarea {
   margin: 0;
   max-width: 100%;
   vertical-align: baseline;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 button,
 input {
@@ -833,8 +835,6 @@ input[type="submit"] {
   font-family: inherit;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
 }
 input[type="submit"]:hover {
   background-color: #808080;
