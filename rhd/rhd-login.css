@@ -3,7 +3,7 @@
 **/
 
 body.login {
-	background: url(http://assets.roundhouse-designs.com/images/rhd-admin-bg.png) repeat !important;
+	background: url(//assets.roundhouse-designs.com/images/rhd-admin-bg.png) repeat !important;
 }
 
 h1.rhd-login-site-title {
@@ -16,6 +16,6 @@ h1.rhd-login-site-title {
 
 #login h1 a {
 	width: 326px;
-	background-image: url(http://assets.roundhouse-designs.com/images/rhd-login-logo.png) !important;
+	background-image: url(//assets.roundhouse-designs.com/images/rhd-login-logo.png) !important;
 	background-size: 100%;
 }
