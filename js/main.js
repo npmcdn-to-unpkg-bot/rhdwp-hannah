@@ -71,7 +71,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		toggles.click(function(e){
 			e.preventDefault();
-			$(this).toggleClass('active');
+			$(this).toggleClass('is-active');
 		});
 	}
 
