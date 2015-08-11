@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:02:45 PM on 10-08-2015
+* RHD Dev: Compiled at 11:17:43 PM on 10-08-2015
 ***/
 
 /**
@@ -856,6 +856,7 @@ input[type="submit"]:hover {
   padding-left: 0;
   margin: 0;
   text-align: justify;
+  line-height: 0;
 }
 #site-navigation-container #site-navigation:after {
   width: 100%;
