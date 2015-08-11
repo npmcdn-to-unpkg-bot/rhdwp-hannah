@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:37:59 PM on 23-07-2015
+* RHD Dev: Compiled at 8:02:45 PM on 10-08-2015
 ***/
 
 .hidden {
@@ -672,10 +672,10 @@ input[type="radio"] {
   content: "";
 }
 .c-hamburger span::before {
-  top: -$bar-thickness -12px;
+  top: -20px;
 }
 .c-hamburger span::after {
-  bottom: -$bar-thickness -12px;
+  bottom: -20px;
 }
 .c-hamburger--rot {
   background-color: #28aadc;
@@ -782,11 +782,11 @@ input[type="radio"] {
 }
 .c-hamburger--htra.is-active span::before {
   top: 0;
-  transform: translateX(-$bar-thickness) translateY(4px) rotate(-45deg);
+  transform: translateX(-8px) translateY(4px) rotate(-45deg);
 }
 .c-hamburger--htra.is-active span::after {
   bottom: 0;
-  transform: translateX(-$bar-thickness) translateY(-4px) rotate(45deg);
+  transform: translateX(-8px) translateY(-4px) rotate(45deg);
 }
 /* ==========================================================================
 	Main Styles
@@ -862,28 +862,28 @@ input[type="submit"]:hover {
   display: inline-block;
   content: '';
 }
-#site-navigation-container #site-navigation li {
+#site-navigation-container #site-navigation .menu-item {
   display: inline-block;
 }
-#site-navigation-container #site-navigation li a {
+#site-navigation-container #site-navigation .menu-item a {
   text-decoration: none;
   color: inherit;
   -webkit-transition: 0.25s color;
   transition: 0.25s color;
 }
-#site-navigation-container #site-navigation li a:hover,
-#site-navigation-container #site-navigation li a:active,
-#site-navigation-container #site-navigation li a:focus {
+#site-navigation-container #site-navigation .menu-item a:hover,
+#site-navigation-container #site-navigation .menu-item a:active,
+#site-navigation-container #site-navigation .menu-item a:focus {
   color: #f00;
 }
-#site-navigation-container #site-navigation li .sub-menu {
+#site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
   padding-left: 0;
   line-height: 1.7;
   margin-top: 0.2em;
   z-index: 999 !important;
 }
-#site-navigation-container #site-navigation li .sub-menu li {
+#site-navigation-container #site-navigation .menu-item .sub-menu li {
   display: block;
   margin: 0;
 }
