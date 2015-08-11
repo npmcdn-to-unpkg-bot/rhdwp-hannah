@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:17:43 PM on 10-08-2015
+* RHD Dev: Compiled at 1:57:37 PM on 11-08-2015
 ***/
 
 .hidden {
@@ -629,6 +629,17 @@ input[type="radio"] {
 .search-form input[type="submit"],
 .widget .search-form input[type="submit"] {
   padding: 0;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.invisible {
+  visibility: hidden;
+  position: absolute;
 }
 .c-hamburger {
   display: block;
