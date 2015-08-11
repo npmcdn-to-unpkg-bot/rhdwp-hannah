@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:57:37 PM on 11-08-2015
+* RHD Dev: Compiled at 6:10:45 PM on 11-08-2015
 ***/
 
 .hidden {
@@ -959,6 +959,7 @@ input[type="submit"]:hover {
 .entry-title,
 .page-title {
   margin-top: 0;
+  line-height: 1;
 }
 .entry-content {
   width: 100%;
