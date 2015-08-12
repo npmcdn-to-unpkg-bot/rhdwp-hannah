@@ -54,7 +54,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$.slidebars({
 			siteClose: false,
 		});
+
 		toggleBurger();
+
+		// Fix faux-flexbox
+		fixGridLayout();
 	}
 
 
@@ -73,6 +77,17 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			e.preventDefault();
 			$(this).toggleClass('is-active');
 		});
+	}
+
+
+	// Faux-flexbox "fix" template (edit for varying column numbers)
+	function fixGridLayout() {
+		var gridCount = $('.post-grid .post-grid-item').length;
+
+		if ( gridCount % 3 == 2 ) {
+			$('.post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)').css('float', 'left');
+			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
+		}
 	}
 
 })(jQuery);
