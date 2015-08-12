@@ -27,11 +27,11 @@
 			<div class="entry-content">
 				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
-				
+
 			</div><!-- .entry-content -->
 		<?php endif; ?>
 
 		<footer class="entry-meta">
-			<?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?>				
+			<p><?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
 		</footer><!-- .entry-meta -->
 	</article><!-- #post -->
