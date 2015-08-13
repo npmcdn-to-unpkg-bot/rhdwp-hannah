@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:10:45 PM on 11-08-2015
+* RHD Dev: Compiled at 6:29:34 PM on 13-08-2015
 ***/
 
 /**
@@ -149,14 +149,23 @@ img.aligncenter {
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
   font-family: 'Oswald', sans-serif;
   color: $gray;
+  -moz-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
   font-family: 'Oswald', sans-serif;
   color: $gray;
+  -moz-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
   font-family: 'Oswald', sans-serif;
   color: $gray;
+  -moz-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
   font-family: 'Oswald', sans-serif;
