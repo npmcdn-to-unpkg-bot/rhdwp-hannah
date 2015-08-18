@@ -432,15 +432,18 @@ add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
  * @return void
  */
 function rhd_archive_pagination() {
-	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null; ?>
+	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
-	<div class="pagination">
-		<span class="pag-next"><?php next_posts_link( '&larr; Older', null ); ?></span>
-		<?php if ( $sep ) : ?>
-			<div class="pag-sep"></div>
-		<?php endif; ?>
-		<span class="pag-prev"><?php previous_posts_link( 'Newer &rarr;', null ); ?></span>
-	</div> <?php
+	$output = "<div class=pagination'>\n"
+			. "<span class='pag-next'>" . next_posts_link( "&larr; Older", null ) . "</span>\n";
+
+	if ( $sep ) {
+		$output .= "<div class='pag-sep'></div>\n";
+	}
+	$output .= "<span class='pag-prev'>" . previous_posts_link( 'Newer &rarr;', null ) . "</span>\n";
+	$output .= "</div>\n";
+
+	echo $output;
 }
 
 
