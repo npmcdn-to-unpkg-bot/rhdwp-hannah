@@ -224,6 +224,9 @@ function rhd_image_sizes(){
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
+// Allow shortcodes in widgets
+add_filter( 'widget_text', 'do_shortcode' );
+
 
 /* ==========================================================================
    Roundhouse Admin Branding
