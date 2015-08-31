@@ -256,7 +256,7 @@ add_action('admin_head', 'rhd_admin');
 
 // Custom WordPress Footer
 function rhd_footer_admin () {
-	echo '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
+	return '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
 }
 add_filter('admin_footer_text', 'rhd_footer_admin');
 
