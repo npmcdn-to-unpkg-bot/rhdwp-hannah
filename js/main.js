@@ -49,7 +49,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 	function rhdInit() {
-		wpadminbarPush();
+		wpAdminBarPush();
 
 		$.slidebars({
 			siteClose: false,
@@ -62,9 +62,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	}
 
 
-	function wpadminbarPush() {
+	function wpAdminBarPush() {
 		$("#wpadminbar").css({
-			top: '50px',
+			top: $("#masthead").height(),
 		});
 	}
 
