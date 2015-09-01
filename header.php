@@ -24,23 +24,6 @@
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-		<?php
-			// Basic front page & device detection
-			$body_classes[] = ( is_front_page() ) ? 'front-page' : '';
-			$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
-			$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
-			$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
-
-			session_start();
-			if ( is_home() || is_single() || is_archive() || is_search() ) {
-				$body_classes[] = 'blog-area';
-
-				$_SESSION['blog_area'] = true;
-			} else {
-				$_SESSION['blog_area'] = false;
-			}
-		?>
-
 		<?php wp_head(); ?>
 
 	</head>

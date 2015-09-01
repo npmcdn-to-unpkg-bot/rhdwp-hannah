@@ -540,6 +540,37 @@ function rhd_title_check_hidden( $title ) {
 add_filter('widget_title', 'rhd_title_check_hidden');
 
 
+/**
+ * rhd_body_class function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_body_class()
+{
+	// Basic front page & device detection
+	$body_classes[] = ( is_front_page() ) ? 'front-page' : '';
+	$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
+	$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
+	$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
+
+	session_start();
+	if ( is_home() || is_single() || is_archive() || is_search() ) {
+		$body_classes[] = 'blog-area';
+
+		$_SESSION['blog_area'] = true;
+	} else {
+		$_SESSION['blog_area'] = false;
+	}
+
+	if ( is_page( 'how-it-works' || is_page( 'front-page' ) ) )
+		$body_classes[] = 'parallax';
+
+	return $body_classes;
+}
+add_filter( 'body_class', 'rhd_body_class' );
+
+
 /* ==========================================================================
 	Theme Functions and Customizations
    ========================================================================== */
