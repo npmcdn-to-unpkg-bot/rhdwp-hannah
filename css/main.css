@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:48:13 AM on 25-08-2015
+* RHD Dev: Compiled at 11:22:52 AM on 02-09-2015
 ***/
 
 .hidden {
@@ -284,6 +284,10 @@ img.aligncenter {
 .gallery-columns-8 .gallery-caption,
 .gallery-columns-9 .gallery-caption {
   display: none;
+}
+html,
+body {
+  -webkit-font-smoothing: antialiased;
 }
 body,
 button,
