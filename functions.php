@@ -489,12 +489,15 @@ function rhd_single_pagination()
 	$prev = get_next_post_link( '%link', 'Newer &gt;' );
 	$spacer = '<div class="pag-spacer"></div>';
 
-	?>
-	<div class="single-pagination">
-		<?php echo ( $next != '' ) ? $next : $spacer; ?>
-		<div class="pag-sep"></div>
-		<?php echo ( $prev != '' ) ? $prev : $spacer; ?>
-	</div> <?php
+	echo "<div class='single-pagination'>\n";
+
+	echo ( $next != '' ) ? $next : $spacer;
+
+	echo  "<div class='pag-sep'></div>\n";
+
+	echo ( $prev != '' ) ? $prev : $spacer;
+
+	echo "</div>\n";
 }
 
 
