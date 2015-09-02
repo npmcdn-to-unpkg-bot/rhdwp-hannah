@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:22:52 AM on 02-09-2015
+* RHD Dev: Compiled at 12:31:09 PM on 02-09-2015
 ***/
 
 .hidden {
@@ -1103,9 +1103,6 @@ input[type="submit"]:hover {
   padding: 0.5em;
   display: block;
 }
-#comments #commentform textarea {
-  margin-top: 1.7rem;
-}
 #comments #commentform #submit {
   width: auto;
   padding-left: 0.8em;
@@ -1155,9 +1152,6 @@ input[type="submit"]:hover {
   #comments #commentform input[type="text"],
   #comments #commentform input[type="email"] {
     width: 75%;
-  }
-  #comments #commentform textarea {
-    margin-top: 1.7rem;
   }
   #comments #commentform #submit {
     width: auto;
