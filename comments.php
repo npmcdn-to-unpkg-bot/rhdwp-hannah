@@ -61,13 +61,13 @@ if ( post_password_required() )
 					'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 					'fields' => array(
 						'author' =>
-						    '<p class="comment-form-author"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
+						    '<p class="comment-form-author"><label for="author">' . __( 'Name', 'rhd' ) . '</label> ' .
 						    ( $req ? '<span class="required">*</span>' : '' ) .
 						    '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
 						    '" size="30"' . $aria_req . ' /></p>',
 
 						'email' =>
-							'<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
+							'<p class="comment-form-email"><label for="email">' . __( 'Email', 'rhd' ) . '</label> ' .
 							( $req ? '<span class="required">*</span>' : '' ) .
 							'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
 							'" size="30"' . $aria_req . ' /></p>'
