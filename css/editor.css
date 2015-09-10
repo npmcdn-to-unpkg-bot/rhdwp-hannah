@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:11:09 AM on 10-09-2015
+* RHD Dev: Compiled at 9:13:04 AM on 10-09-2015
 ***/
 
 /**
@@ -182,12 +182,12 @@ a img.aligncenter {
 .blog-area #main .post:before,
 .pagination:before,
 .single-pagination:before,
-.page-id-4:before,
+.page-id-4 .entry-content:before,
 .clearfix:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
-.page-id-4:after {
+.page-id-4 .entry-content:after {
   content: " ";
   display: table;
 }
@@ -195,7 +195,7 @@ a img.aligncenter {
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
-.page-id-4:after {
+.page-id-4 .entry-content:after {
   clear: both;
 }
 * {
@@ -1223,23 +1223,23 @@ input[type="submit"]:hover {
 #secondary .widget-title {
   margin-top: 0;
 }
-.page-id-4 .left,
-.page-id-4 .right {
+.page-id-4 .entry-content .left,
+.page-id-4 .entry-content .right {
   width: 85%;
   max-width: 64em;
   position: relative;
   margin: 1em auto 1em auto;
 }
-.page-id-4 .splash-title {
+.page-id-4 .entry-content .splash-title {
   max-width: 100%;
   margin: 0 auto;
   display: block;
 }
-.page-id-4 p {
+.page-id-4 .entry-content p {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-.page-id-4 .agm_mh_marker_item_directions {
+.page-id-4 .entry-content .agm_mh_marker_item_directions {
   color: #790000;
 }
 @media screen and (min-width: 40em) {
@@ -1274,14 +1274,14 @@ input[type="submit"]:hover {
   }
 }
 @media screen and (min-width: 60em) {
-  .page-id-4 .left,
-  .page-id-4 .right {
+  .page-id-4 .entry-content .left,
+  .page-id-4 .entry-content .right {
     width: 45%;
   }
-  .page-id-4 .left {
+  .page-id-4 .entry-content .left {
     float: left;
   }
-  .page-id-4 .right {
+  .page-id-4 .entry-content .right {
     float: right;
   }
 }
