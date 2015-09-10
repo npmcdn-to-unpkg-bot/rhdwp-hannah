@@ -580,7 +580,7 @@ add_filter('widget_title', 'rhd_title_check_hidden');
  * @access public
  * @return void
  */
-function rhd_body_class()
+function rhd_body_class( $body_classes )
 {
 	// Basic front page & device detection
 	$body_classes[] = ( is_front_page() ) ? 'front-page' : '';
@@ -608,4 +608,3 @@ add_filter( 'body_class', 'rhd_body_class' );
 /* ==========================================================================
 	Theme Functions and Customizations
    ========================================================================== */
-

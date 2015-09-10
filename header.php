@@ -28,7 +28,7 @@
 
 	</head>
 
-	<body <?php body_class( $body_classes ); ?>>
+	<body <?php body_class(); ?>>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -58,8 +58,6 @@
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
 				<h1 id="site-title" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
-				<img id="logo" src="<?php echo RHD_IMG_DIR; ?>/core-transformations.png" alt="Core Transformations">
-
 				<?php // wp_nav_menu( $nav_args_main ); ?>
 
 <!--

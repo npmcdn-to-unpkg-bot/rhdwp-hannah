@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:23:04 AM on 10-09-2015
+* RHD Dev: Compiled at 9:11:09 AM on 10-09-2015
 ***/
 
 /**
@@ -182,17 +182,20 @@ a img.aligncenter {
 .blog-area #main .post:before,
 .pagination:before,
 .single-pagination:before,
+.page-id-4:before,
 .clearfix:after,
 .blog-area #main .post:after,
 .pagination:after,
-.single-pagination:after {
+.single-pagination:after,
+.page-id-4:after {
   content: " ";
   display: table;
 }
 .clearfix:after,
 .blog-area #main .post:after,
 .pagination:after,
-.single-pagination:after {
+.single-pagination:after,
+.page-id-4:after {
   clear: both;
 }
 * {
@@ -380,7 +383,8 @@ img.aligncenter {
   top: 0;
 }
 html,
-body {
+body,
+v {
   -webkit-font-smoothing: antialiased;
 }
 body,
@@ -919,22 +923,33 @@ input[type="radio"] {
 html,
 body,
 #page,
-#main {
+#main,
+v {
   min-height: 100%;
 }
 html,
+v,
 body {
   text-shadow: 0 0 1px transparent;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
   font-family: 'Oswald', sans-serif;
   background-color: #000;
   color: #fff;
 }
+v.admin-bar #wpadminbar,
 body.admin-bar #wpadminbar {
   position: fixed;
   top: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
 }
 a {
   outline: 0 !important;
@@ -967,11 +982,11 @@ input[type="submit"]:hover {
   background-color: #808080;
 }
 #page {
-  margin: 2em 0;
+  background-color: #000;
 }
 #logo {
   width: 85%;
-  margin: 1em auto 2em a;
+  margin: 1em auto 2em;
   display: block;
 }
 #site-navigation-container {
@@ -1027,8 +1042,7 @@ input[type="submit"]:hover {
   width: 85%;
   max-width: 64em;
   position: relative;
-  margin: 2em auto 2em auto;
-  padding: 2em 0;
+  margin: 1em auto 1em auto;
   box-sizing: border-box;
 }
 #primary,
@@ -1209,6 +1223,25 @@ input[type="submit"]:hover {
 #secondary .widget-title {
   margin-top: 0;
 }
+.page-id-4 .left,
+.page-id-4 .right {
+  width: 85%;
+  max-width: 64em;
+  position: relative;
+  margin: 1em auto 1em auto;
+}
+.page-id-4 .splash-title {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+.page-id-4 p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.page-id-4 .agm_mh_marker_item_directions {
+  color: #790000;
+}
 @media screen and (min-width: 40em) {
   #site-navigation-container {
     display: block;
@@ -1240,10 +1273,23 @@ input[type="submit"]:hover {
     padding-left: 0.8em;
   }
 }
+@media screen and (min-width: 60em) {
+  .page-id-4 .left,
+  .page-id-4 .right {
+    width: 45%;
+  }
+  .page-id-4 .left {
+    float: left;
+  }
+  .page-id-4 .right {
+    float: right;
+  }
+}
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
 html,
 body {
   height: auto !important;
   min-height: 0 !important;
   background: #fff;
+  color: #000;
 }
