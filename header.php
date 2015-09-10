@@ -57,13 +57,16 @@
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
-				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
+				<h1 id="site-title" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
+				<img id="logo" src="<?php echo RHD_IMG_DIR; ?>/core-transformations.png" alt="Core Transformations">
 
-				<?php wp_nav_menu( $nav_args_main ); ?>
+				<?php // wp_nav_menu( $nav_args_main ); ?>
 
-				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
+<!--
+			 	<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
 					<span>Toggle nav</span>
 				</button>
+-->
 			</header><!-- #masthead -->
 
 			<main id="main" class="clearfix">
