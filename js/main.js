@@ -49,7 +49,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 	function rhdInit() {
-		wpAdminBarPush();
+		// wpAdminBarPush();
 
 		$.slidebars({
 			siteClose: false,
