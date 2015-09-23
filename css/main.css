@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:16:41 AM on 23-09-2015
+* RHD Dev: Compiled at 11:18:55 AM on 23-09-2015
 ***/
 
 .alignnone {
@@ -953,11 +953,11 @@ textarea {
   border: none;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: inherit;
+  font-family: 'Oswald', sans-serif;
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: inherit;
+  font-family: 'Oswald', sans-serif;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
 }
