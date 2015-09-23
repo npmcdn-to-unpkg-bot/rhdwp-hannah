@@ -1,19 +1,4 @@
 /***
-* RHD Dev: Compiled at 12:31:09 PM on 02-09-2015
+* RHD Dev: Compiled at 11:16:41 AM on 23-09-2015
 ***/
 
-.hamburger {
-  display: none;
-}
-#primary {
-  width: 62.5%;
-  float: right;
-}
-#secondary {
-  width: 31.25%;
-  float: left;
-  margin: 0;
-}
-/* ==========================================================================
-	MEDIA QUERIES
-   ========================================================================== */
