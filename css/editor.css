@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:18:55 AM on 23-09-2015
+* RHD Dev: Compiled at 12:09:01 PM on 23-09-2015
 ***/
 
 /**
@@ -955,6 +955,26 @@ textarea {
   padding: 0.5em;
   font-family: 'Oswald', sans-serif;
 }
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-family: 'Oswald', sans-serif;
+  color: #808080;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  font-family: 'Oswald', sans-serif;
+  color: #808080;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  font-family: 'Oswald', sans-serif;
+  color: #808080;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  font-family: 'Oswald', sans-serif;
+  color: #808080;
+}
 input[type="submit"] {
   cursor: pointer;
   font-family: 'Oswald', sans-serif;
@@ -1158,7 +1178,7 @@ input[type="submit"]:hover {
   padding: 0 1.5em;
 }
 #comments .even {
-  background: $off-white;
+  background: #e1e1e1;
 }
 #comments .odd {
   background: #fff;
@@ -1181,7 +1201,7 @@ input[type="submit"]:hover {
 #comments #commentform input,
 #comments #commentform textarea {
   width: 100%;
-  background-color: $off-white;
+  background-color: #e1e1e1;
   font-size: 0.8em;
   border: none;
   box-sizing: border-box;
@@ -1221,7 +1241,7 @@ input[type="submit"]:hover {
   }
   #comments #commentform input,
   #comments #commentform textarea {
-    background-color: $off-white;
+    background-color: #e1e1e1;
     font-size: 0.8em;
     border: none;
     box-sizing: border-box;
