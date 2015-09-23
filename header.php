@@ -66,4 +66,4 @@
 				</button>
 			</header><!-- #masthead -->
 
-			<main id="main" class="clearfix">
+			<main id="main">
