@@ -257,6 +257,9 @@ function rhd_remove_editor_menu()
 add_action('_admin_menu', 'rhd_remove_editor_menu', 1);
 
 
+// Globally disable WP toolbar
+// add_filter( 'show_admin_bar', '__return_false' );
+
 /* ==========================================================================
    Helpers
    ========================================================================== */
