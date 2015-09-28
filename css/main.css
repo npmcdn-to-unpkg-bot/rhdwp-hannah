@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:04:16 PM on 24-09-2015
+* RHD Dev: Compiled at 5:45:12 PM on 28-09-2015
 ***/
 
 .alignnone {
@@ -1089,6 +1089,14 @@ input[type="submit"]:hover {
   margin: 0 0.05em;
   position: relative;
   bottom: 0.25em;
+}
+.hide-on-fallback {
+  width: 0;
+  height: 0;
+  display: block;
+  position: absolute;
+  left: -100%;
+  overflow: hidden;
 }
 /* ==========================================================================
 	Posts & Pages
