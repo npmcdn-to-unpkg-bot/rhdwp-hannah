@@ -452,7 +452,7 @@ function rhd_archive_pagination()
 
 
 /**
- * rhd_lovely_single_pagination function.
+ * rhd_single_pagination function.
  *
  * @access public
  * @return void
