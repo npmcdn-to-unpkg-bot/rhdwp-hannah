@@ -8,8 +8,8 @@
  */
 ?>
 
-<div id="blog-meta-area">
-	<ul id="blog-meta-content">
+<div id="blog-metabar">
+	<ul id="blog-metabar-content">
 		<li>
 			<div id="blog-categories" class="rhd-dropdown">
 				<div class="rhd-dropdown-title">
