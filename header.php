@@ -48,21 +48,21 @@
 		<![endif]-->
 
 		<?php
-			$nav_args_main = array(
-				'theme_location' => 'primary',
-				'menu_id' => 'site-navigation',
-				'menu_class' => 'site-navigation',
-				'container' => 'nav',
-				'container_id' => 'site-navigation-container'
-			);
+		$nav_args_main = array(
+			'theme_location' => 'primary',
+			'menu_id' => 'site-navigation',
+			'menu_class' => 'site-navigation',
+			'container' => 'nav',
+			'container_id' => 'site-navigation-container'
+		);
 
-			$nav_args_sb = array(
-				'theme_location' => 'slidebar',
-				'menu_id' => 'site-navigation-sb',
-				'menu_class' => 'site-navigation',
-				'container' => 'nav',
-				'container_id' => 'site-navigation-sb-container'
-			);
+		$nav_args_sb = array(
+			'theme_location' => 'slidebar',
+			'menu_id' => 'site-navigation-sb',
+			'menu_class' => 'site-navigation',
+			'container' => 'nav',
+			'container_id' => 'site-navigation-sb-container'
+		);
 		?>
 
 		<div class="sb-slidebar sb-left sb-style-push">

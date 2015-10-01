@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:45:12 PM on 28-09-2015
+* RHD Dev: Compiled at 1:12:04 AM on 01-10-2015
 ***/
 
 /**
@@ -1040,7 +1040,7 @@ input[type="submit"]:hover {
   font-size: 1.2em;
   background-color: #000;
 }
-#hamburger.active {
+#hamburger.is-active {
   background-color: #808080;
 }
 #main {
