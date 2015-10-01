@@ -88,3 +88,25 @@
 								color $orange
 		#blog-search
 			top	0
+
+
+/* ==========================================================================
+	Media Queries
+   ========================================================================== */
+
+@media screen and (min-width 40em)
+	#blog-metabar
+		padding 0
+
+		#blog-metabar-content
+			-wrapper()
+			-flexbox()
+			top 0.95em
+
+			li
+				width 30%
+				-flexitem()
+
+			#blog-search
+				position relative
+				top	0.2em
