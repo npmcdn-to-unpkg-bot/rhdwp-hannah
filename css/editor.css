@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:12:59 AM on 01-10-2015
+* RHD Dev: Compiled at 11:37:43 AM on 01-10-2015
 ***/
 
 /**
@@ -378,6 +378,33 @@ img.aligncenter {
 }
 #blog-metabar #blog-metabar-content #blog-search {
   top: 0;
+}
+@media screen and (min-width: 40em) {
+  #blog-metabar {
+    padding: 0;
+  }
+  #blog-metabar #blog-metabar-content {
+    width: 85%;
+    max-width: 64em;
+    position: relative;
+    margin: 0 auto 0 auto;
+    text-align: justify;
+    line-height: 0;
+    top: 0.95em;
+  }
+  #blog-metabar #blog-metabar-content:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
+  }
+  #blog-metabar #blog-metabar-content li {
+    width: 30%;
+    display: inline-block;
+  }
+  #blog-metabar #blog-metabar-content #blog-search {
+    position: relative;
+    top: 0.2em;
+  }
 }
 html,
 body {
