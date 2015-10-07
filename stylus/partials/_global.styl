@@ -88,10 +88,13 @@ $ff_body = 'Oswald', sans-serif
 	transition $n
 
 
--placeholder-props( $famVal, $color, $opacity = null )
+-placeholder-props( $famVal, $color = null, $opacity = null )
 	&::-webkit-input-placeholder
 		font-family $famVal
-		color $color
+		
+		if $color != null
+			color $color
+	
 		if $opacity != null
 			-opacity( $opacity )
 
