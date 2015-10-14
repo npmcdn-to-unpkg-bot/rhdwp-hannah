@@ -6,7 +6,7 @@
 $color2 = #f5c419
 $off-white = #e1e1e1
 
-$ff_body = 'Oswald', sans-serif
+$ff-body = 'Oswald', sans-serif
 
 // Functions
 
@@ -36,11 +36,14 @@ $ff_body = 'Oswald', sans-serif
 	display inline-block
 
 
--wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
+-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
 	if $customWidth == false
 		$w = 85%
 	else
 		$w = $customWidth
+
+	if $customMax == false
+		$mw = 64rem
 
 	if $topMargin == false
 		$topMargin = 0
@@ -48,7 +51,7 @@ $ff_body = 'Oswald', sans-serif
 		$bottomMargin = 0
 
 	width $w
-	max-width 64em
+	max-width $mw
 	position relative
 	margin $topMargin auto $bottomMargin auto
 
@@ -91,10 +94,10 @@ $ff_body = 'Oswald', sans-serif
 -placeholder-props( $famVal, $color = null, $opacity = null )
 	&::-webkit-input-placeholder
 		font-family $famVal
-		
+
 		if $color != null
 			color $color
-	
+
 		if $opacity != null
 			-opacity( $opacity )
 

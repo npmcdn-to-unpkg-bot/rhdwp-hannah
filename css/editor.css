@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:35:02 AM on 07-10-2015
+* RHD Dev: Compiled at 2:14:47 PM on 14-10-2015
 ***/
 
 /**
@@ -269,7 +269,7 @@ img.aligncenter {
 }
 #blog-metabar #blog-metabar-content {
   width: 90%;
-  max-width: 64em;
+  max-width: 64rem;
   position: relative;
   margin: 0 auto 0 auto;
   list-style: none;
@@ -297,28 +297,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff_body;
   color: $gray;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff_body;
   color: $gray;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff_body;
   color: $gray;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff_body;
   color: $gray;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -329,7 +329,7 @@ img.aligncenter {
   background: #fff;
   color: $gray;
   position: relative;
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff_body;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -385,7 +385,7 @@ img.aligncenter {
   }
   #blog-metabar #blog-metabar-content {
     width: 85%;
-    max-width: 64em;
+    max-width: 64rem;
     position: relative;
     margin: 0 auto 0 auto;
     text-align: justify;
@@ -1072,7 +1072,7 @@ input[type="submit"]:hover {
 }
 #main {
   width: 85%;
-  max-width: 64em;
+  max-width: 64rem;
   position: relative;
   margin: 2em auto 2em auto;
   padding: 2em 0;
