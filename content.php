@@ -16,7 +16,7 @@
 					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'rhd' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 				</h2>
 			<?php endif; // is_single() ?>
-			<p class="entry-details">By <?php the_author(); ?> <span class="sep">&star;</span> <?php  the_time( get_option( 'date_format' ) ); ?></p>
+			<p class="entry-details">By <?php the_author(); ?> <span class="sep">|</span> <?php  the_time( get_option( 'date_format' ) ); ?></p>
 		</header><!-- .entry-header -->
 
 		<?php if ( is_search() ) : // Only display Excerpts for Search ?>

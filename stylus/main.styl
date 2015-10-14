@@ -41,7 +41,7 @@ a
 	&:link
 	&:visited
 		text-decoration none
-		color red
+		color $color2
 
 	&:hover
 	&:active
@@ -76,18 +76,6 @@ input[type="submit"]
 	margin 0
 
 
-.site-navigation
-	li
-		a
-			color $color2
-			text-decoration none
-			transition color 0.25s
-
-			&:hover
-			&:active
-				color $color3
-
-
 #site-navigation-container
 	width 100%
 	text-align center
@@ -101,16 +89,6 @@ input[type="submit"]
 
 		.menu-item
 			-flexitem()
-
-			a
-				text-decoration none
-				color inherit
-				transition 0.25s color
-
-				&:hover
-				&:active
-				&:focus
-					color red
 
 			.sub-menu
 				position absolute
@@ -127,6 +105,18 @@ input[type="submit"]
 #site-navigation-sb-container
 	#site-navigation-sb
 		list-style none
+
+
+.site-navigation
+	li
+		a
+			color $color2
+			text-decoration none
+			transition color 0.25s
+
+			&:hover
+			&:active
+				color $color3
 
 
 #hamburger

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:04:19 PM on 14-10-2015
+* RHD Dev: Compiled at 4:43:31 PM on 14-10-2015
 ***/
 
 /**
@@ -963,7 +963,7 @@ a {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #f00;
+  color: #f5c419;
 }
 a:hover,
 a:active {
@@ -1012,15 +1012,6 @@ input[type="submit"]:hover {
   text-align: center;
   margin: 0;
 }
-.site-navigation li a {
-  color: #f5c419;
-  text-decoration: none;
-  transition: color 0.25s;
-}
-.site-navigation li a:hover,
-.site-navigation li a:active {
-  color: #f55033;
-}
 #site-navigation-container {
   width: 100%;
   text-align: center;
@@ -1041,16 +1032,6 @@ input[type="submit"]:hover {
 #site-navigation-container #site-navigation .menu-item {
   display: inline-block;
 }
-#site-navigation-container #site-navigation .menu-item a {
-  text-decoration: none;
-  color: inherit;
-  transition: 0.25s color;
-}
-#site-navigation-container #site-navigation .menu-item a:hover,
-#site-navigation-container #site-navigation .menu-item a:active,
-#site-navigation-container #site-navigation .menu-item a:focus {
-  color: #f00;
-}
 #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
   padding-left: 0;
@@ -1064,6 +1045,15 @@ input[type="submit"]:hover {
 }
 #site-navigation-sb-container #site-navigation-sb {
   list-style: none;
+}
+.site-navigation li a {
+  color: #f5c419;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.site-navigation li a:hover,
+.site-navigation li a:active {
+  color: #f55033;
 }
 #hamburger {
   font-size: 1.2em;
