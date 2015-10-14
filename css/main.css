@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:14:47 PM on 14-10-2015
+* RHD Dev: Compiled at 2:55:46 PM on 14-10-2015
 ***/
 
 .alignnone {
@@ -970,8 +970,7 @@ a:visited {
   color: #f00;
 }
 a:hover,
-a:active,
-a:focus {
+a:active {
   text-decoration: underline;
 }
 input,
