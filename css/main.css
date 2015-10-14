@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:43:31 PM on 14-10-2015
+* RHD Dev: Compiled at 6:07:22 PM on 14-10-2015
 ***/
 
 .alignnone {
@@ -1251,6 +1251,30 @@ input[type="submit"]:hover {
 }
 #comments #commentform .comment-subscription-form {
   margin: initial;
+}
+/* ==========================================================================
+	Ghost Buttons
+   ========================================================================== */
+.ghost-button {
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  margin: 1em auto;
+}
+.ghost-button a {
+  padding: 0.4em 0.8em;
+  color: #f5c419;
+  text-decoration: none;
+  background-color: #fff;
+  border: 3px solid #f5c419;
+  border-radius: 0.1em;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.ghost-button a:hover,
+.ghost-button a:active {
+  background-color: #f5c419;
+  color: #f5c419;
 }
 /* ==========================================================================
 	Widget Areas & Sidebars
