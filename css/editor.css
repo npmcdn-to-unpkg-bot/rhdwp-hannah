@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:55:46 PM on 14-10-2015
+* RHD Dev: Compiled at 3:04:19 PM on 14-10-2015
 ***/
 
 /**
@@ -287,8 +287,6 @@ img.aligncenter {
   background: $gray;
   color: $white;
   text-transform: uppercase;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s;
   display: inline-block;
   position: absolute;
   top: 0;
@@ -369,8 +367,6 @@ img.aligncenter {
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a {
   color: $gray;
   text-decoration: none;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a:hover,
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a:active {
@@ -1004,7 +1000,6 @@ textarea:-ms-input-placeholder {
 input[type="submit"] {
   cursor: pointer;
   font-family: 'Oswald', sans-serif;
-  -webkit-transition: all 0.25s;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -1016,6 +1011,15 @@ input[type="submit"]:hover {
 #site-title {
   text-align: center;
   margin: 0;
+}
+.site-navigation li a {
+  color: #f5c419;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.site-navigation li a:hover,
+.site-navigation li a:active {
+  color: #f55033;
 }
 #site-navigation-container {
   width: 100%;
@@ -1040,7 +1044,6 @@ input[type="submit"]:hover {
 #site-navigation-container #site-navigation .menu-item a {
   text-decoration: none;
   color: inherit;
-  -webkit-transition: 0.25s color;
   transition: 0.25s color;
 }
 #site-navigation-container #site-navigation .menu-item a:hover,
