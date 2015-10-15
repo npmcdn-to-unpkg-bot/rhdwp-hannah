@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:07:22 PM on 14-10-2015
+* RHD Dev: Compiled at 11:47:04 AM on 15-10-2015
 ***/
 
 /**
@@ -265,7 +265,7 @@ img.aligncenter {
   width: 100%;
   height: auto;
   padding: 1em 0 0.75em 0;
-  background: $orange;
+  background: #ffa500;
 }
 #blog-metabar #blog-metabar-content {
   width: 90%;
@@ -284,8 +284,8 @@ img.aligncenter {
 #blog-metabar #blog-metabar-content li .search-submit {
   width: 2em;
   height: 2em;
-  background: $gray;
-  color: $white;
+  background: #808080;
+  color: #fff;
   text-transform: uppercase;
   display: inline-block;
   position: absolute;
@@ -295,29 +295,29 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: $ff_body;
-  color: $gray;
+  font-family: 'Oswald', sans-serif;
+  color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: $ff_body;
-  color: $gray;
+  font-family: 'Oswald', sans-serif;
+  color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: $ff_body;
-  color: $gray;
+  font-family: 'Oswald', sans-serif;
+  color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: $ff_body;
-  color: $gray;
+  font-family: 'Oswald', sans-serif;
+  color: #808080;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
 #blog-metabar #blog-metabar-content li .search-field {
@@ -325,9 +325,9 @@ img.aligncenter {
   height: 2em;
   padding-left: 0.5em;
   background: #fff;
-  color: $gray;
+  color: #808080;
   position: relative;
-  font-family: $ff_body;
+  font-family: 'Oswald', sans-serif;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -365,12 +365,12 @@ img.aligncenter {
   padding-left: 0.5em;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a {
-  color: $gray;
+  color: #808080;
   text-decoration: none;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a:hover,
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a:active {
-  color: $orange;
+  color: #ffa500;
 }
 #blog-metabar #blog-metabar-content #blog-search {
   top: 0;
