@@ -29,6 +29,12 @@ define( 'DISALLOW_FILE_EDIT', true );
    Scripts + Styles
    ========================================================================== */
 
+/**
+ * rhd_enqueue_styles function.
+ * 
+ * @access public
+ * @return void
+ */
 function rhd_enqueue_styles()
 {
 	global $theme_opts;
@@ -54,6 +60,13 @@ function rhd_enqueue_styles()
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 
+
+/**
+ * rhd_enqueue_scripts function.
+ * 
+ * @access public
+ * @return void
+ */
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr-custom.js', null, '2.8.3', false );
@@ -93,6 +106,12 @@ function rhd_enqueue_scripts()
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
 
+/**
+ * rhd_add_editor_styles function.
+ * 
+ * @access public
+ * @return void
+ */
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
@@ -111,7 +130,12 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
    Sidebars + Menus
    ========================================================================== */
 
-// Sidebars
+/**
+ * rhd_register_sidebars function.
+ * 
+ * @access public
+ * @return void
+ */
 function rhd_register_sidebars()
 {
 	register_sidebar(array(
@@ -134,9 +158,11 @@ function rhd_register_sidebars()
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
 
+
 // Menus
 register_nav_menu( 'primary', 'Main Site Navigation' );
-register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
+//register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
+
 
 // Includes and Requires
 //include_once( 'includes/rhd-admin-panel.php' );
