@@ -172,12 +172,19 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
    Registrations, Theme Support, Thumbnails
    ========================================================================== */
 
-// Theme Support
-if ( function_exists( 'add_theme_support' ) ) {
+/**
+ * rhd_theme_setup function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_theme_setup()
+{
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	add_theme_support( 'infinite-scroll', array( 'container' => 'content', 'footer' => 'page' ) );
 }
+add_action( 'after_setup_theme', 'rhd_theme_setup' );
 
 
 // Enable themes auto-update
