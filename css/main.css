@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:36:00 PM on 21-10-2015
+* RHD Dev: Compiled at 11:05:25 AM on 13-11-2015
 ***/
 
 .alignnone {
@@ -634,7 +634,6 @@ textarea {
   margin: 0;
   max-width: 100%;
   vertical-align: baseline;
-  -webkit-appearance: none;
   -webkit-border-radius: 0;
 }
 button,
