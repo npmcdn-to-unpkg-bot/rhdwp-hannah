@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:40:21 PM on 16-11-2015
+* RHD Dev: Compiled at 6:23:38 PM on 16-11-2015
 ***/
 
 /**
@@ -182,17 +182,20 @@ a img.aligncenter {
 .blog-area #main .post:before,
 .pagination:before,
 .single-pagination:before,
+#primary:before,
 .clearfix:after,
 .blog-area #main .post:after,
 .pagination:after,
-.single-pagination:after {
+.single-pagination:after,
+#primary:after {
   content: " ";
   display: table;
 }
 .clearfix:after,
 .blog-area #main .post:after,
 .pagination:after,
-.single-pagination:after {
+.single-pagination:after,
+#primary:after {
   clear: both;
 }
 * {
@@ -1278,6 +1281,21 @@ input[type="submit"]:hover {
 }
 @media screen and (min-width: 40em) {
   #site-navigation-container {
+    display: block;
+  }
+  #primary article.strip-active {
+    width: 65%;
+    float: right;
+  }
+  #primary #image-strip {
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+  }
+  #primary #image-strip img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2em;
     display: block;
   }
   #hamburger {
