@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:05:25 AM on 13-11-2015
+* RHD Dev: Compiled at 4:40:21 PM on 16-11-2015
 ***/
 
 /**
@@ -1158,6 +1158,9 @@ input[type="submit"]:hover {
 .entry-content img.aligncenter {
   display: block;
   margin: 0 auto;
+}
+.entry-meta p {
+  margin: 0;
 }
 .blog-area #main .post .entry-header {
   text-align: center;
