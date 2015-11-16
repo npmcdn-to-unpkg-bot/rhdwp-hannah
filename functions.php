@@ -460,7 +460,7 @@ function rhd_archive_pagination()
 	echo '<div class="pagination">';
 
 	echo '<span class="pag-next">';
-	next_posts_link( '&larr; Older', null );
+	get_next_posts_link( '&larr; Older', null );
 	echo '</span>';
 
 	if ( $sep ) {
@@ -468,7 +468,7 @@ function rhd_archive_pagination()
 	}
 
 	echo '<span class="pag-prev">';
-	previous_posts_link( 'Newer &rarr;', null );
+	get_previous_posts_link( 'Newer &rarr;', null );
 	echo '</span>';
 
 	echo '</div>';
