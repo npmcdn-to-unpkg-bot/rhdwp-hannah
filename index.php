@@ -11,7 +11,6 @@ get_header();
 
 <section id="primary" class="site-content">
 	<div id="content" role="main">
-		<div class="image-strip"></div>
 		
 		<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>

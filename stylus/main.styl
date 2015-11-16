@@ -224,6 +224,10 @@ body
 	margin-bottom 2em
 
 
+#content
+	-clearfix()
+
+
 #colophon
 	width 100%
 	height auto
@@ -277,15 +281,16 @@ body
 		max-width 100%
 		height auto
 
-// 		&.alignleft
-// 			margin-right 1em
-// 
-// 		&.alignright
-// 			margin-left 1em
-// 
-// 		&.aligncenter
-// 			display block
-// 			margin 0 auto
+		&.alignleft
+			margin-right 1em
+
+		&.alignright
+			margin-left 1em
+
+		&.aligncenter
+		&.alignnone
+			display block
+			margin 0 auto
 	
 	iframe
 		display block
@@ -665,17 +670,16 @@ a[href$="register"]
 				width 65%
 				float right
 				
-		.image-strip
-			&.strip-active
-				width 30%
-				float left
-				margin-right 5%
-				
-				img
-					width 100%
-					height auto
-					margin-bottom 2em
-					display block
+		#image-strip
+			width 30%
+			float left
+			margin-right 5%
+			
+			img
+				width 100%
+				height auto
+				margin-bottom 2em
+				display block
 	
 	#colophon
 		-clearfix()

@@ -49,19 +49,17 @@
 	
 	function setImageStrip() {
 		if ( $(".entry-content img").length !== 0 ) {
-			$(".image-strip").addClass('strip-active');
+			$('<div id="image-strip"></div>').prependTo('#content');
 			$('#content article').addClass('strip-active');
 			
 			$(".entry-content img")
-				.appendTo($(".image-strip"))
+				.appendTo($("#image-strip"))
 				.addClass("strip-active");
 		}
 	}
 	
 	function unsetImageStrip() {
-		$(".image-strip")
-			.removeClass('strip-active')
-			.html('');
+		$("#image-strip").html('');
 			
 		$('#content article').removeClass('strip-active');
 		$(".entry-content").removeClass('strip-active');

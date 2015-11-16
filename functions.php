@@ -597,16 +597,15 @@ function rhd_body_class( $body_classes )
 	$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
 
 	session_start();
-	if ( is_home() || is_single() || is_archive() || is_search() ) {
-		$body_classes[] = 'blog-area';
-
-		$_SESSION['blog_area'] = true;
-	} else {
-		$_SESSION['blog_area'] = false;
+	if ( !is_singular( 'club_member' ) ) {
+		if ( ( is_home() || is_single() || is_archive() || is_search() ) ) {
+			$body_classes[] = 'blog-area';
+	
+			$_SESSION['blog_area'] = true;
+		} else {
+			$_SESSION['blog_area'] = false;
+		}
 	}
-
-	if ( is_page( 'how-it-works' || is_page( 'front-page' ) ) )
-		$body_classes[] = 'parallax';
 
 	return $body_classes;
 }

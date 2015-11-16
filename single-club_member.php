@@ -12,7 +12,7 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
-					<div class="image-strip">
+					<div id="image-strip">
 						<?php the_post_thumbnail( 'medium' ); ?>
 					</div>
 					

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:43:58 PM on 16-11-2015
+* RHD Dev: Compiled at 6:17:28 PM on 16-11-2015
 ***/
 
 /**
@@ -186,6 +186,7 @@ a img.aligncenter {
   width: auto;
 }
 .clearfix:before,
+#content:before,
 .blog-area #main .post:before,
 .pagination:before,
 .single-pagination:before,
@@ -196,6 +197,7 @@ a img.aligncenter {
 #colophon:before,
 .blog-area #main:before,
 .clearfix:after,
+#content:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
@@ -209,6 +211,7 @@ a img.aligncenter {
   display: table;
 }
 .clearfix:after,
+#content:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
@@ -1216,11 +1219,22 @@ body .sb-slidebar .sub-menu {
   max-width: 100%;
   height: auto;
 }
-iframe {
+.entry-content img.alignleft {
+  margin-right: 1em;
+}
+.entry-content img.alignright {
+  margin-left: 1em;
+}
+.entry-content img.aligncenter,
+.entry-content img.alignnone {
   display: block;
   margin: 0 auto;
 }
-.wp-audio-shortcode {
+.entry-content iframe {
+  display: block;
+  margin: 0 auto;
+}
+.entry-content .wp-audio-shortcode {
   width: 50%;
   max-width: 20em;
   position: relative;
@@ -1556,12 +1570,12 @@ a[href$="register"] {
     width: 65%;
     float: right;
   }
-  #primary .image-strip.strip-active {
+  #primary #image-strip {
     width: 30%;
     float: left;
     margin-right: 5%;
   }
-  #primary .image-strip.strip-active img {
+  #primary #image-strip img {
     width: 100%;
     height: auto;
     margin-bottom: 2em;
