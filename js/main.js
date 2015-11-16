@@ -90,4 +90,17 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		}
 	}
 
+	
+	// "Image Strip" layout
+	function setImageStrip() {
+		if ( $(".entry-content img.alignnone").length !== 0 ) {
+			$(".image-strip").addClass('strip-active');
+			$('#content article').addClass('strip-active');
+			
+			$(".entry-content img.alignnone")
+				.appendTo($(".image-strip"))
+				.addClass("strip-active");
+		}
+	}
+
 })(jQuery);
