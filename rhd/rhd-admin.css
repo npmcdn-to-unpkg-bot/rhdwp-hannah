@@ -1,0 +1,19 @@
+/**
+ * RHD Admin Branding
+**/
+
+.rhd-admin-colophon-logo {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: relative;
+	top: 9px;
+}
+
+#menu-posts-legit .wp-menu-image:before {
+	content: "\f322";
+}
+
+#menu-posts-audition_info .wp-menu-image:before {
+	content: "\f155";
+}

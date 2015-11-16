@@ -1,0 +1,781 @@
+@require "partials/_global.styl"
+@require "partials/_wp-core.styl"
+@require "partials/_fonts.styl"
+@require "partials/_helpers.styl"
+@require "partials/_metabar.styl"
+@require "partials/_defaults.styl"
+@require "partials/_hamburger.styl"
+
+
+/* ==========================================================================
+	Main Styles
+   ========================================================================== */
+
+html
+	text-shadow 0 0 1px transparent
+	width 100%
+	font-size 16px
+	margin 0
+	font-family $ff_body
+	color $blue
+
+
+body
+	@extends html
+
+	&.admin-bar
+		#wpadminbar
+			position fixed
+			top 0
+
+
+a
+	outline 0 !important
+
+	&:link
+	&:visited
+		text-decoration none
+		color $light-blue
+
+	&:hover
+	&:active
+	&:focus
+		text-decoration underline
+
+
+input
+textarea
+	background-color $off-white
+	border none
+	box-sizing border-box
+	padding 0.5em
+	font-family inherit
+	border-radius 0.1em
+	font-family $ff_body
+	-placeholder-props( $ff_body, '' )
+
+
+input[type="submit"]
+	cursor pointer
+	font-family inherit
+	-transition(all 0.25s)
+
+	&:hover
+		background-color gray
+
+
+#page
+	position relative
+	
+	&.sticky
+		padding-top 6em
+
+
+#masthead
+	width 100%
+	height auto
+	position relative
+		
+	#navbar
+		padding-top 1em
+		padding-bottom 1em
+		
+		&.sticky
+			position fixed
+			background white
+			top 0
+			left 0
+			z-index 500
+
+
+#site-title
+	font-size 3em
+	font-family $ff_head
+	text-align center
+	display block
+	float left
+	margin 0.5rem 4rem 0.5rem 0
+	line-height 1
+	z-index 500
+	position relative
+	
+	a
+		color inherit
+		text-decoration none
+	
+	.r
+		font-size 0.4em
+		line-height 1
+		position absolute
+		top 0
+		font-weight normal
+		right -0.8em
+
+
+#navbar
+	width 100%
+	height 6em
+	position relative
+	padding 0 2em
+
+
+#site-navigation-container
+	width 100%
+	text-align center
+	display none
+	position relative
+
+	#site-navigation
+		list-style none
+		padding-left 0
+		margin 0
+		font-family $ff_body2
+		-flexbox()
+
+		.menu-item
+			-flexitem()
+			text-transform uppercase
+			position relative
+
+			a
+				width 100%
+				height 100%
+				display inline-block
+				text-decoration none
+				color inherit
+				-transition(0.25s color)
+				vertical-align middle
+
+				&:hover
+				&:active
+					color black
+
+			.sub-menu
+				width 14em
+				position absolute
+				left -0.5em
+				padding-top 0.6em
+				padding-left 0
+				line-height 1.7
+				margin-top 0.2em
+				z-index 200 !important
+				background-color rgba(255,255,255,0.9)
+				transition all 0.25s
+
+				.menu-item
+					display none
+					margin 0
+					padding 0.25em 0.25em 0.25em 0.5em
+					text-align left
+					
+					&:hover
+						background-color #dee2ff
+
+body
+	.sb-slidebar
+		background $light-blue
+		
+		a
+			color white
+			text-decoration none
+			font-size 1.1em
+		
+		.sub-menu
+			margin-top 0
+
+
+#site-navigation-sb-container
+	position relative
+	top 1em
+	
+	#site-navigation-sb
+		list-style none
+
+
+#hamburger
+	background-color white // sample bg animation color
+	position absolute
+	top 50%
+	right 3%
+	-transform(translateY(-50%))
+	
+	span
+		background-color $light-blue
+		
+		&::after
+		&::before	
+			background-color (@background-color)
+
+
+#main
+	-wrapper(0, 2em)
+	box-sizing border-box
+
+
+#primary
+#secondary
+	width 100%
+	margin-top 1em
+	position relative
+	box-sizing border-box
+
+
+#secondary
+	margin-bottom 2em
+
+
+#colophon
+	width 100%
+	height auto
+	padding 3em 0
+	background-color $blue
+	color white
+	position relative
+	
+	a
+		color $lighter-blue
+
+
+/* ==========================================================================
+	Posts & Pages
+   ========================================================================== */
+
+.entry-title
+.page-title
+	margin-top 0
+	line-height 1
+
+
+.entry-content
+	width 100%
+
+	p
+		margin 1em auto
+		text-align justify
+
+		&[style*="text-align: center"]
+			text-indent 0
+
+		&:first-child
+			margin-top 0
+
+		&:last-child
+			margin-bottom 0
+
+	h1
+	h2
+	h3
+	h4
+	h5
+	h6
+		line-height 1.1
+
+	ul
+		padding-left 1em
+
+	img
+		max-width 100%
+		height auto
+
+// 		&.alignleft
+// 			margin-right 1em
+// 
+// 		&.alignright
+// 			margin-left 1em
+// 
+// 		&.aligncenter
+// 			display block
+// 			margin 0 auto
+	
+	iframe
+		display block
+		margin 0 auto
+	
+	.wp-audio-shortcode
+		-wrapper(1em, 1em, 50%, 20em)
+
+	
+.entry-meta
+	p
+		margin 0
+		
+
+.blog-area
+	#main
+		.post
+			-clearfix()
+			margin-bottom 3em
+			padding-bottom 1em
+			border-bottom 1px solid $off-white
+
+			&:last-child
+				margin-bottom 0
+
+			.entry-header
+				text-align left
+				margin-bottom 1em
+				border-bottom 1px solid $light-blue
+
+				.entry-title
+					font-size 1.7em
+					margin 0
+
+				.entry-details
+					margin 0
+					font-size 0.9em
+
+					.sep
+						font-size 0.8em
+
+
+.pagination
+.single-pagination
+	margin 1em auto
+	font-size 1.1em
+	-clearfix()
+
+	.pag-next
+	[rel="prev"]
+		float left
+
+	.pag-prev
+	[rel="next"]
+		float right
+
+
+#page-thumbnail-wide
+	width 100%
+	height auto
+	max-height 60vh
+	overflow hidden
+	position relative
+	
+	img
+		display block
+
+
+/* ==========================================================================
+	Membership2
+   ========================================================================== */
+
+.ms-protected-content
+	max-width 30rem
+	margin 0 auto
+	
+
+// Login Page
+.page-id-78505
+	.page-title
+		text-align center
+	
+	.entry-content
+		img
+			height 40vh
+			display block
+			margin 0 auto
+
+
+.lost
+.login-remember
+a[href$="register"]
+	display none
+	
+
+.ms-alert-box
+.ms-error-box
+	border-top none
+	background-color none
+	box-shadow none
+
+
+/* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.front-page	
+	#highlights
+		width 100%
+		
+		.highlight-link
+			-wrapper(1em, 1em, 90%, 360px)
+			height auto
+			position relative
+			
+			figcaption
+				width 100%
+				position absolute
+				bottom 1.5em
+				text-align center
+				color black
+				padding 0.75em
+				background rgba(255,255,255,0.5)
+				transition all 0.25s
+			
+			img
+				-opacity(0.8)
+				transition all 0.25s
+	
+	#main
+		margin-top 0
+		padding-top 0
+
+
+#front-page-logo
+	width 100%
+	background url('http://dev.roundhouse-designs.com/the-lambs/wp-content/uploads/2015/11/IMGP3831.jpg') no-repeat
+	background-size cover
+	background-position center center
+	position relative
+	
+	.overlay
+		width 100%
+		height 100%
+		position absolute
+		top 0
+		left 0
+		background #fff
+		-opacity(0.35)
+	
+	.front-page-title
+		-wrapper(0, 0, , 90%)
+		height auto
+		padding 3em 0
+		
+		img
+			width auto
+			max-height 75%
+			display block
+			margin 0 auto
+			position relative
+		
+		.front-page-subtitle
+			text-align center
+			margin 0.5em auto
+			font-weight 700
+			font-size 1.3em
+			font-family $ff_body2
+
+
+/* ==========================================================================
+	Consolidated Roster
+   ========================================================================== */
+
+#roster-index
+	width 100%
+	list-style none
+	padding-left 0
+	-flexbox()
+	
+	li
+		-flexitem()
+
+
+#roster-table-container
+	font-size 0.9em
+	
+
+.roster-table
+.awards-table
+.shepherds-table
+	td
+	th
+		padding 0.25em
+		line-height 1.1
+	
+	.name
+	.memb_type
+		width auto
+	
+	.elected
+	.died
+	.year
+		width 4rem
+
+
+.shepherds-table
+	width 100%
+	
+
+/* ==========================================================================
+	Comments
+   ========================================================================== */
+
+#comments
+	margin 2em auto
+
+	.commentlist
+		list-style none
+		padding-left 0
+
+		ul
+		ol
+			@extends #comments .commentlist
+
+		.children
+			padding 0 1.5em
+
+	.even
+		background $off-white
+
+	.odd
+		background white
+
+	.comment-body
+		padding 1em
+		box-sizing border-box
+
+	textarea
+		max-width 100%
+
+	#commentform
+		width 100%
+		min-width 18rem
+		max-width 100%
+
+		p
+			margin-bottom 0.75rem
+
+		input
+		textarea
+			width 100%
+			background-color $off-white
+			font-size 0.8em
+			border none
+			box-sizing border-box
+			padding 0.5em
+			display block
+
+		#submit
+			width auto
+			padding-left 0.8em
+			cursor pointer
+
+		.comment-subscription-form
+			margin initial
+
+
+
+/* ==========================================================================
+	Widget Areas & Sidebars
+   ========================================================================== */
+
+#secondary
+	.widget
+		width 100%
+		margin-bottom 1.5em
+
+	.widget:last-child
+		margin-bottom 0
+
+	.widget-title
+		margin-top 0
+		font-size 1.2em
+	
+	.widget_simpleimage
+		.simple-image
+			margin 0
+
+
+#footer-widget-areas
+	width 100%
+	padding 0 2em
+	-clearfix()
+	
+	.footer-widget
+		margin 0.5em auto
+	
+	
+.footer-site-title
+	@extends #site-title
+	float none
+	margin 0
+	
+	.r
+		@extends #site-title .r
+		position relative
+		top -1.1em
+		right -0.1em
+
+
+.footer-subtitle
+	text-align center
+	font-style italic
+
+
+.widget_nav_menu
+	-column-count( 2 )
+	
+	ul
+		list-style none
+		margin-top 0
+		
+		li
+			.sub-menu
+				list-style disc inside
+				padding-left 0.5em
+
+
+#footer-widget-area-right
+	.widget_rhd_social_icons
+		-clearfix()
+		
+	.rhd_social_icons
+		width 95%
+		max-width 34em
+		margin 2em auto 0 auto
+		text-align center
+		
+		li
+			width 15%
+			max-width 3.5rem
+			margin-right 0.15em
+			
+			&:last-of-type
+				margin-right 0
+	
+	
+	.legal
+		text-align center
+		font-size 0.9em
+
+
+/* ==========================================================================
+	Media Queries
+   ========================================================================== */
+
+@media screen and (min-width 50em)
+	#site-navigation-container
+		display block
+		top 1.3em
+		
+		#site-navigation
+			height 2em
+		
+	#hamburger
+		display none
+
+	#main
+		-clearfix()
+	
+	#primary
+		-clearfix()
+
+		article
+			&.strip-active
+				width 65%
+				float right
+				
+		.image-strip
+			&.strip-active
+				width 30%
+				float left
+				margin-right 5%
+				
+				img
+					width 100%
+					height auto
+					margin-bottom 2em
+					display block
+	
+	#colophon
+		-clearfix()
+		
+	#footer-widget-area-left
+		width 55%
+		
+		.footer-site-title
+		.footer-subtitle
+			text-align left
+
+	#footer-widget-area-right
+		width 42%
+	
+	#footer-widget-area-left
+		float left
+		
+		.widget_nav_menu
+			-column-count( 3 )
+			font-size 0.9em
+			margin initial
+			
+			ul
+				padding-left 0
+	
+	#footer-widget-area-right
+		position relative
+		float right
+				
+		.legal
+			text-align right
+		
+		.rhd_social_icons
+			max-width none
+			float right
+			text-align right
+			margin-top 0
+
+	.blog-area
+		#main
+			-clearfix()
+			
+			#primary
+				width 66%
+				float right
+			
+			#secondary
+				width 28%
+				float left
+
+	#comments
+		#commentform
+			width 75%
+
+			p
+				margin-bottom 0.75rem
+
+			input
+			textarea
+				background-color $off-white
+				font-size 0.8em
+				border none
+				box-sizing border-box
+				padding 0.5em
+				display block
+
+			input
+				&[type="text"]
+				&[type="email"]
+					width 75%
+
+			#submit
+				width auto
+				padding-left 0.8em
+	
+	.shepherds-table
+		-wrapper(0,0,60%)
+	
+	//Login page
+	.page-id-78505
+		.entry-content
+			img
+				height auto
+				margin initial
+		
+	
+@media screen and (min-width 35em)
+	.front-page
+		#highlights
+			-flexbox()
+			
+			.highlight-link
+				width 30%
+				height auto
+				margin 0
+				-flexitem()
+				
+				&:hover
+					img
+						-opacity(1)
+					
+					figcaption
+						background rgba(255,255,255,0.75)

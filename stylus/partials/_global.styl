@@ -1,0 +1,149 @@
+/* ==========================================================================
+	Global Stylus Variables
+   ========================================================================== */
+
+// Variables
+$blue = #2a2a7a
+$light-blue = #5274e2
+$lighter-blue = #67b5e2
+$off-white = #f2f1e4
+
+$ff_body = 'Source Sans Pro', sans-serif
+$ff_body2 = 'Oswald', sans-serif
+$ff_head = 'Canterbury', cursive
+
+// Functions
+
+-unselectable()
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	-o-user-select: none;
+	user-select: none;
+
+
+-invisible()
+	visibility hidden
+	position absolute
+
+
+-flexbox()
+	text-align justify
+	line-height 1
+
+	&:after
+		width 100%
+		display inline-block
+		content ''
+
+
+-flexitem()
+	display inline-block
+
+
+-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $maxWidth = false )
+	if $customWidth == false
+		$w = 85%
+	else
+		$w = $customWidth
+	
+	if $maxWidth == false
+		$mW = 64rem
+	else
+		$mW = $maxWidth
+
+	if $topMargin == false
+		$topMargin = 0
+	if $bottomMargin == false
+		$bottomMargin = 0
+
+	width $w
+	max-width $mW
+	position relative
+	margin $topMargin auto $bottomMargin auto
+
+
+-unwrapper()
+	width 100%
+	max-width none
+	margin initial
+
+
+-delist()
+	padding-left 0
+	list-style none
+
+
+-clearfix()
+	@extends .clearfix
+
+
+-body-shadow( $yPos )
+	box-shadow 0em $yPos 0.45em 0em rgba(0,0,0,0.5)
+
+
+-opacity( $n )
+	-moz-opacity $n
+	-webkit-opacity $n
+	opacity $n
+
+
+-border-radius( $n )
+	-webkit-border-radius $n
+	-moz-border-radius $n
+	border-radius $n
+
+
+-transform( $n )
+	-webkit-transform $n
+	transform $n
+
+
+-transition( $n )
+	-webkit-transition $n
+	transition $n
+
+
+-placeholder-props( $famVal, $color, $opacity = null )
+	&::-webkit-input-placeholder
+		font-family $famVal
+		color $color
+		if $opacity != null
+			-opacity( $opacity )
+
+	&:-moz-placeholder /* Firefox 18- */
+		font-family $famVal
+		color $color
+		if $opacity != null
+			-opacity( $opacity )
+
+	&::-moz-placeholder  /* Firefox 19+ */
+		font-family $famVal
+		color $color
+		if $opacity != null
+			-opacity( $opacity )
+
+	&:-ms-input-placeholder
+		font-family $famVal
+		color $color
+		if $opacity != null
+			opacity( $opacity )
+
+
+/* -flexbox( $mode = space-between )
+	-ms-box-orient: horizontal;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: $mode
+	justify-content: $mode
+*/
+
+
+-column-count( $n )
+	-webkit-column-count $n
+	-moz-column-count $n
+	column-count $n
