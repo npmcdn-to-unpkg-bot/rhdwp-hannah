@@ -449,28 +449,26 @@ add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
 
 /**
  * rhd_archive_pagination function.
- *
+ * 
  * @access public
+ * @param WP_Query $q (default: null)
  * @return void
  */
-function rhd_archive_pagination()
-{
+function rhd_archive_pagination( WP_Query $q = null )
+{		
+	$max_page = ( $q ) ? $q->max_num_pages : null;
+		
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
 	echo '<div class="pagination">';
 
-	echo '<span class="pag-next">';
-	get_next_posts_link( '&larr; Older', null );
-	echo '</span>';
+	echo '<span class="pag-next">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
 	if ( $sep ) {
 		echo '<div class="pag-sep"></div>';
 	}
 
-	echo '<span class="pag-prev">';
-	get_previous_posts_link( 'Newer &rarr;', null );
-	echo '</span>';
-
+	echo '<span class="pag-prev">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
 	echo '</div>';
 }
 
