@@ -11,16 +11,15 @@ get_header(); ?>
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
+			<header class="page-header">
+				<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
+			</header><!-- .page-header -->
+
 			<?php if ( have_posts() ) : ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
-					<header class="page-header">
-						<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
-					</header><!-- .page-header -->
 					<?php get_template_part( 'content' ); ?>
 				<?php endwhile; ?>
-
-				<?php if ( is_single() && comments_open() ) comments_template(); ?>
 
 			<?php else : ?>
 
