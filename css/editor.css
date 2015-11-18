@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:23:38 PM on 16-11-2015
+* RHD Dev: Compiled at 10:10:08 PM on 17-11-2015
 ***/
 
 /**
@@ -179,12 +179,12 @@ a img.aligncenter {
   width: auto;
 }
 .clearfix:before,
-.blog-area #main .post:before,
+.blog-area .post:before,
 .pagination:before,
 .single-pagination:before,
 #primary:before,
 .clearfix:after,
-.blog-area #main .post:after,
+.blog-area .post:after,
 .pagination:after,
 .single-pagination:after,
 #primary:after {
@@ -192,7 +192,7 @@ a img.aligncenter {
   display: table;
 }
 .clearfix:after,
-.blog-area #main .post:after,
+.blog-area .post:after,
 .pagination:after,
 .single-pagination:after,
 #primary:after {
@@ -1165,17 +1165,17 @@ input[type="submit"]:hover {
 .entry-meta p {
   margin: 0;
 }
-.blog-area #main .post .entry-header {
+.blog-area .post .entry-header {
   text-align: center;
   margin-bottom: 1em;
 }
-.blog-area #main .post .entry-header .entry-title {
+.blog-area .post .entry-header .entry-title {
   margin: 0 0 0.25rem 0;
 }
-.blog-area #main .post .entry-header .entry-details {
+.blog-area .post .entry-header .entry-details {
   margin: 0;
 }
-.blog-area #main .post .entry-header .entry-details .sep {
+.blog-area .post .entry-header .entry-details .sep {
   font-size: 0.8em;
 }
 .pagination,
