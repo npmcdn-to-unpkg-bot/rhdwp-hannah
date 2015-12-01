@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:24:04 PM on 17-11-2015
+* RHD Dev: Compiled at 2:21:15 PM on 01-12-2015
 ***/
 
 /**
@@ -388,7 +388,6 @@ img.aligncenter {
     position: relative;
     margin: 0 auto 0 auto;
     text-align: justify;
-    line-height: 0;
     top: 0.95em;
   }
   #blog-metabar #blog-metabar-content:after {
@@ -1024,7 +1023,6 @@ input[type="submit"]:hover {
   padding-left: 0;
   margin: 0;
   text-align: justify;
-  line-height: 0;
 }
 #site-navigation-container #site-navigation:after {
   width: 100%;
