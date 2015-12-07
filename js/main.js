@@ -104,14 +104,16 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	
 	// Set Image Strip layout
 	function setImageStrip() {
-		if ( $(".entry-content img").length !== 0 ) {
-			$('<div id="image-strip"></div>').prependTo('#content');
-			$('#content article').addClass('strip-active');
-			
-			$(".entry-content img")
-				.appendTo($("#image-strip"))
-				.addClass("strip-active");
-		}
+		$('<div id="image-strip"></div>').prependTo('#content');
+		$('#content article').addClass('strip-active');
+		
+		$(".entry-content img").each(function(){
+			if ( $(this).hasClass('alignnone') ) {
+				$(this)
+					.appendTo($("#image-strip"))
+					.addClass("strip-active");
+			}
+		});
 	}
 	
 	
