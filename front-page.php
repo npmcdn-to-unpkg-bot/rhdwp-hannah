@@ -12,9 +12,17 @@ $updir = wp_upload_dir();
 
 	<aside id="highlights">
 		<figure class="highlight-link">
-			<a href="<?php echo home_url('/about/become-a-member'); ?>">
+			<a href="<?php echo home_url('/recent-events'); ?>">
 				<?php $img_1 = wp_get_attachment_image_src( 78459, '4x6' ); ?>
-				<img src="<?php echo $img_1[0]; ?>" alt="Become a Member">
+				<img src="<?php echo $img_1[0]; ?>" alt="Recent Events">
+				<figcaption>Recent Events</figcaption>
+			</a>
+		</figure>
+		
+		<figure class="highlight-link">
+			<a href="<?php echo home_url('/about/become-a-member'); ?>">
+				<?php $img_3 = wp_get_attachment_image_src( 78461, '4x6' ); ?>
+				<img src="<?php echo $img_3[0]; ?>" alt="Become a Member">
 				<figcaption>Become a Member</figcaption>
 			</a>
 		</figure>
@@ -24,14 +32,6 @@ $updir = wp_upload_dir();
 				<?php $img_2 = wp_get_attachment_image_src( 57, '4x6' ); ?>
 				<img src="<?php echo $img_2[0]; ?>" alt="Donate to The Lambs">
 				<figcaption>Donate to The Lambs</figcaption>
-			</a>
-		</figure>
-		
-		<figure class="highlight-link">
-			<a href="<?php echo home_url('/login'); ?>">
-				<?php $img_3 = wp_get_attachment_image_src( 78461, '4x6' ); ?>
-				<img src="<?php echo $img_3[0]; ?>" alt="Members only Area">
-				<figcaption>Members Only</figcaption>
 			</a>
 		</figure>
 	</aside>

@@ -67,7 +67,7 @@ function rhd_enqueue_scripts()
 		'jquery',
 		'modernizr',
 		'slidebars',
-		'imagesloaded'
+		'imagesloaded',
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
@@ -104,6 +104,13 @@ function rhd_register_jquery()
 }
 add_action( 'wp_enqueuescripts', 'rhd_register_jquery' );
 
+
+/**
+ * rhd_add_editor_styles function.
+ * 
+ * @access public
+ * @return void
+ */
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
@@ -154,11 +161,16 @@ add_action( 'wp_head', 'rhd_favicons' );
    Sidebars + Menus
    ========================================================================== */
 
-// Sidebars
+/**
+ * rhd_register_sidebars function.
+ * 
+ * @access public
+ * @return void
+ */
 function rhd_register_sidebars()
 {
 	register_sidebar(array(
-		'name'			=> __( 'News Sidebar', 'rhd' ),
+		'name'			=> __( 'Sidebar', 'rhd' ),
 		'id'			=> 'sidebar',
 		'before_title'	=> '<h2 class="widget-title">',
 		'after_title'	=> '</h2>',
@@ -186,12 +198,26 @@ function rhd_register_sidebars()
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
 
-// Menus
-register_nav_menu( 'primary', 'Main Site Navigation' );
-register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
 
 // Includes and Requires
 //include_once( 'includes/rhd-admin-panel.php' );
+
+
+register_nav_menu( 'primary', 'Main Site Navigation' );
+register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
+
+/**
+ * RHD_Walker_Nav class.
+ *
+ * Adds newlines after each </li> closing tag.
+ * 
+ * @extends Walker_Nav_Menu
+ */
+class RHD_Walker_Nav extends Walker_Nav_Menu {
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		$output .= "</li>\n";
+	}
+}
 
 
 /* ==========================================================================
@@ -464,23 +490,26 @@ add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
 
 /**
  * rhd_archive_pagination function.
- *
+ * 
  * @access public
+ * @param obj $q (default: null)
  * @return void
  */
-function rhd_archive_pagination()
-{
+function rhd_archive_pagination( WP_Query $q = null )
+{		
+	$max_page = ( $q ) ? $q->max_num_pages : null;
+		
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
 	echo '<div class="pagination">';
 
-	echo '<span class="pag-next">' . get_next_posts_link( '&larr; Older', null ) . '</span>';
+	echo '<span class="pag-next">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
 	if ( $sep ) {
 		echo '<div class="pag-sep"></div>';
 	}
 
-	echo '<span class="pag-prev">' . get_previous_posts_link( 'Newer &rarr;', null ) . '</span>';
+	echo '<span class="pag-prev">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
 	echo '</div>';
 }
 
@@ -595,10 +624,13 @@ function rhd_body_class( $body_classes )
 	$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
 	$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
 	$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
+	$body_classes[] = ( get_query_var( 'pagename' ) == 'recent-events' ) ? 'no-image-strip' : '';
 
-	session_start();
-	if ( !is_singular( 'club_member' ) ) {
-		if ( ( is_home() || is_single() || is_archive() || is_search() ) ) {
+	if ( !session_id() )
+		session_start();
+		
+	if ( get_post_type() != 'club_member' ) {
+		if ( is_home() || is_single() || is_archive() || is_search() ) {
 			$body_classes[] = 'blog-area';
 	
 			$_SESSION['blog_area'] = true;
@@ -694,14 +726,13 @@ function rhd_print_roster_table()
 					$term_list[] = $term->name;
 				}
 				
-				$joined_terms = join( ", ", $term_list );
+				$joined_terms = ( $term_list[0] == 'uncategorized' ) ? '' : join( ", ", $term_list );
 			}
 			
 			if ( $post->post_content != ' ' && $post->post_content ) {
 				$link = get_the_permalink();
 				$target = "_self";
-			}
-			else {
+			} else {
 				$link = do_shortcode( '[ct id="_ct_text_5638d53b1e9d4" property="value"]' );
 				$target = "_blank";
 			}
@@ -744,7 +775,7 @@ add_action( 'wp_ajax_rhd_print_roster_table', 'rhd_print_roster_table' );
 function rhd_roster_save_glossary( $post_id )
 {
 	$title = get_the_title( $post_id );
-	$ltr = strtolower( $title[0] );
+	$ltr = strtolower( $title );
 	
 	wp_set_object_terms( $post_id, $ltr, 'glossary' );
 }
@@ -822,10 +853,9 @@ function rhd_print_awards_table( $award, $title )
  * rhd_print_shepherds_table function.
  * 
  * @access public
- * @param string $title (default: "Our Shepherds")
  * @return void
  */
-function rhd_print_shepherds_table( $title = "Our Shepherds")
+function rhd_print_shepherds_table()
 {
 	global $post;
 	
@@ -838,40 +868,119 @@ function rhd_print_shepherds_table( $title = "Our Shepherds")
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'member_class',
-				'field' => 'slug',
-				'terms' => 'shepherd'
+				'terms' => 'shepherds',
+				'field' => 'slug'
 			)
 		)
 	);
 	$members = get_posts( $args );
 	
 	if ( $members ) {
-		$output = "<h3 style='text-align: center;'>$title</h3>"
-				. "<table id='our-shepherds' class='shepherds-table'>";
+		$output = "<h3 style='text-align: center;'>Our Shepherds</h3>"
+				. "<table id='tax-roster-table' class='shepherds-table'>";
 				
 		foreach ( $members as $post ) {
 			setup_postdata( $_GLOBALS['post'] =& $post );
 			
 			$meta = get_post_meta( $post->ID, 'shepherd_years', true );
 							
-				$title = explode( ',', $post->post_title );
-				$title_fmtd = $title[1] . ' ' . $title[0];
-				
-				if ( $post->post_content != ' ' && $post->post_content ) {
-					$link = get_the_permalink();
-					$target = "_self";
-				}
-				else {
-					$link = do_shortcode( '[ct id="_ct_text_5638d53b1e9d4" property="value"]' );
-					$target = "_blank";
-				}
-				
-				$name = ( $link ) ? '<a href="' . $link . '" target="' . $target . '">' . get_the_title() . '</a>' : get_the_title();
+			$title = explode( ',', $post->post_title );
+			$title_fmtd = $title[1] . ' ' . $title[0];
+			
+			if ( $post->post_content != ' ' && $post->post_content ) {
+				$link = get_the_permalink();
+				$target = "_self";
+			}
+			else {
+				$link = do_shortcode( '[ct id="_ct_text_5638d53b1e9d4" property="value"]' );
+				$target = "_blank";
+			}
+			
+			$name = ( $link ) ? '<a href="' . $link . '" target="' . $target . '">' . get_the_title() . '</a>' : get_the_title();
 
-				$output .= "<tr>"
-						. "<td>" . $name . "</td>"
-						. "<td>" . $meta . "</td>"
-						. "</tr>";
+			$output .= "<tr>"
+					. "<td>" . $name . "</td>"
+					. "<td>" . $meta . "</td>"
+					. "</tr>";
+		}
+		wp_reset_postdata();
+		$output .= "</table>";
+	}
+	
+	echo $output;
+}
+
+
+/**
+ * rhd_print_immortal_table function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_print_immortal_table()
+{
+	global $post;
+	
+	$args = array(
+		'post_type' => 'club_member',
+		'posts_per_page' => -1,
+		'orderby' => 'meta_value',
+		'order' => 'ASC',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'member_class',
+				'terms' => 'immortal-lambs',
+				'field' => 'slug'
+			)
+		)
+	);
+	$members = get_posts( $args );
+	
+	if ( $members ) {
+		$output = "<h3 style='text-align: center;'>Immortal Lambs</h3>"
+				. "<table id='tax-roster-table' class='immortal-table'>"
+				. "<tr>
+					<th class='name'>Name</th>
+					<th class='elected'>Year Elected</th>
+					<th class='died'>Year Died</th>
+					<th class='memb_type'>Membership Type</th>
+					<th class='notes'>Notes</th>
+					</tr>";
+				
+		foreach ( $members as $post ) {
+			setup_postdata( $_GLOBALS['post'] =& $post );
+							
+			$title = explode( ',', $post->post_title );
+			$title_fmtd = $title[1] . ' ' . $title[0];
+			
+			$terms = get_the_terms( $post->ID, 'membership_type' );
+			if ( $terms && ! is_wp_error( $terms ) ) {
+				$term_list = array();
+				foreach ( $terms as $term ) {
+					$term_list[] = $term->name;
+				}
+				
+				$joined_terms = ( $term_list[0] == 'uncategorized' ) ? '' : join( ", ", $term_list );
+			}
+			
+			if ( $post->post_content != ' ' && $post->post_content ) {
+				$link = get_the_permalink();
+				$target = "_self";
+			}
+			else {
+				$link = do_shortcode( '[ct id="_ct_text_5638d53b1e9d4" property="value"]' );
+				$target = "_blank";
+			}
+			
+			$name = ( $link ) ? '<a href="' . $link . '" target="' . $target . '">' . $title_fmtd . '</a>' : $title_fmtd;
+
+			$output .= "<tr>"
+					. "<td>" . $name . "</td>"
+					. "<td>" . do_shortcode( '[ct id="_ct_text_56382e07e4c3a" property="value"]' ) . "</td>"
+					. "<td>" . do_shortcode( '[ct id="_ct_text_56382e13b6858" property="value"]' ) . "</td>"
+					. "<td>$joined_terms</td>"
+					. "<td>" . do_shortcode( '[ct id="_ct_text_5638d2dfbf87f" property="value"]' ) . "</td>"
+					. "</tr>";
 		}
 		wp_reset_postdata();
 		$output .= "</table>";
@@ -893,3 +1002,44 @@ function rhd_title_format( $content ) {
 }
 add_filter( 'private_title_format', 'rhd_title_format' );
 add_filter( 'protected_title_format', 'rhd_title_format' );
+
+
+/**
+ * rhd_main_roster_init function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_main_roster_init() {
+	$output = '<div id="roster-container">'
+		. '<div id="roster-search-form">';
+	
+	ob_start();
+	get_template_part( 'searchform', 'roster' );
+	$output .= ob_get_contents();
+	ob_get_clean();
+		
+	$output .= '</div>';
+		
+	$output .= '<div id="glossary-area" class="entry-content">';
+
+	$alpha = array(
+'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u-v','w','x-z'
+	);
+	
+	$output .= '<ul id="roster-index">';
+
+	foreach ( $alpha as $ltr ) {
+		$output .= "<li class='roster-key roster-key-$ltr'>\n"
+			. "<a href='#' data-key='$ltr'>" . strtoupper( $ltr ) . "</a>\n"
+			. "</li>";
+	}
+	
+	$output .= "</ul>"
+		. '<div id="roster-table-container"></div>'
+		. '</div>'
+		. '</div>';
+	
+	return $output;
+}
+add_shortcode( 'main_roster', 'rhd_main_roster_init' );

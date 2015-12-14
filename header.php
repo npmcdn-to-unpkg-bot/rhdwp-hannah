@@ -17,7 +17,7 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 		<title><?php wp_title(); ?></title>
@@ -28,7 +28,7 @@
 
 	</head>
 
-	<body <?php body_class( $body_classes ); ?>>
+	<body <?php body_class(); ?>>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -39,7 +39,8 @@
 				'menu_id' => 'site-navigation',
 				'menu_class' => 'site-navigation',
 				'container' => 'nav',
-				'container_id' => 'site-navigation-container'
+				'container_id' => 'site-navigation-container',
+				'walker' => new RHD_Walker_Nav
 			);
 
 			$nav_args_sb = array(

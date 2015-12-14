@@ -19,7 +19,7 @@ get_header(); ?>
 			
 			<?php rhd_print_shepherds_table();	?>
 				
-			</div><!-- #content -->
-		</section><!-- #primary -->
+		</div><!-- #content -->
+	</section><!-- #primary -->
 
 <?php get_footer(); ?>

@@ -31,7 +31,7 @@ $ff_head = 'Canterbury', cursive
 	text-align justify
 	line-height 1
 
-	&:after
+	&::after
 		width 100%
 		display inline-block
 		content ''
@@ -147,3 +147,6 @@ $ff_head = 'Canterbury', cursive
 	-webkit-column-count $n
 	-moz-column-count $n
 	column-count $n
+	
+	li
+		overflow hidden

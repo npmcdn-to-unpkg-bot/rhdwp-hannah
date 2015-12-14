@@ -45,20 +45,29 @@ a
 
 input
 textarea
-	background-color $off-white
-	border none
+	background-color white
+	border 2px solid $blue
+	border-radius 0.2em
 	box-sizing border-box
 	padding 0.5em
 	font-family inherit
 	border-radius 0.1em
 	font-family $ff_body
 	-placeholder-props( $ff_body, '' )
+	-transition(all 0.25s)
+	
+	&:focus
+		background-color $off-white
+		border-color $light-blue
+		outline none
+		
 
 
 input[type="submit"]
 	cursor pointer
 	font-family inherit
 	-transition(all 0.25s)
+	padding 0.5em
 
 	&:hover
 		background-color gray
@@ -160,7 +169,7 @@ input[type="submit"]
 				margin-top 0.2em
 				z-index 200 !important
 				background-color rgba(255,255,255,0.9)
-				transition all 0.25s
+				-transition(all 0.25s)
 
 				.menu-item
 					display none
@@ -226,6 +235,8 @@ body
 
 #content
 	-clearfix()
+	font-size 1.1em
+	line-height 1.4
 
 
 #colophon
@@ -248,6 +259,13 @@ body
 .page-title
 	margin-top 0
 	line-height 1
+
+
+.page-title
+	font-size 1.5em
+	text-align center
+	text-transform uppercase
+	font-family $ff_body2
 
 
 .entry-content
@@ -306,31 +324,29 @@ body
 		
 
 .blog-area
-	#main
-		.post
-			-clearfix()
-			margin-bottom 3em
-			padding-bottom 1em
-			border-bottom 1px solid $off-white
+	.post
+		-clearfix()
+		margin-bottom 3em
+		padding-bottom 1em
+		border-bottom 1px solid $off-white
 
-			&:last-child
-				margin-bottom 0
+		&:last-child
+			margin-bottom 0
 
-			.entry-header
-				text-align left
-				margin-bottom 1em
-				border-bottom 1px solid $light-blue
+		.entry-header
+			text-align left
+			margin-bottom 1em
+			border-bottom 1px solid $light-blue
 
-				.entry-title
-					font-size 1.7em
-					margin 0
+			.entry-title
+				margin 0
 
-				.entry-details
-					margin 0
-					font-size 0.9em
+			.entry-details
+				margin 0
+				font-size 0.9em
 
-					.sep
-						font-size 0.8em
+				.sep
+					font-size 0.8em
 
 
 .pagination
@@ -357,6 +373,35 @@ body
 	
 	img
 		display block
+
+
+/* ==========================================================================
+	Ninja Forms
+   ========================================================================== */
+
+.ninja-forms-required-items
+	display none
+
+
+#ninja_forms_form_9
+	padding 0.5em 1em
+	border 2px solid $blue
+	border-radius 0.2em
+	
+	.ninja-forms-req-symbol
+		display none
+
+	#ninja_forms_field_27
+		display none
+	
+	#nf_submit_9
+		width 88px
+		margin 0 auto
+
+
+#ninja_forms_form_1
+	.ninja-forms-req-symbol
+		display none
 
 
 /* ==========================================================================
@@ -414,11 +459,11 @@ a[href$="register"]
 				color black
 				padding 0.75em
 				background rgba(255,255,255,0.5)
-				transition all 0.25s
+				-transition(all 0.25s)
 			
 			img
 				-opacity(0.8)
-				transition all 0.25s
+				-transition(all 0.25s)
 	
 	#main
 		margin-top 0
@@ -459,20 +504,29 @@ a[href$="register"]
 			font-weight 700
 			font-size 1.3em
 			font-family $ff_body2
-
+	
 
 /* ==========================================================================
-	Consolidated Roster
+	Pages
    ========================================================================== */
 
+// Resources
+#post-8
+	.entry-content
+		-column-count(2)
+	
+	
+// Consolidated Roster
 #roster-index
 	width 100%
 	list-style none
 	padding-left 0
-	-flexbox()
+	text-align center
+	margin-bottom 2em
 	
-	li
-		-flexitem()
+	.roster-key
+		padding 0 0.5em
+		display inline-block
 
 
 #roster-table-container
@@ -482,6 +536,7 @@ a[href$="register"]
 .roster-table
 .awards-table
 .shepherds-table
+.immortal-table
 	td
 	th
 		padding 0.25em
@@ -494,11 +549,42 @@ a[href$="register"]
 	.elected
 	.died
 	.year
-		width 4rem
+		width 5rem
 
 
 .shepherds-table
 	width 100%
+
+
+#roster-search-form
+	-wrapper(1.5em, 1.5em, 60%)
+	line-height 1.5
+	
+	.search-submit
+		padding 0.25em
+		display block
+		margin 0.25em auto
+
+
+#roster-loader
+	width 124px
+	margin 2em auto
+	display block
+	-opacity(0)
+
+
+// Reciprocal Clubs
+#post-100
+	table
+		-wrapper(1em, 2em, 95%)
+		
+		td
+			padding 0.5em
+
+
+// Committees
+#committee-columns
+	-column-count( 2 )
 	
 
 /* ==========================================================================
@@ -642,7 +728,10 @@ a[href$="register"]
 	.legal
 		text-align center
 		font-size 0.9em
-
+	
+	#text-4
+		text-align right
+		
 
 /* ==========================================================================
 	Media Queries
@@ -722,13 +811,17 @@ a[href$="register"]
 		#main
 			-clearfix()
 			
-			#primary
-				width 66%
-				float right
-			
-			#secondary
-				width 28%
-				float left
+	#primary.blog-area
+		width 66%
+		float right
+		
+		&.blog-area-no-sidebar
+			width 100%
+			float none
+	
+	#secondary.blog-area
+		width 28%
+		float left
 
 	#comments
 		#commentform
@@ -764,6 +857,14 @@ a[href$="register"]
 			img
 				height auto
 				margin initial
+	
+	
+	#roster-search-form
+		width 50%
+	
+	#ninja_forms_form_6_cont
+	#ninja_forms_form_1_cont
+		-wrapper(0, 0, 50%)
 		
 	
 @media screen and (min-width 35em)

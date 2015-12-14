@@ -1,4 +1,7 @@
-(function($){
+(function($){	
+	var isMobile = ( $('body').hasClass('mobile') === true ) ? true : false;
+	var isTablet = ( $('body').hasClass('tablet') === true ) ? true : false;	
+
 	var postContent = null;
 	
 	$(document).ready(function(){
@@ -26,17 +29,26 @@
 		
 		
 		// "Image Strip"
-		if ( !$('body').hasClass( 'blog-area' ) ) {
-			if ( $(window).width() > 800 )
-				setImageStrip();
-			
-			$(window).on('resize', function(){
+		if ( $('.entry-content img').length ) {
+			if ( $('body').hasClass('page') && !$("body, #primary").is( '.blog-area' ) && !$("body").hasClass('no-image-strip') ) {
 				if ( $(window).width() > 800 )
 					setImageStrip();
-				else
-					unsetImageStrip();
-			});
+				
+				$(window).on('resize', function(){
+					if ( $(window).width() > 800 )
+						setImageStrip();
+					else
+						unsetImageStrip();
+				});
+			}
 		}
+		
+		
+		// Click Events
+		$("#signup").on('click', function(e){
+			e.preventDefault();
+			$("#ninja-mailchimp").slideToggle();
+		});
 		
 		
 		checkCrappyLoginBox();
@@ -48,23 +60,29 @@
 
 	
 	function setImageStrip() {
-		if ( $(".entry-content img").length !== 0 ) {
+		if ( $('#content article img.alignnone').length ) {
 			$('<div id="image-strip"></div>').prependTo('#content');
 			$('#content article').addClass('strip-active');
 			
-			$(".entry-content img")
-				.appendTo($("#image-strip"))
-				.addClass("strip-active");
+			$(".entry-content img").each(function(){
+				if ( $(this).hasClass('alignnone') ) {
+					$(this)
+						.appendTo($("#image-strip"))
+						.addClass("strip-active");
+				}
+			});
 		}
 	}
 	
 	function unsetImageStrip() {
-		$("#image-strip").html('');
+		if ( $("#image-strip").length ) {
+			$("#image-strip").remove();
 			
-		$('#content article').removeClass('strip-active');
-		$(".entry-content").removeClass('strip-active');
-		
-		$(".entry-content").html(postContent);
+			$('#content article').removeClass('strip-active');
+			$(".entry-content").removeClass('strip-active');
+			
+			$(".entry-content").html(postContent);
+		}
 	}
 
 
