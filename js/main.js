@@ -1,4 +1,5 @@
 (function($){	
+	var themeDir = data.theme_dir;
 	var isMobile = ( $('body').hasClass('mobile') === true ) ? true : false;
 	var isTablet = ( $('body').hasClass('tablet') === true ) ? true : false;	
 
@@ -50,11 +51,9 @@
 			$("#ninja-mailchimp").slideToggle();
 		});
 		
-		$("#roster-link").on('click',function(e){
-			e.preventDefault();
+		$("body").on('click', '#roster-link a', function(){
 			tableWindow();
-			alert('hi!');
-		}); // SOMEHOW MAKE THIS WORK ON DYNAMICALLY CHANGING CODE
+		});
 		
 		
 		checkCrappyLoginBox();
@@ -147,9 +146,11 @@
 	
 	function tableWindow() {
 		var w = window.open();
-		tableData = $(".roster-table").html();
+		tableData = '<div id="solo-roster-table"><h2 class="solo-roster-title">Member Roster: \'' + $("#roster-area-container").attr('data-roster-key').toUpperCase() + "'" + $("#roster-area-container").html() + '</div>';
 		
-		$(w.document.body).html(tableData);
+		tableHtml = '<!DOCTYPE html><html><head><link rel="stylesheet" href="' + themeDir + '/css/main.css" type="text/css"></head><body>' + tableData + '</body></html>';	
+	
+		$(w.document.body).html(tableHtml);
 	}
 
 })(jQuery);

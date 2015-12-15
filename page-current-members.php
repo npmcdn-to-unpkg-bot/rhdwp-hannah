@@ -17,6 +17,10 @@ get_header(); ?>
 				<?php endwhile; ?>
 			<?php endif; ?>
 			
+			<div id="roster-search-form">
+				<?php get_template_part( 'searchform', 'current-members' ); ?>
+			</div>
+			
 			<div id="glossary-area">
 				<?php $alpha = array( 'a-c','d-f','g-i', 'j-l', 'm-o', 'p-r', 's-u', 'v-x', 'y-z' ); ?>
 				

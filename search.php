@@ -6,7 +6,10 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+
+$searching_current = ( get_query_var( 'member_class' ) == 'current-members' ) ? true : false;
+?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
@@ -17,12 +20,22 @@ get_header(); ?>
 			<?php if ( have_posts() ) : $post_type = get_post_type(); ?>
 				
 				<?php if ( $post_type == 'club_member' ) : ?>
-					<p style="font-size: 1.1em;"><a href="<?php echo home_url( 'history/roster' ); ?>">&larr; Back to Roster</a></p>
+					<p style="font-size: 1.1em;">
+						<?php if ( $searching_current ) : ?>
+							<a href="<?php echo home_url( 'about/current-members' ); ?>">&larr; Back to Current Members</a>
+						<?php else : ?>
+							<a href="<?php echo home_url( 'history/roster' ); ?>">&larr; Back to Roster</a>
+						<?php endif; ?>
+					</p>
 					<table id='roster-search' class='roster-table'>
 						<tr>
 							<th class='name'>Name</th>
 							<th class='elected'>Year Elected</th>
-							<th class='died'>Year Died</th>				
+							
+							<?php if ( !$searching_current ) : ?>
+								<th class='died'>Year Died</th>
+							<?php endif; ?>
+							
 							<th class='memb_type'>Membership Type</th>
 							<th class='notes'>Notes</th>
 						</tr>
@@ -58,7 +71,11 @@ get_header(); ?>
 							
 							<td><?php echo $name; ?></td>
 							<td><?php echo do_shortcode( '[ct id="_ct_text_56382e07e4c3a" property="value"]' ); ?></td>
-							<td><?php echo do_shortcode( '[ct id="_ct_text_56382e13b6858" property="value"]' ); ?></td>
+							
+							<?php if ( !$searching_current ) : ?>
+								<td><?php echo do_shortcode( '[ct id="_ct_text_56382e13b6858" property="value"]' ); ?></td>
+							<?php endif; ?>
+							
 							<td><?php echo $joined_terms; ?></td>
 							<td><?php echo do_shortcode( '[ct id="_ct_text_5638d2dfbf87f" property="value"]' ); ?></td>
 						</tr>

@@ -85,6 +85,7 @@ function rhd_enqueue_scripts()
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 	);
 	wp_localize_script( 'rhd-roster-ajax', 'roster', $data);
+	wp_localize_script( 'rhd-main', 'data', $data );
 
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
@@ -704,7 +705,8 @@ function rhd_print_roster_table()
 	$key = ( is_array( $ltr ) ) ? implode( $ltr ) : $ltr;
 	
 	if ( $members ) {
-		$output = "<table id='roster-$key' class='roster-table'>"
+		$output = "<div id='roster-area-container' data-roster-key='$key'>\n"
+				. "<table id='roster-$key' class='roster-table'>"
 				. "<tr>
 					<th class='name'>Name</th>
 					<th class='elected'>Year Elected</th>";
@@ -755,7 +757,8 @@ function rhd_print_roster_table()
 		
 		$output .= "</table>\n";
 		
-		$output .= '<a id="roster-link" href="#">View Roster: ' . strtoupper( $key ) . "</a>\n";
+		$output .= '<span id="roster-link"><a href="javascript:;">View Roster: \'' . strtoupper( $key ) . "'</a></span>\n"
+				. "</div>\n";
 	} else {
 		$output = '<p>Sorry, no members were found.</p>';
 	}
@@ -1045,3 +1048,49 @@ function rhd_main_roster_init() {
 	return $output;
 }
 add_shortcode( 'main_roster', 'rhd_main_roster_init' );
+
+
+/**
+ * rhd_logout_nav_link function.
+ * 
+ * @access public
+ * @param mixed $items
+ * @param mixed $args
+ * @return void
+ */
+function rhd_logout_nav_link($items, $args) {
+	$theme_location = 'primary'; // Theme Location slug
+	$existing_menu_item_db_id = 78490;
+	$new_menu_item_db_id = 999999; // unique id number
+	$label = 'Log out';
+	$url = wp_logout_url( get_permalink() );
+	
+	if ( $theme_location !== $args->theme_location )
+		return $items;
+
+	$new_links = array();
+	
+	if ( is_user_logged_in() ) {
+	
+		// only if user is logged-in, do sub-menu link
+		$item = array(
+			'title'            => $label,
+			'menu_item_parent' => $existing_menu_item_db_id,
+			'ID'               => 'log-out',
+			'db_id'            => $new_menu_item_db_id,
+			'url'              => $url,
+			'classes'          => array( 'menu-item' )
+		);
+		
+		$new_links[] = (object) $item;  // Add the new menu item to our array
+		unset( $item ); // in case we add more items below
+		
+		$index = count( $items );  // integer, the order number.
+		
+		// Insert the new links at the appropriate place.
+		array_splice( $items, $index, 0, $new_links );
+	}
+	
+	return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'rhd_logout_nav_link', 10, 2 );

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:30:45 PM on 14-12-2015
+* RHD Dev: Compiled at 6:44:30 PM on 15-12-2015
 ***/
 
 .alignnone {
@@ -1340,6 +1340,14 @@ body .sb-slidebar .sub-menu {
 #ninja_forms_form_1 .ninja-forms-req-symbol {
   display: none;
 }
+.ninja-forms-response-msg p {
+  padding: 0.5em;
+  border: 2px solid #2a2a7a;
+  border-radius: 0.2em;
+  background: #67b5e2;
+  font-size: 1.3em;
+  text-align: center;
+}
 /* ==========================================================================
 	Membership2
    ========================================================================== */
@@ -1458,13 +1466,12 @@ a[href$="register"] {
   list-style: none;
   padding-left: 0;
   text-align: center;
-  margin-bottom: 2em;
 }
 #roster-index .roster-key {
   padding: 0 0.5em;
   display: inline-block;
 }
-#roster-table-container {
+#roster-area-container {
   font-size: 0.9em;
 }
 .roster-table td,
@@ -1477,6 +1484,7 @@ a[href$="register"] {
 .immortal-table th {
   padding: 0.25em;
   line-height: 1.1;
+  border: 1px solid #f2f1e4;
 }
 .roster-table .name,
 .awards-table .name,
@@ -1504,10 +1512,25 @@ a[href$="register"] {
 }
 .roster-table {
   display: none;
+  border-collapse: collapse;
+}
+#solo-roster-table {
+  padding: 1em;
+}
+#solo-roster-table .roster-table {
+  width: auto;
+  min-width: 30em;
+  display: table;
+}
+#solo-roster-table #roster-link {
+  display: none;
 }
 #roster-link {
-  font-size: 1.1em;
+  width: 100%;
+  font-size: 1.3em;
+  margin: 1em 0;
   text-align: center;
+  display: inline-block;
   font-family: 'Oswald', sans-serif;
 }
 .shepherds-table {
@@ -1655,9 +1678,15 @@ a[href$="register"] {
   list-style: none;
   margin-top: 0;
 }
-.widget_nav_menu ul li .sub-menu {
+.widget_nav_menu ul > .menu-item {
+  font-weight: bold;
+}
+.widget_nav_menu ul > .menu-item .sub-menu {
   list-style: disc inside;
   padding-left: 0.5em;
+}
+.widget_nav_menu ul > .menu-item .sub-menu .menu-item {
+  font-weight: normal;
 }
 #footer-widget-area-right .rhd_social_icons {
   width: 95%;
