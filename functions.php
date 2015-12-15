@@ -661,7 +661,7 @@ function rhd_print_roster_table()
 	global $post;
 	
 	$ltr = $_POST['letter'];
-	$current = $_POST['current'];
+	$current = isset( $_POST['current'] ) ? $_POST['current'] : '';
 	
 	// Check if a range
 	if ( stripos( $ltr, '-' ) ) {
@@ -753,7 +753,9 @@ function rhd_print_roster_table()
 			wp_reset_postdata();
 		}
 		
-		$output .= "</table>";
+		$output .= "</table>\n";
+		
+		$output .= '<a id="roster-link" href="#">View Roster: ' . strtoupper( $key ) . "</a>\n";
 	} else {
 		$output = '<p>Sorry, no members were found.</p>';
 	}

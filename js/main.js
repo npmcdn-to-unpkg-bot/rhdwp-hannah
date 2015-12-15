@@ -50,6 +50,12 @@
 			$("#ninja-mailchimp").slideToggle();
 		});
 		
+		$("#roster-link").on('click',function(e){
+			e.preventDefault();
+			tableWindow();
+			alert('hi!');
+		}); // SOMEHOW MAKE THIS WORK ON DYNAMICALLY CHANGING CODE
+		
 		
 		checkCrappyLoginBox();
 		$(window).on('resize', checkCrappyLoginBox );
@@ -136,6 +142,14 @@
 		var alertText = $(".ms-alert-box").text();
 		if ( alertText.indexOf( 'log in' ) != -1 )
 			$(".ms-alert-box").hide();
+	}
+	
+	
+	function tableWindow() {
+		var w = window.open();
+		tableData = $(".roster-table").html();
+		
+		$(w.document.body).html(tableData);
 	}
 
 })(jQuery);

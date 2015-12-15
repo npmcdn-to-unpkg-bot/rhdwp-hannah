@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:21:26 PM on 14-12-2015
+* RHD Dev: Compiled at 7:30:45 PM on 14-12-2015
 ***/
 
 /**
@@ -1487,6 +1487,14 @@ a[href$="register"] {
 .immortal-table .year {
   width: 5rem;
 }
+.roster-table {
+  display: none;
+}
+#roster-link {
+  font-size: 1.1em;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
 .shepherds-table {
   width: 100%;
 }
@@ -1795,6 +1803,12 @@ a[href$="register"] {
   }
   .front-page #highlights .highlight-link:hover figcaption {
     background: rgba(255,255,255,0.75);
+  }
+  .roster-table {
+    display: table;
+  }
+  #roster-link {
+    display: none;
   }
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
