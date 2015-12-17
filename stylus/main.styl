@@ -199,6 +199,16 @@ body
 	
 	#site-navigation-sb
 		list-style none
+		padding-left 1em
+		font-size 1.1em
+		line-height 1.6
+		
+		.menu-item
+			text-transform uppercase
+			
+			.sub-menu
+				.menu-item
+					text-transform initial
 
 
 #hamburger
@@ -404,14 +414,15 @@ body
 		display none
 
 
-.ninja-forms-response-msg
+.ninja-forms-success-msg
+	padding 0.35em
+	border 2px solid $blue
+	border-radius 0.2em
+	font-size 1.3em
+	
 	p
-		padding 0.5em
-		border 2px solid $blue
-		border-radius 0.2em
-		background $lighter-blue
-		font-size 1.3em
 		text-align center
+		margin 0
 
 
 /* ==========================================================================
@@ -562,6 +573,15 @@ a[href$="register"]
 		width 5rem
 
 
+.immortal-table
+	th
+	td
+		&:nth-of-type(3)
+		&:nth-of-type(4)
+		&:nth-of-type(5)
+			display none
+
+
 .roster-table
 	display none
 	border-collapse collapse
@@ -705,11 +725,14 @@ a[href$="register"]
 
 #footer-widget-areas
 	width 100%
-	padding 0 2em
+	padding 0 1em
 	-clearfix()
 	
 	.footer-widget
 		margin 0.5em auto
+	
+	ul
+		padding-left 0
 	
 	
 .footer-site-title
@@ -772,7 +795,7 @@ a[href$="register"]
 		font-size 0.9em
 	
 	#text-4
-		text-align right
+		text-align center
 		
 
 /* ==========================================================================
@@ -817,15 +840,6 @@ a[href$="register"]
 		
 	#footer-widget-area-left
 		width 55%
-		
-		.footer-site-title
-		.footer-subtitle
-			text-align left
-
-	#footer-widget-area-right
-		width 42%
-	
-	#footer-widget-area-left
 		float left
 		
 		.widget_nav_menu
@@ -835,10 +849,18 @@ a[href$="register"]
 			
 			ul
 				padding-left 0
+		
+		.footer-site-title
+		.footer-subtitle
+			text-align left
 	
 	#footer-widget-area-right
+		width 42%
 		position relative
 		float right
+		
+		#text-4
+			text-align right
 				
 		.legal
 			text-align right
@@ -892,6 +914,14 @@ a[href$="register"]
 	
 	.shepherds-table
 		-wrapper(0,0,60%)
+	
+	.immortal-table
+		th
+		td
+			&:nth-of-type(3)
+			&:nth-of-type(4)
+			&:nth-of-type(5)
+				display table-cell
 	
 	//Login page
 	.page-id-78505

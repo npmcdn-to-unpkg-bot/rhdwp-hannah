@@ -203,9 +203,10 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
 // Includes and Requires
 //include_once( 'includes/rhd-admin-panel.php' );
 
-
 register_nav_menu( 'primary', 'Main Site Navigation' );
 register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
+register_nav_menu( 'footer', 'Footer Site Navigation' );
+
 
 /**
  * RHD_Walker_Nav class.

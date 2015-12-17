@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:44:30 PM on 15-12-2015
+* RHD Dev: Compiled at 6:00:58 PM on 17-12-2015
 ***/
 
 .alignnone {
@@ -1149,6 +1149,15 @@ body .sb-slidebar .sub-menu {
 }
 #site-navigation-sb-container #site-navigation-sb {
   list-style: none;
+  padding-left: 1em;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+#site-navigation-sb-container #site-navigation-sb .menu-item {
+  text-transform: uppercase;
+}
+#site-navigation-sb-container #site-navigation-sb .menu-item .sub-menu .menu-item {
+  text-transform: initial;
 }
 #hamburger {
   background-color: #fff;
@@ -1340,13 +1349,15 @@ body .sb-slidebar .sub-menu {
 #ninja_forms_form_1 .ninja-forms-req-symbol {
   display: none;
 }
-.ninja-forms-response-msg p {
-  padding: 0.5em;
+.ninja-forms-success-msg {
+  padding: 0.35em;
   border: 2px solid #2a2a7a;
   border-radius: 0.2em;
-  background: #67b5e2;
   font-size: 1.3em;
+}
+.ninja-forms-success-msg p {
   text-align: center;
+  margin: 0;
 }
 /* ==========================================================================
 	Membership2
@@ -1510,6 +1521,14 @@ a[href$="register"] {
 .immortal-table .year {
   width: 5rem;
 }
+.immortal-table th:nth-of-type(3),
+.immortal-table td:nth-of-type(3),
+.immortal-table th:nth-of-type(4),
+.immortal-table td:nth-of-type(4),
+.immortal-table th:nth-of-type(5),
+.immortal-table td:nth-of-type(5) {
+  display: none;
+}
 .roster-table {
   display: none;
   border-collapse: collapse;
@@ -1648,10 +1667,13 @@ a[href$="register"] {
 }
 #footer-widget-areas {
   width: 100%;
-  padding: 0 2em;
+  padding: 0 1em;
 }
 #footer-widget-areas .footer-widget {
   margin: 0.5em auto;
+}
+#footer-widget-areas ul {
+  padding-left: 0;
 }
 .footer-site-title {
   float: none;
@@ -1707,7 +1729,7 @@ a[href$="register"] {
   font-size: 0.9em;
 }
 #footer-widget-area-right #text-4 {
-  text-align: right;
+  text-align: center;
 }
 /* ==========================================================================
 	Media Queries
@@ -1740,15 +1762,6 @@ a[href$="register"] {
   }
   #footer-widget-area-left {
     width: 55%;
-  }
-  #footer-widget-area-left .footer-site-title,
-  #footer-widget-area-left .footer-subtitle {
-    text-align: left;
-  }
-  #footer-widget-area-right {
-    width: 42%;
-  }
-  #footer-widget-area-left {
     float: left;
   }
   #footer-widget-area-left .widget_nav_menu {
@@ -1764,9 +1777,17 @@ a[href$="register"] {
   #footer-widget-area-left .widget_nav_menu ul {
     padding-left: 0;
   }
+  #footer-widget-area-left .footer-site-title,
+  #footer-widget-area-left .footer-subtitle {
+    text-align: left;
+  }
   #footer-widget-area-right {
+    width: 42%;
     position: relative;
     float: right;
+  }
+  #footer-widget-area-right #text-4 {
+    text-align: right;
   }
   #footer-widget-area-right .legal {
     text-align: right;
@@ -1817,6 +1838,14 @@ a[href$="register"] {
     max-width: 64rem;
     position: relative;
     margin: 0 auto 0 auto;
+  }
+  .immortal-table th:nth-of-type(3),
+  .immortal-table td:nth-of-type(3),
+  .immortal-table th:nth-of-type(4),
+  .immortal-table td:nth-of-type(4),
+  .immortal-table th:nth-of-type(5),
+  .immortal-table td:nth-of-type(5) {
+    display: table-cell;
   }
   .page-id-78505 .entry-content img {
     height: auto;

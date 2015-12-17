@@ -52,7 +52,7 @@
 			);
 		?>
 
-		<div class="sb-slidebar sb-left sb-style-overlay sb-width-custom sb-momentum-scrolling" data-sb-width="45%">
+		<div class="sb-slidebar sb-left sb-style-overlay sb-width-custom sb-momentum-scrolling" data-sb-width="69%">
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
 		
