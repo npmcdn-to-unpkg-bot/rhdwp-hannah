@@ -19,7 +19,11 @@ get_header(); ?>
 			
 			<?php
 			$paged = get_query_var( 'paged' );
-			$q = new WP_Query( "category_name=new-members&paged=$paged" );
+			$args = array(
+				'category_name' => 'new-members',
+				'paged' => $paged
+			);
+			$q = new WP_Query( $args );
 			?>
 			
 			<?php if ( $q->have_posts() ) : ?>
