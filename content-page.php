@@ -13,6 +13,13 @@
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">
+			
+			<?php
+			$msg = $_GET['msg'];
+			if ( $msg == 'check-email' )
+				echo '<p style="text-align: center; color: #67b5e2;">Please check your email for your new login information.</p>';
+			?>
+			
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
 

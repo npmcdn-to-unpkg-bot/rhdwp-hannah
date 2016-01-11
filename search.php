@@ -48,12 +48,12 @@ $searching_current = ( get_query_var( 'member_class' ) == 'current-members' ) ? 
 						<?php
 						$ext_link = do_shortcode( '[ct id="_ct_text_5638d53b1e9d4" property="value"]' );
 						
-						if ( get_the_content() != ' ' ) {
+						if ( $ext_link ) {
+							$link = $ext_link;
+							$target = "_blank";
+						} else {
 							$link = get_the_permalink();
 							$target = "_self";
-						} else {
-							$link = do_shortcode( '[ct id="_ct_text_5638d53b1e9d4" property="value"]' );
-							$target = "_blank";
 						}
 						
 						$terms = get_the_terms( $post->ID, 'membership_type' );
@@ -99,7 +99,7 @@ $searching_current = ( get_query_var( 'member_class' ) == 'current-members' ) ? 
 					// Show a different message to a logged-in user who can add posts.
 				?>
 					<header class="entry-header">
-						<h2 class="entry-title"><?php _e( 'Sorry, dude. Couldn\'t find anything. Give it another try, we believe in you.', 'rhd' ); ?></h2>
+						<h2 class="entry-title"><?php _e( 'Sorry, but we couldn\'t find anything. Please try again.', 'rhd' ); ?></h2>
 					</header>
 
 					<div class="entry-content">

@@ -55,12 +55,12 @@ textarea
 	font-family $ff_body
 	-placeholder-props( $ff_body, '' )
 	-transition(all 0.25s)
-	
+
 	&:focus
 		background-color $off-white
 		border-color $light-blue
 		outline none
-		
+
 
 
 input[type="submit"]
@@ -75,7 +75,7 @@ input[type="submit"]
 
 #page
 	position relative
-	
+
 	&.sticky
 		padding-top 6em
 
@@ -84,11 +84,11 @@ input[type="submit"]
 	width 100%
 	height auto
 	position relative
-		
+
 	#navbar
 		padding-top 1em
 		padding-bottom 1em
-		
+
 		&.sticky
 			position fixed
 			background white
@@ -107,11 +107,11 @@ input[type="submit"]
 	line-height 1
 	z-index 500
 	position relative
-	
+
 	a
 		color inherit
 		text-decoration none
-	
+
 	.r
 		font-size 0.4em
 		line-height 1
@@ -176,19 +176,19 @@ input[type="submit"]
 					margin 0
 					padding 0.25em 0.25em 0.25em 0.5em
 					text-align left
-					
+
 					&:hover
 						background-color #dee2ff
 
 body
 	.sb-slidebar
 		background $light-blue
-		
+
 		a
 			color white
 			text-decoration none
 			font-size 1.1em
-		
+
 		.sub-menu
 			margin-top 0
 
@@ -196,16 +196,16 @@ body
 #site-navigation-sb-container
 	position relative
 	top 1em
-	
+
 	#site-navigation-sb
 		list-style none
 		padding-left 1em
 		font-size 1.1em
 		line-height 1.6
-		
+
 		.menu-item
 			text-transform uppercase
-			
+
 			.sub-menu
 				.menu-item
 					text-transform initial
@@ -217,12 +217,12 @@ body
 	top 50%
 	right 3%
 	-transform(translateY(-50%))
-	
+
 	span
 		background-color $light-blue
-		
+
 		&::after
-		&::before	
+		&::before
 			background-color (@background-color)
 
 
@@ -256,7 +256,7 @@ body
 	background-color $blue
 	color white
 	position relative
-	
+
 	a
 		color $lighter-blue
 
@@ -319,19 +319,19 @@ body
 		&.alignnone
 			display block
 			margin 0 auto
-	
+
 	iframe
 		display block
 		margin 0 auto
-	
+
 	.wp-audio-shortcode
 		-wrapper(1em, 1em, 50%, 20em)
 
-	
+
 .entry-meta
 	p
 		margin 0
-		
+
 
 .blog-area
 	.post
@@ -380,7 +380,7 @@ body
 	max-height 60vh
 	overflow hidden
 	position relative
-	
+
 	img
 		display block
 
@@ -397,13 +397,13 @@ body
 	padding 0.5em 1em
 	border 2px solid $blue
 	border-radius 0.2em
-	
+
 	.ninja-forms-req-symbol
 		display none
 
 	#ninja_forms_field_27
 		display none
-	
+
 	#nf_submit_9
 		width 88px
 		margin 0 auto
@@ -419,7 +419,7 @@ body
 	border 2px solid $blue
 	border-radius 0.2em
 	font-size 1.3em
-	
+
 	p
 		text-align center
 		margin 0
@@ -432,13 +432,13 @@ body
 .ms-protected-content
 	max-width 30rem
 	margin 0 auto
-	
+
 
 // Login Page
 .page-id-78505
 	.page-title
 		text-align center
-	
+
 	.entry-content
 		img
 			height 40vh
@@ -450,7 +450,7 @@ body
 .login-remember
 a[href$="register"]
 	display none
-	
+
 
 .ms-alert-box
 .ms-error-box
@@ -463,15 +463,15 @@ a[href$="register"]
 	Front Page
    ========================================================================== */
 
-.front-page	
+.front-page
 	#highlights
 		width 100%
-		
+
 		.highlight-link
 			-wrapper(1em, 1em, 90%, 360px)
 			height auto
 			position relative
-			
+
 			figcaption
 				width 100%
 				position absolute
@@ -481,11 +481,11 @@ a[href$="register"]
 				padding 0.75em
 				background rgba(255,255,255,0.5)
 				-transition(all 0.25s)
-			
+
 			img
 				-opacity(0.8)
 				-transition(all 0.25s)
-	
+
 	#main
 		margin-top 0
 		padding-top 0
@@ -493,11 +493,11 @@ a[href$="register"]
 
 #front-page-logo
 	width 100%
-	background url('http://dev.roundhouse-designs.com/the-lambs/wp-content/uploads/2015/11/IMGP3831.jpg') no-repeat
+	background url('http://the-lambs.org/wp-content/uploads/2015/11/IMGP3831.jpg') no-repeat
 	background-size cover
 	background-position center center
 	position relative
-	
+
 	.overlay
 		width 100%
 		height 100%
@@ -506,26 +506,26 @@ a[href$="register"]
 		left 0
 		background #fff
 		-opacity(0.35)
-	
+
 	.front-page-title
 		-wrapper(0, 0, , 90%)
 		height auto
 		padding 3em 0
-		
+
 		img
 			width auto
 			max-height 75%
 			display block
 			margin 0 auto
 			position relative
-		
+
 		.front-page-subtitle
 			text-align center
 			margin 0.5em auto
 			font-weight 700
 			font-size 1.3em
 			font-family $ff_body2
-	
+
 
 /* ==========================================================================
 	Pages
@@ -535,15 +535,15 @@ a[href$="register"]
 #post-8
 	.entry-content
 		-column-count(2)
-	
-	
+
+
 // Consolidated Roster
 #roster-index
 	width 100%
 	list-style none
 	padding-left 0
 	text-align center
-	
+
 	.roster-key
 		padding 0 0.5em
 		display inline-block
@@ -551,7 +551,7 @@ a[href$="register"]
 
 #roster-area-container
 	font-size 0.9em
-	
+
 
 .roster-table
 .awards-table
@@ -562,11 +562,11 @@ a[href$="register"]
 		padding 0.25em
 		line-height 1.1
 		border 1px solid $off-white
-	
+
 	.name
 	.memb_type
 		width auto
-	
+
 	.elected
 	.died
 	.year
@@ -587,14 +587,21 @@ a[href$="register"]
 	border-collapse collapse
 
 
+#roster-search
+	&.roster-table
+		width 100%
+		display table
+		word-break keep-all
+
+
 #solo-roster-table
 	padding 1em
-	
+
 	.roster-table
 		width auto
 		min-width 30em
 		display table
-	
+
 	#roster-link
 		display none
 
@@ -615,7 +622,7 @@ a[href$="register"]
 #roster-search-form
 	-wrapper(1.5em, 1.5em, 60%)
 	line-height 1.5
-	
+
 	.search-submit
 		padding 0.25em
 		display block
@@ -633,7 +640,7 @@ a[href$="register"]
 #post-100
 	table
 		-wrapper(1em, 2em, 95%)
-		
+
 		td
 			padding 0.5em
 
@@ -641,7 +648,7 @@ a[href$="register"]
 // Committees
 #committee-columns
 	-column-count( 2 )
-	
+
 
 /* ==========================================================================
 	Comments
@@ -717,7 +724,7 @@ a[href$="register"]
 	.widget-title
 		margin-top 0
 		font-size 1.2em
-	
+
 	.widget_simpleimage
 		.simple-image
 			margin 0
@@ -727,19 +734,19 @@ a[href$="register"]
 	width 100%
 	padding 0 1em
 	-clearfix()
-	
+
 	.footer-widget
 		margin 0.5em auto
-	
+
 	ul
 		padding-left 0
-	
-	
+
+
 .footer-site-title
 	@extends #site-title
 	float none
 	margin 0
-	
+
 	.r
 		@extends #site-title .r
 		position relative
@@ -754,68 +761,81 @@ a[href$="register"]
 
 .widget_nav_menu
 	-column-count( 2 )
-	
+
 	ul
 		list-style none
 		margin-top 0
-		
+
 		& > .menu-item
 			font-weight bold
-		
+
 			.sub-menu
 				list-style disc inside
 				padding-left 0.5em
-				
+
 				.menu-item
 					font-weight normal
-				
+
 
 
 #footer-widget-area-right
 	.widget_rhd_social_icons
 		-clearfix()
-		
+
 	.rhd_social_icons
 		width 95%
 		max-width 34em
 		margin 2em auto 0 auto
 		text-align center
-		
+
 		li
 			width 15%
 			max-width 3.5rem
 			margin-right 0.15em
-			
+
 			&:last-of-type
 				margin-right 0
-	
-	
+
+
 	.legal
 		text-align center
 		font-size 0.9em
-	
+
 	#text-4
 		text-align center
-		
+
 
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
 
+@media screen and (max-width 35em) and (orientation: portrait)
+	#roster-search
+		&.roster-table
+			height 10em
+			display block
+			background url(../img/device-landscape.png) no-repeat center center
+			background-size contain
+			border none
+
+			tbody
+				display none
+
+
 @media screen and (min-width 50em)
 	#site-navigation-container
 		display block
 		top 1.3em
-		
+
 		#site-navigation
 			height 2em
-		
+
 	#hamburger
 		display none
 
 	#main
 		-clearfix()
-	
+
 	#primary
 		-clearfix()
 
@@ -823,48 +843,48 @@ a[href$="register"]
 			&.strip-active
 				width 65%
 				float right
-				
+
 		#image-strip
 			width 30%
 			float left
 			margin-right 5%
-			
+
 			img
 				width 100%
 				height auto
 				margin-bottom 2em
 				display block
-	
+
 	#colophon
 		-clearfix()
-		
+
 	#footer-widget-area-left
 		width 55%
 		float left
-		
+
 		.widget_nav_menu
 			-column-count( 3 )
 			font-size 0.9em
 			margin initial
-			
+
 			ul
 				padding-left 0
-		
+
 		.footer-site-title
 		.footer-subtitle
 			text-align left
-	
+
 	#footer-widget-area-right
 		width 42%
 		position relative
 		float right
-		
+
 		#text-4
 			text-align right
-				
+
 		.legal
 			text-align right
-		
+
 		.rhd_social_icons
 			max-width none
 			float right
@@ -874,15 +894,15 @@ a[href$="register"]
 	.blog-area
 		#main
 			-clearfix()
-			
+
 	#primary.blog-area
 		width 66%
 		float right
-		
+
 		&.blog-area-no-sidebar
 			width 100%
 			float none
-	
+
 	#secondary.blog-area
 		width 28%
 		float left
@@ -911,10 +931,10 @@ a[href$="register"]
 			#submit
 				width auto
 				padding-left 0.8em
-	
+
 	.shepherds-table
 		-wrapper(0,0,60%)
-	
+
 	.immortal-table
 		th
 		td
@@ -922,44 +942,44 @@ a[href$="register"]
 			&:nth-of-type(4)
 			&:nth-of-type(5)
 				display table-cell
-	
+
 	//Login page
 	.page-id-78505
 		.entry-content
 			img
 				height auto
 				margin initial
-	
-	
+
+
 	#roster-search-form
 		width 50%
-	
+
 	#ninja_forms_form_6_cont
 	#ninja_forms_form_1_cont
 		-wrapper(0, 0, 50%)
-		
-	
+
+
 @media screen and (min-width 35em)
 	.front-page
 		#highlights
 			-flexbox()
-			
+
 			.highlight-link
 				width 30%
 				height auto
 				margin 0
 				-flexitem()
-				
+
 				&:hover
 					img
 						-opacity(1)
-					
+
 					figcaption
 						background rgba(255,255,255,0.75)
 
 	.roster-table
 		display table
-	
-	
+
+
 	#roster-link
 		display none

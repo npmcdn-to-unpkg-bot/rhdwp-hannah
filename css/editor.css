@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:00:58 PM on 17-12-2015
+* RHD Dev: Compiled at 10:57:32 AM on 11-01-2016
 ***/
 
 /**
@@ -1411,7 +1411,7 @@ a[href$="register"] {
 }
 #front-page-logo {
   width: 100%;
-  background: url("http://dev.roundhouse-designs.com/the-lambs/wp-content/uploads/2015/11/IMGP3831.jpg") no-repeat;
+  background: url("http://the-lambs.org/wp-content/uploads/2015/11/IMGP3831.jpg") no-repeat;
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -1517,6 +1517,11 @@ a[href$="register"] {
 .roster-table {
   display: none;
   border-collapse: collapse;
+}
+#roster-search.roster-table {
+  width: 100%;
+  display: table;
+  word-break: keep-all;
 }
 #solo-roster-table {
   padding: 1em;
@@ -1709,6 +1714,18 @@ a[href$="register"] {
 }
 #footer-widget-area-right #text-4 {
   text-align: center;
+}
+@media screen and (max-width: 35em) and (orientation: portrait) {
+  #roster-search.roster-table {
+    height: 10em;
+    display: block;
+    background: url("../img/device-landscape.png") no-repeat center center;
+    background-size: contain;
+    border: none;
+  }
+  #roster-search.roster-table tbody {
+    display: none;
+  }
 }
 @media screen and (min-width: 50em) {
   #site-navigation-container {

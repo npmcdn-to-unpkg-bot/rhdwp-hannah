@@ -26,7 +26,7 @@
 
 		<?php wp_head(); ?>
 
-	</head>
+</head>
 
 	<body <?php body_class(); ?>>
 		<!--[if lt IE 7]>

@@ -61,6 +61,12 @@
 		
 		// AJAX pages auto load first glossary element
 		$("#glossary-area a").first().trigger("click");
+		
+		//UNHIDE LOST PASSWORD
+/*
+		$("#lostpasswordform").show();
+		$("#lostpasswordform .nav").hide();
+*/
 	});
 
 	
