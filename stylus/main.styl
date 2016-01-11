@@ -460,6 +460,40 @@ a[href$="register"]
 
 
 /* ==========================================================================
+	Appointments+
+   ========================================================================== */
+
+#post-79475
+	.entry-content
+		& > table
+			border none
+
+	.app_services_dropdown
+		text-align center
+
+		.app_services_dropdown_select
+			select
+				margin-right 0
+
+		.app_services_button
+			margin 0.5em auto 0 auto
+			-transition(all 0.25s ease)
+			display block
+
+			&:hover
+				background-color $light-blue
+
+
+	.appointments-wrapper
+		h3
+			font-size 1em
+			text-transform none
+
+	.appointments-instructions
+		font-style italic
+
+
+/* ==========================================================================
 	Front Page
    ========================================================================== */
 
@@ -983,3 +1017,11 @@ a[href$="register"]
 
 	#roster-link
 		display none
+
+	// Reservations
+	#post-79475
+		.app_services_dropdown
+			text-align left
+
+			.app_services_button
+				margin 0.5em 0 0 0

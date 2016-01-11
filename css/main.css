@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:57:32 AM on 11-01-2016
+* RHD Dev: Compiled at 4:59:32 PM on 11-01-2016
 ***/
 
 .alignnone {
@@ -1386,6 +1386,34 @@ a[href$="register"] {
   box-shadow: none;
 }
 /* ==========================================================================
+	Appointments+
+   ========================================================================== */
+#post-79475 .entry-content > table {
+  border: none;
+}
+#post-79475 .app_services_dropdown {
+  text-align: center;
+}
+#post-79475 .app_services_dropdown .app_services_dropdown_select select {
+  margin-right: 0;
+}
+#post-79475 .app_services_dropdown .app_services_button {
+  margin: 0.5em auto 0 auto;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  display: block;
+}
+#post-79475 .app_services_dropdown .app_services_button:hover {
+  background-color: #5274e2;
+}
+#post-79475 .appointments-wrapper h3 {
+  font-size: 1em;
+  text-transform: none;
+}
+#post-79475 .appointments-instructions {
+  font-style: italic;
+}
+/* ==========================================================================
 	Front Page
    ========================================================================== */
 .front-page #highlights {
@@ -1908,5 +1936,11 @@ a[href$="register"] {
   }
   #roster-link {
     display: none;
+  }
+  #post-79475 .app_services_dropdown {
+    text-align: left;
+  }
+  #post-79475 .app_services_dropdown .app_services_button {
+    margin: 0.5em 0 0 0;
   }
 }
