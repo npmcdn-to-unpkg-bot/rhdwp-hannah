@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:13:28 AM on 14-01-2016
+* RHD Dev: Compiled at 11:26:44 AM on 14-01-2016
 ***/
 
 .alignnone {
@@ -1155,8 +1155,11 @@ input[type="submit"]:hover {
 .entry-content ul {
   padding-left: 1em;
 }
-.entry-content img {
+.entry-content img,
+.entry-content iframe {
   max-width: 100%;
+}
+.entry-content img {
   height: auto;
 }
 .entry-content img.alignleft {
