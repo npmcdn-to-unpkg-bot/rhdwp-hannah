@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:26:44 AM on 14-01-2016
+* RHD Dev: Compiled at 2:21:22 PM on 15-01-2016
 ***/
 
 .alignnone {
@@ -1133,7 +1133,7 @@ input[type="submit"]:hover {
 }
 .entry-content p {
   margin: 0.25em auto;
-  text-indent: 1.5em;
+  text-indent: 0;
 }
 .entry-content p[style*="text-align: center"] {
   text-indent: 0;
