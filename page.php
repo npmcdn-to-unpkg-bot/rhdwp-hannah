@@ -6,24 +6,28 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+?>
 
-	<section id="primary" class="site-content">
-		<div id="content" role="main">
+<section id="primary" class="site-content">
 
-			<?php if ( have_posts() ) : ?>
+	<?php rhd_nav_menu(); ?>
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+	<div id="content" role="main">
 
-					<?php get_template_part( 'content', 'page' ); ?>
+		<?php if ( have_posts() ) : ?>
 
-				<?php endwhile; ?>
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php endif; ?>
+				<?php get_template_part( 'content', 'page' ); ?>
 
-		</div><!-- #content -->
-	</section><!-- #primary -->
+			<?php endwhile; ?>
+
+		<?php endif; ?>
+
+	</div><!-- #content -->
+</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

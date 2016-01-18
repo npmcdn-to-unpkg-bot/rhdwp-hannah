@@ -31,7 +31,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 
 /**
  * rhd_enqueue_styles function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -42,7 +42,7 @@ function rhd_enqueue_styles()
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Oswald:300|Open+Sans:400,700,400italic' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,700,400italic' );
 
 	$normalize_deps = array(
 		'slidebars',
@@ -63,7 +63,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 
 /**
  * rhd_enqueue_scripts function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -108,14 +108,14 @@ add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
 /**
  * rhd_add_editor_styles function.
- * 
+ *
  * @access public
  * @return void
  */
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Oswald:300|Open+Sans:400,700,400italic';
+	$font_url = '//fonts.googleapis.com/css?family=Lato:400,700,400italic';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -132,7 +132,7 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
 
 /**
  * rhd_register_sidebars function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -146,15 +146,6 @@ function rhd_register_sidebars()
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>'
 	));
-
-	register_sidebar(array(
-		'name'			=> __( 'Footer Widget Area', 'rhd' ),
-		'id'			=> 'footer-widget-area',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
-		'after_widget'  => '</div>'
-	));
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
 
@@ -165,13 +156,14 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
  * RHD_Walker_Nav class.
  *
  * Adds newlines after each </li> closing tag.
- * 
+ *
  * @extends Walker_Nav_Menu
  */
 class RHD_Walker_Nav extends Walker_Nav_Menu {
 	function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= "</li>\n";
 	}
+
 }
 
 register_nav_menu( 'primary', 'Main Site Navigation' );
@@ -188,7 +180,7 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
 
 /**
  * rhd_theme_setup function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -451,7 +443,7 @@ function rhd_enhance_excerpts( $text )
 		$words = explode(' ', $text, $excerpt_length + 1);
 		if ( count( $words ) > $excerpt_length) {
 			array_pop( $words );
-			array_push( $words, '... <a class="readmore" href="'. get_permalink($post->ID) . '">Continue reading &rarr;</a>' );
+			array_push( $words, '... <a class="readmore" href="'. get_permalink($post->ID) . '">Read More</a>' );
 			$text = implode(' ', $words);
         }
 	}
@@ -462,27 +454,41 @@ add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
 
 
 /**
+ * rhd_the_content_more_link function.
+ *
+ * @access public
+ * @param mixed $more
+ * @return void
+ */
+function rhd_the_content_more_link( $more )
+{
+	return '<a class="readmore" href="'. get_permalink() . '">Read More</a>';
+}
+add_filter( 'the_content_more_link', 'rhd_the_content_more_link' );
+
+
+/**
  * rhd_archive_pagination function.
- * 
+ *
  * @access public
  * @param WP_Query $q (default: null)
  * @return void
  */
 function rhd_archive_pagination( WP_Query $q = null )
-{		
+{
 	$max_page = ( $q ) ? $q->max_num_pages : null;
-		
+
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
 	echo '<div class="pagination">';
 
-	echo '<span class="pag-next">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
+	echo '<span class="pag pag-next">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
 	if ( $sep ) {
 		echo '<div class="pag-sep"></div>';
 	}
 
-	echo '<span class="pag-prev">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
+	echo '<span class="pag pag-prev">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
 	echo '</div>';
 }
 
@@ -495,8 +501,8 @@ function rhd_archive_pagination( WP_Query $q = null )
  */
 function rhd_single_pagination()
 {
-	$next = get_previous_post_link( '%link', '&lt; Older' );
-	$prev = get_next_post_link( '%link', 'Newer &gt;' );
+	$next = get_previous_post_link( '%link', '&larr; Older' );
+	$prev = get_next_post_link( '%link', 'Newer &rarr;' );
 	$spacer = '<div class="pag-spacer"></div>';
 
 	echo "<div class='single-pagination'>\n";
@@ -633,3 +639,70 @@ function rhd_svg_logo() {
 	Theme Functions and Customizations
    ========================================================================== */
 
+/**
+ * rhd_nav_menu function.
+ *
+ * @access public
+ * @param bool $mobile (default: false)
+ * @return void
+ */
+function rhd_nav_menu( $mobile = false )
+{
+	$args_main = array(
+		'theme_location' => 'primary',
+		'menu_id' => 'site-navigation',
+		'menu_class' => 'site-navigation',
+		'container' => 'nav',
+		'container_id' => 'site-navigation-container',
+		'echo' => false
+	);
+
+	$args_mobile = array(
+		'theme_location' => 'primary',
+		'menu_id' => 'site-navigation-mobile',
+		'menu_class' => 'site-navigation',
+		'container' => 'nav',
+		'container_id' => 'site-navigation-mobile-container',
+		'container_class' => 'site-navigation-down',
+		'echo' => false
+	);
+
+	$args_primary_down = array(
+		'theme_location' => 'primary',
+		'menu_id' => 'site-navigation-down',
+		'menu_class' => 'site-navigation',
+		'container' => 'nav',
+		'container_id' => 'site-navigation-down-container',
+		'container_class' => 'site-navigation-down',
+		'echo' => false
+	);
+
+	$output = '<div class="rhd-navigation-container">'
+			. wp_nav_menu( $args_main )
+			. '<button id="hamburger-down" class="c-hamburger c-hamburger--htx"><span>Toggle nav</span></button>';
+
+	$output .= ( $mobile === true ) ? wp_nav_menu( $args_mobile ) : wp_nav_menu( $args_primary_down );
+
+	$output .= '</div>';
+
+	echo $output;
+}
+
+
+/**
+ * rhd_post_meta function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_post_meta()
+{
+	echo '<p>';
+	the_tags( 'Tags: ', ', ' );
+	echo '</p>'
+		. '<p>Categories: ';
+	the_category( ', ' );
+	echo '</p>';
+
+	if ( function_exists( 'rhd_related_posts' ) ) rhd_related_posts();
+}

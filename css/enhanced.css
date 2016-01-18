@@ -1,4 +1,8 @@
 /***
-* RHD Dev: Compiled at 6:45:44 PM on 26-12-2015
+* RHD Dev: Compiled at 4:01:34 PM on 18-01-2016
 ***/
 
+.smallcaps {
+  font-variant: small-caps;
+  text-transform: lowercase;
+}

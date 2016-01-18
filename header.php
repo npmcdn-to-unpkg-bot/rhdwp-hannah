@@ -51,15 +51,6 @@
 		<![endif]-->
 
 		<?php
-		$nav_args_main = array(
-			'theme_location' => 'primary',
-			'menu_id' => 'site-navigation',
-			'menu_class' => 'site-navigation',
-			'container' => 'nav',
-			'container_id' => 'site-navigation-container',
-			'walker' => new RHD_Walker_Nav
-		);
-
 		$nav_args_sb = array(
 			'theme_location' => 'slidebar',
 			'menu_id' => 'site-navigation-sb',
@@ -69,19 +60,19 @@
 		);
 		?>
 
-		<div class="sb-slidebar sb-left sb-style-push">
+<!--
+		<div class="sb-slidebar sb-right sb-style-overlay sb-width-thin">
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
+-->
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
-				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
+				<h1 id="site-title-text" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
+				<?php $img = wp_get_attachment_image_src( 5, 'full' );  ?>
+				<a href="<?php echo home_url(); ?>"><img id="site-title-header" alt="Kelly Bernier Designs" class="site-title" src="<?php echo $img[0]; ?>"></a>
 
-				<?php wp_nav_menu( $nav_args_main ); ?>
-
-				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
-					<span>Toggle nav</span>
-				</button>
+				<?php rhd_nav_menu( true ); ?>
 			</header><!-- #masthead -->
 
 			<main id="main">

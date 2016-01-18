@@ -57,7 +57,7 @@ if ( post_password_required() )
 					'comment_notes_before' => '<p class="comment-notes">' . __( 'Keep the conversation going! Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',
 					'comment_notes_after' => '',
 					'label_submit' => 'Post',
-					'title_reply' => 'Leave a comment!',
+					'title_reply' => 'Leave a Comment',
 					'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment <span class="required">*</span>', 'rhd' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 					'fields' => array(
 						'author' =>

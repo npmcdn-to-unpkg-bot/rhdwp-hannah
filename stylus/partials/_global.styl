@@ -3,11 +3,20 @@
    ========================================================================== */
 
 // Variables
-$color2 = #f5c419
-$color3 = #f55033
+$color1 = #1d2862
+$color2 = #da8d00
+$color3 = #fca58e
 $off-white = #e1e1e1
 
-$ff-body = 'Oswald', sans-serif
+$ff-body = 'Lato', sans-serif
+
+
+// Classes
+
+.smallcaps
+	font-variant small-caps
+	text-transform lowercase
+
 
 // Functions
 
@@ -44,6 +53,8 @@ $ff-body = 'Oswald', sans-serif
 
 	if $customMax == false
 		$mw = 64rem
+	else
+		$mw = $customMax
 
 	if $topMargin == false
 		$topMargin = 0
