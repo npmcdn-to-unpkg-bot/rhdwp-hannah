@@ -1,10 +1,11 @@
 /***
-* RHD Dev: Compiled at 4:01:34 PM on 18-01-2016
+* RHD Dev: Compiled at 5:18:18 PM on 18-01-2016
 ***/
 
 .smallcaps,
 input[type="submit"],
 .entry-meta p,
+.readmore,
 #rhd-related-posts-container .rhd-related-posts-title,
 #comments #reply-title,
 #comments .comments-title,
@@ -685,7 +686,8 @@ textarea[disabled] {
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.readmore {
   -webkit-appearance: button;
   background-color: #333;
   border: 0;
@@ -1019,7 +1021,8 @@ input:focus,
 textarea:focus {
   border-color: #da8d00;
 }
-input[type="submit"] {
+input[type="submit"],
+.readmore {
   cursor: pointer;
   font-family: 'Lato', sans-serif;
   background-color: #1d2862;
@@ -1028,7 +1031,8 @@ input[type="submit"] {
   font-size: 1.5em;
   font-weight: 700;
 }
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+.readmore:hover {
   color: #1d2862;
   background-color: #da8d00;
 }
@@ -1078,7 +1082,8 @@ input[type="submit"]:hover {
 #primary .rhd-navigation-container {
   display: none;
 }
-#primary #content .post {
+#primary #content .post,
+#primary #content .page {
   background: #fff;
   padding: 1em 20px;
 }
@@ -1341,10 +1346,9 @@ input[type="submit"]:hover {
 .readmore {
   display: block;
   float: right;
-  margin-top: 1em;
-}
-.readmore:link,
-.readmore:visited {
+  margin-bottom: 1em;
+  font-size: 1.2em;
+  background-color: #1d2862;
   color: #fff;
 }
 .readmore:hover,
@@ -1493,6 +1497,25 @@ input[type="submit"]:hover {
 }
 #search-2 .search-submit {
   display: none;
+}
+.ninja-forms-form input {
+  font-family: 'Lato', sans-serif;
+}
+.ninja-forms-form input::-webkit-input-placeholder {
+  font-family: 'Lato', sans-serif;
+  color: #808080;
+}
+.ninja-forms-form input:-moz-placeholder {
+  font-family: 'Lato', sans-serif;
+  color: #808080;
+}
+.ninja-forms-form input::-moz-placeholder {
+  font-family: 'Lato', sans-serif;
+  color: #808080;
+}
+.ninja-forms-form input:-ms-input-placeholder {
+  font-family: 'Lato', sans-serif;
+  color: #808080;
 }
 .ninja-forms-form input[type="submit"] {
   display: block;

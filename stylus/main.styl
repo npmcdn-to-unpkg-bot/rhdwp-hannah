@@ -127,6 +127,7 @@ input[type="submit"]
 
 	#content
 		.post
+		.page
 			background white
 			padding 1em 20px
 
@@ -399,13 +400,13 @@ input[type="submit"]
 
 
 .readmore
+	@extends input[type="submit"]
 	display block
 	float right
-	margin-top 1em
-
-	&:link
-	&:visited
-		color white
+	margin-bottom 1em
+	font-size 1.2em
+	background-color $color1
+	color white
 
 	&:hover
 	&:active
@@ -574,6 +575,9 @@ input[type="submit"]
 
 .ninja-forms-form
 	input
+		-placeholder-props( $ff-body, gray )
+		font-family $ff-body
+
 		&[type="submit"]
 			display block
 			margin 0 auto
