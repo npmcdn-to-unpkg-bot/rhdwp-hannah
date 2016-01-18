@@ -51,11 +51,16 @@ a
 input
 textarea
 	background-color white
-	border none
+	border 2px solid $color2
 	box-sizing border-box
 	padding 0.5em
 	font-family $ff-body
 	-placeholder-props( $ff-body, gray )
+	outline 0 !important
+	transition all 0.25s
+
+	&:focus
+		border-color $color3
 
 
 input[type="submit"]

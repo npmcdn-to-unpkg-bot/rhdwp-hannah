@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:39:04 AM on 18-01-2016
+* RHD Dev: Compiled at 1:19:09 PM on 18-01-2016
 ***/
 
 /**
@@ -976,10 +976,12 @@ a:active {
 input,
 textarea {
   background-color: #fff;
-  border: none;
+  border: 2px solid #f5c419;
   box-sizing: border-box;
   padding: 0.5em;
   font-family: 'Oswald', sans-serif;
+  outline: 0 !important;
+  transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
@@ -1000,6 +1002,10 @@ input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   font-family: 'Oswald', sans-serif;
   color: #808080;
+}
+input:focus,
+textarea:focus {
+  border-color: #f55033;
 }
 input[type="submit"] {
   cursor: pointer;
