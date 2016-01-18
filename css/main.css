@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:18:29 PM on 18-01-2016
+* RHD Dev: Compiled at 2:44:11 PM on 18-01-2016
 ***/
 
 .alignnone {
@@ -1257,9 +1257,7 @@ input[type="submit"]:hover {
 #comments #commentform input,
 #comments #commentform textarea {
   width: 100%;
-  background-color: #e1e1e1;
   font-size: 0.8em;
-  border: none;
   box-sizing: border-box;
   padding: 0.5em;
   display: inline-block;
@@ -1324,15 +1322,6 @@ input[type="submit"]:hover {
   }
   #comments #commentform p {
     margin-bottom: 0.75rem;
-  }
-  #comments #commentform input,
-  #comments #commentform textarea {
-    background-color: #e1e1e1;
-    font-size: 0.8em;
-    border: none;
-    box-sizing: border-box;
-    padding: 0.5em;
-    display: block;
   }
   #comments #commentform input[type="text"],
   #comments #commentform input[type="email"] {
