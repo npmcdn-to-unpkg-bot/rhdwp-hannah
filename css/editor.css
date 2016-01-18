@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:56:16 PM on 13-01-2016
+* RHD Dev: Compiled at 1:19:09 PM on 18-01-2016
 ***/
 
 /**
@@ -183,11 +183,13 @@ a img.aligncenter {
 .pagination:before,
 .single-pagination:before,
 #primary:before,
+#main:before,
 .clearfix:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
-#primary:after {
+#primary:after,
+#main:after {
   content: " ";
   display: table;
 }
@@ -195,7 +197,8 @@ a img.aligncenter {
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
-#primary:after {
+#primary:after,
+#main:after {
   clear: both;
 }
 * {
@@ -973,10 +976,12 @@ a:active {
 input,
 textarea {
   background-color: #fff;
-  border: none;
+  border: 2px solid #f5c419;
   box-sizing: border-box;
   padding: 0.5em;
   font-family: 'Oswald', sans-serif;
+  outline: 0 !important;
+  transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
@@ -997,6 +1002,10 @@ input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   font-family: 'Oswald', sans-serif;
   color: #808080;
+}
+input:focus,
+textarea:focus {
+  border-color: #f55033;
 }
 input[type="submit"] {
   cursor: pointer;
@@ -1127,7 +1136,7 @@ input[type="submit"]:hover {
 }
 .entry-content p {
   margin: 0.25em auto;
-  text-indent: 1.5em;
+  text-indent: 0;
 }
 .entry-content p[style*="text-align: center"] {
   text-indent: 0;
@@ -1149,8 +1158,11 @@ input[type="submit"]:hover {
 .entry-content ul {
   padding-left: 1em;
 }
-.entry-content img {
+.entry-content img,
+.entry-content iframe {
   max-width: 100%;
+}
+.entry-content img {
   height: auto;
 }
 .entry-content img.alignleft {
@@ -1284,21 +1296,6 @@ input[type="submit"]:hover {
   #site-navigation-container {
     display: block;
   }
-  #primary article.strip-active {
-    width: 65%;
-    float: right;
-  }
-  #primary #image-strip {
-    width: 30%;
-    float: left;
-    margin-right: 5%;
-  }
-  #primary #image-strip img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 2em;
-    display: block;
-  }
   #hamburger {
     display: none;
   }
@@ -1324,6 +1321,52 @@ input[type="submit"]:hover {
   #comments #commentform #submit {
     width: auto;
     padding-left: 0.8em;
+  }
+  #primary article.strip-active {
+    width: 65%;
+    float: right;
+  }
+  #primary #image-strip {
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+  }
+  #primary #image-strip img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2em;
+    display: block;
+  }
+}
+@media screen and (min-width: 40em) {
+  #secondary {
+    width: 340px;
+    float: right;
+  }
+  #secondary .widget {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width: 58em) {
+  #primary {
+    width: 56%;
+  }
+}
+@media screen and (min-width: 62em) {
+  #primary {
+    width: 58%;
+  }
+}
+@media screen and (min-width: 64em) {
+  #primary {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 66em) {
+  #primary {
+    width: 64%;
   }
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */

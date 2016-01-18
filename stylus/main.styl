@@ -51,11 +51,16 @@ a
 input
 textarea
 	background-color white
-	border none
+	border 2px solid $color2
 	box-sizing border-box
 	padding 0.5em
 	font-family $ff-body
 	-placeholder-props( $ff-body, gray )
+	outline 0 !important
+	transition all 0.25s
+
+	&:focus
+		border-color $color3
 
 
 input[type="submit"]
@@ -124,7 +129,7 @@ input[type="submit"]
 
 	&.is-active
 		background-color gray // sample bg animation color
-		
+
 		&.c-hamburger--htx
 			span
 				background none
@@ -199,7 +204,7 @@ input[type="submit"]
 
 	p
 		margin 0.25em auto
-		text-indent 1.5em
+		text-indent 0
 
 		&[style*="text-align: center"]
 			text-indent 0
@@ -222,7 +227,10 @@ input[type="submit"]
 		padding-left 1em
 
 	img
+	iframe
 		max-width 100%
+
+	img
 		height auto
 
 		&.alignleft
@@ -384,25 +392,6 @@ input[type="submit"]
 	#site-navigation-container
 		display block
 
-	#primary
-		-clearfix()
-
-		article
-			&.strip-active
-				width 65%
-				float right
-				
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
-			
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
-	
 	#hamburger
 		display none
 
@@ -430,3 +419,58 @@ input[type="submit"]
 			#submit
 				width auto
 				padding-left 0.8em
+
+	// Image Strip
+	#primary
+		-clearfix()
+
+		article
+			&.strip-active
+				width 65%
+				float right
+
+		#image-strip
+			width 30%
+			float left
+			margin-right 5%
+
+			img
+				width 100%
+				height auto
+				margin-bottom 2em
+				display block
+
+
+// Fixed-width 340px sidebar
+@media screen and (min-width 40em)
+	#main
+		-clearfix()
+
+	#secondary
+		width 340px
+		float right
+
+		.widget
+			width 300px
+			margin-left auto
+			margin-right auto
+
+
+@media screen and (min-width 58em)
+	#primary
+		width 56%
+
+
+@media screen and (min-width 62em)
+	#primary
+		width 58%
+
+
+@media screen and (min-width 64em)
+	#primary
+		width 60%
+
+
+@media screen and (min-width 66em)
+	#primary
+		width 64%
