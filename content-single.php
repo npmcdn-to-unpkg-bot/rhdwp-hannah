@@ -9,7 +9,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h2 class="entry-title"><?php the_title(); ?></h2>
 		<p class="entry-details">By <?php the_author(); ?> <span class="sep">&star;</span> <?php the_time( get_option( 'date_format' ) ); ?></p>
 	</header><!-- .entry-header -->
 
