@@ -474,7 +474,7 @@ function rhd_archive_pagination( WP_Query $q = null )
 		
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
-	echo '<div class="pagination">';
+	echo '<nav class="pagination">';
 
 	echo '<span class="pag-next">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
@@ -483,7 +483,7 @@ function rhd_archive_pagination( WP_Query $q = null )
 	}
 
 	echo '<span class="pag-prev">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
-	echo '</div>';
+	echo '</nav>';
 }
 
 
@@ -499,7 +499,7 @@ function rhd_single_pagination()
 	$prev = get_next_post_link( '%link', 'Newer &gt;' );
 	$spacer = '<div class="pag-spacer"></div>';
 
-	echo "<div class='single-pagination'>\n";
+	echo "<nav class='single-pagination'>\n";
 
 	echo ( $next != '' ) ? $next : $spacer;
 
@@ -507,7 +507,7 @@ function rhd_single_pagination()
 
 	echo ( $prev != '' ) ? $prev : $spacer;
 
-	echo "</div>\n";
+	echo "</nav>\n";
 }
 
 
