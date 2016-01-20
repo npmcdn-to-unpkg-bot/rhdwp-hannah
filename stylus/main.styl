@@ -40,11 +40,12 @@ body
 a
 	outline 0 !important
 	transition color 0.25s
+	color $color2
 
 	&:link
 	&:visited
 		text-decoration none
-		color $color2
+
 
 	&:hover
 	&:active
@@ -78,7 +79,7 @@ input[type="submit"]
 	@extends .smallcaps
 
 	&:hover
-		color (@background-color)
+		color $color1
 		background-color $color2
 
 
@@ -291,7 +292,7 @@ input[type="submit"]
 	img
 		max-width 100%
 		height auto
-		margin 0 auto
+		margin 1em auto
 		display block
 
 		&.alignleft
@@ -407,6 +408,11 @@ input[type="submit"]
 	font-size 1.2em
 	background-color $color1
 	color white
+	text-decoration none
+
+	&:link
+	&:visited
+		color white
 
 	&:hover
 	&:active
@@ -428,6 +434,7 @@ input[type="submit"]
 
 
 .rhd_social_icons
+	height 3.5em
 	-flexbox()
 
 	.rhd-social-icon
@@ -453,6 +460,16 @@ input[type="submit"]
 				margin 0 auto
 				padding-top 0.25em
 				padding-bottom 0.45em
+
+
+.post-password-form
+	input
+		&[type="submit"]
+			display block
+			float left
+			position relative
+			font-size 0.9rem
+			margin 1rem 0
 
 
 /* ==========================================================================
@@ -564,6 +581,7 @@ input[type="submit"]
 		font-size 1.7rem
 
 	#simpleimage-3
+	#simpleimage-9
 		img
 			border 2px solid $color1
 
@@ -581,6 +599,7 @@ input[type="submit"]
 		&[type="submit"]
 			display block
 			margin 0 auto
+
 
 /* ==========================================================================
 	Media Queries

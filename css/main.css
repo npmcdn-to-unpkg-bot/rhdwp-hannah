@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:18:18 PM on 18-01-2016
+* RHD Dev: Compiled at 11:24:42 PM on 19-01-2016
 ***/
 
 .smallcaps,
@@ -977,11 +977,11 @@ body.admin-bar #wpadminbar {
 a {
   outline: 0 !important;
   transition: color 0.25s;
+  color: #da8d00;
 }
 a:link,
 a:visited {
   text-decoration: none;
-  color: #da8d00;
 }
 a:hover,
 a:active {
@@ -1240,7 +1240,7 @@ input[type="submit"]:hover,
 .entry-content img {
   max-width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 1em auto;
   display: block;
 }
 .entry-content img.alignleft {
@@ -1350,6 +1350,11 @@ input[type="submit"]:hover,
   font-size: 1.2em;
   background-color: #1d2862;
   color: #fff;
+  text-decoration: none;
+}
+.readmore:link,
+.readmore:visited {
+  color: #fff;
 }
 .readmore:hover,
 .readmore:active {
@@ -1366,6 +1371,7 @@ input[type="submit"]:hover,
   margin-top: 0.5rem;
 }
 .rhd_social_icons {
+  height: 3.5em;
   text-align: justify;
 }
 .rhd_social_icons:after {
@@ -1390,6 +1396,13 @@ input[type="submit"]:hover,
   margin: 0 auto;
   padding-top: 0.25em;
   padding-bottom: 0.45em;
+}
+.post-password-form input[type="submit"] {
+  display: block;
+  float: left;
+  position: relative;
+  font-size: 0.9rem;
+  margin: 1rem 0;
 }
 /* ==========================================================================
 	Comments
@@ -1492,7 +1505,8 @@ input[type="submit"]:hover,
   text-align: center;
   font-size: 1.7rem;
 }
-#secondary #simpleimage-3 img {
+#secondary #simpleimage-3 img,
+#secondary #simpleimage-9 img {
   border: 2px solid #1d2862;
 }
 #search-2 .search-submit {
