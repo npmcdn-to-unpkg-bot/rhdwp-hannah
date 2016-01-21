@@ -51,7 +51,7 @@
 				s.src=sc+'s.dpmsrv.com/dpm_80e28a51cbc26fa4bd34938c5e593b36146f5e0c.min.js';
 				h.appendChild(s);
 			})();
-		</script><
+		</script>
 
 		<?php wp_head(); ?>
 	</head>

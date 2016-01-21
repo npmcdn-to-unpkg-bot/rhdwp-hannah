@@ -570,9 +570,6 @@ function rhd_body_class( $body_classes )
 		$_SESSION['blog_area'] = false;
 	}
 
-	if ( is_page( 'how-it-works' || is_page( 'front-page' ) ) )
-		$body_classes[] = 'parallax';
-
 	return $body_classes;
 }
 add_filter( 'body_class', 'rhd_body_class' );
