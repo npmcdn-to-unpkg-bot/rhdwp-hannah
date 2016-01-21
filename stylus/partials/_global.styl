@@ -1,0 +1,122 @@
+/* ==========================================================================
+	Global Stylus Variables
+   ========================================================================== */
+
+// Variables
+$black = #20385e
+$bluegreen = #4f838b
+$blue = #1f375d
+$mint = #f7f7f7
+$gray = #f5f5f5
+
+$ff-body = 'Open Sans', sans-serif
+$ff-headline = 'Oswald', sans-serif
+$ff-hand = 'Quickpen', cursive
+
+
+// Functions
+
+-unselectable()
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	-o-user-select: none;
+	user-select: none;
+
+
+-invisible()
+	visibility hidden
+	position absolute
+
+
+-flexbox()
+	text-align justify
+
+	&:after
+		width 100%
+		display inline-block
+		content ''
+
+-flexitem()
+	display inline-block
+
+
+-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
+	if $customWidth == false
+		$w = 85%
+	else
+		$w = $customWidth
+
+	if $customMax == false
+		$mw = 64rem
+	else
+		$mw = $customMax
+
+	if $topMargin == false
+		$topMargin = 0
+	if $bottomMargin == false
+		$bottomMargin = 0
+
+	width $w
+	max-width $mw
+	position relative
+	margin $topMargin auto $bottomMargin auto
+
+
+-unwrapper()
+	width 100%
+	max-width none
+	margin initial
+
+
+-delist()
+	padding-left 0
+	list-style none
+
+
+-clearfix()
+	@extends .clearfix
+
+
+-body-shadow( $yPos )
+	box-shadow 0em $yPos 0.45em 0em rgba(0,0,0,0.5)
+
+
+-opacity( $n )
+	-moz-opacity $n
+	-webkit-opacity $n
+	opacity $n
+
+
+-transform( $n )
+	-webkit-transform $n
+	transform $n
+
+
+-placeholder-props( $famVal, $color = null, $opacity = null )
+	&::-webkit-input-placeholder
+		font-family $famVal
+
+		if $color != null
+			color $color
+
+		if $opacity != null
+			-opacity( $opacity )
+
+	&:-moz-placeholder /* Firefox 18- */
+		font-family $famVal
+		color $color
+		if $opacity != null
+			-opacity( $opacity )
+
+	&::-moz-placeholder  /* Firefox 19+ */
+		font-family $famVal
+		color $color
+		if $opacity != null
+			-opacity( $opacity )
+
+	&:-ms-input-placeholder
+		font-family $famVal
+		color $color
+		if $opacity != null
+			opacity( $opacity )
