@@ -32,6 +32,8 @@
 
 		<hr class="entry-meta-sep">
 
+		<?php comments_popup_link( 'Leave a Comment', 'Leave a Comment (1)', 'Leave a Comment (%)', 'comments-link', 'Comments are disabled for this post.' ); ?>
+
 		<?php rhd_post_meta(); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post -->

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:37:41 PM on 19-01-2016
+* RHD Dev: Compiled at 6:07:13 PM on 22-01-2016
 ***/
 
 .smallcaps,
@@ -1467,6 +1467,9 @@ input[type="submit"]:hover,
 }
 #comments #commentform .comment-subscription-form {
   margin: initial;
+}
+.comments-link {
+  font-size: 1.3em;
 }
 /* ==========================================================================
 	Ghost Buttons
