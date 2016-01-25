@@ -17,6 +17,7 @@ html
 	font-size 16px
 	margin 0
 	font-family $ff_body
+	color $text
 
 
 body
@@ -71,32 +72,23 @@ input[type="submit"]
 		position relative
 		background-size cover
 
+	#site-title-seo
+		-invisible()
+
 	#site-title
-		width 100%
-		text-align center
-		margin 0 auto
-		text-transform uppercase
-		font-family $ff_title
-		font-size 4em //fallback
-		font-size 9.5vw
-		line-height 1
+		width 90%
+		height auto
+		overflow visible
 		position absolute
-		transition all 0.25s ease
-
-		&.top
-			top 2.3rem
-			color black
-
-		&.bottom
-			bottom 2.3rem
-			color white
+		top 46%
+		left 50%
+		-transform(translate(-50%, -50%))
 
 
 #site-navigation-container
 	width 100%
 	text-align center
 	display none
-	background $color1
 
 	#site-navigation
 		-wrapper()
@@ -106,14 +98,15 @@ input[type="submit"]
 
 		.menu-item
 			-flexitem()
+			font-weight 700
 
 			&.current-menu-item
-				color $color1
+				color $color2
 
 			a
 				text-decoration none
 				text-transform uppercase
-				color inherit
+				color white
 				transition 0.25s color
 
 				&:hover
@@ -158,21 +151,15 @@ input[type="submit"]
 #hamburger
 	background-color transparent
 	position absolute
-	right 0.5rem
+	right 0
+	bottom 0
 
 	span
-		background-color $color2
+		background-color $color1
 
 		&::before
 		&::after
 			background-color (@background-color)
-
-	// YES, these classes are reversed on the hamburger, deal with it
-	&.top
-		bottom 0.2rem
-
-	&.bottom
-		top 0.2rem
 
 
 #main
@@ -246,7 +233,7 @@ input[type="submit"]
 		background-position center
 
 
-.page-id-21
+.page-id-13
 	.header-bg
 		background-position right
 
@@ -263,6 +250,10 @@ input[type="submit"]
 
 .page-title
 	text-align center
+	padding 0 1em 0.25em 1em
+	border-bottom 3px solid black
+	font-size 2em
+	color $color1
 
 
 .entry-title
@@ -273,7 +264,7 @@ input[type="submit"]
 	-wrapper()
 
 	p
-		margin 0.25em auto
+		margin 1em auto
 
 		&[style*="text-align: center"]
 			text-indent 0
@@ -348,6 +339,15 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	About Page
+   ========================================================================== */
+
+.page-id-8
+	.page-title-sidebar
+		display none
+
+
+/* ==========================================================================
 	Contact Page
    ========================================================================== */
 
@@ -402,27 +402,20 @@ input[type="submit"]
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	.page-id-39
-		.header-bg
-			background-position center top
-
 	#masthead
 		#site-title
-			&.top
-				top 5%
-
-			&.bottom
-				bottom 18%
+			width 50%
+			top 42%
 
 	#site-navigation-container
 		height 4em
 		display block
 		position absolute
 		bottom 0
-		background white
+		background $color1
 
 		#site-navigation
-			top 1.6em
+			top 1.5em
 
 	#hamburger
 		display none
@@ -454,7 +447,28 @@ input[type="submit"]
 			right 0
 			bottom 0
 
-	.page-id-21
+	// About
+	.page-id-8
+		#content
+			-clearfix()
+
+			.entry-header
+				& > .page-title
+					display none
+
+			.entry-content
+				width 64%
+				float right
+
+			.about-sidebar
+				width 33%
+				float left
+
+				.page-title-sidebar
+					display inline-block
+
+	// Contact
+	.page-id-13
 		.entry-content
 			-clearfix()
 
