@@ -58,11 +58,18 @@
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
 				<?php
-				$thumb_id = get_post_thumbnail_id();
-				$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full', true );
+				$type = get_post_type();
+				if ( $type != 'portfolio' && ( $type != 'post' && ! is_single() ) ) {
+					$thumb_id = get_post_thumbnail_id();
+					$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full', true );
+					$bg = $thumb_url[0];
+				} else {
+					$bg = '';
+					$header_class = 'header-bg-short';
+				}
 				?>
 
-				<div class="header-bg" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
+				<div class="header-bg <?php echo $header_class; ?>" style="background-image: url(<?php echo $bg; ?>);">
 					<h1 id="site-title-seo"><?php bloginfo( 'name' ); ?></span></h1>
 					<svg id="site-title" viewBox="0 0 574 129" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 					    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->

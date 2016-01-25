@@ -33,7 +33,7 @@ get_header(); ?>
 						</header>
 						<?php while ( $news_q->have_posts() ) : $news_q->the_post(); ?>
 
-							<?php get_template_part( 'content' ); ?>
+							<?php get_template_part( 'content', 'grid' ); ?>
 
 						<?php endwhile; ?>
 					<?php endif; ?>

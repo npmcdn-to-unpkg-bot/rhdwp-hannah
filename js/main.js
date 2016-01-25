@@ -10,11 +10,6 @@ var isSingle = ( $body.hasClass('single') ) ? true : false,
 	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
 	isPaged = $body.hasClass('paged');
 
-// wp_data object
-var homeUrl = wp_data.home_url,
-	themeDir = wp_data.theme_dir,
-	imgDir = wp_data.img_dir;
-
 var isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false;
 var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
 var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
@@ -29,13 +24,26 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	$(document).ready(function(){
 		rhdInit();
-		
+
 		// Burger
 		var toggles = $(".c-hamburger");
 
 		toggles.click(function(e){
 			e.preventDefault();
 			$(this).toggleClass('is-active');
+		});
+
+		// Portfolio filter
+		$(".portfolio-link a").on('click', function(e){
+			e.preventDefault();
+
+			$(".portfolio-link").removeClass('portfolio-current');
+
+			$(this).parent('.portfolio-link').addClass('portfolio-current');
+			var cat = $(this).data('slug');
+			filterPortfolio( cat );
+
+			return false;
 		});
 	});
 
@@ -50,6 +58,51 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	function wpAdminBarPush() {
 		$("#wpadminbar").css({
 			top: $("#masthead").height(),
+		});
+	}
+
+
+	/**
+	 * filterPortfolio function.
+	 */
+	function filterPortfolio( cat ) {
+		var oldContent = '';
+		var newContent = '';
+
+		$.ajax({
+			url: wp_data.ajax_url,
+			type: 'post',
+			data: {
+				action: 'ajax_filter',
+				cat: cat
+			},
+			beforeSend: function() {
+				oldContent = $('#rhd-portfolio').html();
+				$('#rhd-portfolio').stop().fadeOut(500, function(){
+					// Kill the load more button, if it's there, and leave it disabled until full reload
+					$(".post-grid-ajax-more")
+						.fadeOut(function(){
+							$(this).remove();
+						});
+				});
+			},
+			success: function(html) {
+				if ( html.indexOf('no-results') < 0 ) {	// If not the content-none page...
+					newContent = $.parseHTML(html);
+				} else {								// Else, if query turns up empty...
+					newContent = '<p class="filter-results-msg">No results.</p>';
+				}
+			},
+			error: function() {
+				// Restore the original content
+				newContent = '<p class="filter-results-msg">An error has occured. Please <a href="#" onclick="window.location.reload();return false;">reload the page</a> and try again."</p>' + oldContent;
+			},
+			complete: function() {
+				$('#rhd-portfolio')
+					.html( newContent )
+					.stop()
+					.fadeIn(500);
+			}
 		});
 	}
 })(jQuery);

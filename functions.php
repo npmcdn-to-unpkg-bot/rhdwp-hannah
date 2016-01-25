@@ -79,13 +79,10 @@ function rhd_enqueue_scripts()
 	// Localize data for client-side use
 	global $wp_query;
 	$data = array(
-		'home_url' => home_url(),
-		'theme_dir' => RHD_THEME_DIR,
-		'img_dir' => RHD_IMG_DIR,
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'query_vars' => json_encode( $wp_query->query ),
 	);
-	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
+	wp_localize_script( 'rhd-main', 'wp_data', $data );
 
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
@@ -628,3 +625,48 @@ add_filter( 'body_class', 'rhd_body_class' );
 	Theme Functions and Customizations
    ========================================================================== */
 
+/**
+ * rhd_ajax_filter function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_ajax_filter()
+{
+	$cat = esc_attr( $_POST['cat'] );
+
+	$query_vars = array(
+		'post_type' => 'portfolio',
+		'post_status' => 'publish',
+		'paged' => '',
+		'posts_per_page' => -1
+	);
+
+	if ( $cat != 'all' ) {
+		$query_vars['tax_query'] = array(
+			array(
+				'taxonomy' => 'portfolio_category',
+				'field' => 'slug',
+				'terms' => $cat
+			)
+		);
+	}
+
+	$posts = new WP_Query( $query_vars );
+	$GLOBALS['wp_query'] = $posts;
+
+	add_filter( 'editor_max_image_size', 'rhd_image_size_override' );
+
+	if( $posts->have_posts() ) {
+		while ( $posts->have_posts() ) {
+			$posts->the_post();
+			get_template_part( 'content', 'grid' );
+		}
+	}
+
+	remove_filter( 'editor_max_image_size', 'rhd_image_size_override' );
+
+	die();
+}
+add_action( 'wp_ajax_nopriv_ajax_filter', 'rhd_ajax_filter' );
+add_action( 'wp_ajax_ajax_filter', 'rhd_ajax_filter' );

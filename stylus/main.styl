@@ -2,7 +2,6 @@
 @require "partials/_wp-core.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
@@ -26,6 +25,7 @@ body
 
 a
 	outline 0 !important
+	transition all 0.35s
 
 	&:link
 	&:visited
@@ -71,6 +71,13 @@ input[type="submit"]
 		height 100vh
 		position relative
 		background-size cover
+
+		&.header-bg-short
+			height 34vh
+
+			#site-title
+				max-width 45rem
+				top 35%
 
 	#site-title-seo
 		-invisible()
@@ -217,25 +224,8 @@ input[type="submit"]
 	Header Backgrounds
    ========================================================================== */
 
-.page-id-39
-	.header-bg
-		background-position right
 
 
-.page-id-17
-	.header-bg
-		background-position center center
-
-
-.page-id-19
-.page-id-15
-	.header-bg
-		background-position center
-
-
-.page-id-13
-	.header-bg
-		background-position right
 
 /* ==========================================================================
 	Posts & Pages
@@ -249,12 +239,11 @@ input[type="submit"]
 
 
 .page-title
-	padding 0 1em 0.25em 1em
-	border-bottom 3px solid black
+	-funderline()
 	font-size 2em
 	color $color1
-	display inline-block
 	text-align center
+	padding 0 0.75em 0.25em 0.75em
 
 
 .entry-header
@@ -268,6 +257,7 @@ input[type="submit"]
 .entry-content
 	p
 		margin 1em auto
+		line-height 1.4
 
 		&[style*="text-align: center"]
 			text-indent 0
@@ -308,7 +298,7 @@ input[type="submit"]
 		display block
 		margin 1em auto
 
-.news-item
+.grid-item
 	text-align center
 	margin 1.5em 0
 	padding-bottom 1.5em
@@ -317,6 +307,9 @@ input[type="submit"]
 	&:last-child
 		border-bottom none
 		padding-bottom 0
+
+	a
+		text-decoration none
 
 	.post-featured-image
 		-wrapper(0.5em, 0.5em, 50%)
@@ -358,12 +351,67 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.grid-item
+	width 95%
+	text-align center
+
+	.grid-featured-image
+		width 100%
+
+		img
+			width 300px
+			display block
+			margin 0 auto
+
+		figcaption
+			margin-top 0.25em
+			text-align center
+			font-size 1.2em
+			font-weight 700
+			font-family $ff_body
+
+
+/* ==========================================================================
 	About Page
    ========================================================================== */
 
 .page-id-8
 	.page-title-sidebar
 		display none
+
+
+/* ==========================================================================
+	Portfolio
+   ========================================================================== */
+
+#portfolio-category-list
+	display none
+	font-family $ff_headline
+	text-transform uppercase
+	padding-left 0
+
+	.portfolio-link
+		@extends .page-title
+		-funderline()
+		border-bottom-color white
+		transition border-bottom-color 0.35s ease
+
+		&.portfolio-current
+			border-bottom-color $text
+
+		a
+			&:hover
+			&:active
+				color $color2
+
+
+#rhd-portfolio
+	.grid-item
+		border-bottom none
+		padding-bottom 0
 
 
 /* ==========================================================================
@@ -486,6 +534,17 @@ input[type="submit"]
 			right 0
 			bottom 0
 
+	// Grids
+	// (Front Page, Portfolio)
+	.front-page
+	.page-id-10
+		#content
+			-flexbox()
+
+			.grid-item
+				width 30%
+				-flexitem()
+
 	// About
 	.page-id-8
 		#content
@@ -505,6 +564,19 @@ input[type="submit"]
 
 				.page-title-sidebar
 					display inline-block
+
+	// Portfolio
+	.page-id-10
+		#portfolio-category-list
+			width 100%
+			display inline-block
+			-flexbox()
+
+			.portfolio-link
+				-flexitem()
+
+				a
+					text-decoration none
 
 	// Contact
 	.page-id-13
