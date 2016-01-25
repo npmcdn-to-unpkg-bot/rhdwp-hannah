@@ -11,11 +11,13 @@ session_start();
 ?>
 
 	<section id="primary" class="site-content">
-		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
-
 		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
+
+				<header class="entry-header">
+					<h2 class="page-title">Latest News</h2>
+				</header>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content' ); ?>

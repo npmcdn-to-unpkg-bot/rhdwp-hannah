@@ -28,7 +28,9 @@ get_header(); ?>
 					?>
 
 					<?php if ( $news_q->have_posts() ) : ?>
-						<h2 class="page-title">Recent Projects</h2>
+						<header class="entry-header">
+							<h2 class="page-title">Recent Projects</h2>
+						</header>
 						<?php while ( $news_q->have_posts() ) : $news_q->the_post(); ?>
 
 							<?php get_template_part( 'content' ); ?>

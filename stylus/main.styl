@@ -249,11 +249,16 @@ input[type="submit"]
 
 
 .page-title
-	text-align center
 	padding 0 1em 0.25em 1em
 	border-bottom 3px solid black
 	font-size 2em
 	color $color1
+	display inline-block
+	text-align center
+
+
+.entry-header
+	text-align center
 
 
 .entry-title
@@ -261,8 +266,6 @@ input[type="submit"]
 
 
 .entry-content
-	-wrapper()
-
 	p
 		margin 1em auto
 
@@ -338,6 +341,22 @@ input[type="submit"]
 		float right
 
 
+.pix-load-more
+	margin-top 2em
+	font-size 1.2em
+	font-weight 700
+	text-transform uppercase
+
+	.viewmore
+		background-color $color1
+		transition background-color 0.25s
+		border-radius 0
+
+		&:hover
+		&:active
+			background-color $color2
+
+
 /* ==========================================================================
 	About Page
    ========================================================================== */
@@ -353,11 +372,24 @@ input[type="submit"]
 
 .ninja-forms-cont
 	input
+	textarea
+		font-family $ff_body
+		border-color $text
+		transition all 0.25s
+
+		&:focus
+			border-color $color1
+
 		&[type="submit"]
 			width 7em
 			display block
-			float right
-			margin-top 0
+			margin 0 auto
+
+			&:hover
+				background-color $color1
+
+	#ninja_forms_field_3_div_wrap
+		margin-bottom 0
 
 
 .ninja-forms-required-items
@@ -365,8 +397,15 @@ input[type="submit"]
 	display none
 
 
+.rhd-contact-form
+	margin-bottom 2em
+
+
 .contact-info
 	text-align center
+
+	section
+		margin-bottom 2.5em
 
 	h3
 		margin-bottom 0.25em
@@ -475,6 +514,11 @@ input[type="submit"]
 			.rhd-contact-form
 				width 48%
 				float left
+
+				.ninja-forms-cont
+					input
+						&[type="submit"]
+							float left
 
 			.contact-info
 				width 45%
