@@ -25,6 +25,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	$(document).ready(function(){
 		rhdInit();
 
+		// setTimeout(onLoadScroll, 1000);
+
 		// Burger
 		var toggles = $(".c-hamburger");
 
@@ -41,7 +43,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 			$(this).parent('.portfolio-link').addClass('portfolio-current');
 			var cat = $(this).data('slug');
-			filterPortfolio( cat );
+			filterPortfolio(cat);
 
 			return false;
 		});
@@ -52,6 +54,13 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$.slidebars({
 			siteClose: false,
 		});
+	}
+
+
+	function onLoadScroll() {
+		$('html, body').animate({
+			'scrollTop' : '80%'
+		}, 'slow', 'swing');
 	}
 
 
@@ -77,14 +86,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 				cat: cat
 			},
 			beforeSend: function() {
-				oldContent = $('#rhd-portfolio').html();
-				$('#rhd-portfolio').stop().fadeOut(500, function(){
-					// Kill the load more button, if it's there, and leave it disabled until full reload
-					$(".post-grid-ajax-more")
-						.fadeOut(function(){
-							$(this).remove();
-						});
-				});
+				oldContent = $("#rhd-portfolio").html();
+				var ht = $("#rhd-portfolio").height() / 2;
+				$("#rhd-portfolio").css('minHeight', ht);
+				$("#rhd-portfolio").stop().fadeOut(500);
 			},
 			success: function(html) {
 				if ( html.indexOf('no-results') < 0 ) {	// If not the content-none page...
@@ -98,7 +103,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 				newContent = '<p class="filter-results-msg">An error has occured. Please <a href="#" onclick="window.location.reload();return false;">reload the page</a> and try again."</p>' + oldContent;
 			},
 			complete: function() {
-				$('#rhd-portfolio')
+				$("#rhd-portfolio")
 					.html( newContent )
 					.stop()
 					.fadeIn(500);

@@ -41,7 +41,7 @@ a
 input
 textarea
 	background-color $off-white
-	border 2px solid black
+	border 2px solid $text
 	border-radius 0.2em
 	box-sizing border-box
 	padding 0.5em
@@ -56,7 +56,7 @@ textarea
 input[type="submit"]
 	cursor pointer
 	font-family inherit
-	background-color black
+	background-color $text
 	transition background-color 0.25s
 
 	&:hover
@@ -68,9 +68,10 @@ input[type="submit"]
 
 	.header-bg
 		width 100%
-		height 100vh
+		height 85vh
 		position relative
 		background-size cover
+		background-position-x center
 
 		&.header-bg-short
 			height 34vh
@@ -93,22 +94,28 @@ input[type="submit"]
 
 
 #site-navigation-container
+	height 4em
 	width 100%
 	text-align center
-	display none
+	display block
+	position absolute
+	bottom 0
+	background $color1
 
 	#site-navigation
 		-wrapper()
+		-flexbox()
 		list-style none
 		padding-left 0
-		-flexbox()
+		display none
 
 		.menu-item
 			-flexitem()
 			font-weight 700
 
 			&.current-menu-item
-				color $color2
+				a
+					color $color2
 
 			a
 				text-decoration none
@@ -144,7 +151,7 @@ input[type="submit"]
 		.menu-item
 			&.current-menu-item
 				a
-					color $color1
+					color $color2
 
 			a
 				color white
@@ -159,10 +166,10 @@ input[type="submit"]
 	background-color transparent
 	position absolute
 	right 0
-	bottom 0
+	bottom -3px
 
 	span
-		background-color $color1
+		background-color white
 
 		&::before
 		&::after
@@ -205,8 +212,8 @@ input[type="submit"]
 		font-size 0.9em
 
 		.site-info-content
-			padding 1.3rem 4rem 0 4rem
-			border-top 1px solid black
+			padding 1rem 4rem 0 4rem
+			border-top 1px solid $text
 			display inline-block
 
 		a
@@ -244,6 +251,15 @@ input[type="submit"]
 	color $color1
 	text-align center
 	padding 0 0.75em 0.25em 0.75em
+
+	&.page-title-nav
+		color white
+		position absolute
+		bottom 0.25em
+		left 0
+		border-bottom none
+		margin-bottom 0
+		z-index 999
 
 
 .entry-header
@@ -302,7 +318,7 @@ input[type="submit"]
 	text-align center
 	margin 1.5em 0
 	padding-bottom 1.5em
-	border-bottom 1px solid black
+	border-bottom 1px solid $text
 
 	&:last-child
 		border-bottom none
@@ -310,6 +326,28 @@ input[type="submit"]
 
 	a
 		text-decoration none
+
+	.grid-featured-image
+		width 100%
+		height auto
+		margin 0
+		border-radius(0.1em)
+
+		img
+			width 100%
+			display block
+			margin 0 auto
+
+		figcaption
+			margin-top 0.25em
+			text-align center
+			font-size 1.2em
+			font-weight 700
+			font-family $ff_body
+
+
+.news-item
+	margin-bottom 1em
 
 	.post-featured-image
 		-wrapper(0.5em, 0.5em, 50%)
@@ -354,24 +392,10 @@ input[type="submit"]
 	Front Page
    ========================================================================== */
 
-.grid-item
-	width 95%
-	text-align center
-
-	.grid-featured-image
-		width 100%
-
-		img
-			width 300px
-			display block
-			margin 0 auto
-
-		figcaption
-			margin-top 0.25em
-			text-align center
-			font-size 1.2em
-			font-weight 700
-			font-family $ff_body
+.front-page
+	.grid-item
+		width 95%
+		text-align center
 
 
 /* ==========================================================================
@@ -387,11 +411,13 @@ input[type="submit"]
 	Portfolio
    ========================================================================== */
 
-#portfolio-category-list
-	display none
+.portfolio-category-list
 	font-family $ff_headline
 	text-transform uppercase
 	padding-left 0
+
+	&.desktop
+		display none
 
 	.portfolio-link
 		@extends .page-title
@@ -405,13 +431,29 @@ input[type="submit"]
 		a
 			&:hover
 			&:active
-				color $color2
+				color $text
 
 
 #rhd-portfolio
 	.grid-item
 		border-bottom none
 		padding-bottom 0
+
+
+.portfolio-nav-sb
+	width 100%
+	text-align center
+
+	.page-title
+		display inline
+
+	.portfolio-category-list
+		.portfolio-link
+			display block
+			border-bottom none
+
+			a
+				text-decoration none
 
 
 /* ==========================================================================
@@ -446,6 +488,8 @@ input[type="submit"]
 
 
 .rhd-contact-form
+	position relative
+	top 0.1em
 	margin-bottom 2em
 
 
@@ -495,13 +539,8 @@ input[type="submit"]
 			top 42%
 
 	#site-navigation-container
-		height 4em
-		display block
-		position absolute
-		bottom 0
-		background $color1
-
 		#site-navigation
+			display block
 			top 1.5em
 
 	#hamburger
@@ -567,10 +606,11 @@ input[type="submit"]
 
 	// Portfolio
 	.page-id-10
-		#portfolio-category-list
-			width 100%
-			display inline-block
-			-flexbox()
+		.portfolio-category-list
+			&.desktop
+				width 100%
+				display block
+				-flexbox()
 
 			.portfolio-link
 				-flexitem()

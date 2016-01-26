@@ -670,3 +670,36 @@ function rhd_ajax_filter()
 }
 add_action( 'wp_ajax_nopriv_ajax_filter', 'rhd_ajax_filter' );
 add_action( 'wp_ajax_ajax_filter', 'rhd_ajax_filter' );
+
+
+/**
+ * rhd_portfolio_nav function.
+ *
+ * @access public
+ * @param mixed $class (default: null)
+ * @return void
+ */
+function rhd_portfolio_nav( $class = null )
+{
+	$terms = get_terms( 'portfolio_category' );
+
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
+
+		<ul class="portfolio-category-list <?php echo $class; ?>">
+			<li class="portfolio-link portfolio-current">
+				<a href="#" data-slug="all">
+					All
+				</a>
+			</li>
+			<?php foreach ( $terms as $term ) : ?>
+				<li class="portfolio-link">
+					<a href="<?php echo get_term_link( $term->term_id ); ?>" data-slug="<?php echo $term->slug; ?>">
+						<?php echo $term->name; ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+
+		<?php
+	endif;
+}

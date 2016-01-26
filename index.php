@@ -15,9 +15,11 @@ session_start();
 
 			<?php if ( have_posts() ) : ?>
 
-				<header class="entry-header">
-					<h2 class="page-title">Latest News</h2>
-				</header>
+				<?php if ( is_home() ) : ?>
+					<header class="entry-header">
+						<h2 class="page-title">Latest News</h2>
+					</header>
+				<?php endif; ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content' ); ?>
