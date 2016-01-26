@@ -81,8 +81,8 @@
 
 					<svg id="site-title" viewBox="0 0 574 129" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 					    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
-					    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-					        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-231.000000, -254.000000)" sketch:alignment="middle" fill="#CF1B1E" font-weight="normal">
+					    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+					        <g sketch:type="MSArtboardGroup" transform="translate(-231.000000, -254.000000)" sketch:alignment="middle" fill="#CF1B1E" font-weight="normal">
 					            <g id="Vanessa-Leuck-+-Costume-Design" sketch:type="MSLayerGroup" transform="translate(234.000000, 203.000000)">
 					                <text id="Vanessa-Leuck" sketch:type="MSTextLayer" font-family="Manhattan Darling" font-size="134">
 					                    <tspan x="0.115" y="181">Vanessa Leuck</tspan>
