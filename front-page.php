@@ -28,14 +28,19 @@ get_header(); ?>
 					?>
 
 					<?php if ( $news_q->have_posts() ) : ?>
-						<header class="entry-header">
-							<h2 class="page-title">Recent Projects</h2>
-						</header>
-						<?php while ( $news_q->have_posts() ) : $news_q->the_post(); ?>
+						<div class="grid-container">
+							<header class="entry-header">
+								<h2 class="page-title">Recent Projects</h2>
+							</header>
 
-							<?php get_template_part( 'content', 'grid' ); ?>
+							<div class="grid-area">
+								<?php while ( $news_q->have_posts() ) : $news_q->the_post(); ?>
 
-						<?php endwhile; ?>
+									<?php get_template_part( 'content', 'grid' ); ?>
+
+								<?php endwhile; ?>
+							</div>
+						</div>
 					<?php endif; ?>
 
 				<?php endwhile; ?>

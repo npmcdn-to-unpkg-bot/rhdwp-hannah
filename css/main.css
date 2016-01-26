@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:49:37 PM on 25-01-2016
+* RHD Dev: Compiled at 11:46:57 AM on 26-01-2016
 ***/
 
 .alignnone {
@@ -998,9 +998,7 @@ input[type="submit"]:hover {
 #colophon {
   width: 100%;
   height: 6em;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
 }
 #colophon .site-info {
   width: 100%;
@@ -1012,7 +1010,7 @@ input[type="submit"]:hover {
   transform: translateY(-50%);
   text-align: center;
   line-height: 1.7;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 #colophon .site-info .site-info-content {
   padding: 1rem 4rem 0 4rem;
@@ -1060,6 +1058,17 @@ input[type="submit"]:hover {
   border-bottom: none;
   margin-bottom: 0;
   z-index: 999;
+}
+.page-title.page-title-nav a,
+.portfolio-category-list .portfolio-link.page-title-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+.page-title.page-title-nav a:hover,
+.portfolio-category-list .portfolio-link.page-title-nav a:hover,
+.page-title.page-title-nav a:active,
+.portfolio-category-list .portfolio-link.page-title-nav a:active {
+  color: #7ad2d1;
 }
 .entry-header {
   text-align: center;
@@ -1112,7 +1121,7 @@ input[type="submit"]:hover {
 }
 .grid-item {
   text-align: center;
-  margin: 1.5em 0;
+  margin-bottom: 1.5em;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #535353;
 }
@@ -1132,6 +1141,7 @@ input[type="submit"]:hover {
   width: 100%;
   display: block;
   margin: 0 auto;
+  border: 1px solid rgba(0,0,0,0.25);
 }
 .grid-item .grid-featured-image figcaption {
   margin-top: 0.25em;
@@ -1152,6 +1162,9 @@ input[type="submit"]:hover {
 .news-item .post-featured-image img {
   width: 100%;
   height: auto;
+}
+.page .entry-header .page-title {
+  display: none;
 }
 .pagination,
 .single-pagination {
@@ -1202,14 +1215,21 @@ input[type="submit"]:hover {
 	Portfolio
    ========================================================================== */
 .portfolio-category-list {
+  width: 100%;
   font-family: 'Ale Pro', sans-serif;
   text-transform: uppercase;
   padding-left: 0;
-}
-.portfolio-category-list.desktop {
+  text-align: center;
+  position: relative;
+  bottom: 2em;
+  line-height: 2;
+  margin-bottom: 0;
   display: none;
 }
 .portfolio-category-list .portfolio-link {
+  font-size: 1.4em;
+  padding: 0 1vw 0.1em 1vw;
+  margin: 0 0.5em;
   border-bottom: 3px solid #000;
   display: inline-block;
   border-bottom-color: #fff;
@@ -1222,23 +1242,15 @@ input[type="submit"]:hover {
 .portfolio-category-list .portfolio-link a:active {
   color: #535353;
 }
-#rhd-portfolio .grid-item {
+#rhd-portfolio {
+  min-height: 300px;
+}
+#rhd-portfolio .grid-area {
+  transition: height 0.5s ease, width 0.5s ease;
+}
+#rhd-portfolio .grid-area .grid-item {
   border-bottom: none;
   padding-bottom: 0;
-}
-.portfolio-nav-sb {
-  width: 100%;
-  text-align: center;
-}
-.portfolio-nav-sb .page-title {
-  display: inline;
-}
-.portfolio-nav-sb .portfolio-category-list .portfolio-link {
-  display: block;
-  border-bottom: none;
-}
-.portfolio-nav-sb .portfolio-category-list .portfolio-link a {
-  text-decoration: none;
 }
 /* ==========================================================================
 	Contact Page
@@ -1312,6 +1324,9 @@ input[type="submit"]:hover {
   #hamburger {
     display: none;
   }
+  .page-title.page-title-nav {
+    display: none;
+  }
   .news-item {
     width: 100%;
     text-align: left;
@@ -1342,20 +1357,20 @@ input[type="submit"]:hover {
     right: 0;
     bottom: 0;
   }
-  .front-page #content,
-  .page-id-10 #content {
+  .page .entry-header .page-title {
+    display: inline-block;
+  }
+  .grid-area {
     text-align: justify;
     line-height: 1;
   }
-  .front-page #content:after,
-  .page-id-10 #content:after {
+  .grid-area:after {
     width: 100%;
     display: inline-block;
     content: '';
   }
-  .front-page #content .grid-item,
-  .page-id-10 #content .grid-item {
-    width: 30%;
+  .grid-area .grid-item {
+    width: 32%;
     display: inline-block;
   }
   .page-id-8 #content .entry-header > .page-title {
@@ -1372,19 +1387,24 @@ input[type="submit"]:hover {
   .page-id-8 #content .about-sidebar .page-title-sidebar {
     display: inline-block;
   }
-  .page-id-10 .portfolio-category-list.desktop {
+  .page-id-10 .portfolio-category-list {
     width: 100%;
     display: block;
     text-align: justify;
     line-height: 1;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: initial;
   }
-  .page-id-10 .portfolio-category-list.desktop:after {
+  .page-id-10 .portfolio-category-list:after {
     width: 100%;
     display: inline-block;
     content: '';
   }
   .page-id-10 .portfolio-category-list .portfolio-link {
     display: inline-block;
+    font-size: 2em;
+    padding-bottom: 0.25em;
   }
   .page-id-10 .portfolio-category-list .portfolio-link a {
     text-decoration: none;

@@ -53,14 +53,6 @@
 
 		<div class="sb-slidebar sb-right sb-style-push">
 			<?php wp_nav_menu( $nav_args_sb ); ?>
-
-			<?php if ( $type == 'portfolio' || is_page( 10 ) ) : ?>
-				<div class="portfolio-nav-sb">
-					<h2 class="page-title">Portfolio</h2>
-					<?php rhd_portfolio_nav( 'slidebar' ); ?>
-				</div>
-			<?php endif; ?>
-
 		</div>
 
 		<div id="page" class="hfeed site sb-site-container">
@@ -81,7 +73,11 @@
 				<div class="header-bg <?php echo $header_class; ?>" style="background-image: url(<?php echo $bg; ?>);">
 					<h1 id="site-title-seo"><?php bloginfo( 'name' ); ?></span></h1>
 
-					<h2 class="page-title page-title-nav"><?php the_title(); ?></h2>
+					<?php if ( $type == 'portfolio' || is_page( 10 ) ) : ?>
+						<h2 class="page-title page-title-nav"><a href="#" class="portfolio-pulldown">Portfolio &darr;</a></h2>
+					<?php elseif ( ! is_front_page() ) : ?>
+						<h2 class="page-title page-title-nav"><?php the_title(); ?></h2>
+					<?php endif; ?>
 
 					<svg id="site-title" viewBox="0 0 574 129" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 					    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->

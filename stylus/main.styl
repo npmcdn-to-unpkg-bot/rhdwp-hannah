@@ -196,9 +196,7 @@ input[type="submit"]
 #colophon
 	width 100%
 	height 6em
-	position absolute
-	bottom 0
-	left 0
+	position relative
 
 	.site-info
 		width 100%
@@ -209,7 +207,7 @@ input[type="submit"]
 		-transform(translateY(-50%))
 		text-align center
 		line-height 1.7
-		font-size 0.9em
+		font-size 0.8em
 
 		.site-info-content
 			padding 1rem 4rem 0 4rem
@@ -260,6 +258,14 @@ input[type="submit"]
 		border-bottom none
 		margin-bottom 0
 		z-index 999
+
+		a
+			color inherit
+			text-decoration none
+
+			&:hover
+			&:active
+				color $color2
 
 
 .entry-header
@@ -316,9 +322,10 @@ input[type="submit"]
 
 .grid-item
 	text-align center
-	margin 1.5em 0
+	margin-bottom 1.5em
 	padding-bottom 1.5em
 	border-bottom 1px solid $text
+
 
 	&:last-child
 		border-bottom none
@@ -337,6 +344,7 @@ input[type="submit"]
 			width 100%
 			display block
 			margin 0 auto
+			border 1px solid rgba(0, 0, 0, 0.25)
 
 		figcaption
 			margin-top 0.25em
@@ -355,6 +363,12 @@ input[type="submit"]
 		img
 			width 100%
 			height auto
+
+
+.page
+	.entry-header
+		.page-title
+			display none
 
 
 .pagination
@@ -412,15 +426,22 @@ input[type="submit"]
    ========================================================================== */
 
 .portfolio-category-list
+	width 100%
 	font-family $ff_headline
 	text-transform uppercase
 	padding-left 0
-
-	&.desktop
-		display none
+	text-align center
+	position relative
+	bottom 2em
+	line-height 2
+	margin-bottom 0
+	display none
 
 	.portfolio-link
 		@extends .page-title
+		font-size 1.4em
+		padding 0 1vw 0.1em 1vw
+		margin 0 0.5em
 		-funderline()
 		border-bottom-color white
 		transition border-bottom-color 0.35s ease
@@ -435,25 +456,14 @@ input[type="submit"]
 
 
 #rhd-portfolio
-	.grid-item
-		border-bottom none
-		padding-bottom 0
+	min-height 300px
 
+	.grid-area
+		transition height 0.5s ease, width 0.5s ease
 
-.portfolio-nav-sb
-	width 100%
-	text-align center
-
-	.page-title
-		display inline
-
-	.portfolio-category-list
-		.portfolio-link
-			display block
+		.grid-item
 			border-bottom none
-
-			a
-				text-decoration none
+			padding-bottom 0
 
 
 /* ==========================================================================
@@ -546,6 +556,10 @@ input[type="submit"]
 	#hamburger
 		display none
 
+	.page-title
+		&.page-title-nav
+			display none
+
 	.news-item
 		width 100%
 		text-align left
@@ -573,16 +587,18 @@ input[type="submit"]
 			right 0
 			bottom 0
 
-	// Grids
-	// (Front Page, Portfolio)
-	.front-page
-	.page-id-10
-		#content
-			-flexbox()
+	.page
+		.entry-header
+			.page-title
+				display inline-block
 
-			.grid-item
-				width 30%
-				-flexitem()
+	// Grids
+	.grid-area
+		-flexbox()
+
+		.grid-item
+			width 32%
+			-flexitem()
 
 	// About
 	.page-id-8
@@ -607,13 +623,17 @@ input[type="submit"]
 	// Portfolio
 	.page-id-10
 		.portfolio-category-list
-			&.desktop
-				width 100%
-				display block
-				-flexbox()
+			width 100%
+			display block
+			-flexbox()
+			margin-top 2em
+			margin-bottom 1em
+			line-height initial
 
 			.portfolio-link
 				-flexitem()
+				font-size 2em
+				padding-bottom 0.25em
 
 				a
 					text-decoration none

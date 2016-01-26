@@ -18,17 +18,23 @@ get_header(); ?>
 
 					<?php // get_template_part( 'content', 'page' ); ?>
 
-					<?php rhd_portfolio_nav( 'desktop' ); ?>
+					<?php rhd_portfolio_nav(); ?>
 
-					<div id="rhd-portfolio">
+					<div id="rhd-portfolio" class="grid-container">
 						<?php $port_query = new WP_Query( 'post_type=portfolio&posts_per_page=-1 ' ); ?>
 
 						<?php if ( $port_query->have_posts() ) : ?>
-							<?php while ( $port_query->have_posts() ) : $port_query->the_post(); ?>
 
-								<?php get_template_part( 'content', 'grid' ); ?>
+							<div class="grid-area">
 
-							<?php endwhile; ?>
+								<?php while ( $port_query->have_posts() ) : $port_query->the_post(); ?>
+
+									<?php get_template_part( 'content', 'grid' ); ?>
+
+								<?php endwhile; ?>
+
+							</div>
+
 						<?php endif; ?>
 
 					</div>

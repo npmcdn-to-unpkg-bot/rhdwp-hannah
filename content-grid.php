@@ -14,4 +14,4 @@
 			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 		</figcaption>
 	</figure>
-</article><!-- #post -->
+</article>
