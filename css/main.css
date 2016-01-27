@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:12:34 PM on 02-12-2015
+* RHD Dev: Compiled at 12:14:43 PM on 27-01-2016
 ***/
 
 .alignnone {
@@ -305,28 +305,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: $gray;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: $gray;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: $gray;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: $gray;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -337,7 +337,7 @@ img.aligncenter {
   background: #fff;
   color: $gray;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -931,7 +931,7 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 a {
   outline: 0 !important;
@@ -939,7 +939,7 @@ a {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #43709e;
+  color: #07918b;
 }
 a:hover,
 a:active,
@@ -953,13 +953,13 @@ textarea {
   border-radius: 0.2em;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   transition: border-color 0.25s ease;
   outline: none;
 }
 input:focus,
 textarea:focus {
-  border-color: #43709e;
+  border-color: #07918b;
 }
 input[type="submit"] {
   cursor: pointer;
@@ -968,7 +968,7 @@ input[type="submit"] {
   transition: background-color 0.25s;
 }
 input[type="submit"]:hover {
-  background-color: #43709e;
+  background-color: #07918b;
 }
 #masthead {
   position: relative;
@@ -984,7 +984,6 @@ input[type="submit"]:hover {
   text-align: center;
   margin: 0 auto;
   text-transform: uppercase;
-  font-family: 'ADAM', sans-serif;
   font-size: 4em;
   font-size: 9.5vw;
   line-height: 1;
@@ -1023,7 +1022,7 @@ input[type="submit"]:hover {
   display: inline-block;
 }
 #site-navigation-container #site-navigation .menu-item.current-menu-item {
-  color: #43709e;
+  color: #07918b;
 }
 #site-navigation-container #site-navigation .menu-item a {
   text-decoration: none;
@@ -1033,7 +1032,7 @@ input[type="submit"]:hover {
 #site-navigation-container #site-navigation .menu-item a:hover,
 #site-navigation-container #site-navigation .menu-item a:active,
 #site-navigation-container #site-navigation .menu-item a:focus {
-  color: #7ad2d1;
+  color: #eb7935;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
@@ -1054,7 +1053,7 @@ input[type="submit"]:hover {
   text-align: center;
 }
 #site-navigation-sb-container #site-navigation-sb .menu-item.current-menu-item a {
-  color: #43709e;
+  color: #07918b;
 }
 #site-navigation-sb-container #site-navigation-sb .menu-item a {
   color: #fff;
@@ -1063,7 +1062,7 @@ input[type="submit"]:hover {
   transition: color 0.25s ease;
 }
 #site-navigation-sb-container #site-navigation-sb .menu-item a:hover {
-  color: #7ad2d1;
+  color: #eb7935;
 }
 #hamburger {
   background-color: transparent;
@@ -1071,11 +1070,11 @@ input[type="submit"]:hover {
   right: 0.5rem;
 }
 #hamburger span {
-  background-color: #7ad2d1;
+  background-color: #eb7935;
 }
 #hamburger span::before,
 #hamburger span::after {
-  background-color: #7ad2d1;
+  background-color: #eb7935;
 }
 #hamburger.top {
   bottom: 0.2rem;
@@ -1157,7 +1156,6 @@ input[type="submit"]:hover {
 .page-title {
   margin-top: 0;
   line-height: 1;
-  font-family: 'ADAM', sans-serif;
 }
 .page-title {
   text-align: center;

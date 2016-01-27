@@ -36,7 +36,7 @@ function rhd_enqueue_styles()
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' );
 
 	$normalize_deps = array(
 		'slidebars',
@@ -108,7 +108,7 @@ add_action( 'wp_enqueuescripts', 'rhd_register_jquery' );
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Montserrat:400,700';
+	$font_url = '//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -186,7 +186,7 @@ register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
  * RHD_Walker_Nav class.
  *
  * Adds newlines after each </li> closing tag.
- * 
+ *
  * @extends Walker_Nav_Menu
  */
 class RHD_Walker_Nav extends Walker_Nav_Menu {
@@ -473,15 +473,15 @@ add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
 
 /**
  * rhd_archive_pagination function.
- * 
+ *
  * @access public
  * @param WP_Query $q (default: null)
  * @return void
  */
 function rhd_archive_pagination( WP_Query $q = null )
-{		
+{
 	$max_page = ( $q ) ? $q->max_num_pages : null;
-		
+
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
 	echo '<div class="pagination">';
