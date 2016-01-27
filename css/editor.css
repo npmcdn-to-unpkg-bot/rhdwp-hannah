@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:19:12 PM on 27-01-2016
+* RHD Dev: Compiled at 1:42:22 PM on 27-01-2016
 ***/
 
 /**
@@ -997,6 +997,15 @@ input[type="submit"]:hover {
 #masthead #site-title.bottom {
   bottom: 2.3rem;
   color: #fff;
+}
+.site-navigation li a {
+  color: #07918b;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.site-navigation li a:hover,
+.site-navigation li a:active {
+  color: #eb7935;
 }
 #site-navigation-container {
   width: 100%;
