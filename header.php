@@ -27,7 +27,7 @@
 		<?php wp_head(); ?>
 </head>
 
-	<body <?php body_class( $body_classes ); ?>>
+	<body <?php body_class(); ?>>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
