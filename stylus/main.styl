@@ -70,6 +70,7 @@ input[type="submit"]
 		height 30vh
 		position relative
 		background-size cover
+		top $navHt
 
 	#site-title
 		width 100%
@@ -94,56 +95,55 @@ input[type="submit"]
 .site-navigation
 	li
 		a
-			color $color1
-			text-decoration none
 			transition color 0.25s
 
-			&:hover
-			&:active
-				color $color2
 
-
-#site-navigation-container
+#navbar
 	width 100%
-	height 6em
+	height auto
 	text-align center
-	display none
 	position absolute
 	top 0
+	background white
 
-	#site-navigation
-		-wrapper()
-		list-style none
-		padding-left 0
-		-flexbox()
+	#site-navigation-container
+		width 100%
+		height auto
+		display none
 
-		.menu-item
-			-flexitem()
+		#site-navigation
+			-wrapper()
+			list-style none
+			padding-left 0
+			-flexbox()
 
-			&.current-menu-item
-				color $color1
+			.menu-item
+				-flexitem()
 
-			a
-				text-decoration none
-				text-transform uppercase
-				color inherit
-				-transition(0.25s color)
+				&.current-menu-item
+					color $color1
 
-				&:hover
-				&:active
-				&:focus
-					color $color2
+				a
+					text-decoration none
+					text-transform uppercase
+					color inherit
+					-transition(0.25s color)
 
-			.sub-menu
-				position absolute
-				padding-left 0
-				line-height 1.7
-				margin-top 0.2em
-				z-index 999 !important
+					&:hover
+					&:active
+					&:focus
+						color $color2
 
-				li
-					display block
-					margin 0
+				.sub-menu
+					position absolute
+					padding-left 0
+					line-height 1.7
+					margin-top 0.2em
+					z-index 999 !important
+
+					li
+						display block
+						margin 0
 
 
 #site-navigation-sb-container
@@ -426,15 +426,14 @@ input[type="submit"]
 			&.bottom
 				bottom 18%
 
-	#site-navigation-container
-		height 4em
-		display block
-		position absolute
-		bottom 0
-		background white
+	#navbar
+		height $navHt
 
-		#site-navigation
-			top 1.6em
+		#site-navigation-container
+			display block
+
+			#site-navigation
+				top 2.4em
 
 	#hamburger
 		display none

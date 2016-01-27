@@ -62,6 +62,13 @@
 				$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full', true );
 				?>
 
+				<div id="navbar">
+					<?php wp_nav_menu( $nav_args_main ); ?>
+					<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra <?php echo $title_style; ?>">
+						<span>Toggle nav</span>
+					</button>
+				</div>
+
 				<div class="header-bg" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
 					<?php
 					if ( is_page( 'media' ) || is_page( 'resume' ) || is_page( 'photos' ) )
@@ -70,14 +77,8 @@
 						$title_style = 'top';
 					?>
 
-					<h1 id="site-title" class="site-title <?php echo $title_style; ?>"><?php bloginfo( 'name' ); ?></h1>
+					<h1 id="site-title" class="site-title invisible <?php echo $title_style; ?>"><?php bloginfo( 'name' ); ?></h1>
 				</div>
-
-				<?php wp_nav_menu( $nav_args_main ); ?>
-
-				<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra <?php echo $title_style; ?>">
-					<span>Toggle nav</span>
-				</button>
 			</header><!-- #masthead -->
 
 			<main id="main" class="clearfix">

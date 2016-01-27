@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:42:22 PM on 27-01-2016
+* RHD Dev: Compiled at 1:51:33 PM on 27-01-2016
 ***/
 
 /**
@@ -978,6 +978,7 @@ input[type="submit"]:hover {
   height: 30vh;
   position: relative;
   background-size: cover;
+  top: 6em;
 }
 #masthead #site-title {
   width: 100%;
@@ -999,23 +1000,22 @@ input[type="submit"]:hover {
   color: #fff;
 }
 .site-navigation li a {
-  color: #07918b;
-  text-decoration: none;
   transition: color 0.25s;
 }
-.site-navigation li a:hover,
-.site-navigation li a:active {
-  color: #eb7935;
-}
-#site-navigation-container {
+#navbar {
   width: 100%;
-  height: 6em;
+  height: auto;
   text-align: center;
-  display: none;
   position: absolute;
   top: 0;
+  background: #fff;
 }
-#site-navigation-container #site-navigation {
+#navbar #site-navigation-container {
+  width: 100%;
+  height: auto;
+  display: none;
+}
+#navbar #site-navigation-container #site-navigation {
   width: 85%;
   max-width: 64rem;
   position: relative;
@@ -1025,35 +1025,35 @@ input[type="submit"]:hover {
   text-align: justify;
   line-height: 1;
 }
-#site-navigation-container #site-navigation:after {
+#navbar #site-navigation-container #site-navigation:after {
   width: 100%;
   display: inline-block;
   content: '';
 }
-#site-navigation-container #site-navigation .menu-item {
+#navbar #site-navigation-container #site-navigation .menu-item {
   display: inline-block;
 }
-#site-navigation-container #site-navigation .menu-item.current-menu-item {
+#navbar #site-navigation-container #site-navigation .menu-item.current-menu-item {
   color: #07918b;
 }
-#site-navigation-container #site-navigation .menu-item a {
+#navbar #site-navigation-container #site-navigation .menu-item a {
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
 }
-#site-navigation-container #site-navigation .menu-item a:hover,
-#site-navigation-container #site-navigation .menu-item a:active,
-#site-navigation-container #site-navigation .menu-item a:focus {
+#navbar #site-navigation-container #site-navigation .menu-item a:hover,
+#navbar #site-navigation-container #site-navigation .menu-item a:active,
+#navbar #site-navigation-container #site-navigation .menu-item a:focus {
   color: #eb7935;
 }
-#site-navigation-container #site-navigation .menu-item .sub-menu {
+#navbar #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
   padding-left: 0;
   line-height: 1.7;
   margin-top: 0.2em;
   z-index: 999 !important;
 }
-#site-navigation-container #site-navigation .menu-item .sub-menu li {
+#navbar #site-navigation-container #site-navigation .menu-item .sub-menu li {
   display: block;
   margin: 0;
 }
@@ -1290,15 +1290,14 @@ input[type="submit"]:hover {
   #masthead #site-title.bottom {
     bottom: 18%;
   }
-  #site-navigation-container {
-    height: 4em;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    background: #fff;
+  #navbar {
+    height: 6em;
   }
-  #site-navigation-container #site-navigation {
-    top: 1.6em;
+  #navbar #site-navigation-container {
+    display: block;
+  }
+  #navbar #site-navigation-container #site-navigation {
+    top: 2.4em;
   }
   #hamburger {
     display: none;
