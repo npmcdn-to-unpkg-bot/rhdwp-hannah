@@ -42,9 +42,11 @@ function rhd_enqueue_styles()
 		'slidebars',
 	);
 
+/*
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced' );
 	}
+*/
 
 	wp_register_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', $normalize_deps, null, 'all' );
 
@@ -301,6 +303,7 @@ add_action('_admin_menu', 'rhd_remove_editor_menu', 1);
  * @access public
  * @return void
  */
+/*
 function rhd_is_mobile()
 {
 	$mobile_browser = 0;
@@ -347,6 +350,7 @@ function rhd_is_mobile()
 
 	return $mobile_browser;
 }
+*/
 
 
 /**
@@ -591,9 +595,9 @@ function rhd_body_class( $body_classes )
 {
 	// Basic front page & device detection
 	$body_classes[] = ( is_front_page() ) ? 'front-page' : '';
-	$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
-	$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
-	$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
+	//$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
+	//$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
+	//$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
 	$body_classes[] = ( get_query_var( 'pagename' ) == 'recent-events' ) ? 'no-image-strip' : '';
 
 	if ( !session_id() )

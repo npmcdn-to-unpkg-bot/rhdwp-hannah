@@ -98,7 +98,7 @@ input[type="submit"]
 
 
 #site-title
-	font-size 3em
+	font-size 2.7em
 	font-family $ff_head
 	text-align center
 	display block
@@ -107,6 +107,7 @@ input[type="submit"]
 	line-height 1
 	z-index 500
 	position relative
+	top 0.05em
 
 	a
 		color inherit
@@ -207,6 +208,8 @@ body
 			text-transform uppercase
 
 			.sub-menu
+				padding-left 1.2em
+
 				.menu-item
 					text-transform initial
 
@@ -385,6 +388,11 @@ body
 		display block
 
 
+.wp-caption-text
+	font-size 0.9em
+	line-height 1.2
+
+
 /* ==========================================================================
 	Ninja Forms
    ========================================================================== */
@@ -468,29 +476,69 @@ a[href$="register"]
 		& > table
 			border none
 
-	.app_services_dropdown
+
+.app_services_dropdown
+	width 100%
+	text-align center
+
+	.app_services_dropdown_select
+		select
+			margin-right 0
+
+	.app_services_button
+		margin 0.5em auto 0 auto
+		-transition(all 0.25s ease)
+		display block
+
+		&:hover
+			background-color $light-blue
+
+
+.appointments-wrapper
+	h3
+		font-size 1.1em
+		margin 0.25em 0
+		text-transform none
 		text-align center
 
-		.app_services_dropdown_select
-			select
-				margin-right 0
 
-		.app_services_button
-			margin 0.5em auto 0 auto
-			-transition(all 0.25s ease)
-			display block
-
-			&:hover
-				background-color $light-blue
+.appointments-instructions
+	font-style italic
+	text-align center
 
 
-	.appointments-wrapper
-		h3
-			font-size 1em
-			text-transform none
+.app_service_excerpt
+	width 300px
+	max-width 100%
+	height auto
+	margin 0 auto
+	display block
 
-	.appointments-instructions
-		font-style italic
+	img
+		width 100%
+		height auto
+		border 1px solid black
+
+
+.appointments-list
+	margin-top 0
+
+
+.appointments-legend
+	width 323px
+	margin 0 auto
+
+	.appointments-legend-table
+		margin-top 1em
+
+
+.my-appointments
+	tr
+		th
+		td
+			&:nth-of-type(1)
+			&:nth-of-type(3)
+				display none
 
 
 /* ==========================================================================
@@ -857,6 +905,10 @@ a[href$="register"]
 
 
 @media screen and (min-width 50em)
+	#site-title
+		font-size 3em
+		top 0
+
 	#site-navigation-container
 		display block
 		top 1.3em
@@ -977,7 +1029,7 @@ a[href$="register"]
 			&:nth-of-type(5)
 				display table-cell
 
-	//Login page
+	// Login page
 	.page-id-78505
 		.entry-content
 			img
@@ -1018,10 +1070,8 @@ a[href$="register"]
 	#roster-link
 		display none
 
-	// Reservations
-	#post-79475
-		.app_services_dropdown
-			text-align left
 
-			.app_services_button
-				margin 0.5em 0 0 0
+	// Reservations
+	.app_services_dropdown
+		.app_services_button
+			margin 0.5em 0 0 0

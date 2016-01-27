@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:59:32 PM on 11-01-2016
+* RHD Dev: Compiled at 3:00:11 PM on 27-01-2016
 ***/
 
 .alignnone {
@@ -1042,7 +1042,7 @@ input[type="submit"]:hover {
 }
 #site-title,
 .footer-site-title {
-  font-size: 3em;
+  font-size: 2.7em;
   font-family: 'Canterbury', cursive;
   text-align: center;
   display: block;
@@ -1051,6 +1051,7 @@ input[type="submit"]:hover {
   line-height: 1;
   z-index: 500;
   position: relative;
+  top: 0.05em;
 }
 #site-title a,
 .footer-site-title a {
@@ -1155,6 +1156,9 @@ body .sb-slidebar .sub-menu {
 }
 #site-navigation-sb-container #site-navigation-sb .menu-item {
   text-transform: uppercase;
+}
+#site-navigation-sb-container #site-navigation-sb .menu-item .sub-menu {
+  padding-left: 1.2em;
 }
 #site-navigation-sb-container #site-navigation-sb .menu-item .sub-menu .menu-item {
   text-transform: initial;
@@ -1325,6 +1329,10 @@ body .sb-slidebar .sub-menu {
 #page-thumbnail-wide img {
   display: block;
 }
+.wp-caption-text {
+  font-size: 0.9em;
+  line-height: 1.2;
+}
 /* ==========================================================================
 	Ninja Forms
    ========================================================================== */
@@ -1391,27 +1399,59 @@ a[href$="register"] {
 #post-79475 .entry-content > table {
   border: none;
 }
-#post-79475 .app_services_dropdown {
+.app_services_dropdown {
+  width: 100%;
   text-align: center;
 }
-#post-79475 .app_services_dropdown .app_services_dropdown_select select {
+.app_services_dropdown .app_services_dropdown_select select {
   margin-right: 0;
 }
-#post-79475 .app_services_dropdown .app_services_button {
+.app_services_dropdown .app_services_button {
   margin: 0.5em auto 0 auto;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
   display: block;
 }
-#post-79475 .app_services_dropdown .app_services_button:hover {
+.app_services_dropdown .app_services_button:hover {
   background-color: #5274e2;
 }
-#post-79475 .appointments-wrapper h3 {
-  font-size: 1em;
+.appointments-wrapper h3 {
+  font-size: 1.1em;
+  margin: 0.25em 0;
   text-transform: none;
+  text-align: center;
 }
-#post-79475 .appointments-instructions {
+.appointments-instructions {
   font-style: italic;
+  text-align: center;
+}
+.app_service_excerpt {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.app_service_excerpt img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+}
+.appointments-list {
+  margin-top: 0;
+}
+.appointments-legend {
+  width: 323px;
+  margin: 0 auto;
+}
+.appointments-legend .appointments-legend-table {
+  margin-top: 1em;
+}
+.my-appointments tr th:nth-of-type(1),
+.my-appointments tr td:nth-of-type(1),
+.my-appointments tr th:nth-of-type(3),
+.my-appointments tr td:nth-of-type(3) {
+  display: none;
 }
 /* ==========================================================================
 	Front Page
@@ -1780,6 +1820,10 @@ a[href$="register"] {
   }
 }
 @media screen and (min-width: 50em) {
+  #site-title {
+    font-size: 3em;
+    top: 0;
+  }
   #site-navigation-container {
     display: block;
     top: 1.3em;
@@ -1937,10 +1981,7 @@ a[href$="register"] {
   #roster-link {
     display: none;
   }
-  #post-79475 .app_services_dropdown {
-    text-align: left;
-  }
-  #post-79475 .app_services_dropdown .app_services_button {
+  .app_services_dropdown .app_services_button {
     margin: 0.5em 0 0 0;
   }
 }
