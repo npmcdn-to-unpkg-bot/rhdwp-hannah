@@ -66,17 +66,19 @@ input[type="submit"]
 #masthead
 	position relative
 
-	#site-title-seo
-		-invisible()
 
-	#site-title
-		width 90%
-		height auto
-		overflow visible
-		position absolute
-		bottom 1em + $navHt
-		left 50%
-		-transform(translateX(-50%))
+#site-title-seo
+	-invisible()
+
+
+#site-title
+	width 90%
+	height auto
+	overflow visible
+	position absolute
+	bottom 4em + $navHt
+	left 50%
+	-transform(translateX(-50%))
 
 
 #site-navigation-container
@@ -99,10 +101,6 @@ input[type="submit"]
 			-flexitem()
 			font-weight 700
 
-			&.current-menu-item
-				a
-					color $color2
-
 			a
 				text-decoration none
 				text-transform uppercase
@@ -111,8 +109,7 @@ input[type="submit"]
 
 				&:hover
 				&:active
-				&:focus
-					color $color2
+					color black
 
 			.sub-menu
 				position absolute
@@ -220,11 +217,12 @@ input[type="submit"]
 	background-position center center
 
 	&.header-bg-short
-		height 34vh
+		height 12em
 
 		#site-title
-			max-width 45rem
-			top 35%
+			top 50%
+			bottom initial
+			-transform(translate(-50%, -94%))
 
 
 // Home page
@@ -375,6 +373,12 @@ input[type="submit"]
 
 .news-item
 	margin-bottom 1em
+	padding-bottom 1em
+	border-bottom 1px solid #ccc
+
+	&:last-child
+		border-bottom none
+		padding-bottom 0
 
 	.post-featured-image
 		-wrapper(0.5em, 0.5em, 50%)
@@ -426,10 +430,9 @@ input[type="submit"]
    ========================================================================== */
 
 .front-page
-	#masthead
-		#site-title
-			top 46%
-			-transform(translate(-50%, -50%))
+	#site-title
+		top 46%
+		-transform(translate(-50%, -50%))
 
 	.grid-item
 		width 95%
@@ -488,6 +491,13 @@ input[type="submit"]
 		.grid-item
 			border-bottom none
 			padding-bottom 0
+
+
+.soliloquy-outer-container
+	.soliloquy-container
+		.soliloquy-slider
+			img
+				max-height 608px
 
 
 /* ==========================================================================
@@ -567,9 +577,16 @@ input[type="submit"]
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	#masthead
-		#site-title
-			width 50%
+	.header-bg
+		&.header-bg-short
+			height 17em
+
+			#site-title
+				width 45%
+				-transform(translate(-50%, -71%))
+
+	#site-title
+		width 50%
 
 	#site-navigation-container
 		#site-navigation
@@ -624,12 +641,6 @@ input[type="submit"]
 			border-bottom none
 			-flexitem()
 
-	// Front Page
-	.front-page
-		#masthead
-			#site-title
-				top 42%
-
 	// About
 	.page-id-8
 		#content
@@ -644,11 +655,16 @@ input[type="submit"]
 				float right
 
 			.about-sidebar
-				width 33%
+				width 30%
 				float left
 
 				.page-title-sidebar
 					display inline-block
+
+				img
+					width 100%
+					height auto
+					border 1px solid #ccc
 
 	// Portfolio
 	.page-id-10
@@ -670,6 +686,10 @@ input[type="submit"]
 
 	// Contact
 	.page-id-13
+		.page
+			> .entry-header
+				display none
+
 		.entry-content
 			-clearfix()
 

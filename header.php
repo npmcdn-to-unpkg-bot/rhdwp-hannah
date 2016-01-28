@@ -62,10 +62,11 @@
 
 				if ( $type != 'portfolio' && ( $type != 'post' && ! is_single() ) ) {
 					$thumb_id = get_post_thumbnail_id();
-					$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full', true );
+					$thumb_url = wp_get_attachment_image_src( $thumb_id, 'wide', false );
 					$bg = $thumb_url[0];
 				} else {
-					$bg = '';
+					$thumb_url = wp_get_attachment_image_src( 483, 'wide', false );
+					$bg = $thumb_url[0];
 					$header_class = 'header-bg-short';
 				}
 				?>

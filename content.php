@@ -10,7 +10,16 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'news-item' ); ?>>
 		<div class="news-item-inner">
 			<div class="post-featured-image">
+				<?php $external = do_shortcode('[ct id="ct_External_L_text_e6ca" property="value"]'); ?>
+				<?php if ( $external ) : ?>
+					<a href="<?php echo $external; ?>" rel="bookmark" target="_blank">
+				<?php endif; ?>
+
 				<?php the_post_thumbnail( 'square' ); ?>
+
+				<?php if ( $external ) : ?>
+					</a>
+				<?php endif; ?>
 			</div>
 
 			<div class="entry-content">

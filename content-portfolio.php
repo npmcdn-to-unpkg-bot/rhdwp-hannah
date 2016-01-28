@@ -9,9 +9,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'grid-item' ); ?>>
 	<figure class="grid-featured-image">
-		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail( 'square' ); ?></a>
-		<figcaption class="entry-title">
-			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-		</figcaption>
+		<a href="<?php the_permalink(); ?>" rel="bookmark">
+			<?php the_post_thumbnail( 'square' ); ?>
+			<figcaption class="entry-title">
+				<?php the_title(); ?>
+			</figcaption>
+		</a>
 	</figure>
 </article>

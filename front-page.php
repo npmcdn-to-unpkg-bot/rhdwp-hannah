@@ -22,12 +22,14 @@ get_header(); ?>
 					$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
 					$args = array(
 						'post_type' => 'post',
-						'paged' => $paged,
+						'post_per_page' => 3,
+						'category_name' => 'home'
 					);
 					$news_q = new WP_Query( $args );
 					?>
 
 					<?php if ( $news_q->have_posts() ) : ?>
+
 						<div class="grid-container">
 							<header class="entry-header">
 								<h2 class="page-title">Recent Projects</h2>
@@ -36,7 +38,7 @@ get_header(); ?>
 							<div class="grid-area">
 								<?php while ( $news_q->have_posts() ) : $news_q->the_post(); ?>
 
-									<?php get_template_part( 'content', 'grid' ); ?>
+									<?php get_template_part( 'content', 'front-page' ); ?>
 
 								<?php endwhile; ?>
 							</div>
@@ -48,8 +50,6 @@ get_header(); ?>
 			<?php endif; ?>
 
 			</div><!-- #content -->
-
-			<?php rhd_archive_pagination( $news_q ); ?>
 
 		</section><!-- #primary -->
 

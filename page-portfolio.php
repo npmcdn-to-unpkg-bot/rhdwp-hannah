@@ -29,7 +29,7 @@ get_header(); ?>
 
 								<?php while ( $port_query->have_posts() ) : $port_query->the_post(); ?>
 
-									<?php get_template_part( 'content', 'grid' ); ?>
+									<?php get_template_part( 'content', 'portfolio' ); ?>
 
 								<?php endwhile; ?>
 

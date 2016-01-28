@@ -19,8 +19,12 @@ get_header(); ?>
 					<?php get_template_part( 'content', 'page' ); ?>
 
 					<div class="about-sidebar">
-						<h2 class="page-title page-title-sidebar"><?php the_title(); ?></h2>
-						<!-- IMAGE HERE -->
+						<div class="entry-header">
+							<h2 class="page-title page-title-sidebar"><?php the_title(); ?></h2>
+						</div>
+
+						<?php $img = wp_get_attachment_image_src( 478, 'medium_large', false ); ?>
+						<img src="<?php echo $img[0]; ?>" alt="Vanessa Leuck and subway train">
 					</div>
 
 				<?php endwhile; ?>

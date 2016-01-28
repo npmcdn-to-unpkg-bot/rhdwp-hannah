@@ -240,6 +240,7 @@ add_theme_support( 'automatic-feed-links' );
 function rhd_image_sizes()
 {
 	add_image_size( 'square', 300, 300, true );
+	add_image_size( 'wide', 1400, null, false );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
@@ -660,7 +661,7 @@ function rhd_ajax_filter()
 	if( $posts->have_posts() ) {
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
-			get_template_part( 'content', 'grid' );
+			get_template_part( 'content', 'portfolio' );
 		}
 	}
 
