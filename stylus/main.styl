@@ -471,12 +471,6 @@ a[href$="register"]
 	Appointments+
    ========================================================================== */
 
-#post-79475
-	.entry-content
-		& > table
-			border none
-
-
 .app_services_dropdown
 	width 100%
 	text-align center
@@ -495,6 +489,8 @@ a[href$="register"]
 
 
 .appointments-wrapper
+	margin-top 0
+
 	h3
 		font-size 1.1em
 		margin 0.25em 0
@@ -533,12 +529,28 @@ a[href$="register"]
 
 
 .my-appointments
+.all-appointments
 	tr
 		th
 		td
 			&:nth-of-type(1)
 			&:nth-of-type(3)
 				display none
+
+
+.appointments-pagination
+	padding 0.25em 0
+
+
+.appointments-confirmation-buttons
+	input
+		&[type="button"]
+			&:focus
+				background-color $blue
+
+			&:hover
+			&:active
+				background-color $light-blue
 
 
 /* ==========================================================================

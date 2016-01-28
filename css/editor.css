@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:00:11 PM on 27-01-2016
+* RHD Dev: Compiled at 10:16:39 AM on 28-01-2016
 ***/
 
 /**
@@ -1384,9 +1384,6 @@ a[href$="register"] {
   background-color: none;
   box-shadow: none;
 }
-#post-79475 .entry-content > table {
-  border: none;
-}
 .app_services_dropdown {
   width: 100%;
   text-align: center;
@@ -1402,6 +1399,9 @@ a[href$="register"] {
 }
 .app_services_dropdown .app_services_button:hover {
   background-color: #5274e2;
+}
+.appointments-wrapper {
+  margin-top: 0;
 }
 .appointments-wrapper h3 {
   font-size: 1.1em;
@@ -1436,10 +1436,24 @@ a[href$="register"] {
   margin-top: 1em;
 }
 .my-appointments tr th:nth-of-type(1),
+.all-appointments tr th:nth-of-type(1),
 .my-appointments tr td:nth-of-type(1),
+.all-appointments tr td:nth-of-type(1),
 .my-appointments tr th:nth-of-type(3),
-.my-appointments tr td:nth-of-type(3) {
+.all-appointments tr th:nth-of-type(3),
+.my-appointments tr td:nth-of-type(3),
+.all-appointments tr td:nth-of-type(3) {
   display: none;
+}
+.appointments-pagination {
+  padding: 0.25em 0;
+}
+.appointments-confirmation-buttons input[type="button"]:focus {
+  background-color: #2a2a7a;
+}
+.appointments-confirmation-buttons input[type="button"]:hover,
+.appointments-confirmation-buttons input[type="button"]:active {
+  background-color: #5274e2;
 }
 .front-page #highlights {
   width: 100%;
