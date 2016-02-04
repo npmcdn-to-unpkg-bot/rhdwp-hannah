@@ -31,7 +31,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 
 /**
  * rhd_enqueue_styles function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -63,7 +63,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 
 /**
  * rhd_enqueue_scripts function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -108,7 +108,7 @@ add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
 /**
  * rhd_add_editor_styles function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -132,7 +132,7 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
 
 /**
  * rhd_register_sidebars function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -165,7 +165,7 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
  * RHD_Walker_Nav class.
  *
  * Adds newlines after each </li> closing tag.
- * 
+ *
  * @extends Walker_Nav_Menu
  */
 class RHD_Walker_Nav extends Walker_Nav_Menu {
@@ -188,7 +188,7 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
 
 /**
  * rhd_theme_setup function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -463,15 +463,15 @@ add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
 
 /**
  * rhd_archive_pagination function.
- * 
+ *
  * @access public
  * @param WP_Query $q (default: null)
  * @return void
  */
 function rhd_archive_pagination( WP_Query $q = null )
-{		
+{
 	$max_page = ( $q ) ? $q->max_num_pages : null;
-		
+
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
 	echo '<nav class="pagination">';
@@ -621,10 +621,7 @@ add_filter( 'body_class', 'rhd_body_class' );
 function rhd_svg_logo() {
 	echo '
 			<svg id="PLACEHOLDER">
-				<a href="hide-on-fallback">
-					<!-- SVG CODE HERE -->
-				</a>
-				<image src="' . RHD_IMG_DIR . '/logo-large.png" alt="' . get_bloginfo( 'name' ) . '" xlink:href="">
+				<!-- SVG CODE HERE -->
 			</svg>
 		';
 }
