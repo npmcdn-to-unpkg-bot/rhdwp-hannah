@@ -1,8 +1,8 @@
 @require "partials/_global.styl"
 @require "partials/_wp-core.styl"
-@require "partials/_fonts.styl"
+//@require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-@require "partials/_metabar.styl"
+//@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
@@ -73,23 +73,12 @@ input[type="submit"]
 		top $navHt
 
 	#site-title
-		width 100%
-		text-align center
-		margin 0 auto
-		text-transform uppercase
-		font-size 4em //fallback
-		font-size 9.5vw
-		line-height 1
+		width 60%
+		height auto
 		position absolute
-		transition all 0.25s ease
-
-		&.top
-			top 2.3rem
-			color black
-
-		&.bottom
-			bottom 2.3rem
-			color white
+		top 50%
+		left 1em
+		-transform(translateY(-50%))
 
 
 .site-navigation
@@ -100,56 +89,61 @@ input[type="submit"]
 
 #navbar
 	width 100%
-	height auto
+	height $navHt
 	text-align center
 	position absolute
 	top 0
 	background white
 
-	#site-navigation-container
-		width 100%
-		height auto
-		display none
+	.navbar-inner
+		height 100%
+		-wrapper()
 
-		#site-navigation
-			-wrapper()
-			list-style none
-			padding-left 0
-			-flexbox()
+		#site-navigation-container
+			width 100%
+			height auto
+			display none
 
-			.menu-item
-				-flexitem()
+			#site-navigation
+				list-style none
+				padding-left 0
+				-flexbox()
+				margin 0
 
-				&.current-menu-item
-					color $color1
+				.menu-item
+					-flexitem()
 
-				a
-					text-decoration none
-					text-transform uppercase
-					color inherit
-					-transition(0.25s color)
+					&.current-menu-item
+						padding-bottom 0.35em
+						border-bottom 4px solid $color1
 
-					&:hover
-					&:active
-					&:focus
-						color $color2
+					a
+						text-decoration none
+						text-transform uppercase
+						color inherit
+						-transition(0.25s color)
 
-				.sub-menu
-					position absolute
-					padding-left 0
-					line-height 1.7
-					margin-top 0.2em
-					z-index 999 !important
+						&:hover
+						&:active
+						&:focus
+							color $color2
 
-					li
-						display block
-						margin 0
+					.sub-menu
+						position absolute
+						padding-left 0
+						line-height 1.7
+						margin-top 0.2em
+						z-index 999 !important
+
+						li
+							display block
+							margin 0
 
 
 #site-navigation-sb-container
 	#site-navigation-sb
 		list-style none
-		font-size 2em
+		font-size 1.8em
 		line-height 1.5
 		padding-left 0
 		text-align center
@@ -157,7 +151,7 @@ input[type="submit"]
 		.menu-item
 			&.current-menu-item
 				a
-					color $color1
+					border-bottom 2px solid $color1
 
 			a
 				color white
@@ -171,7 +165,9 @@ input[type="submit"]
 #hamburger
 	background-color transparent
 	position absolute
+	top 50%
 	right 0.5rem
+	-transform(translateY(-50%))
 
 	span
 		background-color $color2
@@ -180,18 +176,12 @@ input[type="submit"]
 		&::after
 			background-color (@background-color)
 
-	// YES, these classes are reversed on the hamburger, deal with it
-	&.top
-		bottom 0.2rem
-
-	&.bottom
-		top 0.2rem
-
 
 #main
 	-wrapper()
 	padding 2em 0
 	box-sizing border-box
+	margin-top $navHt
 
 
 #primary
@@ -207,29 +197,32 @@ input[type="submit"]
 
 #colophon
 	width 100%
-	height 6em
-	position absolute
-	bottom 0
-	left 0
+	position relative
+	background-color $color2
+	color white
 
-	.site-info
+	.footer-content
 		width 100%
 		margin 0
-		position absolute
-		top 50%
-		left 0
-		-transform(translateY(-50%))
-		text-align center
-		line-height 1.7
-		font-size 0.9em
-
-		.site-info-content
-			padding 1.3rem 4rem 0 4rem
-			border-top 1px solid black
-			display inline-block
+		padding 2em 0
+		position relative
 
 		a
 			color inherit
+
+		#footer-widget-area
+			text-align center
+			margin-bottom 2em
+
+			.widget-title
+				font-weight 400
+				font-size 1.3em
+				margin-bottom 0.25em
+
+		#site-info
+			text-align center
+			line-height 1.7
+			font-size 0.9em
 
 	#rhd-logo-footer
 		width 1.35em
@@ -262,6 +255,7 @@ input[type="submit"]
 .page-id-21
 	.header-bg
 		background-position right
+
 
 /* ==========================================================================
 	Posts & Pages
@@ -360,6 +354,14 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Widget Areas
+   ========================================================================== */
+
+#secondary
+	-wrapper(0, 2em, 95%)
+
+
+/* ==========================================================================
 	Contact Page
    ========================================================================== */
 
@@ -393,50 +395,86 @@ input[type="submit"]
 
 
 /* ==========================================================================
-	Widget Areas & Sidebars
-   ========================================================================== */
-
-// #secondary
-// 	.widget
-// 		width 100%
-// 		margin-bottom 1.5em
-//
-// 	.widget:last-child
-// 		margin-bottom 0
-//
-//
-// 	.widget-title
-// 		margin-top 0
-
-
-/* ==========================================================================
 	Media Queries
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	.page-id-39
-		.header-bg
-			background-position center top
-
 	#masthead
 		#site-title
-			&.top
-				top 5%
+			width 14rem
+			position relative
+			float left
 
-			&.bottom
-				bottom 18%
 
 	#navbar
-		height $navHt
+		.navbar-inner
+			#site-title
+				width 20%
 
-		#site-navigation-container
-			display block
-
-			#site-navigation
+			#site-navigation-container
+				width 75%
+				float right
+				display block
+				position relative
 				top 2.4em
+
 
 	#hamburger
 		display none
+
+
+	#main
+		-clearfix()
+
+
+	#primary
+	#secondary
+		margin 0
+
+
+	#primary
+		width 70%
+		float left
+
+
+	#secondary
+		width 25%
+		float right
+
+
+	#colophon
+		height 6rem
+
+		.footer-content
+			height 100%
+			-clearfix()
+			-wrapper()
+
+			#footer-widget-area
+			#site-info
+				position absolute
+				top 50%
+				-transform(translateY(-50%))
+
+			#footer-widget-area
+				width 14em
+				margin-bottom 0
+				right 0
+				text-align right
+
+				.widget-title
+					font-size 1em
+					float left
+					margin 1.2em 0
+
+				.rhd_social_icons
+					float right
+
+			#site-info
+				left 0
+				text-align left
+				font-size 1em
+
 
 	.news-item
 		width 100%
@@ -464,6 +502,13 @@ input[type="submit"]
 			position absolute
 			right 0
 			bottom 0
+
+
+	.front-page
+		#primary
+			.entry-content
+				padding-top 1em
+
 
 	.page-id-21
 		.entry-content

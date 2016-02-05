@@ -6,14 +6,14 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php get_template_part( 'content', 'page' ); ?>
@@ -25,4 +25,10 @@ get_header(); ?>
 			</div><!-- #content -->
 		</section><!-- #primary -->
 
-<?php get_footer(); ?>
+<?php
+global $post;
+$slug = $post->post_name;
+if ( $slug == 'about' || $slug == 'rce-housing' )
+	get_sidebar( $slug );
+
+get_footer(); ?>

@@ -52,6 +52,7 @@
 		?>
 
 		<div class="sb-slidebar sb-right sb-style-push">
+			<h1 style="text-align: center;">LOGO HERE</h1>
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
 
@@ -63,21 +64,18 @@
 				?>
 
 				<div id="navbar">
-					<?php wp_nav_menu( $nav_args_main ); ?>
-					<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra <?php echo $title_style; ?>">
-						<span>Toggle nav</span>
-					</button>
+					<div class="navbar-inner">
+						<img id="site-title" src="<?php echo RHD_UPLOAD_DIR; ?>/2016/01/small-logo.jpg" alt="River City Executive Housing">
+
+						<?php wp_nav_menu( $nav_args_main ); ?>
+						<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra">
+							<span>Toggle nav</span>
+						</button>
+					</div>
 				</div>
 
 				<div class="header-bg" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
-					<?php
-					if ( is_page( 'media' ) || is_page( 'resume' ) || is_page( 'photos' ) )
-						$title_style = 'bottom';
-					else
-						$title_style = 'top';
-					?>
-
-					<h1 id="site-title" class="site-title invisible <?php echo $title_style; ?>"><?php bloginfo( 'name' ); ?></h1>
+					<h1 id="site-title-seo" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 				</div>
 			</header><!-- #masthead -->
 
