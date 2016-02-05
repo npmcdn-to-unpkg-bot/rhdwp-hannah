@@ -1165,10 +1165,10 @@ function rhd_app_custom_header()
 {
 	$admin_email = 'reservations@the-lambs.org';
 
-	$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
-	$content_type = apply_filters('app-emails-content_type', 'text/plain');
+	$blogname = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES);
+	$content_type = apply_filters( 'app-emails-content_type', 'text/plain' );
 
-	if (!(defined('APP_EMAIL_DROP_LEGACY_HEADERS') && APP_EMAIL_DROP_LEGACY_HEADERS)) {
+	if ( ! ( defined( 'APP_EMAIL_DROP_LEGACY_HEADERS' ) && APP_EMAIL_DROP_LEGACY_HEADERS ) ) {
 		$message_headers = "MIME-Version: 1.0\n" .
 		    "From: {$blogname}" .
 		    " <{$admin_email}>\n" .
@@ -1178,8 +1178,8 @@ function rhd_app_custom_header()
 		$message_headers = "MIME-Version: 1.0\n" .
 		"Reply-To: <" . $blogname . "> <" . $admin_email . ">\n" .
 		"Content-Type: {$content_type}; charset=\"" . get_option('blog_charset') . "\"\n";
-		add_filter('wp_mail_from', create_function('', "return '{$admin_email}';"));
-		add_filter('wp_mail_from_name', create_function('', "return '{$blogname}';"));
+		add_filter( 'wp_mail_from', create_function( '', "return '{$admin_email}';" ) );
+		add_filter( 'wp_mail_from_name', create_function( '', "return '{$blogname}';" ) );
 	}
 
 	return $message_headers;
@@ -1210,3 +1210,29 @@ function rhd_assign_membership_on_register( $user_id )
 
 }
 add_action( 'user_register', 'rhd_assign_membership_on_register', 10, 1 );
+
+
+
+/**
+ * app_filter_weekly_head function.
+ *
+ * Filters the Appointments+ schedule tables and adds dates to day names.
+ * From https://premium.wpmudev.org/forums/topic/how-can-i-display-the-date-as-well-as-the-day-in-the-appointment-calendar-selection
+ *
+ * @access public
+ * @param mixed $head
+ * @return void
+ */
+function app_filter_weekly_head ( $head )
+{
+	global $appointments;
+	$day_names = $appointments->arrange( $appointments->get_day_names(), false );
+	$base_time = ! empty( $_GET["wcalendar"] ) && is_numeric( $_GET["wcalendar"] ) ? $_GET["wcalendar"] : $appointments->local_time;
+	$base_week_time = $appointments->sunday( $base_time ) + ( $appointments->start_of_week * DAY_IN_SECONDS );
+	foreach ( $day_names as $idx => $day ) {
+		$date = date_i18n( 'n/j', $base_week_time + ( $idx*DAY_IN_SECONDS ) );
+		$head = preg_replace( '/' . preg_quote("<th>{$day}</th>", '/' ) . '/', "<th>{$day}<br />{$date}</th>", $head );
+	}
+	return $head;
+}
+add_filter( 'app_schedule_before_first_row', 'app_filter_weekly_head' );
