@@ -14,7 +14,7 @@
 
     <footer id="colophon">
         <div class="footer-content">
-			<?php get_sidebar( 'footer' ); ?>
+			<?php get_sidebar(); ?>
 			<div id="site-info">
 				<p><?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '| '; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a></p>
 			</div>

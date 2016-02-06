@@ -39,7 +39,7 @@ function rhd_enqueue_styles()
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Oswald:400,700' );
 
 	$normalize_deps = array(
 		'slidebars',

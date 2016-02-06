@@ -28,7 +28,7 @@ get_header();
 <?php
 global $post;
 $slug = $post->post_name;
-if ( $slug == 'about' || $slug == 'rce-housing' )
+if ( $slug == 'about-us' )
 	get_sidebar( $slug );
 
 get_footer(); ?>
