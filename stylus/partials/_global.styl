@@ -116,3 +116,13 @@ $ff_body = 'Open Sans', sans-serif
 		color $color
 		if $opacity != null
 			opacity( $opacity )
+
+
+-column( $i, $gap = null )
+	-webkit-column-count $i
+	-moz-column-count $i
+	column-count $i
+	if $gap != null
+		-webkit-column-gap $gap
+		-moz-column-gap $gap
+		column-gap $gap

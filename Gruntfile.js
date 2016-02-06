@@ -15,7 +15,7 @@ grunt.initConfig({
 			files: ['js/**/*.js'],
 			tasks : ['jshint'],
 			options : {
-				livereload : true
+				livereload : 1337
 			}
 		},
 		stylus : {
@@ -25,13 +25,12 @@ grunt.initConfig({
 		php : {
 			files : ['**/*.php'],
 			options : {
-				livereload : true
-			}
+				livereload : 1337			}
 		},
 		css : {
 			files : ['**/*.css'],
 			options : {
-				livereload : true
+				livereload : 1337
 			}
 		}
 	},

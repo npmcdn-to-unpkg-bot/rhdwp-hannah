@@ -65,7 +65,7 @@
 
 				<div id="navbar">
 					<div class="navbar-inner">
-						<img id="site-title" src="<?php echo RHD_UPLOAD_DIR; ?>/2016/01/small-logo.jpg" alt="River City Executive Housing">
+						<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_UPLOAD_DIR; ?>/2016/01/small-logo.jpg" alt="River City Executive Housing"></a>
 
 						<?php wp_nav_menu( $nav_args_main ); ?>
 						<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra">

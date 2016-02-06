@@ -9,7 +9,7 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php if ( ! is_front_page() ) : ?>
-			<header class="entry-header invisible">
+			<header class="entry-header">
 				<h2 class="page-title"><?php the_title(); ?></h2>
 			</header><!-- .entry-header -->
 		<?php endif; ?>

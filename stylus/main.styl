@@ -67,7 +67,7 @@ input[type="submit"]
 
 	.header-bg
 		width 100%
-		height 30vh
+		height 350px
 		position relative
 		background-size cover
 		top $navHt
@@ -114,7 +114,7 @@ input[type="submit"]
 					-flexitem()
 
 					&.current-menu-item
-						padding-bottom 0.35em
+						padding 0 0.5em 0.2em
 						border-bottom 4px solid $color1
 
 					a
@@ -200,6 +200,7 @@ input[type="submit"]
 	position relative
 	background-color $color2
 	color white
+	margin-bottom 5em
 
 	.footer-content
 		width 100%
@@ -230,31 +231,6 @@ input[type="submit"]
 		margin 0 0.05em
 		position relative
 		bottom 0.25em
-
-
-/* ==========================================================================
-	Header Backgrounds
-   ========================================================================== */
-
-.page-id-39
-	.header-bg
-		background-position right
-
-
-.page-id-17
-	.header-bg
-		background-position center center
-
-
-.page-id-19
-.page-id-15
-	.header-bg
-		background-position center
-
-
-.page-id-21
-	.header-bg
-		background-position right
 
 
 /* ==========================================================================
@@ -320,23 +296,6 @@ input[type="submit"]
 		display block
 		margin 1em auto
 
-.news-item
-	text-align center
-	margin 1.5em 0
-	padding-bottom 1.5em
-	border-bottom 1px solid black
-
-	&:last-child
-		border-bottom none
-		padding-bottom 0
-
-	.post-featured-image
-		-wrapper(0.5em, 0.5em, 50%)
-
-		img
-			width 100%
-			height auto
-
 
 .pagination
 .single-pagination
@@ -359,6 +318,45 @@ input[type="submit"]
 
 #secondary
 	-wrapper(0, 2em, 95%)
+
+
+	#widget_sp_image-3
+		text-align center
+
+		p
+			font-size 1.2em
+			font-weight 700
+			font-style italic
+
+		.button
+			-wrapper(1em, 0, 80%)
+			padding 1rem 0.75rem
+			background-color $color1
+			transition all 0.25s
+			color white
+			text-decoration none
+			display inline-block
+
+			&:hover
+			&:active
+				background-color $color2
+
+/* ==========================================================================
+	About Page
+   ========================================================================== */
+
+.post-9
+	.page-title
+		-invisible()
+
+
+/* ==========================================================================
+	Delivery Area Page
+   ========================================================================== */
+
+#post-15
+	.delivery-list
+		text-align center
 
 
 /* ==========================================================================
@@ -476,41 +474,22 @@ input[type="submit"]
 				font-size 1em
 
 
-	.news-item
-		width 100%
-		text-align left
-
-		.news-item-inner
-			-wrapper(0, 0, 80%)
-			-clearfix()
-
-		.post-featured-image
-			width 35%
-			max-width 300px
-			margin 0
-			float left
-
-		.entry-content
-			width 60%
-			float right
-			position absolute
-			right 0
-			top 50%
-			-transform(translateY(-50%))
-
-		.entry-meta
-			position absolute
-			right 0
-			bottom 0
-
-
 	.front-page
 		#primary
 			.entry-content
 				padding-top 1em
 
 
-	.page-id-21
+	.page-id-15
+		#primary
+			width 100%
+
+			.entry-content
+				.delivery-list
+					-column(6)
+
+
+	.page-id-18
 		.entry-content
 			-clearfix()
 
