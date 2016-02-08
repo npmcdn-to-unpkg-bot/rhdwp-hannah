@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:08:49 PM on 06-02-2016
+* RHD Dev: Compiled at 6:02:34 PM on 08-02-2016
 ***/
 
 .alignnone {
@@ -181,14 +181,14 @@ a img.aligncenter {
 .contact-info .social-icons:before,
 #main:before,
 #colophon .footer-content:before,
-.page-id-18 .entry-content:before,
+.page-id-18 #primary .entry-content:before,
 .clearfix:after,
 .pagination:after,
 .single-pagination:after,
 .contact-info .social-icons:after,
 #main:after,
 #colophon .footer-content:after,
-.page-id-18 .entry-content:after {
+.page-id-18 #primary .entry-content:after {
   content: " ";
   display: table;
 }
@@ -198,7 +198,7 @@ a img.aligncenter {
 .contact-info .social-icons:after,
 #main:after,
 #colophon .footer-content:after,
-.page-id-18 .entry-content:after {
+.page-id-18 #primary .entry-content:after {
   clear: both;
 }
 * {
@@ -860,6 +860,7 @@ input[type="submit"]:hover {
   height: 350px;
   position: relative;
   background-size: cover;
+  background-position: center;
   top: 6em;
 }
 #masthead #site-title {
@@ -933,6 +934,18 @@ input[type="submit"]:hover {
 #navbar .navbar-inner #site-navigation-container #site-navigation .menu-item .sub-menu li {
   display: block;
   margin: 0;
+}
+/* ==========================================================================
+	Slidebar
+   ========================================================================== */
+#sb-title {
+  width: 85%;
+  max-width: 75rem;
+  position: relative;
+  margin: 2em auto 2em auto;
+  display: block;
+  padding-bottom: 2em;
+  border-bottom: 2px solid #eb7935;
 }
 #site-navigation-sb-container #site-navigation-sb {
   list-style: none;
@@ -1151,6 +1164,12 @@ input[type="submit"]:hover {
 /* ==========================================================================
 	Contact Page
    ========================================================================== */
+.page-id-18 .contact-info {
+  margin-bottom: 1em;
+}
+.page-id-18 .contact-info p {
+  margin: 0.5em auto;
+}
 .ninja-forms-cont input[type="submit"] {
   width: 7em;
   display: block;
@@ -1258,12 +1277,15 @@ input[type="submit"]:hover {
     -moz-column-count: 6;
     column-count: 6;
   }
-  .page-id-18 .entry-content .rhd-contact-form {
-    width: 48%;
-    float: left;
+  .page-id-18 #primary {
+    width: 100%;
   }
-  .page-id-18 .entry-content .contact-info {
-    width: 45%;
+  .page-id-18 #primary .entry-content .rhd-contact-form {
+    width: 48%;
     float: right;
+  }
+  .page-id-18 #primary .entry-content .contact-info {
+    width: 45%;
+    float: left;
   }
 }

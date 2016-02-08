@@ -1,8 +1,6 @@
 @require "partials/_global.styl"
 @require "partials/_wp-core.styl"
-//@require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-//@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
@@ -70,6 +68,7 @@ input[type="submit"]
 		height 350px
 		position relative
 		background-size cover
+		background-position center
 		top $navHt
 
 	#site-title
@@ -139,6 +138,17 @@ input[type="submit"]
 							display block
 							margin 0
 
+
+/* ==========================================================================
+	Slidebar
+   ========================================================================== */
+
+#sb-title
+	-wrapper(2em, 2em, 85%)
+	display block
+	padding-bottom 2em
+	border-bottom 2px solid $color2
+	
 
 #site-navigation-sb-container
 	#site-navigation-sb
@@ -363,6 +373,14 @@ input[type="submit"]
 	Contact Page
    ========================================================================== */
 
+.page-id-18
+	.contact-info
+		margin-bottom 1em
+		
+		p
+			margin 0.5em auto
+			
+
 .ninja-forms-cont
 	input
 		&[type="submit"]
@@ -473,13 +491,15 @@ input[type="submit"]
 				text-align left
 				font-size 1em
 
-
+	
+	// Front Page
 	.front-page
 		#primary
 			.entry-content
 				padding-top 1em
 
-
+	
+	// Delivery Area
 	.page-id-15
 		#primary
 			width 100%
@@ -489,14 +509,18 @@ input[type="submit"]
 					-column(6)
 
 
+	// Contact
 	.page-id-18
-		.entry-content
-			-clearfix()
-
-			.rhd-contact-form
-				width 48%
-				float left
-
-			.contact-info
-				width 45%
-				float right
+		#primary
+			width 100%
+			
+			.entry-content
+				-clearfix()
+	
+				.rhd-contact-form
+					width 48%
+					float right
+	
+				.contact-info
+					width 45%
+					float left
