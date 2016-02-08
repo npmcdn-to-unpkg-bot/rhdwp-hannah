@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:39:16 PM on 06-02-2016
+* RHD Dev: Compiled at 6:13:21 PM on 08-02-2016
 ***/
 
 .alignnone {
@@ -859,11 +859,10 @@ input[type="submit"]:hover {
 #masthead {
   position: relative;
 }
-#masthead .header-bg {
+#masthead .header-image {
   width: 100%;
-  height: 350px;
+  height: auto;
   position: relative;
-  background-size: cover;
   top: 6em;
   border-top: 3px solid #6e3629;
   border-bottom: 3px solid #6e3629;

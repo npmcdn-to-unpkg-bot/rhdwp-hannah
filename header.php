@@ -58,10 +58,7 @@
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
-				<?php
-				$thumb_id = get_post_thumbnail_id();
-				$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full', true );
-				?>
+				<h1 id="site-title-seo" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 
 				<div id="navbar">
 					<div class="navbar-inner">
@@ -74,9 +71,11 @@
 					</div>
 				</div>
 
-				<div class="header-bg" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
-					<h1 id="site-title-seo" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
-				</div>
+				<?php if ( is_front_page() ) : ?>
+					<div class="header-image">
+						<?php the_post_thumbnail( 'full' ); ?>
+					</div>
+				<?php endif; ?>
 			</header><!-- #masthead -->
 
 			<main id="main" class="clearfix">
