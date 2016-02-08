@@ -18,6 +18,9 @@ function rhd_init()
 	// Constants
 	define( "RHD_THEME_DIR", get_template_directory_uri() );
 	define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
+
+	$updir = wp_upload_dir();
+	define( "RHD_UPLOAD_URL", $updir['baseurl'] );
 }
 add_action( 'after_setup_theme', 'rhd_init' );
 
