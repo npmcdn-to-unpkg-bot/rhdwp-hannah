@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:01:10 PM on 27-01-2016
+* RHD Dev: Compiled at 10:46:16 AM on 08-02-2016
 ***/
 
 .alignnone {
@@ -1026,9 +1026,6 @@ input[type="submit"]:hover {
   -webkit-transform: translate(-50%, -94%);
   transform: translate(-50%, -94%);
 }
-.front-page .header-bg {
-  background-position-y: top;
-}
 .page-id-8 .header-bg {
   background-position-y: 20%;
 }
@@ -1212,14 +1209,14 @@ input[type="submit"]:hover {
 .pix-load-more .viewmore:active {
   background-color: #7ad2d1;
 }
+.fonthack {
+  font-family: 'Manhattan Darling', cursive;
+  position: relative;
+  top: 0.2em;
+}
 /* ==========================================================================
 	Front Page
    ========================================================================== */
-.front-page #site-title {
-  top: 46%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 .front-page .grid-item {
   width: 95%;
   text-align: center;

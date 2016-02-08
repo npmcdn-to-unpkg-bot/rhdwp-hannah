@@ -50,6 +50,19 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 			$(".portfolio-category-list").slideToggle();
 		});
+
+		// Portfolio title character hacks
+		$(".type-portfolio .page-title:contains('&amp;'), .type-portfolio .page-title:contains('&'), .portfolio-link a:contains('&amp;'), .portfolio-link a:contains('&')").html(function(i, html){
+			return html.replace(/&amp;/g, '<span class="fonthack">&amp;</span>');
+		});
+
+		$(".type-portfolio .page-title:contains('/'), .portfolio-link a:contains('/')").html(function(i, html){
+			return html.replace(/\//g, '<span class="fonthack">/</span>');
+		});
+
+		$(".type-portfolio .page-title:contains('\'), .portfolio-link a:contains('\')").html(function(i, html){
+			return html.replace(/\\/g, '<span class="fonthack">\</span>');
+		});
 	});
 
 
@@ -59,8 +72,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		});
 
 		fixFlexbox();
-
-		// setTimeout(onLoadScroll, 1000);
 	}
 
 
