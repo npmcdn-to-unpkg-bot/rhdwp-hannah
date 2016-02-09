@@ -43,7 +43,7 @@
 
 		<?php wp_head(); ?>
 
-	</head>
+</head>
 
 	<body <?php body_class( $body_classes ); ?>>
 		<!--[if lt IE 7]>
@@ -56,7 +56,8 @@
 				'menu_id' => 'site-navigation',
 				'menu_class' => 'site-navigation',
 				'container' => 'nav',
-				'container_id' => 'site-navigation-container'
+				'container_id' => 'site-navigation-container',
+				'walker' => new RHD_Walker_Nav
 			);
 
 			$nav_args_sb = array(

@@ -13,13 +13,13 @@ get_header(); ?>
 
 			<section class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'rhd' ); ?></h1>
+					<h1 class="page-title"><?php _e( '404! That page can&rsquo;t be found.', 'rhd' ); ?></h1>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-					<p><?php _e( "Sorry, the page you're looking for can't be found.", 'rhd' ); ?></p>
+					<p><?php _e( "Sorry, the page you're looking for doesn&rsquo;t exist, or has moved. Please try again.", 'rhd' ); ?></p>
 
-					<?php get_search_form(); ?>
+					<?php // get_search_form(); ?>
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
 
@@ -27,5 +27,4 @@ get_header(); ?>
 
 	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

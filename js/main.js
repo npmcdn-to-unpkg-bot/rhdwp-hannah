@@ -8,6 +8,9 @@ var isSingle = ( jQuery('body').hasClass('single') ) ? true : false,
 	isGrid = ( jQuery('#main').hasClass('grid') === true ) ? true : false,
 	isPaged = jQuery('body').hasClass('paged');
 
+var $packery,
+	packeryIsActive = false;
+
 // wp_data object
 var homeUrl = wp_data.home_url,
 	themeDir = wp_data.theme_dir,
@@ -88,16 +91,33 @@ var sb;
 
 		if ( isFrontPage ) {
 			// initial
-			frontPageNavHandler();
+			frontPageLogoHandler();
 
 			$(window).scroll(function(){
-				frontPageNavHandler();
+				frontPageLogoHandler();
 			});
 		}
+
 
 		// initial
 		$(".front-page .entry-header").css('height', $("#splash").height());
 		resizeCanvas();
+
+
+		// Packery
+		if ( !isMobile )
+			packeryInit();
+
+		$(window).resize(function(){
+			resizeCanvas();
+
+			if ( $(window).width() < 640 && packeryIsActive ) {
+				$packery.packery('destroy');
+				packeryIsActive = false;
+			} else
+				packeryInit();
+
+		});
 	});
 
 
@@ -113,10 +133,6 @@ var sb;
 			siteClose: false,
 		});
 		toggleBurger();
-
-		$(window).resize(function(){
-			resizeCanvas();
-		});
 	}
 
 
@@ -245,19 +261,33 @@ var sb;
 		}
 	}
 
-	function frontPageNavHandler(){
+	function frontPageLogoHandler(){
 		var $logo = $("#front-page-title > img"),
-			mastHt = $("#masthead").height();
+			$topLogo = $("#site-brand");
 
 		if ( !$logo.visible( true ) ) {
-			$('#masthead').stop().animate({
-				top: 0
-			});
+			$topLogo.stop().animate({
+				opacity: 1
+			}, 'slow', 'easeOutQuart');
 		} else {
-			$('#masthead').stop().animate({
-				top: -1*mastHt
-			});
+			$topLogo.stop().animate({
+				opacity: 0
+			}, 'slow', 'easeInQuart');
 		}
+	}
+
+	function packeryInit() {
+		$packery = $(".blog-index #content");
+		
+		$packery.imagesLoaded( function(){
+			$packery.packery({
+				itemSelector: '.post',
+				percentPosition: true,
+				gutter: '.gutter-sizer'
+			});
+		});
+
+		packeryIsActive = true;
 	}
 
 })(jQuery);
