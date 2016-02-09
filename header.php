@@ -61,14 +61,12 @@
 				<h1 id="site-title-seo" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 
 				<div id="navbar">
-					<div class="navbar-inner">
-						<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_UPLOAD_DIR; ?>/2016/02/abc-logo-horizontal.jpg" alt="<?php bloginfo( 'name' ); ?>"></a>
+					<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_UPLOAD_DIR; ?>/2016/02/abc-logo-horizontal.jpg" alt="<?php bloginfo( 'name' ); ?>"></a>
 
-						<?php wp_nav_menu( $nav_args_main ); ?>
-						<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra">
-							<span>Toggle nav</span>
-						</button>
-					</div>
+					<?php wp_nav_menu( $nav_args_main ); ?>
+					<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra">
+						<span>Toggle nav</span>
+					</button>
 				</div>
 
 				<?php if ( is_front_page() ) : ?>
