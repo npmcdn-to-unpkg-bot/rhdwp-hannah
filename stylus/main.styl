@@ -92,49 +92,46 @@ input[type="submit"]
 	top 0
 	background white
 
-	.navbar-inner
-		height 100%
-		-wrapper()
+	#site-navigation-container
+		-wrapper(0, 0, 90%)
+		margin-right 2em
+		height auto
+		display none
 
-		#site-navigation-container
-			width 100%
-			height auto
-			display none
+		#site-navigation
+			list-style none
+			padding-left 0
+			-flexbox()
+			margin 0
 
-			#site-navigation
-				list-style none
-				padding-left 0
-				-flexbox()
-				margin 0
+			.menu-item
+				-flexitem()
 
-				.menu-item
-					-flexitem()
+				&.current-menu-item
+					padding 0 0.5em 0.2em
+					border-bottom 4px solid $color1
 
-					&.current-menu-item
-						padding 0 0.5em 0.2em
-						border-bottom 4px solid $color1
+				a
+					text-decoration none
+					text-transform uppercase
+					color inherit
+					-transition(0.25s color)
 
-					a
-						text-decoration none
-						text-transform uppercase
-						color inherit
-						-transition(0.25s color)
+					&:hover
+					&:active
+					&:focus
+						color $color2
 
-						&:hover
-						&:active
-						&:focus
-							color $color2
+				.sub-menu
+					position absolute
+					padding-left 0
+					line-height 1.7
+					margin-top 0.2em
+					z-index 999 !important
 
-					.sub-menu
-						position absolute
-						padding-left 0
-						line-height 1.7
-						margin-top 0.2em
-						z-index 999 !important
-
-						li
-							display block
-							margin 0
+					li
+						display block
+						margin 0
 
 
 /* ==========================================================================
@@ -425,16 +422,15 @@ input[type="submit"]
 
 
 	#navbar
-		.navbar-inner
-			#site-title
-				width 20%
+		#site-title
+			width 23%
 
-			#site-navigation-container
-				width 75%
-				float right
-				display block
-				position relative
-				top 2.4em
+		#site-navigation-container
+			width 68%
+			float right
+			display block
+			position relative
+			top 2.4em
 
 
 	#hamburger
@@ -451,7 +447,7 @@ input[type="submit"]
 
 
 	#primary
-		width 70%
+		width 68%
 		float left
 
 

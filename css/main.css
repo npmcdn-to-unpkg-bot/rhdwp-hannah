@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:04:48 PM on 09-02-2016
+* RHD Dev: Compiled at 12:39:03 PM on 09-02-2016
 ***/
 
 .alignnone {
@@ -881,55 +881,52 @@ input[type="submit"]:hover {
   top: 0;
   background: #fff;
 }
-#navbar .navbar-inner {
-  height: 100%;
-  width: 85%;
+#navbar #site-navigation-container {
+  width: 90%;
   max-width: 75rem;
   position: relative;
   margin: 0 auto 0 auto;
-}
-#navbar .navbar-inner #site-navigation-container {
-  width: 100%;
+  margin-right: 2em;
   height: auto;
   display: none;
 }
-#navbar .navbar-inner #site-navigation-container #site-navigation {
+#navbar #site-navigation-container #site-navigation {
   list-style: none;
   padding-left: 0;
   text-align: justify;
   line-height: 1;
   margin: 0;
 }
-#navbar .navbar-inner #site-navigation-container #site-navigation:after {
+#navbar #site-navigation-container #site-navigation:after {
   width: 100%;
   display: inline-block;
   content: '';
 }
-#navbar .navbar-inner #site-navigation-container #site-navigation .menu-item {
+#navbar #site-navigation-container #site-navigation .menu-item {
   display: inline-block;
 }
-#navbar .navbar-inner #site-navigation-container #site-navigation .menu-item.current-menu-item {
+#navbar #site-navigation-container #site-navigation .menu-item.current-menu-item {
   padding: 0 0.5em 0.2em;
   border-bottom: 4px solid #07918b;
 }
-#navbar .navbar-inner #site-navigation-container #site-navigation .menu-item a {
+#navbar #site-navigation-container #site-navigation .menu-item a {
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
 }
-#navbar .navbar-inner #site-navigation-container #site-navigation .menu-item a:hover,
-#navbar .navbar-inner #site-navigation-container #site-navigation .menu-item a:active,
-#navbar .navbar-inner #site-navigation-container #site-navigation .menu-item a:focus {
+#navbar #site-navigation-container #site-navigation .menu-item a:hover,
+#navbar #site-navigation-container #site-navigation .menu-item a:active,
+#navbar #site-navigation-container #site-navigation .menu-item a:focus {
   color: #eb7935;
 }
-#navbar .navbar-inner #site-navigation-container #site-navigation .menu-item .sub-menu {
+#navbar #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
   padding-left: 0;
   line-height: 1.7;
   margin-top: 0.2em;
   z-index: 999 !important;
 }
-#navbar .navbar-inner #site-navigation-container #site-navigation .menu-item .sub-menu li {
+#navbar #site-navigation-container #site-navigation .menu-item .sub-menu li {
   display: block;
   margin: 0;
 }
@@ -1204,11 +1201,11 @@ input[type="submit"]:hover {
     position: relative;
     float: left;
   }
-  #navbar .navbar-inner #site-title {
-    width: 20%;
+  #navbar #site-title {
+    width: 23%;
   }
-  #navbar .navbar-inner #site-navigation-container {
-    width: 75%;
+  #navbar #site-navigation-container {
+    width: 68%;
     float: right;
     display: block;
     position: relative;
@@ -1222,7 +1219,7 @@ input[type="submit"]:hover {
     margin: 0;
   }
   #primary {
-    width: 70%;
+    width: 68%;
     float: left;
   }
   #secondary {
