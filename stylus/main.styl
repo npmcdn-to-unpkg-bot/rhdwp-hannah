@@ -2,9 +2,9 @@
 @require "partials/_wp-core.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-@require "partials/_metabar.styl"
+//@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
-@require "partials/_hamburger.styl"
+//@require "partials/_hamburger.styl"
 
 
 /* ==========================================================================
@@ -12,36 +12,26 @@
    ========================================================================== */
 
 html
-body
-#page
-#main
-	min-height 100%
-
-
-html
 	text-shadow 0 0 1px transparent
 	width 100%
 	font-size 16px
 	margin 0
-	font-family $ff-body
+	font-family $ff_body
+	color black
 
 
 body
 	@extends html
 
-	&.admin-bar
-		#wpadminbar
-			position fixed
-			top 0
-
 
 a
 	outline 0 !important
+	transition color 0.25s
 
 	&:link
 	&:visited
 		text-decoration none
-		color $color2
+		color $color1
 
 	&:hover
 	&:active
@@ -50,50 +40,115 @@ a
 
 input
 textarea
-	background-color white
-	border 2px solid $color2
+	background-color $off-white
+	border 2px solid black
+	border-radius 0.2em
 	box-sizing border-box
 	padding 0.5em
-	font-family $ff-body
-	-placeholder-props( $ff-body, gray )
-	outline 0 !important
-	transition all 0.25s
+	font-family $ff_body
+	transition border-color 0.25s ease
+	outline none
 
 	&:focus
-		border-color $color3
+		border-color $color1
 
 
 input[type="submit"]
 	cursor pointer
-	font-family $ff-body
-	transition all 0.25s
+	font-family inherit
+	background-color black
+	transition background-color 0.25s
 
 	&:hover
-		background-color gray
+		background-color $color1
 
 
-#page
-	margin 2em 0
+#masthead
+	height 80vh
+	position relative
+
+	#site-title
+		width 100%
+		text-align center
+		margin 0 auto
+		font-family $ff_cursive
+		background-color $color1
+		position absolute
+		top 0
+		color white
+
+		a
+			color inherit
+			text-decoration none
+
+			h1
+				font-size 8vw
+				padding 0.8em 0 0.5em
+				line-height 1
+				transition all 0.25s ease
+				margin 0
 
 
-#site-title
+#site-navigation-bar
+	width 100%
+	height 4em
 	text-align center
-	margin 0
+	background $color1
+	color white
+	position relative
+	bottom (@height)
+
+
+.widget-rhd-social-icons
+	position relative
+
+	.rhd_social_icons
+		display inline
+		position absolute
+		right 5%
+		top 0.95em
+
+		.rhd-social-icon
+			width 2em
+			height 2em
+			margin 0
+
+			svg
+				width 100%
+				height 100%
+
+
+.site-navigation
+	.menu-item
+		font-family $ff_headline
+		font-weight 700
 
 
 #site-navigation-container
-	width 100%
-	text-align center
 	display none
 
 	#site-navigation
+		-wrapper(0, 0, 95%, 70em)
 		list-style none
 		padding-left 0
-		margin 0
 		-flexbox()
 
 		.menu-item
 			-flexitem()
+			font-size 0.85em
+
+			&.current-menu-item
+				color $color3
+
+			a
+				text-decoration none
+				text-transform uppercase
+				color inherit
+				transition 0.25s color
+
+				&:hover
+				&:active
+					color $color3
 
 			.sub-menu
 				position absolute
@@ -110,53 +165,73 @@ input[type="submit"]
 #site-navigation-sb-container
 	#site-navigation-sb
 		list-style none
+		font-size 2em
+		line-height 1.5
+		padding-left 0
+		text-align center
 
+		.menu-item
+			&.current-menu-item
+				a
+					color $color1
 
-.site-navigation
-	li
-		a
-			color $color2
-			text-decoration none
-			transition color 0.25s
+			a
+				color white
+				text-decoration none
+				text-transform uppercase
+				transition color 0.25s ease
 
-			&:hover
-			&:active
-				color $color3
-
+				&:hover
+					color $color2
 
 #hamburger
-	background-color black // sample bg animation color
+	background-color transparent
+	position absolute
+	left 0.5rem
+	top 50%
+	-transform(translateY(-50%))
+	font-family $ff_headline
+	font-size 1.2em
 
-	&.is-active
-		background-color gray // sample bg animation color
+	span
+		color white
+		text-transform uppercase
 
-		&.c-hamburger--htx
-			span
-				background none
+		&::before
+		&::after
+			background-color (@background-color)
+
+	// YES, these classes are reversed on the hamburger, deal with it
+	&.top
+		bottom 0.2rem
+
+	&.bottom
+		top 0.2rem
 
 
 #main
-	-wrapper(2em,2em)
+	-wrapper(1em, 0)
 	padding 2em 0
 	box-sizing border-box
 
 
 #primary
-#secondary
+#content
 	width 100%
-	margin-top 1em
 	position relative
 	box-sizing border-box
 
 
-#secondary
-	margin-bottom 2em
+#primary
+	margin-bottom 4em
 
 
 #colophon
 	width 100%
 	height 6em
-	position relative
+	position absolute
+	bottom 0
+	left 0
 
 	.site-info
 		width 100%
@@ -169,6 +244,11 @@ input[type="submit"]
 		line-height 1.7
 		font-size 0.9em
 
+		.site-info-content
+			padding 1.3rem 4rem 0 4rem
+			border-top 1px solid black
+			display inline-block
+
 		a
 			color inherit
 
@@ -180,6 +260,47 @@ input[type="submit"]
 		bottom 0.25em
 
 
+.front-page
+	#masthead
+		height 100vh
+
+
+/* ==========================================================================
+	Header Backgrounds
+   ========================================================================== */
+
+.header-bg
+	width 100%
+	height 100%
+	position relative
+	background-size cover
+	background-position center
+
+
+.blog
+	.header-bg
+		background-position 28em center
+
+
+.page-id-16
+	.header-bg
+		background-position right 4em
+
+
+.page-id-24
+	.header-bg
+		background-position right top
+
+
+.page-id-26
+	.header-bg
+		background-position right center
+
+
+.page-id-33
+	.header-bg
+		background-position -5em center
+
 /* ==========================================================================
 	Posts & Pages
    ========================================================================== */
@@ -188,14 +309,22 @@ input[type="submit"]
 .page-title
 	margin-top 0
 	line-height 1
+	font-family $ff_headline
+
+
+.page-title
+	text-align center
+
+
+.entry-title
+	margin-bottom 0.25em
 
 
 .entry-content
-	width 100%
+	-wrapper()
 
 	p
-		margin 0.25em auto
-		text-indent 0
+		margin 0.5em auto
 
 		&[style*="text-align: center"]
 			text-indent 0
@@ -218,10 +347,7 @@ input[type="submit"]
 		padding-left 1em
 
 	img
-	iframe
 		max-width 100%
-
-	img
 		height auto
 
 		&.alignleft
@@ -234,29 +360,27 @@ input[type="submit"]
 			display block
 			margin 0 auto
 
+	iframe
+		max-width 100%
+		display block
+		margin 1em auto
 
-.entry-meta
-	p
-		margin 0
+.news-item
+	text-align center
+	margin 1.5em 0
+	padding-bottom 1.5em
+	border-bottom 1px solid black
 
+	&:last-child
+		border-bottom none
+		padding-bottom 0
 
-.blog-area
-	#main
-		.post
-			-clearfix()
+	.post-featured-image
+		-wrapper(0.5em, 0.5em, 50%)
 
-			.entry-header
-				text-align center
-				margin-bottom 1em
-
-				.entry-title
-					margin 0 0 0.25rem 0
-
-				.entry-details
-					margin 0
-
-					.sep
-						font-size 0.8em
+		img
+			width 100%
+			height auto
 
 
 .pagination
@@ -274,187 +398,209 @@ input[type="submit"]
 		float right
 
 
-/* ==========================================================================
-	Comments
-   ========================================================================== */
-
-#comments
-	margin 2em auto
-
-	.commentlist
-		list-style none
-		padding-left 0
-
-		ul
-		ol
-			@extends #comments .commentlist
-
-		.children
-			padding 0 1.5em
-
-		.comment
-			&:last-child
-				padding-bottom 1.5em
-
-	.even
-		background $off-white
-
-	.odd
-		background white
-
-	.comment-body
-		padding 1em
-		box-sizing border-box
-
-	textarea
-		max-width 100%
-
-	#commentform
-		width 100%
-		min-width 18rem
-		max-width 100%
-
-		p
-			margin-bottom 0.75rem
-
-		input
-		textarea
-			width 100%
-			font-size 0.8em
-			box-sizing border-box
-			padding 0.5em
-			display inline-block
-
-		#submit
-			width auto
-			padding-left 0.8em
-			cursor pointer
-
-		.comment-subscription-form
-			margin initial
-
-
-/* ==========================================================================
-	Ghost Buttons
-   ========================================================================== */
-
-.ghost-button
-	width auto
-	max-width 100%
-	text-align center
-	margin 1em auto
-
-	a
-		padding 0.4em .8em
-		color $color2
-		text-decoration none
-		background-color white
-		border 3px solid @color
-		border-radius 0.1em
-		display inline-block
-		transition all 0.2s
+.pix-load-more
+	input
+		background-color $color1
+		font-family $ff_headline
+		transition background-color 0.25s
+		line-height 1
+		border-radius 0
 
 		&:hover
 		&:active
-			background-color @color
-			color @background-color
+			background-color $color2
+
+
+.error404
+.parent-pageid-24
+	#masthead
+		height 8.3em
 
 
 /* ==========================================================================
-	Widget Areas & Sidebars
+	Contact Page
    ========================================================================== */
 
-#secondary
-	.widget
-		width 100%
-		margin-bottom 1.5em
+.ninja-forms-cont
+	input
+		&[type="submit"]
+			width 7em
+			display block
+			float right
+			margin-top 0
 
-	.widget:last-child
-		margin-bottom 0
+
+.ninja-forms-required-items
+.ninja-forms-req-symbol
+	display none
 
 
-	.widget-title
-		margin-top 0
+.contact-info
+	text-align center
+
+	h3
+		margin-bottom 0.25em
 
 
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
 
+@media screen and (orientation landscape)
+	#masthead
+		height 70vh
+
+		#site-title
+			a
+				h1
+					font-size 4vw
+
 @media screen and (min-width 40em)
+	.header-bg
+		background-position center
+
+	.blog
+		.header-bg
+			background-position right center
+
+	.page-id-16
+		.header-bg
+			background-position center
+
+	.page-id-24
+		.header-bg
+			background-position center
+
+	.page-id-31
+		.header-bg
+			background-position center top
+
+	.page-id-33
+		.header-bg
+			background-position center
+
+	.error404
+	.parent-pageid-24
+		#masthead
+			height 10em
+
+	#masthead
+		#site-title
+			background transparent
+
+			h1
+				font-size 4vw
+
+			&.top
+				text-align left
+				top 2%
+				bottom initial
+
+				h1
+					margin-left 4%
+
+			&.bottom
+				text-align right
+				top initial
+				bottom 9%
+
+				h1
+					margin-right 3%
+
+
+			&.white
+				color white
+
+			&.black
+				color black
+
+			&.short
+				margin-right 0
+				text-align center
+				color white
+				top initial
+				bottom 35%
+
+				h1
+					font-size 3rem
+
 	#site-navigation-container
 		display block
+
+		#site-navigation
+			-wrapper(0, 0, 98%)
+			position relative
+			top 0.6em
+
+	#rhd-social-standalone
+		display none
+
+	.menu-item-rhd-social
+		.widget-rhd-social-icons
+			.rhd_social_icons
+				position relative
+				top 0.65em
 
 	#hamburger
 		display none
 
-	#comments
-		#commentform
-			width 75%
+	.news-item
+		width 100%
+		text-align left
 
-			p
-				margin-bottom 0.75rem
+		.news-item-inner
+			-wrapper(0, 0, 80%)
+			-clearfix()
 
-			input
-				&[type="text"]
-				&[type="email"]
-					width 75%
+		.post-featured-image
+			width 35%
+			max-width 300px
+			margin 0
+			float left
 
-			#submit
-				width auto
-				padding-left 0.8em
+		.entry-content
+			width 60%
+			float right
+			position absolute
+			right 0
+			top 50%
+			-transform(translateY(-50%))
 
-	// Image Strip
-	#primary
-		-clearfix()
+		.entry-meta
+			position absolute
+			right 0
+			bottom 0
 
-		article
-			&.strip-active
-				width 65%
+	.page-id-21
+		.entry-content
+			-clearfix()
+
+			.rhd-contact-form
+				width 48%
+				float left
+
+			.contact-info
+				width 45%
 				float right
 
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
+	.page-id-28
+		.entry-content
+			-clearfix()
 
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
+			.rhd-studio-info
+				width 48%
+				float left
 
+			.rhd-studio-form
+				width 45%
+				float right
 
-// Fixed-width 340px sidebar
-@media screen and (min-width 40em)
-	#main
-		-clearfix()
+@media screen and (min-width 50em)
+	#site-navigation-container
+		-wrapper(0, 0, 95%, 70em)
 
-	#secondary
-		width 340px
-		float right
+		#site-navigation
+			top 0.3em
 
-		.widget
-			width 300px
-			margin-left auto
-			margin-right auto
-
-
-@media screen and (min-width 58em)
-	#primary
-		width 56%
-
-
-@media screen and (min-width 62em)
-	#primary
-		width 58%
-
-
-@media screen and (min-width 64em)
-	#primary
-		width 60%
-
-
-@media screen and (min-width 66em)
-	#primary
-		width 64%
+			.menu-item
+				font-size 1em

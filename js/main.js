@@ -29,47 +29,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	$(document).ready(function(){
 		rhdInit();
-
-		// Metabar dropdowns
-		$('.rhd-dropdown-title').click(function(e){
-			e.preventDefault();
-
-			var $this = $(this),
-				$dd = $this.siblings('ul');
-
-			$dd.slideToggle();
-		});
-		
-		
-		// "Image Strip"
-		if ( !$('body').hasClass( 'blog-area' ) ) {
-			if ( $window.width() > 800 )
-				setImageStrip();
-			
-			$window.on('resize', function(){
-				if ( $window.width() > 800 )
-					setImageStrip();
-				else
-					unsetImageStrip();
-			});
-		}
 	});
 
 
 	function rhdInit() {
-		// wpAdminBarPush();
-
-		$.slidebars({
-			siteClose: false,
-		});
-
-		toggleBurger();
-
-		// Fix faux-flexbox
-		fixGridLayout();
-		
-		// Image Strip 
-		postContent = $(".entry-content").html();
+		$.slidebars();
 	}
 
 
@@ -78,53 +42,4 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			top: $("#masthead").height(),
 		});
 	}
-
-
-	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
-	function toggleBurger() {
-		var toggles = $(".c-hamburger");
-
-		toggles.click(function(e){
-			e.preventDefault();
-			$(this).toggleClass('is-active');
-		});
-	}
-
-
-	// Faux-flexbox "fix" template (edit for varying column numbers)
-	function fixGridLayout() {
-		var gridCount = $('.post-grid .post-grid-item').length;
-
-		if ( gridCount % 3 == 2 ) {
-			$('.post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)').css('float', 'left');
-			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
-		}
-	}
-
-	
-	// Set Image Strip layout
-	function setImageStrip() {
-		$('<div id="image-strip"></div>').prependTo('#content');
-		$('#content article').addClass('strip-active');
-		
-		$(".entry-content img").each(function(){
-			if ( $(this).hasClass('alignnone') ) {
-				$(this)
-					.appendTo($("#image-strip"))
-					.addClass("strip-active");
-			}
-		});
-	}
-	
-	
-	// Unset Image Strip layout
-	function unsetImageStrip() {
-		$("#image-strip").html('');
-			
-		$('#content article').removeClass('strip-active');
-		$(".entry-content").removeClass('strip-active');
-		
-		$(".entry-content").html(postContent);
-	}
-
 })(jQuery);

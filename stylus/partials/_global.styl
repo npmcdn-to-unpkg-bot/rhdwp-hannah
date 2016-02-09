@@ -3,11 +3,14 @@
    ========================================================================== */
 
 // Variables
-$color2 = #f5c419
-$color3 = #f55033
-$off-white = #e1e1e1
+$color1 = #8042A0
+$color2 = #057f85
+$color3 = #E597FF
+$off-white = #eeeeee
 
-$ff-body = 'Oswald', sans-serif
+$ff_body = 'Lato', sans-serif
+$ff_headline = 'Cinzel', sans-serif
+$ff_cursive = 'Quickpen', cursive
 
 // Functions
 
@@ -26,6 +29,7 @@ $ff-body = 'Oswald', sans-serif
 
 -flexbox()
 	text-align justify
+	line-height 1
 
 	&:after
 		width 100%
@@ -115,16 +119,3 @@ $ff-body = 'Oswald', sans-serif
 		color $color
 		if $opacity != null
 			opacity( $opacity )
-
-
-/* -flexbox( $mode = space-between )
-	-ms-box-orient: horizontal;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: $mode
-	justify-content: $mode
-*/
