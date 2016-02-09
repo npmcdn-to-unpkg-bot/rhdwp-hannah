@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>YouTube TV</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Included for Youtube TV Support on IE8 -->
+		<!--[if IE 8]>
+			<script type="text/javascript" src="./assets/ie8/es5-shim.min.js"></script>
+			<script type="text/javascript" src="./assets/ie8/es5-sham.min.js"></script>
+			<script type="text/javascript" src="./assets/ie8/getElementByClassName_polyfill.js"></script>
+		<![endif]-->
+		<link href="assets/ytv.css" type="text/css" rel="stylesheet" />
+		<link href="assets/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<style type="text/css">
+			body{
+				background: #eee;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="col-md-offset-2">
+				<h1>This demo shows the player in a test template for new features.</h1>
+			</div>
+			<div class="container">
+				<div class="col-md-9">
+					<div id="testing"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="description">
+						<p><h3>Testing Demo</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium varius gravida. Aliquam faucibus ex eget nunc semper, sit amet aliquet diam egestas. Nunc ultricies egestas augue. Aenean cursus, magna vel porttitor interdum, nisi nunc ultricies orci, quis rhoncus diam nisi sed massa. Sed tempor eros eget aliquet porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget maximus sapien. Nam sed ligula lectus. Donec a nunc elit.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="assets/ytv.js"></script>
+		<script>
+			window.onload = function(){
+				window.controller = new YTV('testing', {
+					user: 'googlefiberofficial',
+					accent: 'lightblue',
+					// playerTheme: 'light',
+					// listTheme: 'light',
+					playId: 'XTTtkisylQw',
+					// sortList: true,
+					// reverseList: true,
+					// shuffleList: true,
+					browsePlaylists: true,
+					responsive: true
+				});
+			};
+		</script>
+	</body>
+</html>
