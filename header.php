@@ -27,56 +27,62 @@
 		<?php wp_head(); ?>
 </head>
 
-	<body <?php body_class(); ?>>
-		<!--[if lt IE 7]>
-			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
+<body <?php body_class(); ?>>
+	<!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
-		<?php
-			$nav_args_main = array(
-				'theme_location' => 'primary',
-				'menu_id' => 'site-navigation',
-				'menu_class' => 'site-navigation',
-				'container' => 'nav',
-				'container_id' => 'site-navigation-container',
-				'walker' => new RHD_Walker_Nav
-			);
+	<?php
+		$nav_args_main = array(
+			'theme_location' => 'primary',
+			'menu_id' => 'site-navigation',
+			'menu_class' => 'site-navigation',
+			'container' => 'nav',
+			'container_id' => 'site-navigation-container',
+			'walker' => new RHD_Walker_Nav
+		);
 
-			$nav_args_sb = array(
-				'theme_location' => 'slidebar',
-				'menu_id' => 'site-navigation-sb',
-				'menu_class' => 'site-navigation',
-				'container' => 'nav',
-				'container_id' => 'site-navigation-sb-container'
-			);
-		?>
+		$nav_args_sb = array(
+			'theme_location' => 'slidebar',
+			'menu_id' => 'site-navigation-sb',
+			'menu_class' => 'site-navigation',
+			'container' => 'nav',
+			'container_id' => 'site-navigation-sb-container'
+		);
+	?>
 
-		<div class="sb-slidebar sb-right sb-style-push">
-			<img id="sb-title" src="<?php echo RHD_UPLOAD_URL; ?>/2016/02/white-title.png" alt="<?php bloginfo( 'name' ); ?>">
-			<?php wp_nav_menu( $nav_args_sb ); ?>
-		</div>
+	<div class="sb-slidebar sb-right sb-style-push">
+		<img id="sb-title" src="<?php echo RHD_UPLOAD_URL; ?>/2016/02/white-title.png" alt="<?php bloginfo( 'name' ); ?>">
+		<?php wp_nav_menu( $nav_args_sb ); ?>
+	</div>
 
-		<div id="page" class="hfeed site sb-site-container">
-			<header id="masthead" class="site-header">
+	<div id="page" class="hfeed site sb-site-container">
+		<header id="masthead" class="site-header">
+			<div id="navbar">
+				<div class="navbar-inner">
+					<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_UPLOAD_URL; ?>/2016/01/small-logo.jpg" alt="River City Executive Housing"></a>
+
+					<?php wp_nav_menu( $nav_args_main ); ?>
+					<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra">
+						<span>Toggle nav</span>
+					</button>
+				</div>
+			</div>
+
+			<?php if ( is_front_page() ) : ?>
 				<?php
 				$thumb_id = get_post_thumbnail_id();
 				$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full', true );
 				?>
-
-				<div id="navbar">
-					<div class="navbar-inner">
-						<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_UPLOAD_URL; ?>/2016/01/small-logo.jpg" alt="River City Executive Housing"></a>
-
-						<?php wp_nav_menu( $nav_args_main ); ?>
-						<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra">
-							<span>Toggle nav</span>
-						</button>
-					</div>
-				</div>
-
 				<div class="header-bg" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
 					<h1 id="site-title-seo" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 				</div>
-			</header><!-- #masthead -->
+			<?php else: ?>
+				<div class="header-bg">
+					<h1 id="site-title-seo" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
+					<?php the_post_thumbnail( 'full' ); ?>
+				</div>
+			<?php endif; ?>
+		</header><!-- #masthead -->
 
-			<main id="main" class="clearfix">
+		<main id="main" class="clearfix">

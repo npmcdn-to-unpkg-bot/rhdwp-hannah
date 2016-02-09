@@ -65,10 +65,8 @@ input[type="submit"]
 
 	.header-bg
 		width 100%
-		height 350px
+		height auto
 		position relative
-		background-size cover
-		background-position center
 		top $navHt
 
 	#site-title
@@ -148,7 +146,7 @@ input[type="submit"]
 	display block
 	padding-bottom 2em
 	border-bottom 2px solid $color2
-	
+
 
 #site-navigation-sb-container
 	#site-navigation-sb
@@ -351,13 +349,17 @@ input[type="submit"]
 			&:active
 				background-color $color2
 
+
 /* ==========================================================================
-	About Page
+	Front Page
    ========================================================================== */
 
-.post-9
-	.page-title
-		-invisible()
+.front-page
+	#masthead
+		.header-bg
+			height 350px
+			background-size cover
+			background-position center
 
 
 /* ==========================================================================
@@ -376,10 +378,10 @@ input[type="submit"]
 .page-id-18
 	.contact-info
 		margin-bottom 1em
-		
+
 		p
 			margin 0.5em auto
-			
+
 
 .ninja-forms-cont
 	input
@@ -491,14 +493,20 @@ input[type="submit"]
 				text-align left
 				font-size 1em
 
-	
+
 	// Front Page
 	.front-page
 		#primary
 			.entry-content
 				padding-top 1em
 
-	
+
+	// About Page
+	#post-9
+		.page-title
+			-invisible()
+
+
 	// Delivery Area
 	.page-id-15
 		#primary
@@ -513,14 +521,14 @@ input[type="submit"]
 	.page-id-18
 		#primary
 			width 100%
-			
+
 			.entry-content
 				-clearfix()
-	
+
 				.rhd-contact-form
 					width 48%
 					float right
-	
+
 				.contact-info
 					width 45%
 					float left
