@@ -1104,8 +1104,11 @@ function rhd_password_reset_link( $content )
 add_filter( 'the_content', 'rhd_password_reset_link' );
 
 
+
 /**
- * check_app_quota_week function.
+ * rhd_check_app_quota_week function.
+ *
+ * Limits number of appointments per user per calendar week (30 minute increments)
  *
  * @access public
  * @param mixed $reply_array
@@ -1113,44 +1116,50 @@ add_filter( 'the_content', 'rhd_password_reset_link' );
  */
 function rhd_check_app_quota_week( $reply_array )
 {
-	if ( ! is_user_logged_in() )
-		return $reply_array;
+	global $wpdb, $current_user, $appointments;
 
-	global $current_user, $wpdb;
+	// WEEKLY quota check
 
-	$count = $wpdb->get_var( "SELECT COUNT(*) FROM " . $wpdb->prefix . "app_appointments WHERE status<>'removed' AND user=" . $current_user->ID . " AND WEEK(created)=WEEK(CURDATE()) " );
+	$start = $reply_array['start'];
+	//remove the tag
+	$ddate = preg_replace( "/<span[^>]+\>/i", "", $start );
+	$ddate = trim( str_replace( 'Date and time:', '', strip_tags( $ddate ) ) );
+	//get the number of week
+	$date     = new DateTime( $ddate );
+	$week_num = $date->format( "W" );
+	//now getting the week start and end
+	$week_start = $date->setISODate( date('Y'), $week_num )->format( 'Y-m-d' );
+	$week_end  = $date->modify('+6 days')->format('Y-m-d');
+	//build sql
+	$week_sql = $wpdb->prepare( "SELECT COUNT(*) FROM " . $appointments->app_table . " WHERE user=%d AND (status='pending' OR status='confirmed' OR status='paid') AND start BETWEEN %s AND %s", array(
+		$current_user->ID,
+		$week_start,
+		$week_end
+	));
 
-	if ( $count >= 8 ) {
-		die( json_encode( array( 'error'=>'Sorry, your weekly appointment quota is full' ) ) );
+	$week_count = $wpdb->get_var( $week_sql );
+
+	// DAILY quota check
+	// ****NOT WORKING****
+/*
+	$day_sql = $wpdb->prepare( "SELECT COUNT(*) FROM " . $appointments->app_table . " WHERE user=%d AND (status='pending' OR status='confirmed' OR status='paid' ) and created > DATE_SUB(CURDATE(), INTERVAL 1 DAY)", array(
+		$current_user->ID
+	 ) );
+
+	$day_count = $wpdb->get_var( $day_sql );
+*/
+
+	if ( $week_count >= 8 ) {
+		die( json_encode( array( 'error' => 'You have reached the maximum allowed number of weekly appointments (4 hours/week).' ) ) );
+	}/*
+ elseif ( $day_count >= 2 ) {
+		die( json_encode( array( 'error'=> 'You have reached the maximum allowed number of daily appointments (2 hours/day)' ) ) );
 	}
+*/
+
 	return $reply_array;
 }
 add_filter( 'app_pre_confirmation_reply', 'rhd_check_app_quota_week' );
-
-
-/**
- * check_app_quota_day function.
- *
- * @access public
- * @param mixed $reply_array
- * @return void
- */
-function rhd_check_app_quota_day( $reply_array )
-{
-	if ( ! is_user_logged_in() )
-		return $reply_array;
-
-	global $current_user, $wpdb;
-
-	$count = $wpdb->get_var( "SELECT COUNT(*) FROM " . $wpdb->prefix . "app_appointments WHERE status<>'removed' AND user=" . $current_user->ID . " AND DAY(created)=DAY(CURDATE()) " );
-
-	if ( $count >= 4 ) {
-		die( json_encode( array( 'error'=>'Sorry, your daily appointment quota is full' ) ) );
-	}
-	return $reply_array;
-}
-add_filter( 'app_pre_confirmation_reply', 'rhd_check_app_quota_day' );
-
 
 
 /**
