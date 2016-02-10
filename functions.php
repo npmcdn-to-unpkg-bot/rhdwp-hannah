@@ -1137,7 +1137,7 @@ function rhd_check_app_quota_week( $reply_array )
 
 	$week_count = $wpdb->get_var( $week_sql );
 
-	if ( $week_count >= 4 ) {
+	if ( $week_count >= 8 ) {
 		return array( 'error' => 'You have reached the maximum allowed number of weekly appointments (4 hours/week).' );
 	}
 
@@ -1174,7 +1174,7 @@ function rhd_check_app_quota_day( $reply_array )
 
 	$day_count = $wpdb->get_var( $day_sql );
 
-	if ( $day_count >= 2 ) {
+	if ( $day_count >= 4 ) {
 		return array( 'error'=> 'You have reached the maximum allowed number of daily appointments (2 hours/day)' );
 	}
 
