@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:07:13 PM on 22-01-2016
+* RHD Dev: Compiled at 6:08:18 PM on 16-02-2016
 ***/
 
 .smallcaps,
@@ -1537,6 +1537,19 @@ input[type="submit"]:hover,
 .ninja-forms-form input[type="submit"] {
   display: block;
   margin: 0 auto;
+}
+/* ==========================================================================
+	PopControl (Ninja Forms)
+   ========================================================================== */
+#TB_title {
+  border-bottom: none !important;
+  background: #fff !important;
+}
+#TB_ajaxContent {
+  width: 90%;
+  max-width: 64rem;
+  position: relative;
+  margin: 0 auto 0 auto;
 }
 /* ==========================================================================
 	Media Queries
