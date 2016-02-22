@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:39:03 PM on 09-02-2016
+* RHD Dev: Compiled at 11:31:10 PM on 21-02-2016
 ***/
 
 .alignnone {
@@ -994,6 +994,9 @@ input[type="submit"]:hover {
 #primary {
   margin-bottom: 4em;
 }
+#primary.full-width {
+  width: 100%;
+}
 #colophon {
   width: 100%;
   position: relative;
@@ -1052,7 +1055,7 @@ input[type="submit"]:hover {
   margin: 0 auto 0 auto;
 }
 .entry-content p {
-  margin: 0.25em auto;
+  margin: 0.5em auto;
 }
 .entry-content p[style*="text-align: center"] {
   text-indent: 0;

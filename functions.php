@@ -220,11 +220,42 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
 // Adds RSS feed links to for posts and comments.
 add_theme_support( 'automatic-feed-links' );
 
+
+/**
+ * rhd_image_sizes function.
+ * 
+ * @access public
+ * @return void
+ */
 function rhd_image_sizes()
 {
 	add_image_size( 'square', 300, 300, true );
+	add_image_size( 'land_crop', 300, 200, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
+
+
+/**
+ * rhd_add_image_sizes function.
+ * 
+ * Adds images sizes to the media library.
+ *
+ * @access public
+ * @param mixed $sizes
+ * @return void
+ */
+function rhd_add_image_sizes( $sizes )
+{
+	$addsizes = array(
+		'square' => __( 'Square' ),
+		'land_crop' => __( 'Landscape (Cropped)' )
+	);
+	$newsizes = array_merge( $sizes, $addsizes );
+
+	return $newsizes;
+}
+add_filter( 'image_size_names_choose', 'rhd_add_image_sizes' );
+
 
 // Allow shortcodes in widgets
 add_filter( 'widget_text', 'do_shortcode' );
