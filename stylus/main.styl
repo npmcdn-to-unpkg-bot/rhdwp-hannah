@@ -263,7 +263,7 @@ input[type="submit"]
 	-wrapper()
 
 	p
-		margin 0.5em auto
+		margin 1.5em auto
 
 		&[style*="text-align: center"]
 			text-indent 0
@@ -379,9 +379,6 @@ input[type="submit"]
 	.contact-info
 		margin-bottom 1em
 
-		p
-			margin 0.5em auto
-
 
 .ninja-forms-cont
 	input
@@ -452,6 +449,25 @@ input[type="submit"]
 	#primary
 		width 68%
 		float left
+		
+		// Image Strip
+			-clearfix()
+	
+			article
+				&.strip-active
+					width 65%
+					float right
+	
+			#image-strip
+				width 30%
+				float left
+				margin-right 5%
+	
+				img
+					width 100%
+					height auto
+					margin-bottom 2em
+					display block
 
 
 	#secondary

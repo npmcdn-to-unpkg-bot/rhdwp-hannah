@@ -37,6 +37,20 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			e.preventDefault();
 			$(this).toggleClass('is-active');
 		});
+		
+		
+		// "Image Strip"
+		if ( $('#primary').hasClass( 'full-width' ) && !$('#primary').hasClass( 'no-image-strip' ) ) {
+			if ( 800 < $window.width() )
+				setImageStrip();
+			
+			$window.on('resize', function(){
+				if ( 800 < $window.width() )
+					setImageStrip();
+				else
+					unsetImageStrip();
+			});
+		}
 	});
 
 
@@ -44,6 +58,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$.slidebars({
 			siteClose: false,
 		});
+		
+		// Image Strip 
+		postContent = $(".entry-content").html();
 	}
 
 
@@ -51,5 +68,31 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$("#wpadminbar").css({
 			top: $("#masthead").height(),
 		});
+	}
+	
+	
+	// Set Image Strip layout
+	function setImageStrip() {
+		$('<div id="image-strip"></div>').prependTo('#content');
+		$('#content article').addClass('strip-active');
+		
+		$(".entry-content img").each(function(){
+			if ( $(this).hasClass('alignnone') ) {
+				$(this)
+					.appendTo($("#image-strip"))
+					.addClass("strip-active");
+			}
+		});
+	}
+	
+	
+	// Unset Image Strip layout
+	function unsetImageStrip() {
+		$("#image-strip").html('');
+			
+		$('#content article').removeClass('strip-active');
+		$(".entry-content").removeClass('strip-active');
+		
+		$(".entry-content").html(postContent);
 	}
 })(jQuery);

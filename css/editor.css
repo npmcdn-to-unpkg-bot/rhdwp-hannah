@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:31:10 PM on 21-02-2016
+* RHD Dev: Compiled at 12:49:49 PM on 22-02-2016
 ***/
 
 /**
@@ -183,6 +183,7 @@ a img.aligncenter {
 .single-pagination:before,
 .contact-info .social-icons:before,
 #main:before,
+#primary:before,
 #colophon .footer-content:before,
 .page-id-18 #primary .entry-content:before,
 .clearfix:after,
@@ -190,6 +191,7 @@ a img.aligncenter {
 .single-pagination:after,
 .contact-info .social-icons:after,
 #main:after,
+#primary:after,
 #colophon .footer-content:after,
 .page-id-18 #primary .entry-content:after {
   content: " ";
@@ -200,6 +202,7 @@ a img.aligncenter {
 .single-pagination:after,
 .contact-info .social-icons:after,
 #main:after,
+#primary:after,
 #colophon .footer-content:after,
 .page-id-18 #primary .entry-content:after {
   clear: both;
@@ -1049,7 +1052,7 @@ input[type="submit"]:hover {
   margin: 0 auto 0 auto;
 }
 .entry-content p {
-  margin: 0.5em auto;
+  margin: 1.5em auto;
 }
 .entry-content p[style*="text-align: center"] {
   text-indent: 0;
@@ -1148,9 +1151,6 @@ input[type="submit"]:hover {
 .page-id-18 .contact-info {
   margin-bottom: 1em;
 }
-.page-id-18 .contact-info p {
-  margin: 0.5em auto;
-}
 .ninja-forms-cont input[type="submit"] {
   width: 7em;
   display: block;
@@ -1204,72 +1204,87 @@ input[type="submit"]:hover {
     width: 68%;
     float: left;
   }
-  #secondary {
-    width: 25%;
+  #primary article.strip-active {
+    width: 65%;
     float: right;
   }
-  #colophon {
-    height: 6rem;
-  }
-  #colophon .footer-content {
-    height: 100%;
-    width: 85%;
-    max-width: 75rem;
-    position: relative;
-    margin: 0 auto 0 auto;
-  }
-  #colophon .footer-content #footer-widget-area,
-  #colophon .footer-content #site-info {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  #colophon .footer-content #footer-widget-area {
-    width: 14em;
-    margin-bottom: 0;
-    right: 0;
-    text-align: right;
-  }
-  #colophon .footer-content #footer-widget-area .widget-title {
-    font-size: 1em;
+  #primary #image-strip {
+    width: 30%;
     float: left;
-    margin: 1.2em 0;
+    margin-right: 5%;
   }
-  #colophon .footer-content #footer-widget-area .rhd_social_icons {
-    float: right;
-  }
-  #colophon .footer-content #site-info {
-    left: 0;
-    text-align: left;
-    font-size: 1em;
-  }
-  .front-page #primary .entry-content {
-    padding-top: 1em;
-  }
-  #post-9 .page-title {
-    visibility: hidden;
-    position: absolute;
-  }
-  .page-id-15 #primary {
+  #primary #image-strip img {
     width: 100%;
+    height: auto;
+    margin-bottom: 2em;
+    display: block;
   }
-  .page-id-15 #primary .entry-content .delivery-list {
-    -webkit-column-count: 6;
-    -moz-column-count: 6;
-    column-count: 6;
-  }
-  .page-id-18 #primary {
-    width: 100%;
-  }
-  .page-id-18 #primary .entry-content .rhd-contact-form {
-    width: 48%;
-    float: right;
-  }
-  .page-id-18 #primary .entry-content .contact-info {
-    width: 45%;
-    float: left;
-  }
+}
+#secondary {
+  width: 25%;
+  float: right;
+}
+#colophon {
+  height: 6rem;
+}
+#colophon .footer-content {
+  height: 100%;
+  width: 85%;
+  max-width: 75rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+#colophon .footer-content #footer-widget-area,
+#colophon .footer-content #site-info {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#colophon .footer-content #footer-widget-area {
+  width: 14em;
+  margin-bottom: 0;
+  right: 0;
+  text-align: right;
+}
+#colophon .footer-content #footer-widget-area .widget-title {
+  font-size: 1em;
+  float: left;
+  margin: 1.2em 0;
+}
+#colophon .footer-content #footer-widget-area .rhd_social_icons {
+  float: right;
+}
+#colophon .footer-content #site-info {
+  left: 0;
+  text-align: left;
+  font-size: 1em;
+}
+.front-page #primary .entry-content {
+  padding-top: 1em;
+}
+#post-9 .page-title {
+  visibility: hidden;
+  position: absolute;
+}
+.page-id-15 #primary {
+  width: 100%;
+}
+.page-id-15 #primary .entry-content .delivery-list {
+  -webkit-column-count: 6;
+  -moz-column-count: 6;
+  column-count: 6;
+}
+.page-id-18 #primary {
+  width: 100%;
+}
+.page-id-18 #primary .entry-content .rhd-contact-form {
+  width: 48%;
+  float: right;
+}
+.page-id-18 #primary .entry-content .contact-info {
+  width: 45%;
+  float: left;
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
 html,
