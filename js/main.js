@@ -39,13 +39,13 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 			$dd.slideToggle();
 		});
-		
-		
+
+
 		// "Image Strip"
-		if ( !$('body').hasClass( 'blog-area' ) ) {
+		if ( $('#content').hasClass( 'image-strip-active' ) ) {
 			if ( $window.width() > 800 )
 				setImageStrip();
-			
+
 			$window.on('resize', function(){
 				if ( $window.width() > 800 )
 					setImageStrip();
@@ -67,8 +67,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Fix faux-flexbox
 		fixGridLayout();
-		
-		// Image Strip 
+
+		// Image Strip
 		postContent = $(".entry-content").html();
 	}
 
@@ -101,12 +101,12 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		}
 	}
 
-	
+
 	// Set Image Strip layout
 	function setImageStrip() {
 		$('<div id="image-strip"></div>').prependTo('#content');
 		$('#content article').addClass('strip-active');
-		
+
 		$(".entry-content img").each(function(){
 			if ( $(this).hasClass('alignnone') ) {
 				$(this)
@@ -115,15 +115,15 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			}
 		});
 	}
-	
-	
+
+
 	// Unset Image Strip layout
 	function unsetImageStrip() {
 		$("#image-strip").html('');
-			
+
 		$('#content article').removeClass('strip-active');
 		$(".entry-content").removeClass('strip-active');
-		
+
 		$(".entry-content").html(postContent);
 	}
 
