@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:21:03 PM on 04-02-2016
+* RHD Dev: Compiled at 4:04:50 PM on 01-03-2016
 ***/
 
 .alignnone {
@@ -272,7 +272,7 @@ img.aligncenter {
 }
 #blog-metabar #blog-metabar-content {
   width: 90%;
-  max-width: 64rem;
+  max-width: none;
   position: relative;
   margin: 0 auto 0 auto;
   list-style: none;
@@ -298,28 +298,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff-body;
   color: #808080;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -330,7 +330,7 @@ img.aligncenter {
   background: #fff;
   color: #808080;
   position: relative;
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff-body;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -384,7 +384,7 @@ img.aligncenter {
   }
   #blog-metabar #blog-metabar-content {
     width: 85%;
-    max-width: 64rem;
+    max-width: none;
     position: relative;
     margin: 0 auto 0 auto;
     text-align: justify;
@@ -955,7 +955,8 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: 'Oswald', sans-serif;
+  color: #1e2171;
+  font-family: 'Open Sans', sans-serif;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -967,7 +968,7 @@ a {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #f5c419;
+  color: #5090cc;
 }
 a:hover,
 a:active {
@@ -976,51 +977,56 @@ a:active {
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid #f5c419;
+  border: 2px solid #5090cc;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:focus,
 textarea:focus {
-  border-color: #f55033;
+  border-color: #da0962;
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
   background-color: #808080;
 }
-#page {
-  margin: 2em 0;
+#masthead {
+  width: 100%;
+  height: auto;
+  position: relative;
+  border-bottom: 4px solid #1e2171;
 }
 #site-title {
-  text-align: center;
-  margin: 0;
+  width: 12em;
+  height: 7em;
+  display: block;
+  background: #5090cc;
 }
 #site-navigation-container {
   width: 100%;
@@ -1030,7 +1036,7 @@ input[type="submit"]:hover {
 #site-navigation-container #site-navigation {
   list-style: none;
   padding-left: 0;
-  margin: 0;
+  margin: 0.5em 0 0 0;
   text-align: justify;
 }
 #site-navigation-container #site-navigation:after {
@@ -1040,6 +1046,15 @@ input[type="submit"]:hover {
 }
 #site-navigation-container #site-navigation .menu-item {
   display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+#site-navigation-container #site-navigation .menu-item a {
+  color: inherit;
+}
+#site-navigation-container #site-navigation .menu-item a:hover,
+#site-navigation-container #site-navigation .menu-item a:active {
+  color: #5090cc;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
@@ -1056,13 +1071,13 @@ input[type="submit"]:hover {
   list-style: none;
 }
 .site-navigation li a {
-  color: #f5c419;
+  color: #5090cc;
   text-decoration: none;
   transition: color 0.25s;
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: #f55033;
+  color: #da0962;
 }
 #hamburger {
   background-color: #000;
@@ -1075,7 +1090,7 @@ input[type="submit"]:hover {
 }
 #main {
   width: 85%;
-  max-width: 64rem;
+  max-width: none;
   position: relative;
   margin: 2em auto 2em auto;
   padding: 2em 0;
@@ -1273,18 +1288,18 @@ input[type="submit"]:hover {
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #f5c419;
+  color: #5090cc;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #f5c419;
+  border: 3px solid #5090cc;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #f5c419;
-  color: #f5c419;
+  background-color: #5090cc;
+  color: #5090cc;
 }
 /* ==========================================================================
 	Widget Areas & Sidebars
@@ -1303,8 +1318,24 @@ input[type="submit"]:hover {
 	Media Queries
    ========================================================================== */
 @media screen and (min-width: 40em) {
+  #masthead {
+    height: 10em;
+  }
+  #masthead #site-title {
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
   #site-navigation-container {
+    width: 80%;
     display: block;
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   #hamburger {
     display: none;
@@ -1340,6 +1371,9 @@ input[type="submit"]:hover {
   }
 }
 @media screen and (min-width: 40em) {
+  #primary {
+    float: left;
+  }
   #secondary {
     width: 340px;
     float: right;

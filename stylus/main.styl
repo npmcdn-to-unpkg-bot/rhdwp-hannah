@@ -23,7 +23,8 @@ html
 	width 100%
 	font-size 16px
 	margin 0
-	font-family $ff-body
+	color $color1
+	font-family $ff_body
 
 
 body
@@ -54,8 +55,8 @@ textarea
 	border 2px solid $color2
 	box-sizing border-box
 	padding 0.5em
-	font-family $ff-body
-	-placeholder-props( $ff-body, gray )
+	font-family $ff_body
+	-placeholder-props( $ff_body, gray )
 	outline 0 !important
 	transition all 0.25s
 
@@ -65,20 +66,25 @@ textarea
 
 input[type="submit"]
 	cursor pointer
-	font-family $ff-body
+	font-family $ff_body
 	transition all 0.25s
 
 	&:hover
 		background-color gray
 
 
-#page
-	margin 2em 0
+#masthead
+	width 100%
+	height auto
+	position relative
+	border-bottom 4px solid $color1
 
 
 #site-title
-	text-align center
-	margin 0
+	width 12em
+	height 7em
+	display block
+	background $color2 //temporary
 
 
 #site-navigation-container
@@ -89,11 +95,20 @@ input[type="submit"]
 	#site-navigation
 		list-style none
 		padding-left 0
-		margin 0
+		margin 0.5em 0 0 0
 		-flexbox()
 
 		.menu-item
 			-flexitem()
+			text-transform uppercase
+			font-weight 700
+
+			a
+				color inherit
+
+				&:hover
+				&:active
+					color $color2
 
 			.sub-menu
 				position absolute
@@ -297,7 +312,7 @@ input[type="submit"]
 				padding-bottom 1.5em
 
 	.even
-		background $off-white
+		background $off_white
 
 	.odd
 		background white
@@ -382,8 +397,22 @@ input[type="submit"]
    ========================================================================== */
 
 @media screen and (min-width 40em)
+	#masthead
+		height 10em
+
+		#site-title
+			position absolute
+			top 50%
+			left 1em
+			-transform(translateY(-50%))
+
 	#site-navigation-container
+		width 80%
 		display block
+		position absolute
+		right 1em
+		top 50%
+		-transform(translateY(-50%))
 
 	#hamburger
 		display none
@@ -429,6 +458,9 @@ input[type="submit"]
 @media screen and (min-width 40em)
 	#main
 		-clearfix()
+
+	#primary
+		float left
 
 	#secondary
 		width 340px

@@ -45,7 +45,7 @@ function rhd_enqueue_styles()
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Oswald:300|Open+Sans:400,700,400italic' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic' );
 
 	$normalize_deps = array(
 		'slidebars',
@@ -118,7 +118,7 @@ add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Oswald:300|Open+Sans:400,700,400italic';
+	$font_url = '//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -240,7 +240,7 @@ add_filter( 'widget_text', 'do_shortcode' );
 
 /**
  * rhd_image_sizes function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -253,7 +253,7 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
 /**
  * rhd_add_image_sizes function.
- * 
+ *
  * Adds images sizes to the media library.
  *
  * @access public
@@ -662,3 +662,51 @@ function rhd_svg_logo() {
 	Theme Functions and Customizations
    ========================================================================== */
 
+
+/**
+ * rhd_add_update_store function.
+ *
+ * @access public
+ * @param mixed $post_id
+ * @param mixed $post_after
+ * @param mixed $post_before
+ * @return void
+ */
+function rhd_add_update_store( $post_id, $post_after, $post_before )
+{
+	$title_after = $post_after->post_title;
+	$slug_after = $post_after->post_name;
+	$title_before = $post_before->post_title;
+	$slug_before = $post_before->post_name;
+
+	// Check if meta already set
+	$term_id = get_post_meta( $post_id, '_location_term_id', true );
+
+	if ( ! $term_id ) {
+		$term = term_exists( $title_after, 'location' );
+
+		if ( $term == 0 || $term == null ) {
+			$args = array(
+				'slug' => $slug_after
+			);
+			wp_insert_term( $title_after, 'location', $args );
+
+			$new_term = get_term_by( 'slug', $slug_after, 'location' );
+			$term_id = intval( $new_term->term_id );
+
+			add_post_meta( $post_id, '_location_term_id', $term_id, true );
+		}
+	} else {
+		$args = array();
+
+		if ( $title_before != $title_after )
+			$args['name'] = $title_after;
+
+		if ( $slug_before != $slug_after )
+			$args['slug'] = $slug_after;
+
+		if ( ! empty( $args ) )
+			wp_update_term( $term_id, 'location', $args );
+	}
+}
+add_action( 'post_updated', 'rhd_add_update_store', 10, 3 );
