@@ -685,34 +685,57 @@ function rhd_add_update_store( $post_id, $post_after, $post_before )
 	// Check if meta already set
 	$term_id = get_post_meta( $post_id, '_location_term_id', true );
 
-	if ( ! $term_id ) {
-		$term = term_exists( $title_after, 'location' );
+	if ( $post_after->post_status != 'trash' ) {
+		if ( ! $term_id ) {
+			$term = term_exists( $title_after, 'location' );
 
-		if ( $term == 0 || $term == null ) {
-			$args = array(
-				'slug' => $slug_after
-			);
-			wp_insert_term( $title_after, 'location', $args );
+			if ( $term == 0 || $term == null ) {
+				$args = array(
+					'slug' => $slug_after
+				);
+				wp_insert_term( $title_after, 'location', $args );
 
-			$new_term = get_term_by( 'slug', $slug_after, 'location' );
-			$new_term_id = intval( $new_term->term_id );
+				$new_term = get_term_by( 'slug', $slug_after, 'location' );
+				$new_term_id = intval( $new_term->term_id );
 
-			add_post_meta( $post_id, '_location_term_id', $new_term_id, true );
+				add_post_meta( $post_id, '_location_term_id', $new_term_id, true );
+			}
+		} else {
+			$args = array();
+
+			if ( $title_before != $title_after )
+				$args['name'] = $title_after;
+
+			if ( $slug_before != $slug_after )
+				$args['slug'] = $slug_after;
+
+			if ( ! empty( $args ) )
+				wp_update_term( $term_id, 'location', $args );
 		}
-	} else {
-		$args = array();
-
-		if ( $title_before != $title_after )
-			$args['name'] = $title_after;
-
-		if ( $slug_before != $slug_after )
-			$args['slug'] = $slug_after;
-
-		if ( ! empty( $args ) )
-			wp_update_term( $term_id, 'location', $args );
 	}
 }
 add_action( 'post_updated', 'rhd_add_update_store', 10, 3 );
+
+
+/**
+ * rhd_delete_store function.
+ *
+ * @access public
+ * @param mixed $post_id
+ * @return void
+ */
+function rhd_delete_store( $post_id )
+{
+	if ( get_post_type( $post_id ) == 'store' ) {
+		$term_id = get_post_meta( $post_id, '_location_term_id', true );
+
+		if ( $term_id ) {
+			wp_delete_term( $term_id, 'location' );
+		}
+	}
+}
+add_action( 'before_delete_post', 'rhd_delete_store' );
+add_action( 'delete_post', 'rhd_delete_store' );
 
 
 /**
