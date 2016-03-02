@@ -692,9 +692,9 @@ function rhd_add_update_store( $post_id, $post_after, $post_before )
 			wp_insert_term( $title_after, 'location', $args );
 
 			$new_term = get_term_by( 'slug', $slug_after, 'location' );
-			$term_id = intval( $new_term->term_id );
+			$new_term_id = intval( $new_term->term_id );
 
-			add_post_meta( $post_id, '_location_term_id', $term_id, true );
+			add_post_meta( $post_id, '_location_term_id', $new_term_id, true );
 		}
 	} else {
 		$args = array();
