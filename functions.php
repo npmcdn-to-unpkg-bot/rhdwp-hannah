@@ -666,6 +666,9 @@ function rhd_svg_logo() {
 /**
  * rhd_add_update_store function.
  *
+ * Adds a 'location' taxonomy term to match a new 'store' post,
+ *  or updates the term to match the updated store.
+ *
  * @access public
  * @param mixed $post_id
  * @param mixed $post_after
@@ -710,3 +713,24 @@ function rhd_add_update_store( $post_id, $post_after, $post_before )
 	}
 }
 add_action( 'post_updated', 'rhd_add_update_store', 10, 3 );
+
+
+/**
+ * rhd_force_slug_update function.
+ *
+ * Forces recalculation of post slug on update if type 'store'
+ *
+ * @access public
+ * @param mixed $data
+ * @param mixed $postarr
+ * @return void
+ */
+function rhd_force_slug_update( $data, $postarr )
+{
+	if ( ! in_array( $data['post_status'], array( 'draft', 'pending', 'auto-draft' ) ) && $data['post_type'] == 'store' ) {
+		$data['post_name'] = sanitize_title( $data['post_title'] );
+	}
+
+	return $data;
+}
+add_filter( 'wp_insert_post_data', 'rhd_force_slug_update', 99, 2 );
