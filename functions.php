@@ -13,19 +13,20 @@
    Initialization
    ========================================================================== */
 
-function rhd_init()
-{
-	// Constants
-	define( "RHD_THEME_DIR", get_template_directory_uri() );
-	define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
+// Constants and Globals
+define( "RHD_THEME_DIR", get_template_directory_uri() );
+define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
 
-	$updir = wp_upload_dir();
-	define( "RHD_UPLOAD_URL", $updir['baseurl'] );
-}
-add_action( 'after_setup_theme', 'rhd_init' );
+$updir = wp_upload_dir();
+define( "RHD_UPLOAD_URL", $updir['baseurl'] );
 
-/* Disable Editor */
+
+// Disable Editor
 define( 'DISALLOW_FILE_EDIT', true );
+
+
+// Globally disable WP toolbar
+// add_filter( 'show_admin_bar', '__return_false' );
 
 
 /* ==========================================================================
@@ -106,7 +107,7 @@ function rhd_enqueue_scripts()
 	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
 
 }
-add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
+add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
 
 
 /**
@@ -141,7 +142,7 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
  */
 function rhd_register_sidebars()
 {
-	register_sidebar(array(
+	register_sidebar( array(
 		'name'			=> __( 'Sidebar', 'rhd' ),
 		'id'			=> 'sidebar',
 		'before_title'	=> '<h2 class="widget-title">',
@@ -150,7 +151,7 @@ function rhd_register_sidebars()
 		'after_widget'  => '</div>'
 	));
 
-	register_sidebar(array(
+	register_sidebar( array(
 		'name'			=> __( 'Footer Widget Area', 'rhd' ),
 		'id'			=> 'footer-widget-area',
 		'before_title'	=> '<h2 class="widget-title">',
@@ -188,6 +189,32 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
 /* ==========================================================================
    Registrations, Theme Support, Thumbnails
    ========================================================================== */
+
+/**
+ * rhd_init function.
+ *
+ * Description: Anything to be performed during 'init' action
+ *
+ * @access public
+ * @return void
+ */
+function rhd_init()
+{
+	register_taxonomy( 'location', 'post', array(
+		'label' => 'Store Locations',
+		'labels' => array(
+			'name' => 'Store Locations',
+		),
+		'public' => true,
+		'show_admin_column' => false,
+		'show_in_nav_menus' => false,
+		'show_tagcloud' => false,
+		'show_ui' => true,
+		'hierarchical' => true
+	));
+}
+add_action( 'init', 'rhd_init' );
+
 
 /**
  * rhd_theme_setup function.
@@ -240,7 +267,7 @@ add_filter( 'widget_text', 'do_shortcode' );
 
 /**
  * rhd_image_sizes function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -253,7 +280,7 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
 /**
  * rhd_add_image_sizes function.
- * 
+ *
  * Adds images sizes to the media library.
  *
  * @access public
@@ -281,7 +308,7 @@ function rhd_branding_login()
 {
 	return "//roundhouse-designs.com/";
 }
-add_filter('login_headerurl', 'rhd_branding_login');
+add_filter( 'login_headerurl', 'rhd_branding_login' );
 
 
 // Site Title as "login message" (underneath RHD logo)
@@ -296,14 +323,14 @@ function rhd_login()
 {
 	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
 }
-add_action('login_head', 'rhd_login');
+add_action( 'login_head', 'rhd_login' );
 
 
 function rhd_admin()
 {
 	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/rhd/rhd-admin.css' );
 }
-add_action('admin_head', 'rhd_admin');
+add_action( 'admin_head', 'rhd_admin' );
 
 
 // Custom WordPress Footer
@@ -311,19 +338,7 @@ function rhd_footer_admin ()
 {
 	return '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
 }
-add_filter('admin_footer_text', 'rhd_footer_admin');
-
-
-// Remove 'Editor' panel
-function rhd_remove_editor_menu()
-{
-  remove_action('admin_menu', '_add_themes_utility_last', 101);
-}
-add_action('_admin_menu', 'rhd_remove_editor_menu', 1);
-
-
-// Globally disable WP toolbar
-// add_filter( 'show_admin_bar', '__return_false' );
+add_filter( 'admin_footer_text', 'rhd_footer_admin' );
 
 
 /* ==========================================================================
@@ -661,4 +676,3 @@ function rhd_svg_logo() {
 /* ==========================================================================
 	Theme Functions and Customizations
    ========================================================================== */
-
