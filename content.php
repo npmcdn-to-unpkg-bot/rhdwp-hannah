@@ -13,7 +13,7 @@
 
 	<?php if ( $thumb != '' ) : ?>
 		<div class="post-thumbnail">
-			<?php the_post_thumbnail( 'square' ); ?>
+			<?php the_post_thumbnail( is_front_page() ? 'square' : 'large' ); ?>
 		</div>
 	<?php endif ;?>
 

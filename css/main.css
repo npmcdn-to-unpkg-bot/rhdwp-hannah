@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:28:51 PM on 03-03-2016
+* RHD Dev: Compiled at 5:22:04 PM on 03-03-2016
 ***/
 
 .alignnone {
@@ -176,24 +176,30 @@ a img.aligncenter {
   width: auto;
 }
 .clearfix:before,
+#colophon #footer-widget-area .search-form:before,
 .pagination:before,
 .single-pagination:before,
-#posts-feed .post:before,
+.page-id-9 #main #about-content:before,
+#posts-feed.small-thumbnails .post:before,
 #primary:before,
 #main:before,
 .clearfix:after,
+#colophon #footer-widget-area .search-form:after,
 .pagination:after,
 .single-pagination:after,
-#posts-feed .post:after,
+.page-id-9 #main #about-content:after,
+#posts-feed.small-thumbnails .post:after,
 #primary:after,
 #main:after {
   content: " ";
   display: table;
 }
 .clearfix:after,
+#colophon #footer-widget-area .search-form:after,
 .pagination:after,
 .single-pagination:after,
-#posts-feed .post:after,
+.page-id-9 #main #about-content:after,
+#posts-feed.small-thumbnails .post:after,
 #primary:after,
 #main:after {
   clear: both;
@@ -870,10 +876,8 @@ textarea:focus {
 }
 hr {
   width: 85%;
-  max-width: none;
-  position: relative;
-  margin: 1em auto 1em auto;
-  height: 4px;
+  height: 4px !important;
+  margin: 1em auto !important;
   background-color: #1e2171;
 }
 input[type="submit"] {
@@ -980,38 +984,94 @@ input[type="submit"]:hover {
 }
 #colophon {
   width: 100%;
-  height: 6em;
+  height: auto;
+  padding: 0.5rem;
+  background-color: #1e2171;
+  color: #fff;
   position: relative;
 }
-#colophon .site-info {
+#colophon a {
+  color: #5090cc;
+}
+#colophon a:hover,
+#colophon a:active {
+  text-decoration: underline;
+}
+#colophon #footer-widget-area {
   width: 100%;
-  margin: 0;
+}
+#colophon #footer-widget-area .textwidget {
+  text-align: center;
+}
+#colophon #footer-widget-area .search-form {
+  position: relative;
+}
+#colophon #footer-widget-area .search-form input {
+  float: left;
+  padding: 0.375rem;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+#colophon #footer-widget-area .search-form .search-field {
+  width: 75%;
+  transition: background-color 0.25s ease;
+  background-color: #fff;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#colophon #footer-widget-area .search-form .search-field:focus {
+  background-color: $cream;
+  outline: none;
+}
+#colophon #footer-widget-area .search-form .search-submit {
+  width: 25%;
+  background-color: #5090cc;
+  border-color: #5090cc;
+  transition: all 0.25s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#colophon #footer-widget-area .search-form .search-submit:hover,
+#colophon #footer-widget-area .search-form .search-submit:active {
+  background-color: $yellow;
+  border-color: $yellow;
+  color: #1e2171;
+}
+#colophon #footer-widget-area .rhd_social_icons {
+  text-align: center;
+}
+#colophon #footer-hheart-logo {
+  width: 100%;
+  height: 12em;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+}
+#colophon #footer-hheart-logo img {
+  width: 85%;
   position: absolute;
   top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  text-align: center;
-  line-height: 1.7;
-  font-size: 0.9em;
-}
-#colophon .site-info a {
-  color: inherit;
-}
-#colophon #rhd-logo-footer {
-  width: 1.35em;
-  height: 1.35em;
-  margin: 0 0.05em;
-  position: relative;
-  bottom: 0.25em;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 /* ==========================================================================
 	Posts & Pages
    ========================================================================== */
 .entry-title,
 .page-title {
-  margin-top: 0;
   line-height: 1;
+  margin-top: 0;
+}
+.page-title {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.7em;
 }
 .entry-content {
   width: 100%;
@@ -1077,7 +1137,12 @@ input[type="submit"]:hover {
   margin-bottom: 0;
 }
 #posts-feed .post .post-thumbnail {
+  width: 100%;
   border: 1px solid #1e2171;
+  margin-bottom: 0.5em;
+}
+#posts-feed .post .post-thumbnail img {
+  width: 100%;
 }
 .blog-area .post .entry-header,
 #posts-feed .post .entry-header {
@@ -1097,6 +1162,12 @@ input[type="submit"]:hover {
 #posts-feed .post .entry-header .entry-details .sep {
   font-size: 0.8em;
 }
+.full-width-slideshow {
+  width: 100%;
+}
+.full-width-slideshow .soliloquy-image {
+  border-bottom: 4px solid #1e2171;
+}
 .pagination,
 .single-pagination {
   margin: 1em auto;
@@ -1115,12 +1186,13 @@ input[type="submit"]:hover {
   float: right;
 }
 /* ==========================================================================
-	Page Template
+	Front Page
    ========================================================================== */
 .front-page #main {
   width: 100%;
   max-width: none;
   margin: initial;
+  margin-bottom: 1em;
 }
 .front-page #main #front-page-news {
   width: 85%;
@@ -1134,15 +1206,68 @@ input[type="submit"]:hover {
 .front-page #main #secondary {
   padding: 2em 0 1em;
 }
-.front-page #main #front-page-slideshow {
-  width: 100%;
-}
-.front-page #main #front-page-slideshow .soliloquy-image {
-  border-bottom: 4px solid #1e2171;
-}
 .front-page #main #front-page-quick-links {
   background-color: #e6e6e6;
   padding: 2em 0;
+}
+/* ==========================================================================
+	About Page
+   ========================================================================== */
+.page-id-9 #main {
+  width: 100%;
+  max-width: none;
+  margin: initial;
+  margin-bottom: 2em;
+}
+.page-id-9 #main #about-content {
+  width: 85%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding-top: 2em;
+}
+/* ==========================================================================
+	CPT: Store
+   ========================================================================== */
+.single-store #main {
+  width: 100%;
+  max-width: none;
+  margin: initial;
+  margin-bottom: 2em;
+}
+.single-store #main .store-header {
+  text-align: center;
+  padding: 1.5em 0;
+  border-bottom: 4px solid #1e2171;
+  margin-bottom: 1.5em;
+}
+.single-store #main .store-header p {
+  margin: 0;
+}
+.single-store #main .store-header .store-heading {
+  font-size: 1.2em;
+  margin: 0;
+}
+.single-store #main .store-header #single-store-info {
+  width: 90%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding-left: 0;
+  list-style: none;
+}
+.single-store #main .store-header #single-store-info li {
+  margin-bottom: 1em;
+}
+.single-store #main .store-header #single-store-info li:last-child {
+  margin-bottom: 0;
+}
+.single-store #main #single-store-media,
+.single-store #main #single-store-content {
+  width: 85%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
 }
 /* ==========================================================================
 	Ghost Buttons
@@ -1179,7 +1304,7 @@ input[type="submit"]:hover {
   margin-bottom: 0;
 }
 #secondary .widget-title {
-  margin: 0.25em 0;
+  margin: 0 0 0.25em 0;
   text-align: center;
   font-size: 1.3em;
   font-weight: 800;
@@ -1241,15 +1366,19 @@ input[type="submit"]:hover {
   #hamburger {
     display: none;
   }
-  #posts-feed .post.has-post-thumbnail .post-content {
+  .page-title {
+    text-align: left;
+  }
+  #posts-feed.small-thumbnails .post.has-post-thumbnail .post-content {
     width: 63%;
     float: right;
   }
-  #posts-feed .post.has-post-thumbnail .post-thumbnail {
+  #posts-feed.small-thumbnails .post.has-post-thumbnail .post-thumbnail {
     width: 32%;
     max-width: 300px;
     float: left;
     border: none;
+    margin-bottom: 0;
   }
   .blog-area .post .entry-header,
   #posts-feed .post .entry-header {
@@ -1260,19 +1389,52 @@ input[type="submit"]:hover {
   #posts-feed .post .entry-header .entry-title {
     margin: 0 0 0.25rem;
   }
-  #comments #commentform {
-    width: 75%;
+  .single-store #main .store-header {
+    padding-bottom: 0.5em;
   }
-  #comments #commentform p {
-    margin-bottom: 0.75rem;
+  .single-store #main .store-header #single-store-info {
+    text-align: justify;
   }
-  #comments #commentform input[type="text"],
-  #comments #commentform input[type="email"] {
-    width: 75%;
+  .single-store #main .store-header #single-store-info:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
   }
-  #comments #commentform #submit {
-    width: auto;
-    padding-left: 0.8em;
+  .single-store #main .store-header #single-store-info li {
+    width: 30%;
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .single-store #main #single-store-media > div {
+    display: table-cell;
+    width: 48%;
+    vertical-align: top;
+  }
+  .single-store #main #single-store-media .single-store-map {
+    padding-right: 1em;
+  }
+  .single-store #main #single-store-media .single-store-thumbnail {
+    padding-left: 1em;
+  }
+  #colophon #footer-widget-area {
+    width: 37%;
+  }
+  #colophon #footer-widget-area #footer-widget-area-left {
+    padding-left: 1em;
+  }
+  #colophon #footer-widget-area .textwidget {
+    text-align: left;
+  }
+  #colophon #footer-widget-area .rhd_social_icons {
+    text-align: left;
+  }
+  #colophon #footer-hheart-logo {
+    width: 300px;
+    height: 97%;
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
   }
   #primary article.strip-active {
     width: 65%;
@@ -1329,6 +1491,10 @@ input[type="submit"]:hover {
   }
   #primary {
     float: left;
+  }
+  #primary.full-width {
+    width: 100%;
+    float: none;
   }
   #secondary {
     width: 340px;

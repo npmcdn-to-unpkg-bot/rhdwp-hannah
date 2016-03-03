@@ -143,8 +143,26 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
 function rhd_register_sidebars()
 {
 	register_sidebar(array(
-		'name'			=> __( 'Sidebar', 'rhd' ),
+		'name'			=> __( 'Default Sidebar', 'rhd' ),
 		'id'			=> 'sidebar',
+		'before_title'	=> '<h2 class="widget-title">',
+		'after_title'	=> '</h2>',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>'
+	));
+
+	register_sidebar(array(
+		'name'			=> __( 'Store Sidebar', 'rhd' ),
+		'id'			=> 'sidebar-store',
+		'before_title'	=> '<h2 class="widget-title">',
+		'after_title'	=> '</h2>',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>'
+	));
+
+	register_sidebar(array(
+		'name'			=> __( 'Front Page Sidebar', 'rhd' ),
+		'id'			=> 'sidebar-front-page',
 		'before_title'	=> '<h2 class="widget-title">',
 		'after_title'	=> '</h2>',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -178,13 +196,6 @@ class RHD_Walker_Nav extends Walker_Nav_Menu {
 	}
 }
 
-register_nav_menu( 'primary', 'Main Site Navigation' );
-// register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
-
-
-// Includes and Requires
-// include_once( 'includes/rhd-admin-panel.php' );
-
 
 /* ==========================================================================
    Registrations, Theme Support, Thumbnails
@@ -201,6 +212,12 @@ function rhd_theme_setup()
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	add_theme_support( 'infinite-scroll', array( 'container' => 'content', 'footer' => 'page' ) );
+
+	register_nav_menu( 'primary', 'Main Site Navigation' );
+	register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
+
+	// Includes and Requires
+	// include_once( 'includes/rhd-admin-panel.php' );
 }
 add_action( 'after_setup_theme', 'rhd_theme_setup' );
 
