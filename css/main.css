@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:23:00 AM on 03-03-2016
+* RHD Dev: Compiled at 1:28:51 PM on 03-03-2016
 ***/
 
 .alignnone {
@@ -1017,7 +1017,7 @@ input[type="submit"]:hover {
   width: 100%;
 }
 .entry-content p {
-  margin: 0.25em auto;
+  margin: 1em auto;
   text-indent: 0;
 }
 .entry-content p[style*="text-align: center"] {
@@ -1179,7 +1179,32 @@ input[type="submit"]:hover {
   margin-bottom: 0;
 }
 #secondary .widget-title {
-  margin-top: 0;
+  margin: 0.25em 0;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 800;
+}
+.widget_rhd_store_locations_widget .widget-title {
+  margin: 0;
+}
+.widget_rhd_store_locations_widget .store-locations-list {
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.widget_rhd_store_locations_widget .store-locations-list .store-location {
+  margin-bottom: 1em;
+}
+.widget_rhd_store_locations_widget .store-locations-list .store-location:last-of-type {
+  margin-bottom: 0;
+}
+.widget_rhd_store_locations_widget .store-locations-list .store-location .store-name {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 800;
+}
+.widget_rhd_store_locations_widget .store-locations-list .store-location .store-info p {
+  margin: 0;
 }
 /* ==========================================================================
 	Media Queries
@@ -1217,11 +1242,11 @@ input[type="submit"]:hover {
     display: none;
   }
   #posts-feed .post.has-post-thumbnail .post-content {
-    width: 71%;
+    width: 63%;
     float: right;
   }
   #posts-feed .post.has-post-thumbnail .post-thumbnail {
-    width: 25%;
+    width: 32%;
     max-width: 300px;
     float: left;
     border: none;

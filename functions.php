@@ -46,7 +46,7 @@ function rhd_enqueue_styles()
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,700,800,400italic' );
 
 	$normalize_deps = array(
 		'slidebars',
@@ -119,7 +119,7 @@ add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic';
+	$font_url = '//fonts.googleapis.com/css?family=Open+Sans:400,700,800,400italic';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -480,7 +480,7 @@ function rhd_enhance_excerpts( $text )
 		$text = str_replace('\]\]\>', ']]&gt;', $text);
 		$text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
 		$text = strip_tags($text, '<a>');
-		$excerpt_length = 80;
+		$excerpt_length = 40;
 		$words = explode(' ', $text, $excerpt_length + 1);
 		if ( count( $words ) > $excerpt_length) {
 			array_pop( $words );
@@ -735,3 +735,106 @@ function rhd_svg_nav_logo() {
 /* ==========================================================================
 	Theme Functions and Customizations
    ========================================================================== */
+
+
+
+/* ==========================================================================
+	Widgets
+   ========================================================================== */
+
+
+/**
+ * RHD_Store_Locations class.
+ *
+ * @extends WP_Widget
+ */
+class RHD_Store_Locations extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+				'rhd_store_locations_widget', // Base ID
+			__('Store Locations Widget', 'rhd'), // Name
+			array( 'description' => __( 'A list of all Stores, with addresses and phone numbers.', 'rhd' ), ) // Args
+		);
+	}
+
+	public function update( $new_instance, $old_instance ) {
+		// processes widget options to be saved
+		$instance = $old_instance;
+
+		$instance['title'] = ( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+
+		return $instance;
+	}
+
+	public function widget( $args, $instance ) {
+		// outputs the content of the widget
+
+		extract( $args );
+
+		$title = ( $instance['title'] ) ? apply_filters('widget_title', $instance['title']) : '';
+
+		echo $before_widget;
+		?>
+
+		<h3 class="widget-title"><?php echo $title; ?></h3>
+
+		<?php
+		$store_args = array(
+			'post_type' => 'store',
+			'posts_per_page' => -1,
+		);
+		$stores = new WP_Query( $store_args );
+		?>
+
+		<?php if ( $stores->have_posts() ) : ?>
+
+			<ul class="store-locations-list">
+
+			<?php while ( $stores->have_posts() ) : $stores->the_post(); ?>
+
+				<li class="store-location">
+
+					<?php
+					$addr = do_shortcode( '[ct id="ct_Address_textarea_e4cb" property="value"]' );
+					$phone = do_shortcode( '[ct id="_ct_text_56d70df83ac98" property="value"]' );
+					?>
+
+					<h4 class="store-name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+					<div class="store-info">
+						<div class="store-address">
+							<?php echo wpautop( $addr ); ?>
+						</div>
+						<a class="store-phone" href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a>
+					</div>
+
+				</li>
+
+			<?php endwhile; ?>
+
+		<?php else : ?>
+			<li class="store-location no-stores">
+				<h3 class="store-name">No Stores Found</h3>
+			</li>
+		<?php endif;
+
+		echo $after_widget;
+	}
+
+	public function form( $instance ) {
+		// outputs the options form on admin
+		$args['title'] = esc_attr( $instance['title'] );
+	?>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Widget Title:' ); ?></label>
+			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $args['title']; ?>" >
+		</p>
+
+<?php
+	}
+}
+// register Foo_Widget widget
+function register_rhd_store_locations_widget() {
+    register_widget( 'RHD_Store_Locations' );
+}
+add_action( 'widgets_init', 'register_rhd_store_locations_widget' );

@@ -13,8 +13,10 @@ get_header();
 		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
+				<?php if ( ! is_single() ) : ?>
+					<div id="posts-feed">
+				<?php endif; ?>
 
-				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php
 						if ( is_single() ) get_template_part( 'content', 'single' );
@@ -24,6 +26,9 @@ get_header();
 
 				<?php if ( is_single() && comments_open() ) comments_template(); ?>
 
+				<?php if ( ! is_single() ) : ?>
+					</div>
+				<?php endif; ?>
 			<?php else : ?>
 
 				<article id="post-0" class="post no-results not-found">
