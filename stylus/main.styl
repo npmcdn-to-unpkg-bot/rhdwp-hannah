@@ -103,7 +103,7 @@ input[type="submit"]
 	#site-navigation
 		list-style none
 		padding-left 0
-		margin 0.5em 0 0 0
+		margin 0
 		-flexbox()
 
 		.menu-item
@@ -160,7 +160,6 @@ input[type="submit"]
 
 #main
 	-wrapper(2em,2em)
-	padding 2em 0
 	box-sizing border-box
 
 
@@ -280,6 +279,10 @@ input[type="submit"]
 		.post-thumbnail
 			border 1px solid $color1
 
+
+.blog-area
+#posts-feed
+	.post
 		.entry-header
 			margin 1em 0
 			text-align center
@@ -317,7 +320,6 @@ input[type="submit"]
 .front-page
 	#main
 		-unwrapper(100%)
-		padding 0
 
 		#front-page-news
 			-wrapper()
@@ -388,7 +390,7 @@ input[type="submit"]
 
 @media screen and (min-width 40em)
 	#masthead
-		height 7em
+		height 6em
 		transition all 0.25s
 
 		#site-title
@@ -407,7 +409,7 @@ input[type="submit"]
 		transition all 0.25s
 		position absolute
 		right 2%
-		top 55%
+		top 63%
 		-transform(translateY(-50%))
 
 		.menu-item
@@ -422,7 +424,7 @@ input[type="submit"]
 
 			&.has-post-thumbnail
 				.post-content
-					width 70%
+					width 71%
 					float right
 
 				.post-thumbnail
@@ -431,6 +433,9 @@ input[type="submit"]
 					float left
 					border none
 
+	.blog-area
+	#posts-feed
+		.post
 			.entry-header
 				text-align left
 				margin-top 0
@@ -487,7 +492,7 @@ input[type="submit"]
 
 @media screen and (min-width 60em)
 	#masthead
-		height 10em
+		height 8em
 
 		#site-title
 			width 27%
@@ -496,6 +501,7 @@ input[type="submit"]
 	#site-navigation-container
 		width 60%
 		right 4%
+		top 62%
 
 		.menu-item
 			font-size 0.9em
