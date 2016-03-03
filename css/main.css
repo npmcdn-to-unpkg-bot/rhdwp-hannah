@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:11:31 AM on 03-03-2016
+* RHD Dev: Compiled at 10:12:43 AM on 03-03-2016
 ***/
 
 .alignnone {
@@ -1070,6 +1070,12 @@ input[type="submit"]:hover {
   margin: 1em auto;
   border: 2px solid #1e2171;
   border-radius: 2px;
+}
+#posts-feed .post:first-of-type {
+  margin-top: 0;
+}
+#posts-feed .post:last-of-type {
+  margin-bottom: 0;
 }
 #posts-feed .post .post-thumbnail {
   border: 1px solid #1e2171;
