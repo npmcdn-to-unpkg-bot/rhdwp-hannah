@@ -182,10 +182,6 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
 // register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
 
 
-// Includes and Requires
-// include_once( 'includes/rhd-admin-panel.php' );
-
-
 /* ==========================================================================
    Registrations, Theme Support, Thumbnails
    ========================================================================== */
@@ -227,19 +223,20 @@ function rhd_theme_setup()
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	add_theme_support( 'infinite-scroll', array( 'container' => 'content', 'footer' => 'page' ) );
+
+	// Content Width
+	if ( ! isset( $content_width ) ) {
+		$content_width = 620;
+	}
+
+	// Custom Admin Panel
+	// include_once( 'includes/rhd-admin-panel.php' );
 }
 add_action( 'after_setup_theme', 'rhd_theme_setup' );
 
 
 // Enable themes auto-update
 add_filter( 'allow_minor_auto_core_updates', '__return_true' );
-
-
-// Content Width
-if ( ! isset( $content_width ) ) {
-	$content_width = 620;
-
-}
 
 
 /**
@@ -255,14 +252,6 @@ function rhd_attachment_display_settings()
 	update_option( 'image_default_size', 'large' );
 }
 add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
-
-
-// Adds RSS feed links to for posts and comments.
-add_theme_support( 'automatic-feed-links' );
-
-
-// Allow shortcodes in widgets
-add_filter( 'widget_text', 'do_shortcode' );
 
 
 /**
@@ -297,6 +286,14 @@ function rhd_add_image_sizes( $sizes )
 	return $newsizes;
 }
 add_filter( 'image_size_names_choose', 'rhd_add_image_sizes' );
+
+
+// Adds RSS feed links to for posts and comments.
+add_theme_support( 'automatic-feed-links' );
+
+
+// Allow shortcodes in widgets
+add_filter( 'widget_text', 'do_shortcode' );
 
 
 /* ==========================================================================
@@ -355,15 +352,15 @@ function rhd_is_mobile()
 {
 	$mobile_browser = 0;
 
-	if (preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
-	    $mobile_browser++;
+	if ( preg_match( '/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower( $_SERVER['HTTP_USER_AGENT'] ) ) ) {
+	    ++$mobile_browser;
 	}
 
-	if ((strpos(strtolower($_SERVER['HTTP_ACCEPT']),'application/vnd.wap.xhtml+xml') > 0) or ((isset($_SERVER['HTTP_X_WAP_PROFILE']) or isset($_SERVER['HTTP_PROFILE'])))) {
-	    $mobile_browser++;
+	if ( ( strpos( strtolower( $_SERVER['HTTP_ACCEPT'] ),'application/vnd.wap.xhtml+xml' ) > 0 ) or ( ( isset( $_SERVER['HTTP_X_WAP_PROFILE'] ) or isset( $_SERVER['HTTP_PROFILE'] ) ) ) ) {
+	    ++$mobile_browser;
 	}
 
-	$mobile_ua = strtolower(substr($_SERVER['HTTP_USER_AGENT'], 0, 4));
+	$mobile_ua = strtolower( substr( $_SERVER['HTTP_USER_AGENT'], 0, 4) );
 	$mobile_agents = array(
 	    'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
 	    'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
@@ -375,17 +372,17 @@ function rhd_is_mobile()
 	    'tosh','tsm-','upg1','upsi','vk-v','voda','wap-','wapa','wapi','wapp',
 	    'wapr','webc','winw','winw','xda ','xda-');
 
-	if (in_array($mobile_ua,$mobile_agents)) {
-	    $mobile_browser++;
+	if ( in_array( $mobile_ua,$mobile_agents ) ) {
+	    ++$mobile_browser;
 	}
 
 	if ( array_key_exists( 'ALL_HTTP', $_SERVER ) ) {
-		if (strpos(strtolower($_SERVER['ALL_HTTP']),'OperaMini') > 0) {
-		    $mobile_browser++;
+		if ( strpos( strtolower ($_SERVER['ALL_HTTP'] ),'OperaMini' ) > 0 ) {
+		    ++$mobile_browser;
 		}
 	}
 
-	if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows') > 0) {
+	if ( strpos( strtolower( $_SERVER['HTTP_USER_AGENT'] ),'windows') > 0 ) {
 	    $mobile_browser = 0;
 	}
 
