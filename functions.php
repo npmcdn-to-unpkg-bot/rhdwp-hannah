@@ -196,18 +196,7 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
  */
 function rhd_init()
 {
-	register_taxonomy( 'location', 'post', array(
-		'label' => 'Store Locations',
-		'labels' => array(
-			'name' => 'Store Locations',
-		),
-		'public' => true,
-		'show_admin_column' => false,
-		'show_in_nav_menus' => false,
-		'show_tagcloud' => false,
-		'show_ui' => true,
-		'hierarchical' => true
-	));
+	// Register taxonomies and things if ya dig it
 }
 add_action( 'init', 'rhd_init' );
 
