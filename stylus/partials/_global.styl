@@ -59,8 +59,11 @@ $ff_body = 'Open Sans', sans-serif
 	margin $topMargin auto $bottomMargin auto
 
 
--unwrapper()
-	width 100%
+-unwrapper( $w = false )
+	if $w != false
+		width $w
+	else
+		width 100%
 	max-width none
 	margin initial
 

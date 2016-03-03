@@ -64,6 +64,12 @@ textarea
 		border-color $color3
 
 
+hr
+	-wrapper(1em, 1em)
+	height 4px
+	background-color $color1
+
+
 input[type="submit"]
 	cursor pointer
 	font-family $ff_body
@@ -81,10 +87,12 @@ input[type="submit"]
 
 
 #site-title
-	width 12em
-	height 7em
+	-wrapper(1em, 1em, 80%)
+	height auto
+	max-width 18rem
 	display block
-	background $color2 //temporary
+	transition left 0.25s
+	transition width 0.25s
 
 
 #site-navigation-container
@@ -234,7 +242,8 @@ input[type="submit"]
 
 	img
 	iframe
-		max-width 100%
+		-wrapper(1em, 1em, 90%)
+		float none
 
 	img
 		height auto
@@ -290,63 +299,30 @@ input[type="submit"]
 
 
 /* ==========================================================================
-	Comments
+	Page Template
    ========================================================================== */
 
-#comments
-	margin 2em auto
+.front-page
+	#main
+		-unwrapper(100%)
+		padding 0
 
-	.commentlist
-		list-style none
-		padding-left 0
+		#front-page-news
+			-wrapper()
 
-		ul
-		ol
-			@extends #comments .commentlist
+		#primary
+		#secondary
+			float none
 
-		.children
-			padding 0 1.5em
+		#primary
+			padding 2em 0 2em
 
-		.comment
-			&:last-child
-				padding-bottom 1.5em
+		#secondary
+			padding 2em 0 1em
 
-	.even
-		background $off_white
-
-	.odd
-		background white
-
-	.comment-body
-		padding 1em
-		box-sizing border-box
-
-	textarea
-		max-width 100%
-
-	#commentform
-		width 100%
-		min-width 18rem
-		max-width 100%
-
-		p
-			margin-bottom 0.75rem
-
-		input
-		textarea
+		#front-page-slideshow
 			width 100%
-			font-size 0.8em
-			box-sizing border-box
-			padding 0.5em
-			display inline-block
-
-		#submit
-			width auto
-			padding-left 0.8em
-			cursor pointer
-
-		.comment-subscription-form
-			margin initial
+			border-bottom 4px solid $color1
 
 
 /* ==========================================================================
@@ -398,21 +374,30 @@ input[type="submit"]
 
 @media screen and (min-width 40em)
 	#masthead
-		height 10em
+		height 7em
+		transition all 0.25s
 
 		#site-title
+			width 23%
+			height auto
+			margin 0
 			position absolute
 			top 50%
-			left 1em
+			left 2%
 			-transform(translateY(-50%))
 
 	#site-navigation-container
-		width 80%
+		width 72%
 		display block
+		margin-top 0
+		transition all 0.25s
 		position absolute
-		right 1em
-		top 50%
+		right 2%
+		top 55%
 		-transform(translateY(-50%))
+
+		.menu-item
+			font-size 0.8em
 
 	#hamburger
 		display none
@@ -453,23 +438,51 @@ input[type="submit"]
 				margin-bottom 2em
 				display block
 
+	.entry-content
+		img
+		iframe
+			-unwrapper(initial)
+
+	.front-page
+		#front-page-news
+			-wrapper()
+
+
+@media screen and (min-width 60em)
+	#masthead
+		height 10em
+
+		#site-title
+			width 27%
+			left 4%
+
+	#site-navigation-container
+		width 60%
+		right 4%
+
+		.menu-item
+			font-size 0.9em
+
 
 // Fixed-width 340px sidebar
 @media screen and (min-width 40em)
 	#main
 		-clearfix()
 
-	#primary
-		float left
+	#front-page-news
+		-wrapper()
 
-	#secondary
-		width 340px
-		float right
+		#primary
+			float left
 
-		.widget
-			width 300px
-			margin-left auto
-			margin-right auto
+		#secondary
+			width 340px
+			float right
+
+			.widget
+				width 300px
+				margin-left auto
+				margin-right auto
 
 
 @media screen and (min-width 58em)

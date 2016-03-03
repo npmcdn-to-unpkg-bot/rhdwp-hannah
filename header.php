@@ -75,7 +75,9 @@
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
-				<a href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" alt="<?php bloginfo( 'name' ); ?>" src=""></a>
+				<a id="site-title" href="<?php echo home_url(); ?>">
+					<?php rhd_svg_nav_logo(); ?>
+				</a>
 
 				<?php wp_nav_menu( $nav_args_main ); ?>
 

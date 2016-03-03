@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:04:50 PM on 01-03-2016
+* RHD Dev: Compiled at 9:12:40 PM on 02-03-2016
 ***/
 
 .alignnone {
@@ -1008,6 +1008,14 @@ input:focus,
 textarea:focus {
   border-color: #da0962;
 }
+hr {
+  width: 85%;
+  max-width: none;
+  position: relative;
+  margin: 1em auto 1em auto;
+  height: 4px;
+  background-color: #1e2171;
+}
 input[type="submit"] {
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
@@ -1023,10 +1031,15 @@ input[type="submit"]:hover {
   border-bottom: 4px solid #1e2171;
 }
 #site-title {
-  width: 12em;
-  height: 7em;
+  width: 80%;
+  max-width: none;
+  position: relative;
+  margin: 1em auto 1em auto;
+  height: auto;
+  max-width: 18rem;
   display: block;
-  background: #5090cc;
+  transition: left 0.25s;
+  transition: width 0.25s;
 }
 #site-navigation-container {
   width: 100%;
@@ -1170,7 +1183,11 @@ input[type="submit"]:hover {
 }
 .entry-content img,
 .entry-content iframe {
-  max-width: 100%;
+  width: 90%;
+  max-width: none;
+  position: relative;
+  margin: 1em auto 1em auto;
+  float: none;
 }
 .entry-content img {
   height: auto;
@@ -1219,63 +1236,33 @@ input[type="submit"]:hover {
   float: right;
 }
 /* ==========================================================================
-	Comments
+	Page Template
    ========================================================================== */
-#comments {
-  margin: 2em auto;
-}
-#comments .commentlist,
-#comments .commentlist ul,
-#comments .commentlist ol {
-  list-style: none;
-  padding-left: 0;
-}
-#comments .commentlist .children,
-#comments .commentlist ul .children,
-#comments .commentlist ol .children {
-  padding: 0 1.5em;
-}
-#comments .commentlist .comment:last-child,
-#comments .commentlist ul .comment:last-child,
-#comments .commentlist ol .comment:last-child {
-  padding-bottom: 1.5em;
-}
-#comments .even {
-  background: #e1e1e1;
-}
-#comments .odd {
-  background: #fff;
-}
-#comments .comment-body {
-  padding: 1em;
-  box-sizing: border-box;
-}
-#comments textarea {
-  max-width: 100%;
-}
-#comments #commentform {
+.front-page #main {
   width: 100%;
-  min-width: 18rem;
-  max-width: 100%;
-}
-#comments #commentform p {
-  margin-bottom: 0.75rem;
-}
-#comments #commentform input,
-#comments #commentform textarea {
-  width: 100%;
-  font-size: 0.8em;
-  box-sizing: border-box;
-  padding: 0.5em;
-  display: inline-block;
-}
-#comments #commentform #submit {
-  width: auto;
-  padding-left: 0.8em;
-  cursor: pointer;
-}
-#comments #commentform .comment-subscription-form {
+  max-width: none;
   margin: initial;
+  padding: 0;
+}
+.front-page #main #front-page-news {
+  width: 85%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+.front-page #main #primary,
+.front-page #main #secondary {
+  float: none;
+}
+.front-page #main #primary {
+  padding: 2em 0 2em;
+}
+.front-page #main #secondary {
+  padding: 2em 0 1em;
+}
+.front-page #main #front-page-slideshow {
+  width: 100%;
+  border-bottom: 4px solid #1e2171;
 }
 /* ==========================================================================
 	Ghost Buttons
@@ -1319,23 +1306,32 @@ input[type="submit"]:hover {
    ========================================================================== */
 @media screen and (min-width: 40em) {
   #masthead {
-    height: 10em;
+    height: 7em;
+    transition: all 0.25s;
   }
   #masthead #site-title {
+    width: 23%;
+    height: auto;
+    margin: 0;
     position: absolute;
     top: 50%;
-    left: 1em;
+    left: 2%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
   #site-navigation-container {
-    width: 80%;
+    width: 72%;
     display: block;
+    margin-top: 0;
+    transition: all 0.25s;
     position: absolute;
-    right: 1em;
-    top: 50%;
+    right: 2%;
+    top: 55%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+  }
+  #site-navigation-container .menu-item {
+    font-size: 0.8em;
   }
   #hamburger {
     display: none;
@@ -1369,16 +1365,50 @@ input[type="submit"]:hover {
     margin-bottom: 2em;
     display: block;
   }
+  .entry-content img,
+  .entry-content iframe {
+    width: initial;
+    max-width: none;
+    margin: initial;
+  }
+  .front-page #front-page-news {
+    width: 85%;
+    max-width: none;
+    position: relative;
+    margin: 0 auto 0 auto;
+  }
+}
+@media screen and (min-width: 60em) {
+  #masthead {
+    height: 10em;
+  }
+  #masthead #site-title {
+    width: 27%;
+    left: 4%;
+  }
+  #site-navigation-container {
+    width: 60%;
+    right: 4%;
+  }
+  #site-navigation-container .menu-item {
+    font-size: 0.9em;
+  }
 }
 @media screen and (min-width: 40em) {
-  #primary {
+  #front-page-news {
+    width: 85%;
+    max-width: none;
+    position: relative;
+    margin: 0 auto 0 auto;
+  }
+  #front-page-news #primary {
     float: left;
   }
-  #secondary {
+  #front-page-news #secondary {
     width: 340px;
     float: right;
   }
-  #secondary .widget {
+  #front-page-news #secondary .widget {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
