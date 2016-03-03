@@ -309,7 +309,8 @@ add_filter( 'login_headerurl', 'rhd_branding_login' );
 
 
 // Site Title as "login message" (underneath RHD logo)
-function rhd_login_message() {
+function rhd_login_message()
+{
 	echo '<h1 class="rhd-login-site-title">' . get_bloginfo('name') . "</h1>\n";
 }
 add_action( 'login_message', 'rhd_login_message' );
@@ -501,8 +502,8 @@ function rhd_enhance_excerpts( $text )
 	}
 	return $text;
 }
-remove_filter('get_the_excerpt', 'wp_trim_excerpt');
-add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
+remove_filter( 'get_the_excerpt', 'wp_trim_excerpt' );
+add_filter( 'get_the_excerpt', 'rhd_enhance_excerpts' );
 
 
 /**
@@ -625,7 +626,7 @@ function rhd_title_check_hidden( $title )
 	}
 	return $title;
 }
-add_filter('widget_title', 'rhd_title_check_hidden');
+add_filter( 'widget_title', 'rhd_title_check_hidden' );
 
 
 /**
@@ -662,7 +663,8 @@ add_filter( 'body_class', 'rhd_body_class' );
  * @access public
  * @return void
  */
-function rhd_svg_logo() {
+function rhd_svg_logo()
+{
 	echo '
 			<svg id="PLACEHOLDER">
 				<!-- SVG CODE HERE -->
