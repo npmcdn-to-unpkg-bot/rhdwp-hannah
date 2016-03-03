@@ -168,6 +168,9 @@ function rhd_theme_setup()
 	// Allow shortcodes in widgets
 	add_filter( 'widget_text', 'do_shortcode' );
 
+	// Enable themes auto-update
+	add_filter( 'allow_minor_auto_core_updates', '__return_true' );
+
 	// Content Width
 	if ( ! isset( $content_width ) ) {
 		$content_width = 620;
@@ -177,10 +180,6 @@ function rhd_theme_setup()
 	// include_once( 'includes/rhd-admin-panel.php' );
 }
 add_action( 'after_setup_theme', 'rhd_theme_setup' );
-
-
-// Enable themes auto-update
-add_filter( 'allow_minor_auto_core_updates', '__return_true' );
 
 
 /**
