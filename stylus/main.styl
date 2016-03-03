@@ -2,7 +2,7 @@
 @require "partials/_wp-core.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-@require "partials/_metabar.styl"
+//@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
@@ -264,23 +264,29 @@ input[type="submit"]
 		margin 0
 
 
-.blog-area
-	#main
-		.post
-			-clearfix()
+#posts-feed
+	.post
+		padding 1em
+		margin 1em auto
+		border 2px solid $color1
+		border-radius 2px
 
-			.entry-header
-				text-align center
-				margin-bottom 1em
+		.post-thumbnail
+			border 1px solid $color1
 
-				.entry-title
-					margin 0 0 0.25rem 0
+		.entry-header
+			margin 1em 0
+			text-align center
 
-				.entry-details
-					margin 0
+			.entry-title
+				margin 0 0 0.25rem 0
 
-					.sep
-						font-size 0.8em
+			.entry-details
+				margin 0
+				font-size 0.8em
+
+				.sep
+					font-size 0.8em
 
 
 .pagination
@@ -311,10 +317,6 @@ input[type="submit"]
 			-wrapper()
 
 		#primary
-		#secondary
-			float none
-
-		#primary
 			padding 2em 0 2em
 
 		#secondary
@@ -322,7 +324,13 @@ input[type="submit"]
 
 		#front-page-slideshow
 			width 100%
-			border-bottom 4px solid $color1
+
+			.soliloquy-image
+				border-bottom 4px solid $color1
+
+		#front-page-quick-links
+			background-color $off_white
+			padding 2em 0
 
 
 /* ==========================================================================
@@ -402,6 +410,28 @@ input[type="submit"]
 	#hamburger
 		display none
 
+	#posts-feed
+		.post
+			-clearfix()
+
+			&.has-post-thumbnail
+				.post-content
+					width 70%
+					float right
+
+				.post-thumbnail
+					width 25%
+					max-width 300px
+					float left
+					border none
+
+			.entry-header
+				text-align left
+				margin-top 0
+
+				.entry-title
+					margin 0 0 0.25rem
+
 	#comments
 		#commentform
 			width 75%
@@ -441,6 +471,7 @@ input[type="submit"]
 	.entry-content
 		img
 		iframe
+			width initial
 			-unwrapper(initial)
 
 	.front-page
@@ -472,17 +503,17 @@ input[type="submit"]
 	#front-page-news
 		-wrapper()
 
-		#primary
-			float left
+	#primary
+		float left
 
-		#secondary
-			width 340px
-			float right
+	#secondary
+		width 340px
+		float right
 
-			.widget
-				width 300px
-				margin-left auto
-				margin-right auto
+		.widget
+			width 300px
+			margin-left auto
+			margin-right auto
 
 
 @media screen and (min-width 58em)
