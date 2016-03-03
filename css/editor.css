@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:21:03 PM on 04-02-2016
+* RHD Dev: Compiled at 8:27:45 PM on 02-03-2016
 ***/
 
 /**
@@ -1152,7 +1152,10 @@ input[type="submit"]:hover {
 }
 .entry-content img,
 .entry-content iframe {
-  max-width: 100%;
+  width: 90%;
+  max-width: 64rem;
+  position: relative;
+  margin: 1em auto 1em auto;
 }
 .entry-content img {
   height: auto;
@@ -1322,6 +1325,12 @@ input[type="submit"]:hover {
     height: auto;
     margin-bottom: 2em;
     display: block;
+  }
+  .entry-content img,
+  .entry-content iframe {
+    width: initial;
+    max-width: none;
+    margin: initial;
   }
 }
 @media screen and (min-width: 40em) {

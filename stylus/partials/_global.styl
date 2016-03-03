@@ -37,18 +37,19 @@ $ff-body = 'Oswald', sans-serif
 
 
 -wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
-	if $customWidth == false
-		$w = 85%
-	else
+	if $customWidth != false
 		$w = $customWidth
-
-	if $customMax == false
-		$mw = 64rem
 	else
+		$w = 85%
+
+	if $customMax != false
 		$mw = $customMax
+	else
+		$mw = 64rem
 
 	if $topMargin == false
 		$topMargin = 0
+
 	if $bottomMargin == false
 		$bottomMargin = 0
 
@@ -58,8 +59,12 @@ $ff-body = 'Oswald', sans-serif
 	margin $topMargin auto $bottomMargin auto
 
 
--unwrapper()
-	width 100%
+-unwrapper( $w = false )
+	if $w != false
+		width $w
+	else
+		width 100%
+
 	max-width none
 	margin initial
 
