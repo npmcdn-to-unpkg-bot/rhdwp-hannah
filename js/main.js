@@ -1,81 +1,84 @@
-/* ==========================================================================
-	Setup
-   ========================================================================== */
-
-var $window = jQuery(window),
-	$body = jQuery('body'),
-	$main = jQuery('#main');
-
-var isSingle = ( $body.hasClass('single') ) ? true : false,
-	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
-	isPaged = $body.hasClass('paged');
-
-// wp_data object
-var homeUrl = wp_data.home_url,
-	themeDir = wp_data.theme_dir,
-	imgDir = wp_data.img_dir;
-
-var isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false;
-var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
-var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
-var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
-
-
-/* ==========================================================================
-	Let 'er rip...
-   ========================================================================== */
-
 (function($){
-
+	var postContent = null;
+	
 	$(document).ready(function(){
 		rhdInit();
-
-		// Metabar dropdowns
-		$('.rhd-dropdown-title').click(function(e){
-			e.preventDefault();
-
-			var $this = $(this),
-				$dd = $this.siblings('ul');
-
-			$dd.slideToggle();
-		});
-
-
+		
+		
+		// Spanish replace text
+		$(".page-id-309 .ninja-forms-required-items").text('Se requieren áreas marcadas con *');
+		
+		
 		// "Image Strip"
-		if ( $('#content').hasClass( 'image-strip-active' ) ) {
-			if ( $window.width() > 800 )
-				setImageStrip();
-
-			$window.on('resize', function(){
-				if ( $window.width() > 800 )
+		if ( $('.entry-content img').length ) {
+			if ( $('body').hasClass('page') && !$("body, #primary").is( '.blog-area' ) && !$("body").hasClass('no-image-strip') && !$("body").hasClass( 'page-id-6' ) && !$("body").hasClass( 'page-id-306' ) ) {
+				if ( $(window).width() > 800 )
 					setImageStrip();
-				else
-					unsetImageStrip();
-			});
+				
+				$(window).on('resize', function(){
+					if ( $(window).width() > 800 )
+						setImageStrip();
+					else
+						unsetImageStrip();
+				});
+			}
 		}
 	});
 
+	
+	function setImageStrip() {
+		if ( $('#content article img.alignnone').length ) {
+			$('<div id="image-strip"></div>').prependTo('#content');
+			$('#content article').addClass('strip-active');
+			
+			$(".entry-content img").each(function(){
+				var $this = $(this);
+				if ( $this.hasClass('alignnone') ) {
+					if ( $this.parent().is('a') ) {
+						$this
+							.parent('a')
+							.appendTo($("#image-strip"));
+						$this.addClass("strip-active");
+					} else {
+						$this
+							.appendTo($("#image-strip"))
+							.addClass("strip-active");
+					}
+				}
+			});
+		}
+	}
+	
+	function unsetImageStrip() {
+		if ( $("#image-strip").length ) {
+			$("#image-strip").remove();
+			
+			$('#content article').removeClass('strip-active');
+			$(".entry-content").removeClass('strip-active');
+			
+			$(".entry-content").html(postContent);
+		}
+	}
+
 
 	function rhdInit() {
-		// wpAdminBarPush();
+		//wpAdminBarPush();
 
 		$.slidebars({
-			siteClose: false,
+			siteClose: false
 		});
 
 		toggleBurger();
 
-		// Fix faux-flexbox
-		fixGridLayout();
-
-		// Image Strip
 		postContent = $(".entry-content").html();
+		
+		superscriptCopy();
 	}
 
 
 	function wpAdminBarPush() {
-		$("#wpadminbar").css({
-			top: $("#masthead").height(),
+		$("#page").css({
+			top: $("#wpadminbar").height(),
 		});
 	}
 
@@ -100,31 +103,12 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
 		}
 	}
-
-
-	// Set Image Strip layout
-	function setImageStrip() {
-		$('<div id="image-strip"></div>').prependTo('#content');
-		$('#content article').addClass('strip-active');
-
-		$(".entry-content img").each(function(){
-			if ( $(this).hasClass('alignnone') ) {
-				$(this)
-					.appendTo($("#image-strip"))
-					.addClass("strip-active");
-			}
-		});
-	}
-
-
-	// Unset Image Strip layout
-	function unsetImageStrip() {
-		$("#image-strip").html('');
-
-		$('#content article').removeClass('strip-active');
-		$(".entry-content").removeClass('strip-active');
-
-		$(".entry-content").html(postContent);
+	
+	
+	// superscript-ifies specified ® characters
+	function superscriptCopy() {
+		var $title = $("#site-title a");
+		$title.html($title.text().replace('Erin', 'Erin<sup>®</sup>'));
 	}
 
 })(jQuery);

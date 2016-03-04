@@ -10,16 +10,69 @@ get_header(); ?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
-
 			<header class="page-header">
 				<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
 			</header><!-- .page-header -->
 
-			<?php if ( have_posts() ) : ?>
-
+			<?php if ( have_posts() ) : $post_type = get_post_type(); ?>
+				
+				<?php if ( $post_type == 'club_member' ) : ?>
+					<p style="font-size: 1.1em;"><a href="<?php echo home_url( 'history/roster' ); ?>">&larr; Back to Roster</a></p>
+					<table id='roster-search' class='roster-table'>
+						<tr>
+							<th class='name'>Name</th>
+							<th class='elected'>Year Elected</th>
+							<th class='died'>Year Died</th>				
+							<th class='memb_type'>Membership Type</th>
+							<th class='notes'>Notes</th>
+						</tr>
+				
+				<?php endif; ?>
+				
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content' ); ?>
+							
+					<?php if ( $post_type == 'club_member' ) : ?>
+						<?php
+						$ext_link = do_shortcode( '[ct id="_ct_text_5638d53b1e9d4" property="value"]' );
+						
+						if ( get_the_content() != ' ' ) {
+							$link = get_the_permalink();
+							$target = "_self";
+						} else {
+							$link = do_shortcode( '[ct id="_ct_text_5638d53b1e9d4" property="value"]' );
+							$target = "_blank";
+						}
+						
+						$terms = get_the_terms( $post->ID, 'membership_type' );
+						if ( $terms && ! is_wp_error( $terms ) ) {
+							$term_list = array();
+							foreach ( $terms as $term ) {
+								$term_list[] = $term->name;
+							}
+							
+							$joined_terms = join( ", ", $term_list );
+						}
+						?>
+						<tr>
+							<?php $name = ( $link ) ? '<a href="' . $link . '" target="' . $target . '">' . get_the_title() . '</a>' : get_the_title(); ?>
+							
+							<td><?php echo $name; ?></td>
+							<td><?php echo do_shortcode( '[ct id="_ct_text_56382e07e4c3a" property="value"]' ); ?></td>
+							<td><?php echo do_shortcode( '[ct id="_ct_text_56382e13b6858" property="value"]' ); ?></td>
+							<td><?php echo $joined_terms; ?></td>
+							<td><?php echo do_shortcode( '[ct id="_ct_text_5638d2dfbf87f" property="value"]' ); ?></td>
+						</tr>
+					<?php else : ?>
+						
+						<?php get_template_part( 'content' ); ?>
+
+					<?php endif; ?>
+					
 				<?php endwhile; ?>
+
+				<?php if ( $post_type == 'club_member' ) : ?>
+					</table>
+				<?php endif; ?>
 
 			<?php else : ?>
 

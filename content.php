@@ -1,6 +1,6 @@
 <?php
 /**
- * The default template for displaying content. Used for both index/archive/search.
+ * The default template for displaying content. Used for both single and index/archive/search, as well as home page.
  *
  * @package WordPress
  * @subpackage rhd
@@ -9,10 +9,14 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
-			<h2 class="entry-title">
-				<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'rhd' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-			</h2>
-			<p class="entry-details">By <?php the_author(); ?> <span class="sep">|</span> <?php  the_time( get_option( 'date_format' ) ); ?></p>
+			<?php if ( is_single() ) : ?>
+				<h2 class="entry-title"><?php the_title(); ?></h2>
+			<?php else : ?>
+				<h2 class="entry-title">
+					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'rhd' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+				</h2>
+			<?php endif; // is_single() ?>
+			<p class="entry-details"><?php the_time( get_option( 'date_format' ) ); ?></p>
 		</header><!-- .entry-header -->
 
 		<?php if ( is_search() ) : // Only display Excerpts for Search ?>

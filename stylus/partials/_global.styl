@@ -3,11 +3,15 @@
    ========================================================================== */
 
 // Variables
-$color2 = #f5c419
-$color3 = #f55033
+$yellow = #FBEB1A
+$cream = #fff3e2
+$navy = #004789
+$powder = #4396E3
 $off-white = #e1e1e1
 
-$ff-body = 'Oswald', sans-serif
+$ff-body = 'Open Sans', sans-serif
+$ff-special = 'Luckiest Guy', cursive
+$ff-title = 'Open Sans Condensed', sans-serif
 
 // Functions
 
@@ -37,19 +41,18 @@ $ff-body = 'Oswald', sans-serif
 
 
 -wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
-	if $customWidth != false
-		$w = $customWidth
-	else
+	if $customWidth == false
 		$w = 85%
-
-	if $customMax != false
-		$mw = $customMax
 	else
+		$w = $customWidth
+
+	if $customMax == false
 		$mw = 64rem
+	else
+		$mw = $customMax
 
 	if $topMargin == false
 		$topMargin = 0
-
 	if $bottomMargin == false
 		$bottomMargin = 0
 
@@ -59,12 +62,8 @@ $ff-body = 'Oswald', sans-serif
 	margin $topMargin auto $bottomMargin auto
 
 
--unwrapper( $w = false )
-	if $w != false
-		width $w
-	else
-		width 100%
-
+-unwrapper()
+	width 100%
 	max-width none
 	margin initial
 

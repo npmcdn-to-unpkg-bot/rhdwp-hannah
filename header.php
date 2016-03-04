@@ -18,70 +18,72 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<!--
-									   _  _
-                                      | || |
-         ____  ___   _   _  ____    _ | || | _    ___   _   _   ___   ____
-        / ___)/ _ \ | | | ||  _ \  / || || || \  / _ \ | | | | /___) / _  )
-       | |   | |_| || |_| || | | |( (_| || | | || |_| || |_| ||___ |( (/ /
-       |_|    \___/  \____||_| |_| \____||_| |_| \___/  \____|(___/  \____)
-
-                                     _               _
-                                    | |             (_)
-                                  _ | |  ____   ___  _   ____  ____    ___
-                                 / || | / _  ) /___)| | / _  ||  _ \  /___)
-                                ( (_| |( (/ / |___ || |( ( | || | | ||___ |
-                                 \____| \____)(___/ |_| \_|| ||_| |_|(___/
-                                                       (_____|
-
-		-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 		<title><?php wp_title(); ?></title>
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 		<?php wp_head(); ?>
+
 	</head>
 
-	<body <?php body_class(); ?>>
+	<body <?php body_class( $body_classes ); ?>>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
 		<?php
-		$nav_args_main = array(
-			'theme_location' => 'primary',
-			'menu_id' => 'site-navigation',
-			'menu_class' => 'site-navigation',
-			'container' => 'nav',
-			'container_id' => 'site-navigation-container',
-			'walker' => new RHD_Walker_Nav
-		);
+			$nav_args_main = array(
+				'theme_location' => 'primary',
+				'menu_id' => 'site-navigation',
+				'menu_class' => 'site-navigation',
+				'container' => 'nav',
+				'container_id' => 'site-navigation-container',
+				'walker' => new RHD_Walker_Nav
+			);
 
-		$nav_args_sb = array(
-			'theme_location' => 'slidebar',
-			'menu_id' => 'site-navigation-sb',
-			'menu_class' => 'site-navigation',
-			'container' => 'nav',
-			'container_id' => 'site-navigation-sb-container'
-		);
+			$nav_args_sb = array(
+				'theme_location' => 'slidebar',
+				'menu_id' => 'site-navigation-sb',
+				'menu_class' => 'site-navigation',
+				'container' => 'nav',
+				'container_id' => 'site-navigation-sb-container'
+			);
 		?>
 
-		<div class="sb-slidebar sb-left sb-style-push">
+		<div class="sb-slidebar sb-left sb-style-overlay sb-width-custom sb-momentum-scrolling" data-sb-width="60%">
+			<h1 id="site-title-sb" class="site-title">
+				<a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
+			</h1>
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
-
-		<div id="page" class="hfeed site sb-site-container">
-			<header id="masthead" class="site-header">
-				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
-
+		
+		<header id="masthead" class="site-header">
+			<div id="site-logo">
+				<?php $updir = wp_upload_dir(); ?>
+				<a href="<?php echo home_url(); ?>">
+					<img src="<?php echo $updir['baseurl']; ?>/2015/12/camperin.jpg" alt="Camp Erin® Modesto">
+				</a>
+			</div>
+			<div id="masthead-content">
+				<h1 id="site-title" class="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+				
+				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+				
 				<?php wp_nav_menu( $nav_args_main ); ?>
 
-				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
+				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htla">
 					<span>Toggle nav</span>
 				</button>
-			</header><!-- #masthead -->
-
-			<main id="main">
+			</div>
+		</header><!-- #masthead -->
+			
+		<div id="page" class="hfeed site sb-site-container">
+			
+			<?php
+			if ( is_front_page() && function_exists( 'soliloquy' ) )
+				soliloquy( '82' );
+			?>
+			
+			<main id="main" class="clearfix">
