@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:51:30 AM on 04-03-2016
+* RHD Dev: Compiled at 4:22:42 PM on 04-03-2016
 ***/
 
 /**
@@ -1150,24 +1150,23 @@ input[type="submit"]:hover {
   padding-left: 1em;
 }
 .entry-content img,
-.entry-content iframe {
-  width: 90%;
+.entry-content iframe,
+.entry-content a img {
+  width: 95%;
   max-width: 64rem;
   position: relative;
   margin: 1em auto 1em auto;
 }
-.entry-content img {
+.entry-content img,
+.entry-content a img {
   height: auto;
-}
-.entry-content img.alignleft {
-  margin-right: 1em;
-}
-.entry-content img.alignright {
-  margin-left: 1em;
-}
-.entry-content img.aligncenter {
   display: block;
-  margin: 0 auto;
+}
+.entry-content img.alignleft,
+.entry-content a img.alignleft,
+.entry-content img.alignright,
+.entry-content a img.alignright {
+  float: none;
 }
 .entry-meta p {
   margin: 0;
@@ -1326,10 +1325,26 @@ input[type="submit"]:hover {
     display: block;
   }
   .entry-content img,
-  .entry-content iframe {
+  .entry-content iframe,
+.entry-content a img {
+    width: initial;
     width: initial;
     max-width: none;
     margin: initial;
+  }
+  .entry-content img.alignleft,
+.entry-content a img.alignleft {
+    margin-right: 1em;
+    float: left;
+  }
+  .entry-content img.alignright,
+.entry-content a img.alignright {
+    margin-left: 1em;
+    float: right;
+  }
+  .entry-content img.aligncenter,
+.entry-content a img.aligncenter {
+    margin: 0 auto;
   }
 }
 @media screen and (min-width: 40em) {

@@ -219,20 +219,19 @@ input[type="submit"]
 
 	img
 	iframe
-		-wrapper(1em, 1em, 90%)
+		-wrapper(1em, 1em, 95%)
 
 	img
 		height auto
+		display block
 
 		&.alignleft
-			margin-right 1em
-
 		&.alignright
-			margin-left 1em
+			float none
 
-		&.aligncenter
-			display block
-			margin 0 auto
+	a
+		img
+			@extends .entry-content img
 
 
 .entry-meta
@@ -427,7 +426,24 @@ input[type="submit"]
 	.entry-content
 		img
 		iframe
+			width initial
 			-unwrapper(initial)
+
+		img
+			&.alignleft
+				margin-right 1em
+				float left
+
+			&.alignright
+				margin-left 1em
+				float right
+
+			&.aligncenter
+				margin 0 auto
+
+		a
+			img
+				@extends .entry-content img
 
 
 // Fixed-width 340px sidebar
