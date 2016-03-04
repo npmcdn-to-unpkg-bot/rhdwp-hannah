@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:21:32 AM on 04-03-2016
+* RHD Dev: Compiled at 10:22:56 AM on 04-03-2016
 ***/
 
 /**
@@ -319,28 +319,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -351,7 +351,7 @@ img.aligncenter {
   background: #fff;
   color: #808080;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
