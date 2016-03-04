@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:24:28 AM on 04-03-2016
+* RHD Dev: Compiled at 11:11:07 AM on 04-03-2016
 ***/
 
 /**
@@ -1020,7 +1020,7 @@ input[type="submit"]:hover {
   border-bottom-right-radius: 0;
 }
 #colophon #footer-widget-area .search-form .search-field:focus {
-  background-color: $cream;
+  background-color: #5090cc;
   outline: none;
 }
 #colophon #footer-widget-area .search-form .search-submit {
@@ -1037,8 +1037,8 @@ input[type="submit"]:hover {
 }
 #colophon #footer-widget-area .search-form .search-submit:hover,
 #colophon #footer-widget-area .search-form .search-submit:active {
-  background-color: $yellow;
-  border-color: $yellow;
+  background-color: #5090cc;
+  border-color: #5090cc;
   color: #1e2171;
 }
 #colophon #footer-widget-area .rhd_social_icons {
@@ -1198,9 +1198,29 @@ input[type="submit"]:hover {
 .front-page #main #secondary {
   padding: 2em 0 1em;
 }
-.front-page #main #front-page-quick-links {
+.front-page #main #front-page-big-buttons {
   background-color: #e6e6e6;
-  padding: 2em 0;
+  padding: 3em 0 0;
+  border-bottom: 4px solid #1e2171;
+}
+.front-page #main #front-page-big-buttons .big-buttons {
+  width: 85%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+  text-align: justify;
+}
+.front-page #main #front-page-big-buttons .big-buttons:after {
+  width: 100%;
+  display: inline-block;
+  content: '';
+}
+.front-page #main #front-page-big-buttons .big-buttons .widget {
+  width: 30%;
+  display: inline-block;
+}
+.front-page #main #front-page-big-buttons .big-buttons .widget .rhd-big-button-label {
+  font-size: 2.5vw;
 }
 .front-page #main #front-page-content {
   width: 85%;
@@ -1295,6 +1315,12 @@ input[type="submit"]:hover {
   font-size: 1.3em;
   font-weight: 800;
 }
+#secondary .rhd-big-button {
+  width: 90%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
 .widget_rhd_store_locations_widget .widget-title {
   margin: 0;
 }
@@ -1319,6 +1345,29 @@ input[type="submit"]:hover {
 }
 .widget_sp_image-description {
   text-align: center;
+}
+.rhd-big-button .rhd-big-button-link {
+  display: inline-block;
+  color: inherit;
+  transition: color 0.25s;
+}
+.rhd-big-button .rhd-big-button-link:hover,
+.rhd-big-button .rhd-big-button-link:active {
+  color: #5090cc;
+  text-decoration: none;
+}
+.rhd-big-button .rhd-big-button-image {
+  width: 90%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+  display: block;
+}
+.rhd-big-button-label {
+  font-size: 1.4em;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 0.25em;
 }
 @media screen and (min-width: 40em) {
   #masthead {

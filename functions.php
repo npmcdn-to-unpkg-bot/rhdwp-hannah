@@ -759,7 +759,6 @@ function rhd_svg_nav_logo() {
 	Widgets
    ========================================================================== */
 
-
 /**
  * RHD_Store_Locations class.
  *
@@ -850,8 +849,199 @@ class RHD_Store_Locations extends WP_Widget {
 <?php
 	}
 }
-// register Foo_Widget widget
 function register_rhd_store_locations_widget() {
     register_widget( 'RHD_Store_Locations' );
 }
 add_action( 'widgets_init', 'register_rhd_store_locations_widget' );
+
+
+/**
+ * RHD_Auto_Donation_Button class.
+ *
+ * @extends WP_Widget
+ */
+class RHD_Auto_Donation_Button extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+				'rhd_auto_donation_button_widget', // Base ID
+			__('BUTTON: Auto Donation', 'rhd'), // Name
+			array( 'description' => __( 'The "Auto Donation" Button.', 'rhd' ), ) // Args
+		);
+	}
+
+	public function update( $new_instance, $old_instance ) {
+		// processes widget options to be saved
+		$instance = $old_instance;
+
+		$instance['label'] = ( $new_instance['label'] ) ? strip_tags( $new_instance['label'] ) : 'Auto Donation';
+
+		return $instance;
+	}
+
+	public function widget( $args, $instance ) {
+		// outputs the content of the widget
+
+		extract( $args );
+
+		$updir = wp_upload_dir();
+		$label = ( $instance['label'] ) ? esc_attr( $instance['label'] ) : '';
+
+		echo $before_widget;
+		?>
+
+		<div class="rhd-big-button rhd-big-button-auto-donation">
+			<a class="rhd-big-button-link" href="<?php echo home_url( '/auto-donation' ); ?>">
+				<img class="rhd-big-button-image" src="<?php echo $updir['baseurl']; ?>/2016/03/car.png" alt="Auto Donation">
+				<p class="rhd-big-button-label"><?php echo $label; ?></p>
+			</a>
+		</div>
+
+		<?php
+		echo $after_widget;
+	}
+
+	public function form( $instance ) {
+		// outputs the options form on admin
+		$args['label'] = esc_attr( $instance['label'] );
+	?>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'label' ); ?>"><?php _e( 'Label: ' ); ?></label>
+			<input id="<?php echo $this->get_field_id( 'label' ); ?>" name="<?php echo $this->get_field_name( 'label' ); ?>" type="text" value="<?php echo $args['label']; ?>" >
+		</p>
+
+<?php
+	}
+}
+function register_rhd_auto_donation_button_widget() {
+    register_widget( 'RHD_Auto_Donation_Button' );
+}
+add_action( 'widgets_init', 'register_rhd_auto_donation_button_widget' );
+
+
+/**
+ * RHD_Volunteer_Button class.
+ *
+ * @extends WP_Widget
+ */
+class RHD_Volunteer_Button extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+				'rhd_volunteer_button_widget', // Base ID
+			__('BUTTON: Volunteer', 'rhd'), // Name
+			array( 'description' => __( 'The "Volunteer" Button.', 'rhd' ), ) // Args
+		);
+	}
+
+	public function update( $new_instance, $old_instance ) {
+		// processes widget options to be saved
+		$instance = $old_instance;
+
+		$instance['label'] = ( $new_instance['label'] ) ? strip_tags( $new_instance['label'] ) : 'Volunteer';
+
+		return $instance;
+	}
+
+	public function widget( $args, $instance ) {
+		// outputs the content of the widget
+
+		extract( $args );
+
+		$updir = wp_upload_dir();
+		$label = ( $instance['label'] ) ? esc_attr( $instance['label'] ) : '';
+
+		echo $before_widget;
+		?>
+
+		<div class="rhd-big-button rhd-big-button-volunteer">
+			<a class="rhd-big-button-link" href="<?php echo home_url( '/volunteer' ); ?>">
+				<img class="rhd-big-button-image" src="<?php echo $updir['baseurl']; ?>/2016/03/bird.png" alt="Volunteer">
+				<p class="rhd-big-button-label"><?php echo $label; ?></p>
+			</a>
+		</div>
+
+		<?php
+		echo $after_widget;
+	}
+
+	public function form( $instance ) {
+		// outputs the options form on admin
+		$args['label'] = esc_attr( $instance['label'] );
+	?>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'label' ); ?>"><?php _e( 'Label: ' ); ?></label>
+			<input id="<?php echo $this->get_field_id( 'label' ); ?>" name="<?php echo $this->get_field_name( 'label' ); ?>" type="text" value="<?php echo $args['label']; ?>" >
+		</p>
+
+<?php
+	}
+}
+function register_rhd_volunteer_button_widget() {
+    register_widget( 'RHD_Volunteer_Button' );
+}
+add_action( 'widgets_init', 'register_rhd_volunteer_button_widget' );
+
+
+/**
+ * RHD_Schedule_Pickup_Button class.
+ *
+ * @extends WP_Widget
+ */
+class RHD_Schedule_Pickup_Button extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+				'rhd_schedule_pickup_button_widget', // Base ID
+			__('BUTTON: Schedule Pickup', 'rhd'), // Name
+			array( 'description' => __( 'The "Schedule Pickup" Button.', 'rhd' ), ) // Args
+		);
+	}
+
+	public function update( $new_instance, $old_instance ) {
+		// processes widget options to be saved
+		$instance = $old_instance;
+
+		$instance['label'] = ( $new_instance['label'] ) ? strip_tags( $new_instance['label'] ) : 'Schedule Pickup';
+
+		return $instance;
+	}
+
+	public function widget( $args, $instance ) {
+		// outputs the content of the widget
+
+		extract( $args );
+
+		$updir = wp_upload_dir();
+		$label = ( $instance['label'] ) ? esc_attr( $instance['label'] ) : '';
+
+		echo $before_widget;
+		?>
+
+		<div class="rhd-big-button rhd-big-button-schedule-pickup">
+			<a class="rhd-big-button-link" href="<?php echo home_url( '/schedule-pickup' ); ?>">
+				<img class="rhd-big-button-image" src="<?php echo $updir['baseurl']; ?>/2016/03/truck.png" alt="Schedule Pickup">
+				<p class="rhd-big-button-label"><?php echo $label; ?></p>
+			</a>
+		</div>
+
+		<?php
+		echo $after_widget;
+	}
+
+	public function form( $instance ) {
+		// outputs the options form on admin
+		$args['label'] = esc_attr( $instance['label'] );
+	?>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'label' ); ?>"><?php _e( 'Label: ' ); ?></label>
+			<input id="<?php echo $this->get_field_id( 'label' ); ?>" name="<?php echo $this->get_field_name( 'label' ); ?>" type="text" value="<?php echo $args['label']; ?>" >
+		</p>
+
+<?php
+	}
+}
+function register_rhd_schedule_pickup_button_widget() {
+    register_widget( 'RHD_Schedule_Pickup_Button' );
+}
+add_action( 'widgets_init', 'register_rhd_schedule_pickup_button_widget' );

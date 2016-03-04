@@ -2,7 +2,6 @@
 @require "partials/_wp-core.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-//@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
@@ -216,7 +215,7 @@ input[type="submit"]
 				border-bottom-right-radius 0
 
 				&:focus
-					background-color $cream
+					background-color $sky
 					outline none
 
 			.search-submit
@@ -233,7 +232,7 @@ input[type="submit"]
 
 				&:hover
 				&:active
-					background-color $yellow
+					background-color $sky
 					border-color (@background-color)
 					color $navy
 
@@ -401,9 +400,21 @@ input[type="submit"]
 		#secondary
 			padding 2em 0 1em
 
-		#front-page-quick-links
+		#front-page-big-buttons
 			background-color $off_white
-			padding 2em 0
+			padding 3em 0 0
+			border-bottom 4px solid $navy
+
+			.big-buttons
+				-wrapper()
+				-flexbox()
+
+				.widget
+					width 30%
+					-flexitem()
+
+					.rhd-big-button-label
+						font-size 2.5vw
 
 		#front-page-content
 			-wrapper(2em)
@@ -507,6 +518,9 @@ input[type="submit"]
 		font-size 1.3em
 		font-weight 800
 
+	.rhd-big-button
+		-wrapper(0, 0, 90%)
+
 
 // Store Locations Widget
 .widget_rhd_store_locations_widget
@@ -537,6 +551,29 @@ input[type="submit"]
 // Image Widget
 .widget_sp_image-description
 	text-align center
+
+
+// RHD Big Buttons
+.rhd-big-button
+	.rhd-big-button-link
+		display inline-block
+		color inherit
+		transition color 0.25s
+
+		&:hover
+		&:active
+			color $sky
+			text-decoration none
+
+	.rhd-big-button-image
+		-wrapper(0, 0, 90%)
+		display block
+
+.rhd-big-button-label
+	font-size 1.4em
+	font-weight 800
+	text-align center
+	margin-top 0.25em
 
 
 /* ==========================================================================
