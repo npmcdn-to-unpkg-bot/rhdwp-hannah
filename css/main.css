@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:22:04 PM on 03-03-2016
+* RHD Dev: Compiled at 10:21:52 AM on 04-03-2016
 ***/
 
 .alignnone {
@@ -137,7 +137,6 @@ a img.aligncenter {
   color: #707070;
   color: rgba(51,51,51,0.7);
   display: block;
-  font-family: "Noto Sans" sans-serif;
   font-size: 12px;
   font-size: 1.2rem;
   line-height: 1.5;
@@ -877,7 +876,7 @@ textarea:focus {
 hr {
   width: 85%;
   height: 4px !important;
-  margin: 1em auto !important;
+  margin: 2em auto !important;
   background-color: #1e2171;
 }
 input[type="submit"] {
@@ -1047,7 +1046,7 @@ input[type="submit"]:hover {
 }
 #colophon #footer-hheart-logo {
   width: 100%;
-  height: 12em;
+  height: 13em;
   margin: 0 auto;
   background: #fff;
   position: relative;
@@ -1106,7 +1105,6 @@ input[type="submit"]:hover {
   max-width: none;
   position: relative;
   margin: 1em auto 1em auto;
-  float: none;
 }
 .entry-content img {
   height: auto;
@@ -1210,6 +1208,12 @@ input[type="submit"]:hover {
   background-color: #e6e6e6;
   padding: 2em 0;
 }
+.front-page #main #front-page-content {
+  width: 85%;
+  max-width: none;
+  position: relative;
+  margin: 2em auto 0 auto;
+}
 /* ==========================================================================
 	About Page
    ========================================================================== */
@@ -1239,7 +1243,7 @@ input[type="submit"]:hover {
   text-align: center;
   padding: 1.5em 0;
   border-bottom: 4px solid #1e2171;
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
 }
 .single-store #main .store-header p {
   margin: 0;
@@ -1330,6 +1334,9 @@ input[type="submit"]:hover {
 }
 .widget_rhd_store_locations_widget .store-locations-list .store-location .store-info p {
   margin: 0;
+}
+.widget_sp_image-description {
+  text-align: center;
 }
 /* ==========================================================================
 	Media Queries

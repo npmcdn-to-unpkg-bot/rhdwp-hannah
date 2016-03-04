@@ -1,26 +1,35 @@
 <?php
 /**
- * The search results template file.
+ * The main template file.
  *
  * @package WordPress
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
 			<header class="page-header">
-				<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
-			</header><!-- .page-header -->
+				<h2 class="page-title"><?php printf( __( 'Searched for: <em>%s</em>', 'rhd' ), get_search_query() ); ?></h2>
+            </header><!-- .page-header -->
 
 			<?php if ( have_posts() ) : ?>
+				<?php if ( ! is_single() ) : ?>
+					<div id="posts-feed">
+				<?php endif; ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content' ); ?>
 				<?php endwhile; ?>
 
+				<?php if ( is_single() && comments_open() ) comments_template(); ?>
+
+				<?php if ( ! is_single() ) : ?>
+					</div>
+				<?php endif; ?>
 			<?php else : ?>
 
 				<article id="post-0" class="post no-results not-found">
@@ -29,7 +38,7 @@ get_header(); ?>
 					// Show a different message to a logged-in user who can add posts.
 				?>
 					<header class="entry-header">
-						<h2 class="entry-title"><?php _e( 'Sorry, dude. Couldn\'t find anything. Give it another try, we believe in you.', 'rhd' ); ?></h2>
+						<h1 class="entry-title"><?php _e( 'No posts to display', 'rhd' ); ?></h1>
 					</header>
 
 					<div class="entry-content">
@@ -40,7 +49,7 @@ get_header(); ?>
 					// Show the default message to everyone else.
 				?>
 					<header class="entry-header">
-						<h2 class="entry-title"><?php _e( 'Nothing Found', 'rhd' ); ?></h2>
+						<h1 class="entry-title"><?php _e( 'Nothing Found', 'rhd' ); ?></h1>
 					</header>
 
 					<div class="entry-content">
@@ -59,4 +68,5 @@ get_header(); ?>
 
 	</section><!-- #primary -->
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

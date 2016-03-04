@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $thumb ); ?>>
 
-	<?php if ( $thumb != '' ) : ?>
+	<?php if ( !is_search() && $thumb != '' ) : ?>
 		<div class="post-thumbnail">
 			<?php the_post_thumbnail( is_front_page() ? 'square' : 'large' ); ?>
 		</div>
