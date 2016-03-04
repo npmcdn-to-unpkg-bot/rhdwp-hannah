@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:11:07 AM on 04-03-2016
+* RHD Dev: Compiled at 4:30:41 PM on 04-03-2016
 ***/
 
 .alignnone {
@@ -181,6 +181,7 @@ a img.aligncenter {
 .page-id-9 #main #about-content:before,
 #posts-feed.small-thumbnails .post:before,
 #primary:before,
+.front-page #main #front-page-content .entry-content:before,
 #main:before,
 .clearfix:after,
 #colophon #footer-widget-area .search-form:after,
@@ -189,6 +190,7 @@ a img.aligncenter {
 .page-id-9 #main #about-content:after,
 #posts-feed.small-thumbnails .post:after,
 #primary:after,
+.front-page #main #front-page-content .entry-content:after,
 #main:after {
   content: " ";
   display: table;
@@ -200,6 +202,7 @@ a img.aligncenter {
 .page-id-9 #main #about-content:after,
 #posts-feed.small-thumbnails .post:after,
 #primary:after,
+.front-page #main #front-page-content .entry-content:after,
 #main:after {
   clear: both;
 }
@@ -805,6 +808,54 @@ input[type="radio"] {
   bottom: 0;
   transform: translateX(-8px) translateY(-4px) rotate(45deg);
 }
+.widget_rhd_store_locations_widget .widget-title {
+  margin: 0;
+}
+.widget_rhd_store_locations_widget .store-locations-list {
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.widget_rhd_store_locations_widget .store-locations-list .store-location {
+  margin-bottom: 1em;
+}
+.widget_rhd_store_locations_widget .store-locations-list .store-location:last-of-type {
+  margin-bottom: 0;
+}
+.widget_rhd_store_locations_widget .store-locations-list .store-location .store-name {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 800;
+}
+.widget_rhd_store_locations_widget .store-locations-list .store-location .store-info p {
+  margin: 0;
+}
+.widget_sp_image-description {
+  text-align: center;
+}
+.rhd-big-button .rhd-big-button-link {
+  display: inline-block;
+  color: inherit;
+  transition: color 0.25s;
+}
+.rhd-big-button .rhd-big-button-link:hover,
+.rhd-big-button .rhd-big-button-link:active {
+  color: #5090cc;
+  text-decoration: none;
+}
+.rhd-big-button .rhd-big-button-image {
+  width: 90%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+  display: block;
+}
+.rhd-big-button-label {
+  font-size: 1.4em;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 0.25em;
+}
 /* ==========================================================================
 	Main Styles
    ========================================================================== */
@@ -1020,7 +1071,7 @@ input[type="submit"]:hover {
   border-bottom-right-radius: 0;
 }
 #colophon #footer-widget-area .search-form .search-field:focus {
-  background-color: #5090cc;
+  background-color: #fff3e2;
   outline: none;
 }
 #colophon #footer-widget-area .search-form .search-submit {
@@ -1100,24 +1151,23 @@ input[type="submit"]:hover {
   padding-left: 1em;
 }
 .entry-content img,
-.entry-content iframe {
-  width: 90%;
+.entry-content iframe,
+.entry-content a img {
+  width: 95%;
   max-width: none;
   position: relative;
   margin: 1em auto 1em auto;
 }
-.entry-content img {
+.entry-content img,
+.entry-content a img {
   height: auto;
-}
-.entry-content img.alignleft {
-  margin-right: 1em;
-}
-.entry-content img.alignright {
-  margin-left: 1em;
-}
-.entry-content img.aligncenter {
   display: block;
-  margin: 0 auto;
+}
+.entry-content img.alignleft,
+.entry-content a img.alignleft,
+.entry-content img.alignright,
+.entry-content a img.alignright {
+  float: none;
 }
 .entry-meta p {
   margin: 0;
@@ -1192,47 +1242,58 @@ input[type="submit"]:hover {
   margin: initial;
   margin-bottom: 1em;
 }
-.front-page #main #front-page-news {
-  width: 85%;
-  max-width: none;
-  position: relative;
-  margin: 0 auto 0 auto;
-}
-.front-page #main #primary {
-  padding: 2em 0 2em;
-}
-.front-page #main #secondary {
-  padding: 2em 0 1em;
-}
-.front-page #main #front-page-big-buttons {
-  background-color: #e6e6e6;
-  padding: 3em 0 0;
-  border-bottom: 4px solid #1e2171;
-}
-.front-page #main #front-page-big-buttons .big-buttons {
-  width: 85%;
-  max-width: none;
-  position: relative;
-  margin: 0 auto 0 auto;
-  text-align: justify;
-}
-.front-page #main #front-page-big-buttons .big-buttons:after {
-  width: 100%;
-  display: inline-block;
-  content: '';
-}
-.front-page #main #front-page-big-buttons .big-buttons .widget {
-  width: 30%;
-  display: inline-block;
-}
-.front-page #main #front-page-big-buttons .big-buttons .widget .rhd-big-button-label {
-  font-size: 2.5vw;
-}
 .front-page #main #front-page-content {
   width: 85%;
   max-width: none;
   position: relative;
-  margin: 2em auto 0 auto;
+  margin: 3em auto 3em auto;
+}
+.front-page #main #front-page-content .entry-content .v-text {
+  text-align: center;
+}
+.front-page #main #front-page-content .entry-content .alignright {
+  max-width: 30em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 2em;
+  display: block;
+  float: none;
+}
+.front-page #main #front-page-big-buttons {
+  background-color: #e6e6e6;
+  padding: 3.5em 0 0;
+}
+.big-buttons {
+  width: 95%;
+  max-width: 64rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+  text-align: justify;
+}
+.big-buttons:after {
+  width: 100%;
+  display: inline-block;
+  content: '';
+}
+.big-buttons .widget {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
+.big-buttons .widget .rhd-big-button-label {
+  font-size: 2.1vw;
+}
+#front-page-news {
+  width: 85%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+#primary {
+  padding: 2em 0 2em;
+}
+#secondary {
+  padding: 2em 0 1em;
 }
 /* ==========================================================================
 	About Page
@@ -1338,54 +1399,6 @@ input[type="submit"]:hover {
   max-width: none;
   position: relative;
   margin: 0 auto 0 auto;
-}
-.widget_rhd_store_locations_widget .widget-title {
-  margin: 0;
-}
-.widget_rhd_store_locations_widget .store-locations-list {
-  padding-left: 0;
-  list-style: none;
-  text-align: center;
-}
-.widget_rhd_store_locations_widget .store-locations-list .store-location {
-  margin-bottom: 1em;
-}
-.widget_rhd_store_locations_widget .store-locations-list .store-location:last-of-type {
-  margin-bottom: 0;
-}
-.widget_rhd_store_locations_widget .store-locations-list .store-location .store-name {
-  margin: 0;
-  font-size: 1.2em;
-  font-weight: 800;
-}
-.widget_rhd_store_locations_widget .store-locations-list .store-location .store-info p {
-  margin: 0;
-}
-.widget_sp_image-description {
-  text-align: center;
-}
-.rhd-big-button .rhd-big-button-link {
-  display: inline-block;
-  color: inherit;
-  transition: color 0.25s;
-}
-.rhd-big-button .rhd-big-button-link:hover,
-.rhd-big-button .rhd-big-button-link:active {
-  color: #5090cc;
-  text-decoration: none;
-}
-.rhd-big-button .rhd-big-button-image {
-  width: 90%;
-  max-width: none;
-  position: relative;
-  margin: 0 auto 0 auto;
-  display: block;
-}
-.rhd-big-button-label {
-  font-size: 1.4em;
-  font-weight: 800;
-  text-align: center;
-  margin-top: 0.25em;
 }
 /* ==========================================================================
 	Media Queries
@@ -1508,17 +1521,26 @@ input[type="submit"]:hover {
     display: block;
   }
   .entry-content img,
-  .entry-content iframe {
+  .entry-content iframe,
+.entry-content a img {
     width: initial;
     width: initial;
     max-width: none;
     margin: initial;
   }
-  .front-page #front-page-news {
-    width: 85%;
-    max-width: none;
-    position: relative;
-    margin: 0 auto 0 auto;
+  .entry-content img.alignleft,
+.entry-content a img.alignleft {
+    margin-right: 1em;
+    float: left;
+  }
+  .entry-content img.alignright,
+.entry-content a img.alignright {
+    margin-left: 1em;
+    float: right;
+  }
+  .entry-content img.aligncenter,
+.entry-content a img.aligncenter {
+    margin: 0 auto;
   }
 }
 @media screen and (min-width: 60em) {
@@ -1536,6 +1558,37 @@ input[type="submit"]:hover {
   }
   #site-navigation-container .menu-item {
     font-size: 0.9em;
+  }
+  .front-page #main #front-page-news {
+    width: 85%;
+    max-width: none;
+    position: relative;
+    margin: 0 auto 0 auto;
+  }
+  .front-page #main #front-page-content {
+    width: 70%;
+    max-width: none;
+    position: relative;
+    margin: 0 auto 0 auto;
+    padding: 3em 0;
+  }
+  .front-page #main #front-page-content .entry-content {
+    position: relative;
+  }
+  .front-page #main #front-page-content .entry-content .v-text {
+    width: 55%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: left;
+  }
+  .front-page #main #front-page-content .entry-content .alignright {
+    width: 37%;
+    float: right;
+    margin-bottom: 2vh;
   }
 }
 @media screen and (min-width: 40em) {

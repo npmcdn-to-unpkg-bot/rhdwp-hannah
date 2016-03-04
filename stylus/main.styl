@@ -5,6 +5,8 @@
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
+@require "partials/_plugins.styl"
+
 
 /* ==========================================================================
 	Main Styles
@@ -215,7 +217,7 @@ input[type="submit"]
 				border-bottom-right-radius 0
 
 				&:focus
-					background-color $sky
+					background-color $cream
 					outline none
 
 			.search-submit
@@ -299,20 +301,19 @@ input[type="submit"]
 
 	img
 	iframe
-		-wrapper(1em, 1em, 90%)
+		-wrapper(1em, 1em, 95%)
 
 	img
 		height auto
+		display block
 
 		&.alignleft
-			margin-right 1em
-
 		&.alignright
-			margin-left 1em
+			float none
 
-		&.aligncenter
-			display block
-			margin 0 auto
+	a
+		img
+			@extends .entry-content img
 
 
 .entry-meta
@@ -391,6 +392,39 @@ input[type="submit"]
 		-unwrapper(100%)
 		margin-bottom 1em
 
+		#front-page-content
+			-wrapper(3em, 3em)
+
+			.entry-content
+				.v-text
+					text-align center
+
+				.alignright
+					max-width 30em
+					margin-right auto
+					margin-left auto
+					margin-bottom 2em
+					display block
+					float none
+
+		#front-page-big-buttons
+			background-color $off_white
+			padding 3.5em 0 0
+// 			border-top 4px solid $navy
+// 			border-bottom 4px solid $navy
+
+			.big-buttons
+				-wrapper(0, 0, 95%, 64rem)
+				-flexbox()
+
+				.widget
+					width 30%
+					-flexitem()
+					vertical-align top
+
+					.rhd-big-button-label
+						font-size 2.1vw
+
 		#front-page-news
 			-wrapper()
 
@@ -399,25 +433,6 @@ input[type="submit"]
 
 		#secondary
 			padding 2em 0 1em
-
-		#front-page-big-buttons
-			background-color $off_white
-			padding 3em 0 0
-			border-bottom 4px solid $navy
-
-			.big-buttons
-				-wrapper()
-				-flexbox()
-
-				.widget
-					width 30%
-					-flexitem()
-
-					.rhd-big-button-label
-						font-size 2.5vw
-
-		#front-page-content
-			-wrapper(2em)
 
 
 /* ==========================================================================
@@ -520,60 +535,6 @@ input[type="submit"]
 
 	.rhd-big-button
 		-wrapper(0, 0, 90%)
-
-
-// Store Locations Widget
-.widget_rhd_store_locations_widget
-	.widget-title
-		margin 0
-
-	.store-locations-list
-		padding-left 0
-		list-style none
-		text-align center
-
-		.store-location
-			margin-bottom 1em
-
-			&:last-of-type
-				margin-bottom 0
-
-			.store-name
-				margin 0
-				font-size 1.2em
-				font-weight 800
-
-			.store-info
-				p
-					margin 0
-
-
-// Image Widget
-.widget_sp_image-description
-	text-align center
-
-
-// RHD Big Buttons
-.rhd-big-button
-	.rhd-big-button-link
-		display inline-block
-		color inherit
-		transition color 0.25s
-
-		&:hover
-		&:active
-			color $sky
-			text-decoration none
-
-	.rhd-big-button-image
-		-wrapper(0, 0, 90%)
-		display block
-
-.rhd-big-button-label
-	font-size 1.4em
-	font-weight 800
-	text-align center
-	margin-top 0.25em
 
 
 /* ==========================================================================
@@ -712,9 +673,21 @@ input[type="submit"]
 			width initial
 			-unwrapper(initial)
 
-	.front-page
-		#front-page-news
-			-wrapper()
+		img
+			&.alignleft
+				margin-right 1em
+				float left
+
+			&.alignright
+				margin-left 1em
+				float right
+
+			&.aligncenter
+				margin 0 auto
+
+		a
+			img
+				@extends .entry-content img
 
 
 @media screen and (min-width 60em)
@@ -732,6 +705,33 @@ input[type="submit"]
 
 		.menu-item
 			font-size 0.9em
+
+	.front-page
+		#main
+			#front-page-news
+				-wrapper()
+
+			#front-page-content
+				-wrapper(0, 0, 70%)
+				padding 3em 0
+
+				.entry-content
+					-clearfix()
+					position relative
+
+					.v-text
+						width 55%
+						margin 0
+						position absolute
+						left 0
+						top 50%
+						-transform(translateY(-50%))
+						text-align left
+
+					.alignright
+						width 37%
+						float right
+						margin-bottom 2vh
 
 
 // Fixed-width 340px sidebar
