@@ -1,0 +1,13 @@
+{
+  "minify": true,
+  "options": [
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/css/animations",
+    "test/svg/asimg",
+    "test/svg/clippaths",
+    "test/svg/filters",
+    "test/svg/inline"
+  ]
+}

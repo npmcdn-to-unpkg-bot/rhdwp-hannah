@@ -1,0 +1,119 @@
+/* ==========================================================================
+	Store Locations Widget
+   ========================================================================== */
+
+.widget_rhd_store_locations_widget
+	.widget-title
+		margin 0
+
+	.store-locations-list
+		padding-left 0
+		list-style none
+		text-align center
+
+		.store-location
+			margin-bottom 1em
+
+			&:last-of-type
+				margin-bottom 0
+
+			.store-name
+				margin 0
+				font-size 1.2em
+				font-weight 800
+
+			.store-info
+				p
+					margin 0
+
+
+/* ==========================================================================
+	Store Image Widget
+   ========================================================================== */
+
+.rhd-store-image-widget
+	.rhd-store-image
+		img
+			-wrapper(0, 0, 75%)
+			display block
+			border 2px solid $navy
+
+	.rhd-store-image-caption
+		font-size 1.1em
+		font-weight 700
+		text-align center
+		margin 0.5em 0
+
+
+/* ==========================================================================
+	RHD Big Buttons
+   ========================================================================== */
+
+.big-button
+	&:hover
+		.big-button-label
+			color $sky
+			text-decoration none
+
+	.big-button-image
+	.big-button-svg
+		-wrapper(0, 0, 90%)
+		display block
+
+	.big-button-svg
+		cursor pointer
+
+		path
+		circle
+			transition all 0.5s ease
+
+	#big-button-car
+		&:hover
+		&:active
+			#Stroke-4
+				fill $mag
+
+			#Fill-4
+				fill $sky
+
+	#big-button-bird
+		#Fill-52
+			fill $pink
+
+		&:hover
+		&:active
+			#Fill-52
+				fill $mag
+
+			#Fill-53
+			#Fill-54
+			#Fill-55
+			#Fill-56
+			#Fill-57
+			#Fill-58
+				fill $navy
+
+			#Fill-51
+				fill $sky
+
+	#big-button-truck
+		&:hover
+		&:active
+			#Fill-105
+			#Fill-103
+				fill $sky
+
+			#Fill-104
+			#Fill-107
+				fill $mag
+
+			#Fill-108
+				fill $pink
+
+
+.big-button-label
+	font-size 1.4em
+	font-weight 800
+	text-align center
+	margin-top 0.25em
+	transition color 0.5s ease
