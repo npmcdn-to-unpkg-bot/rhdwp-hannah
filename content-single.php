@@ -19,6 +19,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
+		<?php rhd_post_meta_links(); ?>
 		<p><?php edit_post_link( __( 'Edit Post', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
 	</footer><!-- .entry-meta -->
 </article><!-- #post -->

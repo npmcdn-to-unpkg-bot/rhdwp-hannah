@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:30:41 PM on 04-03-2016
+* RHD Dev: Compiled at 4:30:28 PM on 05-03-2016
 ***/
 
 /**
@@ -179,19 +179,23 @@ a img.aligncenter {
 }
 .clearfix:before,
 #colophon #footer-widget-area .search-form:before,
+#posts-feed .post .post-inner:before,
 .pagination:before,
 .single-pagination:before,
 .page-id-9 #main #about-content:before,
 #posts-feed.small-thumbnails .post:before,
+.entry-meta .post-meta:before,
 #primary:before,
 .front-page #main #front-page-content .entry-content:before,
 #main:before,
 .clearfix:after,
 #colophon #footer-widget-area .search-form:after,
+#posts-feed .post .post-inner:after,
 .pagination:after,
 .single-pagination:after,
 .page-id-9 #main #about-content:after,
 #posts-feed.small-thumbnails .post:after,
+.entry-meta .post-meta:after,
 #primary:after,
 .front-page #main #front-page-content .entry-content:after,
 #main:after {
@@ -200,10 +204,12 @@ a img.aligncenter {
 }
 .clearfix:after,
 #colophon #footer-widget-area .search-form:after,
+#posts-feed .post .post-inner:after,
 .pagination:after,
 .single-pagination:after,
 .page-id-9 #main #about-content:after,
 #posts-feed.small-thumbnails .post:after,
+.entry-meta .post-meta:after,
 #primary:after,
 .front-page #main #front-page-content .entry-content:after,
 #main:after {
@@ -833,31 +839,94 @@ input[type="radio"] {
 .widget_rhd_store_locations_widget .store-locations-list .store-location .store-info p {
   margin: 0;
 }
-.widget_sp_image-description {
+.rhd-store-image-widget .rhd-store-image img {
+  width: 75%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+  display: block;
+  border: 2px solid #1e2171;
+}
+.rhd-store-image-widget .rhd-store-image-caption {
+  font-size: 1.1em;
+  font-weight: 700;
   text-align: center;
+  margin: 0.5em 0;
 }
-.rhd-big-button .rhd-big-button-link {
-  display: inline-block;
-  color: inherit;
-  transition: color 0.25s;
-}
-.rhd-big-button .rhd-big-button-link:hover,
-.rhd-big-button .rhd-big-button-link:active {
+.big-button:hover .big-button-label {
   color: #5090cc;
   text-decoration: none;
 }
-.rhd-big-button .rhd-big-button-image {
+.big-button .big-button-image,
+.big-button .big-button-svg {
   width: 90%;
   max-width: none;
   position: relative;
   margin: 0 auto 0 auto;
   display: block;
 }
-.rhd-big-button-label {
+.big-button .big-button-svg {
+  cursor: pointer;
+}
+.big-button .big-button-svg path,
+.big-button .big-button-svg circle {
+  transition: all 0.5s ease;
+}
+.big-button #big-button-car:hover #Stroke-4,
+.big-button #big-button-car:active #Stroke-4 {
+  fill: #da0962;
+}
+.big-button #big-button-car:hover #Fill-4,
+.big-button #big-button-car:active #Fill-4 {
+  fill: #5090cc;
+}
+.big-button #big-button-bird #Fill-52 {
+  fill: #ed61af;
+}
+.big-button #big-button-bird:hover #Fill-52,
+.big-button #big-button-bird:active #Fill-52 {
+  fill: #da0962;
+}
+.big-button #big-button-bird:hover #Fill-53,
+.big-button #big-button-bird:active #Fill-53,
+.big-button #big-button-bird:hover #Fill-54,
+.big-button #big-button-bird:active #Fill-54,
+.big-button #big-button-bird:hover #Fill-55,
+.big-button #big-button-bird:active #Fill-55,
+.big-button #big-button-bird:hover #Fill-56,
+.big-button #big-button-bird:active #Fill-56,
+.big-button #big-button-bird:hover #Fill-57,
+.big-button #big-button-bird:active #Fill-57,
+.big-button #big-button-bird:hover #Fill-58,
+.big-button #big-button-bird:active #Fill-58 {
+  fill: #1e2171;
+}
+.big-button #big-button-bird:hover #Fill-51,
+.big-button #big-button-bird:active #Fill-51 {
+  fill: #5090cc;
+}
+.big-button #big-button-truck:hover #Fill-105,
+.big-button #big-button-truck:active #Fill-105,
+.big-button #big-button-truck:hover #Fill-103,
+.big-button #big-button-truck:active #Fill-103 {
+  fill: #5090cc;
+}
+.big-button #big-button-truck:hover #Fill-104,
+.big-button #big-button-truck:active #Fill-104,
+.big-button #big-button-truck:hover #Fill-107,
+.big-button #big-button-truck:active #Fill-107 {
+  fill: #da0962;
+}
+.big-button #big-button-truck:hover #Fill-108,
+.big-button #big-button-truck:active #Fill-108 {
+  fill: #ed61af;
+}
+.big-button-label {
   font-size: 1.4em;
   font-weight: 800;
   text-align: center;
   margin-top: 0.25em;
+  transition: color 0.5s ease;
 }
 html,
 body,
@@ -1025,7 +1094,6 @@ input[type="submit"]:hover {
 #primary,
 #secondary {
   width: 100%;
-  margin-top: 1em;
   position: relative;
   box-sizing: border-box;
 }
@@ -1118,7 +1186,10 @@ input[type="submit"]:hover {
 .page-title {
   text-align: center;
   font-weight: 800;
-  font-size: 1.7em;
+  font-size: 1.8em;
+}
+.entry-summary p {
+  margin-bottom: 0;
 }
 .entry-content {
   width: 100%;
@@ -1166,11 +1237,40 @@ input[type="submit"]:hover {
 .entry-content a img.alignright {
   float: none;
 }
+.entry-meta {
+  margin: 1em 0 0;
+}
 .entry-meta p {
   margin: 0;
+  display: inline-block;
+  padding: 0.5em 0;
+}
+.entry-meta a {
+  color: #1e2171;
+}
+.entry-meta .comments-popup {
+  font-size: 1.1em;
+  font-weight: 700;
+  display: inline-block;
+  padding: 1em;
+  text-align: center;
+}
+.entry-meta .post-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0 1em 1em 1em;
+  font-size: 1em;
+  position: relative;
+}
+.entry-meta .post-meta .post-meta-item {
+  width: 100%;
+  margin: 0.5em 0;
+}
+.entry-meta .post-meta .post-meta-item .post-meta-item-title {
+  font-weight: 700;
+  font-size: 1.1em;
 }
 #posts-feed .post {
-  padding: 1em;
   margin: 1em auto;
   border: 2px solid #1e2171;
   border-radius: 2px;
@@ -1180,6 +1280,9 @@ input[type="submit"]:hover {
 }
 #posts-feed .post:last-of-type {
   margin-bottom: 0;
+}
+#posts-feed .post .post-inner {
+  padding: 1em;
 }
 #posts-feed .post .post-thumbnail {
   width: 100%;
@@ -1191,7 +1294,7 @@ input[type="submit"]:hover {
 }
 .blog-area .post .entry-header,
 #posts-feed .post .entry-header {
-  margin: 1em 0;
+  margin: 0 0 1em;
   text-align: center;
 }
 .blog-area .post .entry-header .entry-title,
@@ -1210,7 +1313,7 @@ input[type="submit"]:hover {
 .full-width-slideshow {
   width: 100%;
 }
-.full-width-slideshow .soliloquy-image {
+.full-width-slideshow .soliloquy-container {
   border-bottom: 4px solid #1e2171;
 }
 .pagination,
@@ -1229,6 +1332,62 @@ input[type="submit"]:hover {
 .pagination [rel="next"],
 .single-pagination [rel="next"] {
   float: right;
+}
+#comments {
+  margin: 2em auto;
+}
+#comments .commentlist,
+#comments .commentlist ul,
+#comments .commentlist ol {
+  list-style: none;
+  padding-left: 0;
+}
+#comments .commentlist .children,
+#comments .commentlist ul .children,
+#comments .commentlist ol .children {
+  padding: 0 1.5em;
+}
+#comments .commentlist .comment:last-child,
+#comments .commentlist ul .comment:last-child,
+#comments .commentlist ol .comment:last-child {
+  padding-bottom: 1.5em;
+}
+#comments .even {
+  background: $off-white;
+}
+#comments .odd {
+  background: #fff;
+}
+#comments .comment-body {
+  padding: 1em;
+  box-sizing: border-box;
+}
+#comments textarea {
+  max-width: 100%;
+}
+#comments #commentform {
+  width: 100%;
+  min-width: 18rem;
+  max-width: 100%;
+}
+#comments #commentform p {
+  margin-bottom: 0.75rem;
+}
+#comments #commentform input,
+#comments #commentform textarea {
+  width: 100%;
+  font-size: 0.8em;
+  box-sizing: border-box;
+  padding: 0.5em;
+  display: inline-block;
+}
+#comments #commentform #submit {
+  width: auto;
+  padding-left: 0.8em;
+  cursor: pointer;
+}
+#comments #commentform .comment-subscription-form {
+  margin: initial;
 }
 .front-page #main {
   width: 100%;
@@ -1274,7 +1433,7 @@ input[type="submit"]:hover {
   display: inline-block;
   vertical-align: top;
 }
-.big-buttons .widget .rhd-big-button-label {
+.big-buttons .widget .big-button-label {
   font-size: 2.1vw;
 }
 #front-page-news {
@@ -1284,10 +1443,10 @@ input[type="submit"]:hover {
   margin: 0 auto 0 auto;
 }
 #primary {
-  padding: 2em 0 2em;
+  padding: 2em 0 0;
 }
 #secondary {
-  padding: 2em 0 1em;
+  padding: 2em 0 0;
 }
 .page-id-9 #main {
   width: 100%;
@@ -1300,7 +1459,6 @@ input[type="submit"]:hover {
   max-width: none;
   position: relative;
   margin: 0 auto 0 auto;
-  padding-top: 2em;
 }
 .single-store #main {
   width: 100%;
@@ -1357,11 +1515,14 @@ input[type="submit"]:hover {
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
+  font-size: 1.2em;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
   background-color: #5090cc;
-  color: #5090cc;
+  color: #fff;
 }
 #secondary .widget {
   width: 100%;
@@ -1376,7 +1537,7 @@ input[type="submit"]:hover {
   font-size: 1.3em;
   font-weight: 800;
 }
-#secondary .rhd-big-button {
+#secondary .big-button {
   width: 90%;
   max-width: none;
   position: relative;
@@ -1413,9 +1574,6 @@ input[type="submit"]:hover {
   }
   #hamburger {
     display: none;
-  }
-  .page-title {
-    text-align: left;
   }
   #posts-feed.small-thumbnails .post.has-post-thumbnail .post-content {
     width: 63%;
@@ -1465,6 +1623,40 @@ input[type="submit"]:hover {
   .single-store #main #single-store-media .single-store-thumbnail {
     padding-left: 1em;
   }
+  .entry-meta {
+    background-color: rgba(80,144,204,0.15);
+  }
+  .entry-meta .comments-popup {
+    width: 100%;
+  }
+  .entry-meta .post-meta {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;
+    position: relative;
+    display: table;
+    background-color: rgba(80,144,204,0.15);
+  }
+  .entry-meta .post-meta .post-meta-item {
+    width: 33.3333333%;
+    height: 100%;
+    display: table-cell;
+    padding: 1em 0;
+    vertical-align: top;
+    text-align: center;
+    transition: all 0.5s ease;
+  }
+  .entry-meta .post-meta .post-meta-item:hover {
+    background-color: rgba(80,144,204,0.35);
+  }
+  .entry-meta .post-meta .post-meta-item a {
+    color: inherit;
+    transition: color 0.5s ease;
+  }
+  .entry-meta .post-meta .post-meta-item .post-meta-item-title {
+    font-weight: 700;
+    font-size: 1.1em;
+  }
   #colophon #footer-widget-area {
     width: 37%;
   }
@@ -1483,6 +1675,20 @@ input[type="submit"]:hover {
     position: absolute;
     right: 0.25rem;
     top: 0.25rem;
+  }
+  #comments #commentform {
+    width: 75%;
+  }
+  #comments #commentform p {
+    margin-bottom: 0.75rem;
+  }
+  #comments #commentform input[type="text"],
+  #comments #commentform input[type="email"] {
+    width: 75%;
+  }
+  #comments #commentform #submit {
+    width: auto;
+    padding-left: 0.8em;
   }
   #primary article.strip-active {
     width: 65%;

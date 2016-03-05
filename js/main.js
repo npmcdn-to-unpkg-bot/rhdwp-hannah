@@ -70,6 +70,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Image Strip
 		postContent = $(".entry-content").html();
+
+		// Check inline SVG support
+		if (Modernizr.inlinesvg) {
+			$(".svg-fallback").hide();
+		}
 	}
 
 

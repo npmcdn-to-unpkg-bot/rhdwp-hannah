@@ -12,6 +12,10 @@ get_header();
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
+			<?php if ( is_home() ) : ?>
+				<h2 class="page-title"><?php the_title(); ?></h2>
+			<?php endif; ?>
+
 			<?php if ( have_posts() ) : ?>
 				<?php if ( ! is_single() ) : ?>
 					<div id="posts-feed">
@@ -19,16 +23,20 @@ get_header();
 
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php
-						if ( is_single() ) get_template_part( 'content', 'single' );
-						else get_template_part( 'content' );
+						if ( is_single() ) {
+							get_template_part( 'content', 'single' );
+						} else {
+							get_template_part( 'content' );
+						}
 					?>
 				<?php endwhile; ?>
 
-				<?php if ( is_single() && comments_open() ) comments_template(); ?>
-
 				<?php if ( ! is_single() ) : ?>
 					</div>
+				<?php else : ?>
+					<?php if ( is_single() && comments_open() ) comments_template(); ?>
 				<?php endif; ?>
+
 			<?php else : ?>
 
 				<article id="post-0" class="post no-results not-found">
