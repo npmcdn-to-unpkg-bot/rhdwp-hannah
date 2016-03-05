@@ -278,6 +278,7 @@ input[type="submit"]
 
 .entry-content
 	width 100%
+	-clearfix()
 
 	p
 		margin 1em auto
@@ -402,6 +403,9 @@ input[type="submit"]
 
 	.soliloquy-container
 		border-bottom 4px solid $navy
+
+		.soliloquy-image
+			min-width 100%
 
 
 .pagination
@@ -731,7 +735,6 @@ input[type="submit"]
 		.post-meta
 			margin 0
 			padding 0
-			font-size 1.1em
 			position relative
 			-clearfix()
 			display table

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:30:28 PM on 05-03-2016
+* RHD Dev: Compiled at 5:13:09 PM on 05-03-2016
 ***/
 
 .alignnone {
@@ -176,6 +176,7 @@ a img.aligncenter {
 }
 .clearfix:before,
 #colophon #footer-widget-area .search-form:before,
+.entry-content:before,
 #posts-feed .post .post-inner:before,
 .pagination:before,
 .single-pagination:before,
@@ -187,6 +188,7 @@ a img.aligncenter {
 #main:before,
 .clearfix:after,
 #colophon #footer-widget-area .search-form:after,
+.entry-content:after,
 #posts-feed .post .post-inner:after,
 .pagination:after,
 .single-pagination:after,
@@ -201,6 +203,7 @@ a img.aligncenter {
 }
 .clearfix:after,
 #colophon #footer-widget-area .search-form:after,
+.entry-content:after,
 #posts-feed .post .post-inner:after,
 .pagination:after,
 .single-pagination:after,
@@ -1319,6 +1322,9 @@ input[type="submit"]:hover {
 .full-width-slideshow .soliloquy-container {
   border-bottom: 4px solid #1e2171;
 }
+.full-width-slideshow .soliloquy-container .soliloquy-image {
+  min-width: 100%;
+}
 .pagination,
 .single-pagination {
   margin: 1em auto;
@@ -1400,7 +1406,7 @@ input[type="submit"]:hover {
    ========================================================================== */
 .front-page #main {
   width: 100%;
-  max-width: none;
+  max-width: 100%;
   margin: initial;
   margin-bottom: 1em;
 }
@@ -1462,7 +1468,7 @@ input[type="submit"]:hover {
    ========================================================================== */
 .page-id-9 #main {
   width: 100%;
-  max-width: none;
+  max-width: 100%;
   margin: initial;
   margin-bottom: 2em;
 }
@@ -1477,7 +1483,7 @@ input[type="submit"]:hover {
    ========================================================================== */
 .single-store #main {
   width: 100%;
-  max-width: none;
+  max-width: 100%;
   margin: initial;
   margin-bottom: 2em;
 }
@@ -1656,7 +1662,6 @@ input[type="submit"]:hover {
   .entry-meta .post-meta {
     margin: 0;
     padding: 0;
-    font-size: 1.1em;
     position: relative;
     display: table;
     background-color: rgba(80,144,204,0.15);
@@ -1734,7 +1739,7 @@ input[type="submit"]:hover {
 .entry-content a img {
     width: initial;
     width: initial;
-    max-width: none;
+    max-width: 100%;
     margin: initial;
   }
   .entry-content img.alignleft,

@@ -9,13 +9,12 @@
 get_header();
 ?>
 
+	<?php if ( is_home() ) : ?>
+		<h2 class="page-title"><?php the_title(); ?></h2>
+	<?php endif; ?>
+
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
-
-			<?php if ( is_home() ) : ?>
-				<h2 class="page-title"><?php the_title(); ?></h2>
-			<?php endif; ?>
-
 			<?php if ( have_posts() ) : ?>
 				<?php if ( ! is_single() ) : ?>
 					<div id="posts-feed">
