@@ -52,71 +52,70 @@
 .big-button
 	position relative
 
-	&:hover
-		.big-button-label
-			color $sky
+	.big-button-link
+		display block
+		z-index 1
+		color $navy
+
+		&:hover
 			text-decoration none
 
-	.big-button-link
-		width 100%
-		height 100%
-		position absolute
-		top 0
-		left 0
-		display block
-		z-index 999
+			.big-button-label
+				color $sky
+				text-decoration none
 
-	.big-button-image
-	.big-button-svg
-		-wrapper(0, 0, 90%)
-		display block
+		.big-button-image
+		.big-button-svg
+			width 100%
+			height auto
 
-	.big-button-svg
-		cursor pointer
+		.big-button-svg
+			pointer-events none
 
-		path
-		circle
-			transition all 0.5s ease
+			path
+			circle
+				transition all 0.5s ease
 
-	.big-button-auto-donation
-		.button-hover
-			#Stroke-4
-				fill $mag
 
-			#Fill-4
-				fill $sky
+#big-button-car
+	&:hover
+		#car
+			fill $mag
 
-	.big-button-volunteer
+		#hands
+			fill $sky
+
+.big-button-volunteer
+	#Fill-52
+		fill $pink
+
+	.button-hover
 		#Fill-52
+			fill $mag
+
+		#Fill-53
+		#Fill-54
+		#Fill-55
+		#Fill-56
+		#Fill-57
+		#Fill-58
+			fill $navy
+
+		#Fill-51
+			fill $sky
+
+.big-button-schedule-pickup
+	.button-hover
+		#Fill-105
+		#Fill-103
+			fill $sky
+
+		#Fill-104
+		#Fill-107
+			fill $mag
+
+		#Fill-108
 			fill $pink
-
-		.button-hover
-			#Fill-52
-				fill $mag
-
-			#Fill-53
-			#Fill-54
-			#Fill-55
-			#Fill-56
-			#Fill-57
-			#Fill-58
-				fill $navy
-
-			#Fill-51
-				fill $sky
-
-	.big-button-schedule-pickup
-		.button-hover
-			#Fill-105
-			#Fill-103
-				fill $sky
-
-			#Fill-104
-			#Fill-107
-				fill $mag
-
-			#Fill-108
-				fill $pink
 
 
 .big-button-label

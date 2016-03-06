@@ -95,6 +95,11 @@ input[type="submit"]
 	display block
 	transition left 0.25s
 	transition width 0.25s
+	z-index 1
+
+	object
+		z-index -1
+		pointer-events none
 
 
 #site-navigation-container
@@ -444,7 +449,7 @@ input[type="submit"]
 				padding-bottom 1.5em
 
 	.even
-		background $off-white
+		background $off_white
 
 	.odd
 		background white

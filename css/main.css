@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:38:56 PM on 05-03-2016
+* RHD Dev: Compiled at 11:20:28 AM on 06-03-2016
 ***/
 
 .alignnone {
@@ -856,66 +856,62 @@ input[type="radio"] {
 .big-button {
   position: relative;
 }
-.big-button:hover .big-button-label {
+.big-button .big-button-link {
+  display: block;
+  z-index: 1;
+  color: #1e2171;
+}
+.big-button .big-button-link:hover {
+  text-decoration: none;
+}
+.big-button .big-button-link:hover .big-button-label {
   color: #5090cc;
   text-decoration: none;
 }
-.big-button .big-button-link {
+.big-button .big-button-link .big-button-image,
+.big-button .big-button-link .big-button-svg {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  z-index: 999;
+  height: auto;
 }
-.big-button .big-button-image,
-.big-button .big-button-svg {
-  width: 90%;
-  max-width: none;
-  position: relative;
-  margin: 0 auto 0 auto;
-  display: block;
+.big-button .big-button-link .big-button-svg {
+  pointer-events: none;
 }
-.big-button .big-button-svg {
-  cursor: pointer;
-}
-.big-button .big-button-svg path,
-.big-button .big-button-svg circle {
+.big-button .big-button-link .big-button-svg path,
+.big-button .big-button-link .big-button-svg circle {
   transition: all 0.5s ease;
 }
-.big-button .big-button-auto-donation .button-hover #Stroke-4 {
+#big-button-car:hover #car {
   fill: #da0962;
 }
-.big-button .big-button-auto-donation .button-hover #Fill-4 {
+#big-button-car:hover #hands {
   fill: #5090cc;
 }
-.big-button .big-button-volunteer #Fill-52 {
+.big-button-volunteer #Fill-52 {
   fill: #ed61af;
 }
-.big-button .big-button-volunteer .button-hover #Fill-52 {
+.big-button-volunteer .button-hover #Fill-52 {
   fill: #da0962;
 }
-.big-button .big-button-volunteer .button-hover #Fill-53,
-.big-button .big-button-volunteer .button-hover #Fill-54,
-.big-button .big-button-volunteer .button-hover #Fill-55,
-.big-button .big-button-volunteer .button-hover #Fill-56,
-.big-button .big-button-volunteer .button-hover #Fill-57,
-.big-button .big-button-volunteer .button-hover #Fill-58 {
+.big-button-volunteer .button-hover #Fill-53,
+.big-button-volunteer .button-hover #Fill-54,
+.big-button-volunteer .button-hover #Fill-55,
+.big-button-volunteer .button-hover #Fill-56,
+.big-button-volunteer .button-hover #Fill-57,
+.big-button-volunteer .button-hover #Fill-58 {
   fill: #1e2171;
 }
-.big-button .big-button-volunteer .button-hover #Fill-51 {
+.big-button-volunteer .button-hover #Fill-51 {
   fill: #5090cc;
 }
-.big-button .big-button-schedule-pickup .button-hover #Fill-105,
-.big-button .big-button-schedule-pickup .button-hover #Fill-103 {
+.big-button-schedule-pickup .button-hover #Fill-105,
+.big-button-schedule-pickup .button-hover #Fill-103 {
   fill: #5090cc;
 }
-.big-button .big-button-schedule-pickup .button-hover #Fill-104,
-.big-button .big-button-schedule-pickup .button-hover #Fill-107 {
+.big-button-schedule-pickup .button-hover #Fill-104,
+.big-button-schedule-pickup .button-hover #Fill-107 {
   fill: #da0962;
 }
-.big-button .big-button-schedule-pickup .button-hover #Fill-108 {
+.big-button-schedule-pickup .button-hover #Fill-108 {
   fill: #ed61af;
 }
 .big-button-label {
@@ -1023,6 +1019,11 @@ input[type="submit"]:hover {
   display: block;
   transition: left 0.25s;
   transition: width 0.25s;
+  z-index: 1;
+}
+#site-title object {
+  z-index: -1;
+  pointer-events: none;
 }
 #site-navigation-container {
   width: 100%;
@@ -1360,7 +1361,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: $off-white;
+  background: #e6e6e6;
 }
 #comments .odd {
   background: #fff;

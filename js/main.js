@@ -76,8 +76,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$(".svg-fallback").hide();
 		}
 
-		$('.big-button').on('hover', function(){
-			$(this).addClass('button-hover');
+		$('.big-button-link').on('hover', function(){
+			$(this).find('object').toggleClass('button-hover');
 		});
 	}
 
