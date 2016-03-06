@@ -54,7 +54,7 @@
 				rhd_post_meta_links();
 			}
 			?>
-			<p><?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
+			<?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
 	<?php endif; ?>
 </article><!-- #post -->

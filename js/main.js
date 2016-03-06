@@ -75,6 +75,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		if (Modernizr.inlinesvg) {
 			$(".svg-fallback").hide();
 		}
+
+		$('.big-button').on('hover', function(){
+			$(this).addClass('button-hover');
+		});
 	}
 
 

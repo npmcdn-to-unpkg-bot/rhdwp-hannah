@@ -358,8 +358,6 @@ input[type="submit"]
 #posts-feed
 	.post
 		margin 1em auto
-		border 2px solid $navy
-		border-radius 2px
 
 		&:first-of-type
 			margin-top 0
@@ -493,7 +491,7 @@ input[type="submit"]
 		margin-bottom 1em
 
 		#front-page-content
-			-wrapper(3em, 3em)
+			-wrapper(2em, 2em)
 
 			.entry-content
 				.v-text
@@ -510,8 +508,6 @@ input[type="submit"]
 		#front-page-big-buttons
 			background-color $off_white
 			padding 3.5em 0 0
-// 			border-top 4px solid $navy
-// 			border-bottom 4px solid $navy
 
 			.big-buttons
 				-wrapper(0, 0, 95%, 64rem)
@@ -690,9 +686,11 @@ input[type="submit"]
 						border none
 						margin-bottom 0
 
-	.blog-area
 	#posts-feed
 		.post
+			border 2px solid $navy
+			border-radius 2px
+
 			.entry-header
 				text-align left
 				margin-top 0
@@ -844,7 +842,7 @@ input[type="submit"]
 		height 8em
 
 		#site-title
-			width 27%
+			width 24%
 			left 4%
 
 	#site-navigation-container
@@ -861,7 +859,7 @@ input[type="submit"]
 				-wrapper()
 
 			#front-page-content
-				-wrapper(0, 0, 70%)
+				-wrapper(1em, 1em, 70%)
 				padding 3em 0
 
 				.entry-content
