@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:46:16 AM on 08-02-2016
+* RHD Dev: Compiled at 1:10:35 PM on 10-03-2016
 ***/
 
 /**
@@ -159,6 +159,13 @@ a img.aligncenter {
   font-family: 'Ale Pro';
   src: url("fonts/ale_pro-webfont.eot");
   src: url("fonts/ale_pro-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/ale_pro-webfont.woff2") format('woff2'), url("fonts/ale_pro-webfont.woff") format('woff'), url("fonts/ale_pro-webfont.ttf") format('truetype'), url("fonts/ale_pro-webfont.svg#fonts/ale_proregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Manhattan Darling';
+  src: url("fonts/manhattandarling-webfont.eot");
+  src: url("fonts/manhattandarling-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/manhattandarling-webfont.woff2") format('woff2'), url("fonts/manhattandarling-webfont.woff") format('woff'), url("fonts/manhattandarling-webfont.ttf") format('truetype'), url("fonts/manhattandarling-webfont.svg#manhattan_darlingregular") format('svg');
   font-weight: normal;
   font-style: normal;
 }
