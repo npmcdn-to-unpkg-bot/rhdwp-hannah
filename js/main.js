@@ -72,13 +72,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		postContent = $(".entry-content").html();
 
 		// Check inline SVG support
-		if (Modernizr.inlinesvg) {
-			$(".svg-fallback").hide();
+		if ( ! Modernizr.inlinesvg) {
+			$(".svg-fallback").show();
 		}
-
-		$('.big-button-link').on('hover', function(){
-			$(this).find('object').toggleClass('button-hover');
-		});
 	}
 
 

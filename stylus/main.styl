@@ -703,6 +703,30 @@ input[type="submit"]
 				.entry-title
 					margin 0 0 0.25rem
 
+	.front-page
+		#main
+			#front-page-big-buttons
+				.big-buttons
+					.widget
+						width 30%
+						-flexitem()
+						vertical-align top
+
+						.big-button-link
+							z-index 1
+							-opacity(0.8)
+							transition all 0.25s
+
+							&:hover
+							&:active
+								-opacity(1)
+
+								.big-button-label
+									color inherit
+
+						.big-button-label
+							font-size 2.1vw
+
 	.single-store
 		#main
 			.store-header

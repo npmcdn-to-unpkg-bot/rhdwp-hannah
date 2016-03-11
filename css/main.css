@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:20:28 AM on 06-03-2016
+* RHD Dev: Compiled at 1:23:00 PM on 11-03-2016
 ***/
 
 .alignnone {
@@ -876,50 +876,15 @@ input[type="radio"] {
 .big-button .big-button-link .big-button-svg {
   pointer-events: none;
 }
-.big-button .big-button-link .big-button-svg path,
-.big-button .big-button-link .big-button-svg circle {
-  transition: all 0.5s ease;
-}
-#big-button-car:hover #car {
-  fill: #da0962;
-}
-#big-button-car:hover #hands {
-  fill: #5090cc;
-}
-.big-button-volunteer #Fill-52 {
-  fill: #ed61af;
-}
-.big-button-volunteer .button-hover #Fill-52 {
-  fill: #da0962;
-}
-.big-button-volunteer .button-hover #Fill-53,
-.big-button-volunteer .button-hover #Fill-54,
-.big-button-volunteer .button-hover #Fill-55,
-.big-button-volunteer .button-hover #Fill-56,
-.big-button-volunteer .button-hover #Fill-57,
-.big-button-volunteer .button-hover #Fill-58 {
-  fill: #1e2171;
-}
-.big-button-volunteer .button-hover #Fill-51 {
-  fill: #5090cc;
-}
-.big-button-schedule-pickup .button-hover #Fill-105,
-.big-button-schedule-pickup .button-hover #Fill-103 {
-  fill: #5090cc;
-}
-.big-button-schedule-pickup .button-hover #Fill-104,
-.big-button-schedule-pickup .button-hover #Fill-107 {
-  fill: #da0962;
-}
-.big-button-schedule-pickup .button-hover #Fill-108 {
-  fill: #ed61af;
+.big-button .big-button-link .svg-fallback {
+  display: none;
 }
 .big-button-label {
   font-size: 1.4em;
   font-weight: 800;
   text-align: center;
   margin-top: 0.25em;
-  transition: color 0.5s ease;
+  transition: color 0.25s;
 }
 /* ==========================================================================
 	Main Styles
@@ -1622,6 +1587,31 @@ input[type="submit"]:hover {
   }
   #posts-feed .post .entry-header .entry-title {
     margin: 0 0 0.25rem;
+  }
+  .front-page #main #front-page-big-buttons .big-buttons .widget {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .front-page #main #front-page-big-buttons .big-buttons .widget .big-button-link {
+    z-index: 1;
+    -moz-opacity: 0.8;
+    -webkit-opacity: 0.8;
+    opacity: 0.8;
+    transition: all 0.25s;
+  }
+  .front-page #main #front-page-big-buttons .big-buttons .widget .big-button-link:hover,
+  .front-page #main #front-page-big-buttons .big-buttons .widget .big-button-link:active {
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+    opacity: 1;
+  }
+  .front-page #main #front-page-big-buttons .big-buttons .widget .big-button-link:hover .big-button-label,
+  .front-page #main #front-page-big-buttons .big-buttons .widget .big-button-link:active .big-button-label {
+    color: inherit;
+  }
+  .front-page #main #front-page-big-buttons .big-buttons .widget .big-button-label {
+    font-size: 2.1vw;
   }
   .single-store #main .store-header {
     padding-bottom: 0.5em;
