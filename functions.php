@@ -665,6 +665,15 @@ add_filter( 'body_class', 'rhd_body_class' );
 	Theme Functions and Customizations
    ========================================================================== */
 
+function excludePages( $query )
+{
+	if ( $query->is_search ) {
+		$query->set( 'post_type', array( 'post' ) );
+	}
+	return $query;
+
+}
+add_filter('pre_get_posts','excludePages');
 
 
 /* ==========================================================================
@@ -987,7 +996,7 @@ function rhd_post_meta_links()
 		</li>
 		<li class="post-meta-item post-cats">
 			<span class="post-meta-item-title">Categories</span><br />
-			<?php the_category( '<br />' ); ?>
+			<?php echo get_the_term_list( get_the_ID(), 'category', '', '<br />', null ); ?>
 		</li>
 		<li class="post-meta-item post-tags">
 			<span class="post-meta-item-title">Tags</span><br />

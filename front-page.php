@@ -57,7 +57,7 @@ get_header(); ?>
 
 				<?php if ( $posts_query->have_posts() ) : ?>
 					<?php while ( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
-						<?php get_template_part( 'content' ); ?>
+						<?php get_template_part( 'content', 'front-page-post' ); ?>
 					<?php endwhile; ?>
 				<?php endif; ?>
 

@@ -245,15 +245,22 @@ input[type="submit"]
 		.rhd_social_icons
 			text-align center
 
+			a
+				&:hover
+				&:active
+					path
+						fill $mag
+
 	#footer-hheart-logo
 		width 100%
-		height 13em
+		height 19em
 		margin 0 auto
 		background white
 		position relative
 
 		img
 			width 85%
+			max-width 100%
 			position absolute
 			top 50%
 			left 50%
@@ -371,13 +378,14 @@ input[type="submit"]
 			margin-bottom 0
 
 		.post-inner
-			padding 1em
 			-clearfix()
+
+			.post-content
+				padding 1em
 
 		.post-thumbnail
 			width 100%
 			margin-bottom 0.5em
-			border 1px solid $navy
 
 			img
 				width 100%
@@ -512,7 +520,7 @@ input[type="submit"]
 
 		#front-page-big-buttons
 			background-color $off_white
-			padding 3.5em 0 0
+			padding 2em 0 0
 
 			.big-buttons
 				-wrapper(0, 0, 95%, 64rem)
@@ -528,6 +536,16 @@ input[type="submit"]
 
 		#front-page-news
 			-wrapper()
+
+			#posts-feed
+				.post-thumbnail
+					border 2px solid $navy
+
+				.post-inner
+					padding 1em
+
+					.post-content
+						padding 0
 
 		#primary
 			padding 2em 0 0
@@ -546,8 +564,24 @@ input[type="submit"]
 		margin-bottom 2em
 
 		#about-content
-			-wrapper()
+			-wrapper(2em, 0)
 			-clearfix()
+
+
+/* ==========================================================================
+	Locations Page
+   ========================================================================== */
+
+.page-id-13
+	.entry-content
+		.gallery-item
+			img
+				border 2px solid $navy
+				border-radius 0.1em
+
+			.gallery-caption
+				font-weight 700
+				color $navy
 
 
 /* ==========================================================================
@@ -697,15 +731,38 @@ input[type="submit"]
 			border-radius 2px
 
 			.entry-header
-				text-align left
-				margin-top 0
+				background $sky_trans
+				padding 1em
+				margin 0
 
 				.entry-title
 					margin 0 0 0.25rem
 
+					a
+						color $navy
+						transition color 0.25s
+
+						&:hover
+						&:active
+							color $sky
+							text-decoration none
+
 	.front-page
 		#main
+			#front-page-news
+				#posts-feed
+					.post
+						.post-thumbnail
+							border none
+
+						.entry-header
+							background none
+							text-align left
+							padding 0
+
 			#front-page-big-buttons
+				padding-top 3.5em
+
 				.big-buttons
 					.widget
 						width 30%
@@ -754,38 +811,39 @@ input[type="submit"]
 					padding-left 1em
 
 	.entry-meta
-		background-color $sky_trans
-
-		.comments-popup
-			width 100%
-
-		.post-meta
-			margin 0
-			padding 0
-			position relative
-			-clearfix()
-			display table
+		.entry-meta-links
 			background-color $sky_trans
 
-			.post-meta-item
-				width 33.3333333%
-				height 100%
-				display table-cell
-				padding 1em 0
-				vertical-align top
-				text-align center
-				transition all 0.5s ease
+			.comments-popup
+				width 100%
 
-				&:hover
-					background-color $sky_half
+			.post-meta
+				margin 0
+				padding 0
+				position relative
+				-clearfix()
+				display table
+				background-color $sky_trans
 
-				a
-					color inherit
-					transition color 0.5s ease
+				.post-meta-item
+					width 33.3333333%
+					height 100%
+					display table-cell
+					padding 1em 0
+					vertical-align top
+					text-align center
+					transition all 0.5s ease
 
-				.post-meta-item-title
-					font-weight 700
-					font-size 1.1em
+					&:hover
+						background-color $sky_half
+
+					a
+						color inherit
+						transition color 0.5s ease
+
+					.post-meta-item-title
+						font-weight 700
+						font-size 1.1em
 
 	#colophon
 		#footer-widget-area
@@ -846,7 +904,6 @@ input[type="submit"]
 	.entry-content
 		img
 		iframe
-			width initial
 			-unwrapper(initial)
 
 		img
@@ -864,6 +921,11 @@ input[type="submit"]
 		a
 			img
 				@extends .entry-content img
+
+		.gallery-item
+			img
+				display block
+				margin 0 auto
 
 
 @media screen and (min-width 60em)
@@ -952,4 +1014,27 @@ input[type="submit"]
 
 @media screen and (min-width 66em)
 	#primary
-		width 64%
+		width 63%
+
+
+@media screen and (max-width 40em)
+	.page-id-13
+		.entry-content
+			.gallery
+				.gallery-item
+					max-width 50%
+
+					img
+						margin-bottom 0.25em
+
+
+@media screen and (max-width 34em)
+	#colophon
+		#footer-hheart-logo
+			height 13em
+
+	.page-id-13
+		.entry-content
+			.gallery
+				.gallery-item
+					max-width none

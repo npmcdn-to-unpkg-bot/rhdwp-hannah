@@ -17,19 +17,11 @@ get_header();
             </header><!-- .page-header -->
 
 			<?php if ( have_posts() ) : ?>
-				<?php if ( ! is_single() ) : ?>
 					<div id="posts-feed">
-				<?php endif; ?>
-
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content' ); ?>
-				<?php endwhile; ?>
-
-				<?php if ( is_single() && comments_open() ) comments_template(); ?>
-
-				<?php if ( ! is_single() ) : ?>
+						<?php while ( have_posts() ) : the_post(); ?>
+							<?php get_template_part( 'content' ); ?>
+						<?php endwhile; ?>
 					</div>
-				<?php endif; ?>
 			<?php else : ?>
 
 				<article id="post-0" class="post no-results not-found">

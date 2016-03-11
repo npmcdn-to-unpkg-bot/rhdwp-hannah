@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:27:04 PM on 11-03-2016
+* RHD Dev: Compiled at 3:31:20 PM on 11-03-2016
 ***/
 
 /**
@@ -185,7 +185,7 @@ a img.aligncenter {
 .single-pagination:before,
 .page-id-9 #main #about-content:before,
 #posts-feed.small-thumbnails .post:before,
-.entry-meta .post-meta:before,
+.entry-meta .entry-meta-links .post-meta:before,
 #primary:before,
 .front-page #main #front-page-content .entry-content:before,
 #main:before,
@@ -197,7 +197,7 @@ a img.aligncenter {
 .single-pagination:after,
 .page-id-9 #main #about-content:after,
 #posts-feed.small-thumbnails .post:after,
-.entry-meta .post-meta:after,
+.entry-meta .entry-meta-links .post-meta:after,
 #primary:after,
 .front-page #main #front-page-content .entry-content:after,
 #main:after {
@@ -212,7 +212,7 @@ a img.aligncenter {
 .single-pagination:after,
 .page-id-9 #main #about-content:after,
 #posts-feed.small-thumbnails .post:after,
-.entry-meta .post-meta:after,
+.entry-meta .entry-meta-links .post-meta:after,
 #primary:after,
 .front-page #main #front-page-content .entry-content:after,
 #main:after {
@@ -868,7 +868,7 @@ input[type="radio"] {
   text-decoration: none;
 }
 .big-button .big-button-link:hover .big-button-label {
-  color: #5090cc;
+  color: #60adf7;
   text-decoration: none;
 }
 .big-button .big-button-link .big-button-image,
@@ -914,7 +914,7 @@ a {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #5090cc;
+  color: #60adf7;
 }
 a:hover,
 a:active {
@@ -923,7 +923,7 @@ a:active {
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid #5090cc;
+  border: 2px solid #60adf7;
   box-sizing: border-box;
   padding: 0.5em;
   font-family: 'Open Sans', sans-serif;
@@ -1016,7 +1016,7 @@ input[type="submit"]:hover {
 }
 #site-navigation-container #site-navigation .menu-item a:hover,
 #site-navigation-container #site-navigation .menu-item a:active {
-  color: #5090cc;
+  color: #60adf7;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
@@ -1033,7 +1033,7 @@ input[type="submit"]:hover {
   list-style: none;
 }
 .site-navigation li a {
-  color: #5090cc;
+  color: #60adf7;
   text-decoration: none;
   transition: color 0.25s;
 }
@@ -1075,7 +1075,7 @@ input[type="submit"]:hover {
   position: relative;
 }
 #colophon a {
-  color: #5090cc;
+  color: #60adf7;
 }
 #colophon a:hover,
 #colophon a:active {
@@ -1110,8 +1110,8 @@ input[type="submit"]:hover {
 }
 #colophon #footer-widget-area .search-form .search-submit {
   width: 25%;
-  background-color: #5090cc;
-  border-color: #5090cc;
+  background-color: #60adf7;
+  border-color: #60adf7;
   transition: all 0.25s ease;
   position: absolute;
   top: 0;
@@ -1122,22 +1122,27 @@ input[type="submit"]:hover {
 }
 #colophon #footer-widget-area .search-form .search-submit:hover,
 #colophon #footer-widget-area .search-form .search-submit:active {
-  background-color: #5090cc;
-  border-color: #5090cc;
+  background-color: #60adf7;
+  border-color: #60adf7;
   color: #1e2171;
 }
 #colophon #footer-widget-area .rhd_social_icons {
   text-align: center;
 }
+#colophon #footer-widget-area .rhd_social_icons a:hover path,
+#colophon #footer-widget-area .rhd_social_icons a:active path {
+  fill: #da0962;
+}
 #colophon #footer-hheart-logo {
   width: 100%;
-  height: 13em;
+  height: 19em;
   margin: 0 auto;
   background: #fff;
   position: relative;
 }
 #colophon #footer-hheart-logo img {
   width: 85%;
+  max-width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1245,13 +1250,12 @@ input[type="submit"]:hover {
 #posts-feed .post:last-of-type {
   margin-bottom: 0;
 }
-#posts-feed .post .post-inner {
+#posts-feed .post .post-inner .post-content {
   padding: 1em;
 }
 #posts-feed .post .post-thumbnail {
   width: 100%;
   margin-bottom: 0.5em;
-  border: 1px solid #1e2171;
 }
 #posts-feed .post .post-thumbnail img {
   width: 100%;
@@ -1381,7 +1385,7 @@ input[type="submit"]:hover {
 }
 .front-page #main #front-page-big-buttons {
   background-color: #e6e6e6;
-  padding: 3.5em 0 0;
+  padding: 2em 0 0;
 }
 .front-page #main #front-page-big-buttons .big-buttons {
   width: 95%;
@@ -1409,6 +1413,15 @@ input[type="submit"]:hover {
   position: relative;
   margin: 0 auto 0 auto;
 }
+.front-page #main #front-page-news #posts-feed .post-thumbnail {
+  border: 2px solid #1e2171;
+}
+.front-page #main #front-page-news #posts-feed .post-inner {
+  padding: 1em;
+}
+.front-page #main #front-page-news #posts-feed .post-inner .post-content {
+  padding: 0;
+}
 .front-page #main #primary {
   padding: 2em 0 0;
 }
@@ -1425,7 +1438,15 @@ input[type="submit"]:hover {
   width: 85%;
   max-width: none;
   position: relative;
-  margin: 0 auto 0 auto;
+  margin: 2em auto 0 auto;
+}
+.page-id-13 .entry-content .gallery-item img {
+  border: 2px solid #1e2171;
+  border-radius: 0.1em;
+}
+.page-id-13 .entry-content .gallery-item .gallery-caption {
+  font-weight: 700;
+  color: #1e2171;
 }
 .single-store #main {
   width: 100%;
@@ -1475,10 +1496,10 @@ input[type="submit"]:hover {
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #5090cc;
+  color: #60adf7;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #5090cc;
+  border: 3px solid #60adf7;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
@@ -1488,7 +1509,7 @@ input[type="submit"]:hover {
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #5090cc;
+  background-color: #60adf7;
   color: #fff;
 }
 #secondary .widget {
@@ -1558,11 +1579,32 @@ input[type="submit"]:hover {
     border-radius: 2px;
   }
   #posts-feed .post .entry-header {
-    text-align: left;
-    margin-top: 0;
+    background: rgba(80,144,204,0.15);
+    padding: 1em;
+    margin: 0;
   }
   #posts-feed .post .entry-header .entry-title {
     margin: 0 0 0.25rem;
+  }
+  #posts-feed .post .entry-header .entry-title a {
+    color: #1e2171;
+    transition: color 0.25s;
+  }
+  #posts-feed .post .entry-header .entry-title a:hover,
+  #posts-feed .post .entry-header .entry-title a:active {
+    color: #60adf7;
+    text-decoration: none;
+  }
+  .front-page #main #front-page-news #posts-feed .post .post-thumbnail {
+    border: none;
+  }
+  .front-page #main #front-page-news #posts-feed .post .entry-header {
+    background: none;
+    text-align: left;
+    padding: 0;
+  }
+  .front-page #main #front-page-big-buttons {
+    padding-top: 3.5em;
   }
   .front-page #main #front-page-big-buttons .big-buttons .widget {
     width: 30%;
@@ -1617,20 +1659,20 @@ input[type="submit"]:hover {
   .single-store #main #single-store-media .single-store-thumbnail {
     padding-left: 1em;
   }
-  .entry-meta {
+  .entry-meta .entry-meta-links {
     background-color: rgba(80,144,204,0.15);
   }
-  .entry-meta .comments-popup {
+  .entry-meta .entry-meta-links .comments-popup {
     width: 100%;
   }
-  .entry-meta .post-meta {
+  .entry-meta .entry-meta-links .post-meta {
     margin: 0;
     padding: 0;
     position: relative;
     display: table;
     background-color: rgba(80,144,204,0.15);
   }
-  .entry-meta .post-meta .post-meta-item {
+  .entry-meta .entry-meta-links .post-meta .post-meta-item {
     width: 33.3333333%;
     height: 100%;
     display: table-cell;
@@ -1639,14 +1681,14 @@ input[type="submit"]:hover {
     text-align: center;
     transition: all 0.5s ease;
   }
-  .entry-meta .post-meta .post-meta-item:hover {
+  .entry-meta .entry-meta-links .post-meta .post-meta-item:hover {
     background-color: rgba(80,144,204,0.35);
   }
-  .entry-meta .post-meta .post-meta-item a {
+  .entry-meta .entry-meta-links .post-meta .post-meta-item a {
     color: inherit;
     transition: color 0.5s ease;
   }
-  .entry-meta .post-meta .post-meta-item .post-meta-item-title {
+  .entry-meta .entry-meta-links .post-meta .post-meta-item .post-meta-item-title {
     font-weight: 700;
     font-size: 1.1em;
   }
@@ -1702,7 +1744,6 @@ input[type="submit"]:hover {
   .entry-content iframe,
 .entry-content a img {
     width: initial;
-    width: initial;
     max-width: 100%;
     margin: initial;
   }
@@ -1718,6 +1759,10 @@ input[type="submit"]:hover {
   }
   .entry-content img.aligncenter,
 .entry-content a img.aligncenter {
+    margin: 0 auto;
+  }
+  .entry-content .gallery-item img {
+    display: block;
     margin: 0 auto;
   }
 }
@@ -1810,7 +1855,23 @@ input[type="submit"]:hover {
 }
 @media screen and (min-width: 66em) {
   #primary {
-    width: 64%;
+    width: 63%;
+  }
+}
+@media screen and (max-width: 40em) {
+  .page-id-13 .entry-content .gallery .gallery-item {
+    max-width: 50%;
+  }
+  .page-id-13 .entry-content .gallery .gallery-item img {
+    margin-bottom: 0.25em;
+  }
+}
+@media screen and (max-width: 34em) {
+  #colophon #footer-hheart-logo {
+    height: 13em;
+  }
+  .page-id-13 .entry-content .gallery .gallery-item {
+    max-width: none;
   }
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */

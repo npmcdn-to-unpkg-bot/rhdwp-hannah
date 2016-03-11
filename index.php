@@ -9,11 +9,11 @@
 get_header();
 ?>
 
-	<?php if ( is_home() ) : ?>
-		<h2 class="page-title"><?php the_title(); ?></h2>
-	<?php endif; ?>
-
 	<section id="primary" class="site-content">
+		<?php if ( is_home() ) : ?>
+			<h2 class="page-title"><?php the_title(); ?></h2>
+		<?php endif; ?>
+
 		<div id="content" role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php if ( ! is_single() ) : ?>
