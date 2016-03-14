@@ -9,8 +9,31 @@
  */
 ?>
 
+<?php
+//$addr = do_shortcode( '[ct id="ct_Address_textarea_e4cb" property="value"]' );
+global $addr;
+$addr_min = str_replace( array("\r", "\n"), "", $addr );
+?>
+
 <?php if ( is_active_sidebar( 'sidebar-store' ) ) : ?>
 	<aside id="secondary" class="widget-area" role="complementary">
+		<?php if ( has_post_thumbnail() ) : ?>
+			<div class="widget rhd-store-header-image">
+				<div class="single-store-thumbnail">
+					<?php the_post_thumbnail( 'large' ); ?>
+				</div>
+			</div>
+		<?php endif; ?>
+
+		<div class="widget rhd-store-map">
+			<div class="single-store-map">
+				<?php echo do_shortcode( "[pw_map width='100%' height='300px' address='$addr_min']" ); ?>
+				<div class="single-store-map-caption">
+					<?php echo wpautop( $addr ); ?>
+				</div>
+			</div>
+		</div>
+
 		<div class="widget rhd-store-image-widget">
 			<?php
 			$img_url = do_shortcode('[ct id="ct_Manager_Ph_upload_cd6c" property="value"]');

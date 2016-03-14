@@ -21,7 +21,12 @@ $don_hrs = do_shortcode( '[ct id="ct_Donation_H_textarea_c36d" property="value"]
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 			<header class="store-header">
+				<div class="store-header-image">
+					<?php echo do_shortcode('[ct id="_ct_upload_56e70e1f7a91e" property="value"]' ); ?>
+				</div>
+
 				<ul id="single-store-info">
 					<li class="single-store-contact">
 						<h2 class="store-title store-heading"><?php the_title(); ?></h2>
@@ -43,25 +48,13 @@ $don_hrs = do_shortcode( '[ct id="ct_Donation_H_textarea_c36d" property="value"]
 				</ul>
 			</header><!-- .entry-header -->
 
-			<?php if ( $addr || has_post_thumbnail() ) : ?>
-				<div id="single-store-media">
-					<div class="single-store-map">
-						<?php
-						$h = wp_is_mobile() ? '30vh' : '40vh';
-						echo do_shortcode( "[pw_map width='100%' height='$h' address='$addr']" );
-						?>
-					</div>
-
-					<?php if ( has_post_thumbnail() ) : ?>
-						<div class="single-store-thumbnail">
-							<?php the_post_thumbnail( 'large' ); ?>
-						</div>
-					<?php endif; ?>
-				</div>
-			<?php endif; ?>
-
 			<div id="single-store-content">
+				<?php get_sidebar( 'store' ); ?>
+
 				<section id="primary" class="site-content">
+					<header class="entry-header">
+						<h2 class="page-title"><?php echo get_the_title() . " Store News"; ?></h2>
+					</header><!-- .entry-header -->
 					<div id="content" role="main">
 						<?php
 						if ( get_query_var( 'paged' ) )
@@ -76,9 +69,11 @@ $don_hrs = do_shortcode( '[ct id="ct_Donation_H_textarea_c36d" property="value"]
 						$post_args = array(
 							'post_type' => 'post',
 							'tax_query' => array(
-								'taxonomy' => 'location',
-								'field' => 'name',
-								'terms' => get_the_title()
+								array(
+									'taxonomy' => 'location',
+									'field' => 'name',
+									'terms' => get_the_title()
+								)
 							),
 							'paged' => $paged
 						);
@@ -96,8 +91,6 @@ $don_hrs = do_shortcode( '[ct id="ct_Donation_H_textarea_c36d" property="value"]
 						<?php endif; ?>
 					</div><!-- #content -->
 				</section><!-- #primary -->
-
-				<?php get_sidebar( 'store' ); ?>
 			</div>
 		</article>
 	<?php endwhile; ?>

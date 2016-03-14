@@ -614,17 +614,20 @@ input[type="submit"]
 			text-align center
 			padding 1.5em 0
 			border-bottom 4px solid $navy
-			margin-bottom 2em
 
 			p
 				margin 0
+
+			.store-header-image
+				width 100%
+				border-bottom 4px solid $navy
 
 			.store-heading
 				font-size 1.2em
 				margin 0
 
 			#single-store-info
-				-wrapper(0, 0, 90%)
+				-wrapper(1em, 0, 90%)
 				padding-left 0
 				list-style none
 
@@ -634,9 +637,29 @@ input[type="submit"]
 					&:last-child
 						margin-bottom 0
 
-		#single-store-media
+		.single-store-thumbnail
+			width 100%
+			height auto
+
+			img
+				width (@width)
+				height (@height)
+
 		#single-store-content
-			-wrapper()
+			-wrapper(3em, 1em)
+			-clearfix()
+
+			.single-store-map-caption
+				text-align center
+				font-weight 700
+
+				p
+					margin 0.5em 0
+
+			.widget_rhd_auto_donation_button_widget
+			.widget_rhd_volunteer_button_widget
+			.widget_rhd_schedule_pickup_button_widget
+				display none
 
 
 /* ==========================================================================
@@ -808,6 +831,7 @@ input[type="submit"]
 
 				#single-store-info
 					-flexbox()
+					padding-top 0.5em
 
 					li
 						width 30%
@@ -815,17 +839,11 @@ input[type="submit"]
 						margin-bottom 0
 						text-align center
 
-			#single-store-media
-				> div
-					display table-cell
-					width 48%
-					vertical-align top
-
-				.single-store-map
-					padding-right 1em
-
-				.single-store-thumbnail
-					padding-left 1em
+			#single-store-content
+				.widget_rhd_auto_donation_button_widget
+				.widget_rhd_volunteer_button_widget
+				.widget_rhd_schedule_pickup_button_widget
+					display block
 
 	.entry-meta
 		.entry-meta-links

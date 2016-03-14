@@ -265,6 +265,7 @@ add_filter( 'widget_text', 'do_shortcode' );
 function rhd_image_sizes()
 {
 	add_image_size( 'square', 300, 300, true );
+	add_image_size( 'store_image', null, 400, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
@@ -281,7 +282,8 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
 function rhd_add_image_sizes( $sizes )
 {
 	$addsizes = array(
-		"square" => __( "Square" )
+		"square" => __( "Square" ),
+		"Store Image" => __( "Store Image" )
 	);
 	$newsizes = array_merge( $sizes, $addsizes );
 
