@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:31:20 PM on 11-03-2016
+* RHD Dev: Compiled at 1:55:52 PM on 14-03-2016
 ***/
 
 .alignnone {
@@ -861,6 +861,14 @@ input[type="radio"] {
   z-index: 1;
   color: #1e2171;
 }
+.big-button .big-button-link:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 .big-button .big-button-link:hover {
   text-decoration: none;
 }
@@ -1281,6 +1289,10 @@ input[type="submit"]:hover {
 #posts-feed .post .entry-header .entry-details .sep {
   font-size: 0.8em;
 }
+.entry-content .gallery-item .gallery-caption {
+  font-weight: 700;
+  color: #1e2171;
+}
 .full-width-slideshow {
   width: 100%;
 }
@@ -1459,9 +1471,14 @@ input[type="submit"]:hover {
   border: 2px solid #1e2171;
   border-radius: 0.1em;
 }
-.page-id-13 .entry-content .gallery-item .gallery-caption {
-  font-weight: 700;
-  color: #1e2171;
+/* ==========================================================================
+	Donations Page
+   ========================================================================== */
+.page-id-11 #main {
+  width: 92%;
+}
+.page-id-11 #main .entry-content .gallery-item .gallery-caption {
+  font-size: 0.8em;
 }
 /* ==========================================================================
 	CPT: Store
@@ -1791,6 +1808,12 @@ input[type="submit"]:hover {
   .entry-content .gallery-item img {
     display: block;
     margin: 0 auto;
+  }
+  .page-id-11 #main {
+    width: 85%;
+  }
+  .page-id-11 #main .entry-content .gallery-item .gallery-caption {
+    font-size: 1.2em;
   }
 }
 @media screen and (min-width: 60em) {
