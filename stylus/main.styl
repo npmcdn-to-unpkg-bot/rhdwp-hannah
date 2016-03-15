@@ -4,7 +4,6 @@
 @require "partials/_helpers.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
-
 @require "partials/_plugins.styl"
 
 
@@ -86,11 +85,16 @@ input[type="submit"]
 	height auto
 	position relative
 	border-bottom 4px solid $navy
+	-clearfix()
 
 
 #site-title
-	-wrapper(1em, 1em, 80%)
-	height auto
+	width 60%
+	margin 1em 0
+	display inline-block
+	float left
+	position relative
+	left 1em
 	max-width 18rem
 	display block
 	transition left 0.25s
@@ -125,21 +129,28 @@ input[type="submit"]
 				&:active
 					color $sky
 
-			.sub-menu
-				position absolute
-				padding-left 0
-				line-height 1.7
-				margin-top 0.2em
-				z-index 999 !important
 
-				li
-					display block
+.sb-slidebar
+	background $navy !important
+
+	#site-navigation-sb-container
+		#site-navigation-sb
+			list-style none
+			font-size 1.3em
+			font-weight 700
+			position relative
+			margin 2em auto
+
+			a
+				color white
+
+				&:hover
+				&:active
+					color $sky
+
+			.menu-item
+				.sub-menu
 					margin 0
-
-
-#site-navigation-sb-container
-	#site-navigation-sb
-		list-style none
 
 
 .site-navigation
@@ -155,14 +166,23 @@ input[type="submit"]
 
 
 #hamburger
-	background-color black // sample bg animation color
+	position absolute
+	top 50%
+	right 1rem
+	-transform(translateY(-50%))
+	background transparent
 
-	&.is-active
-		background-color gray // sample bg animation color
+	&.c-hamburger
+		span
+			background-color $navy
 
-		&.c-hamburger--htx
+			&:before
+			&:after
+				background-color (@background-color)
+
+		&.is-active
 			span
-				background none
+				background-color transparent
 
 
 #main
@@ -612,7 +632,7 @@ input[type="submit"]
 
 		.store-header
 			text-align center
-			padding 1.5em 0
+			padding 0 0 1.5em 0
 			border-bottom 4px solid $navy
 
 			p
@@ -649,6 +669,10 @@ input[type="submit"]
 			-wrapper(3em, 1em)
 			-clearfix()
 
+			.single-store-thumbnail
+			.rhd-store-map .pw_map_canvas
+				border 2px solid $navy
+
 			.single-store-map-caption
 				text-align center
 				font-weight 700
@@ -682,7 +706,7 @@ input[type="submit"]
 		display inline-block
 		transition all 0.2s
 		font-size 1.2em
-		font-weight 800
+		font-weight 700
 		letter-spacing 1px
 
 		&:hover
@@ -744,6 +768,9 @@ input[type="submit"]
 
 		.menu-item
 			font-size 0.8em
+
+			.sub-menu
+				display none
 
 	#hamburger
 		display none

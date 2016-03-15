@@ -69,7 +69,7 @@
 		);
 		?>
 
-		<div class="sb-slidebar sb-left sb-style-push">
+		<div class="sb-slidebar sb-right sb-style-push">
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
 
@@ -81,7 +81,7 @@
 
 				<?php wp_nav_menu( $nav_args_main ); ?>
 
-				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
+				<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htx">
 					<span>Toggle nav</span>
 				</button>
 			</header><!-- #masthead -->
