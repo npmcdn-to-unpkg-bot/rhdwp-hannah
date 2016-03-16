@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:16:16 PM on 16-03-2016
+* RHD Dev: Compiled at 5:42:09 PM on 16-03-2016
 ***/
 
 .alignnone {
@@ -785,8 +785,8 @@ input[type="radio"] {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 96px;
-  height: 96px;
+  width: 72px;
+  height: 72px;
   font-size: 0;
   text-indent: -9999px;
   -webkit-appearance: none;
@@ -804,10 +804,10 @@ input[type="radio"] {
 .c-hamburger span {
   display: block;
   position: absolute;
-  top: 44px;
-  left: 18px;
-  right: 18px;
-  height: 8px;
+  top: 33px;
+  left: 13.5px;
+  right: 13.5px;
+  height: 6px;
   background: #fff;
 }
 .c-hamburger span::before,
@@ -816,15 +816,15 @@ input[type="radio"] {
   display: block;
   left: 0;
   width: 100%;
-  height: 8px;
+  height: 6px;
   background-color: #fff;
   content: "";
 }
 .c-hamburger span::before {
-  top: -20px;
+  top: -15px;
 }
 .c-hamburger span::after {
-  bottom: -20px;
+  bottom: -15px;
 }
 .c-hamburger--rot {
   background-color: #28aadc;
@@ -899,11 +899,11 @@ input[type="radio"] {
 }
 .c-hamburger--htla.is-active span::before {
   top: 0;
-  transform: translateX(38px) translateY(4px) rotate(45deg);
+  transform: translateX(28.5px) translateY(3px) rotate(45deg);
 }
 .c-hamburger--htla.is-active span::after {
   bottom: 0;
-  transform: translateX(38px) translateY(-4px) rotate(-45deg);
+  transform: translateX(28.5px) translateY(-3px) rotate(-45deg);
 }
 .c-hamburger--htra {
   background-color: #ff9650;
@@ -931,11 +931,11 @@ input[type="radio"] {
 }
 .c-hamburger--htra.is-active span::before {
   top: 0;
-  transform: translateX(-8px) translateY(4px) rotate(-45deg);
+  transform: translateX(-6px) translateY(3px) rotate(-45deg);
 }
 .c-hamburger--htra.is-active span::after {
   bottom: 0;
-  transform: translateX(-8px) translateY(-4px) rotate(45deg);
+  transform: translateX(-6px) translateY(-3px) rotate(45deg);
 }
 /* ==========================================================================
 	Main Styles
