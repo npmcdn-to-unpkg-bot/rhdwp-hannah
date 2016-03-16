@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:53:57 PM on 16-03-2016
+* RHD Dev: Compiled at 1:04:25 PM on 16-03-2016
 ***/
 
 .alignnone {
@@ -857,6 +857,7 @@ input[type="submit"]:hover {
 }
 #primary {
   margin-bottom: 4em;
+  padding-bottom: 1em;
 }
 #colophon {
   width: 100%;
@@ -915,7 +916,7 @@ input[type="submit"]:hover {
   background-position: right top;
 }
 .page-id-26 .header-bg {
-  background-position: right center;
+  background-position: left center;
 }
 .page-id-33 .header-bg {
   background-position: -5em center;
@@ -1222,5 +1223,11 @@ input[type="submit"]:hover {
   #site-navigation-container #site-navigation .menu-item-rhd-social {
     position: relative;
     bottom: 0.7em;
+  }
+}
+@media screen and (max-width: 50em) {
+  .page-id-24 .entry-content .gallery .gallery-item {
+    max-width: none;
+    display: block;
   }
 }
