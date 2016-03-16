@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:55:46 AM on 09-02-2016
+* RHD Dev: Compiled at 12:53:57 PM on 16-03-2016
 ***/
 
 .alignnone {
@@ -134,10 +134,7 @@ a img.aligncenter {
   margin: 0 auto;
 }
 .gallery-caption {
-  color: #707070;
-  color: rgba(51,51,51,0.7);
   display: block;
-  font-family: "Noto Sans" sans-serif;
   font-size: 12px;
   font-size: 1.2rem;
   line-height: 1.5;
@@ -818,7 +815,7 @@ input[type="submit"]:hover {
   transition: color 0.25s ease;
 }
 #site-navigation-sb-container #site-navigation-sb .menu-item a:hover {
-  color: #057f85;
+  color: #e597ff;
 }
 #hamburger {
   background-color: transparent;
@@ -849,7 +846,7 @@ input[type="submit"]:hover {
   max-width: 64rem;
   position: relative;
   margin: 1em auto 0 auto;
-  padding: 2em 0;
+  padding: 1em 0;
   box-sizing: border-box;
 }
 #primary,
@@ -1035,7 +1032,7 @@ input[type="submit"]:hover {
 }
 .pix-load-more input:hover,
 .pix-load-more input:active {
-  background-color: #057f85;
+  background-color: #e597ff;
 }
 .error404 #masthead,
 .parent-pageid-24 #masthead {
@@ -1065,7 +1062,7 @@ input[type="submit"]:hover {
    ========================================================================== */
 @media screen and (orientation: landscape) {
   #masthead {
-    height: 70vh;
+    height: 90vh;
   }
   #masthead #site-title a h1 {
     font-size: 4vw;
@@ -1094,6 +1091,10 @@ input[type="submit"]:hover {
   .parent-pageid-24 #masthead {
     height: 10em;
   }
+  .error404 #masthead #site-title,
+  .parent-pageid-24 #masthead #site-title {
+    background: #8042a0;
+  }
   #masthead #site-title {
     background: transparent;
   }
@@ -1101,20 +1102,25 @@ input[type="submit"]:hover {
     font-size: 4vw;
   }
   #masthead #site-title.top {
-    text-align: left;
     top: 2%;
     bottom: initial;
   }
-  #masthead #site-title.top h1 {
-    margin-left: 4%;
+  #masthead #site-title.right {
+    text-align: right;
+  }
+  #masthead #site-title.right h1 {
+    margin-right: 3%;
   }
   #masthead #site-title.bottom {
     text-align: right;
     top: initial;
     bottom: 9%;
   }
-  #masthead #site-title.bottom h1 {
-    margin-right: 3%;
+  #masthead #site-title.left {
+    text-align: left;
+  }
+  #masthead #site-title.left h1 {
+    margin-left: 4%;
   }
   #masthead #site-title.white {
     color: #fff;
@@ -1208,9 +1214,13 @@ input[type="submit"]:hover {
     margin: 0 auto 0 auto;
   }
   #site-navigation-container #site-navigation {
-    top: 0.3em;
+    top: 1em;
   }
   #site-navigation-container #site-navigation .menu-item {
     font-size: 1em;
+  }
+  #site-navigation-container #site-navigation .menu-item-rhd-social {
+    position: relative;
+    bottom: 0.7em;
   }
 }

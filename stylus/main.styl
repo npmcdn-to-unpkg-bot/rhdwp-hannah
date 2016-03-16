@@ -2,9 +2,7 @@
 @require "partials/_wp-core.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-//@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
-//@require "partials/_hamburger.styl"
 
 
 /* ==========================================================================
@@ -138,7 +136,7 @@ input[type="submit"]
 			font-size 0.85em
 
 			&.current-menu-item
-				color $color3
+				color $color2
 
 			a
 				text-decoration none
@@ -148,7 +146,7 @@ input[type="submit"]
 
 				&:hover
 				&:active
-					color $color3
+					color $color2
 
 			.sub-menu
 				position absolute
@@ -211,7 +209,7 @@ input[type="submit"]
 
 #main
 	-wrapper(1em, 0)
-	padding 2em 0
+	padding 1em 0
 	box-sizing border-box
 
 
@@ -451,7 +449,7 @@ input[type="submit"]
 
 @media screen and (orientation landscape)
 	#masthead
-		height 70vh
+		height 90vh
 
 		#site-title
 			a
@@ -487,6 +485,9 @@ input[type="submit"]
 		#masthead
 			height 10em
 
+			#site-title
+				background $color1
+
 	#masthead
 		#site-title
 			background transparent
@@ -495,20 +496,25 @@ input[type="submit"]
 				font-size 4vw
 
 			&.top
-				text-align left
 				top 2%
 				bottom initial
 
+			&.right
+				text-align right
+
 				h1
-					margin-left 4%
+					margin-right 3%
 
 			&.bottom
 				text-align right
 				top initial
 				bottom 9%
 
+			&.left
+				text-align left
+
 				h1
-					margin-right 3%
+					margin-left 4%
 
 
 			&.white
@@ -603,7 +609,11 @@ input[type="submit"]
 		-wrapper(0, 0, 95%, 70em)
 
 		#site-navigation
-			top 0.3em
+			top 1em
 
 			.menu-item
 				font-size 1em
+
+			.menu-item-rhd-social
+				position relative
+				bottom 0.7em

@@ -628,11 +628,17 @@ function rhd_title_style()
 	if ( $post->post_parent == 24 || is_404() ) {
 		$title_style = "short";
 	} else {
-		// Title position
-		if ( is_home() || is_page( 'video') || is_page( 'photos' ) || is_page( 'voice-studio' ) || is_page( 'press' ) )
+		// Title vertical position
+		if ( is_home() || is_page( 'video') || is_page( 'photos' ) || is_page( 'voice-studio' ) || is_page( 'concerts' ) )
 			$v = 'top';
 		else
 			$v = 'bottom';
+
+		// Title horizontal position
+		if ( is_page( 'about' ) || is_page( 'press' ) || is_page( 'concerts' ) || is_page( 'contact' ) )
+			$h = 'right';
+		else
+			$h = 'left';
 
 		// Title color
 		if ( is_home() || is_page( 'about') || is_page( 'reviews' ) || is_page( 'contact' ) || is_page( 'concerts' ) || is_page( 'voice-studio' )|| is_page( 'press' ) )
@@ -640,7 +646,7 @@ function rhd_title_style()
 		else
 			$c = 'black';
 
-		$title_style = "$v $c";
+		$title_style = "$v $h $c";
 	}
 
 	return $title_style;
@@ -651,7 +657,7 @@ function rhd_title_style()
 function your_custom_menu_item ( $items, $args )
 {
 	if ( $args->theme_location == 'primary' ) {
-		$items .= '<li class="menu-item menu-item-rhd-social">' . do_shortcode( '[rhd-social-icons facebook="//facebook.com" twitter="@ccatwalker" instagram="@gaswirth" color1="#fff" color2="#057f85"]' ) . '</li>';
+		$items .= '<li class="menu-item menu-item-rhd-social">' . do_shortcode( '[rhd-social-icons facebook="https://www.facebook.com/catherine.walker.965" twitter="@ccatwalker" instagram="@ccatwalker1" color1="#fff" color2="#E597FF"]' ) . '</li>';
 	}
 	return $items;
 }

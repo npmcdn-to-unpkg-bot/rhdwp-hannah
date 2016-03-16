@@ -79,7 +79,7 @@
 					<?php wp_nav_menu( $nav_args_main ); ?>
 
 					<div id="rhd-social-standalone">
-						<?php echo do_shortcode( '[rhd-social-icons facebook="https://www.facebook.com/catherine.walker.965" twitter="@ccatwalker" instagram="@ccatwalker1" color1="#fff" color2="#057f85"]' ); ?>
+						<?php echo do_shortcode( '[rhd-social-icons facebook="https://www.facebook.com/catherine.walker.965" twitter="@ccatwalker" instagram="@ccatwalker1" color1="#fff" color2="#E597FF"]' ); ?>
 					</div>
 				</div>
 			</header><!-- #masthead -->
