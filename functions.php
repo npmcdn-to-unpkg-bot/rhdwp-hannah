@@ -72,10 +72,8 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
  * @return void
  */
 function rhd_enqueue_scripts()
-{
-	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/src/Modernizr.js', null, null, false ); // Must run modernizr command line tool `modernizr -c modernizr-config.json`
-
-	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
+{ 
+	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true 
 	wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), '0.10.3', true );
 	wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
 
@@ -83,12 +81,10 @@ function rhd_enqueue_scripts()
 		'rhd-plugins',
 		'jquery',
 		'slidebars',
-		// 'modernizr',
 		// 'packery',
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
-	wp_enqueue_script( 'modernizr' );
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-main' );
 
