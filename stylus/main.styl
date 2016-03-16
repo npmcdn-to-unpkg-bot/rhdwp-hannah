@@ -2,7 +2,7 @@
 @require "partials/_wp-core.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-@require "partials/_metabar.styl"
+//@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
@@ -147,10 +147,6 @@ input[type="submit"]
 	margin-top 1em
 	position relative
 	box-sizing border-box
-
-
-#secondary
-	margin-bottom 2em
 
 
 #colophon
@@ -453,31 +449,36 @@ input[type="submit"]
 	#main
 		-clearfix()
 
-	#secondary
-		width 340px
-		float right
+		&.with-sidebar
+			#secondary
+			width 340px
+			float right
 
-		.widget
-			width 300px
-			margin-left auto
-			margin-right auto
+			.widget
+				width 300px
+				margin-left auto
+				margin-right auto
 
 
 @media screen and (min-width 58em)
-	#primary
-		width 56%
+	.with-sidebar
+		#primary
+			width 56%
 
 
 @media screen and (min-width 62em)
-	#primary
-		width 58%
+	.with-sidebar
+		#primary
+			width 58%
 
 
 @media screen and (min-width 64em)
-	#primary
-		width 60%
+	.with-sidebar
+		#primary
+			width 60%
 
 
 @media screen and (min-width 66em)
-	#primary
-		width 64%
+	.with-sidebar
+		#primary
+			width 64%

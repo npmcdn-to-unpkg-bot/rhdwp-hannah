@@ -10,8 +10,6 @@ get_header();
 ?>
 
 	<section id="primary" class="site-content">
-		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
-
 		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
