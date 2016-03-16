@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:27:10 PM on 16-03-2016
+* RHD Dev: Compiled at 5:35:02 PM on 16-03-2016
 ***/
 
 .alignnone {
@@ -149,6 +149,20 @@ a img.aligncenter {
 .sticky {
   position: initial;
 }
+@font-face {
+  font-family: 'Gabriel Sans Cond Light';
+  src: url("fonts/gabriel_sans_cond_light-webfont.eot");
+  src: url("fonts/gabriel_sans_cond_light-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/gabriel_sans_cond_light-webfont.woff2") format('woff2'), url("fonts/gabriel_sans_cond_light-webfont.woff") format('woff'), url("fonts/gabriel_sans_cond_light-webfont.ttf") format('truetype'), url("fonts/gabriel_sans_cond_light-webfont.svg#gabriel_sans_cond_lightRg") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gabriel Sans Cond Thin';
+  src: url("fonts/gabriel_sans_cond_thin-webfont.eot");
+  src: url("fonts/gabriel_sans_cond_thin-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/gabriel_sans_cond_thin-webfont.woff2") format('woff2'), url("fonts/gabriel_sans_cond_thin-webfont.woff") format('woff'), url("fonts/gabriel_sans_cond_thin-webfont.ttf") format('truetype'), url("fonts/gabriel_sans_cond_thin-webfont.svg#gabriel_sans_cond_thinregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 .hidden {
   display: none !important;
   visibility: hidden;
@@ -173,12 +187,14 @@ a img.aligncenter {
   width: auto;
 }
 .clearfix:before,
+#masthead:before,
 .blog-area #main .post:before,
 .pagination:before,
 .single-pagination:before,
 #primary:before,
 #main:before,
 .clearfix:after,
+#masthead:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
@@ -188,6 +204,7 @@ a img.aligncenter {
   display: table;
 }
 .clearfix:after,
+#masthead:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
@@ -812,7 +829,7 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -836,28 +853,28 @@ textarea {
   border: 2px solid #f5c419;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #808080;
 }
 input:focus,
@@ -866,7 +883,7 @@ textarea:focus {
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -875,9 +892,30 @@ input[type="submit"]:hover {
 #page {
   margin: 2em 0;
 }
+#masthead {
+  width: 92%;
+  max-width: 64rem;
+  position: relative;
+  margin: 1em auto 1em auto;
+}
 #site-title {
-  text-align: center;
+  position: relative;
+  float: left;
+}
+#site-title .site-title,
+#site-title .site-description {
   margin: 0;
+  font-weight: normal;
+  line-height: 1;
+}
+#site-title .site-title {
+  font-family: 'Gabriel Sans Cond Thin', sans-serif;
+  text-transform: uppercase;
+  font-size: 8vw;
+}
+#site-title .site-description {
+  font-family: 'Gabriel Sans Cond Light', sans-serif;
+  text-align: right;
 }
 #site-navigation-container {
   width: 100%;

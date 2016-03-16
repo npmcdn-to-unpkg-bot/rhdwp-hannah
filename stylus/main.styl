@@ -76,9 +76,29 @@ input[type="submit"]
 	margin 2em 0
 
 
+#masthead
+	-wrapper(1em, 1em, 92%)
+	-clearfix()
+
+
 #site-title
-	text-align center
-	margin 0
+	position relative
+	float left
+
+	.site-title
+	.site-description
+		margin 0
+		font-weight normal
+		line-height 1
+
+	.site-title
+		font-family $ff-title
+		text-transform uppercase
+		font-size 8vw
+
+	.site-description
+		font-family $ff-sub
+		text-align right
 
 
 #site-navigation-container
