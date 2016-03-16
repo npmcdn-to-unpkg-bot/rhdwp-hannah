@@ -23,6 +23,7 @@ html
 	width 100%
 	font-size 16px
 	margin 0
+	color $color1
 	font-family $ff-body
 
 
@@ -77,13 +78,13 @@ input[type="submit"]
 
 
 #masthead
-	-wrapper(1em, 1em, 92%)
+	-wrapper(0, 0, 92%)
 	-clearfix()
 
 
 #site-title
-	position relative
-	float left
+	width 100%
+	margin-bottom 1em
 
 	.site-title
 	.site-description
@@ -94,17 +95,21 @@ input[type="submit"]
 	.site-title
 		font-family $ff-title
 		text-transform uppercase
-		font-size 8vw
+		font-size $ts-default
+		text-align center
 
 	.site-description
 		font-family $ff-sub
 		text-align right
+		font-size ($ts-default / 2.15)
 
 
 #site-navigation-container
 	width 100%
 	text-align center
 	display none
+	font-family $ff-body
+	text-transform uppercase
 
 	#site-navigation
 		list-style none
@@ -114,6 +119,15 @@ input[type="submit"]
 
 		.menu-item
 			-flexitem()
+			font-weight 400
+
+			a
+				color $color1
+
+				&:hover
+				&:active
+					text-decoration none
+					color $color2
 
 			.sub-menu
 				position absolute
@@ -145,7 +159,7 @@ input[type="submit"]
 
 
 #hamburger
-	background-color black // sample bg animation color
+	background-color $color1 // sample bg animation color
 
 	&.is-active
 		background-color gray // sample bg animation color
@@ -156,9 +170,17 @@ input[type="submit"]
 
 
 #main
-	-wrapper(2em,2em)
-	padding 2em 0
 	box-sizing border-box
+
+	&.with-header-image
+		width 100%
+
+		#primary
+			-wrapper(2em, 2em)
+
+	&.no-header-image
+		-wrapper(2em, 2em)
+		padding 2em 0
 
 
 #primary
@@ -173,7 +195,6 @@ input[type="submit"]
 	width 100%
 	height 6em
 	position relative
-	background green
 
 	.site-info
 		width 100%
@@ -399,8 +420,31 @@ input[type="submit"]
    ========================================================================== */
 
 @media screen and (min-width 40em)
+	#masthead
+		-clearfix()
+
+	#site-title
+		width 43%
+		float left
+
+		.site-title
+		.site-description
+			text-align left
+
+		.site-title
+			font-size $ts-midsize
+
+		.site-description
+			font-size ($ts-midsize / 2.15)
+			position relative
+			left 5.4em
+
 	#site-navigation-container
 		display block
+
+		#site-navigation
+			.menu-item
+				font-size 0.9em
 
 	#hamburger
 		display none
@@ -502,3 +546,17 @@ input[type="submit"]
 	.with-sidebar
 		#primary
 			width 64%
+
+
+@media screen and (min-width 70em)
+	#site-title
+		.site-title
+			font-size $ts-desktop
+
+		.site-description
+			font-size ($ts-desktop / 2.15)
+
+	#site-navigation-container
+		#site-navigation
+			.menu-item
+				font-size 1em

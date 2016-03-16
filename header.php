@@ -43,6 +43,7 @@
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 		<?php wp_head(); ?>
+		<?php global $main_class; ?>
 	</head>
 
 	<body <?php body_class(); ?>>
@@ -87,4 +88,4 @@
 				</button>
 			</header><!-- #masthead -->
 
-			<main id="main">
+			<main id="main" class="<?php echo rhd_main_div_class(); ?>">

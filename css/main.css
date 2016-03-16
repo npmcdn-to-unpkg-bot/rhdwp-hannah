@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:35:02 PM on 16-03-2016
+* RHD Dev: Compiled at 6:51:10 PM on 16-03-2016
 ***/
 
 .alignnone {
@@ -662,8 +662,8 @@ input[type="radio"] {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 96px;
-  height: 96px;
+  width: 72px;
+  height: 72px;
   font-size: 0;
   text-indent: -9999px;
   -webkit-appearance: none;
@@ -681,10 +681,10 @@ input[type="radio"] {
 .c-hamburger span {
   display: block;
   position: absolute;
-  top: 44px;
-  left: 18px;
-  right: 18px;
-  height: 8px;
+  top: 33px;
+  left: 13.5px;
+  right: 13.5px;
+  height: 6px;
   background: #fff;
 }
 .c-hamburger span::before,
@@ -693,15 +693,15 @@ input[type="radio"] {
   display: block;
   left: 0;
   width: 100%;
-  height: 8px;
+  height: 6px;
   background-color: #fff;
   content: "";
 }
 .c-hamburger span::before {
-  top: -20px;
+  top: -15px;
 }
 .c-hamburger span::after {
-  bottom: -20px;
+  bottom: -15px;
 }
 .c-hamburger--rot {
   background-color: #28aadc;
@@ -776,11 +776,11 @@ input[type="radio"] {
 }
 .c-hamburger--htla.is-active span::before {
   top: 0;
-  transform: translateX(38px) translateY(4px) rotate(45deg);
+  transform: translateX(28.5px) translateY(3px) rotate(45deg);
 }
 .c-hamburger--htla.is-active span::after {
   bottom: 0;
-  transform: translateX(38px) translateY(-4px) rotate(-45deg);
+  transform: translateX(28.5px) translateY(-3px) rotate(-45deg);
 }
 .c-hamburger--htra {
   background-color: #ff9650;
@@ -808,11 +808,11 @@ input[type="radio"] {
 }
 .c-hamburger--htra.is-active span::before {
   top: 0;
-  transform: translateX(-8px) translateY(4px) rotate(-45deg);
+  transform: translateX(-6px) translateY(3px) rotate(-45deg);
 }
 .c-hamburger--htra.is-active span::after {
   bottom: 0;
-  transform: translateX(-8px) translateY(-4px) rotate(45deg);
+  transform: translateX(-6px) translateY(-3px) rotate(45deg);
 }
 /* ==========================================================================
 	Main Styles
@@ -829,6 +829,7 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
+  color: #000;
   font-family: 'Roboto', sans-serif;
 }
 body.admin-bar #wpadminbar {
@@ -841,7 +842,7 @@ a {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #f5c419;
+  color: #4a90e2;
 }
 a:hover,
 a:active {
@@ -850,7 +851,7 @@ a:active {
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid #f5c419;
+  border: 2px solid #4a90e2;
   box-sizing: border-box;
   padding: 0.5em;
   font-family: 'Roboto', sans-serif;
@@ -879,7 +880,7 @@ textarea:-ms-input-placeholder {
 }
 input:focus,
 textarea:focus {
-  border-color: #f55033;
+  border-color: #003675;
 }
 input[type="submit"] {
   cursor: pointer;
@@ -894,13 +895,13 @@ input[type="submit"]:hover {
 }
 #masthead {
   width: 92%;
-  max-width: 64rem;
+  max-width: 70rem;
   position: relative;
-  margin: 1em auto 1em auto;
+  margin: 0 auto 0 auto;
 }
 #site-title {
-  position: relative;
-  float: left;
+  width: 100%;
+  margin-bottom: 1em;
 }
 #site-title .site-title,
 #site-title .site-description {
@@ -911,16 +912,20 @@ input[type="submit"]:hover {
 #site-title .site-title {
   font-family: 'Gabriel Sans Cond Thin', sans-serif;
   text-transform: uppercase;
-  font-size: 8vw;
+  font-size: 12vw;
+  text-align: center;
 }
 #site-title .site-description {
   font-family: 'Gabriel Sans Cond Light', sans-serif;
   text-align: right;
+  font-size: 5.581395348837209vw;
 }
 #site-navigation-container {
   width: 100%;
   text-align: center;
   display: none;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
 }
 #site-navigation-container #site-navigation {
   list-style: none;
@@ -935,6 +940,15 @@ input[type="submit"]:hover {
 }
 #site-navigation-container #site-navigation .menu-item {
   display: inline-block;
+  font-weight: 400;
+}
+#site-navigation-container #site-navigation .menu-item a {
+  color: #000;
+}
+#site-navigation-container #site-navigation .menu-item a:hover,
+#site-navigation-container #site-navigation .menu-item a:active {
+  text-decoration: none;
+  color: #4a90e2;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
@@ -951,13 +965,13 @@ input[type="submit"]:hover {
   list-style: none;
 }
 .site-navigation li a {
-  color: #f5c419;
+  color: #4a90e2;
   text-decoration: none;
   transition: color 0.25s;
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: #f55033;
+  color: #003675;
 }
 #hamburger {
   background-color: #000;
@@ -969,12 +983,23 @@ input[type="submit"]:hover {
   background: none;
 }
 #main {
+  box-sizing: border-box;
+}
+#main.with-header-image {
+  width: 100%;
+}
+#main.with-header-image #primary {
   width: 85%;
-  max-width: 64rem;
+  max-width: 70rem;
+  position: relative;
+  margin: 2em auto 2em auto;
+}
+#main.no-header-image {
+  width: 85%;
+  max-width: 70rem;
   position: relative;
   margin: 2em auto 2em auto;
   padding: 2em 0;
-  box-sizing: border-box;
 }
 #primary,
 #secondary {
@@ -987,7 +1012,6 @@ input[type="submit"]:hover {
   width: 100%;
   height: 6em;
   position: relative;
-  background: #008000;
 }
 #colophon .site-info {
   width: 100%;
@@ -1051,7 +1075,7 @@ input[type="submit"]:hover {
 .entry-content iframe,
 .entry-content a img {
   width: 95%;
-  max-width: 64rem;
+  max-width: 70rem;
   position: relative;
   margin: 1em auto 1em auto;
 }
@@ -1122,7 +1146,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: #e1e1e1;
+  background: #5f5f5f;
 }
 #comments .odd {
   background: #fff;
@@ -1169,18 +1193,18 @@ input[type="submit"]:hover {
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #f5c419;
+  color: #4a90e2;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #f5c419;
+  border: 3px solid #4a90e2;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #f5c419;
-  color: #f5c419;
+  background-color: #4a90e2;
+  color: #4a90e2;
 }
 /* ==========================================================================
 	Widget Areas & Sidebars
@@ -1199,8 +1223,27 @@ input[type="submit"]:hover {
 	Media Queries
    ========================================================================== */
 @media screen and (min-width: 40em) {
+  #site-title {
+    width: 43%;
+    float: left;
+  }
+  #site-title .site-title,
+  #site-title .site-description {
+    text-align: left;
+  }
+  #site-title .site-title {
+    font-size: 5.4vw;
+  }
+  #site-title .site-description {
+    font-size: 2.511627906976745vw;
+    position: relative;
+    left: 5.4em;
+  }
   #site-navigation-container {
     display: block;
+  }
+  #site-navigation-container #site-navigation .menu-item {
+    font-size: 0.9em;
   }
   #hamburger {
     display: none;
@@ -1285,5 +1328,16 @@ input[type="submit"]:hover {
 @media screen and (min-width: 66em) {
   .with-sidebar #primary {
     width: 64%;
+  }
+}
+@media screen and (min-width: 70em) {
+  #site-title .site-title {
+    font-size: 3.9em;
+  }
+  #site-title .site-description {
+    font-size: 1.813953488372093em;
+  }
+  #site-navigation-container #site-navigation .menu-item {
+    font-size: 1em;
   }
 }

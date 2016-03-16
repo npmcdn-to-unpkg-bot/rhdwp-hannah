@@ -239,8 +239,8 @@ function rhd_register_sidebars()
 	register_sidebar( array(
 		'name'			=> __( 'Sidebar', 'rhd' ),
 		'id'			=> 'sidebar',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
+		'before_title'	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>'
 	));
@@ -248,8 +248,17 @@ function rhd_register_sidebars()
 	register_sidebar( array(
 		'name'			=> __( 'Footer Widget Area', 'rhd' ),
 		'id'			=> 'footer-widget-area',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
+		'before_title'	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
+		'after_widget'  => '</div>'
+	));
+
+	register_sidebar( array(
+		'name'			=> __( 'Front Page Widgets', 'rhd' ),
+		'id'			=> 'front-page-widget-area',
+		'before_title'	=> '<h3 class="front-page-widget-title">',
+		'after_title'	=> '</h3>',
 		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</div>'
 	));
@@ -652,3 +661,14 @@ function rhd_svg_logo()
 /* ==========================================================================
 	Theme Functions and Customizations
    ========================================================================== */
+
+/**
+ * rhd_main_div_class function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_main_div_class()
+{
+	return ( is_front_page() || is_page( 'bio' ) || is_page( 'music-director' ) || is_page( 'composer' ) ) ? 'with-header-image' : 'no-header-image';
+}
