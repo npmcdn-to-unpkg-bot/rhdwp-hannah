@@ -108,6 +108,7 @@ input[type="submit"]
 	text-align center
 	display none
 	font-family $ff-body
+	font-weight 300
 	text-transform uppercase
 
 	#site-navigation
@@ -184,7 +185,6 @@ input[type="submit"]
 
 	&.no-header-image
 		-wrapper(2em, 2em)
-		padding 2em 0
 
 
 #primary
@@ -446,8 +446,9 @@ input[type="submit"]
 
 @media screen and (min-width 40em)
 	#site-header
-		position absolute
-		top 0
+		&.header-overlay
+			position absolute
+			top 0
 
 		#masthead
 			-clearfix()
@@ -552,8 +553,12 @@ input[type="submit"]
 			.front-page-widget
 				width 33.3333%
 				padding 0 1.5%
+				margin 0
 				-flexitem()
 				vertical-align top
+
+				.widget-title
+					margin 0 0 1.5rem 0
 
 
 // Fixed-width 340px sidebar

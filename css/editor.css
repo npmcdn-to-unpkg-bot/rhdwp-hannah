@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:22:24 PM on 17-03-2016
+* RHD Dev: Compiled at 12:44:11 PM on 17-03-2016
 ***/
 
 /**
@@ -926,6 +926,7 @@ input[type="submit"]:hover {
   text-align: center;
   display: none;
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   text-transform: uppercase;
 }
 #site-navigation-container #site-navigation {
@@ -998,7 +999,6 @@ input[type="submit"]:hover {
   max-width: 70rem;
   position: relative;
   margin: 2em auto 2em auto;
-  padding: 2em 0;
 }
 #primary,
 #secondary {
@@ -1221,7 +1221,7 @@ input[type="submit"]:hover {
   margin: 0.25em 0;
 }
 @media screen and (min-width: 40em) {
-  #site-header {
+  #site-header.header-overlay {
     position: absolute;
     top: 0;
   }
@@ -1328,8 +1328,12 @@ input[type="submit"]:hover {
   .front-page #front-page-widget-area .front-page-widget {
     width: 33.3333%;
     padding: 0 1.5%;
+    margin: 0;
     display: inline-block;
     vertical-align: top;
+  }
+  .front-page #front-page-widget-area .front-page-widget .widget-title {
+    margin: 0 0 1.5rem 0;
   }
 }
 @media screen and (min-width: 40em) {
