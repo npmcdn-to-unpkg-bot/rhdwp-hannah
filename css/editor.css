@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:42:09 PM on 16-03-2016
+* RHD Dev: Compiled at 1:25:42 PM on 17-03-2016
 ***/
 
 /**
@@ -1291,6 +1291,12 @@ input[type="submit"]:hover {
 @media screen and (min-width: 40em) {
   #site-navigation-container {
     display: block;
+  }
+  #site-navigation-container #site-navigation {
+    line-height: 0;
+  }
+  #site-navigation-container #site-navigation .menu-item {
+    line-height: 2;
   }
   #hamburger {
     display: none;
