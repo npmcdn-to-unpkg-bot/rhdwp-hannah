@@ -3,10 +3,11 @@
    ========================================================================== */
 
 // Variables
-$color1 = black
+$color1 = #5f5f5f
 $color2 = #4A90E2
 $color3 = #003675
-$off-white = #5f5f5f
+
+$off-white = #d0d0d0
 
 $ff-body = 'Roboto', sans-serif
 $ff-title = 'Gabriel Sans Cond Thin', sans-serif
@@ -33,6 +34,7 @@ $ts-desktop = 3.4em
 
 -flexbox()
 	text-align justify
+	line-height 0
 
 	&:after
 		width 100%
@@ -41,6 +43,7 @@ $ts-desktop = 3.4em
 
 -flexitem()
 	display inline-block
+	line-height 1
 
 
 -wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
