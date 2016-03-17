@@ -73,18 +73,17 @@ input[type="submit"]
 		background-color gray
 
 
-#page
-	margin 2em 0
+#site-header
+	width 100%
+	position relative
+	background-color rgba(255,255,255,0.65)
 
-
-#masthead
-	-wrapper(0, 0, 92%)
-	-clearfix()
+	#masthead
+		-wrapper(1rem, 1rem, 92%)
 
 
 #site-title
 	width 100%
-	margin-bottom 1em
 
 	.site-title
 	.site-description
@@ -114,12 +113,13 @@ input[type="submit"]
 	#site-navigation
 		list-style none
 		padding-left 0
-		margin 0
-		-flexbox()
+		margin 1em 0
+		text-align center
+		line-height 1.75
 
 		.menu-item
-			-flexitem()
 			font-weight 400
+			font-size 1.1em
 
 			a
 				color $color1
@@ -141,9 +141,9 @@ input[type="submit"]
 					margin 0
 
 
-#site-navigation-sb-container
-	#site-navigation-sb
-		list-style none
+// #site-navigation-sb-container
+// 	#site-navigation-sb
+// 		list-style none
 
 
 .site-navigation
@@ -159,14 +159,18 @@ input[type="submit"]
 
 
 #hamburger
-	background-color $color1 // sample bg animation color
+	margin 0.5rem auto 0
+	background-color transparent
+
+	span
+		background-color $color1
+
+		&:before
+		&:after
+			background-color $color1
 
 	&.is-active
-		background-color gray // sample bg animation color
-
-		&.c-hamburger--htx
-			span
-				background none
+		background-color (@background-color)
 
 
 #main
@@ -381,21 +385,23 @@ input[type="submit"]
 	max-width 100%
 	text-align center
 	margin 1em auto
+	font-size 1.2em
+	font-weight 700
 
 	a
 		padding 0.4em .8em
-		color $color2
+		color white
 		text-decoration none
-		background-color white
-		border 3px solid @color
+		background-color $color3
 		border-radius 0.1em
 		display inline-block
 		transition all 0.2s
+		text-transform uppercase
 
 		&:hover
 		&:active
-			background-color @color
-			color @background-color
+			background-color $color2
+			color white
 
 
 /* ==========================================================================
@@ -416,12 +422,37 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.front-page
+	#front-page-widget-area
+		.front-page-widget
+			width 100%
+			margin 1em 0
+
+			.widget-content
+				text-align center
+
+			.widget-title
+				text-transform uppercase
+				font-size 1.4em
+				margin 0.25em 0
+
+
+/* ==========================================================================
 	Media Queries
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	#masthead
-		-clearfix()
+	#site-header
+		position absolute
+		top 0
+
+		#masthead
+			-clearfix()
+			margin-bottom 0
+
 
 	#site-title
 		width 43%
@@ -441,9 +472,16 @@ input[type="submit"]
 
 	#site-navigation-container
 		display block
+		position relative
+		top 1.45em
 
 		#site-navigation
+			-flexbox()
+			margin 0
+			line-height 1
+
 			.menu-item
+				-flexitem()
 				font-size 0.9em
 
 	#hamburger
@@ -506,6 +544,16 @@ input[type="submit"]
 		a
 			img
 				@extends .entry-content img
+
+	.front-page
+		#front-page-widget-area
+			-flexbox()
+
+			.front-page-widget
+				width 33.3333%
+				padding 0 1.5%
+				-flexitem()
+				vertical-align top
 
 
 // Fixed-width 340px sidebar

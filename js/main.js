@@ -59,14 +59,16 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	function rhdInit() {
 		// wpAdminBarPush();
 
+		/*
 		$.slidebars({
 			siteClose: false,
 		});
+		*/
 
 		toggleBurger();
 
 		// Fix faux-flexbox
-		fixGridLayout();
+		// fixGridLayout();
 
 		// Image Strip
 		postContent = $(".entry-content").html();
@@ -84,9 +86,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	function toggleBurger() {
 		var toggles = $(".c-hamburger");
 
-		toggles.click(function(e){
+		toggles.on( 'click', function(e){
 			e.preventDefault();
 			$(this).toggleClass('is-active');
+			$("#site-navigation-container").slideToggle();
 		});
 	}
 

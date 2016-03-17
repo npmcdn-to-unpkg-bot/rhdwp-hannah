@@ -70,22 +70,20 @@
 		);
 		?>
 
-		<div class="sb-slidebar sb-left sb-style-push">
-			<?php wp_nav_menu( $nav_args_sb ); ?>
-		</div>
-
 		<div id="page" class="hfeed site sb-site-container">
-			<header id="masthead" class="site-header">
-				<div id="site-title">
-					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-					<h2 class="site-description"><?php bloginfo( 'description' ); ?>
+			<header id="site-header" class="site-header">
+				<div id="masthead">
+					<div id="site-title">
+						<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+					</div>
+
+					<button id="hamburger" class="c-hamburger c-hamburger--rot">
+						<span>Toggle nav</span>
+					</button>
+
+					<?php wp_nav_menu( $nav_args_main ); ?>
 				</div>
-
-				<?php wp_nav_menu( $nav_args_main ); ?>
-
-				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
-					<span>Toggle nav</span>
-				</button>
 			</header><!-- #masthead -->
 
 			<main id="main" class="<?php echo rhd_main_div_class(); ?>">

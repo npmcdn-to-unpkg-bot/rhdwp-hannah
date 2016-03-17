@@ -10,7 +10,7 @@
 ?>
 
 <?php if ( is_active_sidebar( 'front-page-widget-area' ) ) : ?>
-	<aside id="front-page-widget-area" class="widget-area">
+	<section id="front-page-widget-area" class="widget-area">
 		<?php dynamic_sidebar( 'front-page-widget-area' ); ?>
-	</aside><!-- #secondary -->
+	</section><!-- #front-page-widget-area -->
 <?php endif; ?>

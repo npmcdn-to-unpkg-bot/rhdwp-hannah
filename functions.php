@@ -257,10 +257,10 @@ function rhd_register_sidebars()
 	register_sidebar( array(
 		'name'			=> __( 'Front Page Widgets', 'rhd' ),
 		'id'			=> 'front-page-widget-area',
-		'before_title'	=> '<h3 class="front-page-widget-title">',
+		'before_title'	=> '<h3 class="widget-title">',
 		'after_title'	=> '</h3>',
-		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
-		'after_widget'  => '</div>'
+		'before_widget' => '<div id="%1$s" class="widget front-page-widget %2$s"><div class="widget-content">',
+		'after_widget'  => '</div></div>'
 	));
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
