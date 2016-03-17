@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:41:33 PM on 09-02-2016
+* RHD Dev: Compiled at 5:45:34 PM on 17-03-2016
 ***/
 
 /**
@@ -183,11 +183,19 @@ a img.aligncenter {
 .single-pagination:before,
 #main:before,
 #colophon .footer-content:before,
+#services-list .services-list-item:before,
+#services-list .services-list-item .service-content-area .service-header:before,
+.page-id-27 #primary .entry-content:before,
+.page-id-25 #primary .entry-content:before,
 .clearfix:after,
 .pagination:after,
 .single-pagination:after,
 #main:after,
-#colophon .footer-content:after {
+#colophon .footer-content:after,
+#services-list .services-list-item:after,
+#services-list .services-list-item .service-content-area .service-header:after,
+.page-id-27 #primary .entry-content:after,
+.page-id-25 #primary .entry-content:after {
   content: " ";
   display: table;
 }
@@ -195,7 +203,11 @@ a img.aligncenter {
 .pagination:after,
 .single-pagination:after,
 #main:after,
-#colophon .footer-content:after {
+#colophon .footer-content:after,
+#services-list .services-list-item:after,
+#services-list .services-list-item .service-content-area .service-header:after,
+.page-id-27 #primary .entry-content:after,
+.page-id-25 #primary .entry-content:after {
   clear: both;
 }
 * {
@@ -619,6 +631,9 @@ input[type="checkbox"],
 input[type="radio"] {
   padding: 0;
 }
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
 .search-form input[type="submit"],
 .widget .search-form input[type="submit"] {
   padding: 0;
@@ -836,7 +851,7 @@ input,
 textarea {
   background-color: #eee;
   border: 2px solid #000;
-  border-radius: 0.2em;
+  border-radius: 0.1em;
   box-sizing: border-box;
   padding: 0.5em;
   font-family: 'Open Sans', sans-serif;
@@ -850,11 +865,11 @@ textarea:focus {
 input[type="submit"] {
   cursor: pointer;
   font-family: inherit;
-  background-color: #000;
+  background-color: #eb7423;
   transition: background-color 0.25s;
 }
 input[type="submit"]:hover {
-  background-color: #eb7423;
+  background-color: #eb8f12;
 }
 #masthead {
   position: relative;
@@ -926,7 +941,7 @@ input[type="submit"]:hover {
 #navbar #site-navigation-container #site-navigation .menu-item a:hover,
 #navbar #site-navigation-container #site-navigation .menu-item a:active,
 #navbar #site-navigation-container #site-navigation .menu-item a:focus {
-  color: #6e3629;
+  color: #eb8f12;
 }
 #navbar #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
@@ -1048,7 +1063,7 @@ input[type="submit"]:hover {
   margin: 0 auto 0 auto;
 }
 .entry-content p {
-  margin: 0.25em auto;
+  margin: 0.5em auto;
 }
 .entry-content p[style*="text-align: center"] {
   text-indent: 0;
@@ -1098,6 +1113,29 @@ input[type="submit"]:hover {
 .single-pagination [rel="next"] {
   float: right;
 }
+.ghost-button {
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  margin: 1em auto;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.ghost-button a {
+  padding: 0.4em 0.8em;
+  color: #fff;
+  text-decoration: none;
+  background-color: #eb8f12;
+  border-radius: 0.1em;
+  display: inline-block;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.ghost-button a:hover,
+.ghost-button a:active {
+  background-color: #6e3629;
+  color: #fff;
+}
 #secondary {
   width: 95%;
   max-width: 75rem;
@@ -1128,6 +1166,34 @@ input[type="submit"]:hover {
 #secondary #widget_sp_image-3 .button:active {
   background-color: #6e3629;
 }
+#services-list .services-list-item {
+  margin: 1em 0;
+}
+#services-list .services-list-item .service-thumbnail {
+  width: 100%;
+  height: auto;
+  border: 3px solid #6e3629;
+  border-radius: 0.2em;
+}
+#services-list .services-list-item .service-thumbnail img {
+  width: 100%;
+}
+#services-list .services-list-item .service-header .service-title {
+  text-align: center;
+  margin-bottom: 0.25em;
+}
+#services-list .services-list-item .service-header .service-button {
+  margin: 0.5em auto;
+  font-size: 1rem;
+}
+#services-list .services-list-item .service-header .service-button a {
+  background-color: #eb7423;
+  color: #fff;
+}
+#services-list .services-list-item .service-header .service-button a:hover,
+#services-list .services-list-item .service-header .service-button a:active {
+  background-color: #6e3629;
+}
 .ninja-forms-cont input[type="submit"] {
   width: 7em;
   display: block;
@@ -1139,13 +1205,13 @@ input[type="submit"]:hover {
   display: none;
 }
 @media screen and (min-width: 40em) {
-  #masthead #site-title {
-    width: 14rem;
-    position: relative;
-    float: left;
+  #navbar {
+    padding-top: 1em;
   }
   #navbar #site-title {
     width: 25%;
+    position: relative;
+    float: left;
   }
   #navbar #site-navigation-container {
     width: 65%;
@@ -1161,14 +1227,6 @@ input[type="submit"]:hover {
   #primary,
   #secondary {
     margin: 0;
-  }
-  #primary {
-    width: 70%;
-    float: left;
-  }
-  #secondary {
-    width: 25%;
-    float: right;
   }
   #colophon {
     height: 6rem;
@@ -1206,16 +1264,44 @@ input[type="submit"]:hover {
     text-align: left;
     font-size: 1em;
   }
+  .front-page #primary {
+    width: 100%;
+  }
   .front-page #primary .entry-content {
     padding-top: 1em;
   }
-  .page-id-18 #primary {
-    width: 45%;
+  #services-list .services-list-item {
+    margin: 2em 0;
+  }
+  #services-list .services-list-item .service-thumbnail {
+    width: 33%;
+    max-width: 300px;
+    float: left;
+  }
+  #services-list .services-list-item .service-content-area {
+    width: 64%;
     float: right;
   }
-  .page-id-18 #secondary {
-    width: 50%;
+  #services-list .services-list-item .service-content-area .service-header .service-title {
     float: left;
+    margin-top: 0;
+  }
+  #services-list .services-list-item .service-content-area .service-header .service-button {
+    display: inline-block;
+    margin: 0 0 0 2em;
+  }
+  #services-list .services-list-item .service-content-area .service-header .service-button a {
+    padding: 0.1em 0.5em;
+  }
+  .page-id-27 #primary .entry-content .left-area,
+  .page-id-25 #primary .entry-content .left-area {
+    width: 40%;
+    float: left;
+  }
+  .page-id-27 #primary .entry-content .right-area,
+  .page-id-25 #primary .entry-content .right-area {
+    width: 55%;
+    float: right;
   }
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */

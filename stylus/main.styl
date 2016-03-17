@@ -50,7 +50,7 @@ input
 textarea
 	background-color $off-white
 	border 2px solid black
-	border-radius 0.2em
+	border-radius 0.1em
 	box-sizing border-box
 	padding 0.5em
 	font-family $ff_body
@@ -61,14 +61,15 @@ textarea
 		border-color $color1
 
 
-input[type="submit"]
-	cursor pointer
-	font-family inherit
-	background-color black
-	transition background-color 0.25s
-
-	&:hover
+input
+	&[type="submit"]
+		cursor pointer
+		font-family inherit
 		background-color $color1
+		transition background-color 0.25s
+
+		&:hover
+			background-color $color3
 
 
 #masthead
@@ -137,7 +138,7 @@ input[type="submit"]
 					&:hover
 					&:active
 					&:focus
-						color $color2
+						color $color3
 
 				.sub-menu
 					position absolute
@@ -268,7 +269,7 @@ input[type="submit"]
 	-wrapper()
 
 	p
-		margin 0.25em auto
+		margin 0.5em auto
 
 		&[style*="text-align: center"]
 			text-indent 0
@@ -318,6 +319,34 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Ghost Buttons
+   ========================================================================== */
+
+.ghost-button
+	width auto
+	max-width 100%
+	text-align center
+	margin 1em auto
+	font-size 1.2em
+	font-weight 700
+
+	a
+		padding 0.4em .8em
+		color white
+		text-decoration none
+		background-color $color3
+		border-radius 0.1em
+		display inline-block
+		transition all 0.2s
+		text-transform uppercase
+
+		&:hover
+		&:active
+			background-color $color2
+			color white
+
+
+/* ==========================================================================
 	Widget Areas
    ========================================================================== */
 
@@ -348,6 +377,41 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Services Page
+   ========================================================================== */
+
+#services-list
+	.services-list-item
+		margin 1em 0
+
+		.service-thumbnail
+			width 100%
+			height auto
+			border 3px solid $color2
+			border-radius 0.2em
+
+			img
+				width 100%
+
+		.service-header
+			.service-title
+				text-align center
+				margin-bottom 0.25em
+
+			.service-button
+				margin 0.5em auto
+				font-size 1rem
+
+				a
+					background-color $color1
+					color white
+
+					&:hover
+					&:active
+						background-color $color2
+
+
+/* ==========================================================================
 	Contact Page
    ========================================================================== */
 
@@ -370,16 +434,13 @@ input[type="submit"]
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	#masthead
-		#site-title
-			width 14rem
-			position relative
-			float left
-
-
 	#navbar
+		padding-top 1em
+
 		#site-title
 			width 25%
+			position relative
+			float left
 
 		#site-navigation-container
 			width 65%
@@ -401,16 +462,6 @@ input[type="submit"]
 	#primary
 	#secondary
 		margin 0
-
-
-	#primary
-		width 70%
-		float left
-
-
-	#secondary
-		width 25%
-		float right
 
 
 	#colophon
@@ -449,15 +500,51 @@ input[type="submit"]
 
 	.front-page
 		#primary
+			width 100%
+
 			.entry-content
 				padding-top 1em
 
+	// Services Page
+	#services-list
+		.services-list-item
+			-clearfix()
+			margin 2em 0
 
-	.page-id-18
+			.service-thumbnail
+				width 33%
+				max-width 300px
+				float left
+
+			.service-content-area
+				width 64%
+				float right
+
+				.service-header
+					-clearfix()
+
+					.service-title
+						float left
+						margin-top 0
+
+					.service-button
+						display inline-block
+						margin 0 0 0 2em
+
+						a
+							padding 0.1em 0.5em
+
+	// Contact Page, Free Quote Page
+	.page-id-27
+	.page-id-25
 		#primary
-			width 45%
-			float right
+			.entry-content
+				-clearfix()
 
-		#secondary
-			width 50%
-			float left
+				.left-area
+					width 40%
+					float left
+
+				.right-area
+					width 55%
+					float right

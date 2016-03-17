@@ -25,10 +25,4 @@ get_header();
 			</div><!-- #content -->
 		</section><!-- #primary -->
 
-<?php
-global $post;
-$slug = $post->post_name;
-if ( $slug == 'about-us' )
-	get_sidebar( $slug );
-
-get_footer(); ?>
+<?php get_footer(); ?>
