@@ -146,11 +146,6 @@ input[type="submit"]
 					margin 0
 
 
-// #site-navigation-sb-container
-// 	#site-navigation-sb
-// 		list-style none
-
-
 .site-navigation
 	li
 		a
@@ -229,11 +224,13 @@ input[type="submit"]
 
 			.rhd_social_icons
 				-flexbox()
+				line-height 0
 
 				.rhd-social-icon
 					width 3.125rem
 					height (@width)
 					-flexitem()
+					line-height 2
 
 
 /* ==========================================================================
@@ -479,6 +476,61 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Contact Page
+   ========================================================================== */
+
+.ninja-forms-cont
+	input
+	textarea
+		font-family $ff-body
+		border-color $color1
+		transition all 0.25s
+
+		&:focus
+			border-color $color2
+
+		&[type="submit"]
+			width 7em
+			display block
+			margin 0 auto
+
+			&:hover
+				background-color $color2
+
+	#ninja_forms_field_3_div_wrap
+		margin-bottom 0
+
+
+.ninja-forms-required-items
+.ninja-forms-req-symbol
+	display none
+
+
+.rhd-contact-form
+	position relative
+	top 0.1em
+	margin-bottom 2em
+
+
+.contact-info
+	text-align center
+
+	section
+		margin-bottom 2.5em
+
+	h3
+		margin-bottom 0.25em
+
+	.social-icons
+		-wrapper(1em, 0, 200px)
+		-clearfix()
+
+		img
+			width 40%
+			height auto
+
+
+/* ==========================================================================
 	Media Queries
    ========================================================================== */
 
@@ -519,10 +571,12 @@ input[type="submit"]
 		#site-navigation
 			-flexbox()
 			margin 0
+			line-height 0
 
 			.menu-item
 				-flexitem()
 				font-size 1.7vw
+				line-height 2
 
 	#hamburger
 		display none
@@ -644,6 +698,27 @@ input[type="submit"]
 				.widget-title
 					margin 0 0 1.5rem 0
 
+	// Contact Page
+	.page-id-17
+		.page
+			> .entry-header
+				display none
+
+		.entry-content
+			-clearfix()
+
+			.rhd-contact-form
+				width 48%
+				float left
+
+				.ninja-forms-cont
+					input
+						&[type="submit"]
+							float left
+
+			.contact-info
+				width 45%
+				float right
 
 // Fixed-width 340px sidebar
 @media screen and (min-width 40em)
