@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:44:11 PM on 17-03-2016
+* RHD Dev: Compiled at 1:29:46 PM on 17-03-2016
 ***/
 
 /**
@@ -909,6 +909,7 @@ input[type="submit"]:hover {
   margin: 0;
   font-weight: normal;
   line-height: 1;
+  transition: all 0.25s;
 }
 #site-title .site-title {
   font-family: 'Gabriel Sans Cond Thin', sans-serif;
@@ -926,8 +927,8 @@ input[type="submit"]:hover {
   text-align: center;
   display: none;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
   text-transform: uppercase;
+  transition: all 0.25s;
 }
 #site-navigation-container #site-navigation {
   list-style: none;
@@ -935,10 +936,12 @@ input[type="submit"]:hover {
   margin: 1em 0;
   text-align: center;
   line-height: 1.75;
+  transition: all 0.25s;
 }
 #site-navigation-container #site-navigation .menu-item {
-  font-weight: 400;
-  font-size: 1.1em;
+  font-weight: 300;
+  font-size: 1.3em;
+  transition: all 0.25s;
 }
 #site-navigation-container #site-navigation .menu-item a {
   color: #000;
@@ -1225,11 +1228,8 @@ input[type="submit"]:hover {
     position: absolute;
     top: 0;
   }
-  #site-header #masthead {
-    margin-bottom: 0;
-  }
   #site-title {
-    width: 43%;
+    width: auto;
     float: left;
   }
   #site-title .site-title,
@@ -1237,22 +1237,26 @@ input[type="submit"]:hover {
     text-align: left;
   }
   #site-title .site-title {
-    font-size: 5.4vw;
+    font-size: 4.7vw;
   }
   #site-title .site-description {
-    font-size: 2.511627906976745vw;
+    font-size: 2.186046511627907vw;
     position: relative;
     left: 5.4em;
   }
   #site-navigation-container {
+    width: 60%;
     display: block;
-    position: relative;
-    top: 1.45em;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   #site-navigation-container #site-navigation {
     text-align: justify;
     margin: 0;
-    line-height: 1;
+    line-height: 0;
   }
   #site-navigation-container #site-navigation:after {
     width: 100%;
@@ -1261,7 +1265,8 @@ input[type="submit"]:hover {
   }
   #site-navigation-container #site-navigation .menu-item {
     display: inline-block;
-    font-size: 0.9em;
+    font-size: 1.7vw;
+    line-height: 2;
   }
   #hamburger {
     display: none;
@@ -1368,13 +1373,13 @@ input[type="submit"]:hover {
 }
 @media screen and (min-width: 70em) {
   #site-title .site-title {
-    font-size: 3.9em;
+    font-size: 3.4em;
   }
   #site-title .site-description {
-    font-size: 1.813953488372093em;
+    font-size: 1.581395348837209em;
   }
   #site-navigation-container #site-navigation .menu-item {
-    font-size: 1em;
+    font-size: 1.3em;
   }
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */

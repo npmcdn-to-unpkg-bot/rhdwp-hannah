@@ -90,6 +90,7 @@ input[type="submit"]
 		margin 0
 		font-weight normal
 		line-height 1
+		transition all 0.25s
 
 	.site-title
 		font-family $ff-title
@@ -108,8 +109,8 @@ input[type="submit"]
 	text-align center
 	display none
 	font-family $ff-body
-	font-weight 300
 	text-transform uppercase
+	transition all 0.25s
 
 	#site-navigation
 		list-style none
@@ -117,10 +118,12 @@ input[type="submit"]
 		margin 1em 0
 		text-align center
 		line-height 1.75
+		transition all 0.25s
 
 		.menu-item
-			font-weight 400
-			font-size 1.1em
+			font-weight 300
+			font-size 1.3em
+			transition all 0.25s
 
 			a
 				color $color1
@@ -452,11 +455,10 @@ input[type="submit"]
 
 		#masthead
 			-clearfix()
-			margin-bottom 0
 
 
 	#site-title
-		width 43%
+		width auto
 		float left
 
 		.site-title
@@ -472,18 +474,22 @@ input[type="submit"]
 			left 5.4em
 
 	#site-navigation-container
+		width 60%
 		display block
-		position relative
-		top 1.45em
+		position absolute
+		top 50%
+		right 0
+		-transform(translateY(-50%))
 
 		#site-navigation
 			-flexbox()
 			margin 0
-			line-height 1
+			line-height 0
 
 			.menu-item
 				-flexitem()
-				font-size 0.9em
+				font-size 1.7vw
+				line-height 2
 
 	#hamburger
 		display none
@@ -612,4 +618,4 @@ input[type="submit"]
 	#site-navigation-container
 		#site-navigation
 			.menu-item
-				font-size 1em
+				font-size 1.3em
