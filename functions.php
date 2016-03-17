@@ -130,24 +130,6 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
 function rhd_register_sidebars()
 {
 	register_sidebar(array(
-		'name'			=> __( 'About Sidebar', 'rhd' ),
-		'id'			=> 'sidebar-about',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>'
-	));
-
-	register_sidebar(array(
-		'name'			=> __( 'Front Page Sidebar', 'rhd' ),
-		'id'			=> 'sidebar-rce-housing',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>'
-	));
-
-	register_sidebar(array(
 		'name'			=> __( 'Footer Widget Area', 'rhd' ),
 		'id'			=> 'footer-widget-area',
 		'before_title'	=> '<h2 class="widget-title">',
