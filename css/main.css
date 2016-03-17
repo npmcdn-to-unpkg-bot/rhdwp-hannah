@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:50:27 PM on 17-03-2016
+* RHD Dev: Compiled at 6:02:25 PM on 17-03-2016
 ***/
 
 .alignnone {
@@ -498,7 +498,6 @@ del {
 }
 button,
 input,
-select,
 textarea {
   background-color: #f7f7f7;
   border-radius: 0;
@@ -630,6 +629,9 @@ input[type="radio"] {
 }
 input[type="radio"] {
   -webkit-appearance: radio;
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
 }
 .search-form input[type="submit"],
 .widget .search-form input[type="submit"] {
@@ -1218,6 +1220,9 @@ input[type="submit"]:hover {
 .ninja-forms-required-items,
 .ninja-forms-req-symbol {
   display: none;
+}
+.ninja-forms-form-title {
+  text-align: center;
 }
 /* ==========================================================================
 	Media Queries

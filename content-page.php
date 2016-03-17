@@ -8,7 +8,7 @@
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<?php if ( ! is_front_page() ) : ?>
+		<?php if ( ! is_front_page() && get_post_type() !== 'service' ) : ?>
 			<header class="entry-header">
 				<h2 class="page-title"><?php the_title(); ?></h2>
 			</header><!-- .entry-header -->
