@@ -10,6 +10,9 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<h2 class="page-title"><?php the_title(); ?></h2>
+			<?php if ( get_post_type() == 'project' ) : ?>
+				<a class="jump-listen" href="#secondary">Listen &darr;</a>
+			<?php endif; ?>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">

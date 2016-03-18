@@ -237,15 +237,6 @@ add_filter( 'image_size_names_choose', 'rhd_add_image_sizes' );
 function rhd_register_sidebars()
 {
 	register_sidebar( array(
-		'name'			=> __( 'Sidebar', 'rhd' ),
-		'id'			=> 'sidebar',
-		'before_title'	=> '<h3 class="widget-title">',
-		'after_title'	=> '</h3>',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>'
-	));
-
-	register_sidebar( array(
 		'name'			=> __( 'Footer Widget Area', 'rhd' ),
 		'id'			=> 'footer-widget-area',
 		'before_title'	=> '<h3 class="widget-title">',

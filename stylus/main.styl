@@ -69,11 +69,11 @@ input[type="submit"]
 #site-header
 	width 100%
 	position relative
-	background-color rgba(255,255,255,0.75)
+	background-color $mast-bg
 
 	#masthead
 		-wrapper(1rem, 1rem, 92%)
-		color $black
+		color black
 
 
 #site-title
@@ -444,8 +444,8 @@ input[type="submit"]
 	.widget:last-child
 		margin-bottom 0
 
-
 	.widget-title
+		text-align center
 		margin-top 0
 
 
@@ -466,6 +466,62 @@ input[type="submit"]
 				text-transform uppercase
 				font-size 1.4em
 				margin 0.25em 0
+
+
+/* ==========================================================================
+	Projects Pages
+   ========================================================================== */
+
+.projects-grid-container
+	.projects-grid
+		list-style none
+		padding-left 0
+
+		.projects-grid-item
+			margin-bottom 2em
+
+			&:last-child
+				margin-bottom 0
+
+			a
+				text-decoration none
+
+				&:hover
+				&:active
+					.project-thumbnail
+						border-color $color2
+
+					.project-title
+						background-color $color2
+
+			.project-thumbnail
+				width 100%
+				border 2px solid $project-shade
+				position relative
+				margin 0
+
+			.project-title
+				width 100%
+				background $project-shade
+				padding 7% 0
+				margin 0
+				text-align center
+				color white
+				text-transform uppercase
+				transition all 0.25s
+
+
+.jump-listen
+	text-align center
+	margin 1em 0
+	display block
+	font-size 1.3em
+	color $color2
+
+
+.soundcloud-sidebar
+	.widget-title
+		font-size 1.4em
 
 
 /* ==========================================================================
@@ -634,26 +690,6 @@ input[type="submit"]
 				width auto
 				padding-left 0.8em
 
-	// Image Strip
-	#primary
-		-clearfix()
-
-		article
-			&.strip-active
-				width 65%
-				float right
-
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
-
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
-
 	.entry-content
 		img
 		iframe
@@ -690,6 +726,22 @@ input[type="submit"]
 				.widget-title
 					margin 0 0 1.5rem 0
 
+	// Projects Pages
+	.projects-grid-container
+		.projects-grid
+			-flexibox()
+
+			.projects-grid-item
+				width 33%
+				padding 0 1.5%
+				-flexitem()
+
+				.project-thumbnail
+					border-width 3px
+
+	.jump-listen
+		display none
+
 	// Contact Page
 	.page-id-17
 		.page
@@ -712,43 +764,48 @@ input[type="submit"]
 				width 45%
 				float right
 
-// Fixed-width 340px sidebar
+
+// Fixed-width 340px sidebar for Single Projects pages
 @media screen and (min-width 40em)
 	#main
 		-clearfix()
 
-		&.with-sidebar
-			#secondary
-			width 340px
+	#primary
+		&.has-soundcloud
 			float right
 
-			.widget
-				width 300px
-				margin-left auto
-				margin-right auto
+	#secondary
+		width 340px
+		float left
+
+		.widget
+			width 100%
+			margin-left auto
+			margin-right auto
+			padding 0 10px
 
 
 @media screen and (min-width 58em)
-	.with-sidebar
-		#primary
+	#primary
+		&.has-soundcloud
 			width 56%
 
 
 @media screen and (min-width 62em)
-	.with-sidebar
-		#primary
+	#primary
+		&.has-soundcloud
 			width 58%
 
 
 @media screen and (min-width 64em)
-	.with-sidebar
-		#primary
+	#primary
+		&.has-soundcloud
 			width 60%
 
 
 @media screen and (min-width 66em)
-	.with-sidebar
-		#primary
+	#primary
+		&.has-soundcloud
 			width 64%
 
 
