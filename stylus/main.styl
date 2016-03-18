@@ -418,10 +418,12 @@ input
 .ninja-forms-cont
 	input
 		&[type="submit"]
-			width 7em
+			width auto
 			display block
-			float right
 			margin-top 0
+
+			&.ninja-forms-mp-next
+				float right
 
 
 .ninja-forms-required-items
@@ -431,6 +433,11 @@ input
 
 .ninja-forms-form-title
 	text-align center
+
+
+.ninja-forms-mp-prev
+	float left
+
 
 /* ==========================================================================
 	Media Queries

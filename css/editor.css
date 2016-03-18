@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:02:25 PM on 17-03-2016
+* RHD Dev: Compiled at 2:03:57 PM on 18-03-2016
 ***/
 
 /**
@@ -1197,10 +1197,12 @@ input[type="submit"]:hover {
   background-color: #6e3629;
 }
 .ninja-forms-cont input[type="submit"] {
-  width: 7em;
+  width: auto;
   display: block;
-  float: right;
   margin-top: 0;
+}
+.ninja-forms-cont input[type="submit"].ninja-forms-mp-next {
+  float: right;
 }
 .ninja-forms-required-items,
 .ninja-forms-req-symbol {
@@ -1208,6 +1210,9 @@ input[type="submit"]:hover {
 }
 .ninja-forms-form-title {
   text-align: center;
+}
+.ninja-forms-mp-prev {
+  float: left;
 }
 @media screen and (min-width: 40em) {
   #navbar {
