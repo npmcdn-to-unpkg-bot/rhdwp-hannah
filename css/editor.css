@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:52:29 PM on 17-03-2016
+* RHD Dev: Compiled at 2:39:27 PM on 18-03-2016
 ***/
 
 /**
@@ -827,19 +827,16 @@ input[type="radio"] {
   transform: translateX(-6px) translateY(-3px) rotate(45deg);
 }
 html,
-body,
-#page,
-#main {
-  min-height: 100%;
-}
-html,
 body {
-  text-shadow: 0 0 1px transparent;
   width: 100%;
   font-size: 16px;
   margin: 0;
+  text-shadow: 0 0 1px transparent;
   color: #5f5f5f;
   font-family: 'Roboto', sans-serif;
+}
+body {
+  display: block;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -1389,7 +1386,6 @@ input[type="submit"]:hover {
   }
   #colophon #footer-widget-area {
     width: 20rem;
-    height: 100%;
     position: absolute;
     right: 1em;
   }

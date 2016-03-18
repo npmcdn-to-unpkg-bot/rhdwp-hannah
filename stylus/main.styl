@@ -2,7 +2,6 @@
 @require "partials/_wp-core.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-//@require "partials/_metabar.styl"
 @require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
@@ -12,23 +11,17 @@
    ========================================================================== */
 
 html
-body
-#page
-#main
-	min-height 100%
-
-
-html
-	text-shadow 0 0 1px transparent
 	width 100%
 	font-size 16px
 	margin 0
+	text-shadow 0 0 1px transparent
 	color $color1
 	font-family $ff-body
 
 
 body
 	@extends html
+	display block
 
 	&.admin-bar
 		#wpadminbar
@@ -595,7 +588,6 @@ input[type="submit"]
 
 		#footer-widget-area
 			width 20rem
-			height 100%
 			position absolute
 			right 1em
 
