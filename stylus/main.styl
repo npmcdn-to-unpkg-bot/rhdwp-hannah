@@ -235,7 +235,7 @@ input[type="submit"]
 .widget-title
 	margin-top 0
 	line-height 1
-	color $color1
+	color $color3
 	text-transform uppercase
 
 
@@ -430,6 +430,23 @@ input[type="submit"]
 		&:active
 			background-color $color2
 			color white
+
+
+.pix-load-more
+	color $color3
+	font-weight 700
+	text-transform uppercase
+	font-size 1.2em
+
+	input
+		margin-top 2em
+		margin-bottom 2em
+		padding 1em 1.5em
+
+
+input
+	&[type="button"]
+		@extends .ghost-button a
 
 
 /* ==========================================================================
@@ -725,6 +742,12 @@ input[type="submit"]
 
 				.widget-title
 					margin 0 0 1.5rem 0
+
+			#text-3
+				float right
+
+			#text-2
+				float left
 
 	// Projects Pages
 	.projects-grid-container

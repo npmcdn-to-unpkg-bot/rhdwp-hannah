@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="entry-content">
-			<h2 class="entry-title">
+			<h2 class="entry-title invisible">
 				<?php the_title(); ?>
 			</h2>
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>

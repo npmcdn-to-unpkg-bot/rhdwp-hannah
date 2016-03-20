@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:12:26 PM on 18-03-2016
+* RHD Dev: Compiled at 7:16:12 PM on 20-03-2016
 ***/
 
 /**
@@ -1064,7 +1064,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  color: #5f5f5f;
+  color: #003675;
   text-transform: uppercase;
 }
 .page-title {
@@ -1233,7 +1233,8 @@ input[type="submit"]:hover {
   font-size: 1.2em;
   font-weight: 700;
 }
-.ghost-button a {
+.ghost-button a,
+input[type="button"] {
   padding: 0.4em 0.8em;
   color: #fff;
   text-decoration: none;
@@ -1244,9 +1245,22 @@ input[type="submit"]:hover {
   text-transform: uppercase;
 }
 .ghost-button a:hover,
-.ghost-button a:active {
+input[type="button"]:hover,
+.ghost-button a:active,
+input[type="button"]:active {
   background-color: #4a90e2;
   color: #fff;
+}
+.pix-load-more {
+  color: #003675;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+.pix-load-more input {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 1em 1.5em;
 }
 #secondary .widget {
   width: 100%;
@@ -1517,6 +1531,12 @@ input[type="submit"]:hover {
   }
   .front-page #front-page-widget-area .front-page-widget .widget-title {
     margin: 0 0 1.5rem 0;
+  }
+  .front-page #front-page-widget-area #text-3 {
+    float: right;
+  }
+  .front-page #front-page-widget-area #text-2 {
+    float: left;
   }
   .projects-grid-container .projects-grid .projects-grid-item {
     width: 33%;
