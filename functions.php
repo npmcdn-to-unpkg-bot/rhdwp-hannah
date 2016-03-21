@@ -330,7 +330,9 @@ function rhd_is_mobile()
 {
 	$mobile_browser = 0;
 
-	if ( preg_match( '/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower( $_SERVER['HTTP_USER_AGENT'] ) ) ) {
+	$http_user_agent = ! empty( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
+
+	if ( preg_match( '/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower( $http_user_agent ) ) ) {
 	    ++$mobile_browser;
 	}
 
@@ -338,7 +340,7 @@ function rhd_is_mobile()
 	    ++$mobile_browser;
 	}
 
-	$mobile_ua = strtolower( substr( $_SERVER['HTTP_USER_AGENT'], 0, 4) );
+	$mobile_ua = strtolower( substr( $http_user_agent, 0, 4) );
 	$mobile_agents = array(
 	    'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
 	    'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
@@ -360,7 +362,7 @@ function rhd_is_mobile()
 		}
 	}
 
-	if ( strpos( strtolower( $_SERVER['HTTP_USER_AGENT'] ),'windows') > 0 ) {
+	if ( strpos( strtolower( $http_user_agent ),'windows') > 0 ) {
 	    $mobile_browser = 0;
 	}
 
