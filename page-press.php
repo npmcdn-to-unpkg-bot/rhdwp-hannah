@@ -37,7 +37,7 @@ get_header(); ?>
 				<?php if ( $press_q->have_posts() ) : ?>
 					<?php while ( $press_q->have_posts() ) : $press_q->the_post(); ?>
 
-						<?php get_template_part( 'content' ); ?>
+						<?php get_template_part( 'content', 'press' ); ?>
 
 					<?php endwhile; ?>
 				<?php endif; ?>

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:05:42 PM on 15-03-2016
+* RHD Dev: Compiled at 6:34:53 PM on 21-03-2016
 ***/
 
 .alignnone {
@@ -1295,7 +1295,7 @@ input[type="submit"]:hover {
 }
 .blog-area .post .entry-header,
 #posts-feed .post .entry-header {
-  margin: 0 0 1em;
+  margin: 0;
   text-align: center;
 }
 .blog-area .post .entry-header .entry-title,
@@ -1669,24 +1669,24 @@ input[type="submit"]:hover {
     border: none;
     margin-bottom: 0;
   }
-  #posts-feed .post {
+  .post {
     border: 2px solid #1e2171;
     border-radius: 2px;
   }
-  #posts-feed .post .entry-header {
+  .post .entry-header {
     background: rgba(80,144,204,0.15);
     padding: 1em;
     margin: 0;
   }
-  #posts-feed .post .entry-header .entry-title {
+  .post .entry-header .entry-title {
     margin: 0 0 0.25rem;
   }
-  #posts-feed .post .entry-header .entry-title a {
+  .post .entry-header .entry-title a {
     color: #1e2171;
     transition: color 0.25s;
   }
-  #posts-feed .post .entry-header .entry-title a:hover,
-  #posts-feed .post .entry-header .entry-title a:active {
+  .post .entry-header .entry-title a:hover,
+  .post .entry-header .entry-title a:active {
     color: #60adf7;
     text-decoration: none;
   }
@@ -1829,6 +1829,9 @@ input[type="submit"]:hover {
     height: auto;
     margin-bottom: 2em;
     display: block;
+  }
+  .entry-content {
+    padding: 1em;
   }
   .entry-content img,
   .entry-content iframe,

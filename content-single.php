@@ -1,26 +1,58 @@
 <?php
 /**
- * The template for displaying single posts
+ * The default template for displaying content. Used for both index/archive/search.
  *
  * @package WordPress
  * @subpackage rhd
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<h2 class="entry-title"><?php the_title(); ?></h2>
-		<p class="entry-details"><?php the_time( get_option( 'date_format' ) ); ?></p>
-	</header><!-- .entry-header -->
+<?php $thumb = ( has_post_thumbnail() ) ? 'has-post-thumbnail' : ''; ?>
 
-	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
-	</div><!-- .entry-content -->
+<article id="post-<?php the_ID(); ?>" <?php post_class( $thumb ); ?>>
+	<div class="post-inner">
+		<header class="entry-header">
+			<h2 class="entry-title">
+				<?php the_title(); ?>a
+			</h2>
 
-	<footer class="entry-meta">
-		<?php rhd_post_meta_links(); ?>
-		<?php edit_post_link( __( 'Edit Post', 'rhd' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
+			<p class="entry-details"><?php  the_time( get_option( 'date_format' ) ); ?></p>
+		</header><!-- .entry-header -->
+
+		<?php if ( $thumb != '' ) : ?>
+			<div class="post-thumbnail">
+				<?php the_post_thumbnail( 'large' ); ?>
+			</div>
+		<?php endif; ?>
+
+		<div class="post-content">
+			<?php if ( is_search() || is_front_page() ) : // Only display Excerpts for Search and Front Pages ?>
+				<div class="entry-summary">
+					<?php the_excerpt(); ?>
+				</div><!-- .entry-summary -->
+			<?php else : ?>
+				<div class="entry-content">
+					<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
+
+				</div><!-- .entry-content -->
+			<?php endif; ?>
+		</div>
+	</div>
+
+	<?php if ( ! is_front_page() ) : ?>
+		<footer class="entry-meta">
+
+			<?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?>
+
+			<div class="entry-meta-links">
+				<?php
+				if ( ! is_front_page() ) {
+					comments_popup_link( 'No Comments', '1 Comment', '% Comments', 'comments-popup', 'Comments are disabled.' );
+					rhd_post_meta_links();
+				}
+				?>
+			</div>
+		</footer><!-- .entry-meta -->
+	<?php endif; ?>
 </article><!-- #post -->
-

@@ -415,7 +415,7 @@ input[type="submit"]
 #posts-feed
 	.post
 		.entry-header
-			margin 0 0 1em
+			margin 0
 			text-align center
 
 			.entry-title
@@ -792,27 +792,27 @@ input[type="submit"]
 						border none
 						margin-bottom 0
 
-	#posts-feed
-		.post
-			border 2px solid $navy
-			border-radius 2px
+	//#posts-feed
+	.post
+		border 2px solid $navy
+		border-radius 2px
 
-			.entry-header
-				background $sky_trans
-				padding 1em
-				margin 0
+		.entry-header
+			background $sky_trans
+			padding 1em
+			margin 0
 
-				.entry-title
-					margin 0 0 0.25rem
+			.entry-title
+				margin 0 0 0.25rem
 
-					a
-						color $navy
-						transition color 0.25s
+				a
+					color $navy
+					transition color 0.25s
 
-						&:hover
-						&:active
-							color $sky
-							text-decoration none
+					&:hover
+					&:active
+						color $sky
+						text-decoration none
 
 	.front-page
 		#main
@@ -964,6 +964,8 @@ input[type="submit"]
 				display block
 
 	.entry-content
+		padding 1em
+
 		img
 		iframe
 			-unwrapper(initial)

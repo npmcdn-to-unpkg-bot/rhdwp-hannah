@@ -61,8 +61,6 @@ get_header(); ?>
 					<?php endwhile; ?>
 				<?php endif; ?>
 
-				<?php rhd_archive_pagination( $posts_query ); ?>
-
 			</div><!-- #posts-feed -->
 
 			<div class="to-news-page ghost-button">
