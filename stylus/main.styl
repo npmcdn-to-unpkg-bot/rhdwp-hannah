@@ -79,6 +79,15 @@ input[type="submit"]
 #site-title
 	width 100%
 
+	a
+		color $color1
+		text-decoration none
+
+		&:hover
+		&:active
+			.site-title
+				color $color2
+
 	.site-title
 	.site-description
 		margin 0
@@ -220,7 +229,7 @@ input[type="submit"]
 				line-height 0
 
 				.rhd-social-icon
-					width 3.125rem
+					width 50px
 					height (@width)
 					-flexitem()
 					line-height 2
@@ -496,36 +505,46 @@ input
 
 		.projects-grid-item
 			margin-bottom 2em
+			vertical-align top
+			color $color3
 
 			&:last-child
 				margin-bottom 0
 
 			a
 				text-decoration none
+				color inherit
 
 				&:hover
 				&:active
+					.project-title
+						color $color2
+
 					.project-thumbnail
 						border-color $color2
 
-					.project-title
-						background-color $color2
-
 			.project-thumbnail
 				width 100%
-				border 2px solid $project-shade
+				border 0.25em solid $color1
 				position relative
 				margin 0
+				transition border-color 0.25s
 
-			.project-title
-				width 100%
-				background $project-shade
-				padding 7% 0
-				margin 0
+			.project-caption
 				text-align center
-				color white
-				text-transform uppercase
-				transition all 0.25s
+				line-height 1.2
+
+				.project-title
+					text-transform uppercase
+					margin 0.5em 0
+					transition color 0.25s
+
+				.project-details
+					font-size 0.9em
+					color $color1
+
+					p
+						margin 0
 
 
 .jump-listen

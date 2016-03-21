@@ -61,8 +61,10 @@
 			<header id="site-header" class="site-header <?php echo $header_class ? $header_class : ''; ?>">
 				<div id="masthead">
 					<div id="site-title">
-						<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+						<a href="<?php echo home_url(); ?>">
+							<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+							<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+						</a>
 					</div>
 
 					<button id="hamburger" class="c-hamburger c-hamburger--rot">
