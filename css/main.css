@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:34:53 PM on 21-03-2016
+* RHD Dev: Compiled at 3:11:52 PM on 22-03-2016
 ***/
 
 .alignnone {
@@ -904,15 +904,10 @@ input[type="radio"] {
 	Main Styles
    ========================================================================== */
 html,
-body,
-#page,
-#main {
-  min-height: 100%;
-}
-html,
 body {
-  text-shadow: 0 0 1px transparent;
   width: 100%;
+  height: auto;
+  text-shadow: 0 0 1px transparent;
   font-size: 16px;
   margin: 0;
   color: #1e2171;
@@ -1320,9 +1315,6 @@ input[type="submit"]:hover {
 }
 .full-width-slideshow .soliloquy-container {
   border-bottom: 4px solid #1e2171;
-}
-.full-width-slideshow .soliloquy-container .soliloquy-image {
-  min-width: 100%;
 }
 .pagination,
 .single-pagination {

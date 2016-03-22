@@ -29,30 +29,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	$(document).ready(function(){
 		rhdInit();
-
-		// Metabar dropdowns
-		$('.rhd-dropdown-title').click(function(e){
-			e.preventDefault();
-
-			var $this = $(this),
-				$dd = $this.siblings('ul');
-
-			$dd.slideToggle();
-		});
-
-
-		// "Image Strip"
-		if ( $('#content').hasClass( 'image-strip-active' ) ) {
-			if ( $window.width() > 800 )
-				setImageStrip();
-
-			$window.on('resize', function(){
-				if ( $window.width() > 800 )
-					setImageStrip();
-				else
-					unsetImageStrip();
-			});
-		}
 	});
 
 
@@ -66,10 +42,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		toggleBurger();
 
 		// Fix faux-flexbox
-		fixGridLayout();
+		// fixGridLayout();
 
 		// Image Strip
-		postContent = $(".entry-content").html();
+		// postContent = $(".entry-content").html();
 
 		// Check inline SVG support
 		if ( ! Modernizr.inlinesvg) {
