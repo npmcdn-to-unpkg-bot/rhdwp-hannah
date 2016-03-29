@@ -27,7 +27,7 @@
 		<?php
 		// Final setup
 		global $main_class;
-		$header_class = ( is_front_page() || is_page( 'bio' ) ) ? 'header-overlay' : '';
+		$header_class = ( is_front_page() || is_page( 'bio' ) || is_page( 'contact' ) ) ? 'header-overlay' : '';
 		?>
 
 		<?php wp_head(); ?>

@@ -9,7 +9,7 @@
 get_header(); ?>
 
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="page-image-header">
+		<div class="page-header-image">
 			<?php the_post_thumbnail( 'full' ); ?>
 		</div>
 	<?php endif; ?>

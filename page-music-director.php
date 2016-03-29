@@ -9,7 +9,7 @@
 get_header(); ?>
 
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="page-image-header">
+		<div class="page-header-image">
 			<?php the_post_thumbnail( 'full' ); ?>
 		</div>
 	<?php endif; ?>
@@ -50,7 +50,7 @@ get_header(); ?>
 
 								<li class="projects-grid-item">
 									<?php if ( $href ) : ?>
-										<a href="<?php echo $href; ?>">
+										<a href="<?php echo $href; ?>" target="_blank">
 									<?php endif; ?>
 									<div class="project-thumbnail">
 										<?php the_post_thumbnail( 'square' ); ?>

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:31:57 PM on 21-03-2016
+* RHD Dev: Compiled at 4:29:48 PM on 28-03-2016
 ***/
 
 /**
@@ -900,7 +900,7 @@ input[type="submit"]:hover {
 }
 #site-header #masthead {
   width: 92%;
-  max-width: 70rem;
+  max-width: 75rem;
   position: relative;
   margin: 1rem auto 1rem auto;
   color: #000;
@@ -1005,13 +1005,13 @@ input[type="submit"]:hover {
 }
 #main.with-header-image #primary {
   width: 85%;
-  max-width: 70rem;
+  max-width: 75rem;
   position: relative;
   margin: 2em auto 2em auto;
 }
 #main.no-header-image {
   width: 85%;
-  max-width: 70rem;
+  max-width: 75rem;
   position: relative;
   margin: 2em auto 2em auto;
 }
@@ -1083,7 +1083,7 @@ input[type="submit"]:hover {
   width: 100%;
 }
 .entry-content p {
-  margin: 0.25em auto;
+  margin: 0.75em auto;
   text-indent: 0;
 }
 .entry-content p[style*="text-align: center"] {
@@ -1110,7 +1110,7 @@ input[type="submit"]:hover {
 .entry-content iframe,
 .entry-content a img {
   width: 95%;
-  max-width: 70rem;
+  max-width: 75rem;
   position: relative;
   margin: 1em auto 1em auto;
 }
@@ -1152,7 +1152,7 @@ input[type="submit"]:hover {
 }
 .news-item .post-featured-image {
   width: 50%;
-  max-width: 70rem;
+  max-width: 75rem;
   position: relative;
   margin: 0.5em auto 0.5em auto;
 }
@@ -1393,7 +1393,7 @@ input[type="button"]:active {
 }
 .contact-info .social-icons {
   width: 200px;
-  max-width: 70rem;
+  max-width: 75rem;
   position: relative;
   margin: 1em auto 0 auto;
 }
@@ -1472,7 +1472,7 @@ input[type="button"]:active {
   }
   .news-item .news-item-inner {
     width: 80%;
-    max-width: 70rem;
+    max-width: 75rem;
     position: relative;
     margin: 0 auto 0 auto;
   }
@@ -1583,7 +1583,7 @@ input[type="button"]:active {
   }
 }
 @media screen and (min-width: 40em) {
-  #primary.has-soundcloud {
+  #primary.single-project-content {
     float: right;
   }
   #secondary {
@@ -1598,22 +1598,22 @@ input[type="button"]:active {
   }
 }
 @media screen and (min-width: 58em) {
-  #primary.has-soundcloud {
+  #primary.single-project-content {
     width: 56%;
   }
 }
 @media screen and (min-width: 62em) {
-  #primary.has-soundcloud {
+  #primary.single-project-content {
     width: 58%;
   }
 }
 @media screen and (min-width: 64em) {
-  #primary.has-soundcloud {
+  #primary.single-project-content {
     width: 60%;
   }
 }
 @media screen and (min-width: 66em) {
-  #primary.has-soundcloud {
+  #primary.single-project-content {
     width: 64%;
   }
 }

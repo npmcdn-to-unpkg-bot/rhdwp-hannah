@@ -661,5 +661,39 @@ function rhd_svg_logo()
  */
 function rhd_main_div_class()
 {
-	return ( is_front_page() || is_page( 'bio' ) || is_page( 'music-director' ) || is_page( 'composer' ) ) ? 'with-header-image' : 'no-header-image';
+	return ( is_front_page() || is_page( 'bio' ) || is_page( 'music-director' ) || is_page( 'composer' ) || is_page( 'contact' ) ) ? 'with-header-image' : 'no-header-image';
 }
+
+
+/**
+ * rhd_soundcloud_filter function.
+ *
+ * @access public
+ * @param mixed $content
+ * @return void
+ */
+function rhd_soundcloud_filter( $content )
+{
+	if ( ! has_shortcode( $content, 'soundcloud' ) )
+		return $content;
+
+	$c_pattern = '/color=(.*?)[\&|\"]/';
+	$v_pattern = '/visual=true/';
+
+	if ( preg_match( $v_pattern, $content ) ) {
+		while ( preg_match( $v_pattern, $content ) )
+			$content = preg_replace( $v_pattern, 'visual=false', $content );
+	} else {
+		$content = preg_replace( '/params=\"/', 'params="visual=false&', $content );
+	}
+
+	if ( preg_match( $c_pattern, $content ) ) {
+		while  ( preg_match( $c_pattern, $content ) )
+			$content = preg_replace( $c_pattern, 'color=#003675&', $content );
+	} else {
+		$content = preg_replace( '/params=\"/', 'params="color=#003675&', $content );
+	}
+
+	return $content;
+}
+add_filter( 'the_content', 'rhd_soundcloud_filter' );
