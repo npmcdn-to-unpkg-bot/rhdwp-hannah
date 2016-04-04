@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:29:48 PM on 28-03-2016
+* RHD Dev: Compiled at 3:35:29 PM on 03-04-2016
 ***/
 
 /**
@@ -829,8 +829,8 @@ body {
   font-size: 16px;
   margin: 0;
   text-shadow: 0 0 1px transparent;
-  color: #5f5f5f;
-  font-family: 'Roboto', sans-serif;
+  color: #000;
+  font-family: 'Lato', sans-serif;
 }
 body {
   display: block;
@@ -845,7 +845,7 @@ a {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #4a90e2;
+  color: #004b94;
 }
 a:hover,
 a:active {
@@ -854,40 +854,40 @@ a:active {
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid #4a90e2;
+  border: 2px solid #004b94;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 input:focus,
 textarea:focus {
-  border-color: #003675;
+  border-color: $color3;
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -896,7 +896,6 @@ input[type="submit"]:hover {
 #site-header {
   width: 100%;
   position: relative;
-  background-color: rgba(255,255,255,0.75);
 }
 #site-header #masthead {
   width: 92%;
@@ -909,12 +908,12 @@ input[type="submit"]:hover {
   width: 100%;
 }
 #site-title a {
-  color: #5f5f5f;
+  color: #004b94;
   text-decoration: none;
 }
 #site-title a:hover .site-title,
 #site-title a:active .site-title {
-  color: #4a90e2;
+  color: #004b94;
 }
 #site-title .site-title,
 #site-title .site-description {
@@ -924,13 +923,11 @@ input[type="submit"]:hover {
   transition: all 0.25s;
 }
 #site-title .site-title {
-  font-family: 'Gabriel Sans Cond Thin', sans-serif;
   text-transform: uppercase;
   font-size: 12vw;
   text-align: center;
 }
 #site-title .site-description {
-  font-family: 'Gabriel Sans Cond Light', sans-serif;
   text-align: right;
   font-size: 5.581395348837209vw;
 }
@@ -938,7 +935,6 @@ input[type="submit"]:hover {
   width: 100%;
   text-align: center;
   display: none;
-  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   transition: all 0.25s;
 }
@@ -961,7 +957,7 @@ input[type="submit"]:hover {
 #site-navigation-container #site-navigation .menu-item a:hover,
 #site-navigation-container #site-navigation .menu-item a:active {
   text-decoration: none;
-  color: #4a90e2;
+  color: #004b94;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu {
   position: absolute;
@@ -975,24 +971,24 @@ input[type="submit"]:hover {
   margin: 0;
 }
 .site-navigation li a {
-  color: #4a90e2;
+  color: #004b94;
   text-decoration: none;
   transition: color 0.25s;
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: #003675;
+  color: $color3;
 }
 #hamburger {
   margin: 0.5rem auto 0;
   background-color: transparent;
 }
 #hamburger span {
-  background-color: #5f5f5f;
+  background-color: #000;
 }
 #hamburger span:before,
 #hamburger span:after {
-  background-color: #5f5f5f;
+  background-color: #000;
 }
 #hamburger.is-active {
   background-color: transparent;
@@ -1025,7 +1021,7 @@ input[type="submit"]:hover {
 #colophon {
   width: 100%;
   position: relative;
-  background-color: #003675;
+  background-color: $color3;
   color: #fff;
   padding: 1em;
 }
@@ -1072,7 +1068,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  color: #003675;
+  color: $color3;
   text-transform: uppercase;
 }
 .page-title {
@@ -1246,7 +1242,7 @@ input[type="button"] {
   padding: 0.4em 0.8em;
   color: #fff;
   text-decoration: none;
-  background-color: #003675;
+  background-color: $color3;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
@@ -1256,11 +1252,11 @@ input[type="button"] {
 input[type="button"]:hover,
 .ghost-button a:active,
 input[type="button"]:active {
-  background-color: #4a90e2;
+  background-color: #004b94;
   color: #fff;
 }
 .pix-load-more {
-  color: #003675;
+  color: $color3;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1.2em;
@@ -1300,7 +1296,7 @@ input[type="button"]:active {
 .projects-grid-container .projects-grid .projects-grid-item {
   margin-bottom: 2em;
   vertical-align: top;
-  color: #003675;
+  color: $color3;
 }
 .projects-grid-container .projects-grid .projects-grid-item:last-child {
   margin-bottom: 0;
@@ -1311,15 +1307,15 @@ input[type="button"]:active {
 }
 .projects-grid-container .projects-grid .projects-grid-item a:hover .project-title,
 .projects-grid-container .projects-grid .projects-grid-item a:active .project-title {
-  color: #4a90e2;
+  color: #004b94;
 }
 .projects-grid-container .projects-grid .projects-grid-item a:hover .project-thumbnail,
 .projects-grid-container .projects-grid .projects-grid-item a:active .project-thumbnail {
-  border-color: #4a90e2;
+  border-color: #004b94;
 }
 .projects-grid-container .projects-grid .projects-grid-item .project-thumbnail {
   width: 100%;
-  border: 0.25em solid #5f5f5f;
+  border: 0.25em solid #000;
   position: relative;
   margin: 0;
   transition: border-color 0.25s;
@@ -1335,7 +1331,7 @@ input[type="button"]:active {
 }
 .projects-grid-container .projects-grid .projects-grid-item .project-caption .project-details {
   font-size: 0.9em;
-  color: #5f5f5f;
+  color: #000;
 }
 .projects-grid-container .projects-grid .projects-grid-item .project-caption .project-details p {
   margin: 0;
@@ -1345,20 +1341,19 @@ input[type="button"]:active {
   margin: 1em 0;
   display: block;
   font-size: 1.3em;
-  color: #4a90e2;
+  color: #004b94;
 }
 .soundcloud-sidebar .widget-title {
   font-size: 1.4em;
 }
 .ninja-forms-cont input,
 .ninja-forms-cont textarea {
-  font-family: 'Roboto', sans-serif;
-  border-color: #5f5f5f;
+  border-color: #000;
   transition: all 0.25s;
 }
 .ninja-forms-cont input:focus,
 .ninja-forms-cont textarea:focus {
-  border-color: #4a90e2;
+  border-color: #004b94;
 }
 .ninja-forms-cont input[type="submit"],
 .ninja-forms-cont textarea[type="submit"] {
@@ -1368,7 +1363,7 @@ input[type="button"]:active {
 }
 .ninja-forms-cont input[type="submit"]:hover,
 .ninja-forms-cont textarea[type="submit"]:hover {
-  background-color: #4a90e2;
+  background-color: #004b94;
 }
 .ninja-forms-cont #ninja_forms_field_3_div_wrap {
   margin-bottom: 0;
