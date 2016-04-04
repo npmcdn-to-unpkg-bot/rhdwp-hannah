@@ -661,7 +661,7 @@ function rhd_svg_logo()
  */
 function rhd_main_div_class()
 {
-	return ( is_front_page() || is_page( 'about' ) ) ? 'header-image-tall' : 'header-image-short';
+	//return ( is_front_page() || is_page( 'about' ) ) ? 'header-image-tall' : 'header-image-short';
 }
 
 

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:21:08 PM on 04-04-2016
+* RHD Dev: Compiled at 4:43:28 PM on 04-04-2016
 ***/
 
 .alignnone {
@@ -982,16 +982,12 @@ input[type="submit"]:hover {
   width: 100%;
   height: auto;
 }
-#primary {
+#primary,
+#secondary {
   width: 85%;
   max-width: 75rem;
   position: relative;
   margin: 2em auto 2em auto;
-}
-#primary,
-#secondary {
-  width: 100%;
-  margin-top: 1em;
   position: relative;
   box-sizing: border-box;
 }

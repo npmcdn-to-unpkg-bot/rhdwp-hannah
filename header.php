@@ -24,12 +24,6 @@
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-		<?php
-		// Final setup
-		global $main_class;
-		$header_class = ( is_front_page() || is_page( 'bio' ) || is_page( 'contact' ) ) ? 'header-overlay' : '';
-		?>
-
 		<?php wp_head(); ?>
 	</head>
 
@@ -58,7 +52,7 @@
 		?>
 
 		<div id="page" class="hfeed site sb-site-container">
-			<header id="masthead" class="site-header <?php echo $header_class ? $header_class : ''; ?>">
+			<header id="masthead" class="site-header">
 				<h1 id="site-title">
 					<a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
 				</h1>
@@ -70,4 +64,4 @@
 				<?php wp_nav_menu( $nav_args_main ); ?>
 			</header><!-- #masthead -->
 
-			<main id="main" class="<?php echo rhd_main_div_class(); ?>">
+			<main id="main">
