@@ -44,8 +44,8 @@ a
 
 input
 textarea
-	background-color white
-	border 2px solid $color2
+	background-color $color2
+	border 2px solid $color1
 	box-sizing border-box
 	padding 0.5em
 	font-family $ff-body
@@ -54,7 +54,7 @@ textarea
 	transition all 0.25s
 
 	&:focus
-		border-color $color3
+		border-color $color2
 
 
 input[type="submit"]
@@ -66,46 +66,31 @@ input[type="submit"]
 		background-color gray
 
 
-#site-header
+#masthead
 	width 100%
 	position relative
+	z-index 999
+	color $color3
 
-	#masthead
-		-wrapper(1rem, 1rem, 92%)
-		color black
-
-
-#site-title
-	width 100%
-
-	a
-		color $color2
-		text-decoration none
-
-		&:hover
-		&:active
-			.site-title
-				color $color2
-
-	.site-title
-	.site-description
+	#site-title
 		margin 0
-		font-weight normal
+		font-weight 300
 		line-height 1
 		transition all 0.25s
-
-	.site-title
 		text-transform uppercase
-		font-size $ts-default
 		text-align center
+		color $color2
 
-	.site-description
-		text-align right
-		font-size ($ts-default/2.15)
+		a
+			color inherit
+			text-decoration none
+
+			&:hover
+			&:active
+				color $color2
 
 
 #site-navigation-container
-	width 100%
 	text-align center
 	display none
 	text-transform uppercase
@@ -172,16 +157,20 @@ input[type="submit"]
 
 
 #main
+	width 100%
 	box-sizing border-box
 
-	&.with-header-image
+
+.page-header-image
+	width 100%
+
+	img
 		width 100%
+		height auto
 
-		#primary
-			-wrapper(2em, 2em)
 
-	&.no-header-image
-		-wrapper(2em, 2em)
+#primary
+	-wrapper(2em, 2em)
 
 
 #primary
@@ -195,8 +184,8 @@ input[type="submit"]
 #colophon
 	width 100%
 	position relative
-	background-color $color3
-	color white
+	background-color $color2
+	color $color3
 	padding 1em
 
 	.site-info
@@ -240,7 +229,7 @@ input[type="submit"]
 .widget-title
 	margin-top 0
 	line-height 1
-	color $color3
+	color $color2
 	text-transform uppercase
 
 
@@ -375,7 +364,7 @@ input[type="submit"]
 		background $off-white
 
 	.odd
-		background white
+		background $color3
 
 	.comment-body
 		padding 1em
@@ -423,9 +412,9 @@ input[type="submit"]
 
 	a
 		padding 0.4em .8em
-		color white
+		color $color3
 		text-decoration none
-		background-color $color3
+		background-color $color2
 		border-radius 0.1em
 		display inline-block
 		transition all 0.2s
@@ -434,11 +423,11 @@ input[type="submit"]
 		&:hover
 		&:active
 			background-color $color2
-			color white
+			color $color3
 
 
 .pix-load-more
-	color $color3
+	color $color2
 	font-weight 700
 	text-transform uppercase
 	font-size 1.2em
@@ -476,18 +465,8 @@ input
    ========================================================================== */
 
 .front-page
-	#front-page-widget-area
-		.front-page-widget
-			width 100%
-			margin 1em 0
-
-			.widget-content
-				text-align center
-
-			.widget-title
-				text-transform uppercase
-				font-size 1.4em
-				margin 0.25em 0
+	.news-grid
+		width 100%
 
 
 /* ==========================================================================
@@ -502,7 +481,7 @@ input
 		.projects-grid-item
 			margin-bottom 2em
 			vertical-align top
-			color $color3
+			color $color2
 
 			&:last-child
 				margin-bottom 0
@@ -615,30 +594,16 @@ input
    ========================================================================== */
 
 @media screen and (min-width 43em)
-	#site-header
-		&.header-overlay
-			position absolute
-			top 0
+	#masthead
+		position absolute
+		right 1em
+		top 1em
 
-		#masthead
-			-clearfix()
+		#site-title
+			text-align right
 
-
-	#site-title
-		width auto
-		float left
-
-		.site-title
-		.site-description
-			text-align left
-
-		.site-title
-			font-size $ts-midsize
-
-		.site-description
-			font-size ($ts-midsize / 2.15)
-			position relative
-			left 5.4em
+			a
+				color $color2
 
 	#site-navigation-container
 		width 60%
@@ -744,29 +709,17 @@ input
 				@extends .entry-content img
 
 	.front-page
-		#front-page-widget-area
+		.news-grid
 			-flexbox()
 
-			.front-page-widget
-				width 33.3333%
-				padding 0 1.5%
-				margin 0
+			.news-grid-item
+				width 31%
 				-flexitem()
-				vertical-align top
-
-				.widget-title
-					margin 0 0 1.5rem 0
-
-			#text-3
-				float right
-
-			#text-2
-				float left
 
 	// Projects Pages
 	.projects-grid-container
 		.projects-grid
-			-flexibox()
+			-flexbox()
 
 			.projects-grid-item
 				width 33%
@@ -804,9 +757,6 @@ input
 
 // Fixed-width 340px sidebar for Single Projects pages
 @media screen and (min-width 40em)
-	#main
-		-clearfix()
-
 	#primary
 		&.single-project-content
 			float right
@@ -820,41 +770,3 @@ input
 			margin-left auto
 			margin-right auto
 			padding 0 10px
-
-
-@media screen and (min-width 58em)
-	#primary
-		&.single-project-content
-			width 56%
-
-
-@media screen and (min-width 62em)
-	#primary
-		&.single-project-content
-			width 58%
-
-
-@media screen and (min-width 64em)
-	#primary
-		&.single-project-content
-			width 60%
-
-
-@media screen and (min-width 66em)
-	#primary
-		&.single-project-content
-			width 64%
-
-
-@media screen and (min-width 70em)
-	#site-title
-		.site-title
-			font-size $ts-desktop
-
-		.site-description
-			font-size ($ts-desktop / 2.15)
-
-	#site-navigation-container
-		#site-navigation
-			.menu-item
-				font-size 1.3em

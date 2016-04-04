@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:35:29 PM on 03-04-2016
+* RHD Dev: Compiled at 4:21:08 PM on 04-04-2016
 ***/
 
 .alignnone {
@@ -191,19 +191,15 @@ a img.aligncenter {
 .pagination:before,
 .single-pagination:before,
 .contact-info .social-icons:before,
-#site-header #masthead:before,
 .news-item .news-item-inner:before,
 .page-id-17 .entry-content:before,
-#main:before,
 .clearfix:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
 .contact-info .social-icons:after,
-#site-header #masthead:after,
 .news-item .news-item-inner:after,
-.page-id-17 .entry-content:after,
-#main:after {
+.page-id-17 .entry-content:after {
   content: " ";
   display: table;
 }
@@ -212,10 +208,8 @@ a img.aligncenter {
 .pagination:after,
 .single-pagination:after,
 .contact-info .social-icons:after,
-#site-header #masthead:after,
 .news-item .news-item-inner:after,
-.page-id-17 .entry-content:after,
-#main:after {
+.page-id-17 .entry-content:after {
   clear: both;
 }
 * {
@@ -853,8 +847,8 @@ a:active {
 }
 input,
 textarea {
-  background-color: #fff;
-  border: 2px solid #004b94;
+  background-color: #004b94;
+  border: 2px solid #000;
   box-sizing: border-box;
   padding: 0.5em;
   font-family: 'Lato', sans-serif;
@@ -883,7 +877,7 @@ textarea:-ms-input-placeholder {
 }
 input:focus,
 textarea:focus {
-  border-color: $color3;
+  border-color: #004b94;
 }
 input[type="submit"] {
   cursor: pointer;
@@ -893,46 +887,30 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #808080;
 }
-#site-header {
+#masthead {
   width: 100%;
   position: relative;
+  z-index: 999;
+  color: #fff;
 }
-#site-header #masthead {
-  width: 92%;
-  max-width: 75rem;
-  position: relative;
-  margin: 1rem auto 1rem auto;
-  color: #000;
-}
-#site-title {
-  width: 100%;
-}
-#site-title a {
-  color: #004b94;
-  text-decoration: none;
-}
-#site-title a:hover .site-title,
-#site-title a:active .site-title {
-  color: #004b94;
-}
-#site-title .site-title,
-#site-title .site-description {
+#masthead #site-title {
   margin: 0;
-  font-weight: normal;
+  font-weight: 300;
   line-height: 1;
   transition: all 0.25s;
-}
-#site-title .site-title {
   text-transform: uppercase;
-  font-size: 12vw;
   text-align: center;
+  color: #004b94;
 }
-#site-title .site-description {
-  text-align: right;
-  font-size: 5.581395348837209vw;
+#masthead #site-title a {
+  color: inherit;
+  text-decoration: none;
+}
+#masthead #site-title a:hover,
+#masthead #site-title a:active {
+  color: #004b94;
 }
 #site-navigation-container {
-  width: 100%;
   text-align: center;
   display: none;
   text-transform: uppercase;
@@ -977,7 +955,7 @@ input[type="submit"]:hover {
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: $color3;
+  color: #fff;
 }
 #hamburger {
   margin: 0.5rem auto 0;
@@ -994,18 +972,17 @@ input[type="submit"]:hover {
   background-color: transparent;
 }
 #main {
+  width: 100%;
   box-sizing: border-box;
 }
-#main.with-header-image {
+.page-header-image {
   width: 100%;
 }
-#main.with-header-image #primary {
-  width: 85%;
-  max-width: 75rem;
-  position: relative;
-  margin: 2em auto 2em auto;
+.page-header-image img {
+  width: 100%;
+  height: auto;
 }
-#main.no-header-image {
+#primary {
   width: 85%;
   max-width: 75rem;
   position: relative;
@@ -1021,7 +998,7 @@ input[type="submit"]:hover {
 #colophon {
   width: 100%;
   position: relative;
-  background-color: $color3;
+  background-color: #004b94;
   color: #fff;
   padding: 1em;
 }
@@ -1071,7 +1048,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  color: $color3;
+  color: #004b94;
   text-transform: uppercase;
 }
 .page-title {
@@ -1251,7 +1228,7 @@ input[type="button"] {
   padding: 0.4em 0.8em;
   color: #fff;
   text-decoration: none;
-  background-color: $color3;
+  background-color: #004b94;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
@@ -1265,7 +1242,7 @@ input[type="button"]:active {
   color: #fff;
 }
 .pix-load-more {
-  color: $color3;
+  color: #004b94;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1.2em;
@@ -1292,17 +1269,8 @@ input[type="button"]:active {
 /* ==========================================================================
 	Front Page
    ========================================================================== */
-.front-page #front-page-widget-area .front-page-widget {
+.front-page .news-grid {
   width: 100%;
-  margin: 1em 0;
-}
-.front-page #front-page-widget-area .front-page-widget .widget-content {
-  text-align: center;
-}
-.front-page #front-page-widget-area .front-page-widget .widget-title {
-  text-transform: uppercase;
-  font-size: 1.4em;
-  margin: 0.25em 0;
 }
 /* ==========================================================================
 	Projects Pages
@@ -1314,7 +1282,7 @@ input[type="button"]:active {
 .projects-grid-container .projects-grid .projects-grid-item {
   margin-bottom: 2em;
   vertical-align: top;
-  color: $color3;
+  color: #004b94;
 }
 .projects-grid-container .projects-grid .projects-grid-item:last-child {
   margin-bottom: 0;
@@ -1421,25 +1389,16 @@ input[type="button"]:active {
 	Media Queries
    ========================================================================== */
 @media screen and (min-width: 43em) {
-  #site-header.header-overlay {
+  #masthead {
     position: absolute;
-    top: 0;
+    right: 1em;
+    top: 1em;
   }
-  #site-title {
-    width: auto;
-    float: left;
+  #masthead #site-title {
+    text-align: right;
   }
-  #site-title .site-title,
-  #site-title .site-description {
-    text-align: left;
-  }
-  #site-title .site-title {
-    font-size: 4.7vw;
-  }
-  #site-title .site-description {
-    font-size: 2.186046511627907vw;
-    position: relative;
-    left: 5.4em;
+  #masthead #site-title a {
+    color: #004b94;
   }
   #site-navigation-container {
     width: 60%;
@@ -1551,29 +1510,25 @@ input[type="button"]:active {
 .entry-content a img.aligncenter {
     margin: 0 auto;
   }
-  .front-page #front-page-widget-area {
+  .front-page .news-grid {
     text-align: justify;
   }
-  .front-page #front-page-widget-area:after {
+  .front-page .news-grid:after {
     width: 100%;
     display: inline-block;
     content: '';
   }
-  .front-page #front-page-widget-area .front-page-widget {
-    width: 33.3333%;
-    padding: 0 1.5%;
-    margin: 0;
+  .front-page .news-grid .news-grid-item {
+    width: 31%;
     display: inline-block;
-    vertical-align: top;
   }
-  .front-page #front-page-widget-area .front-page-widget .widget-title {
-    margin: 0 0 1.5rem 0;
+  .projects-grid-container .projects-grid {
+    text-align: justify;
   }
-  .front-page #front-page-widget-area #text-3 {
-    float: right;
-  }
-  .front-page #front-page-widget-area #text-2 {
-    float: left;
+  .projects-grid-container .projects-grid:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
   }
   .projects-grid-container .projects-grid .projects-grid-item {
     width: 33%;
@@ -1614,36 +1569,5 @@ input[type="button"]:active {
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
-  }
-}
-@media screen and (min-width: 58em) {
-  #primary.single-project-content {
-    width: 56%;
-  }
-}
-@media screen and (min-width: 62em) {
-  #primary.single-project-content {
-    width: 58%;
-  }
-}
-@media screen and (min-width: 64em) {
-  #primary.single-project-content {
-    width: 60%;
-  }
-}
-@media screen and (min-width: 66em) {
-  #primary.single-project-content {
-    width: 64%;
-  }
-}
-@media screen and (min-width: 70em) {
-  #site-title .site-title {
-    font-size: 3.4em;
-  }
-  #site-title .site-description {
-    font-size: 1.581395348837209em;
-  }
-  #site-navigation-container #site-navigation .menu-item {
-    font-size: 1.3em;
   }
 }

@@ -58,21 +58,16 @@
 		?>
 
 		<div id="page" class="hfeed site sb-site-container">
-			<header id="site-header" class="site-header <?php echo $header_class ? $header_class : ''; ?>">
-				<div id="masthead">
-					<div id="site-title">
-						<a href="<?php echo home_url(); ?>">
-							<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-							<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-						</a>
-					</div>
+			<header id="masthead" class="site-header <?php echo $header_class ? $header_class : ''; ?>">
+				<h1 id="site-title">
+					<a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
+				</h1>
 
-					<button id="hamburger" class="c-hamburger c-hamburger--rot">
-						<span>Toggle nav</span>
-					</button>
+				<button id="hamburger" class="c-hamburger c-hamburger--rot">
+					<span>Toggle nav</span>
+				</button>
 
-					<?php wp_nav_menu( $nav_args_main ); ?>
-				</div>
+				<?php wp_nav_menu( $nav_args_main ); ?>
 			</header><!-- #masthead -->
 
 			<main id="main" class="<?php echo rhd_main_div_class(); ?>">
