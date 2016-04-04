@@ -27,13 +27,13 @@ get_header(); ?>
 			?>
 
 			<?php if ( $news_q->have_posts() ) : ?>
+				<div class="news-grid">
 				<?php while ( $news_q->have_posts() ) : $news_q->the_post(); ?>
 
-					<div class="news-grid">
-						<?php get_template_part( 'content', 'grid' ); ?>
-					</div>
+					<?php get_template_part( 'content' ); ?>
 
 				<?php endwhile; ?>
+				</div>
 			<?php endif; ?>
 
 		</div><!-- #content -->

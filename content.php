@@ -7,7 +7,15 @@
  */
 ?>
 
-<?php $class = is_front_page() ? 'news-grid-item' : 'news-item'; ?>
+<?php
+if ( is_front_page() ) {
+	$class = 'news-grid-item';
+	$thumb_size = 'square';
+} else {
+	$class = 'news-item';
+	$thumb_size = 'large';
+}
+?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $class ); ?>>
 	<div class="news-item-inner">
@@ -17,7 +25,7 @@
 				<a href="<?php echo $external; ?>" rel="bookmark" target="_blank">
 			<?php endif; ?>
 
-			<?php the_post_thumbnail( 'square' ); ?>
+			<?php the_post_thumbnail( $thumb_size ); ?>
 
 			<?php if ( $external ) : ?>
 				</a>
@@ -25,13 +33,13 @@
 		</div>
 
 		<div class="entry-content">
-			<h2 class="entry-title invisible">
+			<h2 class="entry-title">
 				<?php the_title(); ?>
 			</h2>
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
 
 			<?php if ( $external ) : ?>
-				<div class="ghost-button"><a href="<?php the_permalink(); ?>">Read More</a></div>
+				<div class="ghost-button"><a href="<?php the_permalink(); ?>" target="_blank">Read More</a></div>
 			<?php endif; ?>
 		</div><!-- .entry-content -->
 

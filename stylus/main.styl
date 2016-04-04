@@ -73,13 +73,12 @@ input[type="submit"]
 	color $color3
 
 	#site-title
-		margin 0
 		font-weight 300
 		line-height 1
 		transition all 0.25s
-		text-transform uppercase
 		text-align center
 		color $color2
+		font-size 13vw
 
 		a
 			color inherit
@@ -93,7 +92,6 @@ input[type="submit"]
 #site-navigation-container
 	text-align center
 	display none
-	text-transform uppercase
 	transition all 0.25s
 
 	#site-navigation
@@ -110,12 +108,12 @@ input[type="submit"]
 			transition all 0.25s
 
 			a
-				color inherit
+				color $color2
 
 				&:hover
 				&:active
 					text-decoration none
-					color $color2
+					color $color3
 
 			.sub-menu
 				position absolute
@@ -132,13 +130,7 @@ input[type="submit"]
 .site-navigation
 	li
 		a
-			color $color2
-			text-decoration none
 			transition color 0.25s
-
-			&:hover
-			&:active
-				color $color3
 
 
 #hamburger
@@ -225,12 +217,16 @@ input[type="submit"]
 	margin-top 0
 	line-height 1
 	color $color2
-	text-transform uppercase
 
 
 .page-title
-	font-size 1.6em
+	font-size 1.8em
 	text-align center
+	text-transform uppercase
+
+
+.entry-title
+	font-size 1.6em
 
 
 .entry-content
@@ -239,6 +235,7 @@ input[type="submit"]
 	p
 		margin 0.75em auto
 		text-indent 0
+		line-height 1.3
 
 		&[style*="text-align: center"]
 			text-indent 0
@@ -402,23 +399,22 @@ input[type="submit"]
 	max-width 100%
 	text-align center
 	margin 1em auto
-	font-size 1.2em
 	font-weight 700
 
 	a
-		padding 0.4em .8em
+		padding 0.2em .65em
 		color $color3
 		text-decoration none
 		background-color $color2
 		border-radius 0.1em
 		display inline-block
 		transition all 0.2s
-		text-transform uppercase
+		border 2px solid $color2
 
 		&:hover
 		&:active
-			background-color $color2
-			color $color3
+			background-color $color3
+			color $color2
 
 
 .pix-load-more
@@ -463,6 +459,12 @@ input
 	.news-grid
 		width 100%
 
+		.news-grid-item
+			text-align center
+
+			.entry-title
+				margin 0.8em 0 0.25em
+
 
 /* ==========================================================================
 	Projects Pages
@@ -505,7 +507,6 @@ input
 				line-height 1.2
 
 				.project-title
-					text-transform uppercase
 					margin 0.5em 0
 					transition color 0.25s
 
@@ -595,31 +596,40 @@ input
 		top 1em
 
 		#site-title
+			font-size 3.5em
 			text-align right
+			margin 0
 
 			a
-				color $color2
+				color white
 
 	#site-navigation-container
-		width 60%
+		width 20%
 		display block
 		position absolute
-		top 50%
+		top 3em
 		right 0
-		-transform(translateY(-50%))
 
 		#site-navigation
-			-flexbox()
-			margin 0
-			line-height 0
+			text-align right
 
 			.menu-item
-				-flexitem()
-				font-size 1.7vw
-				line-height 2
+				display block
+				font-size 1.7em
+
+				a
+					color white
+
+					&:hover
+					&:active
+						color $color2
 
 	#hamburger
 		display none
+
+	.page-header-image
+		max-height 90vh
+		overflow hidden
 
 	#colophon
 		height 5rem
@@ -710,6 +720,7 @@ input
 			.news-grid-item
 				width 31%
 				-flexitem()
+				vertical-align top
 
 	// Projects Pages
 	.projects-grid-container
