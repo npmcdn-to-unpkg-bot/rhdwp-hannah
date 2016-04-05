@@ -1,9 +1,9 @@
 @require "partials/_global.styl"
 @require "partials/_wp-core.styl"
+@require "partials/_defaults.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
 @require "partials/_metabar.styl"
-@require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
 
 
@@ -336,32 +336,6 @@ input[type="submit"]
 
 
 /* ==========================================================================
-	Ghost Buttons
-   ========================================================================== */
-
-.ghost-button
-	width auto
-	max-width 100%
-	text-align center
-	margin 1em auto
-
-	a
-		padding 0.4em .8em
-		color $color2
-		text-decoration none
-		background-color white
-		border 3px solid @color
-		border-radius 0.1em
-		display inline-block
-		transition all 0.2s
-
-		&:hover
-		&:active
-			background-color @color
-			color @background-color
-
-
-/* ==========================================================================
 	Widget Areas & Sidebars
    ========================================================================== */
 
@@ -385,10 +359,10 @@ input[type="submit"]
 @media screen and (min-width 40em)
 	#site-navigation-container
 		display block
-		
+
 		#site-navigation
 			line-height 0
-			
+
 			.menu-item
 				line-height 2
 
