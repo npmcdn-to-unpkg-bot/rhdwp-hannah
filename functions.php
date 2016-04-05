@@ -697,3 +697,23 @@ function rhd_soundcloud_filter( $content )
 	return $content;
 }
 add_filter( 'the_content', 'rhd_soundcloud_filter' );
+
+
+/**
+ * autov_add_loginout_navitem function.
+ *
+ * @access public
+ * @param mixed $items
+ * @return void
+ */
+function rhd_add_social_nav_menu( $items, $args )
+{
+	if ( $args->theme_location == 'primary' ) {
+		$social = do_shortcode( '[rhd-social-icons facebook="https://facebook.com/roundhousedesigns" twitter="@roundhouseguys" instagram="@gaswirth" soundcloud="https://soundcloud.com" youtube="https://youtube.com" color1=#fff color2=#004B94 shape="icon"]' );
+		$social_item = '<li class="menu-item menu-item-rhd-social">' . $social . '</li>';
+
+		$items .= $social_item;
+	}
+	return $items;
+}
+add_filter('wp_nav_menu_items', 'rhd_add_social_nav_menu', 10, 2);

@@ -53,13 +53,20 @@
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
-				<h1 id="site-title">
-					<a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
-				</h1>
+				<?php if ( has_post_thumbnail() && is_page() ) : ?>
+					<div class="page-header-image">
+						<?php the_post_thumbnail( 'full' ); ?>
+					</div>
+				<?php endif; ?>
+				<div id="navbar">
+					<h1 id="site-title">
+						<a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
+					</h1>
 
-				<button id="hamburger" class="c-hamburger c-hamburger--rot">
-					<span>Toggle nav</span>
-				</button>
+					<button id="hamburger" class="c-hamburger c-hamburger--rot">
+						<span>Toggle nav</span>
+					</button>
+				</div>
 
 				<?php wp_nav_menu( $nav_args_main ); ?>
 			</header><!-- #masthead -->

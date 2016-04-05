@@ -49,12 +49,25 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
 	function toggleBurger() {
-		var toggles = $(".c-hamburger");
+		var toggles = $(".c-hamburger"),
+			$nav = $("#site-navigation-container");
+
+		$nav.data('height', $nav.height()+"px");
+		$nav.css('height', '0');
 
 		toggles.on( 'click', function(e){
 			e.preventDefault();
-			$(this).toggleClass('is-active');
-			$("#site-navigation-container").slideToggle();
+			var $this = $(this);
+			$this.toggleClass('is-active');
+
+			if ( $this.hasClass('is-active') )
+				$nav.animate({
+					height: $nav.data('height')
+				}, 'slow', 'swing');
+			else
+				$nav.animate({
+					height: '0'
+				}, 'slow', 'swing');
 		});
 	}
 
