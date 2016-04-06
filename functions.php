@@ -178,7 +178,7 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
  * RHD_Walker_Nav class.
  *
  * Adds newlines after each </li> closing tag.
- * 
+ *
  * @extends Walker_Nav_Menu
  */
 class RHD_Walker_Nav extends Walker_Nav_Menu {
@@ -290,18 +290,21 @@ add_action('_admin_menu', 'rhd_remove_editor_menu', 1);
  * @access public
  * @return void
  */
-function rhd_is_mobile() {
+function rhd_is_mobile()
+{
 	$mobile_browser = 0;
 
-	if (preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
-	    $mobile_browser++;
+	$http_user_agent = ! empty( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
+
+	if ( preg_match( '/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower( $http_user_agent ) ) ) {
+	    ++$mobile_browser;
 	}
 
-	if ((strpos(strtolower($_SERVER['HTTP_ACCEPT']),'application/vnd.wap.xhtml+xml') > 0) or ((isset($_SERVER['HTTP_X_WAP_PROFILE']) or isset($_SERVER['HTTP_PROFILE'])))) {
-	    $mobile_browser++;
+	if ( ( strpos( strtolower( $_SERVER['HTTP_ACCEPT'] ),'application/vnd.wap.xhtml+xml' ) > 0 ) or ( ( isset( $_SERVER['HTTP_X_WAP_PROFILE'] ) or isset( $_SERVER['HTTP_PROFILE'] ) ) ) ) {
+	    ++$mobile_browser;
 	}
 
-	$mobile_ua = strtolower(substr($_SERVER['HTTP_USER_AGENT'], 0, 4));
+	$mobile_ua = strtolower( substr( $http_user_agent, 0, 4) );
 	$mobile_agents = array(
 	    'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
 	    'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
@@ -313,17 +316,17 @@ function rhd_is_mobile() {
 	    'tosh','tsm-','upg1','upsi','vk-v','voda','wap-','wapa','wapi','wapp',
 	    'wapr','webc','winw','winw','xda ','xda-');
 
-	if (in_array($mobile_ua,$mobile_agents)) {
-	    $mobile_browser++;
+	if ( in_array( $mobile_ua,$mobile_agents ) ) {
+	    ++$mobile_browser;
 	}
 
 	if ( array_key_exists( 'ALL_HTTP', $_SERVER ) ) {
-		if (strpos(strtolower($_SERVER['ALL_HTTP']),'OperaMini') > 0) {
-		    $mobile_browser++;
+		if ( strpos( strtolower ($_SERVER['ALL_HTTP'] ),'OperaMini' ) > 0 ) {
+		    ++$mobile_browser;
 		}
 	}
 
-	if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows') > 0) {
+	if ( strpos( strtolower( $http_user_agent ),'windows') > 0 ) {
 	    $mobile_browser = 0;
 	}
 
@@ -549,6 +552,33 @@ function rhd_title_check_hidden( $title ) {
 }
 add_filter('widget_title', 'rhd_title_check_hidden');
 
+
+/**
+ * rhd_body_class function.
+ *
+ * @access public
+ * @param mixed $body_classes
+ * @return void
+ */
+function rhd_body_class( $body_classes )
+{
+    // Basic front page & device detection
+    $body_classes[] = ( is_front_page() ) ? 'front-page' : '';
+    $body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
+    $body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
+    $body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
+
+    //session_start();
+    if ( is_home() || is_single() || is_archive() || is_search() ) {
+            $body_classes[] = 'blog-area';
+
+            $_SESSION['blog_area'] = true;
+    } else {
+            $_SESSION['blog_area'] = false;
+    }
+    return $body_classes;
+}
+add_filter( 'body_class', 'rhd_body_class' );
 
 /* ==========================================================================
 	Theme Functions and Customizations

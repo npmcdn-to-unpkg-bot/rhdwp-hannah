@@ -47,11 +47,6 @@ var sb;
 			.attr('data-start', 'background-position: 0px 25%;')
 			.attr('data-top-bottom', 'background-position: 0px -60%;');
 
-		// skrollr
-		if ( 640 <= $(window).width ) {
-			skrollrInit();
-		}
-
 		// WPCF7 Form
 		$('.wpcf7 input, .wpcf7 textarea').each(function(){
 			var $this = $(this),
@@ -104,9 +99,11 @@ var sb;
 		resizeCanvas();
 
 
-		// Packery
-		if ( !isMobile )
+		// Packery and Skrollr init
+		if ( 640 <= $(window).width() ) {
 			packeryInit();
+			skrollrInit();
+		}
 
 		// Resize events
 		$(window).resize(function(){
