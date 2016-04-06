@@ -11,6 +11,9 @@ var isSingle = ( jQuery('body').hasClass('single') ) ? true : false,
 var $packery,
 	packeryIsActive = false;
 
+var $skrollr,
+	skrollrIsActive = false;
+
 // wp_data object
 var homeUrl = wp_data.home_url,
 	themeDir = wp_data.theme_dir,
@@ -29,7 +32,6 @@ var sb;
    ========================================================================== */
 
 (function($){
-
 	$(document).ready(function(){
 		rhdInit();
 
@@ -40,16 +42,14 @@ var sb;
 		if ( $('#front-page-title-caption').length )
 			fitText(document.getElementById('front-page-title-caption'), 1.5);
 
+		// Skrollr setup
+		$(".front-page .entry-header, .single .entry-header, .page .entry-header")
+			.attr('data-start', 'background-position: 0px 25%;')
+			.attr('data-top-bottom', 'background-position: 0px -60%;');
+
 		// skrollr
-		if ( isDesktop ) {
-			$(".front-page .entry-header, .single .entry-header, .page .entry-header")
-				.attr('data-start', 'background-position: 0px 25%;')
-				.attr('data-top-bottom', 'background-position: 0px -60%;');
-			var $s = skrollr.init({
-				forceHeight: false,
-				smoothScrolling: true,
-				smoothScrollingDuration: -100
-			});
+		if ( 640 <= $(window).width ) {
+			skrollrInit();
 		}
 
 		// WPCF7 Form
@@ -108,15 +108,23 @@ var sb;
 		if ( !isMobile )
 			packeryInit();
 
+		// Resize events
 		$(window).resize(function(){
 			resizeCanvas();
 
-			if ( $(window).width() < 640 && packeryIsActive ) {
-				$packery.packery('destroy');
-				packeryIsActive = false;
-			} else
+			if ( $(window).width() < 640 ) {
+				skrollrDestroy();
+
+				if ( packeryIsActive ) {
+					$packery.packery('destroy');
+					packeryIsActive = false;
+				}
+			} else {
 				packeryInit();
 
+
+				skrollrInit();
+			}
 		});
 	});
 
@@ -132,6 +140,7 @@ var sb;
 		sb = new $.slidebars({
 			siteClose: false,
 		});
+
 		toggleBurger();
 	}
 
@@ -278,7 +287,7 @@ var sb;
 
 	function packeryInit() {
 		$packery = $(".blog-index #content");
-		
+
 		$packery.imagesLoaded( function(){
 			$packery.packery({
 				itemSelector: '.post',
@@ -288,6 +297,24 @@ var sb;
 		});
 
 		packeryIsActive = true;
+	}
+
+	function skrollrInit() {
+		$skrollr = skrollr.init({
+			forceHeight: false,
+			smoothScrolling: true,
+			smoothScrollingDuration: -100
+		});
+
+		skrollrIsActive = true;
+	}
+
+	function skrollrDestroy() {
+		if ( $skrollr ) {
+			$skrollr.destroy();
+
+			skrollrIsActive = false;
+		}
 	}
 
 })(jQuery);
