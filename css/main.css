@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:46:59 PM on 07-04-2016
+* RHD Dev: Compiled at 3:00:08 PM on 07-04-2016
 ***/
 
 .ghost-button {
@@ -10,18 +10,18 @@
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #f5c419;
+  color: #aaa;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #f5c419;
+  border: 3px solid #aaa;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #f5c419;
-  color: #f5c419;
+  background-color: #aaa;
+  color: #aaa;
 }
 .alignnone {
   margin: 5px 20px 20px 0;
@@ -700,28 +700,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -732,7 +732,7 @@ img.aligncenter {
   background: #fff;
   color: #808080;
   position: relative;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -979,7 +979,8 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  color: #4d4845;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -987,53 +988,54 @@ body.admin-bar #wpadminbar {
 }
 a {
   outline: 0 !important;
+  text-decoration: none;
+  transition: all 0.25s;
 }
 a:link,
 a:visited {
-  text-decoration: none;
-  color: #f5c419;
+  color: #aaa;
 }
 a:hover,
 a:active {
-  text-decoration: underline;
+  color: #d8d1c9;
 }
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid #f5c419;
+  border: 2px solid #aaa;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:focus,
 textarea:focus {
-  border-color: #f55033;
+  border-color: #d8d1c9;
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -1045,6 +1047,8 @@ input[type="submit"]:hover {
 #site-title {
   text-align: center;
   margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-weight: normal;
 }
 #site-navigation-container {
   width: 100%;
@@ -1080,13 +1084,13 @@ input[type="submit"]:hover {
   list-style: none;
 }
 .site-navigation li a {
-  color: #f5c419;
+  color: #aaa;
   text-decoration: none;
   transition: color 0.25s;
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: #f55033;
+  color: #d8d1c9;
 }
 #hamburger {
   background-color: #000;
@@ -1101,7 +1105,7 @@ input[type="submit"]:hover {
   width: 85%;
   max-width: 64rem;
   position: relative;
-  margin: 2em auto 2em auto;
+  margin: 0 auto 0 auto;
   padding: 2em 0;
   box-sizing: border-box;
 }
@@ -1119,7 +1123,7 @@ input[type="submit"]:hover {
   width: 100%;
   height: 6em;
   position: relative;
-  background: #f5c419;
+  background: #aaa;
 }
 #colophon .site-info {
   width: 100%;
@@ -1134,7 +1138,12 @@ input[type="submit"]:hover {
   font-size: 0.9em;
 }
 #colophon .site-info a {
-  color: inherit;
+  color: #4d4845;
+}
+#colophon .site-info a:hover,
+#colophon .site-info a:active {
+  color: #4d4845;
+  text-decoration: underline;
 }
 #colophon #rhd-logo-footer {
   width: 1.35em;
@@ -1147,9 +1156,12 @@ input[type="submit"]:hover {
 	Posts & Pages
    ========================================================================== */
 .entry-title,
-.page-title {
+.page-title,
+.widget-title {
   margin-top: 0;
   line-height: 1;
+  font-family: 'Oswald', sans-serif;
+  font-weight: normal;
 }
 .entry-content {
   width: 100%;
@@ -1253,7 +1265,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: #e1e1e1;
+  background: #d8d1c9;
 }
 #comments .odd {
   background: #fff;

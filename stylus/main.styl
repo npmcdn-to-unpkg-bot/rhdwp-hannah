@@ -24,6 +24,7 @@ html
 	font-size 16px
 	margin 0
 	font-family $ff-body
+	color $color1
 
 
 body
@@ -37,15 +38,16 @@ body
 
 a
 	outline 0 !important
+	text-decoration none
+	transition all 0.25s
 
 	&:link
 	&:visited
-		text-decoration none
 		color $color2
 
 	&:hover
 	&:active
-		text-decoration underline
+		color $off-white
 
 
 input
@@ -60,7 +62,7 @@ textarea
 	transition all 0.25s
 
 	&:focus
-		border-color $color3
+		border-color $off-white
 
 
 input[type="submit"]
@@ -79,6 +81,8 @@ input[type="submit"]
 #site-title
 	text-align center
 	margin 0
+	font-family $ff-title
+	font-weight normal
 
 
 #site-navigation-container
@@ -121,7 +125,7 @@ input[type="submit"]
 
 			&:hover
 			&:active
-				color $color3
+				color $off-white
 
 
 #hamburger
@@ -136,7 +140,7 @@ input[type="submit"]
 
 
 #main
-	-wrapper(2em,2em)
+	-wrapper()
 	padding 2em 0
 	box-sizing border-box
 
@@ -171,7 +175,12 @@ input[type="submit"]
 		font-size 0.9em
 
 		a
-			color inherit
+			color $color1
+
+			&:hover
+			&:active
+				color (@color)
+				text-decoration underline
 
 	#rhd-logo-footer
 		width 1.35em
@@ -187,8 +196,11 @@ input[type="submit"]
 
 .entry-title
 .page-title
+.widget-title
 	margin-top 0
 	line-height 1
+	font-family $ff-title
+	font-weight normal
 
 
 .entry-content
