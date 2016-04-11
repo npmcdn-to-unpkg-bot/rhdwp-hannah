@@ -1,24 +1,4 @@
-/* ==========================================================================
-	Setup
-   ========================================================================== */
-
-var $window = jQuery(window),
-	$body = jQuery('body'),
-	$main = jQuery('#main');
-
-var isSingle = ( $body.hasClass('single') ) ? true : false,
-	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
-	isPaged = $body.hasClass('paged');
-
-// wp_data object
-var homeUrl = wp_data.home_url,
-	themeDir = wp_data.theme_dir,
-	imgDir = wp_data.img_dir;
-
-var isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false;
-var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
-var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
-var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
+var mobileW = 640;
 
 
 /* ==========================================================================
@@ -26,24 +6,24 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
    ========================================================================== */
 
 (function($){
-
 	$(document).ready(function(){
 		rhdInit();
+
+		$(window).on('resize', function(){
+			if ( !windowIsMobile() ) {
+				$('#site-navigation-container').show();
+
+				if ($(".c-hamburger").is('.is-active')) {
+					$(".c-hamburger").removeClass('is-active');
+				}
+			}
+		});
 	});
 
 
 	function rhdInit() {
-		// wpAdminBarPush();
-
 		toggleBurger();
 		fixGridLayout();
-	}
-
-
-	function wpAdminBarPush() {
-		$("#wpadminbar").css({
-			top: $("#masthead").height(),
-		});
 	}
 
 
@@ -54,7 +34,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		toggles.on( 'click', function(e){
 			e.preventDefault();
 			$(this).toggleClass('is-active');
-			$("#site-navigation-container").slideToggle();
+			$('#site-navigation-container').slideToggle();
 		});
 	}
 
@@ -67,6 +47,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$('.post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)').css('float', 'left');
 			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
 		}
+	}
+
+
+	function windowIsMobile() {
+		return $(window).width() <= mobileW ? true : false;
 	}
 
 })(jQuery);

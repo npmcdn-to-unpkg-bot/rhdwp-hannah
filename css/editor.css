@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:20:42 PM on 11-04-2016
+* RHD Dev: Compiled at 7:29:21 PM on 11-04-2016
 ***/
 
 /**
@@ -940,7 +940,6 @@ input[type="submit"]:hover {
   display: none;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
-  transition: all 0.25s;
 }
 #site-navigation-container #site-navigation {
   list-style: none;
@@ -1563,6 +1562,16 @@ input[type="button"]:active {
   }
   .projects-grid-container .projects-grid .projects-grid-item .project-thumbnail {
     border-width: 3px;
+    -moz-opacity: 0.9;
+    -webkit-opacity: 0.9;
+    opacity: 0.9;
+    transition: all 0.35s;
+  }
+  .projects-grid-container .projects-grid .projects-grid-item .project-thumbnail:hover,
+  .projects-grid-container .projects-grid .projects-grid-item .project-thumbnail:active {
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+    opacity: 1;
   }
   .jump-listen {
     display: none;

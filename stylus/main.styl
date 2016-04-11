@@ -113,7 +113,6 @@ input[type="submit"]
 	display none
 	font-family $ff-body
 	text-transform uppercase
-	transition all 0.25s
 
 	#site-navigation
 		list-style none
@@ -780,6 +779,12 @@ input
 
 				.project-thumbnail
 					border-width 3px
+					-opacity(0.9)
+					transition all 0.35s
+
+					&:hover
+					&:active
+						-opacity(1)
 
 	.jump-listen
 		display none
