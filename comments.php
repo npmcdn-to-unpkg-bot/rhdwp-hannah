@@ -1,7 +1,5 @@
 <?php
 /**
- * Kristin Hanggi
- *
  * ROUNDHOUSE DESIGNS
  *
  * Comments template

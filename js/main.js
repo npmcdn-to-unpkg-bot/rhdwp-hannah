@@ -11,11 +11,11 @@ var mobileW = 640;
 
 		$(window).on('resize', function(){
 			if ( !windowIsMobile() ) {
-				$('#site-navigation-container').show();
-
 				if ($(".c-hamburger").is('.is-active')) {
 					$(".c-hamburger").removeClass('is-active');
 				}
+			} else {
+				$$('#site-navigation-container').slideUp(0);
 			}
 		});
 	});
