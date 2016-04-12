@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:56:57 PM on 11-04-2016
+* RHD Dev: Compiled at 2:25:23 PM on 12-04-2016
 ***/
 
 .alignnone {
@@ -187,7 +187,7 @@ a img.aligncenter {
   width: auto;
 }
 .clearfix:before,
-.blog-area #main .post:before,
+.blog-area #main #primary .post:before,
 .pagination:before,
 .single-pagination:before,
 .contact-info .social-icons:before,
@@ -196,7 +196,7 @@ a img.aligncenter {
 .page-id-17 .entry-content:before,
 #main:before,
 .clearfix:after,
-.blog-area #main .post:after,
+.blog-area #main #primary .post:after,
 .pagination:after,
 .single-pagination:after,
 .contact-info .social-icons:after,
@@ -208,7 +208,7 @@ a img.aligncenter {
   display: table;
 }
 .clearfix:after,
-.blog-area #main .post:after,
+.blog-area #main #primary .post:after,
 .pagination:after,
 .single-pagination:after,
 .contact-info .social-icons:after,
@@ -1130,17 +1130,20 @@ input[type="submit"]:hover {
 .entry-meta p {
   margin: 0;
 }
-.blog-area #main .post .entry-header {
+.blog-area #main #primary {
+  width: 100%;
+}
+.blog-area #main #primary .post .entry-header {
   text-align: center;
   margin-bottom: 1em;
 }
-.blog-area #main .post .entry-header .entry-title {
+.blog-area #main #primary .post .entry-header .entry-title {
   margin: 0 0 0.25rem 0;
 }
-.blog-area #main .post .entry-header .entry-details {
+.blog-area #main #primary .post .entry-header .entry-details {
   margin: 0;
 }
-.blog-area #main .post .entry-header .entry-details .sep {
+.blog-area #main #primary .post .entry-header .entry-details .sep {
   font-size: 0.8em;
 }
 .news-item {
