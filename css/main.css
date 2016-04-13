@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:25:23 PM on 12-04-2016
+* RHD Dev: Compiled at 5:20:53 PM on 13-04-2016
 ***/
 
 .alignnone {
@@ -1131,7 +1131,7 @@ input[type="submit"]:hover {
   margin: 0;
 }
 .blog-area #main #primary {
-  width: 100%;
+  width: 100% !important;
 }
 .blog-area #main #primary .post .entry-header {
   text-align: center;
