@@ -22,12 +22,13 @@ get_header(); ?>
 
 			<?php if ( $news_q->have_posts() ) : ?>
 				<div class="news-grid">
-				<?php while ( $news_q->have_posts() ) : $news_q->the_post(); ?>
-
-					<?php get_template_part( 'content' ); ?>
-
-				<?php endwhile; ?>
+					<?php while ( $news_q->have_posts() ) : $news_q->the_post(); ?>
+	
+						<?php get_template_part( 'content' ); ?>
+	
+					<?php endwhile; ?>
 				</div>
+				<div class="ghost-button morenews"><a href="<?php echo home_url( '/news' ); ?>">More News</a></div>
 			<?php endif; ?>
 
 		</div><!-- #content -->

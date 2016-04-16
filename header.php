@@ -53,11 +53,13 @@
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
-				<?php if ( has_post_thumbnail() && is_page() ) : ?>
-					<div class="page-header-image">
+				<div class="page-header-image">
+					<?php if ( has_post_thumbnail() ) : ?>
 						<?php the_post_thumbnail( 'full' ); ?>
-					</div>
-				<?php endif; ?>
+					<?php else : ?>
+						<img src="<?php echo RHD_UPLOAD_URL; ?>/2016/03/Chad-Beguelin.jpg" alt="<?php bloginfo( 'name' ); ?>">
+					<?php endif; ?>
+				</div>
 				<div id="navbar">
 					<h1 id="site-title">
 						<a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>

@@ -39,26 +39,17 @@ get_header(); ?>
 					<ul class="projects-grid">
 						<?php while ( $projects_q->have_posts() ) : $projects_q->the_post(); ?>
 							<?php if ( has_post_thumbnail() ) : ?>
-								<?php $href = do_shortcode('[ct id="_ct_text_56eaf99828c97" property="value"]'); ?>
-
 								<li class="projects-grid-item">
-									<?php if ( $href ) : ?>
-										<a href="<?php echo $href; ?>" target="_blank">
-									<?php endif; ?>
 									<div class="project-thumbnail">
-										<?php the_post_thumbnail( 'square' ); ?>
+										<a href="<?php the_permalink(); ?>" rel="bookmark">
+											<?php the_post_thumbnail( 'square' ); ?>
+										</a>
 									</div>
 									<div class="project-caption">
 										<h3 class="project-title">
-											<?php the_title(); ?>
+											<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 										</h3>
-										<div class="project-details">
-											<?php the_content(); ?>
-										</div>
 									</div>
-									<?php if ( $href ) : ?>
-										</a>
-									<?php endif; ?>
 								</li>
 							<?php endif; ?>
 

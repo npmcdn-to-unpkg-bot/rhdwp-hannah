@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:21:40 PM on 06-04-2016
+* RHD Dev: Compiled at 8:40:32 PM on 15-04-2016
 ***/
 
 /**
@@ -196,7 +196,9 @@ a img.aligncenter {
 .single-pagination:before,
 .contact-info .social-icons:before,
 .news-item .news-item-inner:before,
+.single-project #main:before,
 .page-id-17 .entry-content:before,
+#main:before,
 .clearfix:after,
 #navbar:after,
 .blog-area #main .post:after,
@@ -204,7 +206,9 @@ a img.aligncenter {
 .single-pagination:after,
 .contact-info .social-icons:after,
 .news-item .news-item-inner:after,
-.page-id-17 .entry-content:after {
+.single-project #main:after,
+.page-id-17 .entry-content:after,
+#main:after {
   content: " ";
   display: table;
 }
@@ -215,7 +219,9 @@ a img.aligncenter {
 .single-pagination:after,
 .contact-info .social-icons:after,
 .news-item .news-item-inner:after,
-.page-id-17 .entry-content:after {
+.single-project #main:after,
+.page-id-17 .entry-content:after,
+#main:after {
   clear: both;
 }
 * {
@@ -928,9 +934,11 @@ input[type="submit"]:hover {
 }
 #masthead #hamburger span {
   background-color: #fff;
+  transition: all 0.25s;
 }
 #masthead #hamburger span:before,
 #masthead #hamburger span:after {
+  transition: all 0.25s;
   background-color: #fff;
 }
 #masthead #hamburger.is-active {
@@ -959,12 +967,14 @@ input[type="submit"]:hover {
   margin: 0;
   text-align: center;
   line-height: 1.6;
-  font-size: 1.7em;
 }
 #site-navigation-container #site-navigation .menu-item {
   font-weight: 300;
-  font-size: 1.3em;
+  font-size: 1.7em;
   transition: all 0.25s;
+}
+#site-navigation-container #site-navigation .menu-item.menu-item-rhd-social .rhd-social-icon {
+  width: 59px;
 }
 #site-navigation-container #site-navigation .menu-item a {
   color: #fff;
@@ -995,6 +1005,7 @@ input[type="submit"]:hover {
 }
 .page-header-image {
   width: 100%;
+  background-color: #0d0707;
 }
 .page-header-image img {
   width: 100%;
@@ -1277,10 +1288,14 @@ input[type="button"]:active {
 }
 .front-page .news-grid .news-grid-item {
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 .front-page .news-grid .news-grid-item .entry-title {
   margin: 0.8em 0 0.25em;
+}
+.front-page .morenews {
+  margin: 2em auto 0 auto;
+  font-size: 1.2em;
 }
 .projects-grid-container .projects-grid {
   list-style: none;
@@ -1335,8 +1350,12 @@ input[type="button"]:active {
   font-size: 1.3em;
   color: #004b94;
 }
-.soundcloud-sidebar .widget-title {
+.single-project-sidebar .widget-title {
   font-size: 1.4em;
+}
+.single-project-sidebar .widget-featured-image img {
+  display: block;
+  margin: 0 auto;
 }
 .ninja-forms-cont input,
 .ninja-forms-cont textarea {
@@ -1398,7 +1417,7 @@ input[type="button"]:active {
     background: none;
   }
   #masthead #site-title {
-    font-size: 4em;
+    font-size: 3em;
     text-align: right;
     margin: 0;
   }
@@ -1406,7 +1425,7 @@ input[type="button"]:active {
     width: 20%;
     display: block;
     position: absolute;
-    top: 4em;
+    top: 3em;
     right: 2%;
     overflow: visible;
     background: transparent;
@@ -1415,14 +1434,13 @@ input[type="button"]:active {
     text-align: right;
     margin-top: 1.4em;
     line-height: 1.4;
-    font-size: 1.3em;
   }
   #site-navigation-container #site-navigation .menu-item {
     display: block;
-    font-size: 1.7em;
+    font-size: 1.3em;
   }
   #site-navigation-container #site-navigation .menu-item.menu-item-rhd-social {
-    display: none;
+    display: none !important;
   }
   #site-navigation-container #site-navigation .menu-item a {
     color: #fff;
@@ -1435,8 +1453,13 @@ input[type="button"]:active {
     display: none;
   }
   .page-header-image {
-    max-height: 90vh;
+    height: 40vh;
     overflow: hidden;
+  }
+  .page-header-image img {
+    width: auto;
+    max-width: none;
+    height: 100%;
   }
   #colophon {
     height: 5rem;
@@ -1520,6 +1543,29 @@ input[type="button"]:active {
 .entry-content a img.aligncenter {
     margin: 0 auto;
   }
+  .front-page .page-header-image,
+  .page-id-8 .page-header-image {
+    height: 90vh;
+  }
+  .front-page #masthead #site-title,
+  .page-id-8 #masthead #site-title {
+    font-size: 4em;
+  }
+  .front-page #site-navigation-container,
+  .page-id-8 #site-navigation-container {
+    top: 4em;
+  }
+  .front-page #site-navigation-container #site-navigation,
+  .page-id-8 #site-navigation-container #site-navigation {
+    text-align: right;
+    margin-top: 1.4em;
+    line-height: 1.4;
+  }
+  .front-page #site-navigation-container #site-navigation .menu-item,
+  .page-id-8 #site-navigation-container #site-navigation .menu-item {
+    display: block;
+    font-size: 2.2em;
+  }
   .front-page .news-grid {
     text-align: justify;
   }
@@ -1532,6 +1578,12 @@ input[type="button"]:active {
     width: 31%;
     display: inline-block;
     vertical-align: top;
+  }
+  .front-page .morenews {
+    margin: 0 auto;
+  }
+  .page-id-8 .page-header-image {
+    background: #0d0707;
   }
   .projects-grid-container .projects-grid {
     text-align: justify;
@@ -1548,9 +1600,22 @@ input[type="button"]:active {
   }
   .projects-grid-container .projects-grid .projects-grid-item .project-thumbnail {
     border-width: 3px;
+    -moz-opacity: 0.9;
+    -webkit-opacity: 0.9;
+    opacity: 0.9;
+    transition: all 0.35s;
   }
-  .jump-listen {
-    display: none;
+  .projects-grid-container .projects-grid .projects-grid-item .project-thumbnail:hover,
+  .projects-grid-container .projects-grid .projects-grid-item .project-thumbnail:active {
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+    opacity: 1;
+  }
+  .single-project #main {
+    width: 85%;
+    max-width: 75rem;
+    position: relative;
+    margin: 0 auto 0 auto;
   }
   .page-id-17 .page > .entry-header {
     display: none;
@@ -1567,19 +1632,46 @@ input[type="button"]:active {
     float: right;
   }
 }
-@media screen and (min-width: 40em) {
-  #primary.single-project-content {
+@media screen and (min-width: 50em) {
+  .single-project #primary {
+    width: 48%;
     float: right;
   }
-  #secondary {
-    width: 340px;
+  .single-project #primary .entry-content iframe {
+    width: 100%;
+  }
+  .single-project #secondary {
+    width: 300px;
     float: left;
   }
-  #secondary .widget {
+  .single-project #secondary .widget {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
+  }
+}
+@media screen and (min-width: 58em) {
+  #primary.single-project-content {
+    width: 56%;
+  }
+  #secondary {
+    width: 320px;
+  }
+}
+@media screen and (min-width: 62em) {
+  #primary.single-project-content {
+    width: 58%;
+  }
+}
+@media screen and (min-width: 64em) {
+  #primary.single-project-content {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 66em) {
+  #primary.single-project-content {
+    width: 62%;
   }
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */

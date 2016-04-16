@@ -103,9 +103,11 @@ input[type="submit"]
 
 		span
 			background-color white
+			transition all 0.25s
 
 			&:before
 			&:after
+				transition all 0.25s
 				background-color white
 
 		&.is-active
@@ -136,12 +138,15 @@ input[type="submit"]
 		margin 0
 		text-align center
 		line-height 1.6
-		font-size 1.7em
 
 		.menu-item
 			font-weight 300
-			font-size 1.3em
+			font-size 1.7em
 			transition all 0.25s
+
+			&.menu-item-rhd-social
+				.rhd-social-icon
+					width 59px
 
 			a
 				color white
@@ -175,6 +180,7 @@ input[type="submit"]
 
 .page-header-image
 	width 100%
+	background-color $page-header-bg
 
 	img
 		width 100%
@@ -482,10 +488,14 @@ input
 
 		.news-grid-item
 			text-align center
-			margin-bottom 2em
+			margin-bottom 1em
 
 			.entry-title
 				margin 0.8em 0 0.25em
+
+	.morenews
+		margin 2em auto 0 auto
+		font-size 1.2em
 
 
 /* ==========================================================================
@@ -548,9 +558,14 @@ input
 	color $color2
 
 
-.soundcloud-sidebar
+.single-project-sidebar
 	.widget-title
 		font-size 1.4em
+
+	.widget-featured-image
+		img
+			display block
+			margin 0 auto
 
 
 /* ==========================================================================
@@ -622,7 +637,7 @@ input
 			background none
 
 		#site-title
-			font-size 4em
+			font-size 3em
 			text-align right
 			margin 0
 
@@ -630,7 +645,7 @@ input
 		width 20%
 		display block
 		position absolute
-		top 4em
+		top 3em
 		right 2%
 		overflow visible
 		background transparent
@@ -639,14 +654,13 @@ input
 			text-align right
 			margin-top 1.4em
 			line-height 1.4
-			font-size 1.3em
 
 			.menu-item
 				display block
-				font-size 1.7em
+				font-size 1.3em
 
 				&.menu-item-rhd-social
-					display none
+					display none !important
 
 				a
 					color white
@@ -659,8 +673,13 @@ input
 		display none
 
 	.page-header-image
-		max-height 90vh
+		height 40vh
 		overflow hidden
+
+		img
+			width auto
+			max-width none
+			height 100%
 
 	#colophon
 		height 5rem
@@ -743,6 +762,28 @@ input
 			img
 				@extends .entry-content img
 
+	// Front + About Pages
+	.front-page
+	.page-id-8
+		.page-header-image
+			height 90vh
+
+		#masthead
+			#site-title
+				font-size 4em
+
+		#site-navigation-container
+			top 4em
+
+			#site-navigation
+				text-align right
+				margin-top 1.4em
+				line-height 1.4
+
+				.menu-item
+					display block
+					font-size 2.2em
+
 	.front-page
 		.news-grid
 			-flexbox()
@@ -751,6 +792,13 @@ input
 				width 31%
 				-flexitem()
 				vertical-align top
+
+		.morenews
+			margin 0 auto
+
+	.page-id-8
+		.page-header-image
+			background $page-header-bg
 
 	// Projects Pages
 	.projects-grid-container
@@ -764,9 +812,17 @@ input
 
 				.project-thumbnail
 					border-width 3px
+					-opacity(0.9)
+					transition all 0.35s
 
-	.jump-listen
-		display none
+					&:hover
+					&:active
+						-opacity(1)
+
+	.single-project
+		#main
+			-wrapper()
+			-clearfix()
 
 	// Contact Page
 	.page-id-17
@@ -792,17 +848,52 @@ input
 
 
 // Fixed-width 340px sidebar for Single Projects pages
-@media screen and (min-width 40em)
-	#primary
-		&.single-project-content
+@media screen and (min-width 50em)
+	#main
+		-clearfix()
+
+	.single-project
+		#primary
+			width 48%
 			float right
 
-	#secondary
-		width 340px
-		float left
+			.entry-content
+				iframe
+					width 100%
 
-		.widget
-			width 100%
-			margin-left auto
-			margin-right auto
-			padding 0 10px
+		#secondary
+			width 300px
+			float left
+
+			.widget
+				width 100%
+				margin-left auto
+				margin-right auto
+				padding 0 10px
+
+
+@media screen and (min-width 58em)
+	#primary
+		&.single-project-content
+			width 56%
+
+	#secondary
+		width 320px
+
+
+@media screen and (min-width 62em)
+	#primary
+		&.single-project-content
+			width 58%
+
+
+@media screen and (min-width 64em)
+	#primary
+		&.single-project-content
+			width 60%
+
+
+@media screen and (min-width 66em)
+	#primary
+		&.single-project-content
+			width 62%
