@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:20:53 PM on 13-04-2016
+* RHD Dev: Compiled at 8:21:48 PM on 15-04-2016
 ***/
 
 /**
@@ -1066,6 +1066,9 @@ input[type="submit"]:hover {
   display: inline-block;
   line-height: 2;
 }
+.page-header-image img {
+  width: 100%;
+}
 .entry-title,
 .page-title,
 .widget-title {
@@ -1599,20 +1602,20 @@ input[type="button"]:active {
   }
 }
 @media screen and (min-width: 50em) {
-  #primary {
+  .single-project #primary {
     width: 48%;
   }
-  #primary.single-project-content {
+  .single-project #primary.single-project-content {
     float: right;
   }
-  #primary .entry-content iframe {
+  .single-project #primary .entry-content iframe {
     width: 100%;
   }
-  #secondary {
+  .single-project #secondary {
     width: 300px;
     float: left;
   }
-  #secondary .widget {
+  .single-project #secondary .widget {
     width: 100%;
     margin-left: auto;
     margin-right: auto;

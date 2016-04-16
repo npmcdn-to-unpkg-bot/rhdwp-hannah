@@ -238,6 +238,10 @@ input[type="submit"]
 	Posts & Pages
    ========================================================================== */
 
+.page-header-image
+	img
+		width 100%
+
 .entry-title
 .page-title
 .widget-title
@@ -825,25 +829,26 @@ input
 	#main
 		-clearfix()
 
-	#primary
-		width 48%
+	.single-project
+		#primary
+			width 48%
 
-		&.single-project-content
-			float right
+			&.single-project-content
+				float right
 
-		.entry-content
-			iframe
+			.entry-content
+				iframe
+					width 100%
+
+		#secondary
+			width 300px
+			float left
+
+			.widget
 				width 100%
-
-	#secondary
-		width 300px
-		float left
-
-		.widget
-			width 100%
-			margin-left auto
-			margin-right auto
-			padding 0 10px
+				margin-left auto
+				margin-right auto
+				padding 0 10px
 
 
 @media screen and (min-width 58em)
