@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:00:08 PM on 07-04-2016
+* RHD Dev: Compiled at 6:33:51 PM on 17-04-2016
 ***/
 
 .ghost-button {
@@ -10,16 +10,16 @@
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #aaa;
+  color: #004b94;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #aaa;
+  border: 3px solid #004b94;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #aaa;
-  color: #aaa;
+  background-color: #004b94;
+  color: #004b94;
 }

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:00:08 PM on 07-04-2016
+* RHD Dev: Compiled at 6:33:51 PM on 17-04-2016
 ***/
 
 .ghost-button {
@@ -10,18 +10,18 @@
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #aaa;
+  color: #004b94;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #aaa;
+  border: 3px solid #004b94;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #aaa;
-  color: #aaa;
+  background-color: #004b94;
+  color: #004b94;
 }
 .alignnone {
   margin: 5px 20px 20px 0;
@@ -674,7 +674,7 @@ img.aligncenter {
 }
 #blog-metabar #blog-metabar-content {
   width: 90%;
-  max-width: 64rem;
+  max-width: 75rem;
   position: relative;
   margin: 0 auto 0 auto;
   list-style: none;
@@ -700,28 +700,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -732,7 +732,7 @@ img.aligncenter {
   background: #fff;
   color: #808080;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -786,7 +786,7 @@ img.aligncenter {
   }
   #blog-metabar #blog-metabar-content {
     width: 85%;
-    max-width: 64rem;
+    max-width: 75rem;
     position: relative;
     margin: 0 auto 0 auto;
     text-align: justify;
@@ -979,8 +979,8 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  color: #4d4845;
+  font-family: 'Lato', sans-serif;
+  color: #000;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -993,49 +993,49 @@ a {
 }
 a:link,
 a:visited {
-  color: #aaa;
+  color: #004b94;
 }
 a:hover,
 a:active {
-  color: #d8d1c9;
+  color: #d0d0d0;
 }
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid #aaa;
+  border: 2px solid #004b94;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #808080;
 }
 input:focus,
 textarea:focus {
-  border-color: #d8d1c9;
+  border-color: #d0d0d0;
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -1047,7 +1047,7 @@ input[type="submit"]:hover {
 #site-title {
   text-align: center;
   margin: 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff-title;
   font-weight: normal;
 }
 #site-navigation-container {
@@ -1084,13 +1084,13 @@ input[type="submit"]:hover {
   list-style: none;
 }
 .site-navigation li a {
-  color: #aaa;
+  color: #004b94;
   text-decoration: none;
   transition: color 0.25s;
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: #d8d1c9;
+  color: #d0d0d0;
 }
 #hamburger {
   background-color: #000;
@@ -1103,7 +1103,7 @@ input[type="submit"]:hover {
 }
 #main {
   width: 85%;
-  max-width: 64rem;
+  max-width: 75rem;
   position: relative;
   margin: 0 auto 0 auto;
   padding: 2em 0;
@@ -1123,7 +1123,7 @@ input[type="submit"]:hover {
   width: 100%;
   height: 6em;
   position: relative;
-  background: #aaa;
+  background: #004b94;
 }
 #colophon .site-info {
   width: 100%;
@@ -1138,11 +1138,11 @@ input[type="submit"]:hover {
   font-size: 0.9em;
 }
 #colophon .site-info a {
-  color: #4d4845;
+  color: #000;
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: #4d4845;
+  color: #000;
   text-decoration: underline;
 }
 #colophon #rhd-logo-footer {
@@ -1160,7 +1160,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  font-family: 'Oswald', sans-serif;
+  font-family: $ff-title;
   font-weight: normal;
 }
 .entry-content {
@@ -1194,7 +1194,7 @@ input[type="submit"]:hover {
 .entry-content iframe,
 .entry-content a img {
   width: 95%;
-  max-width: 64rem;
+  max-width: 75rem;
   position: relative;
   margin: 1em auto 1em auto;
 }
@@ -1265,7 +1265,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: #d8d1c9;
+  background: #d0d0d0;
 }
 #comments .odd {
   background: #fff;
@@ -1313,6 +1313,12 @@ input[type="submit"]:hover {
 }
 #secondary .widget-title {
   margin-top: 0;
+}
+/* ==========================================================================
+	Extras
+   ========================================================================== */
+.soliloquy-outer-container .soliloquy-slider img {
+  max-height: 500px;
 }
 /* ==========================================================================
 	Media Queries
