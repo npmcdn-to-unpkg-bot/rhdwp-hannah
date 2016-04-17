@@ -247,7 +247,7 @@ function rhd_register_sidebars()
 
 	register_sidebar( array(
 		'name'			=> __( 'Project Sidebar', 'rhd' ),
-		'id'			=> 'project-sidebar',
+		'id'			=> 'sidebar-project',
 		'before_title'	=> '<h3 class="widget-title">',
 		'after_title'	=> '</h3>',
 		'before_widget' => '<div id="%1$s" class="widget project-sidebar-widget %2$s">',
@@ -330,7 +330,9 @@ function rhd_is_mobile()
 {
 	$mobile_browser = 0;
 
-	if ( preg_match( '/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower( $_SERVER['HTTP_USER_AGENT'] ) ) ) {
+	$http_user_agent = ! empty( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
+
+	if ( preg_match( '/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower( $http_user_agent ) ) ) {
 	    ++$mobile_browser;
 	}
 
@@ -338,7 +340,7 @@ function rhd_is_mobile()
 	    ++$mobile_browser;
 	}
 
-	$mobile_ua = strtolower( substr( $_SERVER['HTTP_USER_AGENT'], 0, 4) );
+	$mobile_ua = strtolower( substr( $http_user_agent, 0, 4) );
 	$mobile_agents = array(
 	    'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
 	    'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
@@ -360,7 +362,7 @@ function rhd_is_mobile()
 		}
 	}
 
-	if ( strpos( strtolower( $_SERVER['HTTP_USER_AGENT'] ),'windows') > 0 ) {
+	if ( strpos( strtolower( $http_user_agent ),'windows') > 0 ) {
 	    $mobile_browser = 0;
 	}
 
@@ -634,73 +636,12 @@ function rhd_body_class( $body_classes )
 add_filter( 'body_class', 'rhd_body_class' );
 
 
-/**
- * rhd_svg_logo_main function.
- *
- * @access public
- * @return void
- */
-function rhd_svg_logo()
-{
-	echo '
-			<svg id="PLACEHOLDER">
-				<!-- SVG CODE HERE -->
-			</svg>
-		';
-}
-
 /* ==========================================================================
 	Theme Functions and Customizations
    ========================================================================== */
 
 /**
- * rhd_main_div_class function.
- *
- * @access public
- * @return void
- */
-function rhd_main_div_class()
-{
-	//return ( is_front_page() || is_page( 'about' ) ) ? 'header-image-tall' : 'header-image-short';
-}
-
-
-/**
- * rhd_soundcloud_filter function.
- *
- * @access public
- * @param mixed $content
- * @return void
- */
-function rhd_soundcloud_filter( $content )
-{
-	if ( ! has_shortcode( $content, 'soundcloud' ) )
-		return $content;
-
-	$c_pattern = '/color=(.*?)[\&|\"]/';
-	$v_pattern = '/visual=true/';
-
-	if ( preg_match( $v_pattern, $content ) ) {
-		while ( preg_match( $v_pattern, $content ) )
-			$content = preg_replace( $v_pattern, 'visual=false', $content );
-	} else {
-		$content = preg_replace( '/params=\"/', 'params="visual=false&', $content );
-	}
-
-	if ( preg_match( $c_pattern, $content ) ) {
-		while  ( preg_match( $c_pattern, $content ) )
-			$content = preg_replace( $c_pattern, 'color=#003675&', $content );
-	} else {
-		$content = preg_replace( '/params=\"/', 'params="color=#003675&', $content );
-	}
-
-	return $content;
-}
-add_filter( 'the_content', 'rhd_soundcloud_filter' );
-
-
-/**
- * autov_add_loginout_navitem function.
+ * rhd_add_social_nav_menu function.
  *
  * @access public
  * @param mixed $items

@@ -281,7 +281,6 @@ del
 
 button
 input
-select
 textarea
 	background-color #f7f7f7
 	border-radius 0
@@ -291,6 +290,7 @@ textarea
 	margin 0
 	max-width 100%
 	vertical-align baseline
+	-webkit-appearance none
 	-webkit-border-radius 0
 
 
@@ -426,6 +426,14 @@ textareafocus
 input[type="checkbox"]
 input[type="radio"]
 	padding 0
+
+
+input[type="radio"]
+	-webkit-appearance radio
+
+
+input[type="checkbox"]
+	-webkit-appearance checkbox
 
 
 .search-form input[type="submit"]

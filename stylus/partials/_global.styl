@@ -1,5 +1,5 @@
 /* ==========================================================================
-	Global Stylus Variables
+	Global Variables
    ========================================================================== */
 
 // Variables
@@ -16,7 +16,37 @@ $off-white = #d0d0d0
 
 $ff-body = 'Lato', sans-serif
 
-// Functions
+
+/* ==========================================================================
+	Global Classes
+   ========================================================================== */
+
+// Ghost Buttons
+.ghost-button
+	width auto
+	max-width 100%
+	text-align center
+	margin 1em auto
+
+	a
+		padding 0.4em .8em
+		color $color2
+		text-decoration none
+		background-color white
+		border 3px solid @color
+		border-radius 0.1em
+		display inline-block
+		transition all 0.2s
+
+		&:hover
+		&:active
+			background-color @color
+			color @background-color
+
+
+/* ==========================================================================
+	Functions
+   ========================================================================== */
 
 -unselectable()
 	-webkit-user-select: none; /* Chrome/Safari */

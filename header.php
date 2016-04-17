@@ -54,7 +54,7 @@
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
 				<div class="page-header-image">
-					<?php if ( has_post_thumbnail() ) : ?>
+					<?php if ( has_post_thumbnail() && ( get_post_type() != 'project' ) || rhd_is_mobile() ) : ?>
 						<?php the_post_thumbnail( 'full' ); ?>
 					<?php else : ?>
 						<img src="<?php echo RHD_UPLOAD_URL; ?>/2016/03/Chad-Beguelin.jpg" alt="<?php bloginfo( 'name' ); ?>">

@@ -8,14 +8,6 @@
 
 get_header(); ?>
 
-<div id="secondary" class="single-project-sidebar">
-	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="widget widget-featured-image">
-			<?php the_post_thumbnail( 'medium' ); ?>
-		</div>
-	<?php endif; ?>
-</div>
-
 <section id="primary" class="site-content single-project-content">
 	<div id="content" role="main">
 
@@ -29,5 +21,7 @@ get_header(); ?>
 
 	</div><!-- #content -->
 </section><!-- #primary -->
+
+<?php get_sidebar( 'project' ); ?>
 
 <?php get_footer(); ?>

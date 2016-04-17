@@ -1,5 +1,6 @@
 @require "partials/_global.styl"
 @require "partials/_wp-core.styl"
+@require "partials/_defaults.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
 @require "partials/_defaults.styl"
@@ -550,22 +551,16 @@ input
 						margin 0
 
 
-.jump-listen
-	text-align center
-	margin 1em 0
-	display block
-	font-size 1.3em
-	color $color2
-
-
-.single-project-sidebar
-	.widget-title
-		font-size 1.4em
-
-	.widget-featured-image
-		img
-			display block
-			margin 0 auto
+.single-project
+	.entry-title
+		margin-top 0
+		
+	.single-project-sidebar
+		.widget-title
+			font-size 1.4em
+	
+		.widget-featured-image
+			display none
 
 
 /* ==========================================================================
@@ -824,6 +819,14 @@ input
 		#main
 			-wrapper()
 			-clearfix()
+			
+		.single-project-sidebar
+			.widget-featured-image
+				display block
+				
+				img
+					display block
+					margin 0 auto
 
 	// Contact Page
 	.page-id-14
