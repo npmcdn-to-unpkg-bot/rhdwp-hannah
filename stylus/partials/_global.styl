@@ -140,6 +140,8 @@ $ff-body = 'Lato', sans-serif
 
 
 -soliloquy( $id, $maxHt = 500px )
-	#soliloquy-container-$id
+	#soliloquy-container-{$id}
 		.soliloquy-image
-			max-height $maxHt
+			width auto
+			max-width 100%
+			height $maxHt
