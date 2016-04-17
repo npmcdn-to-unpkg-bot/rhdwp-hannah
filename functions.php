@@ -127,6 +127,18 @@ function rhd_add_editor_styles()
 add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
 
 
+/**
+ * rhd_pageview_protection function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_pageview_protection()
+{
+	echo '<script language="javascript" type=:text/javascript">if (window!= top) top.location.href = location.href;</script>';
+}
+add_action( 'wp_head', 'rhd_pageview_protection' );
+
 /* ==========================================================================
    Theme Setup
    ========================================================================== */
