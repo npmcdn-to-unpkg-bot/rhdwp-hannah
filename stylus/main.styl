@@ -191,7 +191,6 @@ input[type="submit"]
 #primary
 #secondary
 	-wrapper(2em, 2em)
-	position relative
 	box-sizing border-box
 
 
@@ -671,7 +670,6 @@ input
 
 		img
 			width auto
-			max-width none
 			height 100%
 
 	#colophon
@@ -823,8 +821,10 @@ input
 		.single-project-sidebar
 			.widget-featured-image
 				display block
+				border 0.25em solid $color1
 				
 				img
+					width 100%
 					display block
 					margin 0 auto
 
@@ -867,23 +867,19 @@ input
 					width 100%
 
 		#secondary
-			width 300px
+			width 320px
 			float left
 
 			.widget
 				width 100%
 				margin-left auto
 				margin-right auto
-				padding 0 10px
 
 
 @media screen and (min-width 58em)
 	#primary
 		&.single-project-content
 			width 56%
-
-	#secondary
-		width 320px
 
 
 @media screen and (min-width 62em)

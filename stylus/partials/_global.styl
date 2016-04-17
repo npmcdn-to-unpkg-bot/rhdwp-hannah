@@ -73,25 +73,9 @@ $ff-body = 'Lato', sans-serif
 	display inline-block
 
 
--wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
-	if $customWidth != false
-		$w = $customWidth
-	else
-		$w = 85%
-
-	if $customMax != false
-		$mw = $customMax
-	else
-		$mw = 75rem
-
-	if $topMargin == false
-		$topMargin = 0
-
-	if $bottomMargin == false
-		$bottomMargin = 0
-
-	width $w
-	max-width $mw
+-wrapper( $topMargin = 0, $bottomMargin = 0, $customWidth = 85%, $customMax = 75rem )
+	width $customWidth
+	max-width $customMax
 	position relative
 	margin $topMargin auto $bottomMargin auto
 
@@ -159,14 +143,7 @@ $ff-body = 'Lato', sans-serif
 			opacity( $opacity )
 
 
-/* -flexbox( $mode = space-between )
-	-ms-box-orient: horizontal;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: $mode
-	justify-content: $mode
-*/
+-soliloquy( $id, $maxHt = 500px )
+	#soliloquy-container-$id
+		.soliloquy-image
+			max-height $maxHt

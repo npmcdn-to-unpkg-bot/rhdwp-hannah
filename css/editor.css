@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:07:56 PM on 17-04-2016
+* RHD Dev: Compiled at 5:54:24 PM on 17-04-2016
 ***/
 
 /**
@@ -1047,7 +1047,6 @@ input[type="submit"]:hover {
   max-width: 75rem;
   position: relative;
   margin: 2em auto 2em auto;
-  position: relative;
   box-sizing: border-box;
 }
 #colophon {
@@ -1481,7 +1480,6 @@ input[type="button"]:active {
   }
   .page-header-image img {
     width: auto;
-    max-width: none;
     height: 100%;
   }
   #colophon {
@@ -1645,8 +1643,10 @@ input[type="button"]:active {
   }
   .single-project .single-project-sidebar .widget-featured-image {
     display: block;
+    border: 0.25em solid #000;
   }
   .single-project .single-project-sidebar .widget-featured-image img {
+    width: 100%;
     display: block;
     margin: 0 auto;
   }
@@ -1674,22 +1674,18 @@ input[type="button"]:active {
     width: 100%;
   }
   .single-project #secondary {
-    width: 300px;
+    width: 320px;
     float: left;
   }
   .single-project #secondary .widget {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 10px;
   }
 }
 @media screen and (min-width: 58em) {
   #primary.single-project-content {
     width: 56%;
-  }
-  #secondary {
-    width: 320px;
   }
 }
 @media screen and (min-width: 62em) {
