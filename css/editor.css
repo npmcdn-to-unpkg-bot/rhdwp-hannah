@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:42:24 AM on 17-04-2016
+* RHD Dev: Compiled at 12:07:56 PM on 17-04-2016
 ***/
 
 /**
@@ -1373,9 +1373,6 @@ input[type="button"]:active {
 .projects-grid-container .projects-grid .projects-grid-item .project-caption .project-details p {
   margin: 0;
 }
-.single-project .entry-title {
-  margin-top: 0;
-}
 .single-project .single-project-sidebar .widget-title {
   font-size: 1.4em;
 }
@@ -1642,6 +1639,9 @@ input[type="button"]:active {
     max-width: 75rem;
     position: relative;
     margin: 0 auto 0 auto;
+  }
+  .single-project #main .page-title {
+    margin-top: 0;
   }
   .single-project .single-project-sidebar .widget-featured-image {
     display: block;
