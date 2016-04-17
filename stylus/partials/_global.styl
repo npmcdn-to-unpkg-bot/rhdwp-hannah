@@ -80,12 +80,8 @@ $ff-body = 'Lato', sans-serif
 	margin $topMargin auto $bottomMargin auto
 
 
--unwrapper( $w = false )
-	if $w != false
-		width $w
-	else
-		width 100%
-
+-unwrapper( $w = 100% )
+	width $w
 	max-width none
 	margin initial
 
