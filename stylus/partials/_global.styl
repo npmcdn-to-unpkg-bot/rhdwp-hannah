@@ -2,13 +2,19 @@
 	Global Variables
    ========================================================================== */
 
-$color1 = #4D4845
-$color2 = #AAAAAA
+// Variables
+$color1 = black
+$color2 = #004b94
+$color3 = white
+$color4 = #0069d0
 
-$off-white = #D8D1C9
+$page-header-bg = #0d0707
 
-$ff-body = 'Open Sans', sans-serif
-$ff-title = 'Oswald', sans-serif
+$color2_trans = rgba(0, 0, 0, 0.4)
+
+$off-white = #d0d0d0
+
+$ff-body = 'Lato', sans-serif
 
 
 /* ==========================================================================
@@ -67,35 +73,15 @@ $ff-title = 'Oswald', sans-serif
 	display inline-block
 
 
--wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
-	if $customWidth != false
-		$w = $customWidth
-	else
-		$w = 85%
-
-	if $customMax != false
-		$mw = $customMax
-	else
-		$mw = 64rem
-
-	if $topMargin == false
-		$topMargin = 0
-
-	if $bottomMargin == false
-		$bottomMargin = 0
-
-	width $w
-	max-width $mw
+-wrapper( $topMargin = 0, $bottomMargin = 0, $customWidth = 85%, $customMax = 75rem )
+	width $customWidth
+	max-width $customMax
 	position relative
 	margin $topMargin auto $bottomMargin auto
 
 
--unwrapper( $w = false )
-	if $w != false
-		width $w
-	else
-		width 100%
-
+-unwrapper( $w = 100% )
+	width $w
 	max-width none
 	margin initial
 
@@ -153,14 +139,7 @@ $ff-title = 'Oswald', sans-serif
 			opacity( $opacity )
 
 
-/* -flexbox( $mode = space-between )
-	-ms-box-orient: horizontal;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: $mode
-	justify-content: $mode
-*/
+-soliloquy( $id, $maxHt = 500px )
+	#soliloquy-container-$id
+		.soliloquy-image
+			max-height $maxHt
