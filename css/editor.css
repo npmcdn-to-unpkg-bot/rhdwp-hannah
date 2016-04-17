@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:05:35 PM on 17-04-2016
+* RHD Dev: Compiled at 6:28:47 PM on 17-04-2016
 ***/
 
 /**
@@ -1427,6 +1427,9 @@ input[type="button"]:active {
 .contact-info .social-icons img {
   width: 40%;
   height: auto;
+}
+.soliloquy-outer-container .soliloquy-slider img {
+  max-height: 400px;
 }
 @media screen and (min-width: 43em) {
   #masthead #navbar {

@@ -139,9 +139,14 @@ $ff-body = 'Lato', sans-serif
 			opacity( $opacity )
 
 
--soliloquy( $id, $maxHt = 500px )
-	#soliloquy-container-{$id}
-		.soliloquy-image
-			width auto
-			max-width 100%
-			height $maxHt
+-soliloquy( $maxHt = 500px, $id = null )
+	if $id == null
+		$elem = '.soliloquy-outer-container'
+	else
+		$base = "#soliloquy-container-"
+		$elem = $base + $id
+		
+	{$elem}
+		.soliloquy-slider
+			img
+				max-height $maxHt
