@@ -48,7 +48,7 @@ textarea
 	border 2px solid $color2
 	box-sizing border-box
 	padding 0.5em
-	font-family $ff-body
+	font-family $ff-body !important
 	-placeholder-props( $ff-body, gray )
 	outline 0 !important
 	transition all 0.25s
@@ -674,6 +674,7 @@ input
 
 	.page-header-image
 		height 40vh
+		min-height 276px
 		overflow hidden
 
 		img
@@ -825,12 +826,13 @@ input
 			-clearfix()
 
 	// Contact Page
-	.page-id-17
+	.page-id-14
 		.page
 			> .entry-header
 				display none
 
 		.entry-content
+		
 			-clearfix()
 
 			.rhd-contact-form
