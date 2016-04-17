@@ -13,7 +13,7 @@
 	<section id="secondary" class="single-project-sidebar widget-area">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="widget widget-featured-image">
-				<?php the_post_thumbnail( 'medium' ); ?>
+				<?php the_post_thumbnail( 'full' ); ?>
 			</div>
 		<?php endif; ?>
 		

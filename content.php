@@ -47,7 +47,7 @@ if ( is_front_page() ) {
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
 
 			<?php if ( $ext ) : ?>
-				<div class="ghost-button"><a href="<?php the_permalink(); ?>" target="_blank">Read More</a></div>
+				<div class="ghost-button"><a href="<?php echo $ext; ?>" target="_blank">Read More</a></div>
 			<?php endif; ?>
 		</div><!-- .entry-content -->
 
