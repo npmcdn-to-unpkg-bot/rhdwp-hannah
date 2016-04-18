@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:28:47 PM on 17-04-2016
+* RHD Dev: Compiled at 6:42:02 PM on 18-04-2016
 ***/
 
 /**
@@ -14,20 +14,24 @@
 .ghost-button a,
 input[type="button"] {
   padding: 0.4em 0.8em;
-  color: #004b94;
-  text-decoration: none;
-  background-color: #fff;
+  text-decoration: none !important;
+  background-color: #004b94;
   border: 3px solid #004b94;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
+.ghost-button a:link,
+input[type="button"]:link,
+.ghost-button a:visited,
+input[type="button"]:visited {
+  color: #fff;
+}
 .ghost-button a:hover,
 input[type="button"]:hover,
 .ghost-button a:active,
 input[type="button"]:active {
-  background-color: #004b94;
-  color: #004b94;
+  background-color: #0069d0;
 }
 .alignnone {
   margin: 5px 20px 20px 0;
@@ -1266,41 +1270,6 @@ input[type="submit"]:hover {
 #comments #commentform .comment-subscription-form {
   margin: initial;
 }
-.ghost-button {
-  width: auto;
-  max-width: 100%;
-  text-align: center;
-  margin: 1em auto;
-  font-weight: 700;
-}
-.ghost-button a,
-input[type="button"] {
-  padding: 0.2em 0.65em;
-  color: #fff;
-  text-decoration: none;
-  background-color: #004b94;
-  border-radius: 0.1em;
-  display: inline-block;
-  transition: all 0.2s;
-  border: 2px solid #004b94;
-}
-.ghost-button a:hover,
-input[type="button"]:hover,
-.ghost-button a:active,
-input[type="button"]:active {
-  background-color: #0069d0;
-}
-.pix-load-more {
-  color: #004b94;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.2em;
-}
-.pix-load-more input {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  padding: 1em 1.5em;
-}
 #secondary .widget {
   width: 100%;
   margin-bottom: 1.5em;
@@ -1430,6 +1399,17 @@ input[type="button"]:active {
 }
 .soliloquy-outer-container .soliloquy-slider img {
   max-height: 400px;
+}
+.pix-load-more {
+  color: #004b94;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+.pix-load-more input {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 1em 1.5em;
 }
 @media screen and (min-width: 43em) {
   #masthead #navbar {
