@@ -74,11 +74,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	// Faux-flexbox "fix" template (edit for varying column numbers)
 	function fixGridLayout() {
-		var gridCount = $('.post-grid .post-grid-item').length;
+		var gridCount = $('.projects-grid .projects-grid-item').length;
 
 		if ( gridCount % 3 == 2 ) {
-			$('.post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)').css('float', 'left');
-			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
+			$('.projects-grid-item:last-of-type, .projects-grid-item:nth-last-of-type(2)').css('float', 'left');
+			$('.projects-grid-item:last-of-type').css('margin-left', '0.5%');
 		}
 	}
 
