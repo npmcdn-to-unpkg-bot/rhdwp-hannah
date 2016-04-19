@@ -74,6 +74,10 @@ input[type="submit"]
 		background-color gray
 
 
+.cheddar
+	font-family $ff_headline
+
+
 #masthead
 	width 100%
 	height auto
@@ -185,7 +189,14 @@ input[type="submit"]
 	&.rhd-color-block-area
 		width 100%
 		margin 2em 0
-	
+		
+		#primary
+			.entry-content
+				p
+					&:first-child
+					&:last-child
+						margin 0
+
 	&.wrap
 		-wrapper(2em,2em)
 
@@ -481,6 +492,52 @@ input[type="submit"]
 				
 				.rhd-color-block-content
 					-wrapper()
+	
+
+/* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.front-page
+	#rhd-color-block-intro
+		text-align center
+		
+	#rhd-color-block-trust
+		.we-are
+			font-family $ff_headline
+			font-size 4em
+			margin 1rem 0
+			text-align center
+			display block
+			
+		.trust-spell
+			font-size 0.9em
+			
+			ul
+				-wrapper(0, 0, 80%)
+				list-style none
+				padding-left 0
+				
+				li
+					line-height 1.2
+					margin 0.25em 0
+					text-indent -1.15em
+					padding-left 1em
+					
+					&::first-letter
+						font-size 1.75em
+						font-weight 700
+						padding-right 3px
+	
+	#rhd-color-block-answer-the-call
+		font-size 3.5em
+		line-height 1.1
+		font-family $ff_headline
+		text-align center
+		padding 2rem 0 !important
+		
+		h3
+			margin 0
 	
 
 /* ==========================================================================
@@ -784,6 +841,53 @@ input[type="submit"]
 			img
 				display block
 				margin 0 auto
+		
+	// Front Page
+	.front-page
+		#rhd-color-block-intro
+			padding 3em 0
+			
+			.rhd-color-block-content
+				-clearfix()
+				position relative
+				
+				.intro-text
+					width 60%
+					float left
+	
+				.intro-image
+					width 30%
+					position absolute
+					right 0
+					top 50%
+					-transform(translateY(-50%))
+					
+					img
+						-wrapper(0, 0, 100%, 300px)
+						
+					
+		#rhd-color-block-trust
+			position relative
+			
+			.rhd-color-block-content
+				-clearfix()
+			
+				.we-are
+					width 40%
+					position absolute
+					top 50%
+					left 25%
+					-transform(translate(-50%, -50%))
+					
+				.trust-spell
+					width 59%
+					font-size 1em
+					float right
+					
+					ul
+						li
+							&::first-letter
+								padding-right 0
 
 
 @media screen and (min-width 60em)

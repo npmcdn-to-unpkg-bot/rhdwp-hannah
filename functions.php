@@ -689,10 +689,17 @@ function rhd_color_block_shortcode( $atts, $content = null )
 	if ( $content )
 		$content = apply_filters( 'the_content', $content );
 	
-	$a = shortcode_atts( array( 'color' => 'white' ), $atts );
+	$a = shortcode_atts( array(
+		'color' => 'white',
+		'id' => ''
+	), $atts );
+	
+	extract($a);
+	
+	$id = $id ? "id='rhd-color-block-{$id}'" : '';
 	
 	$output = "
-		<section class='rhd-color-block rhd-color-block-{$a['color']}'>
+		<section {$id} class='rhd-color-block rhd-color-block-{$color}'>
 			<div class='rhd-color-block-content'>
 				{$content}
 			</div>

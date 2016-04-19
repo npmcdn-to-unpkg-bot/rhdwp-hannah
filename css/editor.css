@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:27:24 AM on 19-04-2016
+* RHD Dev: Compiled at 12:38:24 PM on 19-04-2016
 ***/
 
 /**
@@ -154,6 +154,13 @@ a img.aligncenter {
 .sticky {
   position: initial;
 }
+@font-face {
+  font-family: 'Cheddar Jack';
+  src: url("fonts/cheddar_jack-webfont.eot");
+  src: url("fonts/cheddar_jack-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/cheddar_jack-webfont.woff2") format('woff2'), url("fonts/cheddar_jack-webfont.woff") format('woff'), url("fonts/cheddar_jack-webfont.ttf") format('truetype'), url("fonts/cheddar_jack-webfont.svg#cheddar_jackregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 .hidden {
   display: none !important;
   visibility: hidden;
@@ -187,6 +194,8 @@ a img.aligncenter {
 #posts-feed.small-thumbnails .post:before,
 .entry-meta .entry-meta-links .post-meta:before,
 #primary:before,
+.front-page #rhd-color-block-intro .rhd-color-block-content:before,
+.front-page #rhd-color-block-trust .rhd-color-block-content:before,
 #main:before,
 .clearfix:after,
 #masthead:after,
@@ -198,6 +207,8 @@ a img.aligncenter {
 #posts-feed.small-thumbnails .post:after,
 .entry-meta .entry-meta-links .post-meta:after,
 #primary:after,
+.front-page #rhd-color-block-intro .rhd-color-block-content:after,
+.front-page #rhd-color-block-trust .rhd-color-block-content:after,
 #main:after {
   content: " " /* 1 */;
   display: table /* 2 */;
@@ -212,6 +223,8 @@ a img.aligncenter {
 #posts-feed.small-thumbnails .post:after,
 .entry-meta .entry-meta-links .post-meta:after,
 #primary:after,
+.front-page #rhd-color-block-intro .rhd-color-block-content:after,
+.front-page #rhd-color-block-trust .rhd-color-block-content:after,
 #main:after {
   clear: both;
 }
@@ -969,6 +982,9 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #808080;
 }
+.cheddar {
+  font-family: 'Cheddar Jack', cursive;
+}
 #masthead {
   width: 100%;
   height: auto;
@@ -1073,6 +1089,10 @@ input[type="submit"]:hover {
 #main.rhd-color-block-area {
   width: 100%;
   margin: 2em 0;
+}
+#main.rhd-color-block-area #primary .entry-content p:first-child,
+#main.rhd-color-block-area #primary .entry-content p:last-child {
+  margin: 0;
 }
 #main.wrap {
   width: 85%;
@@ -1349,6 +1369,48 @@ input[type="submit"]:hover {
   position: relative;
   margin: 0 auto 0 auto;
 }
+.front-page #rhd-color-block-intro {
+  text-align: center;
+}
+.front-page #rhd-color-block-trust .we-are {
+  font-family: 'Cheddar Jack', cursive;
+  font-size: 4em;
+  margin: 1rem 0;
+  text-align: center;
+  display: block;
+}
+.front-page #rhd-color-block-trust .trust-spell {
+  font-size: 0.9em;
+}
+.front-page #rhd-color-block-trust .trust-spell ul {
+  width: 80%;
+  max-width: none;
+  position: relative;
+  margin: 0 auto 0 auto;
+  list-style: none;
+  padding-left: 0;
+}
+.front-page #rhd-color-block-trust .trust-spell ul li {
+  line-height: 1.2;
+  margin: 0.25em 0;
+  text-indent: -1.15em;
+  padding-left: 1em;
+}
+.front-page #rhd-color-block-trust .trust-spell ul li::first-letter {
+  font-size: 1.75em;
+  font-weight: 700;
+  padding-right: 3px;
+}
+.front-page #rhd-color-block-answer-the-call {
+  font-size: 3.5em;
+  line-height: 1.1;
+  font-family: 'Cheddar Jack', cursive;
+  text-align: center;
+  padding: 2rem 0 !important;
+}
+.front-page #rhd-color-block-answer-the-call h3 {
+  margin: 0;
+}
 #comments {
   margin: 2em auto;
 }
@@ -1614,6 +1676,49 @@ input[type="submit"]:hover {
   .entry-content .gallery-item img {
     display: block;
     margin: 0 auto;
+  }
+  .front-page #rhd-color-block-intro {
+    padding: 3em 0;
+  }
+  .front-page #rhd-color-block-intro .rhd-color-block-content {
+    position: relative;
+  }
+  .front-page #rhd-color-block-intro .rhd-color-block-content .intro-text {
+    width: 60%;
+    float: left;
+  }
+  .front-page #rhd-color-block-intro .rhd-color-block-content .intro-image {
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .front-page #rhd-color-block-intro .rhd-color-block-content .intro-image img {
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+    margin: 0 auto 0 auto;
+  }
+  .front-page #rhd-color-block-trust {
+    position: relative;
+  }
+  .front-page #rhd-color-block-trust .rhd-color-block-content .we-are {
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .front-page #rhd-color-block-trust .rhd-color-block-content .trust-spell {
+    width: 59%;
+    font-size: 1em;
+    float: right;
+  }
+  .front-page #rhd-color-block-trust .rhd-color-block-content .trust-spell ul li::first-letter {
+    padding-right: 0;
   }
 }
 @media screen and (min-width: 60em) {
