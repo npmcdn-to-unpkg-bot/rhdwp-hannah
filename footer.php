@@ -17,7 +17,7 @@
 			</div>
 			<div id="footer-hheart-logo">
 				<?php $updir = wp_upload_dir(); ?>
-				<a href="//hospiceheart.org"><img src="<?php echo $updir['baseurl']; ?>/2015/11/Community-Hospice_vertical.png" alt="Community Hospice"></a>
+				<a href="//hospiceheart.org"><img src="<?php echo $updir['baseurl']; ?>/2016/04/Community-Hospice_vertical.png" alt="Community Hospice"></a>
 			</div>
 		</footer><!-- #colophon -->
 	</div><!-- #page -->

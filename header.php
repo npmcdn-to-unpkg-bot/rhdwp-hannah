@@ -85,5 +85,16 @@
 					<span>Toggle nav</span>
 				</button>
 			</header><!-- #masthead -->
+			
+			<?php
+			// get current page ID outside the loop
+			global $wp_query;
+			$id = $wp_query->post->ID;
+			$p = get_post( $id );
+			if ( ! has_shortcode( $p->post_content, 'color-block') )
+				$class = 'wrap';
+			else
+				$class = "rhd-color-block-area"
+			?>
 
-			<main id="main">
+			<main id="main" class="<?php echo $class; ?>">
