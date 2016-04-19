@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:13:41 AM on 19-04-2016
+* RHD Dev: Compiled at 11:27:24 AM on 19-04-2016
 ***/
 
 /**
@@ -1334,9 +1334,6 @@ input[type="submit"]:hover {
 #main.rhd-color-block-area #primary .rhd-color-block {
   width: 100%;
   padding: 2em 0;
-}
-#main.rhd-color-block-area #primary .rhd-color-block:first-child {
-  padding-top: 0;
 }
 #main.rhd-color-block-area #primary .rhd-color-block.rhd-color-block-blue {
   background: #1e2171;
