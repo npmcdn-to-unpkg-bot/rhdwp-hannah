@@ -495,13 +495,15 @@ input[type="submit"]
 	
 
 /* ==========================================================================
-	Front Page
+	Front / About Page
    ========================================================================== */
 
 .front-page
+.page-id-25
 	#rhd-color-block-intro
 		text-align center
-		
+	
+.page-id-25
 	#rhd-color-block-trust
 		.we-are
 			font-family $ff_headline
@@ -842,28 +844,38 @@ input[type="submit"]
 				display block
 				margin 0 auto
 		
+	// Color Block areas
+	.rhd-color-block-content
+		-clearfix()
+		position relative
+		
+	
+	// Front 
+	.front-page
+	.page-id-25
+		.intro-text
+			width 60%
+			float left
+	
+		.intro-image
+			width 30%
+			position absolute
+			right 0
+			top 50%
+			-transform(translateY(-50%))
+			
+			img
+				-wrapper(0, 0, 100%, 300px)
+		
 	// Front Page
 	.front-page
 		#rhd-color-block-intro
 			padding 3em 0
-			
-			.rhd-color-block-content
-				-clearfix()
-				position relative
-				
-				.intro-text
-					width 60%
-					float left
 	
-				.intro-image
-					width 30%
-					position absolute
-					right 0
-					top 50%
-					-transform(translateY(-50%))
-					
-					img
-						-wrapper(0, 0, 100%, 300px)
+	// About
+	.page-id-25
+		#rhd-color-block-intro
+			padding 3em 0
 						
 					
 		#rhd-color-block-trust

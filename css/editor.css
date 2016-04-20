@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:38:24 PM on 19-04-2016
+* RHD Dev: Compiled at 4:11:42 PM on 20-04-2016
 ***/
 
 /**
@@ -194,8 +194,8 @@ a img.aligncenter {
 #posts-feed.small-thumbnails .post:before,
 .entry-meta .entry-meta-links .post-meta:before,
 #primary:before,
-.front-page #rhd-color-block-intro .rhd-color-block-content:before,
-.front-page #rhd-color-block-trust .rhd-color-block-content:before,
+.rhd-color-block-content:before,
+.page-id-25 #rhd-color-block-trust .rhd-color-block-content:before,
 #main:before,
 .clearfix:after,
 #masthead:after,
@@ -207,8 +207,8 @@ a img.aligncenter {
 #posts-feed.small-thumbnails .post:after,
 .entry-meta .entry-meta-links .post-meta:after,
 #primary:after,
-.front-page #rhd-color-block-intro .rhd-color-block-content:after,
-.front-page #rhd-color-block-trust .rhd-color-block-content:after,
+.rhd-color-block-content:after,
+.page-id-25 #rhd-color-block-trust .rhd-color-block-content:after,
 #main:after {
   content: " " /* 1 */;
   display: table /* 2 */;
@@ -223,8 +223,8 @@ a img.aligncenter {
 #posts-feed.small-thumbnails .post:after,
 .entry-meta .entry-meta-links .post-meta:after,
 #primary:after,
-.front-page #rhd-color-block-intro .rhd-color-block-content:after,
-.front-page #rhd-color-block-trust .rhd-color-block-content:after,
+.rhd-color-block-content:after,
+.page-id-25 #rhd-color-block-trust .rhd-color-block-content:after,
 #main:after {
   clear: both;
 }
@@ -1369,20 +1369,21 @@ input[type="submit"]:hover {
   position: relative;
   margin: 0 auto 0 auto;
 }
-.front-page #rhd-color-block-intro {
+.front-page #rhd-color-block-intro,
+.page-id-25 #rhd-color-block-intro {
   text-align: center;
 }
-.front-page #rhd-color-block-trust .we-are {
+.page-id-25 #rhd-color-block-trust .we-are {
   font-family: 'Cheddar Jack', cursive;
   font-size: 4em;
   margin: 1rem 0;
   text-align: center;
   display: block;
 }
-.front-page #rhd-color-block-trust .trust-spell {
+.page-id-25 #rhd-color-block-trust .trust-spell {
   font-size: 0.9em;
 }
-.front-page #rhd-color-block-trust .trust-spell ul {
+.page-id-25 #rhd-color-block-trust .trust-spell ul {
   width: 80%;
   max-width: none;
   position: relative;
@@ -1390,25 +1391,25 @@ input[type="submit"]:hover {
   list-style: none;
   padding-left: 0;
 }
-.front-page #rhd-color-block-trust .trust-spell ul li {
+.page-id-25 #rhd-color-block-trust .trust-spell ul li {
   line-height: 1.2;
   margin: 0.25em 0;
   text-indent: -1.15em;
   padding-left: 1em;
 }
-.front-page #rhd-color-block-trust .trust-spell ul li::first-letter {
+.page-id-25 #rhd-color-block-trust .trust-spell ul li::first-letter {
   font-size: 1.75em;
   font-weight: 700;
   padding-right: 3px;
 }
-.front-page #rhd-color-block-answer-the-call {
+.page-id-25 #rhd-color-block-answer-the-call {
   font-size: 3.5em;
   line-height: 1.1;
   font-family: 'Cheddar Jack', cursive;
   text-align: center;
   padding: 2rem 0 !important;
 }
-.front-page #rhd-color-block-answer-the-call h3 {
+.page-id-25 #rhd-color-block-answer-the-call h3 {
   margin: 0;
 }
 #comments {
@@ -1677,17 +1678,16 @@ input[type="submit"]:hover {
     display: block;
     margin: 0 auto;
   }
-  .front-page #rhd-color-block-intro {
-    padding: 3em 0;
-  }
-  .front-page #rhd-color-block-intro .rhd-color-block-content {
+  .rhd-color-block-content {
     position: relative;
   }
-  .front-page #rhd-color-block-intro .rhd-color-block-content .intro-text {
+  .front-page .intro-text,
+  .page-id-25 .intro-text {
     width: 60%;
     float: left;
   }
-  .front-page #rhd-color-block-intro .rhd-color-block-content .intro-image {
+  .front-page .intro-image,
+  .page-id-25 .intro-image {
     width: 30%;
     position: absolute;
     right: 0;
@@ -1695,16 +1695,23 @@ input[type="submit"]:hover {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-  .front-page #rhd-color-block-intro .rhd-color-block-content .intro-image img {
+  .front-page .intro-image img,
+  .page-id-25 .intro-image img {
     width: 100%;
     max-width: 300px;
     position: relative;
     margin: 0 auto 0 auto;
   }
-  .front-page #rhd-color-block-trust {
+  .front-page #rhd-color-block-intro {
+    padding: 3em 0;
+  }
+  .page-id-25 #rhd-color-block-intro {
+    padding: 3em 0;
+  }
+  .page-id-25 #rhd-color-block-trust {
     position: relative;
   }
-  .front-page #rhd-color-block-trust .rhd-color-block-content .we-are {
+  .page-id-25 #rhd-color-block-trust .rhd-color-block-content .we-are {
     width: 40%;
     position: absolute;
     top: 50%;
@@ -1712,12 +1719,12 @@ input[type="submit"]:hover {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
-  .front-page #rhd-color-block-trust .rhd-color-block-content .trust-spell {
+  .page-id-25 #rhd-color-block-trust .rhd-color-block-content .trust-spell {
     width: 59%;
     font-size: 1em;
     float: right;
   }
-  .front-page #rhd-color-block-trust .rhd-color-block-content .trust-spell ul li::first-letter {
+  .page-id-25 #rhd-color-block-trust .rhd-color-block-content .trust-spell ul li::first-letter {
     padding-right: 0;
   }
 }

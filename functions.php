@@ -708,3 +708,26 @@ function rhd_color_block_shortcode( $atts, $content = null )
 	return $output;
 }
 add_shortcode( 'color-block', 'rhd_color_block_shortcode' );
+
+
+function rhd_ghost_button_shortcode( $atts, $content = null )
+{	
+	$a = shortcode_atts( array(
+		'url' => '',
+		'target' => ''
+	), $atts );
+	
+	extract($a);
+	
+	if ( $target )
+		$target = "target={$target}";
+	else
+		$target = '';
+	
+	$output = "
+		<div class='ghost-button'><a href='{$url}' {$target}></div>
+	";
+	
+	return $output;
+}
+add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );
