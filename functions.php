@@ -683,7 +683,7 @@ function rhd_ghost_button_shortcode( $atts, $content = null )
 
         extract($a);
 
-        if ( $target )
+        if ( $target != '' )
                 $target = "target={$target}";
         else
                 $target = '';
