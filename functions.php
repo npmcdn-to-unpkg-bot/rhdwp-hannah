@@ -710,6 +710,14 @@ function rhd_color_block_shortcode( $atts, $content = null )
 add_shortcode( 'color-block', 'rhd_color_block_shortcode' );
 
 
+/**
+ * rhd_ghost_button_shortcode function.
+ *
+ * @access public
+ * @param mixed $atts
+ * @param mixed $content (default: null)
+ * @return void
+ */
 function rhd_ghost_button_shortcode( $atts, $content = null )
 {	
 	$a = shortcode_atts( array(
@@ -719,13 +727,13 @@ function rhd_ghost_button_shortcode( $atts, $content = null )
 	
 	extract($a);
 	
-	if ( $target )
+	if ( $target != '' )
 		$target = "target={$target}";
 	else
 		$target = '';
 	
 	$output = "
-		<div class='ghost-button'><a href='{$url}' {$target}></div>
+		<div class='ghost-button'><a href='{$url}' {$target}>{$content}</a></div>
 	";
 	
 	return $output;

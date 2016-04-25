@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:11:42 PM on 20-04-2016
+* RHD Dev: Compiled at 11:43:04 AM on 24-04-2016
 ***/
 
 /**
@@ -1373,6 +1373,17 @@ input[type="submit"]:hover {
 .page-id-25 #rhd-color-block-intro {
   text-align: center;
 }
+.front-page #rhd-color-block-mission h3 {
+  margin-bottom: 0.5rem;
+}
+.front-page #rhd-color-block-mission p {
+  margin: 0.25em 0;
+}
+.front-page #rhd-color-block-community-grid h3 {
+  font-family: 'Cheddar Jack', cursive;
+  font-size: 4em;
+  margin-top: 0;
+}
 .page-id-25 #rhd-color-block-trust .we-are {
   font-family: 'Cheddar Jack', cursive;
   font-size: 4em;
@@ -1483,14 +1494,26 @@ input[type="submit"]:hover {
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
-  font-size: 1.2em;
   font-weight: 700;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
   background-color: #60adf7;
   color: #fff;
+}
+.rhd-color-block.rhd-color-block-blue .ghost-button a {
+  color: #fff;
+  border-color: #fff;
+}
+.rhd-color-block.rhd-color-block-blue .ghost-button a:hover,
+.rhd-color-block.rhd-color-block-blue .ghost-button a:active {
+  background-color: #fff;
+  color: #1e2171;
+}
+.rhd-color-block .ghost-button a {
+  background-color: transparent;
 }
 #secondary .widget {
   width: 100%;

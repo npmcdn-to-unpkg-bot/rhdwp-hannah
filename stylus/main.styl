@@ -502,6 +502,22 @@ input[type="submit"]
 .page-id-25
 	#rhd-color-block-intro
 		text-align center
+
+
+.front-page
+	#rhd-color-block-mission
+		h3
+			margin-bottom 0.5rem
+		
+		p
+			margin 0.25em 0
+		
+	#rhd-color-block-community-grid
+		h3
+			font-family $ff_headline
+			font-size 4em
+			margin-top 0
+
 	
 .page-id-25
 	#rhd-color-block-trust
@@ -621,15 +637,32 @@ input[type="submit"]
 		border-radius 0.1em
 		display inline-block
 		transition all 0.2s
-		font-size 1.2em
 		font-weight 700
 		letter-spacing 1px
+		text-transform uppercase
 
 		&:hover
 		&:active
 			background-color @color
 			color white
 
+.rhd-color-block
+	&.rhd-color-block-blue
+		.ghost-button
+			a
+				color white
+				border-color white
+				
+				&:hover
+				&:active
+					background-color white
+					color $navy
+			
+	.ghost-button
+		a
+			background-color transparent
+				
+		
 
 /* ==========================================================================
 	Widget Areas & Sidebars

@@ -76,7 +76,7 @@
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
 				<a id="site-title" href="<?php echo home_url(); ?>">
-					<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri(); ?>/img/hope-chest-logo.svg"></object>
+					<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri(); ?>/img/foundation.svg"></object>
 				</a>
 
 				<?php wp_nav_menu( $nav_args_main ); ?>
