@@ -32,9 +32,13 @@ $ff_headline = 'Cheddar Jack', cursive
 	user-select: none;
 
 
--invisible()
-	visibility hidden
-	position absolute
+-invisible( $invis = true )
+	if $invis == true
+		visibility hidden
+		position absolute
+	else
+		visibility visible
+		position inherit
 
 
 -flexbox()

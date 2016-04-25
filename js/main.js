@@ -29,6 +29,13 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	$(document).ready(function(){
 		rhdInit();
+
+		// Sub Nav Hoverage
+		$("#site-navigation .menu-item-has-children").hover(function(){
+			$(this).children('.sub-menu').stop().addClass('shown');
+		}, function(){
+			$(this).children('.sub-menu').stop().removeClass('shown');
+		});
 	});
 
 

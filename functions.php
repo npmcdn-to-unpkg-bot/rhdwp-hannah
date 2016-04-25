@@ -739,3 +739,24 @@ function rhd_ghost_button_shortcode( $atts, $content = null )
 	return $output;
 }
 add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );
+
+
+
+/**
+ * rhd_append_nav_menu_items function.
+ * 
+ * @access public
+ * @param mixed $items
+ * @param mixed $args
+ * @return void
+ */
+function rhd_append_nav_menu_items( $items, $args ){
+	if( $args->theme_location == 'primary' ) {
+		$items .= '<li class="menu-item menu-item-donate">'
+				. do_shortcode( '[ghost-button url="//google.com"]Donate[/ghost-button]' )
+				. '</li>';
+	}
+	
+	return $items;
+}
+add_filter( 'wp_nav_menu_items', 'rhd_append_nav_menu_items', 10, 2 );
