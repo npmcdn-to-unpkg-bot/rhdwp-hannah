@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:27:46 PM on 25-04-2016
+* RHD Dev: Compiled at 6:33:59 PM on 25-04-2016
 ***/
 
 .alignnone {
@@ -1037,6 +1037,10 @@ input[type="submit"]:hover {
 #site-navigation-container #site-navigation .menu-item a:active {
   color: #60adf7;
 }
+#site-navigation-container #site-navigation .menu-item .ghost-button a:hover,
+#site-navigation-container #site-navigation .menu-item .ghost-button a:active {
+  color: #fff;
+}
 #site-navigation-container #site-navigation .menu-item .sub-menu {
   width: 14em;
   position: absolute;
@@ -1045,16 +1049,8 @@ input[type="submit"]:hover {
   padding-top: 0.3em;
   padding-left: 0;
   line-height: 1.7;
-  transition: all 0.25s;
   z-index: 999;
-  -moz-opacity: 0;
-  -webkit-opacity: 0;
-  opacity: 0;
-}
-#site-navigation-container #site-navigation .menu-item .sub-menu.shown {
-  -moz-opacity: 1;
-  -webkit-opacity: 1;
-  opacity: 1;
+  display: none;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item {
   width: 100%;
@@ -1065,12 +1061,14 @@ input[type="submit"]:hover {
   transition: all 0.25s;
   font-size: 1em;
 }
+#site-navigation-container #site-navigation .menu-item .sub-menu .menu-item a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item a:hover,
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item a:active {
   color: inherit;
-}
-#site-navigation-container #site-navigation .menu-item .sub-menu .menu-item.shown {
-  display: block;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item:hover {
   background-color: #60adf7;

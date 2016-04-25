@@ -128,6 +128,12 @@ input[type="submit"]
 				&:active
 					color $sky
 
+			.ghost-button
+				a
+					&:hover
+					&:active
+						color white
+
 			.sub-menu
 				width 14em
 				position absolute
@@ -136,12 +142,8 @@ input[type="submit"]
 				padding-top 0.3em
 				padding-left 0
 				line-height 1.7
-				transition all 0.25s
 				z-index 999
-				-opacity(0)
-
-				&.shown
-					-opacity(1)
+				display none
 
 				.menu-item
 					width 100%
@@ -153,12 +155,13 @@ input[type="submit"]
 					font-size 1em
 
 					a
+						width 100%
+						height 100%
+						display block
+
 						&:hover
 						&:active
 							color inherit
-
-					&.shown
-						display block
 
 					&:hover
 						background-color $sky

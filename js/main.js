@@ -32,9 +32,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Sub Nav Hoverage
 		$("#site-navigation .menu-item-has-children").hover(function(){
-			$(this).children('.sub-menu').stop().addClass('shown');
+			$(this).children('.sub-menu').stop().fadeIn('fast');
 		}, function(){
-			$(this).children('.sub-menu').stop().removeClass('shown');
+			$(this).children('.sub-menu').stop().fadeOut('fast');
 		});
 	});
 
