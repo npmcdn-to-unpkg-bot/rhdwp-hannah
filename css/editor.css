@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:29:15 PM on 25-04-2016
+* RHD Dev: Compiled at 12:45:43 PM on 26-04-2016
 ***/
 
 /**
@@ -61,7 +61,7 @@ a img.aligncenter {
 .wp-caption {
   background: #fff;
   border: 1px solid #f0f0f0;
-  max-width: 96%;
+  max-width: 96% /* Image does not overflow the content area */;
   padding: 5px 3px 10px;
   text-align: center;
 }
@@ -112,7 +112,7 @@ a img.aligncenter {
   text-decoration: none;
   top: 5px;
   width: auto;
-  z-index: 100000;
+  z-index: 100000 /* Above WP toolbar. */;
 }
 .gallery {
   width: 100%;
@@ -347,7 +347,7 @@ table {
   border-spacing: 0;
   border-width: 1px 0 0 1px;
   margin: 0 0 1.6em;
-  table-layout: fixed;
+  table-layout: fixed /* Prevents HTML tables from becoming too wide */;
   width: 100%;
 }
 caption,
@@ -390,7 +390,7 @@ del {
 -moz-placeholder {
   color: rgba(51,51,51,0.7);
   font-family: "Noto Sans" sans-serif;
-  opacity: 1;
+  opacity: 1 /* Since FF19 lowers the opacity of the placeholder by default */;
 }
 -ms-input-placeholder {
   color: rgba(51,51,51,0.7);
@@ -416,7 +416,7 @@ input {
 }
 input,
 textarea {
-  background-image: -webkit-linear-gradient(rgba(255,255,255,0) rgba(255,255,255,0));
+  background-image: -webkit-linear-gradient(rgba(255,255,255,0) rgba(255,255,255,0)) /* Removing the inner shadow on iOS inputs */;
   border: 1px solid #eaeaea;
   border: 1px solid rgba(51,51,51,0.1);
   color: #707070;
@@ -538,9 +538,9 @@ input[type="checkbox"] {
   padding: 0;
 }
 .unselectable {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  -webkit-user-select: none /* Chrome/Safari */;
+  -moz-user-select: none /* Firefox */;
+  -ms-user-select: none /* IE10+ */;
   -o-user-select: none;
   user-select: none;
 }
@@ -592,8 +592,8 @@ input[type="checkbox"] {
 .single-pagination:after,
 #primary:after,
 #main:after {
-  content: " ";
-  display: table;
+  content: " " /* 1 */;
+  display: table /* 2 */;
 }
 .clearfix:after,
 .blog-area #main .post:after,
@@ -615,7 +615,8 @@ input[type="checkbox"] {
   *before,
   *after {
     background: transparent !important;
-    color: #000 !important;
+    color: #000 !important /* Black prints faster
+                                   http://www.sanbeiji.com/archives/953 */;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -703,28 +704,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -735,7 +736,7 @@ img.aligncenter {
   background: #fff;
   color: #808080;
   position: relative;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -979,7 +980,7 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #000;
 }
 body.admin-bar #wpadminbar {
@@ -1005,28 +1006,28 @@ textarea {
   border: 2px solid #004b94;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:focus,
@@ -1035,7 +1036,7 @@ textarea:focus {
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -1047,7 +1048,7 @@ input[type="submit"]:hover {
 #site-title {
   text-align: center;
   margin: 0;
-  font-family: $ff-title;
+  font-family: 'Oswalt', sans-serif;
   font-weight: normal;
 }
 #site-navigation-container {
@@ -1157,7 +1158,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  font-family: $ff-title;
+  font-family: 'Oswalt', sans-serif;
   font-weight: normal;
 }
 .entry-content {
@@ -1353,24 +1354,24 @@ input[type="submit"]:hover {
   }
   .entry-content img,
   .entry-content iframe,
-.entry-content a img {
+  .entry-content a img {
     width: initial;
     width: initial;
     max-width: none;
     margin: initial;
   }
   .entry-content img.alignleft,
-.entry-content a img.alignleft {
+  .entry-content a img.alignleft {
     margin-right: 1em;
     float: left;
   }
   .entry-content img.alignright,
-.entry-content a img.alignright {
+  .entry-content a img.alignright {
     margin-left: 1em;
     float: right;
   }
   .entry-content img.aligncenter,
-.entry-content a img.aligncenter {
+  .entry-content a img.aligncenter {
     margin: 0 auto;
   }
 }
