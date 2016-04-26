@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:33:51 PM on 17-04-2016
+* RHD Dev: Compiled at 9:29:15 PM on 25-04-2016
 ***/
 
 /**
@@ -1306,6 +1306,7 @@ input[type="submit"]:hover {
   margin-top: 0;
 }
 .soliloquy-outer-container .soliloquy-slider img {
+  width: auto;
   max-height: 500px;
 }
 @media screen and (min-width: 40em) {
