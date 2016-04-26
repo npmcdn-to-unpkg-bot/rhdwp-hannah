@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-	<div class="site-container">
+	<div class="wrapper">
 		<section id="primary" class="site-content">
 			<?php // if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
 

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:35:58 AM on 17-04-2016
+* RHD Dev: Compiled at 11:54:51 AM on 26-04-2016
 ***/
 
 /**
@@ -581,14 +581,12 @@ input[type="checkbox"] {
   width: auto;
 }
 .clearfix:before,
-.site-container:before,
 .blog-area #main .post:before,
 .pagination:before,
 .single-pagination:before,
 #primary:before,
 #main:before,
 .clearfix:after,
-.site-container:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
@@ -598,7 +596,6 @@ input[type="checkbox"] {
   display: table;
 }
 .clearfix:after,
-.site-container:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
@@ -1012,7 +1009,7 @@ input[type="submit"]:hover {
   position: relative;
   bottom: 0.25em;
 }
-.site-container {
+.wrapper {
   width: 85%;
   max-width: 75rem;
   position: relative;
