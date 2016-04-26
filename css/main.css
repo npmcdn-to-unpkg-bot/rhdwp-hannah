@@ -1,28 +1,7 @@
 /***
-* RHD Dev: Compiled at 9:43:21 PM on 25-04-2016
+* RHD Dev: Compiled at 11:31:20 PM on 25-04-2016
 ***/
 
-.ghost-button {
-  width: auto;
-  max-width: 100%;
-  text-align: center;
-  margin: 1em auto;
-}
-.ghost-button a {
-  padding: 0.4em 0.8em;
-  color: #004b94;
-  text-decoration: none;
-  background-color: #fff;
-  border: 3px solid #004b94;
-  border-radius: 0.1em;
-  display: inline-block;
-  transition: all 0.2s;
-}
-.ghost-button a:hover,
-.ghost-button a:active {
-  background-color: #004b94;
-  color: #004b94;
-}
 .alignnone {
   margin: 5px 20px 20px 0;
 }
@@ -877,7 +856,7 @@ input[type="radio"] {
   position: relative;
   margin: 0 auto 0 auto;
   display: block;
-  border: 2px solid $navy;
+  border: 2px solid #1e2171;
 }
 .rhd-store-image-widget .rhd-store-image-caption {
   font-size: 1.1em;
@@ -891,7 +870,7 @@ input[type="radio"] {
 .big-button .big-button-link {
   display: block;
   z-index: 1;
-  color: $navy;
+  color: #1e2171;
 }
 .big-button .big-button-link:after {
   content: "";
@@ -905,7 +884,7 @@ input[type="radio"] {
   text-decoration: none;
 }
 .big-button .big-button-link:hover .big-button-label {
-  color: $sky;
+  color: #60adf7;
   text-decoration: none;
 }
 .big-button .big-button-link .big-button-image,
@@ -936,8 +915,8 @@ body {
   text-shadow: 0 0 1px transparent;
   font-size: 16px;
   margin: 0;
-  color: $navy;
-  font-family: $ff_body;
+  color: #1e2171;
+  font-family: 'Open Sans', sans-serif;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -949,7 +928,7 @@ a {
 a:link,
 a:visited {
   text-decoration: none;
-  color: $sky;
+  color: #60adf7;
 }
 a:hover,
 a:active {
@@ -958,59 +937,59 @@ a:active {
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid $sky;
+  border: 2px solid #60adf7;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:focus,
 textarea:focus {
-  border-color: $mag;
+  border-color: #da0962;
 }
 hr {
   width: 85%;
   height: 4px !important;
   margin: 2em auto !important;
-  background-color: $navy;
+  background-color: #1e2171;
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
   background-color: #808080;
 }
 .cheddar {
-  font-family: $ff_headline;
+  font-family: 'Cheddar Jack', cursive;
 }
 #masthead {
   width: 100%;
   height: auto;
   position: relative;
-  border-bottom: 4px solid $navy;
+  border-bottom: 4px solid #1e2171;
 }
 #site-title {
   width: 60%;
@@ -1056,7 +1035,7 @@ input[type="submit"]:hover {
 }
 #site-navigation-container #site-navigation .menu-item a:hover,
 #site-navigation-container #site-navigation .menu-item a:active {
-  color: $sky;
+  color: #60adf7;
 }
 #site-navigation-container #site-navigation .menu-item .ghost-button a:hover,
 #site-navigation-container #site-navigation .menu-item .ghost-button a:active {
@@ -1071,13 +1050,11 @@ input[type="submit"]:hover {
   padding-left: 0;
   line-height: 1.7;
   z-index: 999;
-  display: none;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0.25em 0.25em 0.25em 0.5em;
   text-align: left;
   transition: all 0.25s;
   font-size: 1em;
@@ -1086,17 +1063,18 @@ input[type="submit"]:hover {
   width: 100%;
   height: 100%;
   display: block;
+  padding: 0.25em 0.25em 0.25em 0.5em;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item a:hover,
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item a:active {
   color: inherit;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item:hover {
-  background-color: $sky;
-  color: $navy;
+  background-color: #60adf7;
+  color: #1e2171;
 }
 .sb-slidebar {
-  background: $navy !important;
+  background: #1e2171 !important;
 }
 .sb-slidebar #site-navigation-sb-container #site-navigation-sb {
   list-style: none;
@@ -1111,16 +1089,16 @@ input[type="submit"]:hover {
 }
 .sb-slidebar #site-navigation-sb-container #site-navigation-sb a:hover,
 .sb-slidebar #site-navigation-sb-container #site-navigation-sb a:active {
-  color: $sky;
+  color: #60adf7;
 }
 .site-navigation li a {
-  color: $sky;
+  color: #60adf7;
   text-decoration: none;
   transition: color 0.25s;
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: $mag;
+  color: #da0962;
 }
 .site-navigation li .sub-menu {
   margin-top: 0;
@@ -1134,11 +1112,11 @@ input[type="submit"]:hover {
   background: transparent;
 }
 #hamburger.c-hamburger span {
-  background-color: $navy;
+  background-color: #1e2171;
 }
 #hamburger.c-hamburger span:before,
 #hamburger.c-hamburger span:after {
-  background-color: $navy;
+  background-color: #1e2171;
 }
 #hamburger.c-hamburger.is-active span {
   background-color: transparent;
@@ -1173,12 +1151,12 @@ input[type="submit"]:hover {
   width: 100%;
   height: auto;
   padding: 0.5rem;
-  background-color: $navy;
+  background-color: #1e2171;
   color: #fff;
   position: relative;
 }
 #colophon a {
-  color: $sky;
+  color: #60adf7;
 }
 #colophon a:hover,
 #colophon a:active {
@@ -1197,7 +1175,7 @@ input[type="submit"]:hover {
   float: left;
   padding: 0.375rem;
   border: none;
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
 }
 #colophon #footer-widget-area .search-form .search-field {
@@ -1208,13 +1186,13 @@ input[type="submit"]:hover {
   border-bottom-right-radius: 0;
 }
 #colophon #footer-widget-area .search-form .search-field:focus {
-  background-color: $cream;
+  background-color: #fff3e2;
   outline: none;
 }
 #colophon #footer-widget-area .search-form .search-submit {
   width: 25%;
-  background-color: $sky;
-  border-color: $sky;
+  background-color: #60adf7;
+  border-color: #60adf7;
   transition: all 0.25s ease;
   position: absolute;
   top: 0;
@@ -1225,16 +1203,16 @@ input[type="submit"]:hover {
 }
 #colophon #footer-widget-area .search-form .search-submit:hover,
 #colophon #footer-widget-area .search-form .search-submit:active {
-  background-color: $sky;
-  border-color: $sky;
-  color: $navy;
+  background-color: #60adf7;
+  border-color: #60adf7;
+  color: #1e2171;
 }
 #colophon #footer-widget-area .rhd_social_icons {
   text-align: center;
 }
 #colophon #footer-widget-area .rhd_social_icons a:hover path,
 #colophon #footer-widget-area .rhd_social_icons a:active path {
-  fill: $mag;
+  fill: #da0962;
 }
 #colophon #footer-hheart-logo {
   width: 100%;
@@ -1328,7 +1306,7 @@ input[type="submit"]:hover {
   padding: 0.5em 0;
 }
 .entry-meta a {
-  color: $navy;
+  color: #1e2171;
 }
 .entry-meta .comments-popup {
   font-size: 1.1em;
@@ -1391,13 +1369,13 @@ input[type="submit"]:hover {
 }
 .entry-content .gallery-item .gallery-caption {
   font-weight: 700;
-  color: $navy;
+  color: #1e2171;
 }
 .full-width-slideshow {
   width: 100%;
 }
 .full-width-slideshow .soliloquy-container {
-  border-bottom: 4px solid $navy;
+  border-bottom: 4px solid #1e2171;
 }
 .pagination,
 .single-pagination {
@@ -1427,7 +1405,7 @@ input[type="submit"]:hover {
   padding: 2em 0;
 }
 #main.rhd-color-block-area #primary .rhd-color-block.rhd-color-block-blue {
-  background: $navy;
+  background: #1e2171;
   color: #fff;
 }
 .rhd-color-block-content {
@@ -1450,12 +1428,12 @@ input[type="submit"]:hover {
   margin: 0.25em 0;
 }
 .front-page #rhd-color-block-community-grid h3 {
-  font-family: $ff_headline;
+  font-family: 'Cheddar Jack', cursive;
   font-size: 4em;
   margin-top: 0;
 }
 .page-id-25 #rhd-color-block-trust .we-are {
-  font-family: $ff_headline;
+  font-family: 'Cheddar Jack', cursive;
   font-size: 4em;
   margin: 1rem 0;
   text-align: center;
@@ -1486,7 +1464,7 @@ input[type="submit"]:hover {
 .page-id-25 #rhd-color-block-answer-the-call {
   font-size: 3.5em;
   line-height: 1.1;
-  font-family: $ff_headline;
+  font-family: 'Cheddar Jack', cursive;
   text-align: center;
   padding: 2rem 0 !important;
 }
@@ -1516,7 +1494,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: $off_white;
+  background: #e6e6e6;
 }
 #comments .odd {
   background: #fff;
@@ -1563,10 +1541,10 @@ input[type="submit"]:hover {
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: $sky;
+  color: #60adf7;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid $sky;
+  border: 3px solid #60adf7;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
@@ -1576,7 +1554,7 @@ input[type="submit"]:hover {
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: $sky;
+  background-color: #60adf7;
   color: #fff;
 }
 .rhd-color-block.rhd-color-block-blue .ghost-button a {
@@ -1586,7 +1564,7 @@ input[type="submit"]:hover {
 .rhd-color-block.rhd-color-block-blue .ghost-button a:hover,
 .rhd-color-block.rhd-color-block-blue .ghost-button a:active {
   background-color: #fff;
-  color: $navy;
+  color: #1e2171;
 }
 .rhd-color-block .ghost-button a {
   background-color: transparent;
@@ -1654,11 +1632,11 @@ input[type="submit"]:hover {
     margin-bottom: 0;
   }
   .post {
-    border: 2px solid $navy;
+    border: 2px solid #1e2171;
     border-radius: 2px;
   }
   .post .entry-header {
-    background: $sky_trans;
+    background: rgba(80,144,204,0.15);
     padding: 1em;
     margin: 0;
   }
@@ -1666,16 +1644,16 @@ input[type="submit"]:hover {
     margin: 0 0 0.25rem;
   }
   .post .entry-header .entry-title a {
-    color: $navy;
+    color: #1e2171;
     transition: color 0.25s;
   }
   .post .entry-header .entry-title a:hover,
   .post .entry-header .entry-title a:active {
-    color: $sky;
+    color: #60adf7;
     text-decoration: none;
   }
   .entry-meta .entry-meta-links {
-    background-color: $sky_trans;
+    background-color: rgba(80,144,204,0.15);
   }
   .entry-meta .entry-meta-links .comments-popup {
     width: 100%;
@@ -1685,7 +1663,7 @@ input[type="submit"]:hover {
     padding: 0;
     position: relative;
     display: table;
-    background-color: $sky_trans;
+    background-color: rgba(80,144,204,0.15);
   }
   .entry-meta .entry-meta-links .post-meta .post-meta-item {
     width: 33.3333333%;
@@ -1697,7 +1675,7 @@ input[type="submit"]:hover {
     transition: all 0.5s ease;
   }
   .entry-meta .entry-meta-links .post-meta .post-meta-item:hover {
-    background-color: $sky_half;
+    background-color: rgba(80,144,204,0.35);
   }
   .entry-meta .entry-meta-links .post-meta .post-meta-item a {
     color: inherit;
@@ -1759,13 +1737,13 @@ input[type="submit"]:hover {
   .entry-content iframe,
   .entry-content a img {
     width: initial;
-    max-width: none;
+    max-width: 100%;
     margin: initial;
   }
   .entry-content img.mobile-hide,
   .entry-content a img.mobile-hide {
-    visibility: hidden;
-    position: absolute;
+    visibility: visible;
+    position: inherit;
   }
   .entry-content img.alignleft,
   .entry-content a img.alignleft {
