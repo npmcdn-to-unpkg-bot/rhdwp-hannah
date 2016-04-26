@@ -214,7 +214,7 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
  */
 function rhd_image_sizes()
 {
-	add_image_size( 'square', 300, 300, true );
+	add_image_size( 'square', 400, 400, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
