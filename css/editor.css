@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:43:01 PM on 25-04-2016
+* RHD Dev: Compiled at 11:27:30 PM on 25-04-2016
 ***/
 
 /**
@@ -855,7 +855,7 @@ input[type="radio"] {
 }
 .rhd-store-image-widget .rhd-store-image img {
   width: 75%;
-  max-width: none;
+  max-width: 75rem;
   position: relative;
   margin: 0 auto 0 auto;
   display: block;
@@ -1050,13 +1050,11 @@ input[type="submit"]:hover {
   padding-left: 0;
   line-height: 1.7;
   z-index: 999;
-  display: none;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0.25em 0.25em 0.25em 0.5em;
   text-align: left;
   transition: all 0.25s;
   font-size: 1em;
@@ -1065,6 +1063,7 @@ input[type="submit"]:hover {
   width: 100%;
   height: 100%;
   display: block;
+  padding: 0.25em 0.25em 0.25em 0.5em;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item a:hover,
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item a:active {
@@ -1135,7 +1134,7 @@ input[type="submit"]:hover {
 }
 #main.wrap {
   width: 85%;
-  max-width: none;
+  max-width: 75rem;
   position: relative;
   margin: 2em auto 2em auto;
 }
@@ -1275,7 +1274,7 @@ input[type="submit"]:hover {
 .entry-content iframe,
 .entry-content a img {
   width: 95%;
-  max-width: none;
+  max-width: 75rem;
   position: relative;
   margin: 1em auto 1em auto;
 }
@@ -1405,7 +1404,7 @@ input[type="submit"]:hover {
 }
 .rhd-color-block-content {
   width: 85%;
-  max-width: none;
+  max-width: 75rem;
   position: relative;
   margin: 0 auto 0 auto;
 }
@@ -1436,7 +1435,7 @@ input[type="submit"]:hover {
 }
 .page-id-25 #rhd-color-block-trust .trust-spell ul {
   width: 80%;
-  max-width: none;
+  max-width: 75rem;
   position: relative;
   margin: 0 auto 0 auto;
   list-style: none;

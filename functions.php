@@ -678,7 +678,7 @@ function rhd_post_meta_links()
 
 /**
  * rhd_color_block_shortcode function.
- * 
+ *
  * @access public
  * @param mixed $atts
  * @param mixed $content (default: null)
@@ -688,26 +688,40 @@ function rhd_color_block_shortcode( $atts, $content = null )
 {
 	if ( $content )
 		$content = apply_filters( 'the_content', $content );
-	
+
 	$a = shortcode_atts( array(
 		'color' => 'white',
 		'id' => ''
 	), $atts );
-	
+
 	extract($a);
-	
+
 	$id = $id ? "id='rhd-color-block-{$id}'" : '';
-	
-	$output = "
-		<section {$id} class='rhd-color-block rhd-color-block-{$color}'>
-			<div class='rhd-color-block-content'>
-				{$content}
-			</div>
-		</section>";
-	
+
+	$output = "<section {$id} class='rhd-color-block rhd-color-block-{$color}'><div class='rhd-color-block-content'>{$content}</div></section>";
+
 	return $output;
 }
 add_shortcode( 'color-block', 'rhd_color_block_shortcode' );
+
+
+/**
+ * rhd_wpautop_toggle function.
+ *
+ * Disable wpautop for posts using color-block shortcode.
+ *
+ * @access public
+ * @param mixed $content
+ * @return void
+ */
+function rhd_wpautop_toggle( $content )
+{
+	if ( has_shortcode( $content, 'color-block' ) )
+		remove_filter( 'the_content', 'wpautop' );
+
+	return $content;
+}
+add_filter( 'the_content', 'rhd_wpautop_toggle', 0 );
 
 
 /**
@@ -719,23 +733,23 @@ add_shortcode( 'color-block', 'rhd_color_block_shortcode' );
  * @return void
  */
 function rhd_ghost_button_shortcode( $atts, $content = null )
-{	
+{
 	$a = shortcode_atts( array(
 		'url' => '',
 		'target' => ''
 	), $atts );
-	
+
 	extract($a);
-	
+
 	if ( $target != '' )
 		$target = "target={$target}";
 	else
 		$target = '';
-	
+
 	$output = "
 		<div class='ghost-button'><a href='{$url}' {$target}>{$content}</a></div>
 	";
-	
+
 	return $output;
 }
 add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );
@@ -744,7 +758,7 @@ add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );
 
 /**
  * rhd_append_nav_menu_items function.
- * 
+ *
  * @access public
  * @param mixed $items
  * @param mixed $args
@@ -756,7 +770,7 @@ function rhd_append_nav_menu_items( $items, $args ){
 				. do_shortcode( '[ghost-button url="//google.com"]Donate[/ghost-button]' )
 				. '</li>';
 	}
-	
+
 	return $items;
 }
 add_filter( 'wp_nav_menu_items', 'rhd_append_nav_menu_items', 10, 2 );
