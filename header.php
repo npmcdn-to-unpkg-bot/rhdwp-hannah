@@ -85,7 +85,7 @@
 					<span>Toggle nav</span>
 				</button>
 			</header><!-- #masthead -->
-			
+
 			<?php
 			// get current page ID outside the loop
 			global $wp_query;

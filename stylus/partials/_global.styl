@@ -1,28 +1,52 @@
 /* ==========================================================================
-	Global Stylus Variables
+	Global Variables
    ========================================================================== */
 
 // Variables
-$navy = #1e2171
-$sky = #60adf7
-$powder = #a2deff
-$mag = #da0962
-$pink = #ed61af
-$cream = #fff3e2
-$off_white = #E6E6E6
+$color1 = black
+$color2 = #004b94
+$color3 = white
+$color4 = #0069d0
 
-$sky_half = rgba(80,144,204,0.35)
-$mag_half = rgba(218,9,98,0.35)
-$navy_half = rgba(30,33,113,0.35)
+$page-header-bg = #0d0707
 
-$sky_trans = rgba(80,144,204,0.15)
-$mag_trans = rgba(218,9,98,0.15)
-$navy_trans = rgba(30,33,113,0.15)
+$color2_trans = rgba(0, 0, 0, 0.4)
 
-$ff_body = 'Open Sans', sans-serif
-$ff_headline = 'Cheddar Jack', cursive
+$off-white = #d0d0d0
 
-// Functions
+$ff-body = 'Lato', sans-serif
+
+
+/* ==========================================================================
+	Global Classes
+   ========================================================================== */
+
+// Ghost Buttons
+.ghost-button
+	width auto
+	max-width 100%
+	text-align center
+	margin 1em auto
+
+	a
+		padding 0.4em .8em
+		color $color2
+		text-decoration none
+		background-color white
+		border 3px solid @color
+		border-radius 0.1em
+		display inline-block
+		transition all 0.2s
+
+		&:hover
+		&:active
+			background-color @color
+			color @background-color
+
+
+/* ==========================================================================
+	Functions
+   ========================================================================== */
 
 -unselectable()
 	-webkit-user-select: none; /* Chrome/Safari */
@@ -32,13 +56,9 @@ $ff_headline = 'Cheddar Jack', cursive
 	user-select: none;
 
 
--invisible( $invis = true )
-	if $invis == true
-		visibility hidden
-		position absolute
-	else
-		visibility visible
-		position inherit
+-invisible()
+	visibility hidden
+	position absolute
 
 
 -flexbox()
@@ -53,34 +73,16 @@ $ff_headline = 'Cheddar Jack', cursive
 	display inline-block
 
 
--wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
-	if $customWidth == false
-		$w = 85%
-	else
-		$w = $customWidth
-
-	if $customMax == false
-		$mw = none
-	else
-		$mw = $customMax
-
-	if $topMargin == false
-		$topMargin = 0
-	if $bottomMargin == false
-		$bottomMargin = 0
-
-	width $w
-	max-width $mw
+-wrapper( $topMargin = 0, $bottomMargin = 0, $customWidth = 85%, $customMax = 75rem )
+	width $customWidth
+	max-width $customMax
 	position relative
 	margin $topMargin auto $bottomMargin auto
 
 
--unwrapper( $w = false )
-	if $w != false
-		width $w
-	else
-		width 100%
-	max-width 100%
+-unwrapper( $w = 100% )
+	width $w
+	max-width none
 	margin initial
 
 
@@ -137,14 +139,14 @@ $ff_headline = 'Cheddar Jack', cursive
 			opacity( $opacity )
 
 
-/* -flexbox( $mode = space-between )
-	-ms-box-orient: horizontal;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: $mode
-	justify-content: $mode
-*/
+-soliloquy( $maxHt = 500px, $id = null )
+	if $id == null
+		$elem = '.soliloquy-outer-container'
+	else
+		$base = "#soliloquy-container-"
+		$elem = $base + $id
+
+	{$elem}
+		.soliloquy-slider
+			img
+				max-height $maxHt
