@@ -76,12 +76,6 @@
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header">
-				<div id="rhd-ad-box-header">
-					<script type='text/javascript' src='//www.googletagservices.com/tag/js/gpt.js'>
-						googletag.pubads().definePassback('/6178/hhm.centsationalgirl/misc', [728, 90]).setTargeting('pos', ['top']).display();
-					</script>
-				</div>
-
 				<a id="site-title" href="<?php echo home_url(); ?>">
 					<img src="<?php echo $updir['baseurl']; ?>/2016/01/centsational-logo-2016.png" alt="<?php bloginfo('name'); ?>" title="Centsational Girl">
 				</a>

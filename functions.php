@@ -22,7 +22,7 @@ function rhd_init()
 add_action( 'after_setup_theme', 'rhd_init' );
 
 /* Disable Editor */
-define( 'DISALLOW_FILE_EDIT', true );
+// define( 'DISALLOW_FILE_EDIT', true );
 
 
 /* ==========================================================================
@@ -261,7 +261,7 @@ function rhd_remove_editor_menu()
 {
   remove_action('admin_menu', '_add_themes_utility_last', 101);
 }
-add_action('_admin_menu', 'rhd_remove_editor_menu', 1);
+// add_action('_admin_menu', 'rhd_remove_editor_menu', 1);
 
 
 // Globally disable WP toolbar
