@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:00:58 PM on 26-04-2016
+* RHD Dev: Compiled at 8:02:18 PM on 26-04-2016
 ***/
 
 /**
@@ -916,7 +916,7 @@ body {
   font-size: 16px;
   margin: 0;
   color: #1e2171;
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -940,28 +940,28 @@ textarea {
   border: 2px solid #60adf7;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:focus,
@@ -976,14 +976,14 @@ hr {
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
   background-color: #808080;
 }
 .cheddar {
-  font-family: $ff_headline;
+  font-family: 'Cheddar Jack', cursive;
 }
 #masthead {
   width: 100%;
@@ -1183,7 +1183,7 @@ input[type="submit"]:hover {
   float: left;
   padding: 0.375rem;
   border: none;
-  font-family: $ff_body;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
 }
 #colophon #footer-widget-area .search-form .search-field {
@@ -1427,12 +1427,12 @@ input[type="submit"]:hover {
   margin: 0.25em 0;
 }
 .front-page #rhd-color-block-community-grid h3 {
-  font-family: $ff_headline;
+  font-family: 'Cheddar Jack', cursive;
   font-size: 4em;
   margin-top: 0;
 }
 .page-id-25 #rhd-color-block-trust .we-are {
-  font-family: $ff_headline;
+  font-family: 'Cheddar Jack', cursive;
   font-size: 4em;
   margin: 1rem 0;
   text-align: center;
@@ -1463,7 +1463,7 @@ input[type="submit"]:hover {
 .page-id-25 #rhd-color-block-answer-the-call {
   font-size: 3.5em;
   line-height: 1.1;
-  font-family: $ff_headline;
+  font-family: 'Cheddar Jack', cursive;
   text-align: center;
   padding: 2rem 0 !important;
 }
@@ -1490,7 +1490,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: $off_white;
+  background: #e6e6e6;
 }
 #comments .odd {
   background: #fff;

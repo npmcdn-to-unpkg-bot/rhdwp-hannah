@@ -10,6 +10,9 @@ get_header(); ?>
 
 	<section id="primary" class="site-content full-width">
 		<div id="content" role="main">
+			<section id="front-page-slideshow" class="full-width-slideshow">
+				<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '132' ); } ?>
+			</section>
 
 			<?php if ( have_posts() ) : ?>
 

@@ -7,12 +7,9 @@
  */
 
 get_header();
-session_start();
 ?>
 
 	<section id="primary" class="site-content">
-		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
-
 		<div id="content" role="main">
 			<div id="posts-feed">
 				<?php if ( have_posts() ) : ?>
@@ -70,4 +67,5 @@ session_start();
 
 	</section><!-- #primary -->
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
