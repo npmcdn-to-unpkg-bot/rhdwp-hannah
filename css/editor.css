@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:31:20 PM on 25-04-2016
+* RHD Dev: Compiled at 8:00:58 PM on 26-04-2016
 ***/
 
 /**
@@ -916,7 +916,7 @@ body {
   font-size: 16px;
   margin: 0;
   color: #1e2171;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff_body;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -940,28 +940,28 @@ textarea {
   border: 2px solid #60adf7;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff_body;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff_body;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff_body;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff_body;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff_body;
   color: #808080;
 }
 input:focus,
@@ -976,14 +976,14 @@ hr {
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff_body;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
   background-color: #808080;
 }
 .cheddar {
-  font-family: 'Cheddar Jack', cursive;
+  font-family: $ff_headline;
 }
 #masthead {
   width: 100%;
@@ -1037,24 +1037,32 @@ input[type="submit"]:hover {
 #site-navigation-container #site-navigation .menu-item a:active {
   color: #60adf7;
 }
+#site-navigation-container #site-navigation .menu-item .ghost-button a {
+  background-color: #60adf7;
+  color: #fff;
+  transition: all 0.25s;
+  border-color: #1e2171;
+}
 #site-navigation-container #site-navigation .menu-item .ghost-button a:hover,
 #site-navigation-container #site-navigation .menu-item .ghost-button a:active {
-  color: #fff;
+  background-color: #1e2171;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu {
   width: 14em;
   position: absolute;
   left: -0.5em;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,0.95);
   padding-top: 0.3em;
   padding-left: 0;
   line-height: 1.7;
-  z-index: 999;
+  display: none;
+  z-index: 9999;
 }
 #site-navigation-container #site-navigation .menu-item .sub-menu .menu-item {
   width: 100%;
   height: 100%;
   margin: 0;
+  padding: 0.25em 0;
   text-align: left;
   transition: all 0.25s;
   font-size: 1em;
@@ -1126,7 +1134,7 @@ input[type="submit"]:hover {
 }
 #main.rhd-color-block-area {
   width: 100%;
-  margin: 2em 0;
+  margin: 0;
 }
 #main.rhd-color-block-area #primary .entry-content p:first-child,
 #main.rhd-color-block-area #primary .entry-content p:last-child {
@@ -1175,7 +1183,7 @@ input[type="submit"]:hover {
   float: left;
   padding: 0.375rem;
   border: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff_body;
   font-size: 1em;
 }
 #colophon #footer-widget-area .search-form .search-field {
@@ -1391,12 +1399,12 @@ input[type="submit"]:hover {
 .single-pagination [rel="next"] {
   float: right;
 }
-#main.rhd-color-block-area {
-  margin: 0;
-}
 #main.rhd-color-block-area #primary .rhd-color-block {
   width: 100%;
-  padding: 2em 0;
+  padding: 3em 0;
+}
+#main.rhd-color-block-area #primary .rhd-color-block:first-child {
+  padding-bottom: 4em;
 }
 #main.rhd-color-block-area #primary .rhd-color-block.rhd-color-block-blue {
   background: #1e2171;
@@ -1419,12 +1427,12 @@ input[type="submit"]:hover {
   margin: 0.25em 0;
 }
 .front-page #rhd-color-block-community-grid h3 {
-  font-family: 'Cheddar Jack', cursive;
+  font-family: $ff_headline;
   font-size: 4em;
   margin-top: 0;
 }
 .page-id-25 #rhd-color-block-trust .we-are {
-  font-family: 'Cheddar Jack', cursive;
+  font-family: $ff_headline;
   font-size: 4em;
   margin: 1rem 0;
   text-align: center;
@@ -1455,7 +1463,7 @@ input[type="submit"]:hover {
 .page-id-25 #rhd-color-block-answer-the-call {
   font-size: 3.5em;
   line-height: 1.1;
-  font-family: 'Cheddar Jack', cursive;
+  font-family: $ff_headline;
   text-align: center;
   padding: 2rem 0 !important;
 }
@@ -1482,7 +1490,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: #e6e6e6;
+  background: $off_white;
 }
 #comments .odd {
   background: #fff;
@@ -1567,10 +1575,14 @@ input[type="submit"]:hover {
   font-size: 1.3em;
   font-weight: 800;
 }
+#tribe-events-bar {
+  margin-bottom: 0;
+}
 @media screen and (min-width: 40em) {
   #masthead {
     height: 6em;
     transition: all 0.25s;
+    z-index: 9999;
   }
   #masthead #site-title {
     width: 23%;
@@ -1645,7 +1657,7 @@ input[type="submit"]:hover {
     background-color: rgba(80,144,204,0.15);
   }
   .entry-meta .entry-meta-links .post-meta .post-meta-item {
-    width: 33.3333333%;
+    width: 50%;
     height: 100%;
     display: table-cell;
     padding: 1em 0;

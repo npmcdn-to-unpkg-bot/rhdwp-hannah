@@ -659,10 +659,6 @@ function rhd_post_meta_links()
 {
 	?>
 	<ul class="post-meta">
-		<li class="post-meta-item post-locations">
-			<span class="post-meta-item-title">Store Locations</span><br />
-			<?php echo get_the_term_list( get_the_ID(), 'location', '', '<br />', null ); ?>
-		</li>
 		<li class="post-meta-item post-cats">
 			<span class="post-meta-item-title">Categories</span><br />
 			<?php echo get_the_term_list( get_the_ID(), 'category', '', '<br />', null ); ?>

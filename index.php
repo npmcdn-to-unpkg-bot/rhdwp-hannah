@@ -21,15 +21,7 @@ get_header();
 				<?php endif; ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php
-// 						if ( is_single() ) {
-/*
-							get_template_part( 'content', 'single' );
-						} else {
-*/
-							get_template_part( 'content' );
-// 						}
-					?>
+					<?php get_template_part( 'content' ); ?>
 				<?php endwhile; ?>
 
 				<?php if ( ! is_single() ) : ?>
