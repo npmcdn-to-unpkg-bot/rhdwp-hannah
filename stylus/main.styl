@@ -243,6 +243,9 @@ input[type="submit"]
 					&:first-child
 					&:last-child
 						margin 0
+	
+	&.wrap
+		-wrapper(2em, 2em, 85%, 80rem)
 
 
 #primary
@@ -260,13 +263,10 @@ input[type="submit"]
 	background $off-white
 	
 	article
-		-wrapper()
+		-wrapper(0, 0, 100%, 80rem)
 		background white
+
 		
-		.entry-content
-			padding 0 2rem
-
-
 #colophon
 	width 100%
 	height auto
