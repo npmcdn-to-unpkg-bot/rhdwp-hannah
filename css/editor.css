@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:02:18 PM on 26-04-2016
+* RHD Dev: Compiled at 5:52:54 PM on 28-04-2016
 ***/
 
 /**
@@ -317,7 +317,6 @@ h4,
 h5,
 h6 {
   clear: both;
-  font-weight: 700;
 }
 p {
   margin-bottom: 1.6em;
@@ -984,6 +983,7 @@ input[type="submit"]:hover {
 }
 .cheddar {
   font-family: 'Cheddar Jack', cursive;
+  font-weight: 300 !important;
 }
 #masthead {
   width: 100%;
@@ -1140,12 +1140,6 @@ input[type="submit"]:hover {
 #main.rhd-color-block-area #primary .entry-content p:last-child {
   margin: 0;
 }
-#main.wrap {
-  width: 85%;
-  max-width: 75rem;
-  position: relative;
-  margin: 2em auto 2em auto;
-}
 #primary,
 #secondary {
   width: 100%;
@@ -1154,6 +1148,19 @@ input[type="submit"]:hover {
 }
 #secondary {
   margin-bottom: 2em;
+}
+#content {
+  background: #e6e6e6;
+}
+#content article {
+  width: 85%;
+  max-width: 75rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+  background: #fff;
+}
+#content article .entry-content {
+  padding: 0 2rem;
 }
 #colophon {
   width: 100%;
@@ -1247,6 +1254,7 @@ input[type="submit"]:hover {
   text-align: center;
   font-weight: 800;
   font-size: 1.8em;
+  padding-top: 1em;
 }
 .entry-summary p {
   margin-bottom: 0;
@@ -1376,11 +1384,21 @@ input[type="submit"]:hover {
   font-weight: 700;
   color: #1e2171;
 }
-.full-width-slideshow {
+.full-width-header {
   width: 100%;
 }
-.full-width-slideshow .soliloquy-container {
+.full-width-header .soliloquy-container {
   border-bottom: 4px solid #1e2171;
+}
+.page-featured-image {
+  width: 100%;
+  height: auto;
+}
+.page-featured-image img {
+  width: auto;
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto 0 auto;
 }
 .pagination,
 .single-pagination {
@@ -1405,16 +1423,25 @@ input[type="submit"]:hover {
 }
 #main.rhd-color-block-area #primary .rhd-color-block:first-child {
   padding-bottom: 4em;
+  padding-top: 0;
 }
 #main.rhd-color-block-area #primary .rhd-color-block.rhd-color-block-blue {
   background: #1e2171;
   color: #fff;
 }
-.rhd-color-block-content {
+#main.rhd-color-block-area #primary .rhd-color-block.rhd-color-block-white {
+  background: #fff;
+  color: #1e2171;
+}
+#main.rhd-color-block-area #primary .rhd-color-block .rhd-color-block-content {
   width: 85%;
   max-width: 75rem;
   position: relative;
   margin: 0 auto 0 auto;
+}
+.front-page #main.rhd-color-block-area #primary .rhd-color-block:first-child,
+.page-id-25 #main.rhd-color-block-area #primary .rhd-color-block:first-child {
+  padding-top: 3em;
 }
 .front-page #rhd-color-block-intro,
 .page-id-25 #rhd-color-block-intro {
@@ -1428,11 +1455,13 @@ input[type="submit"]:hover {
 }
 .front-page #rhd-color-block-community-grid h3 {
   font-family: 'Cheddar Jack', cursive;
+  font-weight: 300 !important;
   font-size: 4em;
   margin-top: 0;
 }
 .page-id-25 #rhd-color-block-trust .we-are {
   font-family: 'Cheddar Jack', cursive;
+  font-weight: 300 !important;
   font-size: 4em;
   margin: 1rem 0;
   text-align: center;
@@ -1464,11 +1493,13 @@ input[type="submit"]:hover {
   font-size: 3.5em;
   line-height: 1.1;
   font-family: 'Cheddar Jack', cursive;
+  font-weight: 300 !important;
   text-align: center;
   padding: 2rem 0 !important;
 }
 .page-id-25 #rhd-color-block-answer-the-call h3 {
   margin: 0;
+  font-weight: normal !important;
 }
 #comments {
   margin: 2em auto;
@@ -1574,6 +1605,13 @@ input[type="submit"]:hover {
   text-align: center;
   font-size: 1.3em;
   font-weight: 800;
+}
+.tribe-is-responsive #content {
+  background: #fff;
+  width: 85%;
+  max-width: 75rem;
+  position: relative;
+  margin: 2em auto 2em auto;
 }
 #tribe-events-bar {
   margin-bottom: 0;

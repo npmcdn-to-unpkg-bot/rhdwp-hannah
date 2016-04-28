@@ -75,7 +75,7 @@ input[type="submit"]
 
 
 .cheddar
-	font-family $ff-headline
+	-ff-headline()
 
 
 #masthead
@@ -244,9 +244,6 @@ input[type="submit"]
 					&:last-child
 						margin 0
 
-	&.wrap
-		-wrapper(2em,2em)
-
 
 #primary
 #secondary
@@ -257,6 +254,17 @@ input[type="submit"]
 
 #secondary
 	margin-bottom 2em
+
+
+#content
+	background $off-white
+	
+	article
+		-wrapper()
+		background white
+		
+		.entry-content
+			padding 0 2rem
 
 
 #colophon
@@ -359,6 +367,7 @@ input[type="submit"]
 	text-align center
 	font-weight 800
 	font-size 1.8em
+	padding-top 1em
 
 
 .entry-summary
@@ -497,11 +506,19 @@ input[type="submit"]
 			color $navy
 
 
-.full-width-slideshow
+.full-width-header
 	width 100%
 
 	.soliloquy-container
 		border-bottom 4px solid $navy
+
+
+.page-featured-image
+	width 100%
+	height auto
+	
+	img
+		-wrapper(0, 0, auto, 100%)
 
 
 .pagination
@@ -532,15 +549,15 @@ input[type="submit"]
 
 				&:first-child
 					padding-bottom 4em
+					padding-top 0
 
 				&.rhd-color-block-blue
 					background $navy
 					color white
 
-//				(DEFAULT)
-// 				&.rhd-color-block-white
-// 					background white
-// 					color $navy
+				&.rhd-color-block-white
+					background white
+					color $navy
 
 				.rhd-color-block-content
 					-wrapper()
@@ -552,6 +569,13 @@ input[type="submit"]
 
 .front-page
 .page-id-25
+	#main
+		&.rhd-color-block-area
+			#primary
+				.rhd-color-block
+					&:first-child
+						padding-top 3em
+					
 	#rhd-color-block-intro
 		text-align center
 
@@ -566,7 +590,7 @@ input[type="submit"]
 
 	#rhd-color-block-community-grid
 		h3
-			font-family $ff-headline
+			-ff-headline()
 			font-size 4em
 			margin-top 0
 
@@ -574,7 +598,7 @@ input[type="submit"]
 .page-id-25
 	#rhd-color-block-trust
 		.we-are
-			font-family $ff-headline
+			-ff-headline()
 			font-size 4em
 			margin 1rem 0
 			text-align center
@@ -602,12 +626,13 @@ input[type="submit"]
 	#rhd-color-block-answer-the-call
 		font-size 3.5em
 		line-height 1.1
-		font-family $ff-headline
+		-ff-headline()
 		text-align center
 		padding 2rem 0 !important
 
 		h3
 			margin 0
+			font-weight normal !important
 
 
 /* ==========================================================================
@@ -739,6 +764,11 @@ input[type="submit"]
 /* ==========================================================================
 	Modern Tribe Events Calendar
    ========================================================================== */
+
+.tribe-is-responsive
+	#content
+		background white
+		-wrapper(2em, 2em)
 
 #tribe-events-bar
 	margin-bottom 0

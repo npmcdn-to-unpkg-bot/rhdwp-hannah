@@ -53,24 +53,14 @@ $ff-headline = 'Cheddar Jack', cursive
 	display inline-block
 
 
--wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
-	if $customWidth == false
-		$w = 85%
-	else
-		$w = $customWidth
-
-	if $customMax == false
-		$mw = 75rem
-	else
-		$mw = $customMax
-
+-wrapper( $topMargin = 0, $bottomMargin = 0, $width = 85%, $maxWidth = 75rem )
 	if $topMargin == false
 		$topMargin = 0
 	if $bottomMargin == false
 		$bottomMargin = 0
 
-	width $w
-	max-width $mw
+	width $width
+	max-width $maxWidth
 	position relative
 	margin $topMargin auto $bottomMargin auto
 
@@ -137,14 +127,6 @@ $ff-headline = 'Cheddar Jack', cursive
 			opacity( $opacity )
 
 
-/* -flexbox( $mode = space-between )
-	-ms-box-orient: horizontal;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: $mode
-	justify-content: $mode
-*/
+-ff-headline()
+	font-family $ff-headline
+	font-weight 300 !important

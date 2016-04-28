@@ -10,7 +10,7 @@ get_header(); ?>
 
 	<section id="primary" class="site-content full-width">
 		<div id="content" role="main">
-			<section id="front-page-slideshow" class="full-width-slideshow">
+			<section id="front-page-slideshow" class="full-width-header">
 				<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '130' ); } ?>
 			</section>
 
