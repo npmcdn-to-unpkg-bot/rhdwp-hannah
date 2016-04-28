@@ -7,7 +7,6 @@
  */
 
 get_header();
-session_start();
 ?>
 
 	<section id="primary" class="site-content">
