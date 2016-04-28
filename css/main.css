@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:46:37 PM on 28-04-2016
+* RHD Dev: Compiled at 6:51:03 PM on 28-04-2016
 ***/
 
 .alignnone {
@@ -1630,13 +1630,6 @@ input[type="submit"]:hover {
 /* ==========================================================================
 	Modern Tribe Events Calendar
    ========================================================================== */
-.tribe-is-responsive #content {
-  background: #fff;
-  width: 85%;
-  max-width: 75rem;
-  position: relative;
-  margin: 2em auto 2em auto;
-}
 #tribe-events-bar {
   margin-bottom: 0;
 }
