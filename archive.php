@@ -19,7 +19,6 @@ session_start();
 
 				<?php the_archive_title( '<h2 class="page-title archive-title">', '</h2>' ); ?>
 
-				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php
 						if ( is_single() ) get_template_part( 'content', 'single' );
