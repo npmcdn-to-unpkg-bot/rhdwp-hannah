@@ -38,14 +38,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		});
 
 		rhdDonateButtonSelect();
-
-		// Donation input mask
-		$("#donation-custom-amount").maskMoney({
-			prefix: '',
-			suffix: '',
-			allowNegative: false,
-			precision: 0
-		});
 	});
 
 
@@ -126,19 +118,16 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	function rhdDonateButtonSelect() {
 		$("#donation-form button").on('click', function(){
 			var $this = $(this);
-			var $customField = $('#donation-custom-amount');
+			$('#donation-custom-amount').val('');
 
 			if ( $this.hasClass('active') ) {
 				$this.removeClass('active');
-				$customField.attr('value', '');
 			} else {
 				$("#donation-form button").removeClass('active');
+
 				$this.addClass('active');
-				$customField
-					.attr('value', parseFloat($this.attr('value')))
-					.maskMoney('mask');
+				$('#donation-custom-amount').val(parseInt($(this).val()));
 			}
 		});
 	}
-
 })(jQuery);
