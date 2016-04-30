@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:31:15 PM on 04-03-2016
+* RHD Dev: Compiled at 8:42:14 PM on 29-04-2016
 ***/
 
 .alignnone {
@@ -1209,16 +1209,18 @@ body .sb-slidebar .sub-menu {
 }
 #colophon #footer-widget-area .rhd_social_icons {
   text-align: center;
+  margin: 1em auto;
 }
 #colophon #footer-hheart-logo {
-  width: 100%;
+  width: auto;
   height: 13em;
   margin: 0 auto;
   background: #fff;
   position: relative;
 }
 #colophon #footer-hheart-logo img {
-  width: 85%;
+  width: auto;
+  height: 95%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1391,7 +1393,6 @@ body .sb-slidebar .sub-menu {
   position: absolute;
   bottom: 1.5em;
   text-align: center;
-  color: #fff;
   font-family: 'Luckiest Guy', cursive;
   font-weight: bold;
   padding: 0.75em 0.75em 0.35em 0.75em;
@@ -1399,6 +1400,9 @@ body .sb-slidebar .sub-menu {
   background-color: rgba(0,71,137,0.5);
   transition: background-color 0.25s;
   font-size: 1.2em;
+}
+.highlight-link figcaption a {
+  color: #fff;
 }
 .highlight-link img {
   -moz-opacity: 0.8;
@@ -1733,6 +1737,10 @@ body .sb-slidebar .sub-menu {
     position: absolute;
     right: 0.25rem;
     top: 0.25rem;
+  }
+  #colophon #footer-hheart-logo img {
+    width: 85%;
+    height: auto;
   }
   .blog-area #primary {
     width: 66%;

@@ -310,16 +310,18 @@ body
 
 		.rhd_social_icons
 			text-align center
+			margin 1em auto
 
 	#footer-hheart-logo
-		width 100%
+		width auto
 		height 13em // temporary
 		margin 0 auto
 		background white
 		position relative
 
 		img
-			width 85%
+			width auto
+			height 95%
 			position absolute
 			top 50%
 			left 50%
@@ -499,7 +501,6 @@ body
 		position absolute
 		bottom 1.5em
 		text-align center
-		color white
 		font-family $ff_special
 		font-weight bold
 		padding 0.75em 0.75em 0.35em 0.75em
@@ -507,6 +508,9 @@ body
 		background-color rgba(0, 71, 137,0.5)
 		transition background-color 0.25s
 		font-size 1.2em
+
+		a
+			color white
 
 	img
 		-opacity(0.8)
@@ -860,6 +864,10 @@ body
 			position absolute
 			right 0.25rem
 			top 0.25rem
+
+			img
+				width 85%
+				height auto
 
 	.blog-area
 		#main

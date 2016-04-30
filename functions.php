@@ -33,7 +33,7 @@ function rhd_enqueue_styles()
 {
 	global $theme_opts;
 
-	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
+	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1.1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,800|Luckiest+Guy|Open+Sans+Condensed:300,700' );
@@ -163,7 +163,7 @@ function rhd_register_sidebars()
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>'
 	));
-	
+
 	register_sidebar(array(
 		'name'			=> __( 'Footer Widget Area', 'rhd' ),
 		'id'			=> 'footer-widget-area',
@@ -183,7 +183,7 @@ register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
  * RHD_Walker_Nav class.
  *
  * Adds newlines after each </li> closing tag.
- * 
+ *
  * @extends Walker_Nav_Menu
  */
 class RHD_Walker_Nav extends Walker_Nav_Menu {
@@ -467,15 +467,15 @@ add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
 
 /**
  * rhd_archive_pagination function.
- * 
+ *
  * @access public
  * @param obj $q (default: null)
  * @return void
  */
 function rhd_archive_pagination( WP_Query $q = null )
-{		
+{
 	$max_page = ( $q ) ? $q->max_num_pages : null;
-		
+
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
 	echo '<div class="pagination">';
@@ -601,7 +601,7 @@ function rhd_body_class( $body_classes )
 	$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
 	$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
 	$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
-	
+
 	//$body_classes[] = ( is_front_page() || is_page( 294)  ) ? 'no-image-strip' : '';
 
 	session_start();
@@ -624,7 +624,7 @@ add_filter( 'body_class', 'rhd_body_class' );
 
 /**
  * rhd_big_image_widgets function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -632,7 +632,7 @@ function rhd_big_image_widgets()
 {
 	$updir = wp_upload_dir();
 	?>
-	
+
 	<aside id="highlights">
 		<figure class="highlight-link">
 			<a href="<?php echo home_url('/how-to-attend-camp-erin'); ?>">
@@ -644,7 +644,7 @@ function rhd_big_image_widgets()
 				<figcaption><?php echo $cap_1; ?></figcaption>
 			</a>
 		</figure>
-		
+
 		<figure class="highlight-link">
 			<a href="<?php echo home_url('/become-a-camp-erin-volunteer'); ?>">
 				<?php
@@ -655,7 +655,7 @@ function rhd_big_image_widgets()
 				<figcaption><?php echo $cap_2; ?></figcaption>
 			</a>
 		</figure>
-		
+
 		<figure class="highlight-link">
 			<a href="<?php echo home_url('/donate'); ?>">
 				<?php
