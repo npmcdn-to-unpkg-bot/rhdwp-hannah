@@ -257,14 +257,14 @@ function rhd_branding_login()
 {
 	return "//roundhouse-designs.com/";
 }
-add_filter('login_headerurl', 'rhd_branding_login');
+//add_filter('login_headerurl', 'rhd_branding_login');
 
 
 // Site Title as "login message" (underneath RHD logo)
 function rhd_login_message() {
 	echo '<h1 class="rhd-login-site-title">' . get_bloginfo('name') . "</h1>\n";
 }
-add_action( 'login_message', 'rhd_login_message' );
+//add_action( 'login_message', 'rhd_login_message' );
 
 
 // Roundhouse Branding CSS
@@ -272,7 +272,7 @@ function rhd_login()
 {
 	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
 }
-add_action('login_head', 'rhd_login');
+//add_action('login_head', 'rhd_login');
 
 
 function rhd_admin()
@@ -285,7 +285,7 @@ add_action('admin_head', 'rhd_admin');
 // Custom WordPress Footer
 function rhd_footer_admin ()
 {
-	return '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
+	return 'Hosted by Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
 }
 add_filter('admin_footer_text', 'rhd_footer_admin');
 
@@ -635,39 +635,36 @@ function rhd_big_image_widgets()
 
 	<aside id="highlights">
 		<figure class="highlight-link">
-			<?php $link = home_url( '/how-to-attend-camp-erin' ); ?>
-			<a href="<?php echo $link; ?>">
+			<a href="<?php echo home_url('/how-to-attend-camp-erin'); ?>">
 				<?php
 				$img_1 = wp_get_attachment_image_src( 47, '4x6' );
 				$cap_1 = "Apply to attend camp";
 				?>
 				<img src="<?php echo $img_1[0]; ?>" alt="<?php echo $cap_1; ?>">
+				<figcaption><?php echo $cap_1; ?></figcaption>
 			</a>
-			<figcaption><a href="<?php echo $link; ?>"><?php echo $cap_1; ?></a></figcaption>
 		</figure>
 
 		<figure class="highlight-link">
-			<?php $link = home_url('/become-a-camp-erin-volunteer'); ?>
-			<a href="<?php echo $link; ?>">
+			<a href="<?php echo home_url('/become-a-camp-erin-volunteer'); ?>">
 				<?php
 				$img_2 = wp_get_attachment_image_src( 48, '4x6' );
 				$cap_2 = "Volunteer";
 				?>
 				<img src="<?php echo $img_2[0]; ?>" alt="<?php echo $cap_2; ?>">
+				<figcaption><?php echo $cap_2; ?></figcaption>
 			</a>
-			<figcaption><a href="<?php echo $link; ?>"><?php echo $cap_2; ?></a></figcaption>
 		</figure>
 
 		<figure class="highlight-link">
-			<?php $link = home_url('/donate'); ?>
-			<a href="<?php echo $link ?>">
+			<a href="<?php echo home_url('/donate'); ?>">
 				<?php
 				$img_3 = wp_get_attachment_image_src( 49, '4x6' );
 				$cap_3 = "Donate";
 				?>
 				<img src="<?php echo $img_3[0]; ?>" alt="<?php echo $cap_3; ?>">
+				<figcaption><?php echo $cap_3; ?></figcaption>
 			</a>
-			<figcaption><a href="<?php echo $link; ?>"><?php echo $cap_3; ?></a></figcaption>
 		</figure>
 	</aside>
 	<?php
