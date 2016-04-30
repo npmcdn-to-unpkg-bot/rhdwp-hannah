@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:49:26 PM on 30-04-2016
+* RHD Dev: Compiled at 3:54:00 PM on 30-04-2016
 ***/
 
 /**
@@ -2034,51 +2034,51 @@ input[type="submit"]:hover {
   }
 }
 @media screen and (min-width: 40em) {
-  #primary,
-  #donation-form-container {
+  #primary {
     float: left;
   }
-  #primary.full-width,
-  #donation-form-container.full-width {
+  #primary.full-width {
     width: 100%;
     float: none;
   }
-  #donation-form #donation-custom-amount-container #donation-custom-amount {
-    width: 94%;
-  }
-  #secondary,
-  #donation-form-aside {
+  #secondary {
     width: 340px;
     float: right;
   }
-  #secondary .widget,
-  #donation-form-aside .widget {
+  #secondary .widget {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
   }
+  #donation-form-container {
+    width: 58%;
+    float: left;
+  }
+  #donation-form-aside {
+    width: 40%;
+    float: right;
+  }
+  #donation-form #donation-custom-amount-container #donation-custom-amount {
+    width: 94%;
+  }
 }
 @media screen and (min-width: 58em) {
-  #primary,
-  #donation-form-container {
+  #primary {
     width: 56%;
   }
 }
 @media screen and (min-width: 62em) {
-  #primary,
-  #donation-form-container {
+  #primary {
     width: 58%;
   }
 }
 @media screen and (min-width: 64em) {
-  #primary,
-  #donation-form-container {
+  #primary {
     width: 60%;
   }
 }
 @media screen and (min-width: 66em) {
-  #primary,
-  #donation-form-container {
+  #primary {
     width: 63%;
   }
 }
