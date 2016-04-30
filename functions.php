@@ -1104,6 +1104,12 @@ function rhd_donation_allocations_widget()
 }
 
 
+/**
+ * rhd_donation_form function.
+ *
+ * @access public
+ * @return void
+ */
 function rhd_donation_form()
 {
 	global $post;
