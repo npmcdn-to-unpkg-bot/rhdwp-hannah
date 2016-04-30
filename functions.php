@@ -33,7 +33,7 @@ function rhd_enqueue_styles()
 {
 	global $theme_opts;
 
-	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1.1', 'all' );
+	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1.11', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,800|Luckiest+Guy|Open+Sans+Condensed:300,700' );
@@ -635,36 +635,39 @@ function rhd_big_image_widgets()
 
 	<aside id="highlights">
 		<figure class="highlight-link">
-			<a href="<?php echo home_url('/how-to-attend-camp-erin'); ?>">
+			<?php $link = home_url( '/how-to-attend-camp-erin' ); ?>
+			<a href="<?php echo $link; ?>">
 				<?php
 				$img_1 = wp_get_attachment_image_src( 47, '4x6' );
 				$cap_1 = "Apply to attend camp";
 				?>
 				<img src="<?php echo $img_1[0]; ?>" alt="<?php echo $cap_1; ?>">
-				<figcaption><?php echo $cap_1; ?></figcaption>
 			</a>
+			<figcaption><a href="<?php echo $link; ?>"><?php echo $cap_1; ?></a></figcaption>
 		</figure>
 
 		<figure class="highlight-link">
-			<a href="<?php echo home_url('/become-a-camp-erin-volunteer'); ?>">
+			<?php $link = home_url('/become-a-camp-erin-volunteer'); ?>
+			<a href="<?php echo $link; ?>">
 				<?php
 				$img_2 = wp_get_attachment_image_src( 48, '4x6' );
 				$cap_2 = "Volunteer";
 				?>
 				<img src="<?php echo $img_2[0]; ?>" alt="<?php echo $cap_2; ?>">
-				<figcaption><?php echo $cap_2; ?></figcaption>
 			</a>
+			<figcaption><a href="<?php echo $link; ?>"><?php echo $cap_2; ?></a></figcaption>
 		</figure>
 
 		<figure class="highlight-link">
-			<a href="<?php echo home_url('/donate'); ?>">
+			<?php $link = home_url('/donate'); ?>
+			<a href="<?php echo $link ?>">
 				<?php
 				$img_3 = wp_get_attachment_image_src( 49, '4x6' );
 				$cap_3 = "Donate";
 				?>
 				<img src="<?php echo $img_3[0]; ?>" alt="<?php echo $cap_3; ?>">
-				<figcaption><?php echo $cap_3; ?></figcaption>
 			</a>
+			<figcaption><a href="<?php echo $link; ?>"><?php echo $cap_3; ?></a></figcaption>
 		</figure>
 	</aside>
 	<?php
