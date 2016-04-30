@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Large Header (Full Width)
+ * Template Name: Image Strip
  *
  * @package WordPress
  * @subpackage rhd
@@ -8,14 +8,15 @@
 
 get_header(); ?>
 
-	<section id="primary" class="site-content full-width">
-		<div id="content" role="main">
-			
+	<section id="primary" class="site-content">
+		<div id="content" class="image-strip-active" role="main">
+
 			<?php if ( have_posts() ) : ?>
 
+				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'content', 'page-no-thumb' ); ?>
+					<?php get_template_part( 'content', 'page' ); ?>
 
 				<?php endwhile; ?>
 
@@ -24,4 +25,5 @@ get_header(); ?>
 		</div><!-- #content -->
 	</section><!-- #primary -->
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

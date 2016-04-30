@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:55:37 PM on 29-04-2016
+* RHD Dev: Compiled at 8:59:48 PM on 29-04-2016
 ***/
 
 .alignnone {
@@ -1754,6 +1754,10 @@ input[type="submit"]:hover {
     position: absolute;
     right: 0.25rem;
     top: 0.25rem;
+  }
+  #colophon #footer-hheart-logo img {
+    max-width: 95%;
+    height: auto;
   }
   #comments #commentform {
     width: 75%;

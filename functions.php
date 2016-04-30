@@ -770,3 +770,255 @@ function rhd_append_nav_menu_items( $items, $args ){
 	return $items;
 }
 add_filter( 'wp_nav_menu_items', 'rhd_append_nav_menu_items', 10, 2 );
+
+
+/* ==========================================================================
+	Donation Page Meta Fields
+   ========================================================================== */
+
+/**
+ * rhd_add_donation_meta_boxes function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_add_donation_meta_boxes()
+{
+	add_meta_box(
+		'rhd_donation_headline',
+		__( 'Donation Headline', 'rhd' ),
+		'rhd_donation_headline_callback',
+		'donation_page',
+		'normal',
+		'high'
+	);
+
+	add_meta_box(
+		'rhd_donation_intro',
+		__( 'Donation Intro', 'rhd' ),
+		'rhd_donation_intro_callback',
+		'donation_page',
+		'normal',
+		'high'
+	);
+
+	add_meta_box(
+		'rhd_donation_amounts',
+		__( 'Donation Amounts', 'rhd' ),
+		'rhd_donation_amounts_callback',
+		'donation_page',
+		'normal',
+		'high'
+	);
+
+	add_meta_box(
+		'rhd_donation_allocations',
+		__( 'Donation Allocations', 'rhd' ),
+		'rhd_donation_allocations_callback',
+		'donation_page',
+		'normal',
+		'high'
+	);
+}
+add_action( 'add_meta_boxes', 'rhd_add_donation_meta_boxes' );
+
+
+/**
+ * rhd_donation_intro_callback function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_donation_intro_callback( $post )
+{
+	// Add an nonce field so we can check for it later.
+	wp_nonce_field( 'rhd_donation_intro_meta_box', 'rhd_donation_intro_meta_box_nonce' );
+
+	$meta = get_post_meta( $post->ID );
+?>
+
+	<p>
+		<label for="rhd-donation-intro" class="rhd-donation-intro"><?php _e( 'Donation intro', 'rhd' ); ?></label>
+	</p>
+	<p>
+		<textarea name="rhd-donation-intro" style="width: 100%;"><?php if ( isset ( $meta['_donation_intro'] ) ) echo $meta['_donation_intro'][0]; ?></textarea>
+	</p>
+<?php
+}
+
+
+/**
+ * rhd_donation_headline_callback function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_donation_headline_callback( $post )
+{
+	// Add an nonce field so we can check for it later.
+	wp_nonce_field( 'rhd_donation_headline_meta_box', 'rhd_donation_headline_meta_box_nonce' );
+
+	$meta = get_post_meta( $post->ID );
+?>
+
+	<p>
+		<label for="rhd-donation-headline" class="rhd-donation-headline"><?php _e( 'Donation Headline', 'rhd' ); ?></label>
+	</p>
+	<p>
+		<input type="text" name="rhd-donation-headline" style="width: 100%;" value="<?php if ( isset ( $meta['_donation_headline'] ) ) echo $meta['_donation_headline'][0]; ?>">
+	</p>
+<?php
+}
+
+
+/**
+ * rhd_donation_amounts_callback function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_donation_amounts_callback( $post )
+{
+	// Add an nonce field so we can check for it later.
+	wp_nonce_field( 'rhd_donation_amounts_meta_box', 'rhd_donation_amounts_meta_box_nonce' );
+
+	$meta = get_post_meta( $post->ID );
+?>
+
+	<table id="donation-amounts">
+		<thead>
+			<th>Amount (without $)</th>
+			<th>Button Text</th>
+		</thead>
+
+		<?php for ( $i = 1; $i <= 5; ++$i ) : ?>
+			<tr>
+				<td>
+					<input type="number" name="rhd-donation-amount-<?php echo $i; ?>" id="rhd-donation-amount-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_amount_' . $i] ) ) echo $meta['_donation_amount_' . $i][0]; ?>" />
+				</td>
+				<td>
+					<input type="text" name="rhd-donation-label-<?php echo $i; ?>" id="rhd-donation-label-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_label_' . $i] ) ) echo $meta['_donation_label_' . $i][0]; ?>" />
+				</td>
+			</tr>
+		<?php endfor; ?>
+	</table>
+<?php
+}
+
+
+/**
+ * rhd_donation_allocations_callback function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_donation_allocations_callback( $post )
+{
+	// Add an nonce field so we can check for it later.
+	wp_nonce_field( 'rhd_donation_allocations_meta_box', 'rhd_donation_allocations_meta_box_nonce' );
+
+	$meta = get_post_meta( $post->ID );
+?>
+
+	<table id="donation-allocations">
+		<thead>
+			<th>Amount (without $)</th>
+			<th>Allocation Text</th>
+		</thead>
+		<?php for ( $i = 1; $i <= 5; ++$i ) : ?>
+			<tr>
+				<td>
+					<input type="number" name="rhd-donation-allocation-amount-<?php echo $i; ?>" id="rhd-donation-allocation-amount-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_allocation_amount_' . $i] ) ) echo $meta['_donation_allocation_amount_' . $i][0]; ?>" />
+				</td>
+				<td>
+					<input type="text" name="rhd-donation-allocation-text-<?php echo $i; ?>" id="rhd-donation-allocation-text-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_allocation_text_' . $i] ) ) echo $meta['_donation_allocation_text_' . $i][0]; ?>" />
+				</td>
+			</tr>
+		<?php endfor; ?>
+	</table>
+<?php
+}
+
+
+/**
+ * rhd_save_donation_meta_box_data function.
+ *
+ * @access public
+ * @param mixed $post_id
+ * @return void
+ */
+function rhd_save_donation_meta_box_data( $post_id )
+{
+	// Check if our nonces are set.
+	if (
+		! isset( $_POST['rhd_donation_amounts_meta_box_nonce'] ) ||
+		! isset( $_POST['rhd_donation_allocations_meta_box_nonce' ] ) ||
+		! isset( $_POST['rhd_donation_intro_meta_box_nonce'] ) ||
+		! isset( $_POST['rhd_donation_headline_meta_box_nonce'] )
+	) {
+		return;
+	}
+
+	// Verify that the nonces are valid.
+	if (
+		! wp_verify_nonce( $_POST['rhd_donation_amounts_meta_box_nonce'], 'rhd_donation_amounts_meta_box' ) ||
+		! wp_verify_nonce( $_POST['rhd_donation_allocations_meta_box_nonce'], 'rhd_donation_allocations_meta_box' ) ||
+		! wp_verify_nonce( $_POST['rhd_donation_intro_meta_box_nonce'], 'rhd_donation_intro_meta_box' ) ||
+		! wp_verify_nonce( $_POST['rhd_donation_headline_meta_box_nonce'], 'rhd_donation_headline_meta_box' )
+	) {
+		return;
+	}
+
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	// Check the user's permissions.
+	if ( isset( $_POST['post_type'] ) && 'donation_page' == $_POST['post_type'] ) {
+
+		if ( ! current_user_can( 'edit_page', $post_id ) ) {
+			return;
+		}
+
+	} else {
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+	}
+
+	/* OK, it's safe for us to save the data now. */
+
+	// Checks for input and saves if needed
+	for ( $i = 1; $i <= 5; ++$i ) {
+		if( isset( $_POST[ 'rhd-donation-amount-' . $i ] ) ) {
+			update_post_meta( $post_id, '_donation_amount_' . $i, $_POST[ 'rhd-donation-amount-' . $i ] );
+		}
+
+		if( isset( $_POST[ 'rhd-donation-label-' . $i ] ) ) {
+			update_post_meta( $post_id, '_donation_label_' . $i, $_POST[ 'rhd-donation-label-' . $i ] );
+		}
+
+		if( isset( $_POST[ 'rhd-donation-allocation-amount-' . $i ] ) ) {
+			update_post_meta( $post_id, '_donation_allocation_amount_' . $i, $_POST[ 'rhd-donation-allocation-amount-' . $i ] );
+		}
+
+		if( isset( $_POST[ 'rhd-donation-allocation-text-' . $i ] ) ) {
+			update_post_meta( $post_id, '_donation_allocation_text_' . $i, $_POST[ 'rhd-donation-allocation-text-' . $i ] );
+		}
+	}
+
+	if( isset( $_POST[ 'rhd-donation-intro' ] ) ) {
+		update_post_meta( $post_id, '_donation_intro', $_POST[ 'rhd-donation-intro' ] );
+	}
+
+	if( isset( $_POST[ 'rhd-donation-headline' ] ) ) {
+		update_post_meta( $post_id, '_donation_headline', $_POST[ 'rhd-donation-headline' ] );
+	}
+}
+add_action( 'save_post', 'rhd_save_donation_meta_box_data' );
