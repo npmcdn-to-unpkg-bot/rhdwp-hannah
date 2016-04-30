@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:49:47 PM on 30-04-2016
+* RHD Dev: Compiled at 3:49:26 PM on 30-04-2016
 ***/
 
 /**
@@ -1783,13 +1783,20 @@ input[type="submit"]:hover {
   border: none;
 }
 #donation-allocations-table td {
-  padding: 0.05em 0;
+  padding: 0.25em 0;
+  line-height: 1;
 }
 #donation-allocations-table .donation-allocation-amount {
-  width: 33%;
+  width: 40%;
   font-family: 'Cheddar Jack', cursive;
   font-weight: 300 !important;
   font-size: 3em;
+  text-align: right;
+  padding-right: 1rem;
+  border-right: 3px solid #1e2171;
+}
+#donation-allocations-table .donation-allocation-text {
+  padding-left: 1em;
 }
 #tribe-events-bar {
   margin-bottom: 0;
@@ -2039,11 +2046,13 @@ input[type="submit"]:hover {
   #donation-form #donation-custom-amount-container #donation-custom-amount {
     width: 94%;
   }
-  #secondary {
+  #secondary,
+  #donation-form-aside {
     width: 340px;
     float: right;
   }
-  #secondary .widget {
+  #secondary .widget,
+  #donation-form-aside .widget {
     width: 300px;
     margin-left: auto;
     margin-right: auto;

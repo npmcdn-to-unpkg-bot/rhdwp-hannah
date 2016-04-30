@@ -36,8 +36,8 @@ get_header(); ?>
 		<div id="donation-form-container">
 			<?php rhd_donation_form(); ?>
 		</div>
-		<aside id="secondary" class="widget-area" role="complementary">
-			<?php rhd_donation_allocations_widget(); ?>
+		<aside id="donation-form-aside" class="widget-area" role="complementary">
+			<?php rhd_donation_allocations(); ?>
 		</aside>
 	</div>
 

@@ -797,6 +797,7 @@ input[type="submit"]
 		font-size 3em
 		margin 0
 
+
 #donation-intro
 	-wrapper(2em, 2em, 75%)
 	text-align center;
@@ -895,12 +896,19 @@ input[type="submit"]
 		border none
 
 	td
-		padding 0.05em 0
+		padding 0.25em 0
+		line-height 1
 
 	.donation-allocation-amount
-		width 33%
+		width 40%
 		-ff-headline()
 		font-size 3em
+		text-align right
+		padding-right 1rem
+		border-right 3px solid $navy
+
+	.donation-allocation-text
+		padding-left 1em
 
 
 /* ==========================================================================
@@ -1184,6 +1192,7 @@ input[type="submit"]
 				width 94%
 
 	#secondary
+	#donation-form-aside
 		width 340px
 		float right
 

@@ -791,9 +791,9 @@ add_filter( 'wp_nav_menu_items', 'rhd_append_nav_menu_items', 10, 2 );
 function rhd_add_donation_meta_boxes()
 {
 	add_meta_box(
-		'rhd_donation_headline',
-		__( 'Donation Headline', 'rhd' ),
-		'rhd_donation_headline_callback',
+		'rhd_donation_classy_url',
+		__( 'Classy Donation Page URL' ),
+		'rhd_donation_classy_url_callback',
 		'donation_page',
 		'normal',
 		'high'
@@ -829,6 +829,29 @@ function rhd_add_donation_meta_boxes()
 add_action( 'add_meta_boxes', 'rhd_add_donation_meta_boxes' );
 
 
+
+/**
+ * rhd_donation_classy_url_callback function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_donation_classy_url_callback( $post )
+{
+	// Add an nonce field so we can check for it later.
+	wp_nonce_field( 'rhd_donation_classy_url_meta_box', 'rhd_donation_classy_url_meta_box_nonce' );
+
+	$meta = get_post_meta( $post->ID );
+?>
+
+	<p>
+		<label for="rhd-donation-classy-url" class="rhd-donation-classy-url"><?php _e( 'Classy URL: ', 'rhd' ); ?></label><input type="url" name="rhd-donation-classy-url" style="width: 100%;" value="<?php if ( isset ( $meta['_donation_classy_url'] ) ) echo $meta['_donation_classy_url'][0]; ?>">
+	</p>
+<?php
+}
+
+
 /**
  * rhd_donation_intro_callback function.
  *
@@ -845,35 +868,11 @@ function rhd_donation_intro_callback( $post )
 ?>
 
 	<p>
-		<label for="rhd-donation-intro" class="rhd-donation-intro"><?php _e( 'Donation intro', 'rhd' ); ?></label>
+		<label for="rhd-donation-headline" class="rhd-donation-headline"><?php _e( 'Donation Headline: ', 'rhd' ); ?></label><input type="text" name="rhd-donation-headline" style="width: 100%;" value="<?php if ( isset ( $meta['_donation_headline'] ) ) echo $meta['_donation_headline'][0]; ?>">
 	</p>
 	<p>
+		<label for="rhd-donation-intro" class="rhd-donation-intro"><?php _e( 'Introductory Text: ', 'rhd' ); ?></label>
 		<textarea name="rhd-donation-intro" style="width: 100%;"><?php if ( isset ( $meta['_donation_intro'] ) ) echo $meta['_donation_intro'][0]; ?></textarea>
-	</p>
-<?php
-}
-
-
-/**
- * rhd_donation_headline_callback function.
- *
- * @access public
- * @param mixed $post
- * @return void
- */
-function rhd_donation_headline_callback( $post )
-{
-	// Add an nonce field so we can check for it later.
-	wp_nonce_field( 'rhd_donation_headline_meta_box', 'rhd_donation_headline_meta_box_nonce' );
-
-	$meta = get_post_meta( $post->ID );
-?>
-
-	<p>
-		<label for="rhd-donation-headline" class="rhd-donation-headline"><?php _e( 'Donation Headline', 'rhd' ); ?></label>
-	</p>
-	<p>
-		<input type="text" name="rhd-donation-headline" style="width: 100%;" value="<?php if ( isset ( $meta['_donation_headline'] ) ) echo $meta['_donation_headline'][0]; ?>">
 	</p>
 <?php
 }
@@ -928,13 +927,13 @@ function rhd_donation_allocations_callback( $post )
 
 	<table id="donation-allocations">
 		<thead>
-			<th>Amount (without $)</th>
-			<th>Allocation Text</th>
+			<th>Label/Amount</th>
+			<th>Description</th>
 		</thead>
 		<?php for ( $i = 1; $i <= RHD_ALLOCATION_BOXES; ++$i ) : ?>
 			<tr>
 				<td>
-					<input type="number" name="rhd-donation-allocation-amount-<?php echo $i; ?>" id="rhd-donation-allocation-amount-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_allocation_amount_' . $i] ) ) echo $meta['_donation_allocation_amount_' . $i][0]; ?>" />
+					<input type="text" name="rhd-donation-allocation-amount-<?php echo $i; ?>" id="rhd-donation-allocation-amount-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_allocation_amount_' . $i] ) ) echo $meta['_donation_allocation_amount_' . $i][0]; ?>" />
 				</td>
 				<td>
 					<input type="text" name="rhd-donation-allocation-text-<?php echo $i; ?>" id="rhd-donation-allocation-text-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_allocation_text_' . $i] ) ) echo $meta['_donation_allocation_text_' . $i][0]; ?>" />
@@ -957,20 +956,20 @@ function rhd_save_donation_meta_box_data( $post_id )
 {
 	// Check if our nonces are set.
 	if (
-		! isset( $_POST['rhd_donation_amounts_meta_box_nonce'] ) ||
-		! isset( $_POST['rhd_donation_allocations_meta_box_nonce' ] ) ||
+		! isset( $_POST['rhd_donation_classy_url_meta_box_nonce'] ) ||
 		! isset( $_POST['rhd_donation_intro_meta_box_nonce'] ) ||
-		! isset( $_POST['rhd_donation_headline_meta_box_nonce'] )
+		! isset( $_POST['rhd_donation_amounts_meta_box_nonce'] ) ||
+		! isset( $_POST['rhd_donation_allocations_meta_box_nonce' ] )
 	) {
 		return;
 	}
 
 	// Verify that the nonces are valid.
 	if (
-		! wp_verify_nonce( $_POST['rhd_donation_amounts_meta_box_nonce'], 'rhd_donation_amounts_meta_box' ) ||
-		! wp_verify_nonce( $_POST['rhd_donation_allocations_meta_box_nonce'], 'rhd_donation_allocations_meta_box' ) ||
+		! wp_verify_nonce( $_POST['rhd_donation_classy_url_meta_box_nonce'], 'rhd_donation_classy_url_meta_box' ) ||
 		! wp_verify_nonce( $_POST['rhd_donation_intro_meta_box_nonce'], 'rhd_donation_intro_meta_box' ) ||
-		! wp_verify_nonce( $_POST['rhd_donation_headline_meta_box_nonce'], 'rhd_donation_headline_meta_box' )
+		! wp_verify_nonce( $_POST['rhd_donation_amounts_meta_box_nonce'], 'rhd_donation_amounts_meta_box' ) ||
+		! wp_verify_nonce( $_POST['rhd_donation_allocations_meta_box_nonce'], 'rhd_donation_allocations_meta_box' )
 	) {
 		return;
 	}
@@ -997,6 +996,11 @@ function rhd_save_donation_meta_box_data( $post_id )
 	/* OK, it's safe for us to save the data now. */
 
 	// Checks for input and saves if needed
+	if( isset( $_POST['rhd-donation-classy-url'] ) ) {
+		$safe = esc_url( $_POST['rhd-donation-classy-url'] );
+		update_post_meta( $post_id, '_donation_classy_url', $safe );
+	}
+
 	for ( $i = 1; $i <= RHD_DONATION_BOXES; ++$i ) {
 		if( isset( $_POST["rhd-donation-amount-$i"] ) ) {
 			$safe = absint( $_POST["rhd-donation-amount-$i"] );
@@ -1006,7 +1010,7 @@ function rhd_save_donation_meta_box_data( $post_id )
 
 	for ( $i = 1; $i <= RHD_ALLOCATION_BOXES; ++$i ) {
 		if( isset( $_POST["rhd-donation-allocation-amount-$i"] ) ) {
-			$safe = absint( $_POST["rhd-donation-allocation-amount-$i"] );
+			$safe = esc_html( $_POST["rhd-donation-allocation-amount-$i"] );
 			update_post_meta( $post_id, "_donation_allocation_amount_$i", $safe );
 		}
 
@@ -1078,14 +1082,14 @@ function rhd_donation_intro_text()
  * @access public
  * @return void
  */
-function rhd_donation_allocations_widget()
+function rhd_donation_allocations()
 {
 	global $post;
 	$meta = get_post_meta( $post->ID );
 	?>
 	<div class="widget widget-donation_page rhd-donation-allocations-widget">
 		<table id="donation-allocations-table">
-			<?php for ( $i = 1; $i <= RHD_DONATION_BOXES; ++$i ) : ?>
+			<?php for ( $i = 1; $i <= RHD_ALLOCATION_BOXES; ++$i ) : ?>
 				<?php
 				$amt_key = "_donation_allocation_amount_$i";
 				$text_key = "_donation_allocation_text_$i";
@@ -1093,7 +1097,7 @@ function rhd_donation_allocations_widget()
 
 				<?php if ( $meta[$amt_key][0] != '' && $meta[$text_key][0] != '' ) : ?>
 					<tr>
-						<td class="donation-allocation-amount"><?php echo '$' . number_format( esc_html( $meta[$amt_key][0] ) ); ?></td>
+						<td class="donation-allocation-amount"><?php echo esc_html( $meta[$amt_key][0] ); ?></td>
 						<td class="donation-allocation-text"><?php echo esc_html( $meta[$text_key][0] ); ?></td>
 					</tr>
 				<?php endif; ?>
@@ -1116,7 +1120,7 @@ function rhd_donation_form()
 	$meta = get_post_meta( $post->ID );
 	?>
 
-	<form id="donation-form">
+	<form id="donation-form" action="<?php echo home_url( '/donation' ); ?>" method="get">
 		<fieldset>
 			<legend class="donation-select-label">How much would you like to donate?</legend>
 			<ul>
