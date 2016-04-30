@@ -1120,7 +1120,7 @@ function rhd_donation_form()
 	$meta = get_post_meta( $post->ID );
 	?>
 
-	<form id="donation-form" action="<?php echo $meta['_donation_classy_url'][0]; ?>" method="get">
+	<form id="donation-form" action="<?php echo home_url('/donation'); ?>" method="get">
 		<fieldset>
 			<legend class="donation-select-label">How much would you like to donate?</legend>
 			<ul>
@@ -1141,7 +1141,7 @@ function rhd_donation_form()
 			<label for="one-time" class="donation-recur"><input type="radio" id="one-time" name="recurring" value="0">One-time</label>
 			<label for="monthly" class="donation-recur"><input type="radio" id="monthly" name="recurring" value="1" checked>Monthly</label>
 		</fieldset>
-<!-- 		<input type="hidden" name="classy-url" id="classy-url" value="<?php echo $meta['_donation_classy_url'][0]; ?>"> -->
+		<input type="hidden" name="classy-url" id="classy-url" value="<?php echo $meta['_donation_classy_url'][0]; ?>">
 		<input type="submit" value="Donate Now" id="donate-submit">
 	</form>
 
