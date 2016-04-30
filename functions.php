@@ -301,14 +301,14 @@ function rhd_branding_login()
 {
 	return "//roundhouse-designs.com/";
 }
-add_filter('login_headerurl', 'rhd_branding_login');
+//add_filter('login_headerurl', 'rhd_branding_login');
 
 
 // Site Title as "login message" (underneath RHD logo)
 function rhd_login_message() {
 	echo '<h1 class="rhd-login-site-title">' . get_bloginfo('name') . "</h1>\n";
 }
-add_action( 'login_message', 'rhd_login_message' );
+//add_action( 'login_message', 'rhd_login_message' );
 
 
 // Roundhouse Branding CSS
@@ -316,7 +316,7 @@ function rhd_login()
 {
 	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
 }
-add_action('login_head', 'rhd_login');
+//add_action('login_head', 'rhd_login');
 
 
 function rhd_admin()
