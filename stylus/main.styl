@@ -764,6 +764,146 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Donation Pages
+   ========================================================================== */
+
+.post-template-template-donation_page-basic-php
+	#main
+		-unwrapper()
+		width 100%
+
+		#primary
+		#donation-form-area
+			-wrapper(0, 2em, 95%)
+
+	.donation-main-content
+		.page-title
+			text-align center
+
+		.donation-page-thumbnail
+			-wrapper(1em, 1em, 100%)
+			border 3px solid $navy
+
+
+#donation-headline
+	width 100%
+	padding 1rem 0
+	-ff-headline()
+	text-align center
+	color white
+	background-color $navy
+
+	.donation-headline-text
+		font-size 3em
+		margin 0
+
+#donation-intro
+	-wrapper(2em, 2em, 75%)
+	text-align center;
+	font-size 1.1em;
+
+
+#donation-form-container
+	-wrapper(1em, 1em, 100%)
+	padding 1rem
+	border 2px solid $navy
+
+	#donation-form
+		.donation-select-label
+			font-weight 700
+			margin-bottom 0.5em
+
+		ul
+			padding 0
+			list-style none
+			-flexbox()
+			margin 0
+
+			.donation-selector
+				width 23%
+				-flexitem()
+
+				button
+					width 100%
+					@extends .ghost-button a
+					border-color $navy
+					color $navy
+					cursor pointer
+					padding 0.75em inherit
+
+					&:hover
+						color white
+						background $navy
+
+					&.active
+						border-color $sky
+						background $sky
+						color white
+
+		#donation-custom-amount-container
+			width 70%
+			padding 0.25rem 0 0.25rem 0.5rem
+			border 3px solid $navy
+			position relative
+
+			.donation-custom-amount-currency
+				font-size 4em
+				-ff-headline()
+				line-height 1
+
+			#donation-custom-amount
+				width 89%
+				position absolute
+				right 0
+				top 48%
+				-transform(translateY(-50%))
+				border none
+				color $navy
+				-ff-headline()
+				font-size 2.6em
+				padding 0 0 0 0.25rem
+				-placeholder-props( $ff-headline, gray, null, 1em )
+
+		.donation-recur
+			margin-right 1em
+			font-weight 700
+
+			input
+				margin-right 3px
+
+		#donate-submit
+			@extends .ghost-button a
+			border-color $navy
+			background-color $navy
+			color white
+			padding 0.75em 0.5em
+			display block
+			margin 1em 0 0
+
+			&:hover
+			&:active
+				background $sky
+				border-color $sky
+
+
+#donation-allocations-table
+	border none
+
+	tr
+	th
+	td
+		border none
+
+	td
+		padding 0.05em 0
+
+	.donation-allocation-amount
+		width 33%
+		-ff-headline()
+		font-size 3em
+
+
+/* ==========================================================================
 	Modern Tribe Events Calendar
    ========================================================================== */
 
@@ -845,6 +985,35 @@ input[type="submit"]
 						color $sky
 						text-decoration none
 
+	.entry-content
+		img
+		iframe
+			-unwrapper(initial)
+
+		img
+			&.mobile-hide
+				-invisible(false)
+
+			&.alignleft
+				margin-right 1em
+				float left
+
+			&.alignright
+				margin-left 1em
+				float right
+
+			&.aligncenter
+				margin 0 auto
+
+		a
+			img
+				@extends .entry-content img
+
+		.gallery-item
+			img
+				display block
+				margin 0 auto
+
 	.entry-meta
 		.entry-meta-links
 			background-color $sky_trans
@@ -920,62 +1089,13 @@ input[type="submit"]
 				width auto
 				padding-left 0.8em
 
-	// Image Strip
-	#primary
-		-clearfix()
-
-		article
-			&.strip-active
-				width 65%
-				float right
-
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
-
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
-
-	.entry-content
-		img
-		iframe
-			-unwrapper(initial)
-
-		img
-			&.mobile-hide
-				-invisible(false)
-
-			&.alignleft
-				margin-right 1em
-				float left
-
-			&.alignright
-				margin-left 1em
-				float right
-
-			&.aligncenter
-				margin 0 auto
-
-		a
-			img
-				@extends .entry-content img
-
-		.gallery-item
-			img
-				display block
-				margin 0 auto
-
 	// Color Block areas
 	.rhd-color-block-content
 		-clearfix()
 		position relative
 
 
-	// Front
+	// Front + About
 	.front-page
 	.page-id-25
 		.intro-text
@@ -1047,14 +1167,21 @@ input[type="submit"]
 // Fixed-width 340px sidebar
 @media screen and (min-width 40em)
 	#main
+	#donation-form-area
 		-clearfix()
 
 	#primary
+	#donation-form-container
 		float left
 
 		&.full-width
 			width 100%
 			float none
+
+	#donation-form
+		#donation-custom-amount-container
+			#donation-custom-amount
+				width 94%
 
 	#secondary
 		width 340px
@@ -1068,21 +1195,25 @@ input[type="submit"]
 
 @media screen and (min-width 58em)
 	#primary
+	#donation-form-container
 		width 56%
 
 
 @media screen and (min-width 62em)
 	#primary
+	#donation-form-container
 		width 58%
 
 
 @media screen and (min-width 64em)
 	#primary
+	#donation-form-container
 		width 60%
 
 
 @media screen and (min-width 66em)
 	#primary
+	#donation-form-container
 		width 63%
 
 

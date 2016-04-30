@@ -36,6 +36,16 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		}, function(){
 			$(this).children('.sub-menu').stop().fadeOut('fast');
 		});
+
+		rhdDonateButtonSelect();
+
+		// Donation input mask
+		$("#donation-custom-amount").maskMoney({
+			prefix: '',
+			suffix: '',
+			allowNegative: false,
+			precision: 0
+		});
 	});
 
 
@@ -50,9 +60,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Fix faux-flexbox
 		// fixGridLayout();
-
-		// Image Strip
-		// postContent = $(".entry-content").html();
 
 		// Check inline SVG support
 		if ( ! Modernizr.inlinesvg) {
@@ -113,6 +120,25 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$(".entry-content").removeClass('strip-active');
 
 		$(".entry-content").html(postContent);
+	}
+
+
+	function rhdDonateButtonSelect() {
+		$("#donation-form button").on('click', function(){
+			var $this = $(this);
+			var $customField = $('#donation-custom-amount');
+
+			if ( $this.hasClass('active') ) {
+				$this.removeClass('active');
+				$customField.attr('value', '');
+			} else {
+				$("#donation-form button").removeClass('active');
+				$this.addClass('active');
+				$customField
+					.attr('value', parseFloat($this.attr('value')))
+					.maskMoney('mask');
+			}
+		});
 	}
 
 })(jQuery);

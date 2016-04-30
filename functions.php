@@ -19,6 +19,10 @@ function rhd_setup()
 	define( "RHD_THEME_DIR", get_template_directory_uri() );
 	define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
 
+	// Define number of meta boxes
+	define( 'RHD_DONATION_BOXES', 4 );
+	define( 'RHD_ALLOCATION_BOXES', 6 );
+
 	$updir = wp_upload_dir();
 	define( "RHD_UPLOAD_URL", $updir['baseurl'] );
 }
@@ -76,6 +80,7 @@ function rhd_enqueue_scripts()
 	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr.js', null, '3.3.1', false );
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), '0.10.3', true );
+	wp_register_script( 'jquery-maskmoney', RHD_THEME_DIR . '/js/vendor/jquery-maskmoney/dist/jquery.maskMoney.min.js', array('jquery'), null, true );
 	//wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
@@ -83,6 +88,7 @@ function rhd_enqueue_scripts()
 		'jquery',
 		'modernizr',
 		'slidebars',
+		'jquery-maskmoney',
 		// 'packery',
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
@@ -891,16 +897,12 @@ function rhd_donation_amounts_callback( $post )
 	<table id="donation-amounts">
 		<thead>
 			<th>Amount (without $)</th>
-			<th>Button Text</th>
 		</thead>
 
-		<?php for ( $i = 1; $i <= 5; ++$i ) : ?>
+		<?php for ( $i = 1; $i <= RHD_DONATION_BOXES; ++$i ) : ?>
 			<tr>
 				<td>
 					<input type="number" name="rhd-donation-amount-<?php echo $i; ?>" id="rhd-donation-amount-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_amount_' . $i] ) ) echo $meta['_donation_amount_' . $i][0]; ?>" />
-				</td>
-				<td>
-					<input type="text" name="rhd-donation-label-<?php echo $i; ?>" id="rhd-donation-label-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_label_' . $i] ) ) echo $meta['_donation_label_' . $i][0]; ?>" />
 				</td>
 			</tr>
 		<?php endfor; ?>
@@ -929,7 +931,7 @@ function rhd_donation_allocations_callback( $post )
 			<th>Amount (without $)</th>
 			<th>Allocation Text</th>
 		</thead>
-		<?php for ( $i = 1; $i <= 5; ++$i ) : ?>
+		<?php for ( $i = 1; $i <= RHD_ALLOCATION_BOXES; ++$i ) : ?>
 			<tr>
 				<td>
 					<input type="number" name="rhd-donation-allocation-amount-<?php echo $i; ?>" id="rhd-donation-allocation-amount-<?php echo $i; ?>" value="<?php if ( isset ( $meta['_donation_allocation_amount_' . $i] ) ) echo $meta['_donation_allocation_amount_' . $i][0]; ?>" />
@@ -995,30 +997,142 @@ function rhd_save_donation_meta_box_data( $post_id )
 	/* OK, it's safe for us to save the data now. */
 
 	// Checks for input and saves if needed
-	for ( $i = 1; $i <= 5; ++$i ) {
-		if( isset( $_POST[ 'rhd-donation-amount-' . $i ] ) ) {
-			update_post_meta( $post_id, '_donation_amount_' . $i, $_POST[ 'rhd-donation-amount-' . $i ] );
-		}
-
-		if( isset( $_POST[ 'rhd-donation-label-' . $i ] ) ) {
-			update_post_meta( $post_id, '_donation_label_' . $i, $_POST[ 'rhd-donation-label-' . $i ] );
-		}
-
-		if( isset( $_POST[ 'rhd-donation-allocation-amount-' . $i ] ) ) {
-			update_post_meta( $post_id, '_donation_allocation_amount_' . $i, $_POST[ 'rhd-donation-allocation-amount-' . $i ] );
-		}
-
-		if( isset( $_POST[ 'rhd-donation-allocation-text-' . $i ] ) ) {
-			update_post_meta( $post_id, '_donation_allocation_text_' . $i, $_POST[ 'rhd-donation-allocation-text-' . $i ] );
+	for ( $i = 1; $i <= RHD_DONATION_BOXES; ++$i ) {
+		if( isset( $_POST["rhd-donation-amount-$i"] ) ) {
+			$safe = absint( $_POST["rhd-donation-amount-$i"] );
+			update_post_meta( $post_id, "_donation_amount_$i", $safe );
 		}
 	}
 
-	if( isset( $_POST[ 'rhd-donation-intro' ] ) ) {
-		update_post_meta( $post_id, '_donation_intro', $_POST[ 'rhd-donation-intro' ] );
+	for ( $i = 1; $i <= RHD_ALLOCATION_BOXES; ++$i ) {
+		if( isset( $_POST["rhd-donation-allocation-amount-$i"] ) ) {
+			$safe = absint( $_POST["rhd-donation-allocation-amount-$i"] );
+			update_post_meta( $post_id, "_donation_allocation_amount_$i", $safe );
+		}
+
+		if( isset( $_POST["rhd-donation-allocation-text-$i"] ) ) {
+			$safe = esc_html( $_POST["rhd-donation-allocation-text-$i"] );
+			update_post_meta( $post_id, "_donation_allocation_text_$i", $safe );
+		}
 	}
 
-	if( isset( $_POST[ 'rhd-donation-headline' ] ) ) {
-		update_post_meta( $post_id, '_donation_headline', $_POST[ 'rhd-donation-headline' ] );
+	if( isset( $_POST['rhd-donation-intro'] ) ) {
+		$safe = esc_html( $_POST['rhd-donation-intro'] );
+		update_post_meta( $post_id, '_donation_intro', $safe );
+	}
+
+	if( isset( $_POST['rhd-donation-headline'] ) ) {
+		$safe = esc_html( $_POST['rhd-donation-headline'] );
+		update_post_meta( $post_id, '_donation_headline', $safe );
 	}
 }
 add_action( 'save_post', 'rhd_save_donation_meta_box_data' );
+
+
+/**
+ * rhd_cpt_post_types function.
+ *
+ * @access public
+ * @param mixed $post_types
+ * @return void
+ */
+function rhd_cpt_post_types( $post_types )
+{
+	$post_types[] = 'donation_page';
+	return $post_types;
+}
+add_filter( 'cpt_post_types', 'rhd_cpt_post_types' );
+
+
+/**
+ * rhd_donation_headline function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_donation_headline()
+{
+	global $post;
+	$meta_text = get_post_meta( $post->ID, '_donation_headline', true );
+	echo ( $meta_text != '' ) ? esc_html( $meta_text ) : 'Support Our Patients';
+}
+
+
+/**
+ * rhd_donation_intro_text function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_donation_intro_text()
+{
+	global $post;
+	$meta_text = get_post_meta( $post->ID, '_donation_intro', true );
+	echo apply_filters( 'the_content', $meta_text );
+}
+
+
+/**
+ * rhd_donation_page_sidebar function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_donation_allocations_widget()
+{
+	global $post;
+	$meta = get_post_meta( $post->ID );
+	?>
+	<div class="widget widget-donation_page rhd-donation-allocations-widget">
+		<table id="donation-allocations-table">
+			<?php for ( $i = 1; $i <= RHD_DONATION_BOXES; ++$i ) : ?>
+				<?php
+				$amt_key = "_donation_allocation_amount_$i";
+				$text_key = "_donation_allocation_text_$i";
+				?>
+
+				<?php if ( $meta[$amt_key][0] != '' && $meta[$text_key][0] != '' ) : ?>
+					<tr>
+						<td class="donation-allocation-amount"><?php echo '$' . number_format( esc_html( $meta[$amt_key][0] ) ); ?></td>
+						<td class="donation-allocation-text"><?php echo esc_html( $meta[$text_key][0] ); ?></td>
+					</tr>
+				<?php endif; ?>
+			<?php endfor; ?>
+		</table>
+	</div>
+	<?php
+}
+
+
+function rhd_donation_form()
+{
+	global $post;
+	$meta = get_post_meta( $post->ID );
+	?>
+
+	<form id="donation-form">
+		<fieldset>
+			<legend class="donation-select-label">How much would you like to donate?</legend>
+			<ul>
+				<?php for ( $i = 1; $i <= RHD_DONATION_BOXES; ++$i ) : ?>
+					<?php if ( $meta["_donation_amount_$i"] != '' ) : ?>
+						<li class="donation-selector">
+							<button type="button" class="donation-set-amount" name="donation-amount-<?php echo $i; ?>" id="donation-amount-<?php echo $i; ?>" value="<?php echo $meta["_donation_amount_$i"][0]; ?>"><?php echo '$' . number_format( esc_html( $meta["_donation_amount_$i"][0] ) ); ?></button>
+						</li>
+					<?php endif; ?>
+				<?php endfor; ?>
+			</ul>
+			<div id="donation-custom-amount-container">
+				<span class="donation-custom-amount-currency">$</span><input type="text" id="donation-custom-amount" name="donation-custom-amount" value="" placeholder="Enter Amount">
+			</div>
+		</fieldset>
+		<br />
+		<fieldset>
+			<label for="one-time" class="donation-recur"><input type="radio" id="one-time" name="donation-recur" value="one-time">One-time</label>
+			<label for="monthly" class="donation-recur"><input type="radio" id="monthly" name="donation-recur" value="monthly">Monthly</label>
+		</fieldset>
+		<input type="submit" value="Donate Now" id="donate-submit">
+	</form>
+
+	<?php
+}

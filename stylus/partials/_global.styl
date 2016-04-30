@@ -98,9 +98,10 @@ $ff-headline = 'Cheddar Jack', cursive
 	transform $n
 
 
--placeholder-props( $famVal, $color = null, $opacity = null )
+-placeholder-props( $famVal, $color = null, $opacity = null, $size = 1em )
 	&::-webkit-input-placeholder
 		font-family $famVal
+		font-size $size
 
 		if $color != null
 			color $color
@@ -110,18 +111,21 @@ $ff-headline = 'Cheddar Jack', cursive
 
 	&:-moz-placeholder /* Firefox 18- */
 		font-family $famVal
+		font-size $size
 		color $color
 		if $opacity != null
 			-opacity( $opacity )
 
 	&::-moz-placeholder  /* Firefox 19+ */
 		font-family $famVal
+		font-size $size
 		color $color
 		if $opacity != null
 			-opacity( $opacity )
 
 	&:-ms-input-placeholder
 		font-family $famVal
+		font-size $size
 		color $color
 		if $opacity != null
 			opacity( $opacity )
