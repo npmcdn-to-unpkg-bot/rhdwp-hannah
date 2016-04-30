@@ -80,6 +80,7 @@ function rhd_enqueue_scripts()
 	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr.js', null, '3.3.1', false );
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), '0.10.3', true );
+	wp_register_script( 'autoNumeric', RHD_THEME_DIR . '/js/vendor/autoNumeric/autoNumeric.js', array('jquery'), null, true );
 	//wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
@@ -87,6 +88,7 @@ function rhd_enqueue_scripts()
 		'jquery',
 		'modernizr',
 		'slidebars',
+		'autoNumeric',
 		// 'packery',
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
@@ -1118,7 +1120,7 @@ function rhd_donation_form()
 	$meta = get_post_meta( $post->ID );
 	?>
 
-	<form id="donation-form" action="<?php echo $meta['_donation_classy_url'][0]; ?>>" method="get">
+	<form id="donation-form" action="<?php echo $meta['_donation_classy_url'][0]; ?>" method="get">
 		<fieldset>
 			<legend class="donation-select-label">How much would you like to donate?</legend>
 			<ul>
@@ -1131,15 +1133,15 @@ function rhd_donation_form()
 				<?php endfor; ?>
 			</ul>
 			<div id="donation-custom-amount-container">
-				<span class="donation-custom-amount-currency">$</span><input type="text" id="donation-custom-amount" name="amount" value="" placeholder="Enter Amount">
+				<span class="donation-custom-amount-currency">$</span><input type="text" id="donation-custom-amount" name="amount" value="" data-an-default="" placeholder="Enter Amount">
 			</div>
 		</fieldset>
 		<br />
 		<fieldset>
 			<label for="one-time" class="donation-recur"><input type="radio" id="one-time" name="recurring" value="0">One-time</label>
-			<label for="monthly" class="donation-recur"><input type="radio" id="monthly" name="recurring" value="1">Monthly</label>
+			<label for="monthly" class="donation-recur"><input type="radio" id="monthly" name="recurring" value="1" checked>Monthly</label>
 		</fieldset>
-		<input type="hidden" name="classy-url" id="classy-url" value="<?php echo $meta['_donation_classy_url'][0]; ?>">
+<!-- 		<input type="hidden" name="classy-url" id="classy-url" value="<?php echo $meta['_donation_classy_url'][0]; ?>"> -->
 		<input type="submit" value="Donate Now" id="donate-submit">
 	</form>
 

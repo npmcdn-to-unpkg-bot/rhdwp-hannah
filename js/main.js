@@ -38,6 +38,13 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		});
 
 		rhdDonateButtonSelect();
+
+		$("#donation-custom-amount").autoNumeric('init', {vMin: '0', vMax: '999999'});
+
+		$("#donation-form").submit(function(){
+			rhdSanitizeDonationAmount();
+			return;
+		});
 	});
 
 
@@ -126,8 +133,14 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 				$("#donation-form button").removeClass('active');
 
 				$this.addClass('active');
-				$('#donation-custom-amount').val(parseInt($(this).val()));
+				$('#donation-custom-amount').autoNumeric('set', parseInt($(this).val()));
 			}
 		});
+	}
+
+
+	function rhdSanitizeDonationAmount() {
+		var saneAmt = $("#donation-custom-amount").autoNumeric('get');
+		$("#donation-custom-amount").val(saneAmt);
 	}
 })(jQuery);
