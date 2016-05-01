@@ -1,11 +1,11 @@
 <?php
 /**
- * RHD Base
+ * "Hannah"
  *
  * ROUNDHOUSE DESIGNS
  *
  * @package WordPress
- * @subpackage rhd
+ * @subpackage rhdwp-hannah
  **/
 
 
@@ -24,6 +24,11 @@ define( "RHD_UPLOAD_URL", $updir['baseurl'] );
 
 // Disable Editor
 define( 'DISALLOW_FILE_EDIT', true );
+
+
+// Requires and Includes
+include_once( 'inc/rhd-shortcodes.php' );
+include_once( 'inc/rhd-theme.php' );
 
 
 // Globally disable WP toolbar
@@ -187,9 +192,6 @@ function rhd_theme_setup()
 	if ( ! isset( $content_width ) ) {
 		$content_width = 620;
 	}
-
-	// Custom Admin Panel
-	// include_once( 'includes/rhd-admin-panel.php' );
 }
 add_action( 'after_setup_theme', 'rhd_theme_setup' );
 
@@ -311,14 +313,14 @@ add_action( 'login_message', 'rhd_login_message' );
 // Roundhouse Branding CSS
 function rhd_login()
 {
-	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
+	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/rhd-login.css' );
 }
 add_action( 'login_head', 'rhd_login' );
 
 
 function rhd_admin()
 {
-	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/rhd/rhd-admin.css' );
+	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/inc/rhd-admin.css' );
 }
 add_action( 'admin_head', 'rhd_admin' );
 
@@ -634,8 +636,10 @@ function rhd_body_class( $body_classes )
 	// Basic front page & device detection
 	$body_classes[] = ( is_front_page() ) ? 'front-page' : '';
 	$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
-	$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
-	$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
+	$body_classes[] = ( wp_is_mobile() && ! rhd_is_mobile() ) ? 'tablet' : '';
+	$body_classes[] = ( ! wp_is_mobile() && ! rhd_is_mobile() ) ? 'desktop' : '';
+
+	session_start();
 
 	if ( is_home() || is_single() || is_archive() || is_search() ) {
 		$body_classes[] = 'blog-area';
@@ -645,56 +649,8 @@ function rhd_body_class( $body_classes )
 		$_SESSION['blog_area'] = false;
 	}
 
+	session_write_close();
+
 	return $body_classes;
 }
 add_filter( 'body_class', 'rhd_body_class' );
-
-
-/**
- * rhd_svg_logo_main function.
- *
- * @access public
- * @return void
- */
-function rhd_svg_logo()
-{
-	echo '
-			<svg id="PLACEHOLDER">
-				<!-- SVG CODE HERE -->
-			</svg>
-		';
-}
-
-/* ==========================================================================
-	Theme Functions and Customizations
-   ========================================================================== */
-
-/**
- * rhd_ghost_button_shortcode function.
- *
- * @access public
- * @param mixed $atts
- * @param mixed $content (default: null)
- * @return void
- */
-function rhd_ghost_button_shortcode( $atts, $content = null )
-{
-        $a = shortcode_atts( array(
-                'url' => '',
-                'target' => ''
-        ), $atts );
-
-        extract($a);
-
-        if ( $target != '' )
-                $target = "target={$target}";
-        else
-                $target = '';
-
-        $output = "
-                <div class='ghost-button'><a href='{$url}' {$target}>{$content}</a></div>
-        ";
-
-        return $output;
-}
-add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );

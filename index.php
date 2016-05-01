@@ -7,10 +7,14 @@
  */
 
 get_header();
+session_start();
 ?>
 
 	<section id="primary" class="site-content">
-		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
+		<?php
+		if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' );
+		session_write_close();
+		?>
 
 		<div id="content" role="main">
 
