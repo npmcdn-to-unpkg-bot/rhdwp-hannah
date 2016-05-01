@@ -20,6 +20,7 @@ function rhd_init() {
 }
 add_action( 'after_setup_theme', 'rhd_init' );
 
+
 /* Disable Editor */
 define( 'DISALLOW_FILE_EDIT', true );
 
@@ -259,11 +260,11 @@ add_action( 'login_message', 'rhd_login_message' );
 
 // Roundhouse Branding CSS
 function rhd_login() {
-	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
+	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/rhd-login.css' );
 }
 add_action('login_head', 'rhd_login');
 function rhd_admin() {
-	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/rhd/rhd-admin.css' );
+	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/inc/rhd-admin.css' );
 }
 add_action('admin_head', 'rhd_admin');
 
@@ -580,8 +581,3 @@ function rhd_body_class( $body_classes )
     session_write_close();
 }
 add_filter( 'body_class', 'rhd_body_class' );
-
-/* ==========================================================================
-	Theme Functions and Customizations
-   ========================================================================== */
-
