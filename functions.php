@@ -569,6 +569,7 @@ function rhd_body_class( $body_classes )
 	} else {
 		$_SESSION['blog_area'] = false;
 	}
+	session_write_close();
 
 	return $body_classes;
 }
