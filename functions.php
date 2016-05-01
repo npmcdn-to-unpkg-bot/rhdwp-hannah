@@ -26,9 +26,10 @@ define( "RHD_UPLOAD_URL", $updir['baseurl'] );
 define( 'DISALLOW_FILE_EDIT', true );
 
 
-// Requires and Includes
+// Includes
 include_once( 'inc/rhd-shortcodes.php' );
 include_once( 'inc/rhd-theme.php' );
+include_once( 'inc/rhd-login-admin.php' );
 
 
 // Globally disable WP toolbar
@@ -49,10 +50,10 @@ function rhd_enqueue_styles()
 {
 	global $theme_opts;
 
-	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
-	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
+	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), null, 'all' );
+	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), null, 'all' );
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . RHD_GOOGLE_FONTS );
-	//wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
+	//wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), null, 'screen' );
 
 	/*
 	$normalize_deps = array(
@@ -82,7 +83,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
-	//wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), '0.10.3', true );
+	//wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), null, true );
 	//wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
@@ -109,7 +110,7 @@ function rhd_enqueue_scripts()
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'query_vars' => json_encode( $wp_query->query ),
 	);
-	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
+	//wp_localize_script( 'rhd-plugins', 'wp_data', $data);
 
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
@@ -146,6 +147,7 @@ function rhd_pageview_protection()
 	echo '<script language="javascript" type=:text/javascript">if (window!= top) top.location.href = location.href;</script>';
 }
 add_action( 'wp_head', 'rhd_pageview_protection' );
+
 
 /* ==========================================================================
    Theme Setup
@@ -204,7 +206,6 @@ add_action( 'after_setup_theme', 'rhd_theme_setup' );
  */
 function rhd_attachment_display_settings()
 {
-	//update_option( 'image_default_align', 'left' );
 	update_option( 'image_default_link_type', 'none' );
 	update_option( 'image_default_size', 'large' );
 }
@@ -288,49 +289,6 @@ class RHD_Walker_Nav extends Walker_Nav_Menu {
 		$output .= "</li>\n";
 	}
 }
-
-
-/* ==========================================================================
-   Roundhouse Admin Branding
-   ========================================================================== */
-
-// External login link
-function rhd_branding_login()
-{
-	return "//roundhouse-designs.com/";
-}
-add_filter( 'login_headerurl', 'rhd_branding_login' );
-
-
-// Site Title as "login message" (underneath RHD logo)
-function rhd_login_message()
-{
-	echo '<h1 class="rhd-login-site-title">' . get_bloginfo('name') . "</h1>\n";
-}
-add_action( 'login_message', 'rhd_login_message' );
-
-
-// Roundhouse Branding CSS
-function rhd_login()
-{
-	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/rhd-login.css' );
-}
-add_action( 'login_head', 'rhd_login' );
-
-
-function rhd_admin()
-{
-	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/inc/rhd-admin.css' );
-}
-add_action( 'admin_head', 'rhd_admin' );
-
-
-// Custom WordPress Footer
-function rhd_footer_admin ()
-{
-	return '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
-}
-add_filter( 'admin_footer_text', 'rhd_footer_admin' );
 
 
 /* ==========================================================================
@@ -648,7 +606,6 @@ function rhd_body_class( $body_classes )
 	} else {
 		$_SESSION['blog_area'] = false;
 	}
-
 	session_write_close();
 
 	return $body_classes;
