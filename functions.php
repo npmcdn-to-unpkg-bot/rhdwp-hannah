@@ -568,7 +568,7 @@ function rhd_body_class( $body_classes )
     $body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
     $body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
 
-    //session_start();
+    session_start();
     if ( is_home() || is_single() || is_archive() || is_search() ) {
             $body_classes[] = 'blog-area';
 
@@ -577,6 +577,7 @@ function rhd_body_class( $body_classes )
             $_SESSION['blog_area'] = false;
     }
     return $body_classes;
+    session_write_close();
 }
 add_filter( 'body_class', 'rhd_body_class' );
 
