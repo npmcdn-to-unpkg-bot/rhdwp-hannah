@@ -131,3 +131,21 @@ function rhd_post_meta_links()
 	</ul>
 	<?php
 }
+
+
+function rhd_soliloquy_slider()
+{
+	if ( is_front_page() ) {
+		?>
+		<section id="front-page-slideshow" class="full-width-slideshow">
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '101' ); } ?>
+		</section>
+		<?php
+	} elseif ( is_page( 'about' ) ) {
+		?>
+		<section id="about-slideshow" class="full-width-slideshow">
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '195' ); } ?>
+		</section>
+		<?php
+	}
+}

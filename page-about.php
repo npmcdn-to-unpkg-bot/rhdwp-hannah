@@ -8,10 +8,6 @@
 
 get_header(); ?>
 
-	<section id="about-slideshow" class="full-width-slideshow">
-		<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '195' ); } ?>
-	</section>
-
 	<div id="about-content">
 		<section id="primary" class="site-content">
 			<div id="content" role="main">

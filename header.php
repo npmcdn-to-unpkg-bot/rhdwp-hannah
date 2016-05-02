@@ -86,4 +86,9 @@
 				</button>
 			</header><!-- #masthead -->
 
+			<?php rhd_soliloquy_slider(); ?>
+
 			<main id="main">
+				<?php if ( ! is_front_page() ) : ?>
+					<div id="main-inner">
+				<?php endif; ?>

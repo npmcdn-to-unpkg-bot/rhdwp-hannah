@@ -79,6 +79,7 @@ input[type="submit"]
 	height auto
 	position relative
 	border-bottom 4px solid $navy
+	background-color white
 	-clearfix()
 
 
@@ -179,9 +180,19 @@ input[type="submit"]
 				background-color transparent
 
 
+#page
+	width 100%
+	background $off-white
+
+
 #main
-	-wrapper(2em,2em)
+	width 100%
+	background white
 	box-sizing border-box
+	background white
+
+	#main-inner
+		-wrapper(1em, 1em)
 
 
 #primary
@@ -475,7 +486,7 @@ input[type="submit"]
 				padding-bottom 1.5em
 
 	.even
-		background $off_white
+		background $off-white
 
 	.odd
 		background white
@@ -518,9 +529,6 @@ input[type="submit"]
 
 .front-page
 	#main
-		-unwrapper(100%)
-		margin-bottom 1em
-
 		#front-page-content
 			-wrapper(2em, 2em)
 
@@ -537,7 +545,7 @@ input[type="submit"]
 					float none
 
 		#front-page-big-buttons
-			background-color $off_white
+			background-color $gray
 			padding 2em 0 0
 
 			.big-buttons
@@ -576,14 +584,14 @@ input[type="submit"]
 	About Page
    ========================================================================== */
 
-.page-id-9
-	#main
-		-unwrapper(100%)
-		margin-bottom 2em
-
-		#about-content
-			-wrapper(2em, 0)
-			-clearfix()
+// .page-id-9
+// 	#main
+// 		-unwrapper(100%)
+// 		margin-bottom 2em
+//
+// 		#about-content
+// 			-wrapper(2em, 0)
+// 			-clearfix()
 
 
 /* ==========================================================================
@@ -603,13 +611,10 @@ input[type="submit"]
    ========================================================================== */
 
 .page-id-11
-	#main
-		width 92%
-
-		.entry-content
-			.gallery-item
-				.gallery-caption
-					font-size 0.8em
+	.entry-content
+		.gallery-item
+			.gallery-caption
+				font-size 0.8em
 
 
 /* ==========================================================================
@@ -766,6 +771,12 @@ input[type="submit"]
 	#hamburger
 		display none
 
+	#main
+		-wrapper(0, 0, 100%, 80rem)
+
+		#main-inner
+			padding 2em 0
+
 	#posts-feed
 		&.small-thumbnails
 			.post
@@ -805,6 +816,7 @@ input[type="submit"]
 						color $sky
 						text-decoration none
 
+	// Front Page
 	.front-page
 		#main
 			#front-page-news
@@ -983,13 +995,10 @@ input[type="submit"]
 				margin 0 auto
 
 	.page-id-11
-		#main
-			width 85%
-
-			.entry-content
-				.gallery-item
-					.gallery-caption
-						font-size 1.2em
+		.entry-content
+			.gallery-item
+				.gallery-caption
+					font-size 1.2em
 
 
 @media screen and (min-width 60em)
@@ -1014,8 +1023,8 @@ input[type="submit"]
 				-wrapper()
 
 			#front-page-content
-				-wrapper(1em, 1em, 70%)
-				padding 3em 0
+				-wrapper(0, 0, 70%)
+				padding 2em 0
 
 				.entry-content
 					-clearfix()
@@ -1024,16 +1033,14 @@ input[type="submit"]
 					.v-text
 						width 55%
 						margin 0
-						position absolute
-						left 0
-						top 50%
-						-transform(translateY(-50%))
 						text-align left
 
 					.alignright
 						width 37%
-						float right
-						margin-bottom 2vh
+						position absolute
+						right 0
+						top 50%
+						-transform(translateY(-50%))
 
 
 // Fixed-width 340px sidebar
@@ -1043,6 +1050,7 @@ input[type="submit"]
 
 	#front-page-news
 		-wrapper()
+		-clearfix()
 
 	#primary
 		float left

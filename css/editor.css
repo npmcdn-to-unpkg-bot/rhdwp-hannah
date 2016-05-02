@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:15:59 PM on 01-05-2016
+* RHD Dev: Compiled at 10:39:01 AM on 02-05-2016
 ***/
 
 /**
@@ -184,13 +184,13 @@ a img.aligncenter {
 #posts-feed .post .post-inner:before,
 .pagination:before,
 .single-pagination:before,
-.page-id-9 #main #about-content:before,
 .single-store #main #single-store-content:before,
 #posts-feed.small-thumbnails .post:before,
 .entry-meta .entry-meta-links .post-meta:before,
 #primary:before,
 .front-page #main #front-page-content .entry-content:before,
 #main:before,
+#front-page-news:before,
 .clearfix:after,
 #masthead:after,
 #colophon #footer-widget-area .search-form:after,
@@ -198,13 +198,13 @@ a img.aligncenter {
 #posts-feed .post .post-inner:after,
 .pagination:after,
 .single-pagination:after,
-.page-id-9 #main #about-content:after,
 .single-store #main #single-store-content:after,
 #posts-feed.small-thumbnails .post:after,
 .entry-meta .entry-meta-links .post-meta:after,
 #primary:after,
 .front-page #main #front-page-content .entry-content:after,
-#main:after {
+#main:after,
+#front-page-news:after {
   content: " ";
   display: table;
 }
@@ -215,13 +215,13 @@ a img.aligncenter {
 #posts-feed .post .post-inner:after,
 .pagination:after,
 .single-pagination:after,
-.page-id-9 #main #about-content:after,
 .single-store #main #single-store-content:after,
 #posts-feed.small-thumbnails .post:after,
 .entry-meta .entry-meta-links .post-meta:after,
 #primary:after,
 .front-page #main #front-page-content .entry-content:after,
-#main:after {
+#main:after,
+#front-page-news:after {
   clear: both;
 }
 * {
@@ -982,6 +982,7 @@ input[type="submit"]:hover {
   height: auto;
   position: relative;
   border-bottom: 4px solid #1e2171;
+  background-color: #fff;
 }
 #site-title {
   width: 60%;
@@ -1075,12 +1076,21 @@ input[type="submit"]:hover {
 #hamburger.c-hamburger.is-active span {
   background-color: transparent;
 }
+#page {
+  width: 100%;
+  background: #e6e6e6;
+}
 #main {
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  background: #fff;
+}
+#main #main-inner {
   width: 85%;
   max-width: none;
   position: relative;
-  margin: 2em auto 2em auto;
-  box-sizing: border-box;
+  margin: 1em auto 1em auto;
 }
 #primary,
 #secondary {
@@ -1386,12 +1396,6 @@ input[type="submit"]:hover {
 #comments #commentform .comment-subscription-form {
   margin: initial;
 }
-.front-page #main {
-  width: 100%;
-  max-width: 100%;
-  margin: initial;
-  margin-bottom: 1em;
-}
 .front-page #main #front-page-content {
   width: 85%;
   max-width: none;
@@ -1410,7 +1414,7 @@ input[type="submit"]:hover {
   float: none;
 }
 .front-page #main #front-page-big-buttons {
-  background-color: #e6e6e6;
+  background-color: #ccc;
   padding: 2em 0 0;
 }
 .front-page #main #front-page-big-buttons .big-buttons {
@@ -1454,26 +1458,11 @@ input[type="submit"]:hover {
 .front-page #main #secondary {
   padding: 2em 0 0;
 }
-.page-id-9 #main {
-  width: 100%;
-  max-width: 100%;
-  margin: initial;
-  margin-bottom: 2em;
-}
-.page-id-9 #main #about-content {
-  width: 85%;
-  max-width: none;
-  position: relative;
-  margin: 2em auto 0 auto;
-}
 .page-id-13 .entry-content .gallery-item img {
   border: 2px solid #1e2171;
   border-radius: 0.1em;
 }
-.page-id-11 #main {
-  width: 92%;
-}
-.page-id-11 #main .entry-content .gallery-item .gallery-caption {
+.page-id-11 .entry-content .gallery-item .gallery-caption {
   font-size: 0.8em;
 }
 .single-store #main {
@@ -1619,6 +1608,15 @@ input[type="submit"]:hover {
   }
   #hamburger {
     display: none;
+  }
+  #main {
+    width: 100%;
+    max-width: 80rem;
+    position: relative;
+    margin: 0 auto 0 auto;
+  }
+  #main #main-inner {
+    padding: 2em 0;
   }
   #posts-feed.small-thumbnails .post.has-post-thumbnail .post-content {
     width: 63%;
@@ -1820,10 +1818,7 @@ input[type="submit"]:hover {
     display: block;
     margin: 0 auto;
   }
-  .page-id-11 #main {
-    width: 85%;
-  }
-  .page-id-11 #main .entry-content .gallery-item .gallery-caption {
+  .page-id-11 .entry-content .gallery-item .gallery-caption {
     font-size: 1.2em;
   }
 }
@@ -1853,8 +1848,8 @@ input[type="submit"]:hover {
     width: 70%;
     max-width: none;
     position: relative;
-    margin: 1em auto 1em auto;
-    padding: 3em 0;
+    margin: 0 auto 0 auto;
+    padding: 2em 0;
   }
   .front-page #main #front-page-content .entry-content {
     position: relative;
@@ -1862,17 +1857,15 @@ input[type="submit"]:hover {
   .front-page #main #front-page-content .entry-content .v-text {
     width: 55%;
     margin: 0;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
     text-align: left;
   }
   .front-page #main #front-page-content .entry-content .alignright {
     width: 37%;
-    float: right;
-    margin-bottom: 2vh;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }
 @media screen and (min-width: 40em) {
