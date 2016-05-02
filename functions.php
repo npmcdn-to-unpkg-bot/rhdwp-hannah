@@ -21,6 +21,10 @@ function rhd_init()
 }
 add_action( 'after_setup_theme', 'rhd_init' );
 
+
+// Includes
+include_once( 'inc/rhd-theme.php' );
+
 /* Disable Editor */
 define( 'DISALLOW_FILE_EDIT', true );
 
@@ -270,14 +274,14 @@ function rhd_login_message() {
 // Roundhouse Branding CSS
 function rhd_login()
 {
-	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
+	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/css/rhd-login.css' );
 }
 //add_action('login_head', 'rhd_login');
 
 
 function rhd_admin()
 {
-	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/rhd/rhd-admin.css' );
+	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/inc/css/rhd-admin.css' );
 }
 add_action('admin_head', 'rhd_admin');
 
@@ -616,56 +620,3 @@ function rhd_body_class( $body_classes )
 	return $body_classes;
 }
 add_filter( 'body_class', 'rhd_body_class' );
-
-
-/* ==========================================================================
-	Theme Functions and Customizations
-   ========================================================================== */
-
-/**
- * rhd_big_image_widgets function.
- *
- * @access public
- * @return void
- */
-function rhd_big_image_widgets()
-{
-	$updir = wp_upload_dir();
-	?>
-
-	<aside id="highlights">
-		<figure class="highlight-link">
-			<a href="<?php echo home_url('/how-to-attend-camp-erin'); ?>">
-				<?php
-				$img_1 = wp_get_attachment_image_src( 47, '4x6' );
-				$cap_1 = "Apply to attend camp";
-				?>
-				<img src="<?php echo $img_1[0]; ?>" alt="<?php echo $cap_1; ?>">
-				<figcaption><?php echo $cap_1; ?></figcaption>
-			</a>
-		</figure>
-
-		<figure class="highlight-link">
-			<a href="<?php echo home_url('/become-a-camp-erin-volunteer'); ?>">
-				<?php
-				$img_2 = wp_get_attachment_image_src( 48, '4x6' );
-				$cap_2 = "Volunteer";
-				?>
-				<img src="<?php echo $img_2[0]; ?>" alt="<?php echo $cap_2; ?>">
-				<figcaption><?php echo $cap_2; ?></figcaption>
-			</a>
-		</figure>
-
-		<figure class="highlight-link">
-			<a href="<?php echo home_url('/donate'); ?>">
-				<?php
-				$img_3 = wp_get_attachment_image_src( 49, '4x6' );
-				$cap_3 = "Donate";
-				?>
-				<img src="<?php echo $img_3[0]; ?>" alt="<?php echo $cap_3; ?>">
-				<figcaption><?php echo $cap_3; ?></figcaption>
-			</a>
-		</figure>
-	</aside>
-	<?php
-}
