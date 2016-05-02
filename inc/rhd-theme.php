@@ -133,6 +133,12 @@ function rhd_post_meta_links()
 }
 
 
+/**
+ * rhd_soliloquy_slider function.
+ *
+ * @access public
+ * @return void
+ */
 function rhd_soliloquy_slider()
 {
 	if ( is_front_page() ) {
