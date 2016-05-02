@@ -339,10 +339,14 @@ input[type="submit"]
 			margin 1em auto
 
 			a
+				width 100%
+				height 100%
+				display block
+				transition background 0.25s
+
 				&:hover
 				&:active
-					path
-						fill $mag
+					background white
 
 	#footer-hheart-logo
 		width 100%
@@ -774,9 +778,6 @@ input[type="submit"]
 
 .post-template-template-donation_page-basic-php
 	#main
-		-unwrapper()
-		width 100%
-
 		#primary
 		#donation-form-area
 			-wrapper(0, 2em, 95%)
