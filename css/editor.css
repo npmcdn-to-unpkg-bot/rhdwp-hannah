@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:46:23 PM on 29-04-2016
+* RHD Dev: Compiled at 1:58:36 PM on 02-05-2016
 ***/
 
 /**
@@ -1394,6 +1394,7 @@ body .sb-slidebar .sub-menu {
   background-color: rgba(0,71,137,0.5);
   transition: background-color 0.25s;
   font-size: 1.2em;
+  color: #fff;
 }
 .highlight-link figcaption a {
   color: #fff;
