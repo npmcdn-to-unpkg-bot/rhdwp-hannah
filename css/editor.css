@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:13:02 AM on 02-05-2016
+* RHD Dev: Compiled at 11:17:54 AM on 02-05-2016
 ***/
 
 /**
@@ -1636,17 +1636,20 @@ input[type="submit"]:hover {
   font-size: 1.3em;
   font-weight: 800;
 }
+.post-template-template-donation_page-basic-php #main #main-inner {
+  width: 100%;
+}
 .post-template-template-donation_page-basic-php #main #primary,
 .post-template-template-donation_page-basic-php #main #donation-form-area {
-  width: 95%;
+  width: 90%;
   max-width: 75rem;
   position: relative;
   margin: 0 auto 2em auto;
 }
-.post-template-template-donation_page-basic-php .donation-main-content .page-title {
+.donation-main-content .page-title {
   text-align: center;
 }
-.post-template-template-donation_page-basic-php .donation-main-content .donation-page-thumbnail {
+.donation-main-content .donation-page-thumbnail {
   width: 100%;
   max-width: 75rem;
   position: relative;
