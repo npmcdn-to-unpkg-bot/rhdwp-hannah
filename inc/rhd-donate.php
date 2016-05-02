@@ -8,6 +8,55 @@
  * @subpackage rhd
  **/
 
+
+/* ==========================================================================
+	Donation Pages CPT
+   ========================================================================== */
+
+
+function rhd_cpt_init()
+{
+	$labels = array(
+		'name' => 'Donation Pages',
+		'singular_name' => 'Donation Page',
+		'add_new' => 'Add New',
+		'add_new_item' => 'Add New Donation Page',
+		'edit_item' => 'Edit Donation Page',
+		'new_item' => 'New Donation page',
+		'view_item' => 'View Donation Page',
+		'search_items' => 'Search Donation Pages',
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'description' => __( 'Individual pages for collecting donations.', 'rhd' ),
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'description' => '',
+		'menu_position' => 5,
+		'menu_icon' => 'dashicons-star-empty',
+		'public' => true,
+		'hierarchical' => true,
+		'has_archive' => false,
+		'rewrite' =>
+			array (
+				'slug' => 'give',
+				'with_front' => false,
+				'feeds' => false,
+				'pages' => true,
+				'ep_mask' => 0,
+			),
+		'query_var' => true,
+		'can_export' => true,
+		'supports' =>
+			array( 'title' , 'editor', 'thumbnail', 'revisions', 'page-attributes' ),
+	);
+
+	register_post_type( 'donation_page', $args );
+}
+add_action( 'init', 'rhd_cpt_init' );
+
+
 /**
  * rhd_add_donation_meta_boxes function.
  *
