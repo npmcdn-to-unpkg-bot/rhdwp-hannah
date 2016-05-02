@@ -55,11 +55,10 @@ function rhd_enqueue_styles()
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . RHD_GOOGLE_FONTS );
 	//wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), null, 'screen' );
 
-	/*
+	
 	$normalize_deps = array(
-		'slidebars',
+		// 'slidebars',
 	);
-	*/
 
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced' );
@@ -110,7 +109,7 @@ function rhd_enqueue_scripts()
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'query_vars' => json_encode( $wp_query->query ),
 	);
-	//wp_localize_script( 'rhd-plugins', 'wp_data', $data);
+	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
 
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
