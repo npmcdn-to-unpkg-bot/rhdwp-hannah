@@ -307,14 +307,14 @@ function rhd_login_message() {
 // Roundhouse Branding CSS
 function rhd_login()
 {
-	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/rhd-login.css' );
+	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/css/rhd-login.css' );
 }
 //add_action('login_head', 'rhd_login');
 
 
 function rhd_admin()
 {
-	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/inc/rhd-admin.css' );
+	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/inc/css/rhd-admin.css' );
 }
 add_action('admin_head', 'rhd_admin');
 
