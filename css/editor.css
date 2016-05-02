@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:47:59 AM on 02-05-2016
+* RHD Dev: Compiled at 11:07:42 AM on 02-05-2016
 ***/
 
 /**
@@ -1162,10 +1162,17 @@ input[type="submit"]:hover {
 }
 #colophon #footer-widget-area .rhd_social_icons {
   text-align: center;
+  margin: 1em auto;
 }
-#colophon #footer-widget-area .rhd_social_icons a:hover path,
-#colophon #footer-widget-area .rhd_social_icons a:active path {
-  fill: #da0962;
+#colophon #footer-widget-area .rhd_social_icons a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: background 0.25s;
+}
+#colophon #footer-widget-area .rhd_social_icons a:hover,
+#colophon #footer-widget-area .rhd_social_icons a:active {
+  background: #fff;
 }
 #colophon #footer-hheart-logo {
   width: 100%;
@@ -1175,8 +1182,9 @@ input[type="submit"]:hover {
   position: relative;
 }
 #colophon #footer-hheart-logo img {
-  width: 85%;
-  max-width: 100%;
+  width: auto;
+  height: 91%;
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1759,6 +1767,10 @@ input[type="submit"]:hover {
     position: absolute;
     right: 0.25rem;
     top: 0.25rem;
+  }
+  #colophon #footer-hheart-logo img {
+    width: 95%;
+    height: auto;
   }
   #comments #commentform {
     width: 75%;
