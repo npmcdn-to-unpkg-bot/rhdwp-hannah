@@ -132,13 +132,39 @@ add_filter( 'wp_nav_menu_items', 'rhd_append_nav_menu_items', 10, 2 );
 
 
 /**
- * rhd_soliloquy_slider function.
+ * rhd_donate_is_full_header function.
  *
  * @access public
  * @return void
  */
-function rhd_soliloquy_slider()
+function rhd_donate_has_full_header()
 {
+	global $post;
+
+	$meta = get_post_meta( $post->ID, '_donation_full_header', true );
+
+	if (
+		get_post_type( $post->ID ) == 'donation_page' &&
+		$meta &&
+		has_post_thumbnail( $post->ID )
+	)
+		return true;
+
+	else
+		return false;
+}
+
+
+/**
+ * rhd_full_header function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_full_header()
+{
+	global $post;
+
 	if ( is_front_page() ) {
 		?>
 		<section id="front-page-slideshow" class="full-width-header">
@@ -149,6 +175,11 @@ function rhd_soliloquy_slider()
 		?>
 		<section id="about-page-slideshow" class="full-width-header">
 			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '132' ); } ?>
+		</section>
+		<?php
+	} elseif ( rhd_donate_has_full_header() ) { ?>
+		<section id="donate-page-full-header" class="full-width-header">
+			<?php the_post_thumbnail( 'full' ); ?>
 		</section>
 		<?php
 	}

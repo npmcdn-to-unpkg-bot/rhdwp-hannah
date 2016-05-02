@@ -13,26 +13,18 @@
 			<h2 class="page-title">
 				<?php the_title(); ?>
 			</h2>
-
-			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="donation-page-thumbnail">
-					<?php the_post_thumbnail( 'full' ); ?>
-				</div>
-			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<?php if ( $thumb != '' ) : ?>
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail( 'large' ); ?>
+		<?php if ( has_post_thumbnail() && ! rhd_donate_has_full_header() ) : ?>
+			<div class="donation-page-thumbnail">
+				<?php the_post_thumbnail( 'full' ); ?>
 			</div>
 		<?php endif; ?>
 
-		<div class="post-content">
-			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
-			</div><!-- .entry-content -->
-		</div>
+		<div class="entry-content">
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
+			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
+		</div><!-- .entry-content -->
 	</div>
 
 	<footer class="entry-meta">

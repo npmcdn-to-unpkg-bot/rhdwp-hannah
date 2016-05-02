@@ -100,6 +100,15 @@ function rhd_add_donation_meta_boxes()
 		'normal',
 		'high'
 	);
+
+	add_meta_box(
+		'rhd_donation_full_header',
+		__( 'Full-Width Header', 'rhd' ),
+		'rhd_donation_full_header_callback',
+		'donation_page',
+		'side',
+		'low'
+	);
 }
 add_action( 'add_meta_boxes', 'rhd_add_donation_meta_boxes' );
 
@@ -114,7 +123,6 @@ add_action( 'add_meta_boxes', 'rhd_add_donation_meta_boxes' );
  */
 function rhd_donation_classy_url_callback( $post )
 {
-	// Add an nonce field so we can check for it later.
 	wp_nonce_field( 'rhd_donation_classy_url_meta_box', 'rhd_donation_classy_url_meta_box_nonce' );
 
 	$meta = get_post_meta( $post->ID );
@@ -136,7 +144,6 @@ function rhd_donation_classy_url_callback( $post )
  */
 function rhd_donation_intro_callback( $post )
 {
-	// Add an nonce field so we can check for it later.
 	wp_nonce_field( 'rhd_donation_intro_meta_box', 'rhd_donation_intro_meta_box_nonce' );
 
 	$meta = get_post_meta( $post->ID );
@@ -162,7 +169,6 @@ function rhd_donation_intro_callback( $post )
  */
 function rhd_donation_amounts_callback( $post )
 {
-	// Add an nonce field so we can check for it later.
 	wp_nonce_field( 'rhd_donation_amounts_meta_box', 'rhd_donation_amounts_meta_box_nonce' );
 
 	$meta = get_post_meta( $post->ID );
@@ -194,7 +200,6 @@ function rhd_donation_amounts_callback( $post )
  */
 function rhd_donation_allocations_callback( $post )
 {
-	// Add an nonce field so we can check for it later.
 	wp_nonce_field( 'rhd_donation_allocations_meta_box', 'rhd_donation_allocations_meta_box_nonce' );
 
 	$meta = get_post_meta( $post->ID );
@@ -221,6 +226,27 @@ function rhd_donation_allocations_callback( $post )
 
 
 /**
+ * rhd_donation_full_header_callback function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_donation_full_header_callback( $post )
+{
+	wp_nonce_field( 'rhd_donation_full_header_meta_box', 'rhd_donation_full_header_meta_box_nonce' );
+
+	$meta = get_post_meta( $post->ID );
+?>
+
+	<p>
+		<label for="rhd-donation-full-header" class="rhd-donation-full-header"><input type="checkbox" id="rhd-donation-full-header" name="rhd-donation-full-header" value="yes" <?php if ( isset ( $meta['_donation_full_header'] ) ) checked( $meta['_donation_full_header'][0], 'yes' ); ?>><?php _e( 'Use the Featured Image (above) as a full-width header.', 'rhd' ); ?></label>
+	</p>
+<?php
+}
+
+
+/**
  * rhd_save_donation_meta_box_data function.
  *
  * @access public
@@ -234,7 +260,8 @@ function rhd_save_donation_meta_box_data( $post_id )
 		! isset( $_POST['rhd_donation_classy_url_meta_box_nonce'] ) ||
 		! isset( $_POST['rhd_donation_intro_meta_box_nonce'] ) ||
 		! isset( $_POST['rhd_donation_amounts_meta_box_nonce'] ) ||
-		! isset( $_POST['rhd_donation_allocations_meta_box_nonce' ] )
+		! isset( $_POST['rhd_donation_allocations_meta_box_nonce' ] ) ||
+		! isset( $_POST['rhd_donation_full_header_meta_box_nonce' ] )
 	) {
 		return;
 	}
@@ -244,7 +271,8 @@ function rhd_save_donation_meta_box_data( $post_id )
 		! wp_verify_nonce( $_POST['rhd_donation_classy_url_meta_box_nonce'], 'rhd_donation_classy_url_meta_box' ) ||
 		! wp_verify_nonce( $_POST['rhd_donation_intro_meta_box_nonce'], 'rhd_donation_intro_meta_box' ) ||
 		! wp_verify_nonce( $_POST['rhd_donation_amounts_meta_box_nonce'], 'rhd_donation_amounts_meta_box' ) ||
-		! wp_verify_nonce( $_POST['rhd_donation_allocations_meta_box_nonce'], 'rhd_donation_allocations_meta_box' )
+		! wp_verify_nonce( $_POST['rhd_donation_allocations_meta_box_nonce'], 'rhd_donation_allocations_meta_box' ) ||
+		! wp_verify_nonce( $_POST['rhd_donation_full_header_meta_box_nonce'], 'rhd_donation_full_header_meta_box' )
 	) {
 		return;
 	}
@@ -303,6 +331,12 @@ function rhd_save_donation_meta_box_data( $post_id )
 	if( isset( $_POST['rhd-donation-headline'] ) ) {
 		$safe = esc_html( $_POST['rhd-donation-headline'] );
 		update_post_meta( $post_id, '_donation_headline', $safe );
+	}
+
+	if ( isset( $_POST['rhd-donation-full-header'] ) ) {
+		update_post_meta( $post_id, '_donation_full_header', 'yes' );
+	} else {
+		update_post_meta( $post_id, '_donation_full_header', '' );
 	}
 }
 add_action( 'save_post', 'rhd_save_donation_meta_box_data' );
