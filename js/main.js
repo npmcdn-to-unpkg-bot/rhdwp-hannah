@@ -59,9 +59,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	function rhdInit() {
 		// wpAdminBarPush();
 
+		/*
 		$.slidebars({
 			siteClose: false,
 		});
+		*/
 
 		toggleBurger();
 
