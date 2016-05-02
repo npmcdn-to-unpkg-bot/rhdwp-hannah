@@ -29,6 +29,10 @@ function rhd_setup()
 add_action( 'after_setup_theme', 'rhd_setup' );
 
 
+// Includes
+include_once( 'inc/rhd-theme.php' );
+
+
 /* Disable Editor */
 define( 'DISALLOW_FILE_EDIT', true );
 
@@ -302,14 +306,14 @@ function rhd_login_message() {
 // Roundhouse Branding CSS
 function rhd_login()
 {
-	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
+	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/rhd-login.css' );
 }
 //add_action('login_head', 'rhd_login');
 
 
 function rhd_admin()
 {
-	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/rhd/rhd-admin.css' );
+	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/inc/rhd-admin.css' );
 }
 add_action('admin_head', 'rhd_admin');
 
@@ -649,133 +653,6 @@ function rhd_body_class( $body_classes )
 	return $body_classes;
 }
 add_filter( 'body_class', 'rhd_body_class' );
-
-
-/* ==========================================================================
-	Theme Functions and Customizations
-   ========================================================================== */
-
-/**
- * rhd_post_meta_links function.
- *
- * @access public
- * @return void
- */
-function rhd_post_meta_links()
-{
-	?>
-	<ul class="post-meta">
-		<li class="post-meta-item post-cats">
-			<span class="post-meta-item-title">Categories</span><br />
-			<?php echo get_the_term_list( get_the_ID(), 'category', '', '<br />', null ); ?>
-		</li>
-		<li class="post-meta-item post-tags">
-			<span class="post-meta-item-title">Tags</span><br />
-			<?php the_tags( '', '<br />' ); ?>
-		</li>
-	</ul>
-	<?php
-}
-
-
-/**
- * rhd_color_block_shortcode function.
- *
- * @access public
- * @param mixed $atts
- * @param mixed $content (default: null)
- * @return void
- */
-function rhd_color_block_shortcode( $atts, $content = null )
-{
-	if ( $content )
-		$content = apply_filters( 'the_content', $content );
-
-	$a = shortcode_atts( array(
-		'color' => 'white',
-		'id' => ''
-	), $atts );
-
-	extract($a);
-
-	$id = $id ? "id='rhd-color-block-{$id}'" : '';
-
-	$output = "<section {$id} class='rhd-color-block rhd-color-block-{$color}'><div class='rhd-color-block-content'>{$content}</div></section>";
-
-	return $output;
-}
-add_shortcode( 'color-block', 'rhd_color_block_shortcode' );
-
-
-/**
- * rhd_wpautop_toggle function.
- *
- * Disable wpautop for posts using color-block shortcode.
- *
- * @access public
- * @param mixed $content
- * @return void
- */
-function rhd_wpautop_toggle( $content )
-{
-	if ( has_shortcode( $content, 'color-block' ) )
-		remove_filter( 'the_content', 'wpautop' );
-
-	return $content;
-}
-add_filter( 'the_content', 'rhd_wpautop_toggle', 0 );
-
-
-/**
- * rhd_ghost_button_shortcode function.
- *
- * @access public
- * @param mixed $atts
- * @param mixed $content (default: null)
- * @return void
- */
-function rhd_ghost_button_shortcode( $atts, $content = null )
-{
-	$a = shortcode_atts( array(
-		'url' => '',
-		'target' => ''
-	), $atts );
-
-	extract($a);
-
-	if ( $target != '' )
-		$target = "target={$target}";
-	else
-		$target = '';
-
-	$output = "
-		<div class='ghost-button'><a href='{$url}' {$target}>{$content}</a></div>
-	";
-
-	return $output;
-}
-add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );
-
-
-
-/**
- * rhd_append_nav_menu_items function.
- *
- * @access public
- * @param mixed $items
- * @param mixed $args
- * @return void
- */
-function rhd_append_nav_menu_items( $items, $args ){
-	if( $args->theme_location == 'primary' ) {
-		$items .= '<li class="menu-item menu-item-donate">'
-				. do_shortcode( '[ghost-button url="//google.com"]Donate[/ghost-button]' )
-				. '</li>';
-	}
-
-	return $items;
-}
-add_filter( 'wp_nav_menu_items', 'rhd_append_nav_menu_items', 10, 2 );
 
 
 /* ==========================================================================
