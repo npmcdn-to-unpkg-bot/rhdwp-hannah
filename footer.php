@@ -10,6 +10,9 @@
  */
 ?>
 
+		<?php if ( ! is_front_page() ) : ?>
+			</div><!-- #main-inner -->
+		<?php endif; ?>
 	</main><!-- #main -->
 		<footer id="colophon">
 			<div id="footer-widget-area">

@@ -97,4 +97,9 @@
 				$class = 'wrap';
 			?>
 
+			<?php rhd_soliloquy_slider(); ?>
+
 			<main id="main" class="<?php echo $class; ?>">
+				<?php if ( ! is_front_page() ) : ?>
+					<div id="main-inner">
+				<?php endif; ?>

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:57:27 PM on 01-05-2016
+* RHD Dev: Compiled at 10:52:48 AM on 02-05-2016
 ***/
 
 .alignnone {
@@ -188,6 +188,8 @@ a img.aligncenter {
 #posts-feed .post .post-inner:before,
 .pagination:before,
 .single-pagination:before,
+#main.rhd-color-block-area:before,
+#main #main-inner:before,
 #posts-feed.small-thumbnails .post:before,
 .entry-meta .entry-meta-links .post-meta:before,
 .rhd-color-block-content:before,
@@ -201,6 +203,8 @@ a img.aligncenter {
 #posts-feed .post .post-inner:after,
 .pagination:after,
 .single-pagination:after,
+#main.rhd-color-block-area:after,
+#main #main-inner:after,
 #posts-feed.small-thumbnails .post:after,
 .entry-meta .entry-meta-links .post-meta:after,
 .rhd-color-block-content:after,
@@ -217,6 +221,8 @@ a img.aligncenter {
 #posts-feed .post .post-inner:after,
 .pagination:after,
 .single-pagination:after,
+#main.rhd-color-block-area:after,
+#main #main-inner:after,
 #posts-feed.small-thumbnails .post:after,
 .entry-meta .entry-meta-links .post-meta:after,
 .rhd-color-block-content:after,
@@ -993,6 +999,7 @@ input[type="submit"]:hover {
   width: 100%;
   height: auto;
   position: relative;
+  background: #fff;
   border-bottom: 4px solid #1e2171;
 }
 #site-title {
@@ -1133,18 +1140,24 @@ input[type="submit"]:hover {
 #hamburger.c-hamburger.is-active span {
   background-color: transparent;
 }
+#page {
+  background-color: #e6e6e6;
+}
 #main {
   box-sizing: border-box;
+  background: #fff;
 }
 #main.rhd-color-block-area {
   width: 100%;
-  margin: 0;
 }
 #main.rhd-color-block-area #primary .entry-content p:first-child,
 #main.rhd-color-block-area #primary .entry-content p:last-child {
   margin: 0;
 }
 #main.wrap {
+  width: 100%;
+}
+#main.wrap #main-inner {
   width: 85%;
   max-width: 80rem;
   position: relative;
@@ -1158,9 +1171,6 @@ input[type="submit"]:hover {
 }
 #secondary {
   margin-bottom: 2em;
-}
-#content {
-  background: #e6e6e6;
 }
 #content article {
   width: 100%;
@@ -1266,7 +1276,6 @@ input[type="submit"]:hover {
   text-align: center;
   font-weight: 800;
   font-size: 1.8em;
-  padding-top: 1em;
 }
 .entry-summary p {
   margin-bottom: 0;
@@ -1860,6 +1869,16 @@ input[type="submit"]:hover {
   }
   #hamburger {
     display: none;
+  }
+  #main {
+    width: 100%;
+    max-width: 80rem;
+    position: relative;
+    margin: 0 auto 0 auto;
+  }
+  #main.rhd-color-block-area,
+  #main #main-inner {
+    padding: 2em 0;
   }
   #posts-feed.small-thumbnails .post.has-post-thumbnail .post-content {
     width: 63%;

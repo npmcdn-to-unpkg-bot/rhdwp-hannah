@@ -82,6 +82,7 @@ input[type="submit"]
 	width 100%
 	height auto
 	position relative
+	background white
 	border-bottom 4px solid $navy
 	-clearfix()
 
@@ -230,12 +231,16 @@ input[type="submit"]
 				background-color transparent
 
 
+#page
+	background-color $off-white
+
+
 #main
 	box-sizing border-box
+	background white
 
 	&.rhd-color-block-area
 		width 100%
-		margin 0
 
 		#primary
 			.entry-content
@@ -245,7 +250,10 @@ input[type="submit"]
 						margin 0
 
 	&.wrap
-		-wrapper(2em, 2em, 85%, 80rem)
+		width 100%
+
+		#main-inner
+			-wrapper(2em, 2em, 85%, 80rem)
 
 
 #primary
@@ -260,8 +268,6 @@ input[type="submit"]
 
 
 #content
-	background $off-white
-
 	article
 		-wrapper(0, 0, 100%, 80rem)
 		background white
@@ -369,7 +375,6 @@ input[type="submit"]
 	text-align center
 	font-weight 800
 	font-size 1.8em
-	padding-top 1em
 
 
 .entry-summary
@@ -953,6 +958,15 @@ input[type="submit"]
 
 	#hamburger
 		display none
+
+	#main
+		-wrapper(0, 0, 100%, 80rem)
+
+		&.rhd-color-block-area
+
+		#main-inner
+			-clearfix()
+			padding 2em 0
 
 	#posts-feed
 		&.small-thumbnails

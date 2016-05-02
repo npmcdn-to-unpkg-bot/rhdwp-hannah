@@ -129,3 +129,27 @@ function rhd_append_nav_menu_items( $items, $args ){
 	return $items;
 }
 add_filter( 'wp_nav_menu_items', 'rhd_append_nav_menu_items', 10, 2 );
+
+
+/**
+ * rhd_soliloquy_slider function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_soliloquy_slider()
+{
+	if ( is_front_page() ) {
+		?>
+		<section id="front-page-slideshow" class="full-width-header">
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '130' ); } ?>
+		</section>
+		<?php
+	} elseif ( is_page( 'about' ) ) {
+		?>
+		<section id="about-page-slideshow" class="full-width-header">
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '132' ); } ?>
+		</section>
+		<?php
+	}
+}
