@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:41:25 AM on 02-05-2016
+* RHD Dev: Compiled at 12:49:51 PM on 02-05-2016
 ***/
 
 /**
@@ -1162,6 +1162,7 @@ input[type="submit"]:hover {
   max-width: 80rem;
   position: relative;
   margin: 2em auto 2em auto;
+  padding: 0;
 }
 #primary,
 #secondary {
