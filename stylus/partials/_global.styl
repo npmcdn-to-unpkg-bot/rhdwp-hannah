@@ -12,6 +12,8 @@ $off_white = #dddddd
 $ff_body = 'Roboto Condensed', sans-serif
 $ff_cursive = 'Allessa Script', cursive
 
+$border_w = 4px
+
 -ff-title()
 	font-family $ff_body
 	font-weight 700
@@ -23,6 +25,22 @@ $ff_cursive = 'Allessa Script', cursive
 -ff-headline()
 	font-family $ff_cursive
 	font-weight normal
+
+-copperborder( $w = null, $loc = null )
+	background-image url(img/copper.jpg)
+	background-repeat no-repeat
+	background-size 100%
+
+	if $w == null
+		$w = $border_w
+
+	if $loc != null
+		padding-{$loc} $w
+	else
+		padding $w
+
+-copperinner( $bgc = white )
+	background-color $bgc
 
 
 /* ==========================================================================

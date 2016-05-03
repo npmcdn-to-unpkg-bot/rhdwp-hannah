@@ -53,12 +53,9 @@ function rhd_enqueue_styles()
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), null, 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), null, 'all' );
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . RHD_GOOGLE_FONTS );
-	//wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), null, 'screen' );
 
 
-	$normalize_deps = array(
-		// 'slidebars',
-	);
+	$normalize_deps = array();
 
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced' );
@@ -82,7 +79,6 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
-	//wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), null, true );
 	//wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
@@ -580,33 +576,3 @@ function rhd_title_check_hidden( $title )
 	return $title;
 }
 add_filter( 'widget_title', 'rhd_title_check_hidden' );
-
-
-/**
- * rhd_body_class function.
- *
- * @access public
- * @return void
- */
-function rhd_body_class( $body_classes )
-{
-	// Basic front page & device detection
-	$body_classes[] = ( is_front_page() ) ? 'front-page' : '';
-	$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
-	$body_classes[] = ( wp_is_mobile() && ! rhd_is_mobile() ) ? 'tablet' : '';
-	$body_classes[] = ( ! wp_is_mobile() && ! rhd_is_mobile() ) ? 'desktop' : '';
-
-	session_start();
-
-	if ( is_home() || is_single() || is_archive() || is_search() ) {
-		$body_classes[] = 'blog-area';
-
-		$_SESSION['blog_area'] = true;
-	} else {
-		$_SESSION['blog_area'] = false;
-	}
-	session_write_close();
-
-	return $body_classes;
-}
-add_filter( 'body_class', 'rhd_body_class' );

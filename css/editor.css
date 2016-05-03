@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:24:16 PM on 03-05-2016
+* RHD Dev: Compiled at 2:16:02 PM on 03-05-2016
 ***/
 
 /**
@@ -598,12 +598,12 @@ input[type="checkbox"] {
   width: auto;
 }
 .clearfix:before,
-.blog-area #main .post:before,
+.blog-area .post:before,
 .pagination:before,
 .single-pagination:before,
 #main:before,
 .clearfix:after,
-.blog-area #main .post:after,
+.blog-area .post:after,
 .pagination:after,
 .single-pagination:after,
 #main:after {
@@ -611,7 +611,7 @@ input[type="checkbox"] {
   display: table;
 }
 .clearfix:after,
-.blog-area #main .post:after,
+.blog-area .post:after,
 .pagination:after,
 .single-pagination:after,
 #main:after {
@@ -1005,16 +1005,13 @@ body.admin-bar #wpadminbar {
 }
 a {
   outline: 0 !important;
-  text-decoration: none;
   transition: all 0.25s;
-}
-a:link,
-a:visited {
-  color: #d7ede5;
+  color: #f2b485;
+  text-decoration: none;
 }
 a:hover,
 a:active {
-  color: #f2b485;
+  text-decoration: underline;
 }
 input,
 textarea {
@@ -1060,6 +1057,16 @@ input[type="submit"]:hover {
 }
 #page {
   margin: 2em 0;
+}
+#masthead {
+  background-image: url("img/copper.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding-bottom: 4px;
+  border-bottom-width: 4px;
+}
+#masthead .border-inner {
+  background-color: #fff;
 }
 #site-title {
   text-align: center;
@@ -1226,33 +1233,38 @@ input[type="submit"]:hover {
 .entry-meta p {
   margin: 0;
 }
-.blog-area #main .post {
+.blog-area .post {
   border: 2px solid #d7ede5;
   padding: 1em;
+  margin: 1em auto;
 }
-.blog-area #main .post .entry-header {
+.blog-area .post:first-child {
+  margin-top: 0;
+}
+.blog-area .post .entry-header {
   text-align: center;
   margin-bottom: 1em;
   padding-bottom: 1em;
   border-bottom: 1px solid #2b2b2b;
 }
-.blog-area #main .post .entry-header .entry-title {
-  margin: 0 0 0.25rem 0;
-}
-.blog-area #main .post .entry-header .entry-title a {
+.blog-area .post .entry-header a {
   color: inherit;
 }
-.blog-area #main .post .entry-header .entry-title a:hover,
-.blog-area #main .post .entry-header .entry-title a:active {
+.blog-area .post .entry-header a:hover,
+.blog-area .post .entry-header a:active {
   color: #f2b485;
+  text-decoration: none;
 }
-.blog-area #main .post .entry-header .entry-details {
+.blog-area .post .entry-header .entry-title {
+  margin: 0 0 0.25rem 0;
+}
+.blog-area .post .entry-header .entry-details {
   margin: 0;
   font-size: 0.9em;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 400;
 }
-.blog-area #main .post .entry-header .entry-details .sep {
+.blog-area .post .entry-header .entry-details .sep {
   font-size: 1.1em;
 }
 .pagination,
@@ -1372,10 +1384,10 @@ input[type="submit"]:hover {
   .entry-content img,
   .entry-content iframe,
 .entry-content a img {
-    width: initial;
-    width: initial;
+    width: 100%;
     max-width: none;
     margin: initial;
+    max-width: 100%;
   }
   .entry-content img.alignleft,
 .entry-content a img.alignleft {
@@ -1397,13 +1409,12 @@ input[type="submit"]:hover {
     float: right;
   }
   #secondary {
-    width: 340px;
+    width: 320px;
     float: left;
   }
   #secondary .widget {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    padding: 0 10px;
   }
 }
 @media screen and (min-width: 58em) {
