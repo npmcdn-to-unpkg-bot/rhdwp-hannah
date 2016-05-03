@@ -24,6 +24,7 @@ html
 	font-size 16px
 	margin 0
 	font-family $ff_body
+	font-weight 300
 	color $c_text
 
 
@@ -81,8 +82,7 @@ input[type="submit"]
 #site-title
 	text-align center
 	margin 0
-	font-family $ff_title
-	font-weight normal
+	-ff-headline()
 
 
 #site-navigation-container
@@ -199,8 +199,7 @@ input[type="submit"]
 .widget-title
 	margin-top 0
 	line-height 1
-	font-family $ff_title
-	font-weight normal
+	-ff-title()
 
 
 .entry-content
@@ -256,19 +255,32 @@ input[type="submit"]
 	#main
 		.post
 			-clearfix()
+			border 2px solid $c_sec
+			padding 1em
 
 			.entry-header
 				text-align center
 				margin-bottom 1em
+				padding-bottom 1em
+				border-bottom 1px solid $c_text
 
 				.entry-title
 					margin 0 0 0.25rem 0
 
+					a
+						color inherit
+
+						&:hover
+						&:active
+							color $c_ter
+
 				.entry-details
 					margin 0
+					font-size 0.9em
+					-ff-subtitle()
 
 					.sep
-						font-size 0.8em
+						font-size 1.1em
 
 
 .pagination
@@ -293,13 +305,13 @@ input[type="submit"]
 #comments
 	margin 2em auto
 
-	.commentlist
+	.comment-list
 		list-style none
 		padding-left 0
 
 		ul
 		ol
-			@extends #comments .commentlist
+			@extends #comments .comment-list
 
 		.children
 			padding 0 1.5em
@@ -402,26 +414,6 @@ input[type="submit"]
 				width auto
 				padding-left 0.8em
 
-	// Image Strip
-	#primary
-		-clearfix()
-
-		article
-			&.strip-active
-				width 65%
-				float right
-
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
-
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
-
 	.entry-content
 		img
 		iframe
@@ -451,11 +443,11 @@ input[type="submit"]
 		-clearfix()
 
 	#primary
-		float left
+		float right
 
 	#secondary
 		width 340px
-		float right
+		float left
 
 		.widget
 			width 300px
