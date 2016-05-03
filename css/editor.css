@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:00:46 PM on 03-05-2016
+* RHD Dev: Compiled at 12:23:48 PM on 03-05-2016
 ***/
 
 /**
@@ -1254,20 +1254,20 @@ input[type="submit"]:hover {
 #comments {
   margin: 2em auto;
 }
-#comments .commentlist,
-#comments .commentlist ul,
-#comments .commentlist ol {
+#comments .comment-list,
+#comments .comment-list ul,
+#comments .comment-list ol {
   list-style: none;
   padding-left: 0;
 }
-#comments .commentlist .children,
-#comments .commentlist ul .children,
-#comments .commentlist ol .children {
+#comments .comment-list .children,
+#comments .comment-list ul .children,
+#comments .comment-list ol .children {
   padding: 0 1.5em;
 }
-#comments .commentlist .comment:last-child,
-#comments .commentlist ul .comment:last-child,
-#comments .commentlist ol .comment:last-child {
+#comments .comment-list .comment:last-child,
+#comments .comment-list ul .comment:last-child,
+#comments .comment-list ol .comment:last-child {
   padding-bottom: 1.5em;
 }
 #comments .even {
