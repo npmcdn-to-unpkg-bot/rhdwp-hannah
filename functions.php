@@ -16,7 +16,7 @@
 // Constants and Globals
 define( "RHD_THEME_DIR", get_template_directory_uri() );
 define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
-define( "RHD_GOOGLE_FONTS", 'Oswald:300|Open+Sans:400,700,400italic' );
+define( "RHD_GOOGLE_FONTS", 'Roboto+Condensed:400,700,400italic' );
 
 $updir = wp_upload_dir();
 define( "RHD_UPLOAD_URL", $updir['baseurl'] );
@@ -55,7 +55,7 @@ function rhd_enqueue_styles()
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . RHD_GOOGLE_FONTS );
 	//wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), null, 'screen' );
 
-	
+
 	$normalize_deps = array(
 		// 'slidebars',
 	);

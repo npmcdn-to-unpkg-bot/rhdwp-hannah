@@ -23,8 +23,8 @@ html
 	width 100%
 	font-size 16px
 	margin 0
-	font-family $ff-body
-	color $color1
+	font-family $ff_body
+	color $c_text
 
 
 body
@@ -43,31 +43,31 @@ a
 
 	&:link
 	&:visited
-		color $color2
+		color $c_sec
 
 	&:hover
 	&:active
-		color $off-white
+		color $c_ter
 
 
 input
 textarea
 	background-color white
-	border 2px solid $color2
+	border 2px solid $c_sec
 	box-sizing border-box
 	padding 0.5em
-	font-family $ff-body
-	-placeholder-props( $ff-body, gray )
+	font-family $ff_body
+	-placeholder-props( $ff_body, gray )
 	outline 0 !important
 	transition all 0.25s
 
 	&:focus
-		border-color $off-white
+		border-color $off_white
 
 
 input[type="submit"]
 	cursor pointer
-	font-family $ff-body
+	font-family $ff_body
 	transition all 0.25s
 
 	&:hover
@@ -81,7 +81,7 @@ input[type="submit"]
 #site-title
 	text-align center
 	margin 0
-	font-family $ff-title
+	font-family $ff_title
 	font-weight normal
 
 
@@ -119,13 +119,13 @@ input[type="submit"]
 .site-navigation
 	li
 		a
-			color $color2
+			color $c_sec
 			text-decoration none
 			transition color 0.25s
 
 			&:hover
 			&:active
-				color $off-white
+				color $off_white
 
 
 #hamburger
@@ -161,7 +161,7 @@ input[type="submit"]
 	width 100%
 	height 6em
 	position relative
-	background $color2
+	background $c_sec
 
 	.site-info
 		width 100%
@@ -175,7 +175,7 @@ input[type="submit"]
 		font-size 0.9em
 
 		a
-			color $color1
+			color $c_text
 
 			&:hover
 			&:active
@@ -199,7 +199,7 @@ input[type="submit"]
 .widget-title
 	margin-top 0
 	line-height 1
-	font-family $ff-title
+	font-family $ff_title
 	font-weight normal
 
 
@@ -309,7 +309,7 @@ input[type="submit"]
 				padding-bottom 1.5em
 
 	.even
-		background $off-white
+		background $off_white
 
 	.odd
 		background white

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:45:43 PM on 26-04-2016
+* RHD Dev: Compiled at 11:00:07 AM on 03-05-2016
 ***/
 
 .ghost-button {
@@ -10,18 +10,18 @@
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #004b94;
+  color: $color2;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #004b94;
+  border: 3px solid $color2;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #004b94;
-  color: #004b94;
+  background-color: $color2;
+  color: $color2;
 }
 .alignnone {
   margin: 5px 20px 20px 0;
@@ -58,7 +58,7 @@ a img.aligncenter {
 .wp-caption {
   background: #fff;
   border: 1px solid #f0f0f0;
-  max-width: 96% /* Image does not overflow the content area */;
+  max-width: 96%;
   padding: 5px 3px 10px;
   text-align: center;
 }
@@ -109,7 +109,7 @@ a img.aligncenter {
   text-decoration: none;
   top: 5px;
   width: auto;
-  z-index: 100000 /* Above WP toolbar. */;
+  z-index: 100000;
 }
 .gallery {
   width: 100%;
@@ -344,7 +344,7 @@ table {
   border-spacing: 0;
   border-width: 1px 0 0 1px;
   margin: 0 0 1.6em;
-  table-layout: fixed /* Prevents HTML tables from becoming too wide */;
+  table-layout: fixed;
   width: 100%;
 }
 caption,
@@ -387,7 +387,7 @@ del {
 -moz-placeholder {
   color: rgba(51,51,51,0.7);
   font-family: "Noto Sans" sans-serif;
-  opacity: 1 /* Since FF19 lowers the opacity of the placeholder by default */;
+  opacity: 1;
 }
 -ms-input-placeholder {
   color: rgba(51,51,51,0.7);
@@ -413,7 +413,7 @@ input {
 }
 input,
 textarea {
-  background-image: -webkit-linear-gradient(rgba(255,255,255,0) rgba(255,255,255,0)) /* Removing the inner shadow on iOS inputs */;
+  background-image: -webkit-linear-gradient(rgba(255,255,255,0) rgba(255,255,255,0));
   border: 1px solid #eaeaea;
   border: 1px solid rgba(51,51,51,0.1);
   color: #707070;
@@ -535,9 +535,9 @@ input[type="checkbox"] {
   padding: 0;
 }
 .unselectable {
-  -webkit-user-select: none /* Chrome/Safari */;
-  -moz-user-select: none /* Firefox */;
-  -ms-user-select: none /* IE10+ */;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
 }
@@ -553,6 +553,13 @@ input[type="checkbox"] {
 }
 .aligncenter {
   text-align: center;
+}
+@font-face {
+  font-family: 'Allessa Script';
+  src: url("fonts/allessa_script-webfont.eot");
+  src: url("fonts/allessa_script-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/allessa_script-webfont.woff2") format('woff2'), url("fonts/allessa_script-webfont.woff") format('woff'), url("fonts/allessa_script-webfont.ttf") format('truetype'), url("fonts/allessa_script-webfont.svg#allessa_scriptregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 .hidden {
   display: none !important;
@@ -589,8 +596,8 @@ input[type="checkbox"] {
 .single-pagination:after,
 #primary:after,
 #main:after {
-  content: " " /* 1 */;
-  display: table /* 2 */;
+  content: " ";
+  display: table;
 }
 .clearfix:after,
 .blog-area #main .post:after,
@@ -612,8 +619,7 @@ input[type="checkbox"] {
   *before,
   *after {
     background: transparent !important;
-    color: #000 !important /* Black prints faster
-                                   http://www.sanbeiji.com/archives/953 */;
+    color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -671,7 +677,7 @@ img.aligncenter {
   width: 100%;
   height: auto;
   padding: 1em 0 0.75em 0;
-  background: #ffa500;
+  background: #d7ede5;
 }
 #blog-metabar #blog-metabar-content {
   width: 90%;
@@ -690,9 +696,10 @@ img.aligncenter {
 #blog-metabar #blog-metabar-content li .search-submit {
   width: 2em;
   height: 2em;
-  background: #808080;
-  color: #fff;
+  background: #f2b485;
+  color: #2b2b2b;
   text-transform: uppercase;
+  transition: all 0.25s;
   display: inline-block;
   position: absolute;
   top: 0;
@@ -701,28 +708,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -730,10 +737,10 @@ img.aligncenter {
   width: 100%;
   height: 2em;
   padding-left: 0.5em;
-  background: #fff;
+  background: #ddd;
   color: #808080;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -746,7 +753,7 @@ img.aligncenter {
   line-height: 1.3;
 }
 #blog-metabar #blog-metabar-content li .drop .dd-link-text {
-  color: #fff;
+  color: #2b2b2b;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown {
   position: relative;
@@ -776,7 +783,7 @@ img.aligncenter {
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a:hover,
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a:active {
-  color: #ffa500;
+  color: #f2b485;
 }
 #blog-metabar #blog-metabar-content #blog-search {
   top: 0;
@@ -980,8 +987,8 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  color: #000;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #2b2b2b;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -994,49 +1001,49 @@ a {
 }
 a:link,
 a:visited {
-  color: #004b94;
+  color: #d7ede5;
 }
 a:hover,
 a:active {
-  color: #d0d0d0;
+  color: #f2b485;
 }
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid #004b94;
+  border: 2px solid #d7ede5;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   color: #808080;
 }
 input:focus,
 textarea:focus {
-  border-color: #d0d0d0;
+  border-color: #ddd;
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -1048,7 +1055,7 @@ input[type="submit"]:hover {
 #site-title {
   text-align: center;
   margin: 0;
-  font-family: 'Oswalt', sans-serif;
+  font-family: 'Allessa Script', cursive;
   font-weight: normal;
 }
 #site-navigation-container {
@@ -1085,13 +1092,13 @@ input[type="submit"]:hover {
   list-style: none;
 }
 .site-navigation li a {
-  color: #004b94;
+  color: #d7ede5;
   text-decoration: none;
   transition: color 0.25s;
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: #d0d0d0;
+  color: #ddd;
 }
 #hamburger {
   background-color: #000;
@@ -1124,7 +1131,7 @@ input[type="submit"]:hover {
   width: 100%;
   height: 6em;
   position: relative;
-  background: #004b94;
+  background: #d7ede5;
 }
 #colophon .site-info {
   width: 100%;
@@ -1139,11 +1146,11 @@ input[type="submit"]:hover {
   font-size: 0.9em;
 }
 #colophon .site-info a {
-  color: #000;
+  color: #2b2b2b;
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: #000;
+  color: #2b2b2b;
   text-decoration: underline;
 }
 #colophon #rhd-logo-footer {
@@ -1161,7 +1168,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  font-family: 'Oswalt', sans-serif;
+  font-family: 'Allessa Script', cursive;
   font-weight: normal;
 }
 .entry-content {
@@ -1266,7 +1273,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: #d0d0d0;
+  background: #ddd;
 }
 #comments .odd {
   background: #fff;
@@ -1369,24 +1376,24 @@ input[type="submit"]:hover {
   }
   .entry-content img,
   .entry-content iframe,
-  .entry-content a img {
+.entry-content a img {
     width: initial;
     width: initial;
     max-width: none;
     margin: initial;
   }
   .entry-content img.alignleft,
-  .entry-content a img.alignleft {
+.entry-content a img.alignleft {
     margin-right: 1em;
     float: left;
   }
   .entry-content img.alignright,
-  .entry-content a img.alignright {
+.entry-content a img.alignright {
     margin-left: 1em;
     float: right;
   }
   .entry-content img.aligncenter,
-  .entry-content a img.aligncenter {
+.entry-content a img.aligncenter {
     margin: 0 auto;
   }
 }

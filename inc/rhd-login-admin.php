@@ -21,6 +21,7 @@
 function rhd_branding_login()
 {
 	return "//roundhouse-designs.com/";
+	error_log('called!');
 }
 add_filter( 'login_headerurl', 'rhd_branding_login' );
 
