@@ -16,7 +16,7 @@
 // Constants and Globals
 define( "RHD_THEME_DIR", get_template_directory_uri() );
 define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
-define( "RHD_GOOGLE_FONTS", 'Roboto+Condensed:400,700,400italic' );
+define( "RHD_GOOGLE_FONTS", 'Roboto+Condensed:300,300italic,400,700' );
 
 $updir = wp_upload_dir();
 define( "RHD_UPLOAD_URL", $updir['baseurl'] );

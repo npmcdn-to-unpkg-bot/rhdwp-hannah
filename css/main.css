@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:10:48 AM on 03-05-2016
+* RHD Dev: Compiled at 12:24:16 PM on 03-05-2016
 ***/
 
 .ghost-button {
@@ -10,18 +10,28 @@
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: $color2;
+  color: #d7ede5;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid $color2;
+  border: 3px solid #d7ede5;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: $color2;
-  color: $color2;
+  background-color: #d7ede5;
+  color: #d7ede5;
+}
+.ghost-button a.filled {
+  color: #fff;
+  background-color: #d7ede5;
+  border-color: #d7ede5;
+}
+.ghost-button a.filled:hover,
+.ghost-button a.filled:active {
+  background-color: #f2b485;
+  border-color: #f2b485;
 }
 .alignnone {
   margin: 5px 20px 20px 0;
@@ -588,13 +598,11 @@ input[type="checkbox"] {
 .blog-area #main .post:before,
 .pagination:before,
 .single-pagination:before,
-#primary:before,
 #main:before,
 .clearfix:after,
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
-#primary:after,
 #main:after {
   content: " ";
   display: table;
@@ -603,7 +611,6 @@ input[type="checkbox"] {
 .blog-area #main .post:after,
 .pagination:after,
 .single-pagination:after,
-#primary:after,
 #main:after {
   clear: both;
 }
@@ -989,6 +996,7 @@ body {
   font-size: 16px;
   margin: 0;
   font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
   color: #2b2b2b;
 }
 body.admin-bar #wpadminbar {
@@ -1169,8 +1177,8 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  font-family: 'Allessa Script', cursive;
-  font-weight: normal;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
 }
 .entry-content {
   width: 100%;
@@ -1221,18 +1229,34 @@ input[type="submit"]:hover {
 .entry-meta p {
   margin: 0;
 }
+.blog-area #main .post {
+  border: 2px solid #d7ede5;
+  padding: 1em;
+}
 .blog-area #main .post .entry-header {
   text-align: center;
   margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #2b2b2b;
 }
 .blog-area #main .post .entry-header .entry-title {
   margin: 0 0 0.25rem 0;
 }
+.blog-area #main .post .entry-header .entry-title a {
+  color: inherit;
+}
+.blog-area #main .post .entry-header .entry-title a:hover,
+.blog-area #main .post .entry-header .entry-title a:active {
+  color: #f2b485;
+}
 .blog-area #main .post .entry-header .entry-details {
   margin: 0;
+  font-size: 0.9em;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
 }
 .blog-area #main .post .entry-header .entry-details .sep {
-  font-size: 0.8em;
+  font-size: 1.1em;
 }
 .pagination,
 .single-pagination {
@@ -1257,20 +1281,20 @@ input[type="submit"]:hover {
 #comments {
   margin: 2em auto;
 }
-#comments .commentlist,
-#comments .commentlist ul,
-#comments .commentlist ol {
+#comments .comment-list,
+#comments .comment-list ul,
+#comments .comment-list ol {
   list-style: none;
   padding-left: 0;
 }
-#comments .commentlist .children,
-#comments .commentlist ul .children,
-#comments .commentlist ol .children {
+#comments .comment-list .children,
+#comments .comment-list ul .children,
+#comments .comment-list ol .children {
   padding: 0 1.5em;
 }
-#comments .commentlist .comment:last-child,
-#comments .commentlist ul .comment:last-child,
-#comments .commentlist ol .comment:last-child {
+#comments .comment-list .comment:last-child,
+#comments .comment-list ul .comment:last-child,
+#comments .comment-list ol .comment:last-child {
   padding-bottom: 1.5em;
 }
 #comments .even {
@@ -1360,21 +1384,6 @@ input[type="submit"]:hover {
     width: auto;
     padding-left: 0.8em;
   }
-  #primary article.strip-active {
-    width: 65%;
-    float: right;
-  }
-  #primary #image-strip {
-    width: 30%;
-    float: left;
-    margin-right: 5%;
-  }
-  #primary #image-strip img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 2em;
-    display: block;
-  }
   .entry-content img,
   .entry-content iframe,
 .entry-content a img {
@@ -1400,11 +1409,11 @@ input[type="submit"]:hover {
 }
 @media screen and (min-width: 40em) {
   #primary {
-    float: left;
+    float: right;
   }
   #secondary {
     width: 340px;
-    float: right;
+    float: left;
   }
   #secondary .widget {
     width: 300px;
