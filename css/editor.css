@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:51:41 AM on 03-05-2016
+* RHD Dev: Compiled at 10:53:16 AM on 03-05-2016
 ***/
 
 /**
@@ -980,7 +980,7 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: $ff-body;
+  font-family: 'Open Sans', sans-serif;
   color: #000;
 }
 body.admin-bar #wpadminbar {
@@ -1006,28 +1006,28 @@ textarea {
   border: 2px solid #004b94;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: $ff-body;
+  font-family: 'Open Sans', sans-serif;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: $ff-body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: $ff-body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: $ff-body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: $ff-body;
+  font-family: 'Open Sans', sans-serif;
   color: #808080;
 }
 input:focus,
@@ -1036,7 +1036,7 @@ textarea:focus {
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: $ff-body;
+  font-family: 'Open Sans', sans-serif;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -1048,7 +1048,7 @@ input[type="submit"]:hover {
 #site-title {
   text-align: center;
   margin: 0;
-  font-family: $ff-title;
+  font-family: 'Oswalt', sans-serif;
   font-weight: normal;
 }
 #site-navigation-container {
@@ -1158,7 +1158,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  font-family: $ff-title;
+  font-family: 'Oswalt', sans-serif;
   font-weight: normal;
 }
 .entry-content {
