@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:42:14 AM on 03-05-2016
+* RHD Dev: Compiled at 12:00:46 PM on 03-05-2016
 ***/
 
 /**
@@ -13,18 +13,28 @@
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #004b94;
+  color: #d7ede5;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #004b94;
+  border: 3px solid #d7ede5;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #004b94;
-  color: #004b94;
+  background-color: #d7ede5;
+  color: #d7ede5;
+}
+.ghost-button a.filled {
+  color: #fff;
+  background-color: #d7ede5;
+  border-color: #d7ede5;
+}
+.ghost-button a.filled:hover,
+.ghost-button a.filled:active {
+  background-color: #f2b485;
+  border-color: #f2b485;
 }
 .alignnone {
   margin: 5px 20px 20px 0;
@@ -674,7 +684,7 @@ img.aligncenter {
   width: 100%;
   height: auto;
   padding: 1em 0 0.75em 0;
-  background: #004b94;
+  background: #d7ede5;
 }
 #blog-metabar #blog-metabar-content {
   width: 90%;
@@ -693,8 +703,8 @@ img.aligncenter {
 #blog-metabar #blog-metabar-content li .search-submit {
   width: 2em;
   height: 2em;
-  background: #fff;
-  color: #000;
+  background: #f2b485;
+  color: #2b2b2b;
   text-transform: uppercase;
   transition: all 0.25s;
   display: inline-block;
@@ -750,7 +760,7 @@ img.aligncenter {
   line-height: 1.3;
 }
 #blog-metabar #blog-metabar-content li .drop .dd-link-text {
-  color: #000;
+  color: #2b2b2b;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown {
   position: relative;
@@ -780,7 +790,7 @@ img.aligncenter {
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a:hover,
 #blog-metabar #blog-metabar-content li .rhd-dropdown ul li a:active {
-  color: #fff;
+  color: #f2b485;
 }
 #blog-metabar #blog-metabar-content #blog-search {
   top: 0;
@@ -982,7 +992,7 @@ body {
   font-size: 16px;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  color: #000;
+  color: #2b2b2b;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -995,7 +1005,7 @@ a {
 }
 a:link,
 a:visited {
-  color: #004b94;
+  color: #d7ede5;
 }
 a:hover,
 a:active {
@@ -1004,7 +1014,7 @@ a:active {
 input,
 textarea {
   background-color: #fff;
-  border: 2px solid #004b94;
+  border: 2px solid #d7ede5;
   box-sizing: border-box;
   padding: 0.5em;
   font-family: 'Open Sans', sans-serif;
@@ -1049,7 +1059,7 @@ input[type="submit"]:hover {
 #site-title {
   text-align: center;
   margin: 0;
-  font-family: 'Oswalt', sans-serif;
+  font-family: $ff_title;
   font-weight: normal;
 }
 #site-navigation-container {
@@ -1086,7 +1096,7 @@ input[type="submit"]:hover {
   list-style: none;
 }
 .site-navigation li a {
-  color: #004b94;
+  color: #d7ede5;
   text-decoration: none;
   transition: color 0.25s;
 }
@@ -1125,7 +1135,7 @@ input[type="submit"]:hover {
   width: 100%;
   height: 6em;
   position: relative;
-  background: #004b94;
+  background: #d7ede5;
 }
 #colophon .site-info {
   width: 100%;
@@ -1140,11 +1150,11 @@ input[type="submit"]:hover {
   font-size: 0.9em;
 }
 #colophon .site-info a {
-  color: #000;
+  color: #2b2b2b;
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: #000;
+  color: #2b2b2b;
   text-decoration: underline;
 }
 #colophon #rhd-logo-footer {
@@ -1159,7 +1169,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  font-family: 'Oswalt', sans-serif;
+  font-family: $ff_title;
   font-weight: normal;
 }
 .entry-content {
