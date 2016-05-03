@@ -40,22 +40,10 @@
 			'container' => 'nav',
 			'container_id' => 'site-navigation-container',
 			'walker' => new RHD_Walker_Nav
-		);
-
-		$nav_args_sb = array(
-			'theme_location' => 'slidebar',
-			'menu_id' => 'site-navigation-sb',
-			'menu_class' => 'site-navigation',
-			'container' => 'nav',
-			'container_id' => 'site-navigation-sb-container'
-		);
+		)
 		?>
 
-		<div class="sb-slidebar sb-left sb-style-push">
-			<?php wp_nav_menu( $nav_args_sb ); ?>
-		</div>
-
-		<div id="page" class="hfeed site sb-site-container">
+		<div id="page" class="hfeed site">
 			<header id="masthead" class="site-header">
 				<div class="border-inner">
 					<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
@@ -64,7 +52,7 @@
 
 					<?php wp_nav_menu( $nav_args_main ); ?>
 
-					<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
+					<button id="hamburger" class="c-hamburger c-hamburger--htx">
 						<span>Toggle nav</span>
 					</button>
 				</div>
