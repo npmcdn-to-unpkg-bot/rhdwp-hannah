@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:45:43 PM on 26-04-2016
+* RHD Dev: Compiled at 10:51:41 AM on 03-05-2016
 ***/
 
 /**
@@ -13,18 +13,18 @@
 }
 .ghost-button a {
   padding: 0.4em 0.8em;
-  color: #004b94;
+  color: $color2;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #004b94;
+  border: 3px solid $color2;
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
-  background-color: #004b94;
-  color: #004b94;
+  background-color: $color2;
+  color: $color2;
 }
 .alignnone {
   margin: 5px 20px 20px 0;
@@ -704,28 +704,28 @@ img.aligncenter {
   font-size: 1em;
 }
 #blog-metabar #blog-metabar-content li .search-field::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field::-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
   -moz-opacity: 1;
   -webkit-opacity: 1;
   opacity: 1;
 }
 #blog-metabar #blog-metabar-content li .search-field:-ms-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title,
@@ -736,7 +736,7 @@ img.aligncenter {
   background: #fff;
   color: #808080;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
 }
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 #blog-metabar #blog-metabar-content li .rhd-dropdown-title .dd-link-text {
@@ -980,7 +980,7 @@ body {
   width: 100%;
   font-size: 16px;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #000;
 }
 body.admin-bar #wpadminbar {
@@ -998,7 +998,7 @@ a:visited {
 }
 a:hover,
 a:active {
-  color: #d0d0d0;
+  color: #ddd;
 }
 input,
 textarea {
@@ -1006,37 +1006,37 @@ textarea {
   border: 2px solid #004b94;
   box-sizing: border-box;
   padding: 0.5em;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   outline: 0 !important;
   transition: all 0.25s;
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   color: #808080;
 }
 input:focus,
 textarea:focus {
-  border-color: #d0d0d0;
+  border-color: #ddd;
 }
 input[type="submit"] {
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $ff-body;
   transition: all 0.25s;
 }
 input[type="submit"]:hover {
@@ -1048,7 +1048,7 @@ input[type="submit"]:hover {
 #site-title {
   text-align: center;
   margin: 0;
-  font-family: 'Oswalt', sans-serif;
+  font-family: $ff-title;
   font-weight: normal;
 }
 #site-navigation-container {
@@ -1091,7 +1091,7 @@ input[type="submit"]:hover {
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
-  color: #d0d0d0;
+  color: #ddd;
 }
 #hamburger {
   background-color: #000;
@@ -1158,7 +1158,7 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  font-family: 'Oswalt', sans-serif;
+  font-family: $ff-title;
   font-weight: normal;
 }
 .entry-content {
@@ -1260,7 +1260,7 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: #d0d0d0;
+  background: #ddd;
 }
 #comments .odd {
   background: #fff;
