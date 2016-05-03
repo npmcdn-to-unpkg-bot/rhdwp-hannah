@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:23:48 PM on 03-05-2016
+* RHD Dev: Compiled at 2:15:19 PM on 03-05-2016
 ***/
 
 .ghost-button {
@@ -1406,13 +1406,12 @@ input[type="submit"]:hover {
     float: left;
   }
   #secondary {
-    width: 340px;
-    float: right;
+    width: 320px;
+    float: left;
   }
   #secondary .widget {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    padding: 0 10px;
   }
 }
 @media screen and (min-width: 58em) {

@@ -445,7 +445,7 @@ input[type="submit"]
 				@extends .entry-content img
 
 
-// Fixed-width 340px sidebar
+// Fixed-width 320px sidebar
 @media screen and (min-width 40em)
 	#main
 		-clearfix()
@@ -454,13 +454,12 @@ input[type="submit"]
 		float left
 
 	#secondary
-		width 340px
-		float right
+		width 320px
+		float left
 
 		.widget
-			width 300px
-			margin-left auto
-			margin-right auto
+			width 100%
+			padding 0 10px
 
 
 @media screen and (min-width 58em)
