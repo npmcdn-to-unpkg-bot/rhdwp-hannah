@@ -70,8 +70,12 @@ if ( post_password_required() )
 
 	<div id="commentform-area">
 		<?php
+			$commenter = wp_get_current_commenter();
+			$req = get_option( 'require_name_email' );
+			$aria_req = ( $req ? " aria-required='true'" : '' );
+
 			$comment_args = array(
-				'comment_notes_before' => '<p class="comment-notes">' . __( 'Keep the conversation going! Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',
+				'comment_notes_before' => '<p class="comment-notes">' . __( 'Keep the conversation going! Your email address will not be published.' ) . '</p>',
 				'comment_notes_after' => '',
 				'label_submit' => 'Post',
 				'title_reply' => 'Leave a comment!',
