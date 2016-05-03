@@ -21,18 +21,17 @@ function rhd_ghost_button_shortcode( $atts, $content = null )
 {
         $a = shortcode_atts( array(
                 'url' => '',
-                'target' => ''
+                'target' => '',
+                'filled' => false
         ), $atts );
 
         extract($a);
 
-        if ( $target != '' )
-                $target = "target={$target}";
-        else
-                $target = '';
+		$target = ( $target != '' ) ? "target={$target}" : '';
+		$filled = ( $filled != false ) ? 'class="filled"' : '';
 
         $output = "
-                <div class='ghost-button'><a href='{$url}' {$target}>{$content}</a></div>
+                <div class='ghost-button'><a href='{$url}' {$target} {$filled}>{$content}</a></div>
         ";
 
         return $output;

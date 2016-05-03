@@ -10,7 +10,19 @@ $c_ter = #f2b485
 $off_white = #dddddd
 
 $ff_body = 'Roboto Condensed', sans-serif
-$ff_title = 'Allessa Script', cursive
+$ff_cursive = 'Allessa Script', cursive
+
+-ff-title()
+	font-family $ff_body
+	font-weight 700
+
+-ff-subtitle()
+	font-family $ff_body
+	font-weight 400
+
+-ff-headline()
+	font-family $ff_cursive
+	font-weight normal
 
 
 /* ==========================================================================
@@ -26,7 +38,7 @@ $ff_title = 'Allessa Script', cursive
 
 	a
 		padding 0.4em .8em
-		color $color2
+		color $c_sec
 		text-decoration none
 		background-color white
 		border 3px solid @color
@@ -38,6 +50,16 @@ $ff_title = 'Allessa Script', cursive
 		&:active
 			background-color @color
 			color @background-color
+
+		&.filled
+			color white
+			background-color $c_sec
+			border-color $c_sec
+
+			&:hover
+			&:active
+				background-color $c_ter
+				border-color $c_ter
 
 
 /* ==========================================================================
