@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:16:02 PM on 03-05-2016
+* RHD Dev: Compiled at 6:40:11 PM on 03-05-2016
 ***/
 
 /**
@@ -825,6 +825,16 @@ img.aligncenter {
     top: 0.2em;
   }
 }
+#hamburger {
+  background: none;
+}
+#hamburger span {
+  background-color: #979797;
+}
+#hamburger span::before,
+#hamburger span::after {
+  background-color: #979797;
+}
 .c-hamburger {
   display: block;
   position: relative;
@@ -844,7 +854,7 @@ img.aligncenter {
   cursor: pointer;
   transition: background 0.3s;
 }
-.c-hamburger:focus {
+.c-hamburger::focus {
   outline: none;
 }
 .c-hamburger span {
@@ -874,6 +884,7 @@ img.aligncenter {
 }
 .c-hamburger--rot {
   background-color: #28aadc;
+/* active state, i.e. menu open */
 }
 .c-hamburger--rot span {
   transition: transform 0.3s;
@@ -889,9 +900,10 @@ img.aligncenter {
 }
 .c-hamburger--htx span {
   transition: background 0s 0.3s;
+/* active state, i.e. menu open */
 }
 .c-hamburger--htx span::before,
-.c-hamburger--htx span::after {
+.c-hamburger--htx span::after {
   transition-duration: 0.3s, 0.3s;
   transition-delay: 0.3s, 0s;
 }
@@ -901,29 +913,28 @@ img.aligncenter {
 .c-hamburger--htx span::after {
   transition-property: bottom, transform;
 }
-.c-hamburger--htx.is-active {
+.c-hamburger--htx span.is-active {
   background-color: #f4003c;
 }
-.c-hamburger--htx.is-active span {
+.c-hamburger--htx span.is-active span {
   background: none;
 }
-.c-hamburger--htx.is-active span::before {
+.c-hamburger--htx span.is-active span::before,
+.c-hamburger--htx span.is-active span::after,
+.c-hamburger--htx span.is-active span transition-delay 0s {
   top: 0;
   transform: rotate(45deg);
 }
-.c-hamburger--htx.is-active span::after {
+.c-hamburger--htx span.is-active span::after {
   bottom: 0;
   transform: rotate(-45deg);
-}
-.c-hamburger--htx.is-active span::before,
-.c-hamburger--htx.is-active span::after {
-  transition-delay: 0s, 0.3s;
 }
 .c-hamburger--htla {
   background-color: #32dc64;
 }
 .c-hamburger--htla span {
   transition: transform 0.3s;
+/* active state, i.e. menu open */
 }
 .c-hamburger--htla span::before {
   transform-origin: top right;
@@ -933,21 +944,21 @@ img.aligncenter {
   transform-origin: bottom right;
   transition: transform 0.3s, width 0.3s, bottom 0.3s;
 }
-.c-hamburger--htla.is-active {
+.c-hamburger--htla span.is-active {
   background-color: #20b94d;
 }
-.c-hamburger--htla.is-active span {
+.c-hamburger--htla span.is-active span {
   transform: rotate(180deg);
 }
-.c-hamburger--htla.is-active span::before,
-.c-hamburger--htla.is-active span::after {
+.c-hamburger--htla span.is-active span::before,
+.c-hamburger--htla span.is-active span::after {
   width: 50%;
 }
-.c-hamburger--htla.is-active span::before {
+.c-hamburger--htla span.is-active span::before {
   top: 0;
   transform: translateX(28.5px) translateY(3px) rotate(45deg);
 }
-.c-hamburger--htla.is-active span::after {
+.c-hamburger--htla span.is-active span::after {
   bottom: 0;
   transform: translateX(28.5px) translateY(-3px) rotate(-45deg);
 }
@@ -956,6 +967,7 @@ img.aligncenter {
 }
 .c-hamburger--htra span {
   transition: transform 0.3s;
+/* active state, i.e. menu open */
 }
 .c-hamburger--htra span::before {
   transform-origin: top left;
@@ -965,21 +977,21 @@ img.aligncenter {
   transform-origin: bottom left;
   transition: transform 0.3s, width 0.3s, bottom 0.3s;
 }
-.c-hamburger--htra.is-active {
+.c-hamburger--htra span.is-active {
   background-color: #ff6e0d;
 }
-.c-hamburger--htra.is-active span {
+.c-hamburger--htra span.is-active span {
   transform: rotate(180deg);
 }
-.c-hamburger--htra.is-active span::before,
-.c-hamburger--htra.is-active span::after {
+.c-hamburger--htra span.is-active span::before,
+.c-hamburger--htra span.is-active span::after {
   width: 50%;
 }
-.c-hamburger--htra.is-active span::before {
+.c-hamburger--htra span.is-active span::before {
   top: 0;
   transform: translateX(-6px) translateY(3px) rotate(-45deg);
 }
-.c-hamburger--htra.is-active span::after {
+.c-hamburger--htra span.is-active span::after {
   bottom: 0;
   transform: translateX(-6px) translateY(-3px) rotate(45deg);
 }
@@ -1059,20 +1071,22 @@ input[type="submit"]:hover {
   margin: 2em 0;
 }
 #masthead {
+  position: relative;
   background-image: url("img/copper.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
   border-bottom-width: 4px;
 }
 #masthead .border-inner {
   background-color: #fff;
 }
 #site-title {
-  text-align: center;
-  margin: 0;
-  font-family: 'Allessa Script', cursive;
-  font-weight: normal;
+  width: 98%;
+  max-width: 75rem;
+  position: relative;
+  margin: 0.5em auto 0.5em auto;
+  display: block;
 }
 #site-navigation-container {
   width: 100%;
@@ -1117,13 +1131,9 @@ input[type="submit"]:hover {
   color: #ddd;
 }
 #hamburger {
-  background-color: #000;
-}
-#hamburger.is-active {
-  background-color: #808080;
-}
-#hamburger.is-active.c-hamburger--htx span {
-  background: none;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
 }
 #main {
   width: 85%;
