@@ -39,3 +39,69 @@ function rhd_body_class( $body_classes )
 	return $body_classes;
 }
 add_filter( 'body_class', 'rhd_body_class' );
+
+
+/**
+ * rhd_front_page_slider function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_front_page_slider()
+{
+	?>
+	<section id="front-page-slider">
+		<div class="border-inner">
+			<!-- slider -->
+			<div class="scroll-label">Scroll</div>
+		</div>
+	</section>
+	<?php
+}
+
+
+/**
+ * rhd_header_message function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_front_page_header_message()
+{
+	$has_thumb = ( has_post_thumbnail() ) ? true : false;
+	?>
+	<section id="header-message-container">
+		<div class="border-inner">
+			<div class="header-message">
+				<?php if ( $has_thumb ) : ?>
+					<div class="header-message-photo">
+						<?php the_post_thumbnail( 'full' ); ?>
+					</div>
+				<?php endif; ?>
+				<div class="header-message-content">
+					<!-- content -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php
+}
+
+
+/**
+ * rhd_front_page_instagram function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_front_page_instagram()
+{
+	?>
+	<section id="front-page-instagram">
+		<div class="border-inner">
+			<!-- instagram -->
+			<h3 class="section-title">Instagram</h3>
+		</div>
+	</section>
+	<?php
+}

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:38:30 AM on 04-05-2016
+* RHD Dev: Compiled at 5:09:00 AM on 04-05-2016
 ***/
 
 /**
@@ -1306,7 +1306,11 @@ input[type="submit"]:hover {
 .blog-area .post .entry-header .entry-details .sep {
   font-size: 1.1em;
 }
-.blog-area .post .post-excerpt-thumb {
+.blog-area .post .post-excerpt-thumbnail {
+  width: 100%;
+  height: auto;
+}
+.blog-area .post .post-excerpt-thumbnail img {
   width: 100%;
   height: auto;
 }

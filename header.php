@@ -40,7 +40,7 @@
 			'container' => 'nav',
 			'container_id' => 'site-navigation-container',
 			'walker' => new RHD_Walker_Nav
-		)
+		);
 		?>
 
 		<div id="page" class="hfeed site">
@@ -48,7 +48,7 @@
 				<div class="border-inner">
 					<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 
-					<img id="site-title" src="<?php echo RHD_UPLOAD_URL; ?>/2016/05/copper-dot-logo-long.png" alt="<?php echo bloginfo( 'name' ); ?>">
+					<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_UPLOAD_URL; ?>/2016/05/copper-dot-logo-long.png" alt="<?php echo bloginfo( 'name' ); ?>"></a>
 
 					<?php wp_nav_menu( $nav_args_main ); ?>
 
@@ -57,5 +57,10 @@
 					</button>
 				</div>
 			</header><!-- #masthead -->
+
+			<?php if ( is_front_page() ) : ?>
+				<?php rhd_front_page_slider(); ?>
+				<?php rhd_front_page_header_message(); ?>
+			<?php endif; ?>
 
 			<main id="main">

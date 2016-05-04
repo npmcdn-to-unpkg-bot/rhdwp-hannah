@@ -12,6 +12,10 @@
 
 	</main><!-- #main -->
 
+	<?php if ( is_front_page() ) : ?>
+		<?php rhd_front_page_instagram(); ?>
+	<?php endif; ?>
+
     <footer id="colophon">
         <?php get_sidebar( 'footer' ); ?>
         <div class="site-info">

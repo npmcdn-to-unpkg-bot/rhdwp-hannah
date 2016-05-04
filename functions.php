@@ -215,7 +215,7 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
  */
 function rhd_image_sizes()
 {
-	add_image_size( 'square', 300, 300, true );
+	add_image_size( 'square', 400, 400, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
@@ -440,12 +440,12 @@ function rhd_enhance_excerpts( $text )
 		$text = apply_filters('the_content', $text);
 		$text = str_replace('\]\]\>', ']]&gt;', $text);
 		$text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
-		$text = strip_tags($text, '<a>');
-		$excerpt_length = 80;
+		$text = strip_tags( $text, '<a>' );
+		$excerpt_length = 40;
 		$words = explode(' ', $text, $excerpt_length + 1);
 		if ( count( $words ) > $excerpt_length) {
 			array_pop( $words );
-			array_push( $words, '... <a class="readmore" href="'. get_permalink($post->ID) . '">Continue reading &rarr;</a>' );
+			array_push( $words, rhd_ghost_button( get_the_permalink( $post->id ), null, true, __( 'Read More', 'rhd' ) ) );
 			$text = implode(' ', $words);
         }
 	}
