@@ -27,8 +27,8 @@ define( 'DISALLOW_FILE_EDIT', true );
 
 
 // Includes
-include_once( 'inc/rhd-shortcodes.php' );
 include_once( 'inc/rhd-theme.php' );
+include_once( 'inc/rhd-ghost-button.php' );
 include_once( 'inc/rhd-login-admin.php' );
 
 
