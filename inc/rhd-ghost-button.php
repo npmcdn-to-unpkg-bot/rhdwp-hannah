@@ -9,30 +9,44 @@
  **/
 
 
+/* ==========================================================================
+	Initialization
+   ========================================================================== */
+
+function rhd_ghost_button_enqueue()
+{
+	wp_enqueue_script( 'rhd-ghost-button', RHD_THEME_DIR . '/js/ghost-button.js', array( 'jquery' ), null, true );
+}
+add_action( 'wp_enqueue_scripts', 'rhd_ghost_button_enqueue' );
+
+
+/* ==========================================================================
+	Functions
+   ========================================================================== */
+
 /**
  * rhd_ghost_button function.
  *
  * @access public
  * @param string $content
  * @param mixed $url
- * @param mixed $target
+ * @param mixed $target (default: '')
+ * @param string $align (default: 'center')
  * @param mixed $filled (default: false)
  * @param bool $echo (default: false)
  * @return void
  */
-function rhd_ghost_button( $content, $url, $target = null, $filled = false, $echo = false )
+function rhd_ghost_button( $content, $url, $target = '', $align = 'center', $filled = false, $echo = false )
 {
 	$target_att = ( $target ) ? "target={$target}" : '';
 
 	if ( $filled != false ) {
 		$filled_class = 'filled';
-		$auto_color_class = null;
 	} else {
 		$filled_class = null;
-		$auto_color_class = 'auto-color';
 	}
 
-	$output = "<div class='ghost-button'><a href='{$url}' {$target_att} class='{$filled_class} {$auto_color_class}'>{$content}</a></div>";
+	$output = "<div class='ghost-button-container gb-align-{$align}'><a href='{$url}' {$target_att} class='ghost-button {$filled_class}'>{$content}</a></div>";
 
 	if ( $echo == true )
 		echo $output;
@@ -53,6 +67,7 @@ function rhd_ghost_button_shortcode( $atts, $content = null )
         $a = shortcode_atts( array(
                 'url' => '',
                 'target' => '',
+                'align' => 'center',
                 'filled' => false
         ), $atts );
 

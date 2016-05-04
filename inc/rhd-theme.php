@@ -52,7 +52,7 @@ function rhd_front_page_slider()
 	?>
 	<section id="front-page-slider">
 		<div class="border-inner">
-			<!-- slider -->
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'front-page-slider', 'slug' ); } ?>
 			<div class="scroll-label">Scroll</div>
 		</div>
 	</section>
@@ -74,22 +74,23 @@ function rhd_front_page_header_message()
 		<div class="border-inner">
 			<div class="header-message">
 				<?php if ( $has_thumb ) : ?>
-					<div class="header-message-photo">
-						<?php the_post_thumbnail( 'full' ); ?>
+					<div class="header-message-photo" style="background-image: url(<?php the_post_thumbnail_url( 'full' ); ?>);">
 					</div>
 				<?php endif; ?>
 				<div class="header-message-content">
-					<h4 class="message-text">
-						EVERY HOUSE,
-						EVERY BUILDING,<br />
-						EVERY SPACE TELLS<br />
-						A STORY. IS YOUR<br />
-						HOME TELLING<br />
-						YOURS?
-					</h4>
-					<div class="message-buttons">
-						<?php rhd_ghost_button( 'Portfolio', home_url( '/portfolio' ), null, false, true ); ?>
-						<?php rhd_ghost_button( 'Services', home_url( '/services' ), null, false, true ); ?>
+					<div class="message-inner">
+						<span class="message">
+							EVERY HOUSE,<br />
+							EVERY BUILDING,<br />
+							EVERY SPACE TELLS<br />
+							A STORY. IS YOUR<br />
+							HOME TELLING<br />
+							YOURS?
+						</span>
+						<div class="message-buttons">
+							<?php rhd_ghost_button( 'Portfolio', home_url( '/portfolio' ), null, 'left', false, true ); ?>
+							<?php rhd_ghost_button( 'Services', home_url( '/services' ), null, 'right', false, true ); ?>
+						</div>
 					</div>
 				</div>
 			</div>

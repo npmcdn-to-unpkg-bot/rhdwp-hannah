@@ -27,7 +27,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 (function($){
 
-	$(document).ready(function(){
+	$(document).ready(function() {
 		rhdInit();
 
 		// Metabar dropdowns
@@ -39,6 +39,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 			$dd.slideToggle();
 		});
+
+		$window.on('resize', function(){
+			mobileNavStyles();
+		});
 	});
 
 
@@ -49,6 +53,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Fix faux-flexbox
 		fixGridLayout();
+
+		mobileNavStyles();
 	}
 
 
@@ -62,10 +68,12 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
 	function toggleBurger() {
 		var toggles = $(".c-hamburger");
+		var nav = $("#site-navigation-container");
 
 		toggles.click(function(e){
 			e.preventDefault();
 			$(this).toggleClass('is-active');
+			nav.slideToggle();
 		});
 	}
 
@@ -77,6 +85,32 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		if ( gridCount % 3 == 2 ) {
 			$('.post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)').css('float', 'left');
 			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
+		}
+	}
+
+
+	function viewIsMobile() {
+		if ( $window.width() < 640 ) return true;
+		else return false;
+	}
+
+
+	function mobileNavStyles() {
+		if ( viewIsMobile() && !$("#site-navigation-conatiner").hasClass('mobile') ) {
+			var borderHt = parseInt( $("#masthead").css("marginTop") );
+			var mastHt = $("#masthead").height();
+
+			var navOffset = borderHt + mastHt + "px";
+
+			$("#site-navigation-container")
+				.css({
+					top: navOffset
+				})
+				.addClass('mobile');
+		} else {
+			$("#site-navigation-container")
+				.attr('style', '')
+				.removeClass('mobile');
 		}
 	}
 })(jQuery);

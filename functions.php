@@ -79,13 +79,10 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
-	//wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
-		//'slidebars',
-		//'packery',
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
@@ -105,7 +102,7 @@ function rhd_enqueue_scripts()
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'query_vars' => json_encode( $wp_query->query ),
 	);
-	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
+	wp_localize_script( 'rhd-main', 'wp_data', $data);
 
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
@@ -177,7 +174,6 @@ function rhd_theme_setup()
 	add_theme_support( 'automatic-feed-links' );
 
 	register_nav_menu( 'primary', 'Main Site Navigation' );
-	//register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
 
 	// Allow shortcodes in widgets
 	add_filter( 'widget_text', 'do_shortcode' );
@@ -445,7 +441,7 @@ function rhd_enhance_excerpts( $text )
 		$words = explode(' ', $text, $excerpt_length + 1);
 		if ( count( $words ) > $excerpt_length) {
 			array_pop( $words );
-			array_push( $words, rhd_ghost_button( get_the_permalink( $post->id ), null, true, __( 'Read More', 'rhd' ) ) );
+			array_push( $words, rhd_ghost_button( __( 'Read More', 'rhd' ), get_the_permalink( $post->ID ), null, 'center', true, false ) );
 			$text = implode(' ', $words);
         }
 	}

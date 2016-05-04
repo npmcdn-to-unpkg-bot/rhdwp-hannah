@@ -13,12 +13,32 @@
 		width 57%
 		display block
 		position absolute
+		background transparent
 		right 1.5em
-		top  1em
+		top 1em
+		box-shadow none
 
 		#site-navigation
+			list-style none
+			padding-left 0
+			margin 0
+			-flexbox()
+
 			.menu-item
+				-flexitem()
 				font-size 1.1em
+				line-height 1
+
+				.sub-menu
+					position absolute
+					padding-left 0
+					line-height 1.7
+					margin-top 0.2em
+					z-index 999 !important
+
+					li
+						display block
+						margin 0
 
 	#hamburger
 		display none
@@ -66,10 +86,14 @@
 	   ========================================================================== */
 
 	#front-page-slider
+		display block
+
 		.border-inner
-			height 40vh // temp
 			background white
 			position relative
+
+			.soliloquy-container
+				margin-bottom 0 !important
 
 			.scroll-label
 				width 100%
@@ -83,25 +107,41 @@
 		width 100%
 
 		.border-inner
-			height auto
+			height 100vh
 
 			.header-message
+				height 100%
 				-clearfix()
 
 				.header-message-photo
 				.header-message-content
 					width 50%
+					height 100%
 					display block
+					position relative
 
 				.header-message-photo
 					float left
-
-					img
-						width 100%
-						display block
+					overflow hidden
+					background-size cover
+					background-position center
 
 				.header-message-content
 					float right
+
+					.message-inner
+						-vhcenter(-4%)
+
+						.message
+							font-size 4vw
+							line-height 1.2
+
+						.message-buttons
+							width 80%
+
+							.ghost-button
+								font-size 2.1vw
+
 
 	#front-page-recent-posts
 		.front-page-posts
