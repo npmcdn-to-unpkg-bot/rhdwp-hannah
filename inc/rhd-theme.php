@@ -79,7 +79,18 @@ function rhd_front_page_header_message()
 					</div>
 				<?php endif; ?>
 				<div class="header-message-content">
-					<!-- content -->
+					<h4 class="message-text">
+						EVERY HOUSE,
+						EVERY BUILDING,<br />
+						EVERY SPACE TELLS<br />
+						A STORY. IS YOUR<br />
+						HOME TELLING<br />
+						YOURS?
+					</h4>
+					<div class="message-buttons">
+						<?php rhd_ghost_button( 'Portfolio', home_url( '/portfolio' ), null, false, true ); ?>
+						<?php rhd_ghost_button( 'Services', home_url( '/services' ), null, false, true ); ?>
+					</div>
 				</div>
 			</div>
 		</div>

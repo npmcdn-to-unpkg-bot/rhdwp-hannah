@@ -1,39 +1,4 @@
 /***
-* RHD Dev: Compiled at 5:09:00 AM on 04-05-2016
+* RHD Dev: Compiled at 3:33:52 PM on 04-05-2016
 ***/
 
-.ghost-button {
-  width: auto;
-  max-width: 100%;
-  text-align: center;
-  margin: 1em auto;
-}
-.ghost-button a {
-  padding: 0.4em 0.8em;
-  color: #d7ede5;
-  text-decoration: none;
-  background-color: #fff;
-  border: 3px solid #d7ede5;
-  border-radius: 0.1em;
-  display: inline-block;
-  transition: all 0.2s;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.ghost-button a:hover,
-.ghost-button a:active {
-  background-color: #d7ede5;
-  color: #d7ede5;
-  text-decoration: none;
-}
-.ghost-button a.filled {
-  color: #fff;
-  background-color: #d7ede5;
-  border-color: #d7ede5;
-}
-.ghost-button a.filled:hover,
-.ghost-button a.filled:active {
-  background-color: #f2b485;
-  border-color: #f2b485;
-}
