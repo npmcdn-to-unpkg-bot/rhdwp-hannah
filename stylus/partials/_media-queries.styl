@@ -1,0 +1,162 @@
+/* ==========================================================================
+	Media Queries
+   ========================================================================== */
+
+@media screen and (min-width 40em)
+	#site-title
+		width 47%
+		margin 0
+		position relative
+		left 1em
+
+	#site-navigation-container
+		width 57%
+		display block
+		position absolute
+		right 1.5em
+		top  1em
+
+		#site-navigation
+			.menu-item
+				font-size 1.1em
+
+	#hamburger
+		display none
+
+	#comments
+		#commentform
+			width 75%
+
+			p
+				margin-bottom 0.75rem
+
+			input
+				&[type="text"]
+				&[type="email"]
+					width 75%
+
+			#submit
+				width auto
+				padding-left 0.8em
+
+	.entry-content
+		img
+		iframe
+			-unwrapper(100%)
+			max-width 100%
+
+		img
+			&.alignleft
+				margin-right 1em
+				float left
+
+			&.alignright
+				margin-left 1em
+				float right
+
+			&.aligncenter
+				margin 0 auto
+
+		a
+			img
+				@extends .entry-content img
+
+	/* ==========================================================================
+		Front Page
+	   ========================================================================== */
+
+	#front-page-slider
+		.border-inner
+			height 40vh // temp
+			background white
+			position relative
+
+			.scroll-label
+				width 100%
+				text-align center
+				-ff-headline()
+				position absolute
+				bottom 2%
+				font-size 200%
+
+	#header-message-container
+		width 100%
+
+		.border-inner
+			height auto
+
+			.header-message
+				-clearfix()
+
+				.header-message-photo
+				.header-message-content
+					width 50%
+					display block
+
+				.header-message-photo
+					float left
+
+					img
+						width 100%
+						display block
+
+				.header-message-content
+					float right
+
+	#front-page-recent-posts
+		.front-page-posts
+			-flexbox()
+
+			.post
+				width 32%
+				-flexitem()
+				vertical-align top
+				margin-top 0
+
+
+@media screen and (min-width 50em)
+	#site-navigation-container
+		#site-navigation
+			.menu-item
+				font-size 1.2em
+
+
+// Fixed-width 340px sidebar
+@media screen and (min-width 40em)
+	#main
+		-clearfix()
+
+	#primary
+		float right
+
+		&.full-width
+			width 100%
+			float none
+
+	#secondary
+		width 320px
+		float left
+
+		.widget
+			width 100%
+			padding 0 10px
+
+
+@media screen and (min-width 58em)
+	#primary
+		width 56%
+
+
+@media screen and (min-width 62em)
+	#primary
+		width 58%
+
+
+@media screen and (min-width 64em)
+	#primary
+		width 60%
+
+
+@media screen and (min-width 66em)
+	#primary
+		width 64%

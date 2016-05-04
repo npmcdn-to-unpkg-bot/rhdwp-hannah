@@ -4,10 +4,10 @@
 
 // Variables
 $c_text = #2b2b2b
-$c_text_lt = #979797
 $c_sec = #d7ede5
 $c_ter = #f2b485
 
+$c_text_lt = #7b7b7b
 $off_white = #dddddd
 
 $ff_body = 'Roboto Condensed', sans-serif
@@ -27,21 +27,15 @@ $border_w = 6px
 	font-family $ff_cursive
 	font-weight normal
 
--copperborder( $w = null, $loc = null )
+-copperborder()
 	background-image url(img/copper.jpg)
 	background-repeat no-repeat
 	background-size 100%
+	margin-top $border_w // For offset
 
-	if $w == null
-		$w = $border_w
-
-	if $loc != null
-		padding-{$loc} $w
-	else
-		padding $w
-
--copperinner( $bgc = white )
-	background-color $bgc
+	.border-inner
+		position relative
+		bottom $border_w
 
 
 /* ==========================================================================
@@ -64,11 +58,14 @@ $border_w = 6px
 		border-radius 0.1em
 		display inline-block
 		transition all 0.2s
+		-ff-title()
+		text-transform uppercase
 
 		&:hover
 		&:active
 			background-color @color
 			color @background-color
+			text-decoration none
 
 		&.filled
 			color white

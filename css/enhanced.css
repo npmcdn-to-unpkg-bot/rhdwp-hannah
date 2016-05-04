@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:09:38 PM on 03-05-2016
+* RHD Dev: Compiled at 4:38:30 AM on 04-05-2016
 ***/
 
 .ghost-button {
@@ -17,11 +17,15 @@
   border-radius: 0.1em;
   display: inline-block;
   transition: all 0.2s;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .ghost-button a:hover,
 .ghost-button a:active {
   background-color: #d7ede5;
   color: #d7ede5;
+  text-decoration: none;
 }
 .ghost-button a.filled {
   color: #fff;

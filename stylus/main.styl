@@ -78,16 +78,15 @@ input[type="submit"]
 
 #masthead
 	position relative
-	-copperborder( $border_w, 'bottom' )
-	border-bottom-width 4px
+	-copperborder()
 
 	.border-inner
-		-copperinner( white )
+		background url(img/herringbone.jpg) repeat
 
 
 #site-title
-	-wrapper(1.3em, 0, 96%)
-	padding-bottom 0.5em
+	-wrapper(0, 0, 96%)
+	padding 1.3em 0 0.5em
 	display block
 
 
@@ -125,13 +124,15 @@ input[type="submit"]
 .site-navigation
 	li
 		a
-			color $c_sec
+			color $c_text
 			text-decoration none
 			transition color 0.25s
+			text-transform uppercase
+			font-weight 300
 
 			&:hover
 			&:active
-				color $off_white
+				color $c_ter
 
 
 #hamburger
@@ -180,7 +181,7 @@ input[type="submit"]
 
 			&:hover
 			&:active
-				color (@color)
+				color @color
 				text-decoration underline
 
 	#rhd-logo-footer
@@ -255,18 +256,33 @@ input[type="submit"]
 .blog-area
 	.post
 		-clearfix()
-		border 2px solid $c_sec
-		padding 1em
+		border-width 2px
+		border-style solid
 		margin 1em auto
+
+		&.rhd-full-post
+			border-color $c_text_lt
+
+			.entry-header
+				padding-bottom 1em
+				border-bottom 1px solid $c_text
+
+		&.rhd-excerpt-post
+			border-color $c_sec
+
+			.entry-details
+				display none
 
 		&:first-child
 			margin-top 0
 
+		.post-inner
+			width 100%
+			padding 1em
+
 		.entry-header
 			text-align center
 			margin-bottom 1em
-			padding-bottom 1em
-			border-bottom 1px solid $c_text
 
 			a
 				color inherit
@@ -286,6 +302,10 @@ input[type="submit"]
 
 				.sep
 					font-size 1.1em
+
+		.post-excerpt-thumb
+			width 100%
+			height auto
 
 
 .pagination
@@ -379,6 +399,80 @@ input[type="submit"]
 	.widget-title
 		margin-top 0
 
+
+/* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.front-page
+	#main
+		width 100%
+
+	#primary
+		-copperborder()
+		padding 0
+
+		.border-inner
+			background white
+
+		#content
+			width 100%
+			padding 0 7.5%
+
+	.section-title
+		-ff-headline()
+		font-size 200%
+		text-align center
+		margin-top 0
+
+
+#front-page-slider
+#header-message-container
+#front-page-instagram
+	width 100%
+	-copperborder()
+
+	.border-inner
+		background white
+
+
+#front-page-slider
+	.border-inner
+		height 40vh // temp
+		background white
+		position relative
+
+		.scroll-label
+			width 100%
+			text-align center
+			-ff-headline()
+			position absolute
+			bottom 2%
+			font-size 200%
+
+
+#header-message-container
+	.border-inner
+		height 50vh
+
+		.header-message
+			background $c_sec
+
+			.header-message-photo
+				display none
+
+				img
+					display @display
+
+			.header-message-content
+				width 100%
+
+
+#front-page-instagram
+	.border-inner
+		height 20em
+
+
 /* ==========================================================================
 	Extras
    ========================================================================== */
@@ -390,90 +484,4 @@ input[type="submit"]
 	Media Queries
    ========================================================================== */
 
-@media screen and (min-width 40em)
-	#site-navigation-container
-		display block
-
-		#site-navigation
-			line-height 0
-
-			.menu-item
-				line-height 2
-
-	#hamburger
-		display none
-
-	#comments
-		#commentform
-			width 75%
-
-			p
-				margin-bottom 0.75rem
-
-			input
-				&[type="text"]
-				&[type="email"]
-					width 75%
-
-			#submit
-				width auto
-				padding-left 0.8em
-
-	.entry-content
-		img
-		iframe
-			-unwrapper(100%)
-			max-width 100%
-
-		img
-			&.alignleft
-				margin-right 1em
-				float left
-
-			&.alignright
-				margin-left 1em
-				float right
-
-			&.aligncenter
-				margin 0 auto
-
-		a
-			img
-				@extends .entry-content img
-
-
-// Fixed-width 340px sidebar
-@media screen and (min-width 40em)
-	#main
-		-clearfix()
-
-	#primary
-		float right
-
-	#secondary
-		width 320px
-		float left
-
-		.widget
-			width 100%
-			padding 0 10px
-
-
-@media screen and (min-width 58em)
-	#primary
-		width 56%
-
-
-@media screen and (min-width 62em)
-	#primary
-		width 58%
-
-
-@media screen and (min-width 64em)
-	#primary
-		width 60%
-
-
-@media screen and (min-width 66em)
-	#primary
-		width 64%
+@require "partials/_media-queries.styl"
