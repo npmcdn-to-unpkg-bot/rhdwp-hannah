@@ -46,17 +46,19 @@
 		<div id="page" class="hfeed site">
 			<header id="masthead" class="site-header">
 				<div class="border-inner">
-					<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
+					<div class="limiter">
+						<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 
-					<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_UPLOAD_URL; ?>/2016/05/copper-dot-logo-long.png" alt="<?php echo bloginfo( 'name' ); ?>"></a>
+						<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_UPLOAD_URL; ?>/2016/05/copper-dot-logo-long.png" alt="<?php echo bloginfo( 'name' ); ?>"></a>
 
-					<?php wp_nav_menu( $nav_args_main ); ?>
+						<?php wp_nav_menu( $nav_args_main ); ?>
 
-					<button id="hamburger" class="c-hamburger c-hamburger--htx">
-						<span>Toggle nav</span>
-					</button>
+						<button id="hamburger" class="c-hamburger c-hamburger--htx">
+							<span>Toggle nav</span>
+						</button>
+					</div>
 				</div>
-			</header><!-- #masthead -->
+			</header>
 
 			<?php if ( is_front_page() ) : ?>
 				<?php rhd_front_page_slider(); ?>

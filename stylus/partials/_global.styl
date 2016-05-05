@@ -69,7 +69,7 @@ $updir = '../../upload/'
 	display inline-block
 
 
--wrapper( $topMargin = 0, $bottomMargin = 0, $customWidth = 85%, $customMax = 75rem )
+-wrapper( $topMargin = 0, $bottomMargin = 0, $customWidth = 85%, $customMax = 80rem )
 	width $customWidth
 	max-width $customMax
 	position relative
@@ -166,3 +166,14 @@ $updir = '../../upload/'
 			img
 				width auto
 				max-height $maxHt
+
+
+/* ==========================================================================
+	Global Classes
+   ========================================================================== */
+
+.wrapper
+	-wrapper()
+
+.limiter
+	-wrapper(0, 0, 100%)

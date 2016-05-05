@@ -1,7 +1,19 @@
 /***
-* RHD Dev: Compiled at 3:50:49 PM on 05-05-2016
+* RHD Dev: Compiled at 5:53:08 PM on 05-05-2016
 ***/
 
+.wrapper {
+  width: 85%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+.limiter {
+  width: 100%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
 .alignnone {
   margin: 5px 20px 20px 0;
 }
@@ -663,7 +675,7 @@ img.aligncenter {
 }
 #blog-metabar #blog-metabar-content {
   width: 90%;
-  max-width: 75rem;
+  max-width: 80rem;
   position: relative;
   margin: 0 auto 0 auto;
   list-style: none;
@@ -777,7 +789,7 @@ img.aligncenter {
   }
   #blog-metabar #blog-metabar-content {
     width: 85%;
-    max-width: 75rem;
+    max-width: 80rem;
     position: relative;
     margin: 0 auto 0 auto;
     text-align: justify;
@@ -1118,7 +1130,7 @@ input[type="submit"]:hover {
 }
 #site-title {
   width: 96%;
-  max-width: 75rem;
+  max-width: 80rem;
   position: relative;
   margin: 0 auto 0 auto;
   padding: 1.3em 0 0.5em;
@@ -1161,7 +1173,7 @@ input[type="submit"]:hover {
 }
 #main {
   width: 85%;
-  max-width: 75rem;
+  max-width: 80rem;
   position: relative;
   margin: 0 auto 0 auto;
   padding: 2em 0;
@@ -1252,7 +1264,7 @@ input[type="submit"]:hover {
 .entry-content iframe,
 .entry-content a img {
   width: 95%;
-  max-width: 75rem;
+  max-width: 80rem;
   position: relative;
   margin: 1em auto 1em auto;
 }
@@ -1509,7 +1521,7 @@ input[type="submit"]:hover {
 }
 #header-message-container .border-inner .header-message .header-message-content .message-inner {
   width: 95%;
-  max-width: 75rem;
+  max-width: 80rem;
   position: relative;
   margin: 1em auto 1em auto;
 }
@@ -1545,15 +1557,17 @@ input[type="submit"]:hover {
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 42em) {
   #site-title {
-    width: 40%;
+    width: 300px;
     margin: 0;
     position: relative;
     left: 1em;
+    transition: width 0.25s, height 0.25s;
   }
   #site-navigation-container {
     width: 57%;
+    min-width: 445px;
     display: block;
     position: absolute;
     background: transparent;
@@ -1715,11 +1729,14 @@ input[type="submit"]:hover {
   }
 }
 @media screen and (min-width: 50em) {
+  #site-title {
+    width: 460px;
+  }
   #site-navigation-container #site-navigation .menu-item {
     font-size: 1.2em;
   }
 }
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 42em) {
   #primary {
     float: right;
   }

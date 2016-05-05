@@ -1,4 +1,16 @@
 /***
-* RHD Dev: Compiled at 3:50:49 PM on 05-05-2016
+* RHD Dev: Compiled at 5:53:08 PM on 05-05-2016
 ***/
 
+.wrapper {
+  width: 85%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+.limiter {
+  width: 100%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
