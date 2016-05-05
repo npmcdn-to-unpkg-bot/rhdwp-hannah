@@ -40,3 +40,32 @@ jQuery.fn.visibilityToggle = function() {
         return (visibility == 'visible') ? 'hidden' : 'visible';
     });
 };
+
+
+/* ==========================================================================
+	closestStyle
+   ========================================================================== */
+
+// $().closestStyle()
+// find the closest CSS style of a parent for a DOM element and apply it
+// to the selected element. I use this mainly before calling
+// .effect('highlight') so the backgroundColor will mesh properly.
+// @example:
+// $('.row').closestStyle('backgroundColor').effect('highlight');
+//
+// Gist: https://gist.github.com/lifo101/3169552.js
+
+(function($){
+    $.fn.closestStyle = function(attr, val){
+        var me = $(this);
+        me.parents().each(function(i){
+            var c = $(this).css(attr);
+            if (c != 'transparent') {
+                me.css(attr, c);
+                return false; // stop
+            }
+            return true; // strict compliance
+        });
+        return this;
+    };
+})(jQuery);

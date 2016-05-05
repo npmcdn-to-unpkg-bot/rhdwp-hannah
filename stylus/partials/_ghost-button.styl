@@ -2,13 +2,24 @@
 	Ghost Buttons
    ========================================================================== */
 
-.ghost-button
+.ghost-button-container
 	width auto
 	max-width 100%
 	text-align center
-	margin 1em auto
+	margin-top 1em
+	margin-bottom 1em
 
-	a
+	&.gb-align-center
+		margin-right auto
+		margin-left auto
+
+	&.gb-align-right
+		float right
+
+	&.gb-align-left
+		float left
+
+	.ghost-button
 		padding 0.4em .8em
 		color $c_sec
 		text-decoration none
@@ -17,11 +28,14 @@
 		border-radius 0.1em
 		display inline-block
 		transition all 0.2s
+		-ff-title()
+		text-transform uppercase
 
 		&:hover
 		&:active
 			background-color @color
 			color @background-color
+			text-decoration none
 
 		&.filled
 			color white
