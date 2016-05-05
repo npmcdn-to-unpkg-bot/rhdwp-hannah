@@ -8,18 +8,6 @@
  * @subpackage rhdwp-hannah
  **/
 
-
-/* ==========================================================================
-	Initialization
-   ========================================================================== */
-
-function rhd_ghost_button_enqueue()
-{
-	wp_enqueue_script( 'rhd-ghost-button', RHD_THEME_DIR . '/js/ghost-button.js', array( 'jquery' ), null, true );
-}
-add_action( 'wp_enqueue_scripts', 'rhd_ghost_button_enqueue' );
-
-
 /* ==========================================================================
 	Functions
    ========================================================================== */
@@ -73,6 +61,6 @@ function rhd_ghost_button_shortcode( $atts, $content = null )
 
 		extract($a);
 
-        return rhd_ghost_button( $content, $url, $target, $filled );
+        return rhd_ghost_button( $content, $url, $target, $filled, false );
 }
 add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );

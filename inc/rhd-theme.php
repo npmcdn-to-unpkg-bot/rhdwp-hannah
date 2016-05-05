@@ -27,7 +27,7 @@ function rhd_body_class( $body_classes )
 
 	session_start();
 
-	if ( is_home() || is_single() || is_archive() || is_search() ) {
+	if ( is_home() || is_single() || is_archive() || is_search() || is_page( 12053 ) ) {
 		$body_classes[] = 'blog-area';
 
 		$_SESSION['blog_area'] = true;

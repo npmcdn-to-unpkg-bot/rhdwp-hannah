@@ -4,7 +4,7 @@
 
 @media screen and (min-width 40em)
 	#site-title
-		width 47%
+		width 40%
 		margin 0
 		position relative
 		left 1em
@@ -92,9 +92,6 @@
 			background white
 			position relative
 
-			.soliloquy-container
-				margin-bottom 0 !important
-
 			.scroll-label
 				width 100%
 				text-align center
@@ -152,6 +149,22 @@
 				-flexitem()
 				vertical-align top
 				margin-top 0
+
+
+	/* ==========================================================================
+		Blog Page
+	   ========================================================================== */
+
+	.blog-area
+		.blog-container
+			-flexbox()
+
+			.post
+				&.rhd-excerpt-post
+					width 49%
+					-flexitem()
+					margin-top 0
+					vertical-align top
 
 
 @media screen and (min-width 50em)

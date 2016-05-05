@@ -29,15 +29,15 @@ $updir = '../../upload/'
 	font-family $ff_cursive
 	font-weight normal
 
--copperborder()
-	background-image url(img/copper.jpg)
+-copperborder( $border = $border_w )
+	background-image url(../img/copper.jpg)
 	background-repeat no-repeat
 	background-size 100% 100%
-	margin-top $border_w // offset
+	margin-top $border // offset
 
 	.border-inner
 		position relative
-		bottom $border_w
+		bottom $border
 
 
 /* ==========================================================================

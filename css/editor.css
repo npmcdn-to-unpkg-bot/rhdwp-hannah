@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:02:51 PM on 04-05-2016
+* RHD Dev: Compiled at 3:19:03 PM on 05-05-2016
 ***/
 
 /**
@@ -1103,7 +1103,7 @@ input[type="submit"]:hover {
   margin: 0;
 }
 #masthead {
-  background-image: url("img/copper.jpg");
+  background-image: url("../img/copper.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin-top: 6px;
@@ -1274,16 +1274,31 @@ input[type="submit"]:hover {
 }
 .blog-area .post.rhd-full-post {
   border-color: #7b7b7b;
+  padding: 1em;
 }
 .blog-area .post.rhd-full-post .entry-header {
   padding-bottom: 1em;
   border-bottom: 1px solid #2b2b2b;
 }
 .blog-area .post.rhd-excerpt-post {
-  border-color: #d7ede5;
+  border-color: #7b7b7b;
 }
-.blog-area .post.rhd-excerpt-post .entry-details {
+.blog-area .post.rhd-excerpt-post .entry-header {
+  margin-bottom: 0;
+}
+.blog-area .post.rhd-excerpt-post .entry-header .entry-title {
+  padding: 0.5em 0;
+  margin: 0;
+}
+.blog-area .post.rhd-excerpt-post .entry-header .entry-details {
   display: none;
+}
+.blog-area .post.rhd-excerpt-post .entry-thumbnail {
+  border-top: 2px solid #d7ede5;
+  border-bottom: 2px solid #d7ede5;
+}
+.blog-area .post.rhd-excerpt-post .ghost-button-container {
+  margin-bottom: 0;
 }
 .blog-area .post:first-child {
   margin-top: 0;
@@ -1316,11 +1331,11 @@ input[type="submit"]:hover {
 .blog-area .post .entry-header .entry-details .sep {
   font-size: 1.1em;
 }
-.blog-area .post .post-excerpt-thumbnail {
+.blog-area .post .entry-thumbnail {
   width: 100%;
   height: auto;
 }
-.blog-area .post .post-excerpt-thumbnail img {
+.blog-area .post .entry-thumbnail img {
   width: 100%;
   height: auto;
 }
@@ -1412,7 +1427,7 @@ input[type="submit"]:hover {
   max-width: none;
 }
 .front-page #primary {
-  background-image: url("img/copper.jpg");
+  background-image: url("../img/copper.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin-top: 6px;
@@ -1442,7 +1457,7 @@ input[type="submit"]:hover {
 #header-message-container,
 #front-page-instagram {
   width: 100%;
-  background-image: url("img/copper.jpg");
+  background-image: url("../img/copper.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin-top: 6px;
@@ -1514,7 +1529,7 @@ input[type="submit"]:hover {
 }
 @media screen and (min-width: 40em) {
   #site-title {
-    width: 47%;
+    width: 40%;
     margin: 0;
     position: relative;
     left: 1em;
@@ -1601,9 +1616,6 @@ input[type="submit"]:hover {
     background: #fff;
     position: relative;
   }
-  #front-page-slider .border-inner .soliloquy-container {
-    margin-bottom: 0 !important;
-  }
   #front-page-slider .border-inner .scroll-label {
     width: 100%;
     text-align: center;
@@ -1668,6 +1680,20 @@ input[type="submit"]:hover {
     display: inline-block;
     vertical-align: top;
     margin-top: 0;
+  }
+  .blog-area .blog-container {
+    text-align: justify;
+  }
+  .blog-area .blog-container:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
+  }
+  .blog-area .blog-container .post.rhd-excerpt-post {
+    width: 49%;
+    display: inline-block;
+    margin-top: 0;
+    vertical-align: top;
   }
 }
 @media screen and (min-width: 50em) {

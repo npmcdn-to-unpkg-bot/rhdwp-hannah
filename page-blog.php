@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<section id="primary" class="site-content blog-area">
+<section id="primary" class="site-content">
 	<div id="content" role="main">
 		<?php
 		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -25,16 +25,17 @@ get_header(); ?>
 		?>
 
 		<?php if ( $q->have_posts() ) : ?>
-
-			<?php while ( $q->have_posts() ) : $q->the_post(); ?>
-				<?php
-				++$i;
-				if ( $i == 1 && $paged == 1 )
-					get_template_part( 'content', 'full' );
-				else
-					get_template_part( 'content', 'excerpt' );
-				?>
-			<?php endwhile; ?>
+			<div class="blog-container blog-area-page<?php echo $paged; ?>">
+				<?php while ( $q->have_posts() ) : $q->the_post(); ?>
+					<?php
+					++$i;
+					if ( $i == 1 && $paged == 1 )
+						get_template_part( 'content', 'full' );
+					else
+						get_template_part( 'content', 'excerpt' );
+					?>
+				<?php endwhile; ?>
+			</div>
 
 			<?php rhd_archive_pagination( $q ); ?>
 			<?php wp_reset_postdata(); ?>

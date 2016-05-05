@@ -252,16 +252,31 @@ input[type="submit"]
 
 		&.rhd-full-post
 			border-color $c_text_lt
+			padding 1em
 
 			.entry-header
 				padding-bottom 1em
 				border-bottom 1px solid $c_text
 
 		&.rhd-excerpt-post
-			border-color $c_sec
+			border-color $c_text_lt
 
-			.entry-details
-				display none
+			.entry-header
+				margin-bottom 0
+
+				.entry-title
+					padding 0.5em 0
+					margin 0
+
+				.entry-details
+					display none
+
+			.entry-thumbnail
+				border-top 2px solid $c_sec
+				border-bottom 2px solid $c_sec
+
+			.ghost-button-container
+				margin-bottom 0
 
 		&:first-child
 			margin-top 0
@@ -293,7 +308,7 @@ input[type="submit"]
 				.sep
 					font-size 1.1em
 
-		.post-excerpt-thumbnail
+		.entry-thumbnail
 			width 100%
 			height auto
 
