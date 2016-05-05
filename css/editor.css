@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:19:03 PM on 05-05-2016
+* RHD Dev: Compiled at 3:50:49 PM on 05-05-2016
 ***/
 
 /**
@@ -1114,7 +1114,7 @@ input[type="submit"]:hover {
 }
 #masthead .border-inner {
   position: relative;
-  background: url("img/herringbone.jpg") repeat;
+  background: url("../img/herringbone.jpg") repeat;
 }
 #site-title {
   width: 96%;

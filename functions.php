@@ -79,6 +79,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
+	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
@@ -87,6 +88,7 @@ function rhd_enqueue_scripts()
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
 	wp_enqueue_script( 'rhd-plugins' );
+	wp_enqueue_script( 'rhd-ajax' );
 	wp_enqueue_script( 'rhd-main' );
 
 	if ( is_singular() )
