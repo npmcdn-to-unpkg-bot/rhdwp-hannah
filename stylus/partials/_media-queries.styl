@@ -45,6 +45,17 @@
 	#hamburger
 		display none
 
+	#main
+		-unwrapper(100%)
+		padding 0
+		background $near_white
+
+		.main-inner
+			@extends .limiter
+			background white
+			padding 3%
+			-clearfix()
+
 	#comments
 		#commentform
 			width 75%
@@ -162,11 +173,20 @@
 			-flexbox()
 
 			.post
+				position relative
+
 				&.rhd-excerpt-post
 					width 49%
+					height 43em
 					-flexitem()
 					margin-top 0
 					vertical-align top
+
+					.ghost-button-container
+						position absolute
+						bottom 1.5em
+						-hcenter()
+
 
 
 @media screen and (min-width 50em)
@@ -177,6 +197,14 @@
 		#site-navigation
 			.menu-item
 				font-size 1.2em
+
+	.blog-area
+		.blog-container
+			-flexbox()
+
+			.post
+				&.rhd-excerpt-post
+					height 45em
 
 
 // Fixed-width 340px sidebar

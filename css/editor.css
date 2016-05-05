@@ -1,22 +1,10 @@
 /***
-* RHD Dev: Compiled at 5:53:08 PM on 05-05-2016
+* RHD Dev: Compiled at 6:49:02 PM on 05-05-2016
 ***/
 
 /**
  * TinyMCE Styles
  **/
-.wrapper {
-  width: 85%;
-  max-width: 80rem;
-  position: relative;
-  margin: 0 auto 0 auto;
-}
-.limiter {
-  width: 100%;
-  max-width: 80rem;
-  position: relative;
-  margin: 0 auto 0 auto;
-}
 .alignnone {
   margin: 5px 20px 20px 0;
 }
@@ -583,6 +571,7 @@ input[type="checkbox"] {
 .pagination:before,
 .single-pagination:before,
 #header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons:before,
+#main .main-inner:before,
 #header-message-container .border-inner .header-message:before,
 #main:before,
 .clearfix:after,
@@ -590,6 +579,7 @@ input[type="checkbox"] {
 .pagination:after,
 .single-pagination:after,
 #header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons:after,
+#main .main-inner:after,
 #header-message-container .border-inner .header-message:after,
 #main:after {
   content: " ";
@@ -600,6 +590,7 @@ input[type="checkbox"] {
 .pagination:after,
 .single-pagination:after,
 #header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons:after,
+#main .main-inner:after,
 #header-message-container .border-inner .header-message:after,
 #main:after {
   clear: both;
@@ -669,6 +660,19 @@ img.alignright {
 img.aligncenter {
   margin: 0 auto;
   display: block;
+}
+.wrapper {
+  width: 85%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+.limiter,
+#main .main-inner {
+  width: 100%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
 }
 #blog-metabar {
   width: 100%;
@@ -1587,6 +1591,17 @@ input[type="submit"]:hover {
   #hamburger {
     display: none;
   }
+  #main {
+    width: 100%;
+    max-width: none;
+    margin: initial;
+    padding: 0;
+    background: #fbfbfb;
+  }
+  #main .main-inner {
+    background: #fff;
+    padding: 3%;
+  }
   #comments #commentform {
     width: 75%;
   }
@@ -1703,11 +1718,22 @@ input[type="submit"]:hover {
     display: inline-block;
     content: '';
   }
+  .blog-area .blog-container .post {
+    position: relative;
+  }
   .blog-area .blog-container .post.rhd-excerpt-post {
     width: 49%;
+    height: 43em;
     display: inline-block;
     margin-top: 0;
     vertical-align: top;
+  }
+  .blog-area .blog-container .post.rhd-excerpt-post .ghost-button-container {
+    position: absolute;
+    bottom: 1.5em;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 @media screen and (min-width: 50em) {
@@ -1716,6 +1742,17 @@ input[type="submit"]:hover {
   }
   #site-navigation-container #site-navigation .menu-item {
     font-size: 1.2em;
+  }
+  .blog-area .blog-container {
+    text-align: justify;
+  }
+  .blog-area .blog-container:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
+  }
+  .blog-area .blog-container .post.rhd-excerpt-post {
+    height: 45em;
   }
 }
 @media screen and (min-width: 42em) {
@@ -1754,6 +1791,9 @@ input[type="submit"]:hover {
   #primary {
     width: 64%;
   }
+}
+.entry-meta {
+  display: none;
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
 html,

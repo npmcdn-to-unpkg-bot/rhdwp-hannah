@@ -9,7 +9,7 @@
  * @subpackage rhd
  */
 ?>
-
+		</div><!-- .main-limiter -->
 	</main><!-- #main -->
 
 	<?php if ( is_front_page() ) : ?>

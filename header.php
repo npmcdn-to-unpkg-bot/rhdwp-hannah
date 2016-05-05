@@ -66,3 +66,4 @@
 			<?php endif; ?>
 
 			<main id="main">
+				<div class="main-inner">

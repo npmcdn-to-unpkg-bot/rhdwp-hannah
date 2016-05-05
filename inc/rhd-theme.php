@@ -42,6 +42,36 @@ add_filter( 'body_class', 'rhd_body_class' );
 
 
 /**
+ * rhd_custom_excerpt_length function.
+ *
+ * @access public
+ * @param mixed $length
+ * @return void
+ */
+function rhd_custom_excerpt_length( $length)
+{
+	return 55;
+}
+add_filter( 'excerpt_length', 'rhd_custom_excerpt_length' );
+
+
+/**
+ * rhd_custom_excerpt_read_more function.
+ *
+ * @access public
+ * @param mixed $more
+ * @return void
+ */
+function rhd_custom_excerpt_read_more( $more )
+{
+	global $post;
+
+	return ' [...]' . rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', true, false );
+}
+add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
+
+
+/**
  * rhd_front_page_slider function.
  *
  * @access public
