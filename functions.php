@@ -95,15 +95,11 @@ function rhd_enqueue_scripts()
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
-	if ( RHD_AJAX_PAGINATION )
-		wp_enqueue_script( 'rhd-ajax' );
-
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-main' );
 
 	if ( is_singular() )
 		wp_enqueue_script( 'comment-reply' );
-
 
 	// Localize data for client-side use
 	global $wp_query;
@@ -114,12 +110,15 @@ function rhd_enqueue_scripts()
 	);
 	wp_localize_script( 'rhd-main', 'wp_data', $data );
 
-	$data_ajax = array(
-		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'query_vars' => json_encode( $wp_query->query )
-	);
-	wp_localize_script( 'rhd-ajax', 'wp_data', $data_ajax );
+	if ( RHD_AJAX_PAGINATION ) {
+		wp_enqueue_script( 'rhd-ajax' );
 
+		$data_ajax = array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'query_vars' => json_encode( $wp_query->query )
+		);
+		wp_localize_script( 'rhd-ajax', 'wp_data', $data_ajax );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
 
