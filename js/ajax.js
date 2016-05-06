@@ -32,6 +32,8 @@
 				$('.pagination').fadeOut('fast', function(){
 					$(this).remove();
 				});
+
+				// AJAX LOAD ANIMATION
 			},
 			success: function( html ) {
 				$('.pagination').data('current-page', page );
