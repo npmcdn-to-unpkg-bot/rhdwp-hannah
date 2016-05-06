@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:02:28 PM on 06-05-2016
+* RHD Dev: Compiled at 1:23:23 PM on 06-05-2016
 ***/
 
 /**
@@ -1469,19 +1469,17 @@ input[type="submit"]:hover {
 .front-page #main {
   width: 100%;
   max-width: none;
-}
-.front-page #primary {
+  padding: 0;
   background-image: url("../img/copper.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin-top: 6px;
-  padding: 0;
 }
-.front-page #primary .border-inner {
+.front-page #main .border-inner {
   position: relative;
   bottom: 6px;
 }
-.front-page #primary .border-inner {
+.front-page #main .main-inner {
   background: #fff;
   padding-bottom: 1em;
 }
@@ -1494,7 +1492,6 @@ input[type="submit"]:hover {
   font-weight: normal;
   font-size: 200%;
   text-align: center;
-  margin-top: 0;
   margin-bottom: 0.5em;
 }
 #front-page-slider,
@@ -1666,6 +1663,9 @@ input[type="submit"]:hover {
   .entry-content img.aligncenter,
 .entry-content a img.aligncenter {
     margin: 0 auto;
+  }
+  .front-page-border-inner {
+    background: #fbfbfb;
   }
   #front-page-slider {
     display: block;

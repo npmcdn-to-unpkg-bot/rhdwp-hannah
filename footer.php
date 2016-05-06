@@ -9,7 +9,12 @@
  * @subpackage rhd
  */
 ?>
-		</div><!-- .main-limiter -->
+		</div><!-- .main-inner -->
+
+		<?php if ( is_front_page() ) : ?>
+			</div><!-- .border-inner -->
+		<?php endif; ?>
+
 	</main><!-- #main -->
 
 	<?php if ( is_front_page() ) : ?>

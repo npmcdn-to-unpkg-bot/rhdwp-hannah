@@ -149,9 +149,16 @@ function rhd_front_page_instagram()
 }
 
 
+/**
+ * rhd_blog_query_offset function.
+ *
+ * @access public
+ * @param mixed $query
+ * @return void
+ */
 function rhd_blog_query_offset( $query )
 {
-	if ( $query->is_main_query() )
+	if ( $query->is_main_query() || is_front_page() )
 		return;
 
 	$ppp = get_option( 'posts_per_page' );
