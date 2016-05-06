@@ -23,7 +23,7 @@
 		padding 0.4em .8em
 		color $c_sec
 		text-decoration none
-		background-color white
+		background-color $c_bg
 		border 3px solid @color
 		border-radius 0.1em
 		display inline-block
@@ -33,12 +33,12 @@
 
 		&:hover
 		&:active
-			background-color @color
-			color @background-color
+			background-color $c_sec
+			color $c_bg
 			text-decoration none
 
 		&.filled
-			color white
+			color $c_bg
 			background-color $c_sec
 			border-color $c_sec
 

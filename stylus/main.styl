@@ -278,12 +278,16 @@ input[type="submit"]
 	font-size 1.1em
 	-clearfix()
 
+	.pag-link
+		@extends .ghost-button-container
+
+		a
+			@extends .ghost-button-container .ghost-button
+
 	.pag-next
-	[rel="prev"]
 		float left
 
 	.pag-prev
-	[rel="next"]
 		float right
 
 
