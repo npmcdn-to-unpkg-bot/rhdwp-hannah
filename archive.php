@@ -10,22 +10,20 @@ get_header();
 ?>
 
 	<section id="primary" class="site-content">
-		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
+
+		<?php get_template_part( 'module', 'metabar' ); ?>
 
 		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php the_archive_title( '<h2 class="page-title archive-title">', '</h2>' ); ?>
+				<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php
-						if ( is_single() ) get_template_part( 'content', 'single' );
-						else get_template_part( 'content' );
-					?>
-				<?php endwhile; ?>
-
-				<?php if ( is_single() && comments_open() ) comments_template(); ?>
+				<div class="blog-container">
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'content', 'excerpt' ); ?>
+					<?php endwhile; ?>
+				</div>
 
 			<?php else : ?>
 
@@ -68,4 +66,5 @@ get_header();
 
 	</section><!-- #primary -->
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

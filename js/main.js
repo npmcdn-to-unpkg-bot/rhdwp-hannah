@@ -41,7 +41,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		});
 
 		$window.on('resize', function(){
-			mobileNavStyles();
+			mobileStyles();
 
 			vCenterHeaderMessage();
 		});
@@ -54,9 +54,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		toggleBurger();
 
 		// Fix faux-flexbox
-		fixGridLayout();
+		// fixGridLayout();
 
-		mobileNavStyles();
+		mobileStyles();
 		vCenterHeaderMessage();
 	}
 
@@ -98,22 +98,28 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	}
 
 
-	function mobileNavStyles() {
-		if ( viewIsMobile() && !$("#site-navigation-conatiner").hasClass('mobile') ) {
-			var borderHt = parseInt( $("#masthead").css("marginTop") );
-			var mastHt = $("#masthead").height();
+	function mobileStyles() {
+		if ( viewIsMobile() ) {
+			if ( !$("#site-navigation-conatiner").hasClass('mobile') ) {
+				var borderHt = parseInt( $("#masthead").css("marginTop") );
+				var mastHt = $("#masthead").height();
 
-			var navOffset = borderHt + mastHt + "px";
+				var navOffset = borderHt + mastHt + "px";
 
-			$("#site-navigation-container")
-				.css({
-					top: navOffset
-				})
-				.addClass('mobile');
+				$("#site-navigation-container")
+					.css({
+						top: navOffset
+					})
+					.addClass('mobile');
+			}
+
+			$("body").addClass( 'mobile-viewport' );
 		} else {
 			$("#site-navigation-container")
 				.attr('style', '')
 				.removeClass('mobile');
+
+			$('body').removeClass( 'mobile-viewport' );
 		}
 	}
 

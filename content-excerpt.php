@@ -15,7 +15,7 @@
 			<p class="entry-details"><?php  the_time( get_option( 'date_format' ) ); ?><span class="sep"> | </span><span class="entry-cats"><?php the_category( ', ' ); ?></span></p>
 		</header>
 
-		<?php if ( has_post_thumbnail() ) : ?>
+		<?php if ( has_post_thumbnail() && ! is_archive() ) : ?>
 			<div class="entry-thumbnail">
 				<?php the_post_thumbnail( 'square' ); ?>
 			</div>

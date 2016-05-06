@@ -9,9 +9,14 @@
 get_header(); ?>
 
 <section id="primary" class="site-content">
+
+	<?php
+	$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+	if ( $paged != 1 ) get_template_part( 'module', 'metabar' );
+	?>
+
 	<div id="content" role="main">
 		<?php
-		$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 		$i = 0;
 
 		$args = array(

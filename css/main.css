@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:38:38 PM on 06-05-2016
+* RHD Dev: Compiled at 4:17:00 PM on 06-05-2016
 ***/
 
 .alignnone {
@@ -1268,6 +1268,9 @@ input[type="submit"]:hover {
   line-height: 1;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 700;
+}
+.entry-summary p {
+  margin: 0;
 }
 .entry-content {
   width: 100%;
