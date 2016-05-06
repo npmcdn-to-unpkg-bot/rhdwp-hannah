@@ -4,7 +4,6 @@
 		e.preventDefault();
 
 		page = parseInt( $(this).parents('span').data('target-page') );
-		//page = ( 1 < page ) ? page + 1 : page;
 
 		$.ajax({
 			url: wp_data.ajax_url,

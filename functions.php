@@ -437,7 +437,13 @@ add_filter( 'shortcode_atts_gallery', 'rhd_gallery_atts', 10, 3 );
  */
 function rhd_archive_pagination( WP_Query $q = null )
 {
-	$max_page = ( $q ) ? $q->max_num_pages : null;
+	if ( $q ) {
+		$max_page = $q->max_num_pages;
+	} else {
+		$max_page = null;
+	}
+
+	global $paged;
 
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
@@ -495,24 +501,29 @@ function rhd_single_pagination()
  */
 function rhd_ajax_pagination()
 {
+	global $wp_query;
+
+	$saved_query = $wp_query;
+
 	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
 	$query_vars['paged'] = $_POST['page'];
 	$posts = new WP_Query( $query_vars );
 	$GLOBALS['wp_query'] = $posts;
 
-	add_filter( 'editor_max_image_size', 'rhd_image_size_override' );
+	//add_filter( 'editor_max_image_size', 'rhd_image_size_override' );
 
 	if( $posts->have_posts() ) {
-		rhd_archive_pagination( $posts );
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
 			get_template_part( 'content', 'excerpt' );
 		}
 	}
-
-	remove_filter( 'editor_max_image_size', 'rhd_image_size_override' );
+	//remove_filter( 'editor_max_image_size', 'rhd_image_size_override' );
 
 	rhd_archive_pagination( $posts );
+
+	wp_reset_postdata();
+	$wp_query = $saved_query;
 
 	die();
 }
