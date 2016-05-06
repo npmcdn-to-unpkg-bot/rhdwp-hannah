@@ -109,6 +109,10 @@
 			background white
 			position relative
 
+			.soliloquy-container
+				padding-top 1em
+				padding-bottom 1em
+
 			.scroll-label
 				width 100%
 				text-align center
@@ -121,16 +125,16 @@
 		width 100%
 
 		.border-inner
-			height 100vh
+			display table
 
 			.header-message
 				height 100%
 				-clearfix()
+				display table-cell
 
 				.header-message-photo
 				.header-message-content
 					width 50%
-					height 100%
 					display block
 					position relative
 
@@ -144,8 +148,6 @@
 					float right
 
 					.message-inner
-						-vhcenter(-4%)
-
 						.message
 							font-size 4vw
 							line-height 1.2
@@ -187,7 +189,6 @@
 					vertical-align top
 
 					.ghost-button-container
-						position absolute
 						bottom 1.5em
 						-hcenter()
 

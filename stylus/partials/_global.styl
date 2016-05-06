@@ -117,14 +117,14 @@ $updir = '../../upload/'
 	transform $n
 
 
--vcenter( $offset = 0 )
-	position absolute unless @position
+-vcenter( $pos = absolute, $offset = 0 )
+	position $pos unless @position
 	top 50% + $offset
 	-transform(translateY(-50%))
 
 
--hcenter( $offset = 0 )
-	position absolute unless @position
+-hcenter( $pos = absolute, $offset = 0 )
+	position $pos unless @position
 	left 50% + $offset
 	-transform(translateX(-50%))
 

@@ -42,6 +42,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		$window.on('resize', function(){
 			mobileNavStyles();
+
+			vCenterHeaderMessage();
 		});
 	});
 
@@ -55,6 +57,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		fixGridLayout();
 
 		mobileNavStyles();
+		vCenterHeaderMessage();
 	}
 
 
@@ -111,6 +114,20 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$("#site-navigation-container")
 				.attr('style', '')
 				.removeClass('mobile');
+		}
+	}
+
+
+	function vCenterHeaderMessage() {
+		if ( ! viewIsMobile() ) {
+			var contHt = $('.header-message').height();
+			var msgHt = $('.message-inner').height();
+			var diff = contHt - msgHt;
+			var offset = diff / 2;
+
+			$('.message-inner').css('top', offset + 'px');
+		} else {
+			$('.message-inner').css('top', 'initial');
 		}
 	}
 })(jQuery);

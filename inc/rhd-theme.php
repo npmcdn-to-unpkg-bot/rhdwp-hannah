@@ -98,15 +98,28 @@ function rhd_front_page_slider()
  */
 function rhd_front_page_header_message()
 {
+	global $post;
+
 	$has_thumb = ( has_post_thumbnail() ) ? true : false;
+
+	if ( $has_thumb ) {
+		$thumb_id = get_post_thumbnail_id();
+		$thumb = wp_get_attachment_image_src( $thumb_id, 'full', true );
+		$thumb_output = 'style="background-image: url(' . $thumb[0] . ');"';
+	} else {
+		$thumb_output = '';
+	}
 	?>
 	<section id="header-message-container">
 		<div class="border-inner">
 			<div class="header-message">
+
 				<?php if ( $has_thumb ) : ?>
-					<div class="header-message-photo" style="background-image: url(<?php the_post_thumbnail_url( 'full' ); ?>);">
-					</div>
+				<div class="header-message-photo">
+					<?php the_post_thumbnail( 'full' ); ?>
+				</div>
 				<?php endif; ?>
+
 				<div class="header-message-content">
 					<div class="message-inner">
 						<span class="message">
@@ -141,8 +154,8 @@ function rhd_front_page_instagram()
 	?>
 	<section id="front-page-instagram">
 		<div class="border-inner">
-			<!-- instagram -->
 			<h3 class="section-title">Instagram</h3>
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '12119' ); } ?>
 		</div>
 	</section>
 	<?php

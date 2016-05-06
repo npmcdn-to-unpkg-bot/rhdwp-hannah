@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:23:23 PM on 06-05-2016
+* RHD Dev: Compiled at 3:38:38 PM on 06-05-2016
 ***/
 
 /**
@@ -1526,9 +1526,6 @@ input[type="submit"]:hover {
 #header-message-container .border-inner .header-message .header-message-photo {
   display: none;
 }
-#header-message-container .border-inner .header-message .header-message-photo img {
-  display: none;
-}
 #header-message-container .border-inner .header-message .header-message-content {
   width: 100%;
   height: 100%;
@@ -1551,7 +1548,7 @@ input[type="submit"]:hover {
 }
 #header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons {
   width: 90%;
-  margin: 1em auto 0;
+  margin: 1em auto;
 }
 #header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons .ghost-button {
   font-size: 5vw;
@@ -1561,10 +1558,11 @@ input[type="submit"]:hover {
 #front-page-recent-posts .front-page-posts article {
   border-color: #7b7b7b;
 }
-#front-page-instagram .border-inner {
-  height: 20em;
+#front-page-instagram .soliloquy-container .soliloquy-wrapper {
+  margin: 0 auto;
+  padding-bottom: 2em;
 }
-.soliloquy-outer-container .soliloquy-slider img {
+#primary .soliloquy-outer-container .soliloquy-slider img {
   width: auto;
   max-height: 500px;
 }
@@ -1674,6 +1672,10 @@ input[type="submit"]:hover {
     background: #fff;
     position: relative;
   }
+  #front-page-slider .border-inner .soliloquy-container {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
   #front-page-slider .border-inner .scroll-label {
     width: 100%;
     text-align: center;
@@ -1687,15 +1689,15 @@ input[type="submit"]:hover {
     width: 100%;
   }
   #header-message-container .border-inner {
-    height: 100vh;
+    display: table;
   }
   #header-message-container .border-inner .header-message {
     height: 100%;
+    display: table-cell;
   }
   #header-message-container .border-inner .header-message .header-message-photo,
   #header-message-container .border-inner .header-message .header-message-content {
     width: 50%;
-    height: 100%;
     display: block;
     position: relative;
   }
@@ -1707,13 +1709,6 @@ input[type="submit"]:hover {
   }
   #header-message-container .border-inner .header-message .header-message-content {
     float: right;
-  }
-  #header-message-container .border-inner .header-message .header-message-content .message-inner {
-    position: absolute;
-    top: 46%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
   }
   #header-message-container .border-inner .header-message .header-message-content .message-inner .message {
     font-size: 4vw;
@@ -1758,7 +1753,6 @@ input[type="submit"]:hover {
     vertical-align: top;
   }
   .blog-area .blog-container article.rhd-excerpt-post .ghost-button-container {
-    position: absolute;
     bottom: 1.5em;
     left: 50%;
     -webkit-transform: translateX(-50%);
