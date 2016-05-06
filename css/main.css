@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:48:51 PM on 06-05-2016
+* RHD Dev: Compiled at 1:02:28 PM on 06-05-2016
 ***/
 
 .alignnone {
@@ -984,24 +984,36 @@ img.aligncenter {
   bottom: 0;
   transform: translateX(-4.5px) translateY(-2.25px) rotate(45deg);
 }
-.ghost-button-container {
+.ghost-button-container,
+.pagination .pag-link,
+.single-pagination .pag-link {
   width: auto;
   max-width: 100%;
   text-align: center;
   margin-top: 1em;
   margin-bottom: 1em;
 }
-.ghost-button-container.gb-align-center {
+.ghost-button-container.gb-align-center,
+.pagination .pag-link.gb-align-center,
+.single-pagination .pag-link.gb-align-center {
   margin-right: auto;
   margin-left: auto;
 }
-.ghost-button-container.gb-align-right {
+.ghost-button-container.gb-align-right,
+.pagination .pag-link.gb-align-right,
+.single-pagination .pag-link.gb-align-right {
   float: right;
 }
-.ghost-button-container.gb-align-left {
+.ghost-button-container.gb-align-left,
+.pagination .pag-link.gb-align-left,
+.single-pagination .pag-link.gb-align-left {
   float: left;
 }
-.ghost-button-container .ghost-button {
+.ghost-button-container .ghost-button,
+.pagination .pag-link .ghost-button,
+.single-pagination .pag-link .ghost-button,
+.pagination .pag-link a,
+.single-pagination .pag-link a {
   padding: 0.4em 0.8em;
   color: #d7ede5;
   text-decoration: none;
@@ -1015,18 +1027,38 @@ img.aligncenter {
   text-transform: uppercase;
 }
 .ghost-button-container .ghost-button:hover,
-.ghost-button-container .ghost-button:active {
+.pagination .pag-link .ghost-button:hover,
+.single-pagination .pag-link .ghost-button:hover,
+.pagination .pag-link a:hover,
+.single-pagination .pag-link a:hover,
+.ghost-button-container .ghost-button:active,
+.pagination .pag-link .ghost-button:active,
+.single-pagination .pag-link .ghost-button:active,
+.pagination .pag-link a:active,
+.single-pagination .pag-link a:active {
   background-color: #d7ede5;
-  color: #d7ede5;
+  color: #fff;
   text-decoration: none;
 }
-.ghost-button-container .ghost-button.filled {
+.ghost-button-container .ghost-button.filled,
+.pagination .pag-link .ghost-button.filled,
+.single-pagination .pag-link .ghost-button.filled,
+.pagination .pag-link a.filled,
+.single-pagination .pag-link a.filled {
   color: #fff;
   background-color: #d7ede5;
   border-color: #d7ede5;
 }
 .ghost-button-container .ghost-button.filled:hover,
-.ghost-button-container .ghost-button.filled:active {
+.pagination .pag-link .ghost-button.filled:hover,
+.single-pagination .pag-link .ghost-button.filled:hover,
+.pagination .pag-link a.filled:hover,
+.single-pagination .pag-link a.filled:hover,
+.ghost-button-container .ghost-button.filled:active,
+.pagination .pag-link .ghost-button.filled:active,
+.single-pagination .pag-link .ghost-button.filled:active,
+.pagination .pag-link a.filled:active,
+.single-pagination .pag-link a.filled:active {
   background-color: #f2b485;
   border-color: #f2b485;
 }
@@ -1364,15 +1396,11 @@ input[type="submit"]:hover {
   font-size: 1.1em;
 }
 .pagination .pag-next,
-.single-pagination .pag-next,
-.pagination [rel="prev"],
-.single-pagination [rel="prev"] {
+.single-pagination .pag-next {
   float: left;
 }
 .pagination .pag-prev,
-.single-pagination .pag-prev,
-.pagination [rel="next"],
-.single-pagination [rel="next"] {
+.single-pagination .pag-prev {
   float: right;
 }
 /* ==========================================================================

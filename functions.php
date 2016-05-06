@@ -466,13 +466,13 @@ function rhd_archive_pagination( WP_Query $q = null )
 
 	echo '<nav class="pagination" data-current-page="' . $paged . '">';
 
-	echo '<span class="pag-next" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
+	echo '<span class="pag-next pag-link" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
 	if ( $sep ) {
 		echo '<div class="pag-sep"></div>';
 	}
 
-	echo '<span class="pag-prev" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
+	echo '<span class="pag-prev pag-link" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
 	echo '</nav>';
 }
 

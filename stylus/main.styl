@@ -51,7 +51,7 @@ a
 
 input
 textarea
-	background-color white
+	background-color $c_bg
 	border 2px solid $c_sec
 	box-sizing border-box
 	padding 0.5em
@@ -95,7 +95,7 @@ input[type="submit"]
 	width 100vw
 	text-align center
 	position absolute // set by JS
-	background white
+	background $c_bg
 	z-index 999
 	display none
 	box-shadow 3px 3px 7px -4px $c_text
@@ -323,12 +323,16 @@ input[type="submit"]
 	font-size 1.1em
 	-clearfix()
 
+	.pag-link
+		@extends .ghost-button-container
+
+		a
+			@extends .ghost-button-container .ghost-button
+
 	.pag-next
-	[rel="prev"]
 		float left
 
 	.pag-prev
-	[rel="next"]
 		float right
 
 
@@ -423,7 +427,7 @@ input[type="submit"]
 		padding 0
 
 		.border-inner
-			background white
+			background $c_bg
 			padding-bottom 1em
 
 		#content
@@ -445,7 +449,7 @@ input[type="submit"]
 	-copperborder()
 
 	.border-inner
-		background white
+		background $c_bg
 
 
 #front-page-slider
