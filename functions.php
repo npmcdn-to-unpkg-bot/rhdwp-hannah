@@ -80,6 +80,7 @@ function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
+	wp_register_script( 'jquery-visible', RHD_THEME_DIR . '/js/vendor/df-visible/jquery.visible.min.js', array( 'jquery'), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
@@ -101,10 +102,14 @@ function rhd_enqueue_scripts()
 		'home_url' => home_url(),
 		'theme_dir' => RHD_THEME_DIR,
 		'img_dir' => RHD_IMG_DIR,
-		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'query_vars' => json_encode( $wp_query->query ),
 	);
-	wp_localize_script( 'rhd-main', 'wp_data', $data);
+	wp_localize_script( 'rhd-main', 'wp_data', $data );
+
+	$data_ajax = array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'query_vars' => json_encode( $wp_query->query )
+	);
+	wp_localize_script( 'rhd-ajax', 'wp_data', $data_ajax );
 
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
@@ -436,15 +441,24 @@ function rhd_archive_pagination( WP_Query $q = null )
 
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
-	echo '<nav class="pagination">';
+	if ( ! is_front_page() ) {
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	} else {
+		$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+	}
 
-	echo '<span class="pag-next">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
+	$next = $paged + 1;
+	$prev = $paged - 1;
+
+	echo '<nav class="pagination" data-current-page="' . $paged . '">';
+
+	echo '<span class="pag-next" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
 	if ( $sep ) {
 		echo '<div class="pag-sep"></div>';
 	}
 
-	echo '<span class="pag-prev">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
+	echo '<span class="pag-prev" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
 	echo '</nav>';
 }
 
@@ -488,23 +502,17 @@ function rhd_ajax_pagination()
 
 	add_filter( 'editor_max_image_size', 'rhd_image_size_override' );
 
-	if( ! $posts->have_posts() ) {
-		get_template_part( 'content', 'none' );
-	} else {
+	if( $posts->have_posts() ) {
+		rhd_archive_pagination( $posts );
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
-			get_template_part( 'content' );
+			get_template_part( 'content', 'excerpt' );
 		}
 	}
 
 	remove_filter( 'editor_max_image_size', 'rhd_image_size_override' );
 
-	the_posts_pagination( array(
-		'mid_size' => 1,
-		'prev_text' => __( 'Previous', 'rhd' ),
-		'next_text' => __( 'Next', 'rhd' ),
-		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'rhd' ) . ' </span>',
-	) );
+	rhd_archive_pagination( $posts );
 
 	die();
 }

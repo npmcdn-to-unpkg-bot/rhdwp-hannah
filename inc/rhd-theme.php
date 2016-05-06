@@ -147,3 +147,27 @@ function rhd_front_page_instagram()
 	</section>
 	<?php
 }
+
+
+/**
+ * rhd_alter_main_query function.
+ *
+ * @access public
+ * @param mixed $query
+ * @return void
+ */
+function rhd_alter_main_query( $query )
+{
+	if ( is_home() && $query->is_main_query() ) {
+		$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+
+		if ( $paged == 1 ) {
+			$ppp = get_option( 'posts_per_page' );
+			$query->set( 'posts_per_page', $ppp + 1 );
+			return;
+		} else {
+			$query->set( 'offset', 1 );
+		}
+	}
+}
+//add_action( 'pre_get_posts', 'rhd_alter_main_query' );
