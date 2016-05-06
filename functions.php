@@ -37,6 +37,13 @@ include_once( 'inc/rhd-login-admin.php' );
 
 
 /* ==========================================================================
+	Toggles
+   ========================================================================== */
+
+define( 'RHD_AJAX_PAGINATION', false );
+
+
+/* ==========================================================================
    Scripts + Styles
    ========================================================================== */
 
@@ -88,8 +95,10 @@ function rhd_enqueue_scripts()
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
+	if ( RHD_AJAX_PAGINATION )
+		wp_enqueue_script( 'rhd-ajax' );
+
 	wp_enqueue_script( 'rhd-plugins' );
-	wp_enqueue_script( 'rhd-ajax' );
 	wp_enqueue_script( 'rhd-main' );
 
 	if ( is_singular() )
@@ -437,13 +446,13 @@ add_filter( 'shortcode_atts_gallery', 'rhd_gallery_atts', 10, 3 );
  */
 function rhd_archive_pagination( WP_Query $q = null )
 {
+	global $paged;
+
 	if ( $q ) {
 		$max_page = $q->max_num_pages;
 	} else {
 		$max_page = null;
 	}
-
-	global $paged;
 
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
@@ -501,16 +510,10 @@ function rhd_single_pagination()
  */
 function rhd_ajax_pagination()
 {
-	global $wp_query;
-
-	$saved_query = $wp_query;
-
 	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
 	$query_vars['paged'] = $_POST['page'];
 	$posts = new WP_Query( $query_vars );
 	$GLOBALS['wp_query'] = $posts;
-
-	//add_filter( 'editor_max_image_size', 'rhd_image_size_override' );
 
 	if( $posts->have_posts() ) {
 		while ( $posts->have_posts() ) {
@@ -518,29 +521,15 @@ function rhd_ajax_pagination()
 			get_template_part( 'content', 'excerpt' );
 		}
 	}
-	//remove_filter( 'editor_max_image_size', 'rhd_image_size_override' );
 
 	rhd_archive_pagination( $posts );
 
 	wp_reset_postdata();
-	$wp_query = $saved_query;
 
 	die();
 }
 add_action( 'wp_ajax_nopriv_ajax_pagination', 'rhd_ajax_pagination' );
 add_action( 'wp_ajax_ajax_pagination', 'rhd_ajax_pagination' );
-
-
-/**
- * rhd_image_size_override function.
- *
- * @access public
- * @return void
- */
-function rhd_image_size_override()
-{
-	return array( 825, 510 );
-}
 
 
 /**

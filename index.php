@@ -17,8 +17,6 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php rhd_archive_pagination(); ?>
-
 			<div class="blog-container">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php
