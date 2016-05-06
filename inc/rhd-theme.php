@@ -149,25 +149,20 @@ function rhd_front_page_instagram()
 }
 
 
-/**
- * rhd_alter_main_query function.
- *
- * @access public
- * @param mixed $query
- * @return void
- */
-function rhd_alter_main_query( $query )
+function rhd_blog_query_offset( $query )
 {
-	if ( is_home() && $query->is_main_query() ) {
-		$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+	if ( $query->is_main_query() )
+		return;
 
-		if ( $paged == 1 ) {
-			$ppp = get_option( 'posts_per_page' );
-			$query->set( 'posts_per_page', $ppp + 1 );
-			return;
-		} else {
-			$query->set( 'offset', 1 );
-		}
+	$ppp = get_option( 'posts_per_page' );
+	$offset = 1;
+
+	if ( ! $query->is_paged ) { // First page
+		$query->set( 'posts_per_page', $ppp + $offset );
+	} else {
+		$page_offset = $offset + ( ( $query->query_vars['paged'] - 1) * $ppp );
+
+		$query->set( 'offset', $page_offset );
 	}
 }
-//add_action( 'pre_get_posts', 'rhd_alter_main_query' );
+add_action( 'pre_get_posts', 'rhd_blog_query_offset' );

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:22:50 PM on 05-05-2016
+* RHD Dev: Compiled at 12:48:51 PM on 06-05-2016
 ***/
 
 /**
@@ -1547,6 +1547,7 @@ input[type="submit"]:hover {
   #site-title {
     width: 300px;
     margin: 0;
+    display: inline-block;
     position: relative;
     left: 1em;
     transition: width 0.25s, height 0.25s;

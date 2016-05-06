@@ -6,35 +6,62 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+?>
 
-<section id="primary" class="site-content">
-	<div id="content" role="main">
-		<?php
-		$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-		$i = 0;
-		?>
+	<section id="primary" class="site-content">
+		<div id="content" role="main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-			<div class="blog-container">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php
-					++$i;
-					if ( $i == 1 && $paged == 1 )
-						get_template_part( 'content', 'full' );
-					else
-						get_template_part( 'content', 'excerpt' );
+						if ( is_single() ) get_template_part( 'content', 'single' );
+						else get_template_part( 'content' );
 					?>
 				<?php endwhile; ?>
-			</div>
 
-			<?php rhd_archive_pagination(); ?>
+				<?php if ( is_single() && comments_open() ) comments_template(); ?>
 
-		<?php endif; ?>
+			<?php else : ?>
 
-	</div>
-</section>
+				<article id="post-0" class="post no-results not-found">
 
-<?php get_sidebar(); ?>
+				<?php if ( current_user_can( 'edit_posts' ) ) :
+					// Show a different message to a logged-in user who can add posts.
+				?>
+					<header class="entry-header">
+						<h1 class="entry-title"><?php _e( 'No posts to display', 'rhd' ); ?></h1>
+					</header>
+
+					<div class="entry-content">
+						<p><?php printf( __( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'rhd' ), admin_url( 'post-new.php' ) ); ?></p>
+					</div>
+
+				<?php else :
+					// Show the default message to everyone else.
+				?>
+					<header class="entry-header">
+						<h1 class="entry-title"><?php _e( 'Nothing Found', 'rhd' ); ?></h1>
+					</header>
+
+					<div class="entry-content">
+						<p><?php _e( 'Apologies, but no results were found. Perhaps searching will help find a related post.', 'rhd' ); ?></p>
+						<?php get_search_form(); ?>
+					</div>
+				<?php endif; // end current_user_can() check ?>
+
+				</article>
+
+			<?php endif; // end have_posts() check ?>
+
+		</div>
+
+		<?php
+			if ( is_single() ) rhd_single_pagination();
+			else rhd_archive_pagination();
+		?>
+
+	</section>
+
 <?php get_footer(); ?>

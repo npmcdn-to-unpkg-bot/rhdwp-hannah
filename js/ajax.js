@@ -5,25 +5,32 @@
 
 		page = parseInt( $(this).parents('span').data('target-page') );
 
+		// Look for a secondary query localization, if not found, set to main query.
+		if ( wp_custom_data ) {
+			qv = wp_custom_data.query_vars;
+		} else {
+			qv = wp_data.query_vars;
+		}
+
 		$.ajax({
 			url: wp_data.ajax_url,
 			type: 'post',
 			data: {
 				action: 'ajax_pagination',
-				query_vars: wp_data.query_vars,
+				query_vars: qv,
 				page: page
 			},
 			beforeSend: function() {
 				$('html,body').animate({
 					scrollTop: 0
-				}, 750, "linear", function(){
-					$('.blog-container').find('article').fadeOut('fast', function(){
-						$(this).remove();
-					});
+				}, 750, "swing");
 
-					$('.pagination').fadeOut('fast', function(){
-						$(this).remove();
-					});
+				$('.blog-container').find('article').fadeOut('fast', function(){
+					$(this).remove();
+				});
+
+				$('.pagination').fadeOut('fast', function(){
+					$(this).remove();
 				});
 			},
 			success: function( html ) {

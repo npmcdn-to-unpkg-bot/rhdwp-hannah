@@ -40,7 +40,7 @@ include_once( 'inc/rhd-login-admin.php' );
 	Toggles
    ========================================================================== */
 
-define( 'RHD_AJAX_PAGINATION', false );
+define( 'RHD_AJAX_PAGINATION', true );
 
 
 /* ==========================================================================
@@ -522,8 +522,6 @@ function rhd_ajax_pagination()
 	}
 
 	rhd_archive_pagination( $posts );
-
-	wp_reset_postdata();
 
 	die();
 }
