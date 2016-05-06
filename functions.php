@@ -37,6 +37,13 @@ include_once( 'inc/rhd-login-admin.php' );
 
 
 /* ==========================================================================
+	Toggles
+   ========================================================================== */
+
+define( 'RHD_AJAX_PAGINATION', false );
+
+
+/* ==========================================================================
    Scripts + Styles
    ========================================================================== */
 
@@ -81,6 +88,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
+	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
 	//wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), null, true );
 	//wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
 
@@ -98,18 +106,24 @@ function rhd_enqueue_scripts()
 	if ( is_singular() )
 		wp_enqueue_script( 'comment-reply' );
 
-
 	// Localize data for client-side use
 	global $wp_query;
 	$data = array(
 		'home_url' => home_url(),
 		'theme_dir' => RHD_THEME_DIR,
 		'img_dir' => RHD_IMG_DIR,
-		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'query_vars' => json_encode( $wp_query->query ),
 	);
 	wp_localize_script( 'rhd-main', 'wp_data', $data);
 
+	if ( RHD_AJAX_PAGINATION ) {
+		wp_enqueue_script( 'rhd-ajax' );
+
+		$data_ajax = array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'query_vars' => json_encode( $wp_query->query )
+		);
+		wp_localize_script( 'rhd-ajax', 'wp_data', $data_ajax );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
 
@@ -218,7 +232,7 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
  */
 function rhd_image_sizes()
 {
-	add_image_size( 'square', 300, 300, true );
+	add_image_size( 'square', 400, 400, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
@@ -437,19 +451,34 @@ add_filter( 'shortcode_atts_gallery', 'rhd_gallery_atts', 10, 3 );
  */
 function rhd_archive_pagination( WP_Query $q = null )
 {
-	$max_page = ( $q ) ? $q->max_num_pages : null;
+	global $paged;
+
+	if ( $q ) {
+		$max_page = $q->max_num_pages;
+	} else {
+		$max_page = null;
+	}
 
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
-	echo '<nav class="pagination">';
+	if ( ! is_front_page() ) {
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	} else {
+		$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+	}
 
-	echo '<span class="pag-next">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
+	$next = $paged + 1;
+	$prev = $paged - 1;
+
+	echo '<nav class="pagination" data-current-page="' . $paged . '">';
+
+	echo '<span class="pag-next" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
 	if ( $sep ) {
 		echo '<div class="pag-sep"></div>';
 	}
 
-	echo '<span class="pag-prev">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
+	echo '<span class="pag-prev" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
 	echo '</nav>';
 }
 
@@ -491,42 +520,21 @@ function rhd_ajax_pagination()
 	$posts = new WP_Query( $query_vars );
 	$GLOBALS['wp_query'] = $posts;
 
-	add_filter( 'editor_max_image_size', 'rhd_image_size_override' );
-
-	if( ! $posts->have_posts() ) {
-		get_template_part( 'content', 'none' );
-	} else {
+	if( $posts->have_posts() ) {
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
-			get_template_part( 'content' );
+			get_template_part( 'content', 'excerpt' );
 		}
 	}
 
-	remove_filter( 'editor_max_image_size', 'rhd_image_size_override' );
+	rhd_archive_pagination( $posts );
 
-	the_posts_pagination( array(
-		'mid_size' => 1,
-		'prev_text' => __( 'Previous', 'rhd' ),
-		'next_text' => __( 'Next', 'rhd' ),
-		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'rhd' ) . ' </span>',
-	) );
+	wp_reset_postdata();
 
 	die();
 }
 add_action( 'wp_ajax_nopriv_ajax_pagination', 'rhd_ajax_pagination' );
 add_action( 'wp_ajax_ajax_pagination', 'rhd_ajax_pagination' );
-
-
-/**
- * rhd_image_size_override function.
- *
- * @access public
- * @return void
- */
-function rhd_image_size_override()
-{
-	return array( 825, 510 );
-}
 
 
 /**
