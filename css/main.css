@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:17:00 PM on 06-05-2016
+* RHD Dev: Compiled at 5:16:00 PM on 07-05-2016
 ***/
 
 .alignnone {
@@ -817,11 +817,11 @@ img.aligncenter {
   background: none;
 }
 #hamburger span {
-  background-color: #7b7b7b;
+  background-color: #757575;
 }
 #hamburger span::before,
 #hamburger span::after {
-  background-color: #7b7b7b;
+  background-color: #757575;
 }
 #hamburger.is-active span {
   background-color: transparent;
@@ -1137,7 +1137,7 @@ textarea:-ms-input-placeholder {
 }
 input:focus,
 textarea:focus {
-  border-color: #ddd;
+  border-color: #f5f5f5;
 }
 input[type="submit"] {
   cursor: pointer;
@@ -1327,7 +1327,7 @@ input[type="submit"]:hover {
   margin: 1em auto;
 }
 .blog-area article.rhd-full-post {
-  border-color: #7b7b7b;
+  border-color: #757575;
   padding: 1em;
 }
 .blog-area article.rhd-full-post .entry-header {
@@ -1335,7 +1335,7 @@ input[type="submit"]:hover {
   border-bottom: 1px solid #2b2b2b;
 }
 .blog-area article.rhd-excerpt-post {
-  border-color: #7b7b7b;
+  border-color: #757575;
 }
 .blog-area article.rhd-excerpt-post .entry-header {
   margin-bottom: 0;
@@ -1429,10 +1429,10 @@ input[type="submit"]:hover {
   padding-bottom: 1.5em;
 }
 #comments .even {
-  background: #ddd;
+  background: #f5f5f5;
 }
 #comments .odd {
-  background: #fff;
+  background: #fafafa;
 }
 #comments .comment-body {
   padding: 1em;
@@ -1571,7 +1571,7 @@ input[type="submit"]:hover {
   font-weight: 400;
 }
 #front-page-recent-posts .front-page-posts article {
-  border-color: #7b7b7b;
+  border-color: #757575;
 }
 #front-page-instagram .soliloquy-container .soliloquy-wrapper {
   margin: 0 auto;
@@ -1587,7 +1587,7 @@ input[type="submit"]:hover {
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
-@media screen and (min-width: 42em) {
+@media screen and (min-width: 42rem) {
   #site-title {
     width: 300px;
     margin: 0;
@@ -1641,7 +1641,7 @@ input[type="submit"]:hover {
     max-width: none;
     margin: initial;
     padding: 0;
-    background: #fbfbfb;
+    background: #fafafa;
   }
   #main .main-inner {
     background: #fff;
@@ -1684,7 +1684,7 @@ input[type="submit"]:hover {
     margin: 0 auto;
   }
   .front-page-border-inner {
-    background: #fbfbfb;
+    background: #fafafa;
   }
   #front-page-slider {
     display: block;
@@ -1768,19 +1768,20 @@ input[type="submit"]:hover {
   }
   .blog-area .blog-container article.rhd-excerpt-post {
     width: 49%;
-    height: 43em;
+    height: 39em;
     display: inline-block;
     margin-top: 0;
     vertical-align: top;
   }
   .blog-area .blog-container article.rhd-excerpt-post .ghost-button-container {
     bottom: 1.5em;
+    position: absolute;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
   }
 }
-@media screen and (min-width: 50em) {
+@media screen and (min-width: 50rem) {
   #site-title {
     width: 460px;
   }
@@ -1796,11 +1797,12 @@ input[type="submit"]:hover {
     content: '';
   }
   .blog-area .blog-container article.rhd-excerpt-post {
-    height: 45em;
+    height: 41em;
   }
 }
-@media screen and (min-width: 42em) {
+@media screen and (min-width: 42rem) {
   #primary {
+    width: 49%;
     float: right;
   }
   #primary.full-width {
@@ -1816,24 +1818,19 @@ input[type="submit"]:hover {
     padding: 0 10px;
   }
 }
-@media screen and (min-width: 58em) {
-  #primary {
-    width: 56%;
-  }
-}
-@media screen and (min-width: 62em) {
+@media screen and (min-width: 50rem) {
   #primary {
     width: 58%;
   }
 }
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 58rem) {
   #primary {
     width: 60%;
   }
 }
-@media screen and (min-width: 66em) {
+@media screen and (min-width: 62rem) {
   #primary {
-    width: 64%;
+    width: 65%;
   }
 }
 /* ==========================================================================

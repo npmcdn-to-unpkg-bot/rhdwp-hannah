@@ -9,9 +9,9 @@ $c_ter = #f2b485
 
 $c_bg = white
 
-$c_text_lt = #7b7b7b
-$off_white = #dddddd
-$near_white = #fbfbfb
+$c_text_lt = lighten($c_text, 35%)
+$off_white = darken(white, 4%)
+$near_white = darken(white, 2%)
 
 $ff_body = 'Roboto Condensed', sans-serif
 $ff_cursive = 'Allessa Script', cursive
@@ -118,19 +118,19 @@ $updir = '../../upload/'
 
 
 -vcenter( $pos = absolute, $offset = 0 )
-	position $pos unless @position
+	position $pos
 	top 50% + $offset
 	-transform(translateY(-50%))
 
 
 -hcenter( $pos = absolute, $offset = 0 )
-	position $pos unless @position
+	position $pos
 	left 50% + $offset
 	-transform(translateX(-50%))
 
 
 -vhcenter( $hoffset = 0, $voffset = 0 )
-	position absolute unless @position
+	position $pos
 	top 50% + $hoffset
 	left 50% + $voffset
 	-transform(translate(-50%, -50%))
