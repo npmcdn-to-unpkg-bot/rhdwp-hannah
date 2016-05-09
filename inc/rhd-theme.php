@@ -171,7 +171,7 @@ function rhd_front_page_instagram()
  */
 function rhd_blog_query_offset( $query )
 {
-	if ( $query->is_main_query() || is_front_page() )
+	if ( $query->is_main_query() || is_admin() )
 		return;
 
 	$ppp = get_option( 'posts_per_page' );
