@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:00:37 PM on 09-05-2016
+* RHD Dev: Compiled at 6:41:56 PM on 09-05-2016
 ***/
 
 .alignnone {
@@ -678,6 +678,7 @@ img.aligncenter {
   width: 100%;
   height: auto;
   padding: 1em 0 0.75em 0;
+  margin-bottom: 1em;
   background: #d7ede5;
 }
 #blog-metabar #blog-metabar-content {
@@ -1018,15 +1019,14 @@ img.aligncenter {
 .pagination .pag-link a,
 .single-pagination .pag-link a {
   padding: 0.4em 0.8em;
-  color: #d7ede5;
+  color: #757575;
   text-decoration: none;
   background-color: #fff;
-  border: 3px solid #d7ede5;
   border-radius: 0.1em;
+  border: 1px solid #757575;
   display: inline-block;
   transition: all 0.2s;
   font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
   text-transform: uppercase;
 }
 .ghost-button-container .ghost-button:hover,
@@ -1039,7 +1039,7 @@ img.aligncenter {
 .single-pagination .pag-link .ghost-button:active,
 .pagination .pag-link a:active,
 .single-pagination .pag-link a:active {
-  background-color: #d7ede5;
+  background-color: #757575;
   color: #fff;
   text-decoration: none;
 }
@@ -1301,8 +1301,16 @@ input[type="submit"]:hover {
 .widget-title {
   margin-top: 0;
   line-height: 1;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
+}
+.page-title {
+  font-family: 'Allessa Script', cursive;
+  font-weight: normal;
+  text-align: center;
+  font-size: 3em;
+  background: #d7ede5;
+  margin-bottom: 1rem;
+  padding: 1.5rem 0;
+  border-radius: 0.1rem;
 }
 .entry-summary p {
   margin: 0;
@@ -1359,6 +1367,7 @@ input[type="submit"]:hover {
 .blog-area article {
   border-width: 2px;
   border-style: solid;
+  border-radius: 0.1em;
   margin: 1em auto;
 }
 .blog-area article.rhd-full-post {
@@ -1383,8 +1392,7 @@ input[type="submit"]:hover {
   display: none;
 }
 .blog-area article.rhd-excerpt-post .entry-thumbnail {
-  border-top: 2px solid #d7ede5;
-  border-bottom: 2px solid #d7ede5;
+  border-top: 2px solid #757575;
 }
 .blog-area article.rhd-excerpt-post .ghost-button-container {
   margin-bottom: 0;
@@ -1729,6 +1737,9 @@ input[type="submit"]:hover {
   }
   #colophon #footer-widget-area .rhd_social_icons {
     left: 0;
+  }
+  #blog-metabar {
+    display: none;
   }
   #comments #commentform {
     width: 75%;

@@ -10,6 +10,10 @@ get_header(); ?>
 
 <section id="primary" class="site-content">
 
+	<h2 class="page-title"><?php the_title(); ?></h2>
+
+	<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
+
 	<?php
 	$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 	if ( $paged != 1 ) get_template_part( 'module', 'metabar' );

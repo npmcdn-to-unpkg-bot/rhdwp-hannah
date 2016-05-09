@@ -66,9 +66,31 @@ function rhd_custom_excerpt_read_more( $more )
 {
 	global $post;
 
-	return ' [...]' . rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', true, false );
+	return ' [...]' . rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', false, false );
 }
 add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
+
+
+function rhd_remove_more_link_scroll( $link ) {
+	$link = preg_replace( '|#more-[0-9]+|', '', $link );
+	return $link;
+}
+add_filter( 'the_content_more_link', 'rhd_remove_more_link_scroll' );
+
+
+/**
+ * rhd_custom_content_read_more function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_custom_content_read_more()
+{
+	global $post;
+
+	return rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', false, false );
+}
+add_filter( 'the_content_more_link', 'rhd_custom_content_read_more' );
 
 
 /**

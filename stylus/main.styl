@@ -216,7 +216,16 @@ input[type="submit"]
 .widget-title
 	margin-top 0
 	line-height 1
-	-ff-title()
+
+
+.page-title
+	-ff-headline()
+	text-align center
+	font-size 3em
+	background $c_sec
+	margin-bottom 1rem
+	padding 1.5rem 0
+	border-radius 0.1rem
 
 
 .entry-summary
@@ -278,6 +287,7 @@ input[type="submit"]
 		-clearfix()
 		border-width 2px
 		border-style solid
+		border-radius 0.1em
 		margin 1em auto
 
 		&.rhd-full-post
@@ -302,8 +312,7 @@ input[type="submit"]
 					display none
 
 			.entry-thumbnail
-				border-top 2px solid $c_sec
-				border-bottom 2px solid $c_sec
+				border-top 2px solid $c_text_lt
 
 			.ghost-button-container
 				margin-bottom 0

@@ -21,20 +21,20 @@
 
 	.ghost-button
 		padding 0.4em .8em
-		color $c_sec
+		color $c_text_lt
 		text-decoration none
-		background-color $c_bg
-		border 3px solid @color
+		background-color white
 		border-radius 0.1em
+		border 1px solid $c_text_lt
 		display inline-block
 		transition all 0.2s
-		-ff-title()
+		font-family $ff_body
 		text-transform uppercase
 
 		&:hover
 		&:active
-			background-color $c_sec
-			color $c_bg
+			background-color $c_text_lt
+			color white
 			text-decoration none
 
 		&.filled
