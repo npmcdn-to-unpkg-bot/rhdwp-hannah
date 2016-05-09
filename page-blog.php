@@ -23,7 +23,8 @@ get_header(); ?>
 			'post_status' => 'publish',
 			'post__in' => get_option( 'sticky_posts' ),
 			'ignore_sticky_posts' => 1,
-			'paged' => $paged
+			'paged' => $paged,
+			'_is_blog_loop' => true
 		);
 
 		$q = new WP_Query( $args );

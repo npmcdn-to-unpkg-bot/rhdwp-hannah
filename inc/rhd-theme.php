@@ -163,6 +163,21 @@ function rhd_front_page_instagram()
 
 
 /**
+ * rhd_add_query_vars function.
+ *
+ * @access public
+ * @param mixed $query_vars
+ * @return void
+ */
+function rhd_add_query_vars( $query_vars )
+{
+	$query_vars[] = '_is_blog_loop';
+	return $query_vars;
+}
+add_filter( 'query_vars', 'rhd_add_query_vars' );
+
+
+/**
  * rhd_blog_query_offset function.
  *
  * @access public
@@ -171,7 +186,7 @@ function rhd_front_page_instagram()
  */
 function rhd_blog_query_offset( $query )
 {
-	if ( $query->is_main_query() || is_admin() )
+	if ( !isset( $query->query_vars['_is_blog_loop'] ) )
 		return;
 
 	$ppp = get_option( 'posts_per_page' );
