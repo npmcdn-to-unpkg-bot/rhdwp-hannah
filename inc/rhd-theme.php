@@ -83,7 +83,7 @@ function rhd_front_page_slider()
 	<section id="front-page-slider">
 		<div class="border-inner">
 			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'front-page-slider', 'slug' ); } ?>
-			<div class="scroll-label">Scroll</div>
+			<div class="scroll-label"><span class="vee">&dtrif;</span>Scroll<span class="vee">&dtrif;</span></div>
 		</div>
 	</section>
 	<?php

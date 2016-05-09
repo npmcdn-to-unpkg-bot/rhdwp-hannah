@@ -145,10 +145,6 @@ input[type="submit"]
 	box-sizing border-box
 
 
-#secondary
-	margin-bottom 2em
-
-
 #colophon
 	width 100%
 	position relative
@@ -164,6 +160,28 @@ input[type="submit"]
 		.rhd_social_icons
 			margin 1.5em 0
 			left 5%
+
+			.rhd-social-icon
+				a
+					path
+						fill $c_sec
+
+					&:hover
+					&:active
+						path
+						.houzz-middle-tri
+							fill $c_ter
+
+						.houzz-middle-tri
+							stroke $c_ter
+
+				.houzz-middle-tri
+					fill $c_sec
+					stroke $c_sec
+
+			.empty-hex
+				background-image url(../../../plugins/rhd-social-icons/img/hexagon_white.png)
+
 
 	.site-info
 		-wrapper(2em, 0, 75%)
@@ -420,9 +438,41 @@ input[type="submit"]
 	.widget:last-child
 		margin-bottom 0
 
-
 	.widget-title
 		margin-top 0
+
+	#rhd_social_icons-4
+		.rhd_social_icons
+			-wrapper(0, 2em, 230px)
+
+			.rhd-social-icon
+				a path
+					fill white
+
+				a
+					&:hover
+					&:active
+						path
+						.houzz-middle-tri
+							fill $c_ter
+
+						.houzz-middle-tri
+							stroke $c_ter
+
+			.rhd-social-poly
+				fill $c_sec
+
+			.houzz-middle-tri
+				fill white
+
+			.empty-hex
+				background-image url(../../../plugins/rhd-social-icons/img/hexagon_green.png)
+
+	#widget_sp_image-2
+		.widget_sp_image-description
+			font-size 1.2em
+			-ff-subtitle()
+			text-align center
 
 
 /* ==========================================================================
