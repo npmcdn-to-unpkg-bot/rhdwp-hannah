@@ -151,35 +151,42 @@ input[type="submit"]
 
 #colophon
 	width 100%
-	height 6em
 	position relative
 	background $c_sec
 
+	.footer-inner
+		-wrapper(0, 0, 95%)
+		padding 1em 0 2em
+
+	#footer-widget-area
+		-wrapper(0, 0, 230px)
+
+		.rhd_social_icons
+			margin 1.5em 0
+			left 5%
+
 	.site-info
-		width 100%
-		margin 0
-		position absolute
-		top 50%
-		left 0
-		-transform(translateY(-50%))
+		-wrapper(2em, 0, 75%)
 		text-align center
-		line-height 1.7
-		font-size 0.9em
 
 		a
 			color $c_text
 
 			&:hover
 			&:active
-				color @color
-				text-decoration underline
+				color $c_ter
+				text-decoration none
 
-	#rhd-logo-footer
-		width 1.35em
-		height 1.35em
-		margin 0 0.05em
-		position relative
-		bottom 0.25em
+		img
+			width 100%
+			height auto
+
+		#rhd-logo-footer
+			width 1.35em
+			height 1.35em
+			margin 0 0.05em
+			position relative
+			bottom 0.25em
 
 
 /* ==========================================================================
@@ -520,11 +527,3 @@ input[type="submit"]
    ========================================================================== */
 
 @require "partials/_media-queries.styl"
-
-
-/* ==========================================================================
-	TEMPORARY
-   ========================================================================== */
-
-.entry-meta
-	display none

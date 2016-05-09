@@ -58,15 +58,10 @@ function rhd_enqueue_styles()
 	global $theme_opts;
 
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), null, 'all' );
-	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), null, 'all' );
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . RHD_GOOGLE_FONTS );
 
 
 	$normalize_deps = array();
-
-	if ( !rhd_is_mobile() ) {
-		wp_enqueue_style( 'rhd-enhanced' );
-	}
 
 	wp_register_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', $normalize_deps, null, 'all' );
 

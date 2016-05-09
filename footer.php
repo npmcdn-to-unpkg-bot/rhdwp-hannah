@@ -21,14 +21,18 @@
 		<?php rhd_front_page_instagram(); ?>
 	<?php endif; ?>
 
-    <footer id="colophon">
-        <?php get_sidebar( 'footer' ); ?>
-        <div class="site-info">
-			<p>
-				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '| '; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a>
-            </p>
-        </div>
-    </footer>
+	<footer id="colophon">
+		<div class="footer-inner">
+			<?php get_sidebar( 'footer' ); ?>
+
+			<div class="site-info">
+				<a href="<?php echo home_url(); ?>"><img src="<?php echo RHD_UPLOAD_URL; ?>/2016/05/copper-dot-logo-short.png" alt="Copper Dot Interiors"></a>
+				<p>
+					<?php echo '&copy;' . date( 'Y' ); ?> Karen Goodman <?php echo ( rhd_is_mobile() ) ? '<br>' : '| '; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs">Designs</a>
+				</p>
+			</div>
+		</div>
+	</footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
