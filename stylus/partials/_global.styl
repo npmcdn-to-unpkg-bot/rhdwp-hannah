@@ -3,9 +3,9 @@
    ========================================================================== */
 
 // Variables
-$c_text = #2b2b2b
-$c_sec = #d7ede5
-$c_ter = #f2b485
+$c_text = black
+$c_sec = #FFB9B9
+$c_ter = #DEF3E9
 
 $c_bg = white
 
@@ -16,7 +16,17 @@ $off_white = darken(white, 4%)
 $near_white = darken(white, 2%)
 
 $ff_body = 'Open Sans', sans-serif
-$ff_headline = 'Oswald', sans-serif
+$ff_title = 'Open Sans Condensed', sans-serif
+$ff_headline = 'Tuesday Script', cursive
+
+
+-ff-title()
+	font-family $ff_title
+	font-weight 700
+
+-ff-headline()
+	font-family $ff_headline
+	font-weight normal
 
 
 /* ==========================================================================
