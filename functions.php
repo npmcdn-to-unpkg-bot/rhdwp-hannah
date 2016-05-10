@@ -555,7 +555,8 @@ function rhd_ajax_pagination()
 		rhd_load_more( $posts );
 	else
 		rhd_archive_pagination( $posts );
-
+	
+	wp_reset_postdata();
 	die();
 }
 add_action( 'wp_ajax_nopriv_ajax_pagination', 'rhd_ajax_pagination' );
