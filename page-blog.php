@@ -56,7 +56,7 @@ get_header(); ?>
 				<?php endwhile; ?>
 			</div>
 
-			<?php rhd_archive_pagination( $q ); ?>
+			<?php rhd_load_more( $q ); ?>
 			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
 

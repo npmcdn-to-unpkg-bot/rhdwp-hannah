@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:41:56 PM on 09-05-2016
+* RHD Dev: Compiled at 10:44:02 AM on 10-05-2016
 ***/
 
 /**
@@ -993,7 +993,9 @@ img.aligncenter {
 }
 .ghost-button-container,
 .pagination .pag-link,
-.single-pagination .pag-link {
+.single-pagination .pag-link,
+.pagination .pag-load-more,
+.single-pagination .pag-load-more {
   width: auto;
   max-width: 100%;
   text-align: center;
@@ -1002,25 +1004,35 @@ img.aligncenter {
 }
 .ghost-button-container.gb-align-center,
 .pagination .pag-link.gb-align-center,
-.single-pagination .pag-link.gb-align-center {
+.single-pagination .pag-link.gb-align-center,
+.pagination .pag-load-more.gb-align-center,
+.single-pagination .pag-load-more.gb-align-center {
   margin-right: auto;
   margin-left: auto;
 }
 .ghost-button-container.gb-align-right,
 .pagination .pag-link.gb-align-right,
-.single-pagination .pag-link.gb-align-right {
+.single-pagination .pag-link.gb-align-right,
+.pagination .pag-load-more.gb-align-right,
+.single-pagination .pag-load-more.gb-align-right {
   float: right;
 }
 .ghost-button-container.gb-align-left,
 .pagination .pag-link.gb-align-left,
-.single-pagination .pag-link.gb-align-left {
+.single-pagination .pag-link.gb-align-left,
+.pagination .pag-load-more.gb-align-left,
+.single-pagination .pag-load-more.gb-align-left {
   float: left;
 }
 .ghost-button-container .ghost-button,
 .pagination .pag-link .ghost-button,
 .single-pagination .pag-link .ghost-button,
+.pagination .pag-load-more .ghost-button,
+.single-pagination .pag-load-more .ghost-button,
 .pagination .pag-link a,
-.single-pagination .pag-link a {
+.single-pagination .pag-link a,
+.pagination .pag-load-more a,
+.single-pagination .pag-load-more a {
   padding: 0.4em 0.8em;
   color: #757575;
   text-decoration: none;
@@ -1035,13 +1047,21 @@ img.aligncenter {
 .ghost-button-container .ghost-button:hover,
 .pagination .pag-link .ghost-button:hover,
 .single-pagination .pag-link .ghost-button:hover,
+.pagination .pag-load-more .ghost-button:hover,
+.single-pagination .pag-load-more .ghost-button:hover,
 .pagination .pag-link a:hover,
 .single-pagination .pag-link a:hover,
+.pagination .pag-load-more a:hover,
+.single-pagination .pag-load-more a:hover,
 .ghost-button-container .ghost-button:active,
 .pagination .pag-link .ghost-button:active,
 .single-pagination .pag-link .ghost-button:active,
+.pagination .pag-load-more .ghost-button:active,
+.single-pagination .pag-load-more .ghost-button:active,
 .pagination .pag-link a:active,
-.single-pagination .pag-link a:active {
+.single-pagination .pag-link a:active,
+.pagination .pag-load-more a:active,
+.single-pagination .pag-load-more a:active {
   background-color: #757575;
   color: #fff;
   text-decoration: none;
@@ -1049,8 +1069,12 @@ img.aligncenter {
 .ghost-button-container .ghost-button.filled,
 .pagination .pag-link .ghost-button.filled,
 .single-pagination .pag-link .ghost-button.filled,
+.pagination .pag-load-more .ghost-button.filled,
+.single-pagination .pag-load-more .ghost-button.filled,
 .pagination .pag-link a.filled,
-.single-pagination .pag-link a.filled {
+.single-pagination .pag-link a.filled,
+.pagination .pag-load-more a.filled,
+.single-pagination .pag-load-more a.filled {
   color: #fff;
   background-color: #d7ede5;
   border-color: #d7ede5;
@@ -1058,13 +1082,21 @@ img.aligncenter {
 .ghost-button-container .ghost-button.filled:hover,
 .pagination .pag-link .ghost-button.filled:hover,
 .single-pagination .pag-link .ghost-button.filled:hover,
+.pagination .pag-load-more .ghost-button.filled:hover,
+.single-pagination .pag-load-more .ghost-button.filled:hover,
 .pagination .pag-link a.filled:hover,
 .single-pagination .pag-link a.filled:hover,
+.pagination .pag-load-more a.filled:hover,
+.single-pagination .pag-load-more a.filled:hover,
 .ghost-button-container .ghost-button.filled:active,
 .pagination .pag-link .ghost-button.filled:active,
 .single-pagination .pag-link .ghost-button.filled:active,
+.pagination .pag-load-more .ghost-button.filled:active,
+.single-pagination .pag-load-more .ghost-button.filled:active,
 .pagination .pag-link a.filled:active,
-.single-pagination .pag-link a.filled:active {
+.single-pagination .pag-link a.filled:active,
+.pagination .pag-load-more a.filled:active,
+.single-pagination .pag-load-more a.filled:active {
   background-color: #f2b485;
   border-color: #f2b485;
 }
@@ -1445,6 +1477,11 @@ input[type="submit"]:hover {
 .pagination .pag-prev,
 .single-pagination .pag-prev {
   float: right;
+}
+.pagination .pag-load-more,
+.single-pagination .pag-load-more {
+  display: block;
+  margin: 0 auto;
 }
 #comments {
   margin: 2em auto;

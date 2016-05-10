@@ -497,6 +497,41 @@ function rhd_single_pagination()
 
 
 /**
+ * rhd_load_more function.
+ *
+ * @access public
+ * @param WP_Query $q (default: null)
+ * @return void
+ */
+function rhd_load_more( WP_Query $q = null )
+{
+	global $paged;
+
+	if ( $q ) {
+		$max_page = $q->max_num_pages;
+	} else {
+		$max_page = null;
+	}
+
+	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
+
+	if ( ! is_front_page() ) {
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	} else {
+		$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+	}
+
+	$next = $paged + 1;
+
+	echo '<nav class="pagination" data-current-page="' . $paged . '">';
+
+	echo '<span class="pag-load-more" data-target-page="' . $next . '">' . get_next_posts_link( 'Show More', $max_page ) . '</span>';
+
+	echo '</nav>';
+}
+
+
+/**
  * rhd_ajax_pagination function.
  *
  * @access public
@@ -516,7 +551,10 @@ function rhd_ajax_pagination()
 		}
 	}
 
-	rhd_archive_pagination( $posts );
+	if ( $_POST['load_more'] )
+		rhd_load_more( $posts );
+	else
+		rhd_archive_pagination( $posts );
 
 	die();
 }
