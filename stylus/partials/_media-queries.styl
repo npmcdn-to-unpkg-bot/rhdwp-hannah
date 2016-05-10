@@ -49,7 +49,6 @@
 	#main
 		-unwrapper(100%)
 		padding 0
-		background $near_white
 
 		.main-inner
 			@extends .limiter
@@ -202,22 +201,22 @@
 
 	.blog-area
 		.blog-container
-			-flexbox()
+			padding-bottom 4em
+
+			.rhd-post-gutter
+				width 2%
 
 			article
 				position relative
 
 				&.rhd-excerpt-post
 					width 49%
-					height 39em
-					-flexitem()
-					margin-top 0
-					vertical-align top
+					margin 0
 
-					.ghost-button-container
-						bottom 1.5em
-						-hcenter( absolute )
-
+			.pagination-load-more
+				position absolute
+				bottom -(@padding-bottom / 2)
+				-hcenter(absolute)
 
 
 @media screen and (min-width 50rem)
@@ -232,10 +231,6 @@
 	.blog-area
 		.blog-container
 			-flexbox()
-
-			article
-				&.rhd-excerpt-post
-					height 41em
 
 // Fixed-width 340px sidebar
 @media screen and (min-width 42rem)

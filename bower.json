@@ -21,8 +21,9 @@
   ],
   "dependencies": {
     "jquery.fitvids": "fitvids#^1.1.0",
-    "packery": "^2.0.0",
+    "packery": "^2.1.0",
     "Slidebars": "~0.10.3",
-    "df-visible": "jquery-visible#^1.2.0"
+    "df-visible": "jquery-visible#^1.2.0",
+    "imagesloaded": "^4.1.0"
   }
 }

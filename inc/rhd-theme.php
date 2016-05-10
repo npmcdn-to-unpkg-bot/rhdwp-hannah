@@ -66,7 +66,7 @@ function rhd_custom_excerpt_read_more( $more )
 {
 	global $post;
 
-	return ' [...]' . rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', false, false );
+	return ' [...]' . rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', false, false ) . '</p>';
 }
 add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 

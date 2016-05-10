@@ -81,12 +81,15 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
-	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
-	wp_register_script( 'jquery-visible', RHD_THEME_DIR . '/js/vendor/df-visible/jquery.visible.min.js', array( 'jquery'), null, true );
+	wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/dist/packery.pkgd.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'imagesloaded', RHD_THEME_DIR . '/js/vendor/imagesloaded/imagesloaded.pkgd.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery', 'packery' ), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
+		'packery',
+		'imagesloaded'
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
@@ -110,7 +113,8 @@ function rhd_enqueue_scripts()
 
 		$data_ajax = array(
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'query_vars' => json_encode( $wp_query->query )
+			'query_vars' => json_encode( $wp_query->query ),
+			'img_dir' => RHD_IMG_DIR
 		);
 		wp_localize_script( 'rhd-ajax', 'wp_data', $data_ajax );
 	}
@@ -523,7 +527,7 @@ function rhd_load_more( WP_Query $q = null )
 
 	$next = $paged + 1;
 
-	echo '<nav class="pagination" data-current-page="' . $paged . '">';
+	echo '<nav class="pagination pagination-load-more" data-current-page="' . $paged . '">';
 
 	echo '<span class="pag-load-more" data-target-page="' . $next . '">' . get_next_posts_link( 'Show More', $max_page ) . '</span>';
 
@@ -550,6 +554,7 @@ function rhd_ajax_pagination()
 			get_template_part( 'content', 'excerpt' );
 		}
 	}
+	wp_reset_postdata();
 
 	if ( $_POST['load_more'] )
 		rhd_load_more( $posts );

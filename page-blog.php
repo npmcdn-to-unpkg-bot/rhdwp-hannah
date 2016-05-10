@@ -45,6 +45,7 @@ get_header(); ?>
 		<?php if ( $q->have_posts() ) : ?>
 
 			<div class="blog-container">
+				<div class="rhd-post-gutter"></div>
 				<?php while ( $q->have_posts() ) : $q->the_post(); ?>
 					<?php
 					++$i;
@@ -54,11 +55,11 @@ get_header(); ?>
 						get_template_part( 'content', 'excerpt' );
 					?>
 				<?php endwhile; ?>
+				<?php rhd_load_more( $q ); ?>
 			</div>
 
-			<?php rhd_load_more( $q ); ?>
-			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
+		<?php wp_reset_postdata(); ?>
 
 	</div>
 </section>

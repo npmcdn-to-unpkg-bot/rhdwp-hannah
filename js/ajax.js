@@ -11,9 +11,10 @@
 		qv = wp_data.query_vars;
 	}
 
+	var $posts = $('.blog-container');
+
 
 	$(document).on('click', '.blog-area .pagination a', function(e){
-
 		e.preventDefault();
 
 		if ( $(this).parents('span').hasClass('pag-load-more') )
@@ -35,29 +36,38 @@
 			beforeSend: function() {
 				if (loadMore){
 
+					// Stuff...
+
 				} else {
 					$('html,body').animate({
 						scrollTop: 0
 					}, 750, "swing");
 
-					$('.blog-container').find('article').fadeOut('fast', function(){
+					$posts.find('article').fadeOut('fast', function(){
 						$(this).remove();
 					});
 				}
 
+				$posts.after('<div id="loading"><img src="' + wp_data.img_dir + '/loading.gif" alt="Loading more posts..."></div>');
+
 				$('.pagination').fadeOut('fast', function(){
 					$(this).remove();
 				});
-
-				// Loader
 			},
 			success: function( html ) {
+				$("#loading").fadeOut('fast', function(){
+					$(this).remove();
+				});
+
+				$('.pagination').data('current-page', page );
+
 				if (loadMore) {
-					$('.pagination').data('current-page', page );
-					$('.blog-container').append(html);
+
+					$html = $(html);
+
+					packeryAppend($posts, $html);
 				} else {
-					$('.pagination').data('current-page', page );
-					$('.blog-container').fadeOut(750, function(){
+					$posts.fadeOut(750, function(){
 						$(this).append(html);
 						$(this).fadeIn();
 					});

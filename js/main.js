@@ -20,13 +20,61 @@ var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
 var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
+var $posts; // Prep for packery instance
+var isPackery = false;
+
+var packeryOpts = { initLayout: false, percentPosition: true, itemSelector: ".type-post", columnWidth: ".rhd-excerpt-post", gutter: ".rhd-post-gutter" };
+
+
+/* ==========================================================================
+	Public Functions
+   ========================================================================== */
+
+function viewIsMobile() {
+	if ( $window.width() < 640 ) return true;
+	else return false;
+}
+
+
+function packeryPosts( $posts ) {
+	if ( !viewIsMobile() ) {
+		if ( isPackery === true ) {
+			$posts.imagesLoaded(function(){
+				$posts.packery('reloadItems');
+			});
+		} else {
+			$posts.imagesLoaded(function(){
+				// packeryOpts has 'initLayout: false', so manually lay out after init
+				$posts
+					.packery(packeryOpts)
+					.packery('layout');
+			});
+		}
+		isPackery = true;
+
+	} else {
+		$posts.packery('destroy');
+		isPackery = false;
+	}
+}
+
+
+function packeryAppend( $posts, $html ) {
+	if ( !viewIsMobile() ) {
+		$posts
+			.append($html)
+			.packery('appended', $html);
+	} else {
+		$posts.append($html);
+	}
+}
+
 
 /* ==========================================================================
 	Let 'er rip...
    ========================================================================== */
 
 (function($){
-
 	$(document).ready(function() {
 		rhdInit();
 
@@ -40,10 +88,14 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$dd.slideToggle();
 		});
 
+
+		// Resize event
 		$window.on('resize', function(){
 			mobileStyles();
 
 			vCenterHeaderMessage();
+
+			packeryPosts($posts);
 		});
 	});
 
@@ -58,6 +110,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		mobileStyles();
 		vCenterHeaderMessage();
+
+
+		// Packery
+		$posts = $('.blog-container').packery(packeryOpts);
+		packeryPosts($posts);
 	}
 
 
@@ -89,12 +146,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$('.post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)').css('float', 'left');
 			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
 		}
-	}
-
-
-	function viewIsMobile() {
-		if ( $window.width() < 640 ) return true;
-		else return false;
 	}
 
 

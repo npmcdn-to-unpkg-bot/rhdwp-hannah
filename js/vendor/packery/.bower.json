@@ -4,8 +4,8 @@
   "description": "Gapless, draggable grid layouts",
   "main": "js/packery.js",
   "dependencies": {
-    "get-size": "~2.0.2",
-    "outlayer": "~2.0.0"
+    "get-size": "^2.0.2",
+    "outlayer": "^2.0.0"
   },
   "devDependencies": {
     "draggabilly": "^2.1.0",
@@ -40,15 +40,15 @@
     "draggable"
   ],
   "license": "GPL-3.0",
-  "version": "2.0.0",
-  "_release": "2.0.0",
+  "version": "2.1.0",
+  "_release": "2.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "v2.0.0",
-    "commit": "566e90856980d7eba017d4a9a69d1c2586a932d2"
+    "tag": "v2.1.0",
+    "commit": "e594ddef99ae6bdbc4bed1912b387591eb69077b"
   },
-  "_source": "git://github.com/metafizzy/packery.git",
-  "_target": "^2.0.0",
+  "_source": "https://github.com/metafizzy/packery.git",
+  "_target": "^2.1.0",
   "_originalSource": "packery",
   "_direct": true
 }

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:44:02 AM on 10-05-2016
+* RHD Dev: Compiled at 7:56:14 PM on 10-05-2016
 ***/
 
 .alignnone {
@@ -1267,7 +1267,7 @@ input[type="submit"]:hover {
   max-width: 80rem;
   position: relative;
   margin: 0 auto 0 auto;
-  padding: 1em 0 2em;
+  padding: 1em 1em 2em 1em;
 }
 #colophon #footer-widget-area {
   width: 230px;
@@ -1470,7 +1470,7 @@ input[type="submit"]:hover {
 }
 .pagination,
 .single-pagination {
-  margin: 1em auto;
+  margin: 2em auto;
   font-size: 1.1em;
 }
 .pagination .pag-next,
@@ -1698,6 +1698,16 @@ input[type="submit"]:hover {
   width: auto;
   max-height: 500px;
 }
+#loading {
+  width: 3em;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+#loading img {
+  width: 100%;
+  height: auto;
+}
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
@@ -1755,7 +1765,6 @@ input[type="submit"]:hover {
     max-width: none;
     margin: initial;
     padding: 0;
-    background: #fafafa;
   }
   #main .main-inner {
     background: #fff;
@@ -1892,25 +1901,21 @@ input[type="submit"]:hover {
     margin-top: 0;
   }
   .blog-area .blog-container {
-    text-align: justify;
+    padding-bottom: 4em;
   }
-  .blog-area .blog-container:after {
-    width: 100%;
-    display: inline-block;
-    content: '';
+  .blog-area .blog-container .rhd-post-gutter {
+    width: 2%;
   }
   .blog-area .blog-container article {
     position: relative;
   }
   .blog-area .blog-container article.rhd-excerpt-post {
     width: 49%;
-    height: 39em;
-    display: inline-block;
-    margin-top: 0;
-    vertical-align: top;
+    margin: 0;
   }
-  .blog-area .blog-container article.rhd-excerpt-post .ghost-button-container {
-    bottom: 1.5em;
+  .blog-area .blog-container .pagination-load-more {
+    position: absolute;
+    bottom: -2em;
     position: absolute;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -1931,9 +1936,6 @@ input[type="submit"]:hover {
     width: 100%;
     display: inline-block;
     content: '';
-  }
-  .blog-area .blog-container article.rhd-excerpt-post {
-    height: 41em;
   }
 }
 @media screen and (min-width: 42rem) {

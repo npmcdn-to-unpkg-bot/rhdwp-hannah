@@ -16,9 +16,9 @@ See [packery.metafizzy.co](http://packery.metafizzy.co) for complete docs and de
 Link directly to Packery files on [npmcdn](https://npmcdn.com).
 
 ``` html
-<script src="https://npmcdn.com/packery@2.0/dist/packery.pkgd.js"></script>
+<script src="https://npmcdn.com/packery@2.1/dist/packery.pkgd.js"></script>
 <!-- or -->
-<script src="https://npmcdn.com/packery@2.0/dist/packery.pkgd.min.js"></script>
+<script src="https://npmcdn.com/packery@2.1/dist/packery.pkgd.min.js"></script>
 ```
 
 ### Package managers
@@ -69,7 +69,7 @@ var pckry = new Packery('.grid', {
 
 With HTML
 
-Add a `data-masonry` attribute to your element. Options can be set in JSON in the value.
+Add a `data-packery` attribute to your element. Options can be set in JSON in the value.
 
 ``` html
 <div class="grid" data-packery='{ "itemSelector": ".grid-item" }'>
