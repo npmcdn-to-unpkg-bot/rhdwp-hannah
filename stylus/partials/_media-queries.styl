@@ -119,69 +119,65 @@
 		Front Page
 	   ========================================================================== */
 
-	.front-page-border-inner
-		background $near_white
-
 	#front-page-slider
 		display block
+		background white
 
-		.border-inner
-			background white
+		.soliloquy-container
+			padding-top 1em
+			padding-bottom 1em
+
+		.scroll-label
+			width 100%
+			text-align center
+			-ff-headline()
 			position relative
+			font-size 200%
 
-			.soliloquy-container
-				padding-top 1em
-				padding-bottom 1em
-
-			.scroll-label
-				width 100%
-				text-align center
-				-ff-headline()
+			.vee
+				margin 0 0.5em
+				font-size 0.8em
 				position relative
-				font-size 200%
-
-				.vee
-					margin 0 0.5em
-					font-size 0.8em
-					position relative
-					bottom 0.2em
+				bottom 0.2em
 
 	#header-message-container
 		width 100%
+		height 70vh
 
-		.border-inner
-			display table
+		.header-message
+			width 100%
+			height (@height)
+			-clearfix()
 
-			.header-message
+			.header-message-photo
+			.header-message-content
+				width 50%
 				height 100%
-				-clearfix()
-				display table-cell
+				position relative
 
-				.header-message-photo
-				.header-message-content
-					width 50%
-					display block
-					position relative
+			.header-message-photo
+				float left
+				overflow hidden
+				display block
+				background-size cover
+				background-position center center
 
-				.header-message-photo
-					float left
-					overflow hidden
-					background-size cover
-					background-position center
+			.header-message-content
+				float right
 
-				.header-message-content
-					float right
+				.message-inner
+					max-height 460px
+					-vcenter()
 
-					.message-inner
-						.message
-							font-size 4vw
-							line-height 1.2
+					.message
+						font-size 3.2vw
+						line-height 1.2
 
-						.message-buttons
-							width 80%
+					.message-buttons
+						width 80%
 
-							.ghost-button
-								font-size 2.1vw
+						.ghost-button
+							font-size 1.9vw
 
 
 	#front-page-recent-posts
@@ -231,6 +227,16 @@
 	.blog-area
 		.blog-container
 			-flexbox()
+
+
+@media screen and (min-width 62rem)
+	#header-message-container
+		.header-message
+			.header-message-content
+				.message-inner
+					.message
+						font-size 2.7vw
+
 
 // Fixed-width 340px sidebar
 @media screen and (min-width 42rem)

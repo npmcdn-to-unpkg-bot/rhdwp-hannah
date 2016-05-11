@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:56:14 PM on 10-05-2016
+* RHD Dev: Compiled at 8:47:50 PM on 10-05-2016
 ***/
 
 /**
@@ -570,19 +570,19 @@ input[type="checkbox"] {
 .blog-area article:before,
 .pagination:before,
 .single-pagination:before,
-#header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons:before,
+#header-message-container .header-message .header-message-content .message-inner .message-buttons:before,
 #main .main-inner:before,
 #colophon .footer-inner:before,
-#header-message-container .border-inner .header-message:before,
+#header-message-container .header-message:before,
 #main:before,
 .clearfix:after,
 .blog-area article:after,
 .pagination:after,
 .single-pagination:after,
-#header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons:after,
+#header-message-container .header-message .header-message-content .message-inner .message-buttons:after,
 #main .main-inner:after,
 #colophon .footer-inner:after,
-#header-message-container .border-inner .header-message:after,
+#header-message-container .header-message:after,
 #main:after {
   content: " ";
   display: table;
@@ -591,10 +591,10 @@ input[type="checkbox"] {
 .blog-area article:after,
 .pagination:after,
 .single-pagination:after,
-#header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons:after,
+#header-message-container .header-message .header-message-content .message-inner .message-buttons:after,
 #main .main-inner:after,
 #colophon .footer-inner:after,
-#header-message-container .border-inner .header-message:after,
+#header-message-container .header-message:after,
 #main:after {
   clear: both;
 }
@@ -1587,18 +1587,9 @@ input[type="submit"]:hover {
   width: 100%;
   max-width: none;
   padding: 0;
-  background-image: url("../img/copper.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  margin-top: 6px;
-}
-.front-page #main .border-inner {
-  position: relative;
-  bottom: 6px;
 }
 .front-page #main .main-inner {
   background: #fff;
-  padding-bottom: 1em;
 }
 .front-page #primary #content {
   width: 100%;
@@ -1609,71 +1600,54 @@ input[type="submit"]:hover {
   font-weight: normal;
   font-size: 200%;
   text-align: center;
-  margin-bottom: 0.5em;
-}
-#front-page-slider,
-#header-message-container,
-#front-page-instagram {
-  width: 100%;
-  background-image: url("../img/copper.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  margin-top: 6px;
-}
-#front-page-slider .border-inner,
-#header-message-container .border-inner,
-#front-page-instagram .border-inner {
-  position: relative;
-  bottom: 6px;
-}
-#front-page-slider .border-inner,
-#header-message-container .border-inner,
-#front-page-instagram .border-inner {
-  background: #fff;
+  margin: 0.5em 0;
 }
 #front-page-slider {
   display: none;
 }
-#header-message-container .border-inner {
+#header-message-container {
   height: auto;
 }
-#header-message-container .border-inner .header-message {
+#header-message-container .header-message {
   background: #d7ede5;
 }
-#header-message-container .border-inner .header-message .header-message-photo {
+#header-message-container .header-message .header-message-photo {
   display: none;
 }
-#header-message-container .border-inner .header-message .header-message-content {
+#header-message-container .header-message .header-message-content {
   width: 100%;
   height: 100%;
   color: #fff;
   text-align: center;
   padding: 1em;
 }
-#header-message-container .border-inner .header-message .header-message-content .message-inner {
+#header-message-container .header-message .header-message-content .message-inner {
   width: 95%;
   max-width: 80rem;
   position: relative;
   margin: 1em auto 1em auto;
 }
-#header-message-container .border-inner .header-message .header-message-content .message-inner .message {
+#header-message-container .header-message .header-message-content .message-inner .message {
   font-size: 10vw;
   line-height: 1.1;
   margin: 0;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 400;
 }
-#header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons {
+#header-message-container .header-message .header-message-content .message-inner .message-buttons {
   width: 90%;
   margin: 1em auto;
 }
-#header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons .ghost-button {
+#header-message-container .header-message .header-message-content .message-inner .message-buttons .ghost-button {
   font-size: 5vw;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 400;
 }
 #front-page-recent-posts .front-page-posts article {
   border-color: #757575;
+}
+#front-page-instagram {
+  margin-bottom: 2em;
 }
 #front-page-instagram .soliloquy-container .soliloquy-wrapper {
   margin: 0 auto;
@@ -1805,21 +1779,15 @@ input[type="submit"]:hover {
 .entry-content a img.aligncenter {
     margin: 0 auto;
   }
-  .front-page-border-inner {
-    background: #fafafa;
-  }
   #front-page-slider {
     display: block;
-  }
-  #front-page-slider .border-inner {
     background: #fff;
-    position: relative;
   }
-  #front-page-slider .border-inner .soliloquy-container {
+  #front-page-slider .soliloquy-container {
     padding-top: 1em;
     padding-bottom: 1em;
   }
-  #front-page-slider .border-inner .scroll-label {
+  #front-page-slider .scroll-label {
     width: 100%;
     text-align: center;
     font-family: 'Allessa Script', cursive;
@@ -1827,7 +1795,7 @@ input[type="submit"]:hover {
     position: relative;
     font-size: 200%;
   }
-  #front-page-slider .border-inner .scroll-label .vee {
+  #front-page-slider .scroll-label .vee {
     margin: 0 0.5em;
     font-size: 0.8em;
     position: relative;
@@ -1835,38 +1803,44 @@ input[type="submit"]:hover {
   }
   #header-message-container {
     width: 100%;
+    height: 70vh;
   }
-  #header-message-container .border-inner {
-    display: table;
+  #header-message-container .header-message {
+    width: 100%;
+    height: 70vh;
   }
-  #header-message-container .border-inner .header-message {
-    height: 100%;
-    display: table-cell;
-  }
-  #header-message-container .border-inner .header-message .header-message-photo,
-  #header-message-container .border-inner .header-message .header-message-content {
+  #header-message-container .header-message .header-message-photo,
+  #header-message-container .header-message .header-message-content {
     width: 50%;
-    display: block;
+    height: 100%;
     position: relative;
   }
-  #header-message-container .border-inner .header-message .header-message-photo {
+  #header-message-container .header-message .header-message-photo {
     float: left;
     overflow: hidden;
+    display: block;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
   }
-  #header-message-container .border-inner .header-message .header-message-content {
+  #header-message-container .header-message .header-message-content {
     float: right;
   }
-  #header-message-container .border-inner .header-message .header-message-content .message-inner .message {
-    font-size: 4vw;
+  #header-message-container .header-message .header-message-content .message-inner {
+    max-height: 460px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  #header-message-container .header-message .header-message-content .message-inner .message {
+    font-size: 3.2vw;
     line-height: 1.2;
   }
-  #header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons {
+  #header-message-container .header-message .header-message-content .message-inner .message-buttons {
     width: 80%;
   }
-  #header-message-container .border-inner .header-message .header-message-content .message-inner .message-buttons .ghost-button {
-    font-size: 2.1vw;
+  #header-message-container .header-message .header-message-content .message-inner .message-buttons .ghost-button {
+    font-size: 1.9vw;
   }
   #front-page-recent-posts .front-page-posts {
     text-align: justify;
@@ -1918,6 +1892,11 @@ input[type="submit"]:hover {
     width: 100%;
     display: inline-block;
     content: '';
+  }
+}
+@media screen and (min-width: 62rem) {
+  #header-message-container .header-message .header-message-content .message-inner .message {
+    font-size: 2.7vw;
   }
 }
 @media screen and (min-width: 42rem) {

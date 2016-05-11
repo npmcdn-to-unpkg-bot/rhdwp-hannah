@@ -108,7 +108,7 @@ function rhd_enqueue_scripts()
 	);
 	wp_localize_script( 'rhd-main', 'wp_data', $data );
 
-	if ( RHD_AJAX_PAGINATION ) {
+	if ( RHD_AJAX_PAGINATION && is_page( 'blog' ) ) {
 		wp_enqueue_script( 'rhd-ajax' );
 
 		$data_ajax = array(

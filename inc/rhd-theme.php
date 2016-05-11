@@ -103,10 +103,8 @@ function rhd_front_page_slider()
 {
 	?>
 	<section id="front-page-slider">
-		<div class="border-inner">
-			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'front-page-slider', 'slug' ); } ?>
-			<div class="scroll-label"><span class="vee">&dtrif;</span>Scroll<span class="vee">&dtrif;</span></div>
-		</div>
+		<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'front-page-slider', 'slug' ); } ?>
+		<div class="scroll-label"><span class="vee">&dtrif;</span>Scroll<span class="vee">&dtrif;</span></div>
 	</section>
 	<?php
 }
@@ -133,29 +131,30 @@ function rhd_front_page_header_message()
 	}
 	?>
 	<section id="header-message-container">
-		<div class="border-inner">
-			<div class="header-message">
+		<div class="header-message">
 
-				<?php if ( $has_thumb ) : ?>
-				<div class="header-message-photo">
-					<?php the_post_thumbnail( 'full' ); ?>
-				</div>
-				<?php endif; ?>
+			<?php if ( $has_thumb ) : ?>
+				<?php
+				$thumb_id = get_post_thumbnail_id( $post->ID );
+				$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full' );
+				?>
 
-				<div class="header-message-content">
-					<div class="message-inner">
-						<span class="message">
-							EVERY HOUSE,<br />
-							EVERY BUILDING,<br />
-							EVERY SPACE TELLS<br />
-							A STORY. IS YOUR<br />
-							HOME TELLING<br />
-							YOURS?
-						</span>
-						<div class="message-buttons">
-							<?php rhd_ghost_button( 'Portfolio', home_url( '/portfolio' ), null, 'left', false, true ); ?>
-							<?php rhd_ghost_button( 'Services', home_url( '/services' ), null, 'right', false, true ); ?>
-						</div>
+				<div class="header-message-photo" style="background-image: url( <?php echo $thumb_url[0]; ?> );"></div>
+			<?php endif; ?>
+
+			<div class="header-message-content">
+				<div class="message-inner">
+					<span class="message">
+						EVERY HOUSE,<br />
+						EVERY BUILDING,<br />
+						EVERY SPACE TELLS<br />
+						A STORY. IS YOUR<br />
+						HOME TELLING<br />
+						YOURS?
+					</span>
+					<div class="message-buttons">
+						<?php rhd_ghost_button( 'Portfolio', home_url( '/portfolio' ), null, 'left', false, true ); ?>
+						<?php rhd_ghost_button( 'Services', home_url( '/services' ), null, 'right', false, true ); ?>
 					</div>
 				</div>
 			</div>
@@ -175,10 +174,8 @@ function rhd_front_page_instagram()
 {
 	?>
 	<section id="front-page-instagram">
-		<div class="border-inner">
-			<h3 class="section-title">Instagram</h3>
-			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '12119' ); } ?>
-		</div>
+		<h3 class="section-title">Instagram</h3>
+		<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '12119' ); } ?>
 	</section>
 	<?php
 }

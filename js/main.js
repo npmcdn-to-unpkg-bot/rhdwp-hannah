@@ -93,7 +93,7 @@ function packeryAppend( $posts, $html ) {
 		$window.on('resize', function(){
 			mobileStyles();
 
-			vCenterHeaderMessage();
+			//vCenterHeaderMessage();
 
 			packeryPosts($posts);
 		});
@@ -101,27 +101,18 @@ function packeryAppend( $posts, $html ) {
 
 
 	function rhdInit() {
-		// wpAdminBarPush();
-
 		toggleBurger();
 
 		// Fix faux-flexbox
 		// fixGridLayout();
 
 		mobileStyles();
-		vCenterHeaderMessage();
+		//vCenterHeaderMessage();
 
 
 		// Packery
 		$posts = $('.blog-container').packery(packeryOpts);
 		packeryPosts($posts);
-	}
-
-
-	function wpAdminBarPush() {
-		$("#wpadminbar").css({
-			top: $("#masthead").height(),
-		});
 	}
 
 
@@ -176,13 +167,17 @@ function packeryAppend( $posts, $html ) {
 
 
 	function vCenterHeaderMessage() {
-		if ( ! viewIsMobile() ) {
-			var contHt = $('.header-message').height();
-			var msgHt = $('.message-inner').height();
-			var diff = contHt - msgHt;
-			var offset = diff / 2;
+		var maxHt = parseInt( $('.message-inner.').css('maxHeight') );
 
-			$('.message-inner').css('top', offset + 'px');
+		if ( ! viewIsMobile() ) {
+			if ( $('.message-inner').height() <= maxHt ) {
+				var contHt = $('.header-message').height();
+				var msgHt = $('.message-inner').height();
+				var diff = contHt - msgHt;
+				var offset = diff /3;
+
+				$('.message-inner').css('top', offset + 'px');
+			}
 		} else {
 			$('.message-inner').css('top', 'initial');
 		}
