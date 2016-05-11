@@ -96,7 +96,7 @@
 	.entry-content
 		img
 		iframe
-			-unwrapper(100%)
+			-unwrapper(initial)
 			max-width 100%
 
 		img
@@ -133,12 +133,16 @@
 			-ff-headline()
 			position relative
 			font-size 200%
+			margin-bottom 0.5em
 
 			.vee
-				margin 0 0.5em
-				font-size 0.8em
+				width 0.9rem
+				height auto
+				display inline-block
+				margin 0 0.75em
 				position relative
-				bottom 0.2em
+				bottom 0.05em
+
 
 	#header-message-container
 		width 100%
@@ -146,7 +150,7 @@
 
 		.header-message
 			width 100%
-			height (@height)
+			height @height
 			-clearfix()
 
 			.header-message-photo

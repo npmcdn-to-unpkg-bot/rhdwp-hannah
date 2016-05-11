@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:47:50 PM on 10-05-2016
+* RHD Dev: Compiled at 5:58:16 PM on 11-05-2016
 ***/
 
 .alignnone {
@@ -532,6 +532,12 @@ input[type="checkbox"] {
 }
 .aligncenter {
   text-align: center;
+}
+@font-face {
+  font-family: 'Nella Sue';
+  src: url("fonts/nellasuedemo-webfont.woff2") format('woff2'), url("fonts/nellasuedemo-webfont.woff") format('woff'), url("fonts/nellasuedemo-webfont.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: 'Allessa Script';
@@ -1305,9 +1311,11 @@ input[type="submit"]:hover {
   position: relative;
   margin: 2em auto 0 auto;
   text-align: center;
+  color: #fff;
+  font-weight: 400;
 }
 #colophon .site-info a {
-  color: #2b2b2b;
+  color: inherit;
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
@@ -1319,11 +1327,11 @@ input[type="submit"]:hover {
   height: auto;
 }
 #colophon .site-info #rhd-logo-footer {
-  width: 1.35em;
-  height: 1.35em;
+  width: 1.25em;
+  height: 1.25em;
   margin: 0 0.05em;
   position: relative;
-  bottom: 0.25em;
+  bottom: 0.2em;
 }
 /* ==========================================================================
 	Posts & Pages
@@ -1335,13 +1343,10 @@ input[type="submit"]:hover {
   line-height: 1;
 }
 .page-title {
-  font-family: 'Allessa Script', cursive;
+  font-family: 'Nella Sue', cursive;
   font-weight: normal;
   text-align: center;
   font-size: 3em;
-  background: #d7ede5;
-  margin-bottom: 1rem;
-  padding: 1.5rem 0;
   border-radius: 0.1rem;
 }
 .entry-summary p {
@@ -1351,7 +1356,7 @@ input[type="submit"]:hover {
   width: 100%;
 }
 .entry-content p {
-  margin: 0.25em auto;
+  margin: 0.5em auto;
   text-indent: 0;
 }
 .entry-content p[style*="text-align: center"] {
@@ -1599,16 +1604,28 @@ input[type="submit"]:hover {
   width: 100%;
   max-width: none;
   padding: 0;
+  background-image: url("../img/copper.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-top: 6px;
+  background-color: #fff;
+}
+.front-page #main .border-inner {
+  position: relative;
+  bottom: 6px;
+}
+.front-page #main > .border-inner {
+  background: #fff;
 }
 .front-page #main .main-inner {
-  background: #fff;
+  background-color: #fff;
 }
 .front-page #primary #content {
   width: 100%;
   padding: 0 7.5%;
 }
 .front-page .section-title {
-  font-family: 'Allessa Script', cursive;
+  font-family: 'Nella Sue', cursive;
   font-weight: normal;
   font-size: 200%;
   text-align: center;
@@ -1660,6 +1677,17 @@ input[type="submit"]:hover {
 }
 #front-page-instagram {
   margin-bottom: 2em;
+}
+#front-page-instagram .section-title a {
+  text-decoration: none;
+}
+#front-page-instagram .section-title a:link,
+#front-page-instagram .section-title a:visited {
+  color: inherit;
+}
+#front-page-instagram .section-title a:hover,
+#front-page-instagram .section-title a:active {
+  color: #f2b485;
 }
 #front-page-instagram .soliloquy-container .soliloquy-wrapper {
   margin: 0 auto;
@@ -1778,7 +1806,7 @@ input[type="submit"]:hover {
   .entry-content img,
   .entry-content iframe,
 .entry-content a img {
-    width: 100%;
+    width: initial;
     max-width: none;
     margin: initial;
     max-width: 100%;
@@ -1808,16 +1836,19 @@ input[type="submit"]:hover {
   #front-page-slider .scroll-label {
     width: 100%;
     text-align: center;
-    font-family: 'Allessa Script', cursive;
+    font-family: 'Nella Sue', cursive;
     font-weight: normal;
     position: relative;
     font-size: 200%;
+    margin-bottom: 0.5em;
   }
   #front-page-slider .scroll-label .vee {
-    margin: 0 0.5em;
-    font-size: 0.8em;
+    width: 0.9rem;
+    height: auto;
+    display: inline-block;
+    margin: 0 0.75em;
     position: relative;
-    bottom: 0.2em;
+    bottom: 0.05em;
   }
   #header-message-container {
     width: 100%;

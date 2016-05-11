@@ -10,6 +10,11 @@
  */
 ?>
 		</div><!-- .main-inner -->
+
+		<?php if ( is_front_page() ) : ?>
+			</div><!-- .border-inner -->
+		<?php endif; ?>
+
 	</main><!-- #main -->
 
 	<?php if ( is_front_page() ) : ?>
@@ -24,7 +29,7 @@
 				<a href="<?php echo home_url(); ?>"><img src="<?php echo RHD_UPLOAD_URL; ?>/2016/05/copper-dot-logo-short.png" alt="Copper Dot Interiors"></a>
 				<p>
 					<?php echo '&copy;' . date( 'Y' ); ?> Karen Goodman<br />
-					Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs">Designs</a>
+					Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a>
 				</p>
 			</div>
 		</div>

@@ -104,7 +104,7 @@ function rhd_front_page_slider()
 	?>
 	<section id="front-page-slider">
 		<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'front-page-slider', 'slug' ); } ?>
-		<div class="scroll-label"><span class="vee">&dtrif;</span>Scroll<span class="vee">&dtrif;</span></div>
+		<div class="scroll-label"><img class="vee" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="scroll indicator"></span>Scroll<img class="vee" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="scroll indicator"></div>
 	</section>
 	<?php
 }
@@ -174,7 +174,7 @@ function rhd_front_page_instagram()
 {
 	?>
 	<section id="front-page-instagram">
-		<h3 class="section-title">Instagram</h3>
+		<h3 class="section-title"><a href="//instagram.com/copper_dot" target="_blank">Instagram</a></h3>
 		<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '12119' ); } ?>
 	</section>
 	<?php

@@ -63,7 +63,9 @@ function packeryAppend( $posts, $html ) {
 	if ( !viewIsMobile() ) {
 		$posts
 			.append($html)
-			.packery('appended', $html);
+			.imagesLoaded(function(){
+				$posts.packery('appended', $html);
+			});
 	} else {
 		$posts.append($html);
 	}

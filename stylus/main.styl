@@ -186,9 +186,11 @@ input[type="submit"]
 	.site-info
 		-wrapper(2em, 0, 75%)
 		text-align center
+		color white
+		font-weight 400
 
 		a
-			color $c_text
+			color inherit
 
 			&:hover
 			&:active
@@ -200,11 +202,11 @@ input[type="submit"]
 			height auto
 
 		#rhd-logo-footer
-			width 1.35em
-			height 1.35em
+			width 1.25em
+			height 1.25em
 			margin 0 0.05em
 			position relative
-			bottom 0.25em
+			bottom 0.2em
 
 
 /* ==========================================================================
@@ -222,9 +224,6 @@ input[type="submit"]
 	-ff-headline()
 	text-align center
 	font-size 3em
-	background $c_sec
-	margin-bottom 1rem
-	padding 1.5rem 0
 	border-radius 0.1rem
 
 
@@ -237,7 +236,7 @@ input[type="submit"]
 	width 100%
 
 	p
-		margin 0.25em auto
+		margin 0.5em auto
 		text-indent 0
 
 		&[style*="text-align: center"]
@@ -498,9 +497,14 @@ input[type="submit"]
 		width 100%
 		max-width none
 		padding 0
+		-copperborder()
+		background-color $c_bg
+
+		> .border-inner
+			background $c_bg
 
 		.main-inner
-			background $c_bg
+			background-color @background-color
 
 	#primary
 		#content
@@ -560,6 +564,18 @@ input[type="submit"]
 
 #front-page-instagram
 	margin-bottom 2em
+
+	.section-title
+		a
+			text-decoration none
+
+			&:link
+			&:visited
+				color inherit
+
+			&:hover
+			&:active
+				color $c_ter
 
 	.soliloquy-container
 		.soliloquy-wrapper

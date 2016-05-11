@@ -66,4 +66,9 @@
 			<?php endif; ?>
 
 			<main id="main">
+
+				<?php if ( is_front_page() ) : ?>
+					<div class="border-inner front-page-border-inner">
+				<?php endif; ?>
+
 				<div class="main-inner">
