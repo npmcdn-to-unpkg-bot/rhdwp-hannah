@@ -5,7 +5,7 @@
 	}
 
 	// Look for a secondary query localization, if not found, set to main query.
-	if ( wp_custom_data ) {
+	if ( typeof wp_custom_data !== 'undefined' ) {
 		qv = wp_custom_data.query_vars;
 	} else {
 		qv = wp_data.query_vars;

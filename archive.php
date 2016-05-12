@@ -20,6 +20,7 @@ get_header();
 				<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
 
 				<div class="blog-container">
+					<div class="rhd-post-gutter"></div>
 					<?php while ( have_posts() ) : the_post(); ?>
 						<?php get_template_part( 'content', 'excerpt' ); ?>
 					<?php endwhile; ?>
@@ -61,7 +62,7 @@ get_header();
 
 		<?php
 			if ( is_single() ) rhd_single_pagination();
-			else rhd_archive_pagination();
+			else rhd_load_more();
 		?>
 
 	</section><!-- #primary -->

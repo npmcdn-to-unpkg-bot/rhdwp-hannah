@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:58:16 PM on 11-05-2016
+* RHD Dev: Compiled at 6:31:18 PM on 12-05-2016
 ***/
 
 .alignnone {
@@ -1342,7 +1342,8 @@ input[type="submit"]:hover {
   margin-top: 0;
   line-height: 1;
 }
-.page-title {
+.page-title,
+.archive-title {
   font-family: 'Nella Sue', cursive;
   font-weight: normal;
   text-align: center;
@@ -1715,7 +1716,8 @@ input[type="submit"]:hover {
    ========================================================================== */
 @media screen and (min-width: 42rem) {
   #site-title {
-    width: 300px;
+    width: 38%;
+    max-width: 460px;
     margin: 0;
     display: inline-block;
     position: relative;
@@ -1723,7 +1725,7 @@ input[type="submit"]:hover {
     transition: width 0.25s, height 0.25s;
   }
   #site-navigation-container {
-    width: 58%;
+    width: 60%;
     min-width: 445px;
     display: block;
     position: absolute;
@@ -1822,7 +1824,9 @@ input[type="submit"]:hover {
     float: right;
   }
   .entry-content img.aligncenter,
-.entry-content a img.aligncenter {
+.entry-content a img.aligncenter,
+  .entry-content img.alignnone,
+.entry-content a img.alignnone {
     margin: 0 auto;
   }
   #front-page-slider {
@@ -1905,6 +1909,25 @@ input[type="submit"]:hover {
     vertical-align: top;
     margin-top: 0;
   }
+  .page-id-12066 #main .main-inner {
+    width: 100%;
+    max-width: none;
+    margin: initial;
+    padding: 0;
+  }
+  .page-id-12066 #main .main-inner #primary {
+    width: 57%;
+    padding-right: 5%;
+  }
+  .page-id-12066 #main .main-inner #secondary {
+    width: 40%;
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 50rem) {
+  #site-navigation-container #site-navigation .menu-item {
+    font-size: 1.2em;
+  }
   .blog-area .blog-container {
     padding-bottom: 4em;
   }
@@ -1927,22 +1950,6 @@ input[type="submit"]:hover {
     transform: translateX(-50%);
   }
 }
-@media screen and (min-width: 50rem) {
-  #site-title {
-    width: 460px;
-  }
-  #site-navigation-container #site-navigation .menu-item {
-    font-size: 1.2em;
-  }
-  .blog-area .blog-container {
-    text-align: justify;
-  }
-  .blog-area .blog-container:after {
-    width: 100%;
-    display: inline-block;
-    content: '';
-  }
-}
 @media screen and (min-width: 62rem) {
   #header-message-container .header-message .header-message-content .message-inner .message {
     font-size: 2.7vw;
@@ -1963,11 +1970,6 @@ input[type="submit"]:hover {
   }
   #secondary .widget {
     width: 100%;
-  }
-}
-@media screen and (min-width: 50rem) {
-  #primary {
-    width: 58%;
   }
 }
 @media screen and (min-width: 58rem) {

@@ -30,14 +30,14 @@ var packeryOpts = { initLayout: false, percentPosition: true, itemSelector: ".ty
 	Public Functions
    ========================================================================== */
 
-function viewIsMobile() {
-	if ( $window.width() < 640 ) return true;
+function viewIsWee() {
+	if ( $window.width() < 800 ) return true;
 	else return false;
 }
 
 
 function packeryPosts( $posts ) {
-	if ( !viewIsMobile() ) {
+	if ( !viewIsWee() ) {
 		if ( isPackery === true ) {
 			$posts.imagesLoaded(function(){
 				$posts.packery('reloadItems');
@@ -60,7 +60,7 @@ function packeryPosts( $posts ) {
 
 
 function packeryAppend( $posts, $html ) {
-	if ( !viewIsMobile() ) {
+	if ( !viewIsWee() ) {
 		$posts
 			.append($html)
 			.imagesLoaded(function(){
@@ -73,7 +73,7 @@ function packeryAppend( $posts, $html ) {
 
 
 /* ==========================================================================
-	Let 'er rip...
+	jQuery no-conflict
    ========================================================================== */
 
 (function($){
@@ -143,7 +143,7 @@ function packeryAppend( $posts, $html ) {
 
 
 	function mobileStyles() {
-		if ( viewIsMobile() ) {
+		if ( viewIsWee() ) {
 			if ( !$("#site-navigation-conatiner").hasClass('mobile') ) {
 				var borderHt = parseInt( $("#masthead").css("marginTop") );
 				var mastHt = $("#masthead").height();
@@ -171,7 +171,7 @@ function packeryAppend( $posts, $html ) {
 	function vCenterHeaderMessage() {
 		var maxHt = parseInt( $('.message-inner.').css('maxHeight') );
 
-		if ( ! viewIsMobile() ) {
+		if ( ! viewIsWee() ) {
 			if ( $('.message-inner').height() <= maxHt ) {
 				var contHt = $('.header-message').height();
 				var msgHt = $('.message-inner').height();
