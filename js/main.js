@@ -30,14 +30,26 @@ var packeryOpts = { initLayout: false, percentPosition: true, itemSelector: ".ty
 	Public Functions
    ========================================================================== */
 
-function viewIsWee() {
-	if ( $window.width() < 800 ) return true;
+function viewIsMobile() {
+	if ( $window.width() < 640 ) return true;
+	else return false;
+}
+
+
+function viewIsMedium() {
+	if ( $window.width() < 960 ) return true;
 	else return false;
 }
 
 
 function packeryPosts( $posts ) {
-	if ( !viewIsWee() ) {
+	if ( viewIsMedium() ) {
+		if ( $posts.data('packery') ) {
+			$posts.packery('destroy');
+		}
+
+		isPackery = false;
+	} else  {
 		if ( isPackery === true ) {
 			$posts.imagesLoaded(function(){
 				$posts.packery('reloadItems');
@@ -51,16 +63,12 @@ function packeryPosts( $posts ) {
 			});
 		}
 		isPackery = true;
-
-	} else {
-		$posts.packery('destroy');
-		isPackery = false;
 	}
 }
 
 
 function packeryAppend( $posts, $html ) {
-	if ( !viewIsWee() ) {
+	if ( !viewIsMedium() ) {
 		$posts
 			.append($html)
 			.imagesLoaded(function(){
@@ -143,7 +151,7 @@ function packeryAppend( $posts, $html ) {
 
 
 	function mobileStyles() {
-		if ( viewIsWee() ) {
+		if ( viewIsMobile() ) {
 			if ( !$("#site-navigation-conatiner").hasClass('mobile') ) {
 				var borderHt = parseInt( $("#masthead").css("marginTop") );
 				var mastHt = $("#masthead").height();
@@ -171,7 +179,7 @@ function packeryAppend( $posts, $html ) {
 	function vCenterHeaderMessage() {
 		var maxHt = parseInt( $('.message-inner.').css('maxHeight') );
 
-		if ( ! viewIsWee() ) {
+		if ( ! viewIsMobile() ) {
 			if ( $('.message-inner').height() <= maxHt ) {
 				var contHt = $('.header-message').height();
 				var msgHt = $('.message-inner').height();
