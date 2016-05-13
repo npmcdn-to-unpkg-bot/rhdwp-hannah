@@ -85,7 +85,7 @@ grunt.initConfig({
 						'***/\n\n'
 			}
 		},
-	}
+	},
 });
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');

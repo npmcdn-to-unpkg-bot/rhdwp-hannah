@@ -206,13 +206,14 @@
 		.gallery
 			.gallery-item
 				$op1 = 0.95
-				$op2 = 0.6
+				$op2 = 0.7
 				$op3 = 0.3
 
-				.wp-caption-text
-					height 4.5rem
-					font-size 1.8rem
+				.gallery-caption
+					height 20%
+					font-size 3vw
 					background alpha($c_sec, $op1)
+					padding 0.9vw 0 0 0
 
 					.link-overlay
 						display none
@@ -220,7 +221,7 @@
 					.rhd-caption-wrapper
 						.ghost-button-container
 							transition opacity 0.15s
-							font-size (@font-size)
+							font-size 2.1vw
 							display block
 
 							.ghost-button
@@ -230,9 +231,8 @@
 
 				&:hover
 				&:active
-					.wp-caption-text
+					.gallery-caption
 						height 100%
-						font-size 3em
 						background alpha($c_sec, $op2)
 						color white
 
@@ -377,3 +377,12 @@
 @media screen and (min-width 62rem)
 	#primary
 		width 66%
+
+
+@media screen and (min-width 80rem)
+	#post-12063
+		.gallery
+			.gallery-item
+				.gallery-caption
+					font-size 35px // faux max-font-size
+					padding-top 0.875rem
