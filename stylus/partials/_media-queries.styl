@@ -48,7 +48,8 @@
 		display none
 
 	#main
-		-unwrapper(100%)
+		width initial
+		margin 0 auto
 		padding 0
 
 		.main-inner
@@ -198,22 +199,27 @@
 
 
 	/* ==========================================================================
-		About Page
+		Image Feature Page Template
 	   ========================================================================== */
 
-	.page-id-12066
+	.page-template-template-image-feature
 		#main
+			-unwrapper(100%)
+
 			.main-inner
 				-unwrapper(100%)
 				padding 0
 
-				#primary
-					width 57%
-					padding-right 5%
+		#primary
+			width 57%
+			padding-right 5%
 
-				#secondary
-					width 40%
-					margin-top 0
+			.page-title
+				padding-top 0.9em
+
+		#secondary
+			width 40%
+			margin-top 0
 
 
 @media screen and (min-width 50rem)
@@ -224,7 +230,6 @@
 
 
 @media screen and (min-width 60rem)
-
 	/* ==========================================================================
 		Blog Pages
 	   ========================================================================== */
@@ -257,7 +262,10 @@
 						font-size 2.7vw
 
 
-// Fixed-width 340px sidebar
+/* ==========================================================================
+	Responsive Layout
+   ========================================================================== */
+
 @media screen and (min-width 42rem)
 	#main
 		-clearfix()
@@ -278,6 +286,40 @@
 			width 100%
 
 
+@media screen and (min-width 50rem)
+	#primary
+		width 53%
+
+	// Services
+	.page-id-12061
+		#main
+			max-width none
+			margin 0
+
+			.main-inner
+				max-width none
+
+	#page-services-sections
+		.section
+			-clearfix()
+
+			> div
+				width 50%
+
+			.section-left
+				float left
+
+			.section-right
+				float right
+
+			.section-image
+				display block
+
+		.sep
+			height 10vh
+			background $c_sec
+
+
 @media screen and (min-width 58rem)
 	#primary
 		width 60%
@@ -285,4 +327,4 @@
 
 @media screen and (min-width 62rem)
 	#primary
-		width 65%
+		width 66%
