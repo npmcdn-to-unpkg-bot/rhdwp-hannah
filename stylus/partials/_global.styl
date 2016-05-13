@@ -55,9 +55,13 @@ $updir = '../../upload/'
 	user-select: none;
 
 
--invisible()
-	visibility hidden
-	position absolute
+-invisible( active = true, pos = initial )
+	if active == true
+		visibility hidden
+		position absolute
+	else
+		visibility visible
+		position pos
 
 
 -flexbox()

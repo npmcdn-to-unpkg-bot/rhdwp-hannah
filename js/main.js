@@ -107,6 +107,14 @@ function packeryAppend( $posts, $html ) {
 
 			packeryPosts($posts);
 		});
+
+
+		// Gallery hover
+		$('.post-12063 .gallery-item').each(function(){
+			var url = $(this).find('a').attr('href');
+
+			$(this).find('.wp-caption-text a').attr('href', url);
+		});
 	});
 
 
