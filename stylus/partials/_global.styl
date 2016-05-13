@@ -10,6 +10,8 @@ $c_ter = #f2b485
 $c_bg = white
 
 $c_text_lt = lighten($c_text, 35%)
+$c_sec_lt = lighten($c_sec, 35%)
+$c_ter_lt = lighten($c_ter, 35%)
 $off_white = darken(white, 4%)
 $near_white = darken(white, 2%)
 
@@ -132,33 +134,34 @@ $updir = '../../upload/'
 	-transform(translate(-50%, -50%))
 
 
--placeholder-props( $famVal, $color = null, $opacity = null )
+-placeholder-props( $famVal, $color = $c_text, $opacity = 1, $weight = normal, $text_transform = normal )
 	&::-webkit-input-placeholder
 		font-family $famVal
-
-		if $color != null
-			color $color
-
-		if $opacity != null
-			-opacity( $opacity )
+		color $color
+		-opacity( $opacity )
+		font-weight $weight
+		text-transform $text_transform
 
 	&:-moz-placeholder /* Firefox 18- */
 		font-family $famVal
 		color $color
-		if $opacity != null
-			-opacity( $opacity )
+		-opacity( $opacity )
+		font-weight $weight
+		text-transform $text_transform
 
 	&::-moz-placeholder  /* Firefox 19+ */
 		font-family $famVal
 		color $color
-		if $opacity != null
-			-opacity( $opacity )
+		-opacity( $opacity )
+		font-weight $weight
+		text-transform $text_transform
 
 	&:-ms-input-placeholder
 		font-family $famVal
 		color $color
-		if $opacity != null
-			opacity( $opacity )
+		opacity( $opacity )
+		font-weight $weight
+		text-transform $text_transform
 
 
 -soliloquy( $maxHt = 500px, $id = null )

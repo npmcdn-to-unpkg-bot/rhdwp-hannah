@@ -8,14 +8,14 @@
  */
 ?>
 
-<div id="blog-metabar">
-	<ul id="blog-metabar-content">
+<div class="blog-metabar">
+	<ul class="blog-metabar-content">
 		<li>
-			<div id="blog-categories" class="rhd-dropdown">
+			<div class="rhd-dropdown blog-categories">
 				<div class="rhd-dropdown-title">
 					<span class="dd-title-text">Categories</span>
 					<a class="drop" href="">
-						<span class="dd-link-text">&dtri;</span>
+						<!-- caret -->
 					</a>
 				</div>
 				<ul>
@@ -24,11 +24,11 @@
 			</div>
 		</li>
 		<li>
-			<div id="blog-archives" class="rhd-dropdown">
+			<div class="blog-archives rhd-dropdown">
 				<div class="rhd-dropdown-title">
 					<span class="dd-title-text">Archives</span>
 					<a class="drop" href="">
-						<span class="dd-link-text">&dtri;</span>
+						<!-- caret -->
 					</a>
 				</div>
 				<ul>
@@ -37,7 +37,7 @@
 			</div>
 		</li>
 		<li>
-			<div id="blog-search" class="rhd-dropdown">
+			<div class="rhd-dropdown blog-search">
 				<?php get_search_form(); ?>
 			</div>
 		</li>

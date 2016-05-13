@@ -1,11 +1,11 @@
-#blog-metabar
+.blog-metabar
 	width 100%
 	height auto
 	padding 1em 0 0.75em 0
 	margin-bottom 1em
 	background $c_sec
 
-	#blog-metabar-content
+	.blog-metabar-content
 		-wrapper(0,0, 90%)
 		list-style none
 		padding-left 0
@@ -19,7 +19,9 @@
 			.search-submit
 				width 2em
 				height 2em
-				background $c_ter
+				background-color $c_ter
+				background-position center
+				background-repeat no-repeat
 				color $c_text
 				text-transform uppercase
 				transition all 0.25s
@@ -30,8 +32,27 @@
 				font-weight 400
 				font-size 1em
 
+				&:hover
+				&:active
+					background-color $c_ter_lt
+
+			.drop
+				background-image url('../img/d-caret.png')
+				background-size 50% auto
+
+			.search-submit
+				background-image url('../img/search.png')
+				background-size 60% auto
+
 			.search-field
-				-placeholder-props( $ff-body, gray, 1)
+				-placeholder-props( $ff_body, gray, 1, 300, uppercase )
+				border 2px solid $c_bg
+				transition border-color 0.25s
+				font-weight 300
+				text-transform uppercase
+
+				&:focus
+					border-color $c_ter
 
 			.rhd-dropdown-title
 			.search-field
@@ -41,7 +62,7 @@
 				background white
 				color gray
 				position relative
-				font-family $ff-body
+				font-family $ff_body
 
 			.rhd-dropdown-title
 				.dd-title-text
@@ -87,7 +108,7 @@
 							&:hover
 							&:active
 								color $c_ter
-		#blog-search
+		.blog-search
 			top	0
 
 
@@ -96,18 +117,19 @@
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	#blog-metabar
-		padding 0
+	#primary
+		.blog-metabar
+			padding 0
 
-		#blog-metabar-content
-			-wrapper()
-			-flexbox()
-			top 0.95em
+			.blog-metabar-content
+				-wrapper()
+				-flexbox()
+				top 0.95em
 
-			li
-				width 30%
-				-flexitem()
+				li
+					width 30%
+					-flexitem()
 
-			#blog-search
-				position relative
-				top	0.2em
+				.blog-search
+					position relative
+					top	0.2em
