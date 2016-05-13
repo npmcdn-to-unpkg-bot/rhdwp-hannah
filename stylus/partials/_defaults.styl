@@ -328,42 +328,40 @@ textarea
 
 
 button
-	input
-		&[type="button"]
-		&[type="reset"]
-		&[type="submit"]
-			-webkit-appearance button
-			background-color $c_bg
-			color $c_text
-			cursor pointer
-			font-family $ff_body
-			font-size 12px
-			font-size 1.2rem
-			font-weight 700
-			padding 0.7917em 1.5em
-			text-transform uppercase
+input
+	&[type="button"]
+	&[type="reset"]
+	&[type="submit"]
+		-webkit-appearance button
+		background-color $c_bg
+		color $c_text
+		cursor pointer
+		font-family $ff_body
+		font-size 12px
+		font-size 1.2rem
+		font-weight 700
+		padding 0.7917em 1.5em
+		text-transform uppercase
 
 
 button
-	input[type="button"]
-	input[type="reset"]
-	input[type="submit"]
-		&:hover
-		&:focus
-			background-color $c_ter
-			outline 0
+input[type="button"]
+input[type="reset"]
+input[type="submit"]
+	&:hover
+	&:focus
+		background-color $c_ter
+		outline 0
 
 
-input
-	&[type="search"]
-		-webkit-appearance textfield
+input[type="search"]
+	-webkit-appearance textfield
 
 
-input
-	[type="search"]
-		-webkit-search-cancel-button
-		-webkit-search-decoration
-			-webkit-appearance none
+input[type="search"]
+	-webkit-search-cancel-button
+	-webkit-search-decoration
+	-webkit-appearance none
 
 
 button-moz-focus-inner
@@ -372,12 +370,12 @@ input-moz-focus-inner
 	padding 0
 
 
+textarea
 input[type="text"]
 input[type="email"]
 input[type="url"]
 input[type="password"]
 input[type="search"]
-textarea
 	padding 0.375em
 	width 100%
 
@@ -387,13 +385,12 @@ textarea
 	vertical-align top
 
 
-input
 textarea
-	&[type="text"]
-	&[type="email"]
-	&[type="url"]
-	&[type="password"]
-	&[type="search"]
+input[type="text"]
+input[type="email"]
+input[type="url"]
+input[type="password"]
+input[type="search"]
 		&:focus
 			outline 0
 
