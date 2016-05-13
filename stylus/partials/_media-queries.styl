@@ -205,12 +205,14 @@
 	#post-12063
 		.gallery
 			.gallery-item
-				$op = 0.65
+				$op1 = 0.95
+				$op2 = 0.6
+				$op3 = 0.3
 
 				.wp-caption-text
-					height 3.6rem
-					font-size 1.5rem
-					background alpha($c_sec, 0.85)
+					height 4.5rem
+					font-size 1.8rem
+					background alpha($c_sec, $op1)
 
 					.link-overlay
 						display none
@@ -222,7 +224,7 @@
 							display block
 
 							.ghost-button
-								background alpha($c_ter, $op)
+								background alpha($c_sec, $op1)
 								color white
 								border-color white
 
@@ -231,7 +233,7 @@
 					.wp-caption-text
 						height 100%
 						font-size 3em
-						background alpha($c_ter, $op)
+						background alpha($c_sec, $op2)
 						color white
 
 						.rhd-caption-wrapper
@@ -242,7 +244,7 @@
 								&:hover
 								&:active
 									background white
-									color alpha($c_ter, $op)
+									color $c_ter
 
 
 	/* ==========================================================================
