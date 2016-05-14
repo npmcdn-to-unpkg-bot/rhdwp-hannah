@@ -475,17 +475,22 @@ input[type="submit"]
 			@extends #comments .comment-list
 
 		.children
-			padding 0 1.5em
+			margin-top 0
+			padding-left 1em
 
-		.comment
-			&:last-child
-				padding-bottom 1.5em
+			.comment
+				.comment-body
+					border-left 1px solid $c_text_lt
+
+	.comment-body
+		border none
+		margin 0
 
 	.even
-		background $off_white
+		background lighten($c_sec_lt, 80%)
 
 	.odd
-		background $near_white
+		background lighten($c_ter_lt, 90%)
 
 	.comment-body
 		padding 1em
@@ -509,11 +514,16 @@ input[type="submit"]
 			box-sizing border-box
 			padding 0.5em
 			display inline-block
+			border-color $c_text_lt
+
+			&:focus
+				border-color $c_ter
 
 		#submit
-			width auto
-			padding-left 0.8em
-			cursor pointer
+			@extends .ghost-button-container .ghost-button
+			border-width 2px
+			font-weight 300
+			font-size 1rem
 
 		.comment-subscription-form
 			margin initial

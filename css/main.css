@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:21:03 PM on 13-05-2016
+* RHD Dev: Compiled at 11:24:53 PM on 13-05-2016
 ***/
 
 .alignnone {
@@ -1068,6 +1068,7 @@ img.aligncenter {
 .single-pagination .pag-link a,
 .pagination .pag-load-more a,
 .single-pagination .pag-load-more a,
+#comments #commentform #submit,
 .ninja-forms-cont input[type="submit"] {
   padding: 0.4em 0.8em;
   color: #757575;
@@ -1090,6 +1091,7 @@ img.aligncenter {
 .single-pagination .pag-link a:hover,
 .pagination .pag-load-more a:hover,
 .single-pagination .pag-load-more a:hover,
+#comments #commentform #submit:hover,
 .ninja-forms-cont input[type="submit"]:hover,
 .ghost-button-container .ghost-button:active,
 .pagination .pag-link .ghost-button:active,
@@ -1101,6 +1103,7 @@ img.aligncenter {
 .single-pagination .pag-link a:active,
 .pagination .pag-load-more a:active,
 .single-pagination .pag-load-more a:active,
+#comments #commentform #submit:active,
 .ninja-forms-cont input[type="submit"]:active {
   background-color: #757575;
   color: #fff;
@@ -1116,6 +1119,7 @@ img.aligncenter {
 .single-pagination .pag-link a.filled,
 .pagination .pag-load-more a.filled,
 .single-pagination .pag-load-more a.filled,
+#comments #commentform #submit.filled,
 .ninja-forms-cont input[type="submit"].filled {
   color: #fff;
   background-color: #d7ede5;
@@ -1131,6 +1135,7 @@ img.aligncenter {
 .single-pagination .pag-link a.filled:hover,
 .pagination .pag-load-more a.filled:hover,
 .single-pagination .pag-load-more a.filled:hover,
+#comments #commentform #submit.filled:hover,
 .ninja-forms-cont input[type="submit"].filled:hover,
 .ghost-button-container .ghost-button.filled:active,
 .pagination .pag-link .ghost-button.filled:active,
@@ -1142,6 +1147,7 @@ img.aligncenter {
 .single-pagination .pag-link a.filled:active,
 .pagination .pag-load-more a.filled:active,
 .single-pagination .pag-load-more a.filled:active,
+#comments #commentform #submit.filled:active,
 .ninja-forms-cont input[type="submit"].filled:active {
   background-color: #f2b485;
   border-color: #f2b485;
@@ -1719,18 +1725,23 @@ input[type="submit"]:hover {
 #comments .comment-list .children,
 #comments .comment-list ul .children,
 #comments .comment-list ol .children {
-  padding: 0 1.5em;
+  margin-top: 0;
+  padding-left: 1em;
 }
-#comments .comment-list .comment:last-child,
-#comments .comment-list ul .comment:last-child,
-#comments .comment-list ol .comment:last-child {
-  padding-bottom: 1.5em;
+#comments .comment-list .children .comment .comment-body,
+#comments .comment-list ul .children .comment .comment-body,
+#comments .comment-list ol .children .comment .comment-body {
+  border-left: 1px solid #757575;
+}
+#comments .comment-body {
+  border: none;
+  margin: 0;
 }
 #comments .even {
-  background: #f5f5f5;
+  background: #fafdfc;
 }
 #comments .odd {
-  background: #fafafa;
+  background: #fefaf7;
 }
 #comments .comment-body {
   padding: 1em;
@@ -1754,11 +1765,16 @@ input[type="submit"]:hover {
   box-sizing: border-box;
   padding: 0.5em;
   display: inline-block;
+  border-color: #757575;
+}
+#comments #commentform input:focus,
+#comments #commentform textarea:focus {
+  border-color: #f2b485;
 }
 #comments #commentform #submit {
-  width: auto;
-  padding-left: 0.8em;
-  cursor: pointer;
+  border-width: 2px;
+  font-weight: 300;
+  font-size: 1rem;
 }
 #comments #commentform .comment-subscription-form {
   margin: initial;
