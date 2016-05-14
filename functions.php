@@ -604,3 +604,21 @@ function rhdSearchFilter( $query )
 	return $query;
 }
 add_filter( 'pre_get_posts', 'rhdSearchFilter' );
+
+
+/**
+ * rhd_metabar_get_search_form function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_get_metabar_search_form()
+{
+	echo '
+		<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
+		    <div>
+		        <input type="text" value="" class="search-field" placeholder="I\'m looking for..." name="s" />
+		        <input type="submit" class="search-submit" value="" />
+		    </div>
+		</form>';
+}

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:51:09 PM on 13-05-2016
+* RHD Dev: Compiled at 9:01:32 AM on 14-05-2016
 ***/
 
 /**
@@ -733,6 +733,10 @@ img.aligncenter {
   background-size: 60% auto;
   border: 2px solid #f2b485;
 }
+.blog-metabar .blog-metabar-content li .search-submit:hover,
+.blog-metabar .blog-metabar-content li .search-submit:active {
+  border-color: #f7ceb0;
+}
 .blog-metabar .blog-metabar-content li .search-field {
   border: 2px solid #fff;
   transition: border-color 0.25s;
@@ -1072,6 +1076,7 @@ img.aligncenter {
 .single-pagination .pag-link a,
 .pagination .pag-load-more a,
 .single-pagination .pag-load-more a,
+#primary .search-submit,
 #comments #commentform #submit,
 .ninja-forms-cont input[type="submit"] {
   padding: 0.4em 0.8em;
@@ -1095,6 +1100,7 @@ img.aligncenter {
 .single-pagination .pag-link a:hover,
 .pagination .pag-load-more a:hover,
 .single-pagination .pag-load-more a:hover,
+#primary .search-submit:hover,
 #comments #commentform #submit:hover,
 .ninja-forms-cont input[type="submit"]:hover,
 .ghost-button-container .ghost-button:active,
@@ -1107,6 +1113,7 @@ img.aligncenter {
 .single-pagination .pag-link a:active,
 .pagination .pag-load-more a:active,
 .single-pagination .pag-load-more a:active,
+#primary .search-submit:active,
 #comments #commentform #submit:active,
 .ninja-forms-cont input[type="submit"]:active {
   background-color: #757575;
@@ -1123,6 +1130,7 @@ img.aligncenter {
 .single-pagination .pag-link a.filled,
 .pagination .pag-load-more a.filled,
 .single-pagination .pag-load-more a.filled,
+#primary .search-submit.filled,
 #comments #commentform #submit.filled,
 .ninja-forms-cont input[type="submit"].filled {
   color: #fff;
@@ -1139,6 +1147,7 @@ img.aligncenter {
 .single-pagination .pag-link a.filled:hover,
 .pagination .pag-load-more a.filled:hover,
 .single-pagination .pag-load-more a.filled:hover,
+#primary .search-submit.filled:hover,
 #comments #commentform #submit.filled:hover,
 .ninja-forms-cont input[type="submit"].filled:hover,
 .ghost-button-container .ghost-button.filled:active,
@@ -1151,6 +1160,7 @@ img.aligncenter {
 .single-pagination .pag-link a.filled:active,
 .pagination .pag-load-more a.filled:active,
 .single-pagination .pag-load-more a.filled:active,
+#primary .search-submit.filled:active,
 #comments #commentform #submit.filled:active,
 .ninja-forms-cont input[type="submit"].filled:active {
   background-color: #f2b485;
@@ -1646,6 +1656,15 @@ input[type="submit"]:hover {
 .single-pagination .pag-load-more {
   display: block;
   margin: 0 auto;
+}
+#primary .search-submit {
+  font-weight: 400;
+  border-width: 2px;
+  margin-top: 0.5em;
+  font-size: 1em;
+}
+.no-results {
+  padding: 1em;
 }
 .page-id-12061 #main .main-inner {
   padding: 0;

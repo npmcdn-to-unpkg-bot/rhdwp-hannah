@@ -38,7 +38,7 @@
 		</li>
 		<li>
 			<div class="rhd-dropdown blog-search">
-				<?php get_search_form(); ?>
+				<?php rhd_get_metabar_search_form(); ?>
 			</div>
 		</li>
 	</ul>
