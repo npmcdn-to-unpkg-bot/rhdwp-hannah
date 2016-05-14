@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:24:53 PM on 13-05-2016
+* RHD Dev: Compiled at 11:51:09 PM on 13-05-2016
 ***/
 
 /**
@@ -731,6 +731,7 @@ img.aligncenter {
 .blog-metabar .blog-metabar-content li .search-submit {
   background-image: url("../img/search.png");
   background-size: 60% auto;
+  border: 2px solid #f2b485;
 }
 .blog-metabar .blog-metabar-content li .search-field {
   border: 2px solid #fff;
@@ -1485,6 +1486,9 @@ input[type="submit"]:hover {
   margin: 0 0.05em;
   position: relative;
   bottom: 0.2em;
+}
+.blog-area.single article {
+  border: none;
 }
 .entry-title,
 .page-title,
@@ -2291,7 +2295,7 @@ input[type="submit"]:hover {
 }
 @media screen and (min-width: 62rem) {
   #primary {
-    width: 66%;
+    width: 65%;
   }
 }
 @media screen and (min-width: 80rem) {
