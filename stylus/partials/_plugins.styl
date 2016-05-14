@@ -1,0 +1,48 @@
+.widget_rhd_mailchimp_widget
+	.rhd_mailchimp
+		padding 1em
+		border 3px solid $c_sec
+		transform all 0.25s
+
+		.rhd_mc_text
+		.rhd_mc_error
+		.rhd_mc_thanks
+			font-size 1.1em
+			margin 0
+
+		.rhd_mc_thanks
+		.rhd_mc_error
+			text-align center
+			color $c_ter
+			font-weight 400
+
+		input
+			border-radius 0.1em
+
+			&[type="text"]
+			&[type="email"]
+				border 2px solid $c_sec
+				-placeholder-props( $ff_body, $c_text_lt, 1, $weight = 300, uppercase )
+				transition border-color 0.25s
+				font-family $ff_body
+				font-weight normal
+
+				&:focus
+					border-color $c_ter
+
+			&[type="submit"]
+				@extends .ghost-button-container .ghost-button
+				width 100%
+				margin-left 0
+				border-color $c_sec
+				border-width 2px
+				background-color $c_sec
+				color $c_bg
+				margin-top 0.5em
+				text-transform uppercase
+
+				&:hover
+				&:active
+					background-color $c_ter
+					border-color $c_ter
+					color $c_bg
