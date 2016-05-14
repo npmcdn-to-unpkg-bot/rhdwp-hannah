@@ -108,7 +108,7 @@ function rhd_enqueue_scripts()
 	);
 	wp_localize_script( 'rhd-main', 'wp_data', $data );
 
-	if ( RHD_AJAX_PAGINATION && ( is_page( 'blog' ) || is_archive() || is_home() ) ) {
+	if ( RHD_AJAX_PAGINATION && ( is_page( 'blog' ) || is_archive() || is_home() || is_search() ) ) {
 		wp_enqueue_script( 'rhd-ajax' );
 
 		$data_ajax = array(
@@ -586,3 +586,21 @@ function rhd_title_check_hidden( $title )
 	return $title;
 }
 add_filter( 'widget_title', 'rhd_title_check_hidden' );
+
+
+/**
+ * rhdSearchFilter function.
+ *
+ * @access public
+ * @param mixed $query
+ * @return void
+ */
+function rhdSearchFilter( $query )
+{
+	if ( $query->is_search) {
+		$query->set( 'post_type', 'post' );
+	}
+
+	return $query;
+}
+add_filter( 'pre_get_posts', 'rhdSearchFilter' );

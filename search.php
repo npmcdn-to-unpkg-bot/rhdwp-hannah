@@ -6,20 +6,30 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+?>
 
 	<section id="primary" class="site-content">
-		<div id="content" role="main">
 
-			<header class="page-header">
-				<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
-			</header><!-- .page-header -->
+		<?php get_template_part( 'module', 'metabar' ); ?>
+
+		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content' ); ?>
-				<?php endwhile; ?>
+				<header class="page-header">
+					<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
+				</header><!-- .page-header -->
+
+				<div class="blog-container">
+					<div class="rhd-post-gutter"></div>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php
+						if ( is_single() ) get_template_part( 'content', 'single' );
+						else get_template_part( 'content', 'excerpt' );
+						?>
+					<?php endwhile; ?>
+				</div>
 
 			<?php else : ?>
 
@@ -29,7 +39,7 @@ get_header(); ?>
 					// Show a different message to a logged-in user who can add posts.
 				?>
 					<header class="entry-header">
-						<h2 class="entry-title"><?php _e( 'Sorry, dude. Couldn\'t find anything. Give it another try, we believe in you.', 'rhd' ); ?></h2>
+						<h1 class="entry-title"><?php _e( 'No posts to display', 'rhd' ); ?></h1>
 					</header>
 
 					<div class="entry-content">
@@ -40,7 +50,7 @@ get_header(); ?>
 					// Show the default message to everyone else.
 				?>
 					<header class="entry-header">
-						<h2 class="entry-title"><?php _e( 'Nothing Found', 'rhd' ); ?></h2>
+						<h1 class="entry-title"><?php _e( 'Nothing Found', 'rhd' ); ?></h1>
 					</header>
 
 					<div class="entry-content">
@@ -55,8 +65,9 @@ get_header(); ?>
 
 		</div><!-- #content -->
 
-		<?php rhd_archive_pagination(); ?>
+		<?php rhd_load_more(); ?>
 
 	</section><!-- #primary -->
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

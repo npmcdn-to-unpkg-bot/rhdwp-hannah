@@ -29,7 +29,6 @@ function rhd_body_class( $body_classes )
 
 	if ( is_home() || is_single() || is_archive() || is_search() || is_page( 12053 ) ) {
 		$body_classes[] = 'blog-area';
-
 		$_SESSION['blog_area'] = true;
 	} else {
 		$_SESSION['blog_area'] = false;
@@ -66,7 +65,7 @@ function rhd_custom_excerpt_read_more( $more )
 {
 	global $post;
 
-	return ' [...]' . rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', false, false ) . '</p>';
+	return ' [...]' . rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', false, false );
 }
 add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 

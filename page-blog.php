@@ -46,15 +46,17 @@ get_header(); ?>
 
 			<div class="blog-container">
 				<div class="rhd-post-gutter"></div>
-				<?php while ( $q->have_posts() ) : $q->the_post(); ?>
-					<?php
-					++$i;
-					if ( $i == 1 && $paged == 1 )
-						get_template_part( 'content', 'full' );
-					else
-						get_template_part( 'content', 'excerpt' );
-					?>
-				<?php endwhile; ?>
+
+					<?php while ( $q->have_posts() ) : $q->the_post(); ?>
+						<?php
+						++$i;
+						if ( $i == 1 && $paged == 1 )
+							get_template_part( 'content', 'full' );
+						else
+							get_template_part( 'content', 'excerpt' );
+						?>
+					<?php endwhile; ?>
+
 				<?php rhd_load_more( $q ); ?>
 			</div>
 

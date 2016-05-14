@@ -60,6 +60,12 @@ function packeryPosts( $posts ) {
 				$posts
 					.packery(packeryOpts)
 					.packery('layout');
+
+				if ( jQuery('.blog-container article').not(':visible') ) {
+					jQuery('.blog-container article').animate({
+						opacity: 1
+					});
+				}
 			});
 		}
 		isPackery = true;
@@ -109,7 +115,21 @@ function packeryAppend( $posts, $html ) {
 		});
 
 
-		// Gallery hover
+		// Packery load
+		$('.blog-container article').css('opacity', 0);
+		$posts = $('.blog-container').packery(packeryOpts);
+		packeryPosts($posts);
+
+
+		// Gallery load + hover
+		$('.post-12063 .gallery')
+			.css('opacity', 0)
+			.imagesLoaded(function(){
+				$('.post-12063 .gallery').animate({
+					opacity: 1
+				}, 'slow');
+			});
+
 		$('.post-12063 .gallery-item').each(function(){
 			var url = $(this).find('a').attr('href');
 
@@ -126,11 +146,6 @@ function packeryAppend( $posts, $html ) {
 
 		mobileStyles();
 		//vCenterHeaderMessage();
-
-
-		// Packery
-		$posts = $('.blog-container').packery(packeryOpts);
-		packeryPosts($posts);
 	}
 
 

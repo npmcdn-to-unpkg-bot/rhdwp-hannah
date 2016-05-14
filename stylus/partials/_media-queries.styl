@@ -10,7 +10,6 @@
 		display inline-block
 		position relative
 		left 1em
-		transition width 0.25s, height 0.25s
 
 	#site-navigation-container
 		width 60%
@@ -264,12 +263,21 @@
 			width 57%
 			padding-right 5%
 
-			.page-title
-				padding-top 0.9em
+			#content
+				margin-bottom 3em
+
+				.page-title
+					padding-top 0.9em
 
 		#secondary
 			width 40%
+			height 100%
 			margin-top 0
+			position absolute
+			top 0
+			left 0
+			background-size cover
+			background-position center
 
 
 @media screen and (min-width 50rem)

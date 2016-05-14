@@ -17,7 +17,9 @@ get_header();
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
+				<header class="page-header">
+					<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
+				</header>
 
 				<div class="blog-container">
 					<div class="rhd-post-gutter"></div>
@@ -60,10 +62,7 @@ get_header();
 
 		</div><!-- #content -->
 
-		<?php
-			if ( is_single() ) rhd_single_pagination();
-			else rhd_load_more();
-		?>
+		<?php rhd_load_more(); ?>
 
 	</section><!-- #primary -->
 

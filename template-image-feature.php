@@ -25,10 +25,11 @@ get_header(); ?>
 </section><!-- #primary -->
 
 <?php if ( has_post_thumbnail() ) : ?>
-	<section id="secondary" class="image-feature">
-		<div class="page-thumbnail">
-			<?php the_post_thumbnail( 'large' ); ?>
-		</div>
+	<?php
+	$thumb_id = get_post_thumbnail_id();
+	$thumb = wp_get_attachment_image_src( $thumb_id, 'full', true );
+	?>
+	<section id="secondary" class="image-feature" style="background-image: url(<?php echo $thumb[0]; ?>);">
 	</section>
 <?php endif; ?>
 

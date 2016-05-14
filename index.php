@@ -11,20 +11,23 @@ get_header();
 
 	<section id="primary" class="site-content">
 
-		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
+		<?php get_template_part( 'module', 'metabar' ); ?>
 
 		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php
-						if ( is_single() ) get_template_part( 'content', 'single' );
-						else get_template_part( 'content' );
-					?>
-				<?php endwhile; ?>
+				<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
 
-				<?php if ( is_single() && comments_open() ) comments_template(); ?>
+				<div class="blog-container">
+					<div class="rhd-post-gutter"></div>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php
+						if ( is_single() ) get_template_part( 'content', 'single' );
+						else get_template_part( 'content', 'excerpt' );
+						?>
+					<?php endwhile; ?>
+				</div>
 
 			<?php else : ?>
 
@@ -39,7 +42,7 @@ get_header();
 
 					<div class="entry-content">
 						<p><?php printf( __( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'rhd' ), admin_url( 'post-new.php' ) ); ?></p>
-					</div>
+					</div><!-- .entry-content -->
 
 				<?php else :
 					// Show the default message to everyone else.
@@ -51,21 +54,18 @@ get_header();
 					<div class="entry-content">
 						<p><?php _e( 'Apologies, but no results were found. Perhaps searching will help find a related post.', 'rhd' ); ?></p>
 						<?php get_search_form(); ?>
-					</div>
+					</div><!-- .entry-content -->
 				<?php endif; // end current_user_can() check ?>
 
-				</article>
+				</article><!-- #post-0 -->
 
 			<?php endif; // end have_posts() check ?>
 
-		</div>
+		</div><!-- #content -->
 
-		<?php
-			if ( is_single() ) rhd_single_pagination();
-			else rhd_archive_pagination();
-		?>
+		<?php rhd_load_more(); ?>
 
-	</section>
+	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
