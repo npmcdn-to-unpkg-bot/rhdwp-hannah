@@ -31,9 +31,13 @@ $ff_headline = 'Oswald', sans-serif
 	user-select: none;
 
 
--invisible()
-	visibility hidden
-	position absolute
+-invisible( active = true, pos = initial )
+	if active == true
+		visibility hidden
+		position absolute
+	else
+		visibility visible
+		position pos
 
 
 -flexbox()
@@ -48,7 +52,7 @@ $ff_headline = 'Oswald', sans-serif
 	display inline-block
 
 
--wrapper( $topMargin = 0, $bottomMargin = 0, $customWidth = 85%, $customMax = 75rem )
+-wrapper( $topMargin = 0, $bottomMargin = 0, $customWidth = 85%, $customMax = 80rem )
 	width $customWidth
 	max-width $customMax
 	position relative
@@ -85,33 +89,53 @@ $ff_headline = 'Oswald', sans-serif
 	transform $n
 
 
--placeholder-props( $famVal, $color = null, $opacity = null )
+-vcenter( $pos = absolute, $offset = 0 )
+	position $pos
+	top 50% + $offset
+	-transform(translateY(-50%))
+
+
+-hcenter( $pos = absolute, $offset = 0 )
+	position $pos
+	left 50% + $offset
+	-transform(translateX(-50%))
+
+
+-vhcenter( $pos = absolute, $hoffset = 0, $voffset = 0 )
+	position $pos
+	top 50% + $hoffset
+	left 50% + $voffset
+	-transform(translate(-50%, -50%))
+
+
+-placeholder-props( $famVal, $color = $c_text, $opacity = 1, $weight = normal, $text_transform = normal )
 	&::-webkit-input-placeholder
 		font-family $famVal
-
-		if $color != null
-			color $color
-
-		if $opacity != null
-			-opacity( $opacity )
+		color $color
+		-opacity( $opacity )
+		font-weight $weight
+		text-transform $text_transform
 
 	&:-moz-placeholder /* Firefox 18- */
 		font-family $famVal
 		color $color
-		if $opacity != null
-			-opacity( $opacity )
+		-opacity( $opacity )
+		font-weight $weight
+		text-transform $text_transform
 
 	&::-moz-placeholder  /* Firefox 19+ */
 		font-family $famVal
 		color $color
-		if $opacity != null
-			-opacity( $opacity )
+		-opacity( $opacity )
+		font-weight $weight
+		text-transform $text_transform
 
 	&:-ms-input-placeholder
 		font-family $famVal
 		color $color
-		if $opacity != null
-			opacity( $opacity )
+		opacity( $opacity )
+		font-weight $weight
+		text-transform $text_transform
 
 
 -soliloquy( $maxHt = 500px, $id = null )
