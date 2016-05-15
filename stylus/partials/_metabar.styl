@@ -89,6 +89,7 @@
 
 				ul
 					width 100%
+					height 25vh
 					position absolute
 					top 2em
 					overflow-y auto
@@ -103,16 +104,19 @@
 						width 100%
 						background white
 						display block
-						padding-left 0.5em
 
 						a
+							width 100%
+							height auto
+							display block
 							color gray
+							padding-left 0.5em
 							text-decoration none
 							transition all 0.25s
 
 							&:hover
 							&:active
-								color $c_ter
+								background-color $c_ter_lt
 		.blog-search
 			top	0
 
