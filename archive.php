@@ -19,13 +19,8 @@ get_header();
 				<?php the_archive_title( '<h2 class="page-title archive-title">', '</h2>' ); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php
-						if ( is_single() ) get_template_part( 'content', 'single' );
-						else get_template_part( 'content' );
-					?>
+					<?php get_template_part( 'content', 'excerpt' ); ?>
 				<?php endwhile; ?>
-
-				<?php if ( is_single() && comments_open() ) comments_template(); ?>
 
 			<?php else : ?>
 
@@ -61,10 +56,7 @@ get_header();
 
 		</div><!-- #content -->
 
-		<?php
-			if ( is_single() ) rhd_single_pagination();
-			else rhd_archive_pagination();
-		?>
+		<?php rhd_archive_pagination(); ?>
 
 	</section><!-- #primary -->
 
