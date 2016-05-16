@@ -101,16 +101,21 @@ function packeryAppend( $posts, $html ) {
 			var $this = $(this),
 				$dd = $this.siblings('ul');
 
-			$dd.slideToggle();
+			$dd.slideToggle(300, 'swing');
+
+			/*
+			$(document).on('click', function(){
+				if ( $dd.is(':visible')) {
+					$dd.slideUp(300, 'swing');
+				}
+			});
+			*/
 		});
 
 
 		// Resize event
 		$window.on('resize', function(){
 			mobileStyles();
-
-			//vCenterHeaderMessage();
-
 			packeryPosts($posts);
 		});
 
@@ -140,12 +145,7 @@ function packeryAppend( $posts, $html ) {
 
 	function rhdInit() {
 		toggleBurger();
-
-		// Fix faux-flexbox
-		// fixGridLayout();
-
 		mobileStyles();
-		//vCenterHeaderMessage();
 	}
 
 
@@ -198,21 +198,4 @@ function packeryAppend( $posts, $html ) {
 		}
 	}
 
-
-	function vCenterHeaderMessage() {
-		var maxHt = parseInt( $('.message-inner.').css('maxHeight') );
-
-		if ( ! viewIsMobile() ) {
-			if ( $('.message-inner').height() <= maxHt ) {
-				var contHt = $('.header-message').height();
-				var msgHt = $('.message-inner').height();
-				var diff = contHt - msgHt;
-				var offset = diff /3;
-
-				$('.message-inner').css('top', offset + 'px');
-			}
-		} else {
-			$('.message-inner').css('top', 'initial');
-		}
-	}
 })(jQuery);

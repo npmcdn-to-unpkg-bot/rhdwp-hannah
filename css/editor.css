@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:19:47 PM on 14-05-2016
+* RHD Dev: Compiled at 1:52:34 PM on 16-05-2016
 ***/
 
 /**
@@ -698,7 +698,6 @@ img.aligncenter {
 }
 .blog-metabar .blog-metabar-content li {
   width: 100%;
-  margin-bottom: 0.5em;
   display: block;
 }
 .blog-metabar .blog-metabar-content li .drop,
@@ -789,6 +788,9 @@ img.aligncenter {
   position: relative;
   font-family: 'Roboto Condensed', sans-serif;
 }
+.blog-metabar .blog-metabar-content li .rhd-dropdown-title {
+  margin-bottom: 0.5em;
+}
 .blog-metabar .blog-metabar-content li .rhd-dropdown-title .dd-title-text,
 .blog-metabar .blog-metabar-content li .rhd-dropdown-title .dd-link-text {
   position: relative;
@@ -808,7 +810,7 @@ img.aligncenter {
 }
 .blog-metabar .blog-metabar-content li .rhd-dropdown ul {
   width: 100%;
-  height: 25vh;
+  height: 30vh;
   position: absolute;
   top: 2em;
   overflow-y: auto;
@@ -829,9 +831,9 @@ img.aligncenter {
   height: auto;
   display: block;
   color: #808080;
-  padding-left: 0.5em;
+  padding: 0.25em 0 0.25em 0.5em;
   text-decoration: none;
-  transition: all 0.25s;
+  transition: all 0.2s;
 }
 .blog-metabar .blog-metabar-content li .rhd-dropdown ul li a:hover,
 .blog-metabar .blog-metabar-content li .rhd-dropdown ul li a:active {
@@ -1518,6 +1520,11 @@ input[type="submit"]:hover {
   font-size: 3em;
   border-radius: 0.1rem;
   margin-bottom: 0.5em;
+}
+.widget-title {
+  font-family: 'Nella Sue', cursive;
+  font-weight: normal;
+  text-align: center;
 }
 .entry-summary p {
   margin: 0;
