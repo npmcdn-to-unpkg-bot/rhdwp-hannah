@@ -12,45 +12,56 @@ get_header(); ?>
 		<div id="content" role="main">
 
 			<?php
-			if ( have_posts() ) {
-				while( have_posts() ) {
-					the_post();
-
-					$content = get_the_content();
-					$sections = explode( '<hr />', $content );
-					$i = 0;
-				}
-			}
+			$args = array(
+				'post_type' => 'page',
+				'post_parent' => get_the_id(),
+				'orderby' => 'menu_order',
+				'order' => 'ASC'
+			);
+			$q = new WP_Query( $args );
+			$i = 0;
 			?>
 
-			<div id="page-services-sections">
-				<div class="section section-1">
-					<div class="section-left section-image">
-						<img src="<?php echo RHD_UPLOAD_URL; ?>/2016/05/color-bathroom-layout-683x1024.jpg" alt="color-bathroom-layout">
+			<?php if ( $q->have_posts() ) : ?>
+
+				<div id="services-sections">
+
+				<?php while( $q->have_posts() ) : $q->the_post(); ?>
+					<?php
+					++$i;
+					$evenodd = ( $i % 2 == 0 ) ? 'even' : 'odd';
+					$thumb_id = get_post_thumbnail_id();
+					$thumb = wp_get_attachment_image_src( $thumb_id, 'full', true );
+					?>
+
+					<div class="section section-<?php echo $i; ?>">
+						<?php if ( $evenodd == 'even' ) : ?>
+							<div class="section-left section-content">
+								<h3 class="services-title"><?php the_title(); ?></h3>
+								<?php the_content(); ?>
+							</div>
+							<div class="section-right section-image">
+								<div class="image" style="background-image: url(<?php echo $thumb[0]; ?>);"></div>
+							</div>
+						<?php else : ?>
+							<div class="section-left section-image">
+								<div class="image" style="background-image: url(<?php echo $thumb[0]; ?>);"></div>
+							</div>
+							<div class="section-right section-content">
+								<h3 class="services-title"><?php the_title(); ?></h3>
+								<?php the_content(); ?>
+							</div>
+						<?php endif; ?>
 					</div>
-					<div class="section-right section-content">
-						<?php echo apply_filters( 'the_content', $sections[$i] ); ?>
-					</div>
+					<?php if ( $i < $q->post_count ) : ?>
+						<div class="sep"></div>
+					<?php endif; ?>
+
+				<?php endwhile; ?>
+
 				</div>
-				<div class="sep"></div>
-				<div class="section section-2">
-					<div class="section-left section-content">
-						<?php echo apply_filters( 'the_content', $sections[++$i] ); ?>
-					</div>
-					<div class="section-right section-image">
-						<!-- BEFORE/AFTER -->
-					</div>
-				</div>
-				<div class="sep"></div>
-				<div class="section section-3">
-					<div class="section-left section-image">
-						<img src="<?php echo RHD_UPLOAD_URL; ?>/2016/05/Millie-bath-After-1-750x1024.jpg" alt="Millie-bath-After-1">
-					</div>
-					<div class="section-right section-content">
-						<?php echo apply_filters( 'the_content', $sections[++$i] ); ?>
-					</div>
-				</div>
-			</div>
+
+			<?php endif; ?>
 		</div>
 	</section>
 

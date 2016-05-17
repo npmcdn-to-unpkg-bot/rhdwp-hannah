@@ -277,7 +277,7 @@
 			top 0
 			left 0
 			background-size cover
-			background-position center
+			background-position center 30%
 
 
 @media screen and (min-width 50rem)
@@ -343,11 +343,6 @@
 		.widget
 			width 100%
 
-
-@media screen and (min-width 50rem)
-	#primary
-		width 53%
-
 	// Services
 	.page-id-12061
 		#main
@@ -357,9 +352,10 @@
 			.main-inner
 				max-width none
 
-	#page-services-sections
+	#services-sections
 		.section
 			-clearfix()
+			position relative
 
 			> div
 				width 50%
@@ -370,17 +366,35 @@
 			.section-right
 				float right
 
+			.section-content
+				padding 5%
+
 			.section-image
 				display block
 
-		.sep
-			height 10vh
-			background $c_sec
+				.image
+					width 50%
+					height 100%
+					position absolute
+					background-position center center
+					background-size cover
+					background-repeat no-repeat
+
+
+@media screen and (min-width 50rem)
+	#primary
+		width 53%
 
 
 @media screen and (min-width 58rem)
 	#primary
 		width 60%
+
+	// Services
+	.page-id-12061
+		.sep
+			height 10vh
+			background $c_sec
 
 
 @media screen and (min-width 62rem)
