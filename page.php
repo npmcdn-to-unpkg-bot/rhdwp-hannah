@@ -6,7 +6,12 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+
+// Send to Services page if we're on one of its children...
+if ( $post->post_parent == 12061 )
+	wp_safe_redirect( home_url( '/services' ), 301 );
+?>
 
 <section id="primary" class="site-content">
 	<div id="content" role="main">
