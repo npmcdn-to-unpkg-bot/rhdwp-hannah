@@ -252,15 +252,8 @@
 	   ========================================================================== */
 
 	.page-template-template-image-feature
-		#main
-			-unwrapper(100%)
-
-			.main-inner
-				-unwrapper(100%)
-				padding 0
-
 		#primary
-			width 57%
+			-unwrapper(57%)
 			padding-right 5%
 
 			#content
@@ -272,12 +265,14 @@
 		#secondary
 			width 40%
 			height 100%
-			margin-top 0
 			position absolute
 			top 0
 			left 0
 			background-size cover
 			background-position center 30%
+
+			.mobile-feature
+				display none
 
 
 @media screen and (min-width 50rem)

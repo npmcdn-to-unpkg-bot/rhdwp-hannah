@@ -28,8 +28,10 @@ get_header(); ?>
 	<?php
 	$thumb_id = get_post_thumbnail_id();
 	$thumb = wp_get_attachment_image_src( $thumb_id, 'full', true );
+	$alt = get_post_meta( $thumb_id , '_wp_attachment_image_alt', true );
 	?>
 	<section id="secondary" class="image-feature" style="background-image: url(<?php echo $thumb[0]; ?>);">
+		<div class="mobile-feature"><img src="<?php echo $thumb[0]; ?>" alt="<?php echo $alt; ?>"></div>
 	</section>
 <?php endif; ?>
 

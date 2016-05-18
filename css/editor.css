@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:45:48 PM on 17-05-2016
+* RHD Dev: Compiled at 7:05:57 PM on 18-05-2016
 ***/
 
 /**
@@ -1941,6 +1941,39 @@ input[type="submit"]:hover {
   margin: 0 auto;
   padding-bottom: 2em;
 }
+.page-template-template-image-feature #main {
+  width: 100%;
+  max-width: none;
+  margin: initial;
+  padding-bottom: 0;
+}
+.page-template-template-image-feature #main .main-inner {
+  width: 100%;
+  max-width: none;
+  margin: initial;
+  padding: 0;
+}
+.page-template-template-image-feature #primary {
+  width: 85%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+.page-template-template-image-feature #secondary {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 0;
+}
+.page-template-template-image-feature #secondary .mobile-feature {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.page-template-template-image-feature #secondary .mobile-feature img {
+  width: 100%;
+  height: auto;
+}
 #primary .soliloquy-outer-container .soliloquy-slider img {
   width: auto;
   max-height: 500px;
@@ -2212,19 +2245,10 @@ input[type="submit"]:hover {
     background: #fff;
     color: #f2b485;
   }
-  .page-template-template-image-feature #main {
-    width: 100%;
-    max-width: none;
-    margin: initial;
-  }
-  .page-template-template-image-feature #main .main-inner {
-    width: 100%;
-    max-width: none;
-    margin: initial;
-    padding: 0;
-  }
   .page-template-template-image-feature #primary {
     width: 57%;
+    max-width: none;
+    margin: initial;
     padding-right: 5%;
   }
   .page-template-template-image-feature #primary #content {
@@ -2236,12 +2260,14 @@ input[type="submit"]:hover {
   .page-template-template-image-feature #secondary {
     width: 40%;
     height: 100%;
-    margin-top: 0;
     position: absolute;
     top: 0;
     left: 0;
     background-size: cover;
     background-position: center 30%;
+  }
+  .page-template-template-image-feature #secondary .mobile-feature {
+    display: none;
   }
 }
 @media screen and (min-width: 50rem) {
