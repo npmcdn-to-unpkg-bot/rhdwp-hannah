@@ -25,6 +25,7 @@ html
 	font-size 16px
 	margin 0
 	font-family $ff_body
+	font-weight 300
 	color $c_text
 
 
@@ -39,16 +40,13 @@ body
 
 a
 	outline 0 !important
-	text-decoration none
 	transition all 0.25s
-
-	&:link
-	&:visited
-		color $c_sec
+	color $c_ter
+	text-decoration none
 
 	&:hover
 	&:active
-		color $c_sec_lt
+		text-decoration underline
 
 
 input
@@ -63,17 +61,16 @@ textarea
 	transition all 0.25s
 
 	&:focus
-		border-color $c_ter
+		border-color $off_white
 
 
 input[type="submit"]
 	cursor pointer
 	font-family $ff_body
 	transition all 0.25s
-	background-color $c_ter
 
 	&:hover
-		background-color $c_ter_lt
+		background-color gray
 
 
 #page
@@ -81,64 +78,57 @@ input[type="submit"]
 
 
 #masthead
-	width 100%
-	position relative
+	-copperborder()
+
+	.border-inner
+		position relative
+		background url(../img/herringbone.jpg) repeat
 
 
 #site-title
+	-wrapper(0, 0, 96%)
+	padding 1.3em 0 0.5em
+	display block
+
+
+#site-navigation-container
+	width 100vw
 	text-align center
-	margin 0
-	font-family $ff_title
-	font-weight normal
+	position absolute // set by JS
+	background $c_bg
+	z-index 999
+	display none
+	box-shadow 3px 3px 7px -4px $c_text
+
+	#site-navigation
+		list-style none
+		padding-left 0
+		margin 0.75em 0
+
+		.menu-item
+			display block
+			font-size 1.1em
+			line-height 1.8
+
+
+.site-navigation
+	li
+		a
+			color $c_text
+			text-decoration none
+			transition color 0.25s
+			text-transform uppercase
+			font-weight 300
+
+			&:hover
+			&:active
+				color $c_ter
 
 
 #hamburger
 	position absolute
 	top 0.5em
 	right 0.5em
-
-
-#site-navigation-container
-	width 100%
-	text-align center
-	display none
-
-	#site-navigation
-		list-style none
-		padding-left 0
-		margin 0
-		-flexbox()
-
-		.menu-item
-			-flexitem()
-
-			.sub-menu
-				position absolute
-				padding-left 0
-				line-height 1.7
-				margin-top 0.2em
-				z-index 999 !important
-
-				li
-					display block
-					margin 0
-
-
-#site-navigation-sb-container
-	#site-navigation-sb
-		list-style none
-
-
-.site-navigation
-	li
-		a
-			color $c_sec
-			text-decoration none
-			transition color 0.25s
-
-			&:hover
-			&:active
-				color $off_white
 
 
 #main
@@ -155,41 +145,66 @@ input[type="submit"]
 	box-sizing border-box
 
 
-#secondary
-	margin-bottom 2em
-
-
 #colophon
 	width 100%
-	height 6em
 	position relative
 	background $c_sec
 
+	.footer-inner
+		-wrapper(0, 0, 95%)
+		padding 1em 0 2em
+
+	#footer-widget-area
+		-wrapper(0, 0, 230px)
+
+		.rhd_social_icons
+			margin 1.5em 0
+			left 5%
+
+			.rhd-social-icon
+				a
+					path
+						fill $c_sec
+
+					&:hover
+					&:active
+						path
+						.houzz-middle-tri
+							fill $c_ter
+
+						.houzz-middle-tri
+							stroke $c_ter
+
+				.houzz-middle-tri
+					fill $c_sec
+					stroke $c_sec
+
+			.empty-hex
+				background-image url(../../../plugins/rhd-social-icons/img/hexagon_white.png)
+
+
 	.site-info
-		width 100%
-		margin 0
-		position absolute
-		top 50%
-		left 0
-		-transform(translateY(-50%))
+		-wrapper(2em, 0, 75%)
 		text-align center
-		line-height 1.7
-		font-size 0.9em
 
 		a
 			color $c_text
 
 			&:hover
 			&:active
-				color (@color)
-				text-decoration underline
+				color $c_ter
+				text-decoration none
 
-	#rhd-logo-footer
-		width 1.35em
-		height 1.35em
-		margin 0 0.05em
-		position relative
-		bottom 0.25em
+		img
+			width 100%
+			height auto
+
+		#rhd-logo-footer
+			width 1.35em
+			height 1.35em
+			margin 0 0.05em
+			position relative
+			bottom 0.25em
 
 
 /* ==========================================================================
@@ -201,8 +216,21 @@ input[type="submit"]
 .widget-title
 	margin-top 0
 	line-height 1
-	font-family $ff_title
-	font-weight normal
+
+
+.page-title
+	-ff-headline()
+	text-align center
+	font-size 3em
+	background $c_sec
+	margin-bottom 1rem
+	padding 1.5rem 0
+	border-radius 0.1rem
+
+
+.entry-summary
+	p
+		margin 0
 
 
 .entry-content
@@ -255,22 +283,77 @@ input[type="submit"]
 
 
 .blog-area
-	#main
-		.post
-			-clearfix()
+	article
+		-clearfix()
+		border-width 2px
+		border-style solid
+		border-radius 0.1em
+		margin 1em auto
+
+		&.rhd-full-post
+			border-color $c_text_lt
+			padding 1em
 
 			.entry-header
-				text-align center
-				margin-bottom 1em
+				padding-bottom 1em
+				border-bottom 1px solid $c_text
+
+		&.rhd-excerpt-post
+			border-color $c_text_lt
+
+			.entry-header
+				margin-bottom 0
 
 				.entry-title
-					margin 0 0 0.25rem 0
-
-				.entry-details
+					padding 0.5em 0
 					margin 0
 
-					.sep
-						font-size 0.8em
+				.entry-details
+					display none
+
+			.entry-thumbnail
+				border-top 2px solid $c_text_lt
+
+			.ghost-button-container
+				margin-bottom 0
+
+		&:first-child
+			margin-top 0
+
+		.post-inner
+			width 100%
+			padding 1em
+
+		.entry-header
+			text-align center
+			margin-bottom 1em
+
+			a
+				color inherit
+
+				&:hover
+				&:active
+					color $c_ter
+					text-decoration none
+
+			.entry-title
+				margin 0 0 0.25rem 0
+
+			.entry-details
+				margin 0
+				font-size 0.9em
+				-ff-subtitle()
+
+				.sep
+					font-size 1.1em
+
+		.entry-thumbnail
+			width 100%
+			height auto
+
+			img
+				width 100%
+				height auto
 
 
 .pagination
@@ -280,6 +363,7 @@ input[type="submit"]
 	-clearfix()
 
 	.pag-link
+	.pag-load-more
 		@extends .ghost-button-container
 
 		a
@@ -290,6 +374,10 @@ input[type="submit"]
 
 	.pag-prev
 		float right
+
+	.pag-load-more
+		display block
+		margin 0 auto
 
 
 /* ==========================================================================
@@ -315,10 +403,10 @@ input[type="submit"]
 				padding-bottom 1.5em
 
 	.even
-		background $near_white
+		background $off_white
 
 	.odd
-		background white
+		background $near_white
 
 	.comment-body
 		padding 1em
@@ -364,20 +452,142 @@ input[type="submit"]
 	.widget:last-child
 		margin-bottom 0
 
-
 	.widget-title
 		margin-top 0
+
+	#rhd_social_icons-4
+		.rhd_social_icons
+			-wrapper(0, 2em, 230px)
+
+			.rhd-social-icon
+				a path
+					fill white
+
+				a
+					&:hover
+					&:active
+						path
+						.houzz-middle-tri
+							fill $c_ter
+
+						.houzz-middle-tri
+							stroke $c_ter
+
+			.rhd-social-poly
+				fill $c_sec
+
+			.houzz-middle-tri
+				fill white
+
+			.empty-hex
+				background-image url(../../../plugins/rhd-social-icons/img/hexagon_green.png)
+
+	#widget_sp_image-2
+		.widget_sp_image-description
+			font-size 1.2em
+			-ff-subtitle()
+			text-align center
+
+
+/* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.front-page
+	#main
+		width 100%
+		max-width none
+		padding 0
+		-copperborder()
+
+		.main-inner
+			background $c_bg
+			padding-bottom 1em
+
+	#primary
+		#content
+			width 100%
+			padding 0 7.5%
+
+	.section-title
+		-ff-headline()
+		font-size 200%
+		text-align center
+		margin-bottom 0.5em
+
+
+#front-page-slider
+#header-message-container
+#front-page-instagram
+	width 100%
+	-copperborder()
+
+	.border-inner
+		background $c_bg
+
+
+#front-page-slider
+	display none
+
+
+#header-message-container
+	.border-inner
+		height auto
+
+		.header-message
+			background $c_sec
+
+			.header-message-photo
+				display none
+
+			.header-message-content
+				width 100%
+				height 100%
+				color white
+				text-align center
+				padding 1em
+
+				.message-inner
+					-wrapper(1em, 1em, 95%)
+
+					.message
+						font-size 10vw
+						line-height 1.1
+						margin 0
+						-ff-subtitle()
+
+					.message-buttons
+						width 90%
+						-clearfix()
+						margin 1em auto
+
+						.ghost-button
+							font-size 5vw
+							-ff-subtitle()
+
+#front-page-recent-posts
+	.front-page-posts
+		article
+			border-color $c_text_lt
+
+
+#front-page-instagram
+	.soliloquy-container
+		.soliloquy-wrapper
+			margin 0 auto
+			padding-bottom 2em
 
 
 /* ==========================================================================
 	Extras
    ========================================================================== */
 
--soliloquy()
+#primary
+	-soliloquy()
 
 
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
 
-@import "partials/_media-queries.styl"
+@require "partials/_media-queries.styl"

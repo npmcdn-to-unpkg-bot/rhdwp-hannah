@@ -1,24 +1,26 @@
-#blog-metabar
+.blog-metabar
 	width 100%
 	height auto
 	padding 1em 0 0.75em 0
+	margin-bottom 1em
 	background $c_sec
 
-	#blog-metabar-content
+	.blog-metabar-content
 		-wrapper(0,0, 90%)
 		list-style none
 		padding-left 0
-
+		
 		li
 			width 100%
-			margin-bottom 0.5em
 			display block
 
 			.drop
 			.search-submit
 				width 2em
 				height 2em
-				background $c_ter
+				background-color $c_ter
+				background-position center
+				background-repeat no-repeat
 				color $c_text
 				text-transform uppercase
 				transition all 0.25s
@@ -29,20 +31,46 @@
 				font-weight 400
 				font-size 1em
 
+				&:hover
+				&:active
+					background-color $c_ter_lt
+
+			.drop
+				background-image url('../img/d-caret.png')
+				background-size 50% auto
+
+			.search-submit
+				background-image url('../img/search.png')
+				background-size 60% auto
+				border 2px solid $c_ter
+
+				&:hover
+				&:active
+					border-color $c_ter_lt
+
 			.search-field
-				-placeholder-props( $ff-body, gray, 1)
+				-placeholder-props( $ff_body, gray, 1, 300, uppercase )
+				border 2px solid $c_bg
+				transition border-color 0.25s
+				font-weight 300
+				text-transform uppercase
+
+				&:focus
+					border-color $c_ter
 
 			.rhd-dropdown-title
 			.search-field
 				width 100%
 				height 2em
 				padding-left 0.5em
-				background $off_white
+				background white
 				color gray
 				position relative
-				font-family $ff-body
+				font-family $ff_body
 
 			.rhd-dropdown-title
+				margin-bottom 0.5em
+				
 				.dd-title-text
 				.dd-link-text
 					position relative
@@ -62,6 +90,7 @@
 
 				ul
 					width 100%
+					height 30vh
 					position absolute
 					top 2em
 					overflow-y auto
@@ -70,23 +99,26 @@
 					margin 0
 					display none
 					z-index 999
-					box-shadow 0 3px 4px -1px rgba(0,0,0,0.5)
+					box-shadow 0 1px 2px -1px rgba(0,0,0,0.5)
 
 					li
 						width 100%
 						background white
 						display block
-						padding-left 0.5em
 
 						a
+							width 100%
+							height auto
+							display block
 							color gray
+							padding 0.25em 0 0.25em 0.5em
 							text-decoration none
-							-transition(all 0.25s)
+							transition all 0.2s
 
 							&:hover
 							&:active
-								color $c_ter
-		#blog-search
+								background-color $c_ter_lt
+		.blog-search
 			top	0
 
 
@@ -95,18 +127,19 @@
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	#blog-metabar
-		padding 0
+	#primary
+		.blog-metabar
+			padding 0
 
-		#blog-metabar-content
-			-wrapper()
-			-flexbox()
-			top 0.95em
+			.blog-metabar-content
+				-wrapper()
+				-flexbox()
+				top 0.95em
 
-			li
-				width 30%
-				-flexitem()
+				li
+					width 30%
+					-flexitem()
 
-			#blog-search
-				position relative
-				top	0.2em
+				.blog-search
+					position relative
+					top	0.2em

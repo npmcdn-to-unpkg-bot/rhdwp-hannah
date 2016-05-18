@@ -27,8 +27,8 @@ define( 'DISALLOW_FILE_EDIT', true );
 
 
 // Includes
-include_once( 'inc/rhd-theme.php' );
 include_once( 'inc/rhd-ghost-button.php' );
+include_once( 'inc/rhd-theme.php' );
 include_once( 'inc/rhd-login-admin.php' );
 
 
@@ -40,7 +40,7 @@ include_once( 'inc/rhd-login-admin.php' );
 	Toggles
    ========================================================================== */
 
-define( 'RHD_AJAX_PAGINATION', false );
+define( 'RHD_AJAX_PAGINATION', true );
 
 
 /* ==========================================================================
@@ -58,17 +58,10 @@ function rhd_enqueue_styles()
 	global $theme_opts;
 
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), null, 'all' );
-	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), null, 'all' );
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=' . RHD_GOOGLE_FONTS );
-	//wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), null, 'screen' );
 
-	$normalize_deps = array(
-		//'slidebars',
-	);
 
-	if ( !rhd_is_mobile() ) {
-		wp_enqueue_style( 'rhd-enhanced' );
-	}
+	$normalize_deps = array();
 
 	wp_register_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', $normalize_deps, null, 'all' );
 
@@ -89,14 +82,11 @@ function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
-	//wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), null, true );
-	//wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'jquery-visible', RHD_THEME_DIR . '/js/vendor/df-visible/jquery.visible.min.js', array( 'jquery'), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
-		//'slidebars',
-		//'packery',
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
@@ -113,7 +103,7 @@ function rhd_enqueue_scripts()
 		'theme_dir' => RHD_THEME_DIR,
 		'img_dir' => RHD_IMG_DIR,
 	);
-	wp_localize_script( 'rhd-main', 'wp_data', $data);
+	wp_localize_script( 'rhd-main', 'wp_data', $data );
 
 	if ( RHD_AJAX_PAGINATION ) {
 		wp_enqueue_script( 'rhd-ajax' );
@@ -194,7 +184,6 @@ function rhd_theme_setup()
 	add_theme_support( 'automatic-feed-links' );
 
 	register_nav_menu( 'primary', 'Main Site Navigation' );
-	//register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
 
 	// Allow shortcodes in widgets
 	add_filter( 'widget_text', 'do_shortcode' );
@@ -472,13 +461,13 @@ function rhd_archive_pagination( WP_Query $q = null )
 
 	echo '<nav class="pagination" data-current-page="' . $paged . '">';
 
-	echo '<span class="pag-link pag-next" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
+	echo '<span class="pag-next pag-link" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
 	if ( $sep ) {
 		echo '<div class="pag-sep"></div>';
 	}
 
-	echo '<span class="pag-link pag-prev" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
+	echo '<span class="pag-prev pag-link" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
 	echo '</nav>';
 }
 
@@ -508,6 +497,41 @@ function rhd_single_pagination()
 
 
 /**
+ * rhd_load_more function.
+ *
+ * @access public
+ * @param WP_Query $q (default: null)
+ * @return void
+ */
+function rhd_load_more( WP_Query $q = null )
+{
+	global $paged;
+
+	if ( $q ) {
+		$max_page = $q->max_num_pages;
+	} else {
+		$max_page = null;
+	}
+
+	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
+
+	if ( ! is_front_page() ) {
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	} else {
+		$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+	}
+
+	$next = $paged + 1;
+
+	echo '<nav class="pagination" data-current-page="' . $paged . '">';
+
+	echo '<span class="pag-load-more" data-target-page="' . $next . '">' . get_next_posts_link( 'Show More', $max_page ) . '</span>';
+
+	echo '</nav>';
+}
+
+
+/**
  * rhd_ajax_pagination function.
  *
  * @access public
@@ -526,10 +550,12 @@ function rhd_ajax_pagination()
 			get_template_part( 'content', 'excerpt' );
 		}
 	}
-
-	rhd_archive_pagination( $posts );
-
 	wp_reset_postdata();
+
+	if ( $_POST['load_more'] )
+		rhd_load_more( $posts );
+	else
+		rhd_archive_pagination( $posts );
 
 	die();
 }
