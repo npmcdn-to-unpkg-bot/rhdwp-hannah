@@ -66,6 +66,11 @@ function packeryPosts( $posts ) {
 						opacity: 1
 					});
 				}
+				
+				// Make sure loader is gone...
+				jQuery("#loading").fadeOut(function(){
+					jQuery(this).remove();
+				});
 			});
 		}
 		isPackery = true;
@@ -103,6 +108,8 @@ function packeryAppend( $posts, $html ) {
 
 			$dd.slideToggle(300, 'swing');
 
+
+			// Working on better custom dropdown interaction...
 			/*
 			$(document).on('click', function(){
 				if ( $dd.is(':visible')) {
@@ -121,7 +128,12 @@ function packeryAppend( $posts, $html ) {
 
 
 		// Packery load
-		$('.blog-container article').css('opacity', 0);
+		
+		if ( !viewIsMedium() ) {
+			$('.blog-container article').css('opacity', 0);
+			$('.blog-container').prepend('<div id="loading"><img src="' + wp_data.img_dir + '/loading.gif" alt="Loading more posts..."></div>');
+		}
+		
 		$posts = $('.blog-container').packery(packeryOpts);
 		packeryPosts($posts);
 
