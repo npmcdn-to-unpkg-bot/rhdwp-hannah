@@ -6,7 +6,10 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+global $post;
+$page_title = $post->post_title; // Main page title
+?>
 
 	<section id="primary" class="site-content full-width page-services">
 		<div id="content" role="main">
@@ -35,21 +38,25 @@ get_header(); ?>
 					?>
 
 					<div class="section section-<?php echo $i; ?>">
-						<?php if ( $evenodd == 'even' ) : ?>
+						<?php if ( $evenodd == 'odd' ) : ?>
+							<div class="section-left section-image">
+								<div class="image" style="background-image: url(<?php echo $thumb[0]; ?>);"></div>
+							</div>
+							<div class="section-right section-content">
+								<?php if ( $i == 1 ) : ?>
+									<h2 class="page-title"><?php echo $page_title; ?></h2>
+								<?php endif; ?>
+
+								<h3 class="services-title"><?php the_title(); ?></h3>
+								<?php the_content(); ?>
+							</div>
+						<?php else : ?>
 							<div class="section-left section-content">
 								<h3 class="services-title"><?php the_title(); ?></h3>
 								<?php the_content(); ?>
 							</div>
 							<div class="section-right section-image">
 								<div class="image" style="background-image: url(<?php echo $thumb[0]; ?>);"></div>
-							</div>
-						<?php else : ?>
-							<div class="section-left section-image">
-								<div class="image" style="background-image: url(<?php echo $thumb[0]; ?>);"></div>
-							</div>
-							<div class="section-right section-content">
-								<h3 class="services-title"><?php the_title(); ?></h3>
-								<?php the_content(); ?>
 							</div>
 						<?php endif; ?>
 					</div>
