@@ -33,7 +33,7 @@
 		<![endif]-->
 
 		<?php
-		$nav_args_main = array(
+		$nav_args = array(
 			'theme_location' => 'primary',
 			'menu_id' => 'site-navigation',
 			'menu_class' => 'site-navigation',
@@ -41,27 +41,15 @@
 			'container_id' => 'site-navigation-container',
 			'walker' => new RHD_Walker_Nav
 		);
-
-		$nav_args_sb = array(
-			'theme_location' => 'slidebar',
-			'menu_id' => 'site-navigation-sb',
-			'menu_class' => 'site-navigation',
-			'container' => 'nav',
-			'container_id' => 'site-navigation-sb-container'
-		);
 		?>
 
-		<div class="sb-slidebar sb-left sb-style-push">
-			<?php wp_nav_menu( $nav_args_sb ); ?>
-		</div>
-
-		<div id="page" class="hfeed site sb-site-container">
+		<div id="page" class="hfeed site">
 			<header id="masthead" class="site-header">
 				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
 
-				<?php wp_nav_menu( $nav_args_main ); ?>
+				<?php wp_nav_menu( $nav_args ); ?>
 
-				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
+				<button id="hamburger" class="c-hamburger c-hamburger--htx">
 					<span>Toggle nav</span>
 				</button>
 			</header><!-- #masthead -->
