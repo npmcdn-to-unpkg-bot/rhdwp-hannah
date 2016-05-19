@@ -45,13 +45,21 @@
 
 		<div id="page" class="hfeed site">
 			<header id="masthead" class="site-header">
+				<nav id="navbar">
+					<div class="navbar-inner">
+						<?php wp_nav_menu( $nav_args ); ?>
+						<!-- social + search -->
+
+						<?php // get_search_form();
+							// Maybe custom function? ?>
+
+						<button id="hamburger" class="c-hamburger c-hamburger--htx">
+							<span>Toggle nav</span>
+						</button>
+					</div>
+				</nav>
+
 				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
-
-				<?php wp_nav_menu( $nav_args ); ?>
-
-				<button id="hamburger" class="c-hamburger c-hamburger--htx">
-					<span>Toggle nav</span>
-				</button>
 			</header><!-- #masthead -->
 
 			<main id="main">

@@ -1,12 +1,22 @@
 @media screen and (min-width 40em)
+	#navbar
+		.navbar-inner
+			-wrapper()
+
 	#site-navigation-container
+		width 45%
 		display block
+		background transparent
+		box-shadow none
+		float left
 
 		#site-navigation
 			line-height 0
+			-flexbox()
 
 			.menu-item
 				line-height 2
+				-flexitem()
 
 	#hamburger
 		display none

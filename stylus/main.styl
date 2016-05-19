@@ -41,7 +41,7 @@ body
 a
 	outline 0 !important
 	transition all 0.25s
-	color $c_ter
+	color $c_sec
 	text-decoration none
 
 	&:hover
@@ -78,7 +78,20 @@ input[type="submit"]
 
 
 #masthead
+	width 100%
 	position relative
+	padding-top $navHt
+
+
+#navbar
+	width 100%
+	height $navHt
+	display block
+	position fixed
+	top 0
+	left 0
+	background $c_header
+	color $c_text_lt
 
 
 #site-title
@@ -106,11 +119,14 @@ input[type="submit"]
 			font-size 1.1em
 			line-height 1.8
 
+			a
+				-ff_title()
+
 
 .site-navigation
 	li
 		a
-			color $c_text
+			color $c_text_lt
 			text-decoration none
 			transition color 0.25s
 			text-transform uppercase
@@ -118,7 +134,7 @@ input[type="submit"]
 
 			&:hover
 			&:active
-				color $c_ter
+				color $c_sec
 
 
 #hamburger
@@ -185,10 +201,7 @@ input[type="submit"]
 	-ff-headline()
 	text-align center
 	font-size 3em
-	background $c_sec
 	margin-bottom 1rem
-	padding 1.5rem 0
-	border-radius 0.1rem
 
 
 .entry-summary

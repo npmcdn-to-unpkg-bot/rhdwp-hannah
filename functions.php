@@ -33,7 +33,7 @@ include_once( 'inc/rhd-login-admin.php' );
 
 
 // Globally disable WP toolbar
-// add_filter( 'show_admin_bar', '__return_false' );
+add_filter( 'show_admin_bar', '__return_false' );
 
 
 /* ==========================================================================
