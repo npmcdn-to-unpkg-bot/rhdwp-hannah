@@ -583,3 +583,21 @@ function rhd_title_check_hidden( $title )
 	return $title;
 }
 add_filter( 'widget_title', 'rhd_title_check_hidden' );
+
+
+/**
+ * rhd_metabar_get_search_form function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_get_metabar_search_form()
+{
+        echo '
+                <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
+                    <div>
+                        <input type="text" value="" class="search-field" placeholder="I\'m looking for..." name="s" />
+                        <input type="submit" class="search-submit" value="" />
+                    </div>
+                </form>';
+}
