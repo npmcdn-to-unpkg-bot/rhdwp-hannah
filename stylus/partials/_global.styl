@@ -19,6 +19,7 @@ $ff_body = 'Open Sans', sans-serif
 $ff_title = 'Open Sans Condensed', sans-serif
 $ff_headline = 'Tuesday Script', cursive
 
+$updir = '../../upload/'
 
 -ff-title()
 	font-family $ff_title
@@ -160,3 +161,7 @@ $ff_headline = 'Tuesday Script', cursive
 			img
 				width auto
 				max-height $maxHt
+
+
+-ghost-button()
+	@extends .ghost-button-container .ghost-button

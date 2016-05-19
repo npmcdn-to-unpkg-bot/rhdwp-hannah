@@ -40,7 +40,7 @@ include_once( 'inc/rhd-login-admin.php' );
 	Toggles
    ========================================================================== */
 
-define( 'RHD_AJAX_PAGINATION', true );
+define( 'RHD_AJAX_PAGINATION', false );
 
 
 /* ==========================================================================

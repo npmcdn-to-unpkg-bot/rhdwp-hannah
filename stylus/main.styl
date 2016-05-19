@@ -78,11 +78,7 @@ input[type="submit"]
 
 
 #masthead
-	-copperborder()
-
-	.border-inner
-		position relative
-		background url(../img/herringbone.jpg) repeat
+	position relative
 
 
 #site-title
@@ -367,7 +363,7 @@ input[type="submit"]
 		@extends .ghost-button-container
 
 		a
-			@extends .ghost-button-container .ghost-button
+			-ghost-button()
 
 	.pag-next
 		float left
@@ -454,128 +450,6 @@ input[type="submit"]
 
 	.widget-title
 		margin-top 0
-
-	#rhd_social_icons-4
-		.rhd_social_icons
-			-wrapper(0, 2em, 230px)
-
-			.rhd-social-icon
-				a path
-					fill white
-
-				a
-					&:hover
-					&:active
-						path
-						.houzz-middle-tri
-							fill $c_ter
-
-						.houzz-middle-tri
-							stroke $c_ter
-
-			.rhd-social-poly
-				fill $c_sec
-
-			.houzz-middle-tri
-				fill white
-
-			.empty-hex
-				background-image url(../../../plugins/rhd-social-icons/img/hexagon_green.png)
-
-	#widget_sp_image-2
-		.widget_sp_image-description
-			font-size 1.2em
-			-ff-subtitle()
-			text-align center
-
-
-/* ==========================================================================
-	Front Page
-   ========================================================================== */
-
-.front-page
-	#main
-		width 100%
-		max-width none
-		padding 0
-		-copperborder()
-
-		.main-inner
-			background $c_bg
-			padding-bottom 1em
-
-	#primary
-		#content
-			width 100%
-			padding 0 7.5%
-
-	.section-title
-		-ff-headline()
-		font-size 200%
-		text-align center
-		margin-bottom 0.5em
-
-
-#front-page-slider
-#header-message-container
-#front-page-instagram
-	width 100%
-	-copperborder()
-
-	.border-inner
-		background $c_bg
-
-
-#front-page-slider
-	display none
-
-
-#header-message-container
-	.border-inner
-		height auto
-
-		.header-message
-			background $c_sec
-
-			.header-message-photo
-				display none
-
-			.header-message-content
-				width 100%
-				height 100%
-				color white
-				text-align center
-				padding 1em
-
-				.message-inner
-					-wrapper(1em, 1em, 95%)
-
-					.message
-						font-size 10vw
-						line-height 1.1
-						margin 0
-						-ff-subtitle()
-
-					.message-buttons
-						width 90%
-						-clearfix()
-						margin 1em auto
-
-						.ghost-button
-							font-size 5vw
-							-ff-subtitle()
-
-#front-page-recent-posts
-	.front-page-posts
-		article
-			border-color $c_text_lt
-
-
-#front-page-instagram
-	.soliloquy-container
-		.soliloquy-wrapper
-			margin 0 auto
-			padding-bottom 2em
 
 
 /* ==========================================================================
