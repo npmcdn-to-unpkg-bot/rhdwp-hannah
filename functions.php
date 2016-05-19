@@ -16,7 +16,7 @@
 // Constants and Globals
 define( "RHD_THEME_DIR", get_template_directory_uri() );
 define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
-define( "RHD_GOOGLE_FONTS", 'Roboto+Condensed:300,300italic,400,700' );
+define( "RHD_GOOGLE_FONTS", 'Open+Sans:400,700,400italic|Dancing+Script' );
 
 $updir = wp_upload_dir();
 define( "RHD_UPLOAD_URL", $updir['baseurl'] );
@@ -40,7 +40,7 @@ include_once( 'inc/rhd-login-admin.php' );
 	Toggles
    ========================================================================== */
 
-define( 'RHD_AJAX_PAGINATION', true );
+define( 'RHD_AJAX_PAGINATION', false );
 
 
 /* ==========================================================================
@@ -556,7 +556,7 @@ function rhd_ajax_pagination()
 		rhd_load_more( $posts );
 	else
 		rhd_archive_pagination( $posts );
-	
+
 	die();
 }
 add_action( 'wp_ajax_nopriv_ajax_pagination', 'rhd_ajax_pagination' );

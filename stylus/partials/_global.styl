@@ -15,10 +15,8 @@ $c_ter_lt = lighten($c_ter, 35%)
 $off_white = darken(white, 4%)
 $near_white = darken(white, 2%)
 
-$ff_body = 'Roboto Condensed', sans-serif
-$ff_cursive = 'Nella Sue', cursive
-
-$border_w = 6px
+$ff_body = 'Open Sans', sans-serif
+$ff_cursive = 'Dancing Script', cursive
 
 $updir = '../../upload/'
 
@@ -26,23 +24,9 @@ $updir = '../../upload/'
 	font-family $ff_body
 	font-weight 700
 
--ff-subtitle()
-	font-family $ff_body
-	font-weight 400
-
 -ff-headline()
 	font-family $ff_cursive
 	font-weight normal
-
--copperborder( $border = $border_w )
-	background-image url(../img/copper.jpg)
-	background-repeat no-repeat
-	background-size 100% 100%
-	margin-top $border // offset
-
-	.border-inner
-		position relative
-		bottom $border
 
 
 /* ==========================================================================
@@ -176,3 +160,6 @@ $updir = '../../upload/'
 			img
 				width auto
 				max-height $maxHt
+
+-ghost-button()
+	@extends .ghost-button-container .ghost-button
