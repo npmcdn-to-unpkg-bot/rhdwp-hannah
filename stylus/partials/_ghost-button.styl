@@ -46,3 +46,14 @@
 			&:active
 				background-color $c_ter
 				border-color $c_ter
+
+
+/* ==========================================================================
+	Helper Functions
+   ========================================================================== */
+
+-ghost-button-container()
+	@extends .ghost-button-container
+
+-ghost-button()
+	@extends .ghost-button-container .ghost-button
