@@ -281,37 +281,7 @@ input[type="submit"]
 .blog-area
 	article
 		-clearfix()
-		border-width 2px
-		border-style solid
-		border-radius 0.1em
 		margin 1em auto
-
-		&.rhd-full-post
-			border-color $c_text_lt
-			padding 1em
-
-			.entry-header
-				padding-bottom 1em
-				border-bottom 1px solid $c_text
-
-		&.rhd-excerpt-post
-			border-color $c_text_lt
-
-			.entry-header
-				margin-bottom 0
-
-				.entry-title
-					padding 0.5em 0
-					margin 0
-
-				.entry-details
-					display none
-
-			.entry-thumbnail
-				border-top 2px solid $c_text_lt
-
-			.ghost-button-container
-				margin-bottom 0
 
 		&:first-child
 			margin-top 0
@@ -360,7 +330,7 @@ input[type="submit"]
 
 	.pag-link
 	.pag-load-more
-		@extends .ghost-button-container
+		-ghost-button-container()
 
 		a
 			-ghost-button()
