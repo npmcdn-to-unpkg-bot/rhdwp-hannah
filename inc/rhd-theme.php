@@ -84,12 +84,12 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 
 
 /**
- * rhd_get_navbar_search_form function.
+ * rhd_navbar_search_form function.
  *
  * @access public
  * @return void
  */
-function rhd_get_navbar_search_form()
+function rhd_navbar_search_form()
 {
         echo '
                 <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
