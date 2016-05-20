@@ -11,6 +11,17 @@
  **/
 
 
+/* ==========================================================================
+	Constants
+   ========================================================================== */
+
+define( 'RHD_LOGO_SRC', RHD_UPLOAD_URL . '/2016/05/logo.png' );
+
+
+/* ==========================================================================
+	Functions
+   ========================================================================== */
+
  /**
  * rhd_body_class function.
  *
@@ -70,3 +81,21 @@ function rhd_custom_excerpt_read_more( $more )
 	return rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', true, false );
 }
 add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
+
+
+/**
+ * rhd_get_navbar_search_form function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_get_navbar_search_form()
+{
+        echo '
+                <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
+                    <div>
+                        <input type="text" value="" class="search-field" placeholder="I\'m looking for..." name="s" />
+                        <input type="submit" class="search-submit" value="" />
+                    </div>
+                </form>';
+}

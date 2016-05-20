@@ -21,10 +21,12 @@ $ff_title = 'Open Sans Condensed', sans-serif
 $ff_headline = 'Tuesday Script', cursive
 $ff_courier = '1942 Report', monospace
 
-$updir = '../../upload/'
+$updir = '../../../uploads'
 
-$navHt = 4em
-$navHtDesk = 3em
+$navHt = 3em
+$navHtDesk = 2em
+
+$border_h = 6px
 
 -ff-title()
 	font-family $ff_title
@@ -37,6 +39,17 @@ $navHtDesk = 3em
 -ff-courier()
 	font-family $ff_courier
 	font-weight normal
+
+-goldborder( $border = $border_h )
+	background-image url($updir + '/2016/05/goldleaf.jpg')
+	background-repeat repeat-y
+	background-size 100% auto
+	margin-top $border // offset
+
+	.border-inner
+		position relative
+		bottom $border
+		background $c_bg
 
 
 /* ==========================================================================

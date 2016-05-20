@@ -77,7 +77,7 @@ input[type="submit"]
 	margin 0
 
 
-#masthead
+#header
 	width 100%
 	position relative
 	padding-top $navHt
@@ -92,10 +92,20 @@ input[type="submit"]
 	left 0
 	background $c_header
 	color $c_text_lt
+	z-index 999
+
+	.navbar-inner
+		-wrapper(0, 0, 95%)
+		height @height
+
+
+#masthead
+	-goldborder()
 
 
 #site-title
-	-wrapper(0, 0, 96%)
+	-wrapper(0, 0, 75%, 30rem)
+	padding 1em 0 2em
 	text-align center
 	display block
 
@@ -120,7 +130,8 @@ input[type="submit"]
 			line-height 1.8
 
 			a
-				-ff_title()
+				-ff-title()
+				text-transform uppercase
 
 
 .site-navigation
@@ -138,9 +149,9 @@ input[type="submit"]
 
 
 #hamburger
-	position absolute
-	top 0.5em
-	right 0.5em
+	top 50%
+	right 1em
+	-vcenter()
 
 
 #main
@@ -160,18 +171,20 @@ input[type="submit"]
 #colophon
 	width 100%
 	position relative
-	background $c_sec
+	background $c_ter
 
 	.site-info
 		-wrapper(2em, 0, 75%)
 		text-align center
+		-ff-title()
+		color $c_text_lt
 
 		a
-			color $c_text
+			color @color
 
 			&:hover
 			&:active
-				color $c_ter
+				color $c_sec
 				text-decoration none
 
 		img
@@ -198,10 +211,24 @@ input[type="submit"]
 
 
 .page-title
+.widget-title
 	-ff-headline()
 	text-align center
+
+
+.entry-title
+	-ff-title()
+	color $c_text_lt
+
+
+.page-title
 	font-size 3em
 	margin-bottom 1rem
+
+
+.widget-title
+	color $c_sec
+	font-size 2.5em
 
 
 .entry-summary
@@ -213,7 +240,7 @@ input[type="submit"]
 	width 100%
 
 	p
-		margin 0.25em auto
+		margin 0.5em auto
 		text-indent 0
 
 		&[style*="text-align: center"]

@@ -44,22 +44,26 @@
 		?>
 
 		<div id="page" class="hfeed site">
-			<header id="masthead" class="site-header">
-				<nav id="navbar">
+			<header id="header" class="site-header">
+				<div id="navbar">
 					<div class="navbar-inner">
 						<?php wp_nav_menu( $nav_args ); ?>
 						<!-- social + search -->
 
-						<?php // get_search_form();
-							// Maybe custom function? ?>
+						<?php rhd_navbar_search_form(); ?>
 
 						<button id="hamburger" class="c-hamburger c-hamburger--htx">
 							<span>Toggle nav</span>
 						</button>
 					</div>
-				</nav>
+				</div>
 
-				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
+				<div id="masthead">
+					<div class="border-inner">
+						<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
+						<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+					</div>
+				</div>
 			</header><!-- #masthead -->
 
 			<main id="main">
