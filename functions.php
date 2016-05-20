@@ -586,7 +586,7 @@ add_filter( 'widget_title', 'rhd_title_check_hidden' );
 
 
 /**
- * rhd_metabar_get_search_form function.
+ * rhd_get_metabar_search_form function.
  *
  * @access public
  * @return void
