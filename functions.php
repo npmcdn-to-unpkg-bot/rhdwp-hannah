@@ -547,7 +547,7 @@ function rhd_ajax_pagination()
 	if( $posts->have_posts() ) {
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
-			get_template_part( 'content', 'excerpt' );
+			get_template_part( 'template-parts/content' );
 		}
 	}
 	wp_reset_postdata();

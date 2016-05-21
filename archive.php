@@ -10,7 +10,7 @@ get_header();
 ?>
 
 	<section id="primary" class="site-content">
-		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
+		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'template_parts/metabar' ); ?>
 
 		<div id="content" role="main">
 
@@ -19,7 +19,7 @@ get_header();
 				<?php the_archive_title( '<h2 class="page-title archive-title">', '</h2>' ); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', 'excerpt' ); ?>
+					<?php get_template_part( 'template-parts/content', 'excerpt' ); ?>
 				<?php endwhile; ?>
 
 			<?php else : ?>

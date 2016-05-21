@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Displays the Blog meta bar with dropdowns and search
+ * The RHD Metabar template part.
  *
  * @package WordPress
  * @subpackage rhd

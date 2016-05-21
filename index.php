@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-	<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
+	<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'template-parts/metabar' ); ?>
 	
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
@@ -18,8 +18,8 @@ get_header();
 
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php
-						if ( is_single() ) get_template_part( 'content', 'single' );
-						else get_template_part( 'content' );
+						if ( is_single() ) get_template_part( 'template-parts/content', 'single' );
+						else get_template_part( 'template-parts/content' );
 					?>
 				<?php endwhile; ?>
 
