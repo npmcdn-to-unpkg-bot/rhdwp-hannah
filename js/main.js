@@ -56,7 +56,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Navbar search expansion
 		searchW = $('#header-search .search-field').width();
-		searchP = $('#header-search .search-field').css('padding');
+		searchPT = $('#header-search .search-field').css('paddingTop');
+		searchPR = $('#header-search .search-field').css('paddingRight');
+		searchPL = $('#header-search .search-field').css('paddingLeft');
 		searchB = $('#header-search .search-field').css('borderWidth');
 		$('#header-search .search-field').css({
 			width: 0,
@@ -73,7 +75,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 					.animate({ borderWidth: searchB }, 100)
 					.animate({
 						width: searchW,
-						padding: searchP
+						paddingTop: searchPT,
+						paddingRight: searchPR,
+						paddingBottom: searchPT,
+						paddingLeft: searchPL
 					}, 'fast', 'easeOutQuad', function(){
 						isExpanded = true;
 					});

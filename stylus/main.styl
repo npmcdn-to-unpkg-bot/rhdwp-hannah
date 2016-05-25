@@ -158,21 +158,29 @@ input[type="submit"]
 	width 65%
 	height 75%
 	-vcenter()
-	right 4em
+	right 3em
 
 	.search-form
 	div
 	input
 		height 100%
 
+	input
+		background-color transparent
+		border none
+
 	.search-form
 		-clearfix()
 
 		.search-field
-			width 85%
+			width 130%
 			-vcenter()
-			right 2.25em
-			font-size 0.9em
+			font-size 1em
+			background-color white
+			padding-right 2.3em
+			right -0.35em
+			-ff-subtitle()
+			letter-spacing 0.5px
 
 			&:focus
 				border-color $c_ter
@@ -183,9 +191,8 @@ input[type="submit"]
 			right 0
 			-vcenter()
 			z-index 999
-			background transparent url('../img/search.png') no-repeat center
+			background url('../img/search.png') no-repeat center
 			background-size 90% auto
-			border none
 
 
 #main
