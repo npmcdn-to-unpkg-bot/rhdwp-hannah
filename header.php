@@ -50,7 +50,9 @@
 						<?php wp_nav_menu( $nav_args ); ?>
 						<!-- social + search -->
 
-						<?php rhd_navbar_search_form(); ?>
+						<div id="header-search">
+							<?php rhd_navbar_search_form(); ?>
+						</div>
 
 						<button id="hamburger" class="c-hamburger c-hamburger--htx">
 							<span>Toggle nav</span>

@@ -53,6 +53,32 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 					unsetImageStrip();
 			});
 		}
+
+		// Navbar search expansion
+		searchW = $('#header-search .search-field').width();
+		searchP = $('#header-search .search-field').css('padding');
+		searchB = $('#header-search .search-field').css('borderWidth');
+		$('#header-search .search-field').css({
+			width: 0,
+			padding: 0,
+			borderWidth: 0
+		});
+		isExpanded = false;
+
+		$('#header-search .search-submit').click(function(e){
+			if (!isExpanded) {
+				e.preventDefault();
+
+				$('#header-search .search-field')
+					.animate({ borderWidth: searchB }, 100)
+					.animate({
+						width: searchW,
+						padding: searchP
+					}, 'fast', 'easeOutQuad', function(){
+						isExpanded = true;
+					});
+			}
+		});
 	});
 
 

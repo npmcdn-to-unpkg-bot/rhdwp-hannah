@@ -154,6 +154,40 @@ input[type="submit"]
 	-vcenter()
 
 
+#header-search
+	width 65%
+	height 75%
+	-vcenter()
+	right 4em
+
+	.search-form
+	div
+	input
+		height 100%
+
+	.search-form
+		-clearfix()
+
+		.search-field
+			width 85%
+			-vcenter()
+			right 2.25em
+			font-size 0.9em
+
+			&:focus
+				border-color $c_ter
+
+		.search-submit
+			width 1.5rem
+			margin-left 0.5em
+			right 0
+			-vcenter()
+			z-index 999
+			background transparent url('../img/search.png') no-repeat center
+			background-size 90% auto
+			border none
+
+
 #main
 	-wrapper()
 	padding 2em 0

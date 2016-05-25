@@ -92,10 +92,10 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 function rhd_navbar_search_form()
 {
         echo '
-                <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
-                    <div>
-                        <input type="text" value="" class="search-field" placeholder="I\'m looking for..." name="s" />
-                        <input type="submit" class="search-submit" value="" />
-                    </div>
-                </form>';
+            <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
+                <div>
+                    <input type="text" value="" class="search-field" name="s" />
+                    <input type="submit" class="search-submit" value="" />
+                </div>
+            </form>';
 }

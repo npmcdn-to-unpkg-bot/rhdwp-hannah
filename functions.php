@@ -87,6 +87,7 @@ function rhd_enqueue_scripts()
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
+		'jquery-effects-core'
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
