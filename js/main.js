@@ -79,7 +79,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 						paddingRight: searchPR,
 						paddingBottom: searchPT,
 						paddingLeft: searchPL
-					}, 'fast', 'easeOutQuad', function(){
+					}, 'fast', 'easeOutExpo', function(){
 						isExpanded = true;
 					});
 			}
