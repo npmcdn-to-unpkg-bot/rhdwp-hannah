@@ -6,17 +6,24 @@
 		height auto
 
 		.navbar-inner
-			width 85%
+			-wrapper(0, 0, 85%)
 			height auto
-			background $c_bg
-			-clearfix()
+
+			.nav-dropdown
+				position relative
+				top 0
+				display block
+				background transparent
+				-clearfix()
 
 	#site-navigation-container
 		width 45%
 		display block
 		background transparent
+		position relative
 		box-shadow none
 		float left
+		padding-bottom 0
 		position relative
 		top 0.15em
 
