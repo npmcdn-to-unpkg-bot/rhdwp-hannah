@@ -57,7 +57,7 @@
 							<?php rhd_navbar_search_form(); ?>
 						</div>
 
-						<button id="hamburger" class="c-hamburger c-hamburger--htd">
+						<button id="hamburger" class="c-hamburger c-hamburger--rot">
 							<span>Toggle nav</span>
 						</button>
 					</div>
