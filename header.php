@@ -47,14 +47,17 @@
 			<header id="header" class="site-header">
 				<div id="navbar">
 					<div class="navbar-inner">
-						<?php wp_nav_menu( $nav_args ); ?>
-						<!-- social + search -->
+						<div class="nav-dropdown">
+							<a class="mobile-only" href="<?php echo home_url(); ?>"><img class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+							<?php wp_nav_menu( $nav_args ); ?>
+						</div>
+						<!-- social -->
 
 						<div id="header-search">
 							<?php rhd_navbar_search_form(); ?>
 						</div>
 
-						<button id="hamburger" class="c-hamburger c-hamburger--htx">
+						<button id="hamburger" class="c-hamburger c-hamburger--htd">
 							<span>Toggle nav</span>
 						</button>
 					</div>
@@ -62,8 +65,8 @@
 
 				<div id="masthead">
 					<div class="border-inner">
-						<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
-						<a href="<?php echo home_url(); ?>"><img id="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+						<h1 class="invisible"><?php bloginfo( 'name' ); ?></h1>
+						<a href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
 					</div>
 				</div>
 			</header><!-- #masthead -->

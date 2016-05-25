@@ -96,28 +96,39 @@ input[type="submit"]
 	z-index 999
 
 	.navbar-inner
-		-wrapper(0, 0, 95%)
 		height @height
+		margin 0
+
+	.nav-dropdown
+		background $c_bg
+		position absolute
+		top $navHt
+		left 0
+		display none
+
+		.site-title
+			margin-top 1em
 
 
 #masthead
 	-goldborder()
 
 
-#site-title
+.site-title
 	-wrapper(0, 0, 75%, 30rem)
-	padding 1em 0 2em
-	text-align center
 	display block
+	text-align center
+
+
+#site-title
+	padding 1em 0 2em
 
 
 #site-navigation-container
 	width 100vw
 	text-align center
-	position absolute // set by JS
-	background $c_bg
+	padding-bottom 1rem
 	z-index 999
-	display none
 	box-shadow 3px 3px 7px -4px $c_text
 
 	#site-navigation
