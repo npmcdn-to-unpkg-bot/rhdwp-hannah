@@ -69,3 +69,5 @@
 			</header><!-- #masthead -->
 
 			<main id="main">
+				<div class="border-inner">
+					<div id="content-wrapper">

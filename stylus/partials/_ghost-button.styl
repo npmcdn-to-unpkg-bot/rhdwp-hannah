@@ -20,11 +20,12 @@
 		float left
 
 	.ghost-button
+	.ghost-button-alt
 		padding 0.4em .8em
-		color $c_sec
 		text-decoration none
 		background-color $c_bg
-		border 3px solid @color
+		border-width 3px
+		border-style solid
 		border-radius 0.1em
 		display inline-block
 		transition all 0.2s
@@ -33,12 +34,21 @@
 
 		&:hover
 		&:active
-			background-color $c_sec
-			color $c_bg
 			text-decoration none
+			color $c_bg
 
 		&.filled
 			color $c_bg
+
+	.ghost-button
+		color $c_sec
+		border-color $c_sec
+
+		&:hover
+		&:active
+			background-color $c_sec
+
+		&.filled
 			background-color $c_sec
 			border-color $c_sec
 
@@ -47,13 +57,30 @@
 				background-color $c_ter
 				border-color $c_ter
 
+	.ghost-button-alt
+		color $c_ter
+		border-color $c_ter
+
+		&:hover
+		&:active
+			background-color $c_ter
+
+		&.filled
+			background-color $c_ter
+			border-color $c_ter
+
+			&:hover
+			&:active
+				background-color $c_sec
+				border-color $c_sec
+
 
 /* ==========================================================================
 	Helper Functions
    ========================================================================== */
 
--ghost-button-container()
-	@extends .ghost-button-container
-
 -ghost-button()
 	@extends .ghost-button-container .ghost-button
+
+-ghost-button-alt()
+	@extends .ghost-button-container .ghost-button-alt

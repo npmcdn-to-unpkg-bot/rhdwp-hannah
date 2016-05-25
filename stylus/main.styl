@@ -196,9 +196,16 @@ input[type="submit"]
 
 
 #main
-	-wrapper()
-	padding 2em 0
+	-goldborder()
 	box-sizing border-box
+
+	.border-inner
+		-clearfix()
+		padding 2em 0
+
+
+#content-wrapper
+	-wrapper()
 
 
 #primary
@@ -212,13 +219,16 @@ input[type="submit"]
 #colophon
 	width 100%
 	position relative
-	background $c_ter
 
 	.site-info
-		-wrapper(2em, 0, 75%)
+		background $c_ter
+		padding 1em 0
 		text-align center
 		-ff-title()
 		color $c_text_lt
+
+		p
+			margin 0
 
 		a
 			color @color
@@ -238,6 +248,19 @@ input[type="submit"]
 			margin 0 0.05em
 			position relative
 			bottom 0.25em
+
+
+#footer-widget-area
+	-wrapper(2em, 2em)
+
+	.widget-title
+		-ff-courier()
+		color $c_text
+
+	.rhd_mc_submit
+		margin 0 auto
+		-ghost-button()
+		display block
 
 
 /* ==========================================================================
