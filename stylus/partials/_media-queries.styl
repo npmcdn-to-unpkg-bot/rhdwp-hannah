@@ -1,15 +1,40 @@
 @media screen and (min-width 40em)
+	.mobile-only
+		-invisible()
+	
+	.large-only
+		-invisible(false)
+	
+	#primary
+	#secondary
+		height 100%
+	
+	html
+	body
+		overflow-y auto
+	
+	body
+		&.front-page
+			background-size cover
+	
+	#site-title-large
+		font-size 3.2em
+		font-size 6vw
+		margin-top 2rem
+	
 	#site-navigation-container
+		-wrapper(0, 0, 95%)
 		display block
 
 		#site-navigation
 			line-height 0
+			margin 0
+			-flexbox()
 
 			.menu-item
 				line-height 2
-
-	#hamburger
-		display none
+				font-size 1.6em
+				-flexitem()
 
 	#comments
 		#commentform
@@ -26,26 +51,6 @@
 			#submit
 				width auto
 				padding-left 0.8em
-
-	// Image Strip
-	#primary
-		-clearfix()
-
-		article
-			&.strip-active
-				width 65%
-				float right
-
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
-
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
 
 	.entry-content
 		img
@@ -69,39 +74,69 @@
 			img
 				@extends .entry-content img
 
-
-// Fixed-width 320px sidebar
-@media screen and (min-width 40em)
+	// Structure
 	#main
+		-wrapper(0, 0, 100%)
 		-clearfix()
+		padding 0
+	
+	#primary
+	#secondary
+		margin 0
 
 	#primary
-		float left
+		width 68%
+		float right
 
 	#secondary
-		width 320px
+		width 30%
 		float left
+		background-color $c_sec
+		color white
+		position relative
 
 		.widget
 			width 100%
 			padding 0 10px
+		
+			&.rhd-static-widget
+				padding 0
+		
+		.secondary-page-title
+			.page-title
+				padding initial
+	
+	#colophon-large
+		width 100%
+		position absolute
+		bottom 1em
+		left 0
+	
+	#colophon-mobile
+		display none
+				
+
+@media screen and (min-width 50em)
+	#site-title-large
+		font-size 4em
+		font-size 6vw
 
 
-@media screen and (min-width 58em)
-	#primary
-		width 56%
-
-
-@media screen and (min-width 62em)
-	#primary
-		width 58%
-
-
-@media screen and (min-width 64em)
-	#primary
-		width 60%
-
-
-@media screen and (min-width 66em)
-	#primary
-		width 64%
+// @media screen and (min-width 58em)
+// 	#primary
+// 		width 56%
+// 
+// 
+// @media screen and (min-width 62em)
+// 	#primary
+// 		width 58%
+// 
+// 
+// @media screen and (min-width 64em)
+// 	#primary
+// 		width 60%
+// 
+// 
+// @media screen and (min-width 66em)
+// 	#primary
+// 		width 64%

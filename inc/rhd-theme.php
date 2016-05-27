@@ -70,3 +70,58 @@ function rhd_custom_excerpt_read_more( $more )
 	return rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', true, false );
 }
 add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
+
+
+
+/**
+ * rhd_featured_img function.
+ * 
+ * @access public
+ * @param mixed $id
+ * @param string $size (default: 'full')
+ * @return void
+ */
+function rhd_featured_img( $id, $size = 'full' )
+{
+	$thumb_id = get_post_thumbnail_id( $id );
+    $thumb_img = wp_get_attachment_image( $thumb_id, $size, false );
+    
+    echo $thumb_img;
+}
+
+
+/**
+ * rhd_get_featured_img function.
+ * 
+ * @access public
+ * @param mixed $id
+ * @param string $size (default: 'full')
+ * @return void
+ */
+function rhd_get_featured_img_src( $id, $size = 'full' )
+{
+	$thumb_id = get_post_thumbnail_id( $id );
+    $thumb_img = wp_get_attachment_image_src( $thumb_id, $size, false );
+    
+    return $thumb_img[0];
+}
+
+
+/**
+ * rhd_footer_content function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_footer_content()
+{
+	get_sidebar( 'footer' );
+	?>
+    <div class="site-info">
+		<p>
+			<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?><br />
+			Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img class="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a>
+        </p>
+    </div><!-- .site-info -->
+    <?php
+}

@@ -16,9 +16,9 @@ html
 body
 #page
 #main
-	min-height 100%
-
-
+	height 100%
+	
+	
 html
 	text-shadow 0 0 1px transparent
 	width 100%
@@ -36,6 +36,11 @@ body
 		#wpadminbar
 			position fixed
 			top 0
+	
+	&.front-page
+		background-size auto 100%
+		background-position center center
+		background-repeat no-repeat
 
 
 a
@@ -77,14 +82,30 @@ input[type="submit"]
 	margin 0
 
 
-#masthead
+.site-header
 	position relative
 
 
-#site-title
+.site-title
 	-wrapper(0, 0, 96%)
 	text-align center
 	display block
+	line-height 1
+	-ff-headline()
+	
+	a
+		color inherit
+		text-decoration none
+		transition 0.25s color
+		
+		&:hover
+		&:active
+			color $c_ter
+
+
+#site-title-mobile
+	font-size 2.6em
+	font-size 11vw
 
 
 #site-navigation-container
@@ -102,6 +123,7 @@ input[type="submit"]
 			display block
 			font-size 1.1em
 			line-height 1.8
+			-ff-title()
 
 
 .site-navigation
@@ -119,13 +141,11 @@ input[type="submit"]
 
 
 #hamburger
-	position absolute
-	top 0.5em
-	right 0.5em
+	margin 0 auto
 
 
 #main
-	-wrapper()
+	width 100%
 	padding 2em 0
 	box-sizing border-box
 
@@ -138,33 +158,44 @@ input[type="submit"]
 	box-sizing border-box
 
 
-#colophon
+#content
+	-wrapper()
+
+
+.colophon
 	width 100%
 	position relative
-	background $c_sec
 
 	.site-info
-		-wrapper(2em, 0, 75%)
+		-wrapper(0, 0, 75%)
 		text-align center
+		color white
 
 		a
-			color $c_text
+			color $c_ter
 
 			&:hover
 			&:active
 				color $c_ter
-				text-decoration none
 
 		img
 			width 100%
 			height auto
 
-		#rhd-logo-footer
+		.rhd-logo-footer
 			width 1.35em
 			height 1.35em
 			margin 0 0.05em
 			position relative
 			bottom 0.25em
+
+
+#colophon-mobile
+	background $c_sec
+	
+	.site-info
+		padding 1em 0
+		
 
 
 /* ==========================================================================
@@ -179,7 +210,7 @@ input[type="submit"]
 
 
 .page-title
-	-ff-headline()
+	-ff-title()
 	text-align center
 	font-size 2em
 	margin-bottom 1rem
@@ -381,6 +412,15 @@ input[type="submit"]
 
 	.widget-title
 		margin-top 0
+	
+	.secondary-page-title
+		background $c_sec
+		color white
+		margin-bottom 0
+		
+		.page-title
+			padding 1em 0
+			margin-bottom 0
 
 
 /* ==========================================================================
@@ -389,6 +429,10 @@ input[type="submit"]
 
 #primary
 	-soliloquy()
+
+
+.large-only
+	-invisible()
 
 
 /* ==========================================================================

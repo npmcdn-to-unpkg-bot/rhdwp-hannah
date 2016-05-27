@@ -8,21 +8,18 @@
 
 get_header(); ?>
 
-<section id="primary" class="site-content">
-	<div id="content" role="main">
+<div id="content" role="main">
 
-		<?php if ( have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
+			<?php get_template_part( 'template-parts/content', 'page' ); ?>
 
-			<?php endwhile; ?>
+		<?php endwhile; ?>
 
-		<?php endif; ?>
+	<?php endif; ?>
 
-	</div><!-- #content -->
-</section><!-- #primary -->
+</div><!-- #content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

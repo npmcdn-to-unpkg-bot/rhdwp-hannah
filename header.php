@@ -26,8 +26,16 @@
 
 		<?php wp_head(); ?>
 	</head>
+	
+	<?php
+	if ( is_front_page() ) {
+		global $post;
+		$bg_src = rhd_get_featured_img_src( $post->ID, 'full' );
+		$bg_style = 'style="background-image: url(' . $bg_src . ');"';
+	};
+	?>
 
-	<body <?php body_class(); ?>>
+	<body <?php body_class(); echo $bg_style; ?>>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -44,14 +52,22 @@
 		?>
 
 		<div id="page" class="hfeed site">
-			<header id="masthead" class="site-header">
-				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
-
-				<?php wp_nav_menu( $nav_args ); ?>
-
-				<button id="hamburger" class="c-hamburger c-hamburger--htx">
-					<span>Toggle nav</span>
-				</button>
-			</header><!-- #masthead -->
-
 			<main id="main">
+				<header id="masthead-mobile" class="site-header mobile-only">
+					<h1 id="site-title-mobile" class="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+	
+					<?php wp_nav_menu( $nav_args ); ?>
+	
+					<button id="hamburger" class="c-hamburger c-hamburger--htx mobile-only">
+						<span>Toggle nav</span>
+					</button>
+				</header><!-- #masthead -->
+				
+				<?php if ( !is_front_page() ) get_sidebar(); ?>
+				
+				<div id="primary" class="site-content">
+					<header id="masthead-large" class="site-header large-only">
+						<h1 id="site-title-large" class="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+		
+						<?php wp_nav_menu( $nav_args ); ?>
+					</header><!-- #masthead -->
