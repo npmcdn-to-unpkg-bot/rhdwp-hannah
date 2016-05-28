@@ -39,39 +39,21 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 			$dd.slideToggle();
 		});
-
-
-		// "Image Strip"
-		if ( $('#content').hasClass( 'image-strip-active' ) ) {
-			if ( $window.width() > 800 )
-				setImageStrip();
-
-			$window.on('resize', function(){
-				if ( $window.width() > 800 )
-					setImageStrip();
-				else
-					unsetImageStrip();
-			});
-		}
+		
+		$window.resize(function(){
+			setSidebarMinHt();
+		});
 	});
 
 
 	function rhdInit() {
-		// wpAdminBarPush();
-
-		/*
-		$.slidebars({
-			siteClose: false,
-		});
-		*/
-
 		toggleBurger();
 
 		// Fix faux-flexbox
 		fixGridLayout();
-
-		// Image Strip
-		postContent = $(".entry-content").html();
+		
+		// Desktop sidebar min height lock
+		setSidebarMinHt(getSidebarMinHt());
 	}
 
 
@@ -87,6 +69,21 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			return true;
 		else
 			return false;
+	}
+	
+	
+	function getSidebarMinHt() {
+		var safety = 16; // Added margin
+		var h = safety + $('#page-featured-image').height() + parseInt($('#page-featured-image').css('marginBottom')) + $('#page-title-large').height() + $('#colophon-large').height() + parseInt($('#colophon-large').css('marginTop')) + parseInt($('#colophon-large').css('marginBottom'));
+		
+		console.log(h);
+		
+		return h;
+	}
+	
+	
+	function setSidebarMinHt() {
+		$('#secondary').css('minHeight', getSidebarMinHt());
 	}
 
 
@@ -110,31 +107,4 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
 		}
 	}
-
-
-	// Set Image Strip layout
-	function setImageStrip() {
-		$('<div id="image-strip"></div>').prependTo('#content');
-		$('#content article').addClass('strip-active');
-
-		$(".entry-content img").each(function(){
-			if ( $(this).hasClass('alignnone') ) {
-				$(this)
-					.appendTo($("#image-strip"))
-					.addClass("strip-active");
-			}
-		});
-	}
-
-
-	// Unset Image Strip layout
-	function unsetImageStrip() {
-		$("#image-strip").html('');
-
-		$('#content article').removeClass('strip-active');
-		$(".entry-content").removeClass('strip-active');
-
-		$(".entry-content").html(postContent);
-	}
-
 })(jQuery);

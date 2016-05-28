@@ -12,7 +12,7 @@
 <?php global $post; ?>
 
 <aside id="secondary" class="widget-area" role="complementary">
-	<div class="widget rhd-static-widget secondary-page-title mobile-only">
+	<div id="page-title-mobile" class="widget rhd-static-widget secondary-page-title mobile-only">
 		<h2 class="page-title"><?php echo $post->post_title; ?></h2>
 	</div>
 	
@@ -20,7 +20,7 @@
 		<?php rhd_featured_img( $post->ID, 'large' ); ?>
 	</div>
 	
-	<div class="widget rhd-static-widget secondary-page-title large-only">
+	<div id="page-title-large" class="widget rhd-static-widget secondary-page-title large-only">
 		<h2 class="page-title"><?php echo $post->post_title; ?></h2>
 	</div>
 	
