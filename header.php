@@ -56,11 +56,11 @@
 				<header id="masthead-mobile" class="site-header mobile-only">
 					<h1 id="site-title-mobile" class="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 	
-					<?php wp_nav_menu( $nav_args ); ?>
-	
 					<button id="hamburger" class="c-hamburger c-hamburger--htx mobile-only">
 						<span>Toggle nav</span>
 					</button>
+					
+					<?php wp_nav_menu( $nav_args ); ?>
 				</header><!-- #masthead -->
 				
 				<?php if ( !is_front_page() ) get_sidebar(); ?>

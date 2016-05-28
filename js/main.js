@@ -40,6 +40,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$dd.slideToggle();
 		});
 		
+		// Nav dropdown
+		$('#hamburger').click(function(){
+			$('#site-navigation-container').slideToggle();
+		});
+		
 		$window.resize(function(){
 			setSidebarMinHt();
 		});

@@ -20,7 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery.fitvids": "fitvids#^1.1.0",
-    "Slidebars": "^0.10.3"
+    "jquery.fitvids": "fitvids#^1.1.0"
   }
 }

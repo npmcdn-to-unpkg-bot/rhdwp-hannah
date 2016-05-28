@@ -83,7 +83,6 @@ function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
-	wp_register_script( 'jquery-visible', RHD_THEME_DIR . '/js/vendor/df-visible/jquery.visible.min.js', array( 'jquery'), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
