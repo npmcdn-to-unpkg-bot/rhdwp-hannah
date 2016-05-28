@@ -32,7 +32,7 @@ function rhd_project_init()
 		'show_in_nav_menus' => true,
 		'supports'          => array( 'title', 'editor', 'thumbnail' ),
 		'has_archive'       => true,
-		'rewrite'           => array( 'slug' => __( 'projects', 'rhd' ) ),
+		'rewrite'           => array( 'with_front' => true ),
 		'query_var'         => true,
 		'menu_icon'         => 'dashicons-portfolio',
 	) );
