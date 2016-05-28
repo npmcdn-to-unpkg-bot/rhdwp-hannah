@@ -80,6 +80,14 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			top: $("#masthead").height(),
 		});
 	}
+	
+	
+	function viewportIsSmall() {
+		if ( $(window).width() < 640 )
+			return true;
+		else
+			return false;
+	}
 
 
 	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
