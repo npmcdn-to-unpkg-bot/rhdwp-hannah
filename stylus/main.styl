@@ -39,8 +39,13 @@ body
 	
 	&.front-page
 		background-size auto 100%
-		background-position center center
 		background-repeat no-repeat
+
+		@media screen and (orientation landscape)
+			background-position center center
+		
+		@media screen and (orientation portrait)
+			background-position -6em center
 
 
 a
@@ -423,6 +428,20 @@ input[type="submit"]
 	.site-title
 	.menu-item a
 		color white
+		font-weight 700
+	
+	#hamburger
+		display none
+	
+	#site-navigation-container
+		-wrapper(1em, 0)
+		display block
+		
+		#site-navigation
+			-flexbox()
+		
+			li
+				-flexitem()
 
 
 /* ==========================================================================

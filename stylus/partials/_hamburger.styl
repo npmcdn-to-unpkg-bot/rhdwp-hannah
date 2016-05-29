@@ -37,6 +37,20 @@ $button-transistion-duration = 0.3s				// The tran * .75ition duration
 			background-color transparent
 
 
+.front-page
+	#hamburger
+		span
+			background-color white
+			
+			&::before
+			&::after
+				background-color (@background-color)
+		
+		&.is-active // currently set for .htx
+			span
+				background-color transparent
+
+
 /* ==========================================================================
 	Toggle Switch Globals
    ========================================================================== */
