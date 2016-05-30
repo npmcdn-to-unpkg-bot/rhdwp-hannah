@@ -45,6 +45,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$('#site-navigation-container').slideToggle();
 		});
 		
+		// Desktop sidebar min height lock
+		setSidebarMinHt();
+		
 		$window.resize(function(){
 			setSidebarMinHt();
 		});
@@ -56,9 +59,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Fix faux-flexbox
 		fixGridLayout();
-		
-		// Desktop sidebar min height lock
-		setSidebarMinHt(getSidebarMinHt());
 	}
 
 
@@ -80,8 +80,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	function getSidebarMinHt() {
 		var safety = 16; // Added margin
 		var h = safety + $('#page-featured-image').height() + parseInt($('#page-featured-image').css('marginBottom')) + $('#page-title-large').height() + $('#colophon-large').height() + parseInt($('#colophon-large').css('marginTop')) + parseInt($('#colophon-large').css('marginBottom'));
-		
-		console.log(h);
 		
 		return h;
 	}
