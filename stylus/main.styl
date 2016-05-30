@@ -466,9 +466,15 @@ input[type="submit"]
 	-soliloquy()
 
 
+.mobile-only
+	@media screen and (min-width 40em)
+		-invisible()
+
+
 .large-only
 	-invisible()
-
+		@media screen and (min-width 40em)
+			-invisible(false)
 
 /* ==========================================================================
 	Media Queries
