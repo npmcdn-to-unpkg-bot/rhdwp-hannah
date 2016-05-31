@@ -3,7 +3,11 @@
    ========================================================================== */
 
 // Variables
-$some-yellow = #f5c419
+$body = #3a3a3a
+$lt-blue = #5591d4
+$dk-blue = #33537f
+
+$mast-ht = 129px
 
 
 // Classes
@@ -94,17 +98,24 @@ placeholder-props( $famVal, $color)
 */
 
 
-opacity( $n )
+-opacity( $n )
 	-moz-opacity $n
 	-webkit-opacity $n
 	opacity $n
 
 
-border-radius( $n )
+-border-radius( $n )
 	-webkit-border-radius $n
 	-moz-border-radius $n
 	border-radius $n
 
-transform( $n )
+
+-transform( $n )
 	-webkit-transform $n
 	transform $n
+
+
+-transition($n)
+	-webkit-transition $n
+	-moz-transition $n
+	transition $n

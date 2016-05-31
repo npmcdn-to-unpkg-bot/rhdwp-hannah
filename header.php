@@ -35,7 +35,7 @@
 
 		<?php wp_head(); ?>
 
-	</head>
+</head>
 
 	<body <?php body_class( $body_classes ); ?>>
 		<!--[if lt IE 7]>
@@ -47,23 +47,38 @@
 				'theme_location' => 'primary',
 				'menu_id' => 'site-navigation',
 				'container' => 'nav',
-				'container_id' => 'site-navigation-container'
+				'container_id' => 'site-navigation-container',
+				'walker' => new RHD_Walker_Nav
+			);
+
+			$nav_args_mobile = array(
+				'theme_location' => 'primary',
+				'menu_id' => 'site-navigation-mobile',
+				'container' => 'nav',
+				'container_id' => 'site-navigation-mobile-container'
 			);
 		?>
 
-		<div class="sb-slidebar sb-left sb-style-push">
-			<?php wp_nav_menu( $nav_args_sb ); ?>
+		<div class="sb-slidebar sb-left sb-style-push sb-width-thin">
+			<?php wp_nav_menu( $nav_args_mobile ); ?>
+			<?php rhd_social( 'social-mobile' ); ?>
 		</div>
 
 		<div id="page" class="hfeed site sb-site-container">
 			<header id="masthead" class="site-header" role="banner">
-				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
+				<div class="masthead-content">
+					<h1 id="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 
-				<?php wp_nav_menu( $nav_args_main ); ?>
+					<button id="hamburger" class="sb-toggle-left cmn-toggle-switch cmn-toggle-switch__htla">
+						<span>Toggle nav</span>
+					</button>
 
-				<button class="hamburger sb-toggle-left cmn-toggle-switch">
-					<span>navigation</span>
-				</button>
+					<div id="nav-main">
+						<?php wp_nav_menu( $nav_args_main ); ?>
+
+						<?php rhd_social( 'social-main' ); ?>
+					</div>
+				</div>
 			</header><!-- #masthead -->
 
-			<main id="main" class="clearfix">
+			<main id="main">

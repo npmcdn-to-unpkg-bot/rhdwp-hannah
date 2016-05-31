@@ -34,10 +34,10 @@ function rhd_enqueue_styles(){
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'Slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), null, 'all' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Fanwood+Text|Julius+Sans+One' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,700,400italic' );
 
 	$normalize_deps = array(
-		// Slidebars,
+		Slidebars,
 	);
 
 	if ( !rhd_is_mobile() ) {
@@ -107,7 +107,7 @@ add_action( 'wp_enqueuescripts', 'rhd_register_jquery' );
 
 function rhd_add_editor_styles() {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Fanwood+Text|Julius+Sans+One';
+	$font_url = '//fonts.googleapis.com/css?family=Lato:400,700,400italic';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -152,6 +152,7 @@ add_action( 'wp_head', 'rhd_favicons' );
    ========================================================================== */
 
 // Sidebars
+/*
 function rhd_register_sidebars() {
 	register_sidebar(array(
 		'name'			=> __( 'Sidebar', 'rhd' ),
@@ -172,9 +173,23 @@ function rhd_register_sidebars() {
 	));
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
+*/
 
 // Menus
 register_nav_menu( 'primary', 'Main Site Navigation' );
+
+/**
+ * RHD_Walker_Nav class.
+ *
+ * Adds newlines after each </li> closing tag.
+ * 
+ * @extends Walker_Nav_Menu
+ */
+class RHD_Walker_Nav extends Walker_Nav_Menu {
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		$output .= "</li>\n";
+	}
+}
 
 // Includes and Requires
 //include_once( 'includes/rhd-admin-panel.php' );
@@ -221,7 +236,7 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
 add_theme_support( 'automatic-feed-links' );
 
 function rhd_image_sizes(){
-	//add_image_size( 'square', 200, 200, true );
+	add_image_size( 'page-featured', 400 );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
@@ -230,36 +245,51 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
    Roundhouse Admin Branding
    ========================================================================== */
 
+/* ==========================================================================
+   Roundhouse Admin Branding
+   ========================================================================== */
+
 // External login link
-function rhd_branding_login(){
+function rhd_branding_login()
+{
 	return "//roundhouse-designs.com/";
 }
 add_filter('login_headerurl', 'rhd_branding_login');
 
+
 // Site Title as "login message" (underneath RHD logo)
-function rhd_login_message() { ?>
-	<h1 class="rhd-login-site-title"><?php bloginfo('name'); ?></h1>
-<?php }
+function rhd_login_message() {
+	echo '<h1 class="rhd-login-site-title">' . get_bloginfo('name') . "</h1>\n";
+}
 add_action( 'login_message', 'rhd_login_message' );
 
+
 // Roundhouse Branding CSS
-function rhd_login() {
+function rhd_login()
+{
 	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/rhd/rhd-login.css' );
 }
 add_action('login_head', 'rhd_login');
-function rhd_admin() {
+
+
+function rhd_admin()
+{
 	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/rhd/rhd-admin.css' );
 }
 add_action('admin_head', 'rhd_admin');
 
+
 // Custom WordPress Footer
-function rhd_footer_admin () {
-	echo '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
+function rhd_footer_admin ()
+{
+	return '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
 }
 add_filter('admin_footer_text', 'rhd_footer_admin');
 
+
 // Remove 'Editor' panel
-function rhd_remove_editor_menu() {
+function rhd_remove_editor_menu()
+{
   remove_action('admin_menu', '_add_themes_utility_last', 101);
 }
 add_action('_admin_menu', 'rhd_remove_editor_menu', 1);
@@ -539,3 +569,19 @@ add_filter('widget_title', 'rhd_title_check_hidden');
 	Theme Functions and Customizations
    ========================================================================== */
 
+/**
+ * rhd_social function.
+ *
+ * @access public
+ * @param mixed $menu_id (default: null)
+ * @return void
+ */
+function rhd_social( $menu_id = null ) {
+	?>
+	<ul id="<?php echo $menu_id; ?>" class="social">
+		<li><a href="//www.facebook.com/matt.s.greenberg" target="_blank"><img src="<?php echo RHD_IMG_DIR; ?>/facebook.png" alt="Facebook"></a></li>
+		<li><a href="//twitter.com/celiactor" target="_blank"><img src="<?php echo RHD_IMG_DIR; ?>/twitter.svg" alt="Instagram"></a></li>
+		<li><a href="//instagram.com/mattaspen22" target="_blank"><img src="<?php echo RHD_IMG_DIR; ?>/instagram.png" alt="Instagram"></a></li>
+	</ul>
+	<?php
+}
