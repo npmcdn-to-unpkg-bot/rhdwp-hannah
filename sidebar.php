@@ -12,26 +12,24 @@
 <?php global $post; ?>
 
 <aside id="secondary" class="widget-area" role="complementary">
-	<div class="secondary-scroll">
-		<div id="page-title-mobile" class="widget rhd-static-widget secondary-page-title mobile-only">
-			<h2 class="page-title"><?php echo $post->post_title; ?></h2>
-		</div>
-		
-		<div id="page-featured-image" class="widget rhd-static-widget">
-			<?php rhd_featured_img( $post->ID, 'large' ); ?>
-		</div>
-		
-		<div id="page-title-large" class="widget rhd-static-widget secondary-page-title large-only">
-			<h2 class="page-title"><?php echo $post->post_title; ?></h2>
-		</div>
-		
-		<?php
-		if ( is_active_sidebar( 'sidebar' ) )
-			dynamic_sidebar( 'sidebar' );
-		?>
-		
-		<footer id="colophon-large" class="colophon large-only">
-			<?php rhd_footer_content(); ?>
-		</footer><!-- #colophon -->
+	<div id="page-title-mobile" class="widget rhd-static-widget secondary-page-title mobile-only">
+		<h2 class="page-title"><?php echo $post->post_title; ?></h2>
 	</div>
+	
+	<div id="page-featured-image" class="widget rhd-static-widget">
+		<?php rhd_featured_img( $post->ID, 'large' ); ?>
+	</div>
+	
+	<div id="page-title-large" class="widget rhd-static-widget secondary-page-title large-only">
+		<h2 class="page-title"><?php echo $post->post_title; ?></h2>
+	</div>
+	
+	<?php
+	if ( is_active_sidebar( 'sidebar' ) )
+		dynamic_sidebar( 'sidebar' );
+	?>
+	
+	<footer id="colophon-large" class="colophon large-only">
+        <?php rhd_footer_content(); ?>
+    </footer><!-- #colophon -->
 </aside><!-- #secondary -->

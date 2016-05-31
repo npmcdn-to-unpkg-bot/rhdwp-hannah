@@ -82,8 +82,10 @@
 
 	#secondary
 		width 30%
-		height 100vh
-		position fixed
+		height auto
+		min-height 100vh
+		position absolute
+		top 0
 		left 0
 		background-color $c_sec
 		color white
@@ -102,9 +104,10 @@
 	
 	#colophon-large
 		width 100%
+		margin 1em 0 2em 0
 		position absolute
 		bottom 1em
-		margin 1em 0
+		transition all 0.25s
 		
 		.site-info
 			font-size 0.8em
