@@ -601,3 +601,18 @@ function rhd_get_metabar_search_form()
                     </div>
                 </form>';
 }
+
+
+/**
+ * rhd_is_last_post function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_is_last_post() {
+	global $wp_query;
+
+	if ( $wp_query->current_post + 1 < $wp_query->post_count )
+		return false;
+	else return true;
+}
