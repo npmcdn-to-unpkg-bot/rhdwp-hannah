@@ -49,12 +49,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$("#site-title-large").fitText();
 		
 		// Desktop sidebar min height lock
-		if (viewportIsSmall())
-			setSidebarMinHt();
+		setSidebarMinHt();
 		
 		$window.resize(function(){
-			if (viewportIsSmall())
-				setSidebarMinHt();
+			setSidebarMinHt();
 		});
 	});
 

@@ -1,4 +1,4 @@
-@media screen and (min-width 40em)	
+@media screen and (min-width 40rem)
 	body
 		&.front-page
 			background-size cover
@@ -60,6 +60,9 @@
 		a
 			img
 				@extends .entry-content img
+		
+		.wp-post-image // thumbnails
+			-wrapper(0, 0, 60%)
 
 	// Structure
 	#main
@@ -88,6 +91,7 @@
 		.widget
 			width 100%
 			padding 0 10px
+			margin-bottom 1.5em
 		
 			&.rhd-static-widget
 				padding 0
@@ -109,7 +113,7 @@
 		display none
 				
 
-@media screen and (min-width 50em)
+@media screen and (min-width 50rem)
 	#site-title-large
 		font-size 4em
 		font-size 7.7vw
