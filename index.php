@@ -21,7 +21,13 @@ if ( get_post_type() == 'post' && is_single() ) wp_redirect( home_url( '/news' )
 
 			<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'template-parts/content' ); ?>
+					
+					<?php if ( ! rhd_is_last_post() ) : ?>
+						<hr class="post-sep">
+					<?php endif; ?>
+					
 			<?php endwhile; ?>
+			
 		<?php else : ?>
 
 			<article id="post-0" class="post no-results not-found">

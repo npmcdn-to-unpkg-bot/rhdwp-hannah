@@ -7,28 +7,44 @@
  */
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<header class="entry-header">
-			<h2 class="entry-title">
-				><?php the_title(); ?>
-			</h2>
-		</header><!-- .entry-header -->
+<?php $ext_link = do_shortcode( '[ct id="_ct_text_574dfe5c8c82c" property="value"]' ); ?>
 
-		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
-			<div class="entry-summary">
-				<?php the_excerpt(); ?>
-			</div><!-- .entry-summary -->
-		<?php else : ?>
-			<div class="entry-content">
-				<?php if ( ! is_single() && has_post_thumbnail() ) the_post_thumbnail( 'large' ); ?>
-					
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="entry-header">
+		<h2 class="entry-title">
+			<?php if ( $ext_link ) : ?>
+				<a href="<?php echo $ext_link; ?>" target="_blank">
+					<?php the_title(); ?>
+				</a>
+			<?php else : ?>
+				<?php the_title(); ?>
+			<?php endif; ?>
+		</h2>
+	</header><!-- .entry-header -->
 
-			</div><!-- .entry-content -->
-		<?php endif; ?>
+	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-summary -->
+	<?php else : ?>
+		<div class="entry-content">
+			<?php if ( ! is_single() && has_post_thumbnail() ) : ?>
+				<?php if ( $ext_link ) : ?>
+					<a href="<?php echo $ext_link; ?>" target="_blank">
+						<?php the_post_thumbnail( 'large' ); ?>
+					</a>
+				<?php else : ?>
+					<?php the_post_thumbnail( 'large' ); ?>
+				<?php endif; ?>
+			<?php endif; ?>
+				
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
+			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
 
-		<footer class="entry-meta">
-			<p><?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
-		</footer><!-- .entry-meta -->
-	</article><!-- #post -->
+		</div><!-- .entry-content -->
+	<?php endif; ?>
+
+	<footer class="entry-meta">
+		<p><?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
+	</footer><!-- .entry-meta -->
+</article><!-- #post -->

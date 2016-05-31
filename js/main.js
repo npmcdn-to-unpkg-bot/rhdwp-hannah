@@ -46,7 +46,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		});
 		
 		// FitText title
-		$("#site-title-large").fitText();
+		$("#site-title-large").fitText(0.9);
 		
 		// Desktop sidebar min height lock
 		sidebarScroll();
