@@ -45,11 +45,16 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$('#site-navigation-container').slideToggle();
 		});
 		
+		// FitText title
+		$("#site-title-large").fitText();
+		
 		// Desktop sidebar min height lock
-		setSidebarMinHt();
+		if (viewportIsSmall())
+			setSidebarMinHt();
 		
 		$window.resize(function(){
-			setSidebarMinHt();
+			if (viewportIsSmall())
+				setSidebarMinHt();
 		});
 	});
 

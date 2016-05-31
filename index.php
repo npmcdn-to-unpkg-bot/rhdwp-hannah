@@ -7,6 +7,8 @@
  */
 
 get_header();
+
+if ( get_post_type() == 'post' && is_single() ) wp_redirect( home_url( '/news' ), 301 );
 ?>
 	
 	<div id="content" role="main">

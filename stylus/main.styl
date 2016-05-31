@@ -110,7 +110,7 @@ input[type="submit"]
 
 #site-title-mobile
 	font-size 2.6em
-	font-size 11vw
+	font-size 10vw
 
 
 #site-navigation-container
@@ -197,8 +197,6 @@ input[type="submit"]
 
 #colophon-mobile
 	background $c_sec
-	position absolute
-	bottom 0
 	
 	.site-info
 		padding 0.5em 0
@@ -402,7 +400,6 @@ input[type="submit"]
 #secondary
 	.widget
 		width 100%
-		margin-bottom 1.5em
 
 	.widget:last-child
 		margin-bottom 0
@@ -418,6 +415,11 @@ input[type="submit"]
 		.page-title
 			padding 1em 0
 			margin-bottom 0
+	
+	#page-featured-image
+		img
+			width 100%
+			height auto
 
 
 /* ==========================================================================
@@ -442,6 +444,10 @@ input[type="submit"]
 		
 			li
 				-flexitem()
+	
+	#colophon-mobile
+		position absolute
+		bottom 0
 
 
 /* ==========================================================================
