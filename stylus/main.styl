@@ -241,6 +241,9 @@ input[type="submit"]
 		&.aligncenter
 			display block
 			margin 0 auto
+		
+	iframe
+		max-width 100%
 
 
 .blog-area
@@ -357,6 +360,30 @@ input[type="submit"]
 		max-width none
 		height auto
 		margin 0
+	
+	
+	#content
+		background white
+		padding-bottom 2em
+	
+	
+	#colophon
+		margin-top 0
+
+
+	.news-grid
+		width 100%
+
+		.news-grid-item
+			text-align center
+			margin-bottom 1em
+
+			.entry-title
+				margin 0.8em 0 0.25em
+
+	.morenews
+		margin 2em auto 0 auto
+		font-size 1.2em
 
 
 	.home-big-img
@@ -458,6 +485,25 @@ input[type="submit"]
 	.front-page
 		#main
 			bottom $mast-ht
+		
+		.news-grid
+			wrapper()
+			flexbox()
+
+			.news-grid-item
+				width 31%
+				flexitem()
+				vertical-align top
+				
+				.entry-thumbnail
+					display block
+					padding 0
+				
+				.entry-title
+					text-align center
+
+		.morenews
+			margin 0 auto
 
 
 	#content

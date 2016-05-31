@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:32:32 PM on 10-09-2015
+* RHD Dev: Compiled at 12:33:44 PM on 31-05-2016
 ***/
 
 .unselectable {
@@ -12,6 +12,30 @@
 .invisible {
   visibility: hidden;
   position: absolute;
+}
+.ghost-button {
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  margin: 1em auto;
+}
+.ghost-button a {
+  padding: 0.4em 0.8em;
+  text-decoration: none !important;
+  background-color: #5591d4;
+  border: 3px solid #5591d4;
+  border-radius: 0.1em;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.ghost-button a:link,
+.ghost-button a:visited {
+  color: #fff;
+}
+.ghost-button a:hover,
+.ghost-button a:active {
+  background-color: #33537f;
+  border-color: #33537f;
 }
 /* ==========================================================================
 	MEDIA QUERIES

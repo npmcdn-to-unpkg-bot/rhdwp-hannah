@@ -119,3 +119,32 @@ placeholder-props( $famVal, $color)
 	-webkit-transition $n
 	-moz-transition $n
 	transition $n
+	
+
+/* ==========================================================================
+	Ghost Buttons
+   ========================================================================== */
+
+.ghost-button
+	width auto
+	max-width 100%
+	text-align center
+	margin 1em auto
+
+	a
+		padding 0.4em .8em
+		text-decoration none !important
+		background-color $lt-blue
+		border 3px solid $lt-blue
+		border-radius 0.1em
+		display inline-block
+		transition all 0.2s
+
+		&:link
+		&:visited
+			color white
+
+		&:hover
+		&:active
+			background-color $dk-blue
+			border-color $dk-blue

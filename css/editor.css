@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:32:32 PM on 10-09-2015
+* RHD Dev: Compiled at 12:33:44 PM on 31-05-2016
 ***/
 
 /**
@@ -15,6 +15,30 @@
 .invisible {
   visibility: hidden;
   position: absolute;
+}
+.ghost-button {
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  margin: 1em auto;
+}
+.ghost-button a {
+  padding: 0.4em 0.8em;
+  text-decoration: none !important;
+  background-color: #5591d4;
+  border: 3px solid #5591d4;
+  border-radius: 0.1em;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.ghost-button a:link,
+.ghost-button a:visited {
+  color: #fff;
+}
+.ghost-button a:hover,
+.ghost-button a:active {
+  background-color: #33537f;
+  border-color: #33537f;
 }
 @font-face {
   font-family: 'NeoRetro Fill';
@@ -930,6 +954,9 @@ input[type="submit"]:hover {
   display: block;
   margin: 0 auto;
 }
+.entry-content iframe {
+  max-width: 100%;
+}
 .blog-area #main .post .entry-header {
   text-align: center;
   margin-bottom: 1em;
@@ -1027,6 +1054,27 @@ input[type="submit"]:hover {
   height: auto;
   margin: 0;
 }
+.front-page #content {
+  background: #fff;
+  padding-bottom: 2em;
+}
+.front-page #colophon {
+  margin-top: 0;
+}
+.front-page .news-grid {
+  width: 100%;
+}
+.front-page .news-grid .news-grid-item {
+  text-align: center;
+  margin-bottom: 1em;
+}
+.front-page .news-grid .news-grid-item .entry-title {
+  margin: 0.8em 0 0.25em;
+}
+.front-page .morenews {
+  margin: 2em auto 0 auto;
+  font-size: 1.2em;
+}
 .front-page .home-big-img {
   max-width: 100%;
   height: auto;
@@ -1120,6 +1168,33 @@ input[type="submit"]:hover {
   }
   .front-page #main {
     bottom: 129px;
+  }
+  .front-page .news-grid {
+    width: 85%;
+    max-width: 64em;
+    position: relative;
+    margin: 0 auto 0 auto;
+    text-align: justify;
+  }
+  .front-page .news-grid:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
+  }
+  .front-page .news-grid .news-grid-item {
+    width: 31%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .front-page .news-grid .news-grid-item .entry-thumbnail {
+    display: block;
+    padding: 0;
+  }
+  .front-page .news-grid .news-grid-item .entry-title {
+    text-align: center;
+  }
+  .front-page .morenews {
+    margin: 0 auto;
   }
   #content {
     width: 85%;
