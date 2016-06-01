@@ -78,26 +78,29 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	
 	
 	function sidebarScroll() {
-		$('#secondary').imagesLoaded().done(function(i){
-			if ( $('#secondary').height() <= ( $window.scrollTop() + $window.height() ) ) {
-				$('#secondary').css({
-					position: 'fixed',
-					top: $window.height() - $('#secondary').height(),
-					left: 0
-				});
-			} else {
-				$('#secondary').removeAttr('style');
-			}
-			
-			if ( $window.height() < ( $('#secondary').height() + 15 ) ) {
-				$('#colophon-large').css({
-					position: 'relative',
-					bottom: '0'
-				});
-			} else {
-				$('#colophon-large').removeAttr('style');
-			}
-		});
+		// Make sure not already at top...
+		if ( $window.scrollTop() >= 0 ) {
+			$('#secondary').imagesLoaded().done(function(i){
+				if ( $('#secondary').height() <= ( $window.scrollTop() + $window.height() ) ) {
+					$('#secondary').css({
+						position: 'fixed',
+						top: $window.height() - $('#secondary').height(),
+						left: 0
+					});
+				} else {
+					$('#secondary').removeAttr('style');
+				}
+				
+				if ( $window.height() < ( $('#secondary').height() + 15 ) ) {
+					$('#colophon-large').css({
+						position: 'relative',
+						bottom: '0'
+					});
+				} else {
+					$('#colophon-large').removeAttr('style');
+				}
+			});
+		}
 	}
 	
 	
