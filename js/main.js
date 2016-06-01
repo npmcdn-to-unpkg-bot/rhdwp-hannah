@@ -29,16 +29,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	$(document).ready(function(){
 		rhdInit();
-
-		// Metabar dropdowns
-		$('.rhd-dropdown-title').click(function(e){
-			e.preventDefault();
-
-			var $this = $(this),
-				$dd = $this.siblings('ul');
-
-			$dd.slideToggle();
-		});
 		
 		// Nav dropdown
 		$('#hamburger').click(function(){
@@ -49,9 +39,18 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$("#site-title-large").fitText(0.9);
 		
 		// Desktop sidebar min height lock
-		sidebarScroll();
-		$window.scroll(sidebarScroll);
-		$window.resize(sidebarScroll);
+		if ( !viewportIsSmall() )
+			sidebarScroll();
+		
+		$window.scroll(function(){
+			if ( !viewportIsSmall() )
+				sidebarScroll();
+		});
+		
+		$window.resize(function(){
+			if ( !viewportIsSmall() )
+				sidebarScroll();
+		});
 	});
 
 
@@ -90,7 +89,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 				$('#secondary').removeAttr('style');
 			}
 			
-			if ( $window.height() < ( $('#secondary').height() + 5 ) ) {
+			if ( $window.height() < ( $('#secondary').height() + 15 ) ) {
 				$('#colophon-large').css({
 					position: 'relative',
 					bottom: '0'
