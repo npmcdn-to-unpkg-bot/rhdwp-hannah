@@ -6,7 +6,7 @@
 		height auto
 
 		.navbar-inner
-			-wrapper(0, 0, 85%)
+			-wrapper(0, 0, 90%)
 			height auto
 
 			.nav-dropdown
@@ -43,6 +43,7 @@
 
 	#header-search
 		width 36.5%
+		right 0
 
 	#comments
 		#commentform
@@ -102,9 +103,9 @@
 				@extends .entry-content img
 
 	#header-widget-area
-		width 35%
+		width 16em
 		height 90%
-		right 5em
+		right 1.5em
 		-vcenter()
 		display block
 		z-index 800
@@ -114,17 +115,13 @@
 			height 100%
 			
 			.rhd-social-icon
-				width 1.5em
+				width 1.3em
 				height @height
 				margin 0 0.15em
 				position relative
 				
 				.rhd-icon
 					-vcenter()
-				
-				.pinterest-icon
-				.periscope-icon
-					height 64%
 
 	#footer-widget-area
 		.rhd_mailchimp

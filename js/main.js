@@ -71,7 +71,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			if (!isExpanded) {
 				e.preventDefault();
 				
-				$('.widget_rhd_social_icons').fadeOut('fast');
+				$('#navbar .widget_rhd_social_icons').fadeOut('fast');
 								
 				$('#header-search').css('zIndex', 999);
 
@@ -92,7 +92,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		// Detect ESC key in header search bar
 		$(document).keyup(function(e) {
 			if ( e.keyCode == 27 && isExpanded ) {
-				$('.widget_rhd_social_icons').fadeIn('fast');
+				$('#navbar .widget_rhd_social_icons').fadeIn('fast');
 				
 				$('#header-search .search-field').animate({
 					width: 0,
