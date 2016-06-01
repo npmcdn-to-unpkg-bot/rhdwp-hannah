@@ -20,6 +20,14 @@ var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
 var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
+// Search field globals
+var searchW,
+	searchPT,
+	searchPR,
+	searchPL,
+	searchB,
+	isExpanded;
+	
 
 /* ==========================================================================
 	Let 'er rip...
@@ -55,53 +63,19 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		}
 
 		// Navbar search expansion
-		searchW = $('#header-search .search-field').width();
-		searchPT = $('#header-search .search-field').css('paddingTop');
-		searchPR = $('#header-search .search-field').css('paddingRight');
-		searchPL = $('#header-search .search-field').css('paddingLeft');
-		searchB = $('#header-search .search-field').css('borderWidth');
-		$('#header-search .search-field').css({
-			width: 0,
-			padding: 0,
-			borderWidth: 0
-		});
-		isExpanded = false;
+		setSearchDefaults();
 
 		$('#header-search .search-submit').click(function(e){
 			if (!isExpanded) {
 				e.preventDefault();
-				
-				$('#navbar .widget_rhd_social_icons').fadeOut('fast');
-								
-				$('#header-search').css('zIndex', 999);
-
-				$('#header-search .search-field')
-					.animate({ borderWidth: searchB }, 100)
-					.animate({
-						width: searchW,
-						paddingTop: searchPT,
-						paddingRight: searchPR,
-						paddingBottom: searchPT,
-						paddingLeft: searchPL
-					}, 'fast', 'easeOutExpo', function(){
-						isExpanded = true;
-					});
+				expandSearchBar();
 			}
 		});
 		
 		// Detect ESC key in header search bar
 		$(document).keyup(function(e) {
 			if ( e.keyCode == 27 && isExpanded ) {
-				$('#navbar .widget_rhd_social_icons').fadeIn('fast');
-				
-				$('#header-search .search-field').animate({
-					width: 0,
-					padding: 0,
-					borderWidth: 0
-				}, 'fast', 'easeOutExpo', function(){
-					$('#header-search').css('zIndex', 0);
-					isExpanded = false;
-				});
+				collapseSearchBar();
 			}
 		});
 	});
@@ -109,12 +83,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	function rhdInit() {
 		// wpAdminBarPush();
-
-		/*
-		$.slidebars({
-			siteClose: false,
-		});
-		*/
 
 		toggleBurger();
 
@@ -180,6 +148,55 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$(".entry-content").removeClass('strip-active');
 
 		$(".entry-content").html(postContent);
+	}
+	
+	
+	function setSearchDefaults() {
+		searchW = $('#header-search .search-field').width();
+		searchPT = $('#header-search .search-field').css('paddingTop');
+		searchPR = $('#header-search .search-field').css('paddingRight');
+		searchPL = $('#header-search .search-field').css('paddingLeft');
+		searchB = $('#header-search .search-field').css('borderWidth');
+		$('#header-search .search-field').css({
+			width: 0,
+			padding: 0,
+			borderWidth: 0
+		});
+
+		isExpanded = false;
+	}
+	
+	
+	function expandSearchBar() {
+		$('#navbar .widget_rhd_social_icons').fadeOut('fast');
+								
+		$('#header-search').css('zIndex', 999);
+
+		$('#header-search .search-field')
+			.animate({ borderWidth: searchB }, 100)
+			.animate({
+				width: searchW,
+				paddingTop: searchPT,
+				paddingRight: searchPR,
+				paddingBottom: searchPT,
+				paddingLeft: searchPL
+			}, 'fast', 'easeOutExpo', function(){
+				isExpanded = true;
+			});
+	}
+	
+	
+	function collapseSearchBar() {
+		$('#navbar .widget_rhd_social_icons').fadeIn('fast');
+				
+		$('#header-search .search-field').animate({
+			width: 0,
+			padding: 0,
+			borderWidth: 0
+		}, 'fast', 'easeOutExpo', function(){
+			$('#header-search').css('zIndex', 0);
+			isExpanded = false;
+		});
 	}
 
 })(jQuery);
