@@ -273,6 +273,15 @@ function rhd_register_sidebars()
 		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</div>'
 	));
+	
+	register_sidebar( array(
+		'name'			=> __( 'Header Widget Area', 'rhd' ),
+		'id'			=> 'header-widget-area',
+		'before_title'	=> '<h2 class="widget-title">',
+		'after_title'	=> '</h2>',
+		'before_widget' => '<div id="%1$s" class="widget header-widget %2$s">',
+		'after_widget'  => '</div>'
+	));
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
 
@@ -548,7 +557,7 @@ function rhd_ajax_pagination()
 	if( $posts->have_posts() ) {
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
-			get_template_part( 'content', 'excerpt' );
+			get_template_part( 'template-parts/content', 'excerpt' );
 		}
 	}
 	wp_reset_postdata();

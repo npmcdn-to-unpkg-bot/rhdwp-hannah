@@ -53,6 +53,8 @@
 						</div>
 						<!-- social -->
 
+						<?php get_sidebar( 'header' ); ?>
+						
 						<div id="header-search">
 							<?php rhd_navbar_search_form(); ?>
 						</div>

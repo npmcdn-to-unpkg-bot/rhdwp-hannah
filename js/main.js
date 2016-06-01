@@ -70,6 +70,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$('#header-search .search-submit').click(function(e){
 			if (!isExpanded) {
 				e.preventDefault();
+				
+				$('.widget_rhd_social_icons').fadeOut('fast');
+								
+				$('#header-search').css('zIndex', 999);
 
 				$('#header-search .search-field')
 					.animate({ borderWidth: searchB }, 100)
@@ -82,6 +86,22 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 					}, 'fast', 'easeOutExpo', function(){
 						isExpanded = true;
 					});
+			}
+		});
+		
+		// Detect ESC key in header search bar
+		$(document).keyup(function(e) {
+			if ( e.keyCode == 27 && isExpanded ) {
+				$('.widget_rhd_social_icons').fadeIn('fast');
+				
+				$('#header-search .search-field').animate({
+					width: 0,
+					padding: 0,
+					borderWidth: 0
+				}, 'fast', 'easeOutExpo', function(){
+					$('#header-search').css('zIndex', 0);
+					isExpanded = false;
+				});
 			}
 		});
 	});

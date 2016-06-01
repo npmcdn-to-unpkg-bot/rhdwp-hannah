@@ -101,6 +101,31 @@
 			img
 				@extends .entry-content img
 
+	#header-widget-area
+		width 35%
+		height 90%
+		right 5em
+		-vcenter()
+		display block
+		z-index 800
+		
+		.widget_rhd_social_icons
+		.rhd_social_icons
+			height 100%
+			
+			.rhd-social-icon
+				width 1.5em
+				height @height
+				margin 0 0.15em
+				position relative
+				
+				.rhd-icon
+					-vcenter()
+				
+				.pinterest-icon
+				.periscope-icon
+					height 64%
+
 	#footer-widget-area
 		.rhd_mailchimp
 			-wrapper(0, 0, 75%)
