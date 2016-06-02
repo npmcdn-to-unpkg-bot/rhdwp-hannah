@@ -23,13 +23,19 @@ get_header(); ?>
 			<?php endif; ?>
 		</section>
 		
+		<hr class="goldsep">
+		
 		<section id="front-page-sections">
-			
+			<h2 class="section-title">what are you looking for?</h2>
 		</section>
+		
+		<hr class="goldsep">
 		
 		<section id="front-page-video">
 			
 		</section>
+		
+		<hr class="goldsep">
 		
 		<section id="front-page-posts">
 			<?php
@@ -43,13 +49,15 @@ get_header(); ?>
 			?>
 			
 			<?php if ( $fpq->have_posts() ) : ?>
-				<?php while ( $fpq->have_posts() ) : $fpq->the_post(); ?>
-					<?php get_template_part( 'template-parts/content', 'recent' ); ?>
-				<?php endwhile; ?>
+				<div class="rhd-recent-posts">
+					<?php while ( $fpq->have_posts() ) : $fpq->the_post(); ?>
+						<?php get_template_part( 'template-parts/content', 'recent' ); ?>
+					<?php endwhile; ?>
+				</div>
 			<?php endif; ?>
 		</section>
 
-	</div><!-- #content -->
-</section><!-- #primary -->
+	</div>
+</section>
 
 <?php get_footer(); ?>

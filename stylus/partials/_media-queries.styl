@@ -60,6 +60,21 @@
 			#submit
 				width auto
 				padding-left 0.8em
+	
+	// Front Page
+	.front-page
+		#content
+			> section
+				-wrapper(2em, 2em, 100%, 70rem)
+	
+	// Recent Posts
+	.rhd-recent-posts
+		-flexbox()
+		
+		.recent-post
+			width 31%
+			-flexitem()
+			vertical-align top
 
 	// Image Strip
 	#primary
@@ -119,26 +134,26 @@
 				height @height
 				margin 0 0.15em
 				position relative
+				bottom 0.025em // pixel push
 				
 				.rhd-icon
 					-vcenter()
 
-	#footer-widget-area
-		.rhd_mailchimp
-			-wrapper(0, 0, 75%)
+	.rhd-mailchimp-container
+		-wrapper(0, 0, 75%)
 
-			input
-				margin 0 0.5%
+		input
+			margin 0 0.5%
 
-			.rhd_mc_fname
-			.rhd_mc_email
-				width 37%
-				display inline-block
+		.rhd-mc-fname
+		.rhd-mc-email
+			width 37%
+			display inline-block
 
-			.rhd_mc_submit
-				width 16%
-				min-width 82px
-				display inline-block
+		.rhd-mc-submit
+			width 16%
+			min-width 82px
+			display inline-block
 
 
 // Fixed-width 320px sidebar

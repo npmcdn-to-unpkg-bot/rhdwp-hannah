@@ -111,10 +111,6 @@ input[type="submit"]
 			display block
 
 
-#masthead
-	-goldborder()
-
-
 .site-title
 	-wrapper(0, 0, 75%, 30rem)
 	text-align center
@@ -206,15 +202,18 @@ input[type="submit"]
 			z-index 999
 			background url('../img/search.png') no-repeat center
 			background-size 90% auto
+	
+	.close-search	
+		-vcenter()
+		right 1.7em
+		font-weight 400
+		color $c_text_lt
+		font-size 1.1em
+		display none
 
 
 #main
-	-goldborder()
 	box-sizing border-box
-
-	.border-inner
-		-clearfix()
-		padding 2em 0
 
 
 #content-wrapper
@@ -274,15 +273,6 @@ input[type="submit"]
 		-ff-courier()
 		color $c_text
 
-	.rhd_mc_submit
-		margin 0 auto
-		-ghost-button()
-		display block
-		border-width 2px
-		font-size 1em
-		padding-top 0.375em
-		padding-bottom 0.375em
-
 	.widget_rhd_social_icons
 		-wrapper(0, 0, 100%, 50rem)
 	
@@ -304,6 +294,7 @@ input[type="submit"]
 .widget-title
 	margin-top 0
 	line-height 1
+	text-align center
 
 
 .page-title
@@ -522,11 +513,68 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.front-page
+	#content-wrapper
+		-unwrapper()
+	
+	#content
+		> section
+			-wrapper(2em, 2em, 90%)
+		
+			.section-title
+				@extends .page-title
+				font-size 2.2em
+				color $c_sec
+			
+			.rhd-recent-posts
+				-wrapper(2em, 2em, 75%)
+		
+
+/* ==========================================================================
 	Extras
    ========================================================================== */
 
 #primary
 	-soliloquy()
+	
+
+.goldsep
+	width 100%
+	height $sep_h
+	background-image url($updir + '/2016/05/goldleaf.jpg')
+	background-repeat repeat
+	background-size cover
+
+
+.rhd-mailchimp-container
+	.widget-title
+		-ff-courier()
+		color $c_text
+		
+	.rhd-mc-submit
+		margin 0 auto
+		-ghost-button()
+		display block
+		border-width 2px
+		font-size 1em
+		padding-top 0.375em
+		padding-bottom 0.375em
+
+
+// Recent Posts
+.recent-post
+	.entry-title
+		margin-top 0.5em
+		
+		a
+			color inherit
+			
+			&:hover
+			&:active
+				color $c_sec
 
 
 /* ==========================================================================

@@ -97,5 +97,6 @@ function rhd_navbar_search_form()
                     <input type="text" value="" class="search-field" name="s" />
                     <input type="submit" class="search-submit" value="" />
                 </div>
+                <a class="close-search" href="#">X</a>
             </form>';
 }

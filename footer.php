@@ -9,10 +9,10 @@
  * @subpackage rhd
  */
 ?>
-
-			</div><!-- #content-wrapper -->
-		</div><!-- #main .border-inner -->
+		</div><!-- #content-wrapper -->
 	</main><!-- #main -->
+	
+	<hr class="goldsep">
 
     <footer id="colophon">
         <?php get_sidebar( 'footer' ); ?>
@@ -21,8 +21,8 @@
 			<p>
 				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '| '; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a>
             </p>
-        </div><!-- .site-info -->
-    </footer><!-- #colophon -->
+        </div>
+    </footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

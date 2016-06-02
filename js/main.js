@@ -72,7 +72,12 @@ var searchW,
 			}
 		});
 		
-		// Detect ESC key in header search bar
+		// Close header search by clicking 'X' or ESC
+		$('.close-search').click(function(e){
+			e.preventDefault();
+			collapseSearchBar();
+		});
+		
 		$(document).keyup(function(e) {
 			if ( e.keyCode == 27 && isExpanded ) {
 				collapseSearchBar();
@@ -182,6 +187,7 @@ var searchW,
 				paddingLeft: searchPL
 			}, 'fast', 'easeOutExpo', function(){
 				isExpanded = true;
+				$('.close-search').fadeIn('fast');
 			});
 	}
 	
@@ -196,6 +202,7 @@ var searchW,
 		}, 'fast', 'easeOutExpo', function(){
 			$('#header-search').css('zIndex', 0);
 			isExpanded = false;
+			$('.close-search').fadeOut('fast');
 		});
 	}
 

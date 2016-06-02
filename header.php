@@ -66,13 +66,12 @@
 				</div>
 
 				<div id="masthead">
-					<div class="border-inner">
-						<h1 class="invisible"><?php bloginfo( 'name' ); ?></h1>
-						<a href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
-					</div>
+					<h1 class="invisible"><?php bloginfo( 'name' ); ?></h1>
+					<a href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
 				</div>
 			</header><!-- #masthead -->
+			
+			<hr class="goldsep">
 
 			<main id="main">
-				<div class="border-inner">
-					<div id="content-wrapper">
+				<div id="content-wrapper">
