@@ -97,5 +97,5 @@ if ( post_password_required() )
 			comment_form($comment_args);
 		?>
 	</div>
-
-</div><!-- #comments .comments-area -->
+	
+</div>

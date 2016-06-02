@@ -13,7 +13,7 @@ get_header(); ?>
 
 			<header class="page-header">
 				<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
-			</header><!-- .page-header -->
+			</header>
 
 			<?php if ( have_posts() ) : ?>
 
@@ -34,7 +34,7 @@ get_header(); ?>
 
 					<div class="entry-content">
 						<p><?php printf( __( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'rhd' ), admin_url( 'post-new.php' ) ); ?></p>
-					</div><!-- .entry-content -->
+					</div>
 
 				<?php else :
 					// Show the default message to everyone else.
@@ -49,14 +49,14 @@ get_header(); ?>
 					</div><!-- .entry-content -->
 				<?php endif; // end current_user_can() check ?>
 
-				</article><!-- #post-0 -->
+				</article>
 
 			<?php endif; // end have_posts() check ?>
 
-		</div><!-- #content -->
+		</div>
 
 		<?php rhd_archive_pagination(); ?>
 
-	</section><!-- #primary -->
+	</section>
 
 <?php get_footer(); ?>

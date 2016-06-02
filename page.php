@@ -21,8 +21,8 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-	</div><!-- #content -->
-</section><!-- #primary -->
+	</div>
+</section>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
