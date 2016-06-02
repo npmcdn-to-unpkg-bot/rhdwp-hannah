@@ -91,12 +91,38 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
  */
 function rhd_navbar_search_form()
 {
-        echo '
-            <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
-                <div>
-                    <input type="text" value="" class="search-field" name="s" />
-                    <input type="submit" class="search-submit" value="" />
-                </div>
-                <a class="close-search" href="#">X</a>
-            </form>';
+	$output = '
+		<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
+			<div>
+				<input type="text" value="" class="search-field" name="s" />
+				<input type="submit" class="search-submit" value="" />
+			</div>
+			<a class="close-search" href="#">X</a>
+		</form>
+		';
+	
+	echo $output;
+}
+
+
+/**
+ * rhd_picture_frame function.
+ * 
+ * @access public
+ * @param mixed $img_tag
+ * @param mixed $class (default: null)
+ * @return void
+ */
+function rhd_picture_frame( $img_tag, $class = null )
+{	
+	$output = '
+		<div class="rhd-picture-frame">
+			<div class="framed-picture">
+				' . $img_tag . '
+			</div>
+			<img class="frame" src="' . RHD_IMG_DIR . '/picture-frame.png" alt="picture frame">
+		</div>
+		';
+	
+	echo $output;
 }

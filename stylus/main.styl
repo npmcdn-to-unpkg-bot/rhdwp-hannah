@@ -531,7 +531,23 @@ input[type="submit"]
 			
 			.rhd-recent-posts
 				-wrapper(2em, 2em, 75%)
-		
+
+
+#front-page-intro
+	article
+		-wrapper(0, 0, 90%)
+
+	.intro-hi
+		position relative
+		color $c_ter
+		font-size 6em
+		-ff-headline()
+		margin 0
+		line-height 1
+	
+	.intro-content
+		p
+			margin 0
 
 /* ==========================================================================
 	Extras
@@ -550,9 +566,15 @@ input[type="submit"]
 
 
 .rhd-mailchimp-container
+	margin 1em 0
+	
+	.rhd-mc-subscribe
+		text-align center
+	
 	.widget-title
 		-ff-courier()
 		color $c_text
+		margin-bottom 0.25em
 		
 	.rhd-mc-submit
 		margin 0 auto
@@ -575,6 +597,33 @@ input[type="submit"]
 			&:hover
 			&:active
 				color $c_sec
+
+
+// Picture Frames
+.rhd-picture-frame
+	width 100% // fit to container
+	max-width 800px
+	position relative
+	-transform(rotate(3.5deg))
+	
+	.frame
+		width 100%
+		height auto
+		position relative
+	
+	.framed-picture
+		width 100%
+		height 100%
+		position absolute
+		top 0
+		left 0
+		
+		img
+			width 71%
+			height auto
+			display block
+			-vhcenter(absolute, 0, -3%)
+			
 
 
 /* ==========================================================================

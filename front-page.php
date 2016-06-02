@@ -18,7 +18,7 @@ get_header(); ?>
 		<section id="front-page-intro">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/content', 'page' ); ?>
+					<?php get_template_part( 'template-parts/content', 'fp-intro' ); ?>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</section>
