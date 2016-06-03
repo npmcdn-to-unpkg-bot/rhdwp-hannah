@@ -99,7 +99,7 @@ function rhd_navbar_search_form()
 			</div>
 			<a class="close-search" href="#">X</a>
 		</form>
-		';
+	';
 	
 	echo $output;
 }
@@ -115,14 +115,46 @@ function rhd_navbar_search_form()
  */
 function rhd_picture_frame( $img_tag, $class = null )
 {	
-	$output = '
-		<div class="rhd-picture-frame">
-			<div class="framed-picture">
-				' . $img_tag . '
-			</div>
-			<img class="frame" src="' . RHD_IMG_DIR . '/picture-frame.png" alt="picture frame">
+	?>
+	<div class="rhd-picture-frame">
+		<div class="framed-picture">
+			<?php echo $img_tag; ?>
 		</div>
-		';
-	
-	echo $output;
+		<img class="frame" src="<?php echo RHD_IMG_DIR; ?>/picture-frame.png" alt="picture frame">
+	</div>
+	<?php
+}
+
+
+/**
+ * rhd_front_page_categories function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_front_page_categories()
+{
+	?>
+	<ul class="featured-cats">
+		<?php $slugs = array( 'themes', 'techniques', 'genres' ); ?>
+		<?php foreach ( $slugs as $slug ) : ?>		
+			<li class="featured-cat category-<?php echo $slug; ?>">
+				<?php $cat = get_category_by_slug( $slug ); ?>
+				
+				<a href="<?php echo get_category_link( $cat->term_id ); ?>">
+					<?php if ( function_exists( 'z_taxonomy_image' ) ) : ?>					
+						<?php $src = z_taxonomy_image_url( $cat->term_id, 'square' ); ?>
+						<div class="featured-cat-thumbnail">
+							<img src="<?php echo $src; ?>" alt="Category: <?php echo $cat->name; ?>">
+							<div class="overlay"></div>
+							<h4 class="featured-cat-title"><?php echo $cat->name; ?></h4>
+						</div>
+					<?php else : ?>
+						<h2 class="page-title"><?php echo $cat->name; ?></h2>;
+					<?php endif; ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+	<?php
 }

@@ -18,15 +18,28 @@ get_header(); ?>
 		<section id="front-page-intro">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/content', 'fp-intro' ); ?>
+					<?php if ( has_post_thumbnail() ) : ?>
+						<div class="intro-thumbnail">
+							<?php rhd_picture_frame( get_the_post_thumbnail( get_the_id(), 'large' ), 'intro-image' ); ?>
+						</div>
+					<?php endif ;?>
+					
+					<div class="intro-content-container">
+						<div class="intro-hi">Hi!</div>
+						<div class="intro-content">
+							<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
+						</div>
+					</div>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</section>
 		
 		<hr class="goldsep">
 		
-		<section id="front-page-sections">
+		<section id="front-page-categories">
 			<h2 class="section-title">what are you looking for?</h2>
+			
+			<?php rhd_front_page_categories(); ?>
 		</section>
 		
 		<hr class="goldsep">

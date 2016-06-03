@@ -82,7 +82,32 @@
 			.rhd-picture-frame
 				width 105%
 				margin 0 auto
+		
+		.intro-hi
+			text-align left
 	
+	#front-page-categories
+		.featured-cats
+			-flexbox()
+			
+			.featured-cat
+				width 31%
+				-flexitem()
+				
+				.featured-cat-thumbnail
+					margin 0
+					
+					.overlay
+						-opacity(0.75)
+						transition all 0.25s ease
+				
+				&:hover
+				&:active
+					.featured-cat-thumbnail
+						.overlay
+							-opacity(0.45)
+						
+					
 	// Recent Posts
 	.rhd-recent-posts
 		-flexbox()
@@ -168,6 +193,29 @@
 			width 16%
 			min-width 82px
 			display inline-block
+	
+	// Extras
+	.featured-cats
+		.featured-cat
+			.featured-cat-thumbnail
+				.overlay
+					width @width
+					height 100%
+					position absolute
+					top 0
+					left 0
+					background-color $c_ter
+					-opacity(0.75)
+					transition all 0.25s ease
+			
+			.featured-cat-title
+				font-size 4vw
+				
+			&:hover
+			&:active
+				.featured-cat-thumbnail
+					.overlay
+						-opacity(0.45)
 
 
 // Fixed-width 320px sidebar

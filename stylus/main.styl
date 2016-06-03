@@ -530,7 +530,7 @@ input[type="submit"]
 				color $c_sec
 			
 			.rhd-recent-posts
-				-wrapper(2em, 2em, 75%)
+				-wrapper(2em, 2em)
 
 
 #front-page-intro
@@ -538,16 +538,18 @@ input[type="submit"]
 		-wrapper(0, 0, 90%)
 
 	.intro-hi
-		position relative
+		text-align center
 		color $c_ter
 		font-size 6em
 		-ff-headline()
-		margin 0
-		line-height 1
+		line-height 0.7
 	
 	.intro-content
+		-wrapper()
+		
 		p
 			margin 0
+
 
 /* ==========================================================================
 	Extras
@@ -588,15 +590,18 @@ input[type="submit"]
 
 // Recent Posts
 .recent-post
-	.entry-title
-		margin-top 0.5em
+	a
+		text-decoration none
 		
-		a
-			color inherit
+		.entry-title
+			margin-top 0.5em		
+			color $c_text
+			transition all 0.25s
 			
-			&:hover
-			&:active
-				color $c_sec
+	&:hover
+	&:active
+		.entry-title
+			color $c_sec
 
 
 // Picture Frames
@@ -623,6 +628,43 @@ input[type="submit"]
 			height auto
 			display block
 			-vhcenter(absolute, 0, -3%)
+
+
+// Featured Categories
+.featured-cats
+	-delist()
+	
+	.featured-cat
+		position relative
+		
+		.featured-cat-thumbnail
+			width 100%
+			position relative
+			margin 1em 0
+
+			img
+				width @width
+				height auto
+			
+			.overlay
+				width @width
+				height 100%
+				position absolute
+				top 0
+				left 0
+				background-color $c_ter
+				-opacity(0.45)
+		
+		.featured-cat-title
+			-vcenter()
+			-ff-headline()
+			width 100%
+			left 0
+			margin 0
+			line-height 1
+			color $c_bg
+			font-size 16vw
+			text-align center
 			
 
 
