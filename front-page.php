@@ -39,13 +39,13 @@ get_header(); ?>
 		<section id="front-page-categories">
 			<h2 class="section-title">what are you looking for?</h2>
 			
-			<?php rhd_front_page_categories(); ?>
+			<?php rhd_featured_categories( 'front-page' ); ?>
 		</section>
 		
 		<hr class="goldsep">
 		
 		<section id="front-page-video">
-			
+			<?php if ( function_exists( 'soliloquy' ) ) soliloquy( 'front-page-video', 'slug' ); ?>
 		</section>
 		
 		<hr class="goldsep">

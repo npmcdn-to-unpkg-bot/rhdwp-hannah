@@ -127,15 +127,16 @@ function rhd_picture_frame( $img_tag, $class = null )
 
 
 /**
- * rhd_front_page_categories function.
+ * rhd_featured_categories function.
  * 
  * @access public
+ * @param mixed $loc (default: 'default')
  * @return void
  */
-function rhd_front_page_categories()
+function rhd_featured_categories( $loc = 'default' )
 {
 	?>
-	<ul class="featured-cats">
+	<ul class="featured-cats featured-cats-<?php echo $loc; ?>">
 		<?php $slugs = array( 'themes', 'techniques', 'genres' ); ?>
 		<?php foreach ( $slugs as $slug ) : ?>		
 			<li class="featured-cat category-<?php echo $slug; ?>">
