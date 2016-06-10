@@ -63,8 +63,7 @@ if ( get_post_type() == 'post' && is_single() ) wp_redirect( home_url( '/news' )
 	</div><!-- #content -->
 
 	<?php
-		if ( is_single() ) rhd_single_pagination();
-		else rhd_archive_pagination();
+		if ( ! is_single() ) rhd_archive_pagination();
 	?>
 
 <?php get_sidebar(); ?>
