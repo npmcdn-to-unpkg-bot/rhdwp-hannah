@@ -15,6 +15,7 @@ $c_sec_lt = lighten($c_sec, 45%)
 $c_ter_lt = lighten($c_ter, 35%)
 $off_white = darken(white, 4%)
 $near_white = darken(white, 2%)
+$trans_white = rgba(255, 255, 255, 0.8)
 
 $ff_body = 'Open Sans', sans-serif
 $ff_title = 'Open Sans Condensed', sans-serif
@@ -28,9 +29,9 @@ $navHtDesk = 2em
 
 $sep_h = 6px
 
--ff-title()
-	font-family $ff_title
-	font-weight 700
+-ff-title( $imp = false )
+	font-family $ff_title if $imp == true "important!"
+	font-weight 700 if $imp == true "important!"
 
 -ff-subtitle()
 	font-family $ff_title

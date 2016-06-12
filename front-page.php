@@ -11,9 +11,11 @@ get_header(); ?>
 <section id="primary" class="site-content full-width">
 	<div id="content" role="main">
 
-		<section id="front-page-features">
-			
+		<section id="front-page-featured-posts">
+			<?php if ( function_exists( 'soliloquy' ) ) soliloquy( 'featured-posts', 'slug' ); ?>
 		</section>
+		
+		<hr class="goldsep">
 
 		<section id="front-page-intro">
 			<?php if ( have_posts() ) : ?>

@@ -522,6 +522,9 @@ input[type="submit"]
    ========================================================================== */
 
 .front-page
+	#primary
+		margin-top 0
+	
 	#content-wrapper
 		-unwrapper()
 	
@@ -537,6 +540,32 @@ input[type="submit"]
 			.rhd-recent-posts
 				-wrapper(2em, 2em)
 
+
+#front-page-featured-posts
+	width 100% !important
+	max-width none !important
+	margin 0 !important
+	
+	.soliloquy-container
+		margin-bottom 0 !important
+		
+		.soliloquy-caption
+			width 75%
+			background $trans_white
+			border $c_ter_lt 0.75rem solid
+			color $c_text !important
+			-vhcenter()
+			font-style initial
+			
+			.soliloquy-caption-inside
+				.soliloquy-fc-title
+					-ff-title(true)
+					font-style normal !important
+					
+				.soliloquy-fc-content
+					font-family $ff_body !important
+					font-style normal !important
+					
 
 #front-page-intro
 	article
@@ -570,6 +599,7 @@ input[type="submit"]
 	background-image url($updir + '/2016/05/goldleaf.jpg')
 	background-repeat repeat
 	background-size cover
+	margin 0
 
 
 .rhd-mailchimp-container

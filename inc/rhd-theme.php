@@ -159,3 +159,29 @@ function rhd_featured_categories( $loc = 'default' )
 	</ul>
 	<?php
 }
+
+
+/**
+ * Append the Post's Custom Field values onto the end of the content
+ *
+ * @param string $pcontent Post Content
+ * @param WP_Post $post WordPress Post
+ * @param array $data Slider Data
+ * @return string $pcontent;
+ */
+function soliloquy_featured_content_display_custom_fields( $pcontent, $post, $data )
+{
+	$author_id = $post->post_author;
+	$date = get_the_time( get_option( 'date_format' ),  $post->ID );
+	$cat_list = get_the_category_list( ', ', '', $post->ID );
+	
+	// Remove actual post content from display
+	$pcontent = '';
+
+	// Append custom field values to the existing content
+	// Amend as necessary
+	$pcontent = $date . ' | ' . $cat_list;
+
+	return $pcontent;
+}
+add_filter( 'soliloquy_fc_post_content', 'soliloquy_featured_content_display_custom_fields', 10, 3 );
