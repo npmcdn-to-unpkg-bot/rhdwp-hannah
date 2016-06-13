@@ -12,7 +12,7 @@
 
 
 /* ==========================================================================
-	Constants
+	Constants and Includes
    ========================================================================== */
 
 define( 'RHD_LOGO_SRC', RHD_UPLOAD_URL . '/2016/05/logo.png' );
@@ -127,36 +127,32 @@ function rhd_picture_frame( $img_tag, $class = null )
 
 
 /**
- * rhd_featured_categories function.
+ * rhd_site_intro function.
  * 
  * @access public
- * @param mixed $loc (default: 'default')
  * @return void
  */
-function rhd_featured_categories( $loc = 'default' )
+function rhd_site_intro()
 {
 	?>
-	<ul class="featured-cats featured-cats-<?php echo $loc; ?>">
-		<?php $slugs = array( 'themes', 'techniques', 'genres' ); ?>
-		<?php foreach ( $slugs as $slug ) : ?>		
-			<li class="featured-cat category-<?php echo $slug; ?>">
-				<?php $cat = get_category_by_slug( $slug ); ?>
+	<div class="site-intro">
+		<div class="intro-thumbnail">
+			<?php $front = get_option( 'page_on_front' ); ?>
+			<?php if ( has_post_thumbnail( $front ) ) : ?>
+				<?php rhd_picture_frame( get_the_post_thumbnail( $front, 'large' ), 'intro-image' ); ?>
+			<?php endif ;?>
+		</div>
+		
+		<div class="intro-content-container">
+			<div class="intro-hi">Hi!</div>
+			<div class="intro-content">
+				<?php
+				$front_post = get_post( $front );
 				
-				<a href="<?php echo get_category_link( $cat->term_id ); ?>">
-					<?php if ( function_exists( 'z_taxonomy_image' ) ) : ?>					
-						<?php $src = z_taxonomy_image_url( $cat->term_id, 'square' ); ?>
-						<div class="featured-cat-thumbnail">
-							<img src="<?php echo $src; ?>" alt="Category: <?php echo $cat->name; ?>">
-							<div class="overlay"></div>
-							<h4 class="featured-cat-title"><?php echo $cat->name; ?></h4>
-						</div>
-					<?php else : ?>
-						<h2 class="page-title"><?php echo $cat->name; ?></h2>;
-					<?php endif; ?>
-				</a>
-			</li>
-		<?php endforeach; ?>
-	</ul>
+				echo apply_filters( 'the_content', $front_post->post_content ); ?>
+			</div>
+		</div>
+	</div>
 	<?php
 }
 
@@ -172,7 +168,7 @@ function rhd_featured_categories( $loc = 'default' )
 function soliloquy_featured_content_display_custom_fields( $pcontent, $post, $data )
 {
 	$author_id = $post->post_author;
-	$date = get_the_time( get_option( 'date_format' ),  $post->ID );
+	$date = '<span class="rhd-fc-date">' . get_the_time( get_option( 'date_format' ),  $post->ID ) . '</span>';
 	$cat_list = get_the_category_list( ', ', '', $post->ID );
 	
 	// Remove actual post content from display

@@ -11,6 +11,10 @@
 
 <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
 	<aside id="secondary" class="widget-area" role="complementary">
+		<div class="widget widget-site-intro">
+			<?php rhd_site_intro(); ?>
+		</div>
+		
 		<?php dynamic_sidebar( 'sidebar' ); ?>
 	</aside><!-- #secondary -->
 <?php endif; ?>

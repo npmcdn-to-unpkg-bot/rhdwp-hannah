@@ -18,7 +18,7 @@ get_header();
 
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php
-						if ( is_single() ) get_template_part( 'content', 'single' );
+						if ( is_single() ) get_template_part( 'template-parts/content', 'single' );
 						else get_template_part( 'content' );
 					?>
 				<?php endwhile; ?>

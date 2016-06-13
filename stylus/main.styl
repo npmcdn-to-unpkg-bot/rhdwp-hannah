@@ -320,7 +320,7 @@ input[type="submit"]
 
 .widget-title
 	color $c_sec
-	font-size 2.5em
+	font-size 2em
 
 
 .entry-summary
@@ -357,7 +357,7 @@ input[type="submit"]
 
 	img
 	iframe
-		-wrapper(1em, 1em, 95%)
+		-wrapper(1em, 1em, 100%)
 
 	img
 		height auto
@@ -514,7 +514,15 @@ input[type="submit"]
 		margin-bottom 0
 
 	.widget-title
-		margin-top 0
+		margin 0 0 0.5em
+	
+	.site-intro
+		.intro-hi
+			font-size 4em
+			margin 0.25rem 0
+		
+		.intro-content
+			font-size 0.9em
 
 
 /* ==========================================================================
@@ -550,7 +558,10 @@ input[type="submit"]
 		margin-bottom 0 !important
 		
 		.soliloquy-caption
-			width 75%
+			width 33%
+			height auto !important
+			min-width 20rem
+			padding 1em
 			background $trans_white
 			border $c_ter_lt 0.75rem solid
 			color $c_text !important
@@ -559,18 +570,26 @@ input[type="submit"]
 			
 			.soliloquy-caption-inside
 				.soliloquy-fc-title
-					-ff-title(true)
-					font-style normal !important
+					a
+						-ff-title(true)
+						font-size 1.75rem !important
+						font-style normal !important
 					
 				.soliloquy-fc-content
 					font-family $ff_body !important
 					font-style normal !important
+					font-size 1rem !important
+					line-height 1.2
+					font-weight 400
+					color $c_text !important
 					
 
 #front-page-intro
-	article
+	.site-intro
 		-wrapper(0, 0, 90%)
 
+
+.site-intro
 	.intro-hi
 		text-align center
 		color $c_ter
@@ -663,44 +682,6 @@ input[type="submit"]
 			height auto
 			display block
 			-vhcenter(absolute, 0, -3%)
-
-
-// Featured Categories
-.featured-cats
-	-delist()
-	
-	.featured-cat
-		position relative
-		
-		.featured-cat-thumbnail
-			width 100%
-			position relative
-			margin 1em 0
-
-			img
-				width @width
-				height auto
-			
-			.overlay
-				width @width
-				height 100%
-				position absolute
-				top 0
-				left 0
-				background-color $c_ter
-				-opacity(0.45)
-		
-		.featured-cat-title
-			-vcenter()
-			-ff-headline()
-			width 100%
-			left 0
-			margin 0
-			line-height 1
-			color $c_bg
-			font-size 16vw
-			text-align center
-			
 
 
 /* ==========================================================================

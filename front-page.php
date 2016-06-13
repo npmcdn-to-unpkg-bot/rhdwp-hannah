@@ -20,18 +20,8 @@ get_header(); ?>
 		<section id="front-page-intro">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php if ( has_post_thumbnail() ) : ?>
-						<div class="intro-thumbnail">
-							<?php rhd_picture_frame( get_the_post_thumbnail( get_the_id(), 'large' ), 'intro-image' ); ?>
-						</div>
-					<?php endif ;?>
-					
-					<div class="intro-content-container">
-						<div class="intro-hi">Hi!</div>
-						<div class="intro-content">
-							<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
-						</div>
-					</div>
+					<?php rhd_site_intro(); ?>
+					<?php echo do_shortcode( '[rhd-mailchimp title="subscribe and follow" button="Sign Up" fname=true]' ); ?>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</section>
