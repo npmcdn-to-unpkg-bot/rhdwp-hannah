@@ -77,19 +77,16 @@
 	#secondary
 		margin 0
 		top 0
+		position relative
 
 	#primary
 		width 68%
-		position absolute
-		right 0
+		float right
 
 	#secondary
 		width 30%
 		height auto
-		min-height 100vh
-		position absolute
-		top 0
-		left 0
+		float left
 		background-color $c_sec
 		color white
 
@@ -104,25 +101,17 @@
 		.secondary-page-title
 			.page-title
 				padding initial
+				margin 2em auto
 	
-	#colophon-large
-		width 100%
-		margin 1em 0 2em 0
-		position absolute
-		bottom 1em
-		transition all 0.25s
-		
-		.site-info
-			font-size 0.8em
+	#page-featured-image
+		margin-bottom 0 !important
 	
-	#colophon-mobile
-		display none
+	#colophon
+		-wrapper(2em, 2em, 75%)
+		border-top 1px solid $c_text_lt
 				
 
 @media screen and (min-width 50rem)
 	#site-title-large
 		font-size 4em
 		font-size 7.7vw
-	
-	#colophon-large
-		font-size 0.9em

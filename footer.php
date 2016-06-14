@@ -12,8 +12,14 @@
 		</section><!-- #primary -->
 	</main><!-- #main -->
 
-	<footer id="colophon-mobile" class="colophon mobile-only">
-        <?php rhd_footer_content(); ?>
+	<footer id="colophon">
+        <?php get_sidebar( 'footer' ); ?>
+	    <div class="site-info">
+			<p>
+				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?><br />
+				Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img class="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs">Designs</a>
+	        </p>
+	    </div><!-- .site-info -->
     </footer><!-- #colophon -->
 
 </div><!-- #page -->

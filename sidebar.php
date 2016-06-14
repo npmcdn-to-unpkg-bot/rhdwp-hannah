@@ -28,8 +28,4 @@
 	if ( is_active_sidebar( 'sidebar' ) )
 		dynamic_sidebar( 'sidebar' );
 	?>
-	
-	<footer id="colophon-large" class="colophon large-only">
-        <?php rhd_footer_content(); ?>
-    </footer><!-- #colophon -->
 </aside><!-- #secondary -->

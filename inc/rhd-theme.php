@@ -108,26 +108,6 @@ function rhd_get_featured_img_src( $id, $size = 'full' )
 
 
 /**
- * rhd_footer_content function.
- * 
- * @access public
- * @return void
- */
-function rhd_footer_content()
-{
-	get_sidebar( 'footer' );
-	?>
-    <div class="site-info">
-		<p>
-			<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?><br />
-			Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img class="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a>
-        </p>
-    </div><!-- .site-info -->
-    <?php
-}
-
-
-/**
  * rhd_gallery_shortcode function.
  *
  * @access public

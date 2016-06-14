@@ -162,14 +162,14 @@ input[type="submit"]
 	-wrapper()
 
 
-.colophon
+#colophon
 	width 100%
 	position relative
 
 	.site-info
-		-wrapper(0, 0, 95%)
 		text-align center
-		color white
+		padding 0.5em 0
+		font-size 0.9em
 
 		a
 			color $c_ter
@@ -188,14 +188,6 @@ input[type="submit"]
 			margin 0 0.05em
 			position relative
 			bottom 0.25em
-
-
-#colophon-mobile
-	background $c_sec
-	
-	.site-info
-		padding 0.5em 0
-		font-size 0.9em
 		
 
 
@@ -441,10 +433,6 @@ input[type="submit"]
 			li
 				-flexitem()
 	
-	#colophon-mobile
-		position absolute
-		bottom 0
-
 
 /* ==========================================================================
 	Projects Page

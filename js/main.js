@@ -37,20 +37,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		
 		// FitText title
 		$("#site-title-large").fitText(0.9);
-		
-		// Desktop sidebar min height lock
-		if ( !viewportIsSmall() )
-			sidebarScroll();
-		
-		$window.scroll(function(){
-			if ( !viewportIsSmall() )
-				sidebarScroll();
-		});
-		
-		$window.resize(function(){
-			if ( !viewportIsSmall() )
-				sidebarScroll();
-		});
 	});
 
 
@@ -76,38 +62,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			return true;
 		else
 			return false;
-	}
-	
-	
-	function sidebarScroll() {
-		// Make sure not already at top...
-		if ( $window.scrollTop() >= 0 ) {
-			$('#secondary').imagesLoaded().done(function(i){
-				if ( $('#secondary').height() <= ( $window.scrollTop() + $window.height() ) ) {
-					$('#secondary').css({
-						position: 'fixed',
-						top: $window.height() - $('#secondary').height(),
-						left: 0
-					});
-				} else {
-					$('#secondary').removeAttr('style');
-				}
-				
-				if ( $window.height() < ( $('#secondary').height() + 15 ) ) {
-					$('#colophon-large').css({
-						position: 'relative',
-						bottom: '0'
-					});
-				} else {
-					$('#colophon-large').removeAttr('style');
-				}
-			});
-		}
-	}
-	
-	
-	function setSidebarMinHt() {
-		$('#secondary').css('minHeight', getSidebarMinHt());
 	}
 
 
