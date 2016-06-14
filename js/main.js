@@ -59,6 +59,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Fix faux-flexbox
 		fixGridLayout();
+		
+		rhdPackery();
 	}
 
 
@@ -128,5 +130,32 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			$('.post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)').css('float', 'left');
 			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
 		}
+	}
+	
+	
+	function rhdPackery() {
+		var $gallery = $(".page-id-11 .gallery"),
+			$gridItem = $(".page-id-11 .gallery .gallery-item");
+		
+		$gallery.imagesLoaded(function(){
+			$gallery.packery({
+				columnWidth: '.gallery-item-sizer',
+				gutter: '.gutter-sizer',
+				itemSelector: '.gallery-item',
+				percentPosition: true
+			});
+		});
+
+		$gallery.on('click', '.gallery-item', function(event){
+			event.preventDefault();
+			var $item = $(event.currentTarget);
+			$item.toggleClass('gigante');
+
+			if ( $item.is('.gigante') ){
+				$gallery.packery( 'fit', event.currentTarget, 0 );
+			} else {
+				$gallery.packery('shiftLayout');
+			}
+		});
 	}
 })(jQuery);
