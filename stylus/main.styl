@@ -94,7 +94,6 @@ input[type="submit"]
 .site-title
 	-wrapper(0, 0, 96%)
 	text-align center
-	display block
 	line-height 1
 	-ff-headline()
 	
@@ -162,7 +161,7 @@ input[type="submit"]
 	-wrapper()
 
 
-#colophon
+.colophon
 	width 100%
 	position relative
 
@@ -170,6 +169,7 @@ input[type="submit"]
 		text-align center
 		padding 0.5em 0
 		font-size 0.9em
+		color white
 
 		a
 			color $c_ter
@@ -188,6 +188,14 @@ input[type="submit"]
 			margin 0 0.05em
 			position relative
 			bottom 0.25em
+
+
+#colophon-mobile
+	background $c_sec
+
+
+#colophon-desktop
+	display none
 		
 
 
@@ -432,6 +440,9 @@ input[type="submit"]
 		
 			li
 				-flexitem()
+	
+	.colophon
+		-invisible()
 	
 
 /* ==========================================================================

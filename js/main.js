@@ -36,7 +36,14 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		});
 		
 		// FitText title
-		$("#site-title-large").fitText(0.9);
+		$('#site-title-large').fitText(0.9);
+		
+		// Desktop sidebar stretch
+		resizeSidebar();
+		
+		$window.resize(function(){
+			resizeSidebar();
+		});
 	});
 
 
@@ -51,8 +58,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 	function wpAdminBarPush() {
-		$("#wpadminbar").css({
-			top: $("#masthead").height(),
+		$('#wpadminbar').css({
+			top: $('#masthead').height(),
 		});
 	}
 	
@@ -67,7 +74,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
 	function toggleBurger() {
-		var toggles = $(".c-hamburger");
+		var toggles = $('.c-hamburger');
 
 		toggles.click(function(e){
 			e.preventDefault();
@@ -76,7 +83,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	}
 
 
-	// Faux-flexbox "fix" template (edit for varying column numbers)
+	// Faux-flexbox 'fix' template (edit for varying column numbers)
 	function fixGridLayout() {
 		var gridCount = $('.post-grid .post-grid-item').length;
 
@@ -87,9 +94,18 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	}
 	
 	
+	function resizeSidebar() {
+		if ( !viewportIsSmall() ) {
+			$('#secondary').height($('#primary').height());
+		} else {
+			$('#secondary').removeAttr('style');
+		}
+	}
+	
+	
 	function rhdPackery() {
-		var $gallery = $(".page-id-11 .gallery"),
-			$gridItem = $(".page-id-11 .gallery .gallery-item");
+		var $gallery = $('.page-id-11 .gallery'),
+			$gridItem = $('.page-id-11 .gallery .gallery-item');
 		
 		$gallery.imagesLoaded(function(){
 			$gallery.packery({

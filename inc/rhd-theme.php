@@ -286,3 +286,18 @@ function rhd_gallery_shortcode( $output = '', $attr, $instance )
 	return $output;
 }
 add_filter( 'post_gallery', 'rhd_gallery_shortcode', 10, 3 );
+
+
+function rhd_footer_content( $id )
+{
+	?>
+	<footer id="colophon-<?php echo $id; ?>" class="colophon">
+		<div class="site-info">
+			<p>
+				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?><br />
+				Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img class="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a>
+				</p>
+		</div><!-- .site-info -->
+	</footer>
+	<?php
+}

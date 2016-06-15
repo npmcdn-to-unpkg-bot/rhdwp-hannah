@@ -27,5 +27,7 @@
 	<?php
 	if ( is_active_sidebar( 'sidebar' ) )
 		dynamic_sidebar( 'sidebar' );
+	
+	rhd_footer_content( 'desktop' );
 	?>
 </aside><!-- #secondary -->

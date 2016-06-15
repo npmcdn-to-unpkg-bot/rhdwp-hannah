@@ -87,6 +87,7 @@
 	#secondary
 		width 30%
 		height auto
+		min-height 100vh
 		float left
 		background-color $c_sec
 		color white
@@ -107,10 +108,15 @@
 	#page-featured-image
 		margin-bottom 0 !important
 	
-	#colophon
-		-wrapper(2em, 0, 75%)
-		border-top 1px solid $c_text_lt
-				
+	#colophon-mobile
+		display none
+	
+	
+	#colophon-desktop
+		display block
+		bottom 1em
+		-hcenter()
+		
 
 @media screen and (min-width 50rem)
 	#site-title-large
