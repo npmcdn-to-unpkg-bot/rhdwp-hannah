@@ -39,7 +39,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$('#site-title-large').fitText(0.9);
 		
 		// Desktop sidebar stretch
-		resizeSidebar();
+		$('#primary').imagesLoaded(function(){
+			resizeSidebar();
+		});
 		
 		$window.resize(function(){
 			resizeSidebar();
