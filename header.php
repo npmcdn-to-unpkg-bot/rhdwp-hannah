@@ -67,7 +67,7 @@
 
 				<div id="masthead">
 					<h1 class="invisible"><?php bloginfo( 'name' ); ?></h1>
-					<a href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+					<a class="site-title-link" href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
 				</div>
 			</header><!-- #masthead -->
 			
