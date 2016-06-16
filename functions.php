@@ -587,16 +587,17 @@ add_filter( 'widget_title', 'rhd_title_check_hidden' );
 
 /**
  * rhd_get_metabar_search_form function.
- *
+ * 
  * @access public
+ * @param string $placeholder (default: "Search")
  * @return void
  */
-function rhd_get_metabar_search_form()
+function rhd_get_metabar_search_form( $placeholder = "Search" )
 {
         echo '
                 <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
                     <div>
-                        <input type="text" value="" class="search-field" placeholder="I\'m looking for..." name="s" />
+                        <input type="text" value="" class="search-field" placeholder="' . $placeholder . '" name="s" />
                         <input type="submit" class="search-submit" value="" />
                     </div>
                 </form>';
