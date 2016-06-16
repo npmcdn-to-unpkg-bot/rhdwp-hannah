@@ -96,6 +96,9 @@ var searchW,
 
 		// Image Strip
 		postContent = $(".entry-content").html();
+		
+		// Disable old blogspot image links
+		killBlogspotLinks();
 	}
 
 
@@ -203,6 +206,17 @@ var searchW,
 			$('#header-search').css('zIndex', 0);
 			isExpanded = false;
 			$('.close-search').fadeOut('fast');
+		});
+	}
+	
+	
+	function killBlogspotLinks() {
+		$('.entry-content img').each(function(){
+			var a = $(this).parents('a');
+			var link = a.attr('href');
+			
+			if ( link.indexOf('blogspot') >= 0 )
+				$(this).unwrap('a');
 		});
 	}
 
