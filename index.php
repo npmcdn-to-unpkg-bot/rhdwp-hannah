@@ -22,6 +22,8 @@ get_header();
 						else get_template_part( 'content' );
 					?>
 				<?php endwhile; ?>
+				
+				<?php if ( is_single() ) rhd_related_posts(); ?>
 
 				<?php if ( is_single() && comments_open() ) comments_template(); ?>
 
