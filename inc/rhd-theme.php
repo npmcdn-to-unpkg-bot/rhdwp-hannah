@@ -169,14 +169,13 @@ function soliloquy_featured_content_display_custom_fields( $pcontent, $post, $da
 {
 	$author_id = $post->post_author;
 	$date = '<span class="rhd-fc-date">' . get_the_time( get_option( 'date_format' ),  $post->ID ) . '</span>';
-	$cat_list = get_the_category_list( ', ', '', $post->ID );
 	
 	// Remove actual post content from display
 	$pcontent = '';
 
 	// Append custom field values to the existing content
 	// Amend as necessary
-	$pcontent = $date . ' | ' . $cat_list;
+	$pcontent = $date;
 
 	return $pcontent;
 }

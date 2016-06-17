@@ -539,6 +539,7 @@ input[type="submit"]
 	
 	#content-wrapper
 		-unwrapper()
+		overflow-x hidden
 	
 	#content
 		> section
@@ -550,7 +551,7 @@ input[type="submit"]
 				color $c_sec
 			
 			.rhd-recent-posts
-				-wrapper(2em, 2em)
+				-wrapper(2em, 2em, 90%)
 
 
 #front-page-featured-posts
@@ -571,18 +572,28 @@ input[type="submit"]
 			color $c_text !important
 			-vhcenter()
 			font-style initial
+			display table
 			
 			.soliloquy-caption-inside
+				position relative
+				vertical-align middle
+				
 				.soliloquy-fc-title
 					a
 						-ff-title(true)
 						font-size 1.75rem !important
 						font-style normal !important
+						text-decoration none
+						transition 0.25s color
+						
+						&:active
+						&:hover
+							color $c_sec
 					
 				.soliloquy-fc-content
 					font-family $ff_body !important
 					font-style normal !important
-					font-size 1rem !important
+					font-size 0.9rem !important
 					line-height 1.2
 					font-weight 400
 					color $c_text !important
