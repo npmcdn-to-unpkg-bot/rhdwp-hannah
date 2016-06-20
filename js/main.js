@@ -88,6 +88,8 @@ var searchW,
 		toggles.click(function(e){
 			e.preventDefault();
 			$(this).toggleClass('is-active');
+
+			$('.nav-dropdown').slideToggle();
 		});
 	}
 

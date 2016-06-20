@@ -44,18 +44,31 @@
 	?>
 
 	<div id="page" class="hfeed site">
-		<header id="masthead" class="site-header">
-			<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
+			<header id="header" class="site-header">
+				<div id="navbar">
+					<div class="navbar-inner">
+						<div class="nav-dropdown">
+							<a class="mobile-only" href="<?php echo home_url(); ?>"><img class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+							<?php wp_nav_menu( $nav_args ); ?>
+						</div>
+						<!-- social -->
 
-			<div class="navbar">
-				<?php wp_nav_menu( $nav_args ); ?>
+						<?php get_sidebar( 'header' ); ?>
 
-				<?php rhd_navbar_search_form(); ?>
-			</div>
+						<div id="header-search">
+							<?php rhd_navbar_search_form(); ?>
+						</div>
 
-			<button id="hamburger" class="c-hamburger c-hamburger--htx">
-				<span>Toggle nav</span>
-			</button>
-		</header>
+						<button id="hamburger" class="c-hamburger c-hamburger--rot">
+							<span>Toggle nav</span>
+						</button>
+					</div>
+				</div>
+
+				<div id="masthead">
+					<h1 class="invisible"><?php bloginfo( 'name' ); ?></h1>
+					<a class="site-title-link" href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+				</div>
+			</header><!-- #masthead -->
 
 		<main id="main">

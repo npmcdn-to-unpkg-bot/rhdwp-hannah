@@ -6,7 +6,6 @@
 @require "partials/_metabar.styl"
 @require "partials/_hamburger.styl"
 @require "partials/_ghost-button.styl"
-@require "partials/_navbar-search.styl"
 
 
 /* ==========================================================================
@@ -80,6 +79,92 @@ input[type="submit"]
 
 #masthead
 	position relative
+
+
+#navbar
+	width 100%
+	height $navHt
+	display block
+	position fixed
+	top 0
+	left 0
+	background $c_header
+	color $c_text_lt
+	z-index 999
+
+	.navbar-inner
+		height @height
+		margin 0
+
+	.nav-dropdown
+		background $c_bg
+		position absolute
+		top $navHt
+		left 0
+		display none
+
+		.site-title
+			margin-top 1em
+			display block
+
+	.navbar-search
+		width 65%
+		height 75%
+		-vcenter()
+		right 3em
+
+		.search-form
+		div
+		input
+			height 100%
+
+		input
+			background-color transparent
+			border none
+
+		.search-form
+			-clearfix()
+
+			.search-field
+				width 130%
+				-vcenter()
+				font-size 1em
+				background-color white
+				padding-right 2.3em
+				right -0.35em
+				-ff-subtitle()
+				letter-spacing 0.5px
+
+				&:focus
+					border-color $c_ter
+
+			.search-submit
+				width 1.5rem
+				margin-left 0.5em
+				right 0
+				-vcenter()
+				z-index 999
+				background url('../img/search.png') no-repeat center
+				background-size 90% auto
+
+		.close-search
+			-vcenter()
+			right 1.7em
+			font-weight 400
+			color $c_text_lt
+			font-size 1.1em
+			display none
+			text-decoration none
+
+			&:hover
+			&:active
+				text-decoration @text-decoration
+
+
+	@media screen and (min-width 40rem)
+		.navbar-search
+			width 36.5%
+			right 0
 
 
 #site-title
