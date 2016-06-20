@@ -443,16 +443,18 @@ function rhd_archive_pagination( WP_Query $q = null ) {
 	$next = $paged + 1;
 	$prev = $paged - 1;
 
-	echo '<nav class="pagination" data-current-page="' . $paged . '">';
+	echo '
+		<nav class="pagination" data-current-page="' . $paged . '">
+			<span class="pag-next pag-link" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
-	echo '<span class="pag-next pag-link" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
+		if ( $sep ) {
+			echo '<div class="pag-sep"></div>';
+		}
 
-	if ( $sep ) {
-		echo '<div class="pag-sep"></div>';
-	}
-
-	echo '<span class="pag-prev pag-link" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
-	echo '</nav>';
+	echo '
+			<span class="pag-prev pag-link" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>
+		</nav>
+		';
 }
 
 
@@ -505,11 +507,11 @@ function rhd_load_more( WP_Query $q = null ) {
 
 	$next = $paged + 1;
 
-	echo '<nav class="pagination" data-current-page="' . $paged . '">';
-
-	echo '<span class="pag-load-more" data-target-page="' . $next . '">' . get_next_posts_link( 'Show More', $max_page ) . '</span>';
-
-	echo '</nav>';
+	echo '
+		<nav class="pagination" data-current-page="' . $paged . '">
+			<span class="pag-load-more" data-target-page="' . $next . '">' . get_next_posts_link( 'Show More', $max_page ) . '</span>
+		</nav>
+		';
 }
 
 
@@ -573,13 +575,14 @@ add_filter( 'widget_title', 'rhd_title_check_hidden' );
  * @return void
  */
 function rhd_get_metabar_search_form( $placeholder = "Search" ) {
-        echo '
-                <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
-                    <div>
-                        <input type="text" value="" class="search-field" placeholder="' . $placeholder . '" name="s" />
-                        <input type="submit" class="search-submit" value="" />
-                    </div>
-                </form>';
+    echo '
+        <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
+            <div>
+                <input type="text" value="" class="search-field" placeholder="' . $placeholder . '" name="s" />
+                <input type="submit" class="search-submit" value="" />
+            </div>
+        </form>
+        ';
 }
 
 
