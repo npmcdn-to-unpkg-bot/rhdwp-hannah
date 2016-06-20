@@ -27,7 +27,7 @@ var searchW,
 	searchPL,
 	searchB,
 	isExpanded;
-	
+
 
 /* ==========================================================================
 	Let 'er rip...
@@ -49,19 +49,6 @@ var searchW,
 		});
 
 
-		// "Image Strip"
-		if ( $('#content').hasClass( 'image-strip-active' ) ) {
-			if ( $window.width() > 800 )
-				setImageStrip();
-
-			$window.on('resize', function(){
-				if ( $window.width() > 800 )
-					setImageStrip();
-				else
-					unsetImageStrip();
-			});
-		}
-
 		// Navbar search expansion
 		setSearchDefaults();
 
@@ -71,16 +58,22 @@ var searchW,
 				expandSearchBar();
 			}
 		});
-		
+
 		// Close header search by clicking 'X' or ESC
 		$('.close-search').click(function(e){
 			e.preventDefault();
 			collapseSearchBar();
 		});
-		
+
 		$(document).keyup(function(e) {
 			if ( e.keyCode == 27 && isExpanded ) {
 				collapseSearchBar();
+			}
+		});
+
+		$(window).on('resize', function(){
+			if ( !viewportIsSmall() ) {
+				resetToggleBurger();
 			}
 		});
 	});
@@ -94,9 +87,6 @@ var searchW,
 		// Fix faux-flexbox
 		fixGridLayout();
 
-		// Image Strip
-		postContent = $(".entry-content").html();
-		
 		// Disable old blogspot image links
 		killBlogspotLinks();
 	}
@@ -106,6 +96,14 @@ var searchW,
 		$("#wpadminbar").css({
 			top: $("#masthead").height(),
 		});
+	}
+
+
+	function viewportIsSmall() {
+		if ( $(window).width() < 640 )
+			return true;
+		else
+			return false;
 	}
 
 
@@ -122,6 +120,12 @@ var searchW,
 	}
 
 
+	function resetToggleBurger() {
+		$('.nav-dropdown').removeAttr('style');
+		$("#hamburger").removeClass('is-active');
+	}
+
+
 	// Faux-flexbox "fix" template (edit for varying column numbers)
 	function fixGridLayout() {
 		var gridCount = $('.post-grid .post-grid-item').length;
@@ -133,32 +137,6 @@ var searchW,
 	}
 
 
-	// Set Image Strip layout
-	function setImageStrip() {
-		$('<div id="image-strip"></div>').prependTo('#content');
-		$('#content article').addClass('strip-active');
-
-		$(".entry-content img").each(function(){
-			if ( $(this).hasClass('alignnone') ) {
-				$(this)
-					.appendTo($("#image-strip"))
-					.addClass("strip-active");
-			}
-		});
-	}
-
-
-	// Unset Image Strip layout
-	function unsetImageStrip() {
-		$("#image-strip").html('');
-
-		$('#content article').removeClass('strip-active');
-		$(".entry-content").removeClass('strip-active');
-
-		$(".entry-content").html(postContent);
-	}
-	
-	
 	function setSearchDefaults() {
 		searchW = $('#header-search .search-field').width();
 		searchPT = $('#header-search .search-field').css('paddingTop');
@@ -173,11 +151,11 @@ var searchW,
 
 		isExpanded = false;
 	}
-	
-	
+
+
 	function expandSearchBar() {
 		$('#navbar .widget_rhd_social_icons').fadeOut('fast');
-								
+
 		$('#header-search').css('zIndex', 999);
 
 		$('#header-search .search-field')
@@ -193,11 +171,11 @@ var searchW,
 				$('.close-search').fadeIn('fast');
 			});
 	}
-	
-	
+
+
 	function collapseSearchBar() {
 		$('#navbar .widget_rhd_social_icons').fadeIn('fast');
-				
+
 		$('#header-search .search-field').animate({
 			width: 0,
 			padding: 0,
@@ -208,13 +186,13 @@ var searchW,
 			$('.close-search').fadeOut('fast');
 		});
 	}
-	
-	
+
+
 	function killBlogspotLinks() {
 		$('.entry-content img').each(function(){
 			var a = $(this).parents('a');
 			var link = a.attr('href');
-			
+
 			if ( link.indexOf('blogspot') >= 0 )
 				$(this).unwrap('a');
 		});
