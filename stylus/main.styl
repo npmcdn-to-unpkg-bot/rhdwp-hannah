@@ -6,6 +6,7 @@
 @require "partials/_metabar.styl"
 @require "partials/_hamburger.styl"
 @require "partials/_ghost-button.styl"
+@require "partials/_navbar-search.styl"
 
 
 /* ==========================================================================
@@ -395,4 +396,5 @@ input[type="submit"]
 	Media Queries
    ========================================================================== */
 
-@require "partials/_desktop.styl"
+@media screen and (min-width 40rem)
+	@require "partials/_desktop.styl"

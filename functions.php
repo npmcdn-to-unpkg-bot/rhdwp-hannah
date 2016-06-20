@@ -587,6 +587,28 @@ function rhd_get_metabar_search_form( $placeholder = "Search" ) {
 
 
 /**
+ * rhd_navbar_search_form function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_navbar_search_form()
+{
+	echo '
+		<div class="navbar-search">
+			<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
+				<div>
+					<input type="text" value="" class="search-field" name="s" />
+					<input type="submit" class="search-submit" value="" />
+				</div>
+				<a class="close-search" href="#">X</a>
+			</form>
+		</div>
+		';
+}
+
+
+/**
  * rhd_is_last_post function.
  *
  * @access public

@@ -20,6 +20,13 @@ var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
 var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
+// Search field globals
+var searchW,
+	searchPT,
+	searchPR,
+	searchPL,
+	searchB,
+	isExpanded;
 
 /* ==========================================================================
 	Let 'er rip...
@@ -39,20 +46,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 			$dd.slideToggle();
 		});
-
-
-		// "Image Strip"
-		if ( $('#content').hasClass( 'image-strip-active' ) ) {
-			if ( $window.width() > 800 )
-				setImageStrip();
-
-			$window.on('resize', function(){
-				if ( $window.width() > 800 )
-					setImageStrip();
-				else
-					unsetImageStrip();
-			});
-		}
 	});
 
 
@@ -66,12 +59,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		*/
 
 		toggleBurger();
+		headerSearch();
 
 		// Fix faux-flexbox
 		fixGridLayout();
-
-		// Image Strip
-		postContent = $(".entry-content").html();
 	}
 
 
@@ -80,8 +71,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			top: $("#masthead").height(),
 		});
 	}
-	
-	
+
+
 	function viewportIsSmall() {
 		if ( $(window).width() < 640 )
 			return true;
@@ -112,29 +103,79 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	}
 
 
-	// Set Image Strip layout
-	function setImageStrip() {
-		$('<div id="image-strip"></div>').prependTo('#content');
-		$('#content article').addClass('strip-active');
+	function headerSearch() {
+		// Navbar search functionality
+		setSearchDefaults();
 
-		$(".entry-content img").each(function(){
-			if ( $(this).hasClass('alignnone') ) {
-				$(this)
-					.appendTo($("#image-strip"))
-					.addClass("strip-active");
+		$('.navbar-search .search-submit').click(function(e){
+			if (!isExpanded) {
+				e.preventDefault();
+				expandSearchBar();
+			}
+		});
+
+		// Close header search by clicking 'X' or ESC
+		$('.close-search').click(function(e){
+			e.preventDefault();
+			collapseSearchBar();
+		});
+
+		$(document).keyup(function(e) {
+			if ( e.keyCode == 27 && isExpanded ) {
+				collapseSearchBar();
 			}
 		});
 	}
 
 
-	// Unset Image Strip layout
-	function unsetImageStrip() {
-		$("#image-strip").html('');
+	function setSearchDefaults() {
+		searchW = $('.navbar-search .search-field').width();
+		searchPT = $('.navbar-search .search-field').css('paddingTop');
+		searchPR = $('.navbar-search .search-field').css('paddingRight');
+		searchPL = $('.navbar-search .search-field').css('paddingLeft');
+		searchB = $('.navbar-search .search-field').css('borderWidth');
+		$('.navbar-search .search-field').css({
+			width: 0,
+			padding: 0,
+			borderWidth: 0
+		});
 
-		$('#content article').removeClass('strip-active');
-		$(".entry-content").removeClass('strip-active');
+		isExpanded = false;
+	}
 
-		$(".entry-content").html(postContent);
+
+	function expandSearchBar() {
+		$('#navbar .widget_rhd_social_icons').fadeOut('fast');
+
+		$('.navbar-search').css('zIndex', 999);
+
+		$('.navbar-search .search-field')
+			.animate({ borderWidth: searchB }, 100)
+			.animate({
+				width: searchW,
+				paddingTop: searchPT,
+				paddingRight: searchPR,
+				paddingBottom: searchPT,
+				paddingLeft: searchPL
+			}, 'fast', 'easeOutExpo', function(){
+				isExpanded = true;
+				$('.close-search').fadeIn('fast');
+			});
+	}
+
+
+	function collapseSearchBar() {
+		$('#navbar .widget_rhd_social_icons').fadeIn('fast');
+
+		$('.navbar-search .search-field').animate({
+			width: 0,
+			padding: 0,
+			borderWidth: 0
+		}, 'fast', 'easeOutExpo', function(){
+			$('.navbar-search').css('zIndex', 0);
+			isExpanded = false;
+			$('.close-search').fadeOut('fast');
+		});
 	}
 
 })(jQuery);

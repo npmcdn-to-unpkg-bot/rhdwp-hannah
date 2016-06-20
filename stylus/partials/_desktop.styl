@@ -1,76 +1,75 @@
-@media screen and (min-width 40em)
-	.mobile-only
-		display block
-	
-	#site-navigation-container
-		display block
+.mobile-only
+	display block
 
-		#site-navigation
-			line-height 0
+#site-navigation-container
+	display block
 
-			.menu-item
-				line-height 2
+	#site-navigation
+		line-height 0
 
-	#hamburger
-		display none
+		.menu-item
+			line-height 2
 
-	#comments
-		#commentform
-			width 75%
+#hamburger
+	display none
 
-			p
-				margin-bottom 0.75rem
+#comments
+	#commentform
+		width 75%
 
-			input
-				&[type="text"]
-				&[type="email"]
-					width 75%
+		p
+			margin-bottom 0.75rem
 
-			#submit
-				width auto
-				padding-left 0.8em
+		input
+			&[type="text"]
+			&[type="email"]
+				width 75%
 
-	// Image Strip
-	#primary
-		-clearfix()
+		#submit
+			width auto
+			padding-left 0.8em
 
-		article
-			&.strip-active
-				width 65%
-				float right
+// Image Strip
+#primary
+	-clearfix()
 
-		#image-strip
-			width 30%
+	article
+		&.strip-active
+			width 65%
+			float right
+
+	#image-strip
+		width 30%
+		float left
+		margin-right 5%
+
+		img
+			width 100%
+			height auto
+			margin-bottom 2em
+			display block
+
+.entry-content
+	img
+	iframe
+		width initial
+		-unwrapper(initial)
+
+	img
+		&.alignleft
+			margin-right 1em
 			float left
-			margin-right 5%
 
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
+		&.alignright
+			margin-left 1em
+			float right
 
-	.entry-content
+		&.aligncenter
+			margin 0 auto
+
+	a
 		img
-		iframe
-			width initial
-			-unwrapper(initial)
-
-		img
-			&.alignleft
-				margin-right 1em
-				float left
-
-			&.alignright
-				margin-left 1em
-				float right
-
-			&.aligncenter
-				margin 0 auto
-
-		a
-			img
-				@extends .entry-content img
+			@extends .entry-content img
 
 
 // Fixed-width 320px sidebar

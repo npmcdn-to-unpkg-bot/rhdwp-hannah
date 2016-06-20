@@ -47,7 +47,11 @@
 		<header id="masthead" class="site-header">
 			<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
 
-			<?php wp_nav_menu( $nav_args ); ?>
+			<div class="navbar">
+				<?php wp_nav_menu( $nav_args ); ?>
+
+				<?php rhd_navbar_search_form(); ?>
+			</div>
 
 			<button id="hamburger" class="c-hamburger c-hamburger--htx">
 				<span>Toggle nav</span>
