@@ -77,10 +77,6 @@ input[type="submit"]
 	margin 0
 
 
-#masthead
-	position relative
-
-
 #navbar
 	width 100%
 	height $navHt
@@ -173,6 +169,12 @@ input[type="submit"]
 	display block
 
 
+.site-title-link
+	-wrapper($navHt + ($navHt/2), 0, 85%, 30rem)
+	display block
+	line-height 1.2
+
+
 #site-navigation-container
 	width 100vw
 	text-align center
@@ -205,9 +207,9 @@ input[type="submit"]
 
 
 #hamburger
-	position absolute
-	top 0.5em
-	right 0.5em
+	top 50%
+	right 1em
+	-vcenter()
 
 
 #main
@@ -481,5 +483,4 @@ input[type="submit"]
 	Media Queries
    ========================================================================== */
 
-@media screen and (min-width 40rem)
-	@require "partials/_desktop.styl"
+@require "partials/_desktop.styl"

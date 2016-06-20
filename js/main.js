@@ -50,7 +50,7 @@ var searchW,
 
 
 	function rhdInit() {
-		// wpAdminBarPush();
+		wpAdminBarPush();
 
 		/*
 		$.slidebars({

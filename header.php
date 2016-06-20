@@ -48,12 +48,9 @@
 				<div id="navbar">
 					<div class="navbar-inner">
 						<div class="nav-dropdown">
-							<a class="mobile-only" href="<?php echo home_url(); ?>"><img class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+							<a class="mobile-only" href="<?php echo home_url(); ?>"><h1 class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
 							<?php wp_nav_menu( $nav_args ); ?>
 						</div>
-						<!-- social -->
-
-						<?php get_sidebar( 'header' ); ?>
 
 						<div id="header-search">
 							<?php rhd_navbar_search_form(); ?>
@@ -66,8 +63,7 @@
 				</div>
 
 				<div id="masthead">
-					<h1 class="invisible"><?php bloginfo( 'name' ); ?></h1>
-					<a class="site-title-link" href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+					<a class="site-title-link" href="<?php echo home_url(); ?>"><h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
 				</div>
 			</header><!-- #masthead -->
 

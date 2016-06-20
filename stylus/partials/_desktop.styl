@@ -1,90 +1,104 @@
-.mobile-only
-	display block
+@media screen and (min-width 40rem)
+	.mobile-only
+		display none
 
-#site-navigation-container
-	display block
+	#site-navigation-container
+		width 45%
+		display block
+		background transparent
+		position relative
+		box-shadow none
+		float left
+		padding-bottom 0
+		position relative
+		top 0.15em
 
-	#site-navigation
-		line-height 0
+		#site-navigation
+			line-height 0
+			-flexbox()
+			margin 0
+			position relative
 
-		.menu-item
-			line-height 2
+			.menu-item
+				line-height 2
+				-flexitem()
+				font-size 1rem
 
-#navbar
-	height auto
-
-	.navbar-inner
-		-wrapper(0, 0, 90%)
+	#navbar
 		height auto
 
-		.nav-dropdown
-			position relative
-			top 0
-			display block
-			background transparent
-			-clearfix()
-
-
-#hamburger
-	display none
-
-#comments
-	#commentform
-		width 75%
-
-		p
-			margin-bottom 0.75rem
-
-		input
-			&[type="text"]
-			&[type="email"]
-				width 75%
-
-		#submit
-			width auto
-			padding-left 0.8em
-
-// Image Strip
-#primary
-	-clearfix()
-
-	article
-		&.strip-active
-			width 65%
-			float right
-
-	#image-strip
-		width 30%
-		float left
-		margin-right 5%
-
-		img
-			width 100%
+		.navbar-inner
+			-wrapper(0, 0, 90%)
 			height auto
-			margin-bottom 2em
-			display block
 
-.entry-content
-	img
-	iframe
-		width initial
-		-unwrapper(initial)
+			.nav-dropdown
+				position relative
+				top 0
+				display block
+				background transparent
+				-clearfix()
 
-	img
-		&.alignleft
-			margin-right 1em
+
+	#hamburger
+		display none
+
+	#comments
+		#commentform
+			width 75%
+
+			p
+				margin-bottom 0.75rem
+
+			input
+				&[type="text"]
+				&[type="email"]
+					width 75%
+
+			#submit
+				width auto
+				padding-left 0.8em
+
+	// Image Strip
+	#primary
+		-clearfix()
+
+		article
+			&.strip-active
+				width 65%
+				float right
+
+		#image-strip
+			width 30%
 			float left
+			margin-right 5%
 
-		&.alignright
-			margin-left 1em
-			float right
+			img
+				width 100%
+				height auto
+				margin-bottom 2em
+				display block
 
-		&.aligncenter
-			margin 0 auto
-
-	a
+	.entry-content
 		img
-			@extends .entry-content img
+		iframe
+			width initial
+			-unwrapper(initial)
+
+		img
+			&.alignleft
+				margin-right 1em
+				float left
+
+			&.alignright
+				margin-left 1em
+				float right
+
+			&.aligncenter
+				margin 0 auto
+
+		a
+			img
+				@extends .entry-content img
 
 
 // Fixed-width 320px sidebar
