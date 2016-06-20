@@ -125,11 +125,13 @@ input[type="submit"]
 				width 130%
 				-vcenter()
 				font-size 1em
-				background-color white
+				font-family $ff_body
+				color $c_text
+				background-color $c_bg
 				padding-right 2.3em
 				right -0.35em
-				-ff-subtitle()
 				letter-spacing 0.5px
+				-placeholder-props( @font-family, @color, 1, normal, normal )
 
 				&:focus
 					border-color $c_ter
