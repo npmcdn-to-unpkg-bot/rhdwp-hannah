@@ -2,6 +2,20 @@
 	.mobile-only
 		display none
 
+	#navbar
+		height auto
+
+		.navbar-inner
+			-wrapper(0, 0, 90%)
+			height auto
+
+			.nav-dropdown
+				position relative
+				top 0
+				display block
+				background transparent
+				-clearfix()
+
 	#site-navigation-container
 		width 45%
 		display block
@@ -23,21 +37,6 @@
 				line-height 2
 				-flexitem()
 				font-size 1rem
-
-	#navbar
-		height auto
-
-		.navbar-inner
-			-wrapper(0, 0, 90%)
-			height auto
-
-			.nav-dropdown
-				position relative
-				top 0
-				display block
-				background transparent
-				-clearfix()
-
 
 	#hamburger
 		display none

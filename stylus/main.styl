@@ -169,6 +169,10 @@ input[type="submit"]
 	display block
 
 
+.site-title
+	text-align center
+
+
 .site-title-link
 	-wrapper($navHt + ($navHt/2), 0, 85%, 30rem)
 	display block
@@ -178,8 +182,9 @@ input[type="submit"]
 #site-navigation-container
 	width 100vw
 	text-align center
+	padding-bottom 1rem
 	z-index 999
-	display none
+	box-shadow 3px 3px 7px -4px $c_text
 
 	#site-navigation
 		list-style none
@@ -190,6 +195,10 @@ input[type="submit"]
 			display block
 			font-size 1.1em
 			line-height 1.8
+
+			a
+				-ff-title()
+				text-transform uppercase
 
 
 .site-navigation

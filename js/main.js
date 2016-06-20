@@ -46,6 +46,12 @@ var searchW,
 
 			$dd.slideToggle();
 		});
+
+		$(window).on('resize', function(){
+			if ( !viewportIsSmall() ) {
+				resetToggleBurger();
+			}
+		});
 	});
 
 
@@ -83,7 +89,7 @@ var searchW,
 
 	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
 	function toggleBurger() {
-		var toggles = $(".c-hamburger");
+		var toggles = $("#hamburger");
 
 		toggles.click(function(e){
 			e.preventDefault();
@@ -91,6 +97,12 @@ var searchW,
 
 			$('.nav-dropdown').slideToggle();
 		});
+	}
+
+
+	function resetToggleBurger() {
+		$('.nav-dropdown').removeAttr('style');
+		$("#hamburger").removeClass('is-active');
 	}
 
 
