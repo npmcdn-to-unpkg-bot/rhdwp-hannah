@@ -24,8 +24,7 @@
  * @param bool $echo (default: false)
  * @return void
  */
-function rhd_ghost_button( $content, $url, $target = '', $align = 'center', $filled = false, $echo = false )
-{
+function rhd_ghost_button( $content, $url, $target = '', $align = 'center', $filled = false, $echo = false ) {
 	$target_att = ( $target ) ? "target={$target}" : '';
 
 	if ( $filled != false ) {
@@ -50,8 +49,7 @@ function rhd_ghost_button( $content, $url, $target = '', $align = 'center', $fil
  * @param mixed $content (default: null)
  * @return void
  */
-function rhd_ghost_button_shortcode( $atts, $content = null )
-{
+function rhd_ghost_button_shortcode( $atts, $content = null ) {
         $a = shortcode_atts( array(
                 'url' => '',
                 'target' => '',

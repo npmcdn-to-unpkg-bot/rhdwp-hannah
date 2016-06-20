@@ -53,8 +53,7 @@ define( 'RHD_AJAX_PAGINATION', false );
  * @access public
  * @return void
  */
-function rhd_enqueue_styles()
-{
+function rhd_enqueue_styles() {
 	global $theme_opts;
 
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), null, 'all' );
@@ -78,8 +77,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
  * @access public
  * @return void
  */
-function rhd_enqueue_scripts()
-{
+function rhd_enqueue_scripts() {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
 	wp_register_script( 'jquery-visible', RHD_THEME_DIR . '/js/vendor/df-visible/jquery.visible.min.js', array( 'jquery'), null, true );
@@ -124,8 +122,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
  * @access public
  * @return void
  */
-function rhd_add_editor_styles()
-{
+function rhd_add_editor_styles() {
 	//Google Fonts in admin editor
 	$font_url = '//fonts.googleapis.com/css?family=' . RHD_GOOGLE_FONTS;
 	$font_url = str_replace( ',', '%2C', $font_url );
@@ -144,8 +141,7 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
  * @access public
  * @return void
  */
-function rhd_pageview_protection()
-{
+function rhd_pageview_protection() {
 	echo '<script language="javascript" type=:text/javascript">if (window!= top) top.location.href = location.href;</script>';
 }
 add_action( 'wp_head', 'rhd_pageview_protection' );
@@ -163,8 +159,7 @@ add_action( 'wp_head', 'rhd_pageview_protection' );
  * @access public
  * @return void
  */
-function rhd_init()
-{
+function rhd_init() {
 	// Register taxonomies and things if ya dig it
 }
 add_action( 'init', 'rhd_init' );
@@ -176,8 +171,7 @@ add_action( 'init', 'rhd_init' );
  * @access public
  * @return void
  */
-function rhd_theme_setup()
-{
+function rhd_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	add_theme_support( 'infinite-scroll', array( 'container' => 'content', 'footer' => 'page' ) );
@@ -205,8 +199,7 @@ add_action( 'after_setup_theme', 'rhd_theme_setup' );
  * @access public
  * @return void
  */
-function rhd_attachment_display_settings()
-{
+function rhd_attachment_display_settings() {
 	update_option( 'image_default_link_type', 'none' );
 	update_option( 'image_default_size', 'large' );
 }
@@ -219,8 +212,7 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
  * @access public
  * @return void
  */
-function rhd_image_sizes()
-{
+function rhd_image_sizes() {
 	add_image_size( 'square', 400, 400, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
@@ -235,8 +227,7 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
  * @param mixed $sizes
  * @return void
  */
-function rhd_add_image_sizes( $sizes )
-{
+function rhd_add_image_sizes( $sizes ) {
 	$addsizes = array(
 		"square" => __( "Square" )
 	);
@@ -253,8 +244,7 @@ add_filter( 'image_size_names_choose', 'rhd_add_image_sizes' );
  * @access public
  * @return void
  */
-function rhd_register_sidebars()
-{
+function rhd_register_sidebars() {
 	register_sidebar( array(
 		'name'			=> __( 'Sidebar', 'rhd' ),
 		'id'			=> 'sidebar',
@@ -302,8 +292,7 @@ class RHD_Walker_Nav extends Walker_Nav_Menu {
  * @access public
  * @return void
  */
-function rhd_is_mobile()
-{
+function rhd_is_mobile() {
 	$mobile_browser = 0;
 
 	$http_user_agent = ! empty( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
@@ -358,8 +347,7 @@ function rhd_is_mobile()
  * @access public
  * @return void
  */
-function get_the_slug()
-{
+function get_the_slug() {
 	$post_data = get_post( $post->ID, ARRAY_A );
 	$slug = $post_data['post_name'];
 	return $slug;
@@ -376,8 +364,7 @@ function get_the_slug()
 add_filter( 'post_thumbnail_html', 'rhd_strip_thumbnail_dimensions', 10 );
 add_filter( 'image_send_to_editor', 'rhd_strip_thumbnail_dimensions', 10 );
 
-function rhd_strip_thumbnail_dimensions( $html )
-{
+function rhd_strip_thumbnail_dimensions( $html ) {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
 }
@@ -390,8 +377,7 @@ function rhd_strip_thumbnail_dimensions( $html )
  * @param mixed $url
  * @return void
  */
-function rhd_add_async( $url )
-{
+function rhd_add_async( $url ) {
 	if ( strpos( $url, '#async') === false )
 		return $url;
 	elseif ( is_admin() )
@@ -411,8 +397,7 @@ add_filter( 'clean_url', 'rhd_add_async', 11, 1 );
  * @param mixed $atts
  * @return void
  */
-function rhd_gallery_atts( $out, $pairs, $atts )
-{
+function rhd_gallery_atts( $out, $pairs, $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'link' => 'file'
@@ -438,8 +423,7 @@ add_filter( 'shortcode_atts_gallery', 'rhd_gallery_atts', 10, 3 );
  * @param WP_Query $q (default: null)
  * @return void
  */
-function rhd_archive_pagination( WP_Query $q = null )
-{
+function rhd_archive_pagination( WP_Query $q = null ) {
 	global $paged;
 
 	if ( $q ) {
@@ -478,8 +462,7 @@ function rhd_archive_pagination( WP_Query $q = null )
  * @access public
  * @return void
  */
-function rhd_single_pagination()
-{
+function rhd_single_pagination() {
 	$next = get_previous_post_link( '%link', '&lt; Older' );
 	$prev = get_next_post_link( '%link', 'Newer &gt;' );
 	$spacer = '<div class="pag-spacer"></div>';
@@ -503,8 +486,7 @@ function rhd_single_pagination()
  * @param WP_Query $q (default: null)
  * @return void
  */
-function rhd_load_more( WP_Query $q = null )
-{
+function rhd_load_more( WP_Query $q = null ) {
 	global $paged;
 
 	if ( $q ) {
@@ -537,8 +519,7 @@ function rhd_load_more( WP_Query $q = null )
  * @access public
  * @return void
  */
-function rhd_ajax_pagination()
-{
+function rhd_ajax_pagination() {
 	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
 	$query_vars['paged'] = $_POST['page'];
 	$posts = new WP_Query( $query_vars );
@@ -571,8 +552,7 @@ add_action( 'wp_ajax_ajax_pagination', 'rhd_ajax_pagination' );
  * @param string $title
  **/
 
-function rhd_title_check_hidden( $title )
-{
+function rhd_title_check_hidden( $title ) {
 	if ( stripos($title, '(') !== false && stripos($title, ')') !== false ) {
 		$first = substr($title, 0, 1);
 		$last = substr($title, -1, 1);
@@ -587,13 +567,12 @@ add_filter( 'widget_title', 'rhd_title_check_hidden' );
 
 /**
  * rhd_get_metabar_search_form function.
- * 
+ *
  * @access public
  * @param string $placeholder (default: "Search")
  * @return void
  */
-function rhd_get_metabar_search_form( $placeholder = "Search" )
-{
+function rhd_get_metabar_search_form( $placeholder = "Search" ) {
         echo '
                 <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
                     <div>
@@ -606,7 +585,7 @@ function rhd_get_metabar_search_form( $placeholder = "Search" )
 
 /**
  * rhd_is_last_post function.
- * 
+ *
  * @access public
  * @return void
  */
