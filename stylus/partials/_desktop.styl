@@ -60,60 +60,60 @@
 			#submit
 				width auto
 				padding-left 0.8em
-	
+
 	// Front Page
 	.front-page
 		#content
 			> section
 				-wrapper(2em, 2em, 100%, 70rem)
-			
+
 	#front-page-intro
 		-clearfix()
-		
+
 		.intro-content-container
 			width 53%
 			float left
-			
+
 		.intro-thumbnail
 			width 45%
 			float right
 			position relative
-			
+
 			.rhd-picture-frame
 				width 105%
 				margin 0 auto
-		
+
 		.intro-hi
 			text-align left
-	
+
 	#front-page-categories
 		width 90% !important
-		
+
 		.featured-cats
 			-flexbox()
-			
+
 			.featured-cat
 				width 31%
 				-flexitem()
-				
+
 				.featured-cat-thumbnail
 					margin 0
-					
+
 					.overlay
 						-opacity(0.75)
 						transition all 0.25s ease
-				
+
 				&:hover
 				&:active
 					.featured-cat-thumbnail
 						.overlay
 							-opacity(0.45)
-						
-					
+
+
 	// Recent Posts
 	.rhd-recent-posts
 		-flexbox()
-		
+
 		.recent-post
 			width 31%
 			-flexitem()
@@ -167,20 +167,25 @@
 		-vcenter()
 		display block
 		z-index 800
-		
+
 		.widget_rhd_social_icons
 		.rhd-social-icons
 			height 100%
-			
+
 			.rhd-social-icon
 				width 1.3em
 				height @height
 				margin 0 0.15em
 				position relative
 				bottom 0.025em // pixel push
-				
+
 				.rhd-icon
 					-vcenter()
+
+	#footer-widget-area
+		.rhd-social-icons
+			.rhd-social-icon
+				width 5%
 
 	.rhd-mailchimp-container
 		input

@@ -290,7 +290,7 @@ input[type="submit"]
 		margin 1em 0
 
 		.rhd-social-icon
-			width 6%
+			width 7vw
 			margin 0 1%
 
 
@@ -301,7 +301,6 @@ input[type="submit"]
 .entry-title
 .page-title
 .widget-title
-	margin-top 0
 	line-height 1
 	text-align center
 
@@ -319,7 +318,7 @@ input[type="submit"]
 
 .page-title
 	font-size 3em
-	margin-bottom 1rem
+	margin 1rem 0
 
 
 .widget-title
@@ -548,7 +547,7 @@ input[type="submit"]
 			.section-title
 				@extends .page-title
 				font-size 2.2em
-				color $c_sec
+				color $c_text
 
 			.rhd-recent-posts
 				-wrapper(2em, 2em, 90%)
@@ -568,7 +567,7 @@ input[type="submit"]
 			min-width 20rem
 			padding 1em
 			background $trans_white
-			border $c_ter_lt 0.75rem solid
+			border $c_ter_lt 0.5rem solid
 			color $c_text !important
 			-vhcenter()
 			font-style initial
@@ -591,12 +590,26 @@ input[type="submit"]
 							color $c_sec
 
 				.soliloquy-fc-content
-					font-family $ff_body !important
+					color $c_text !important
 					font-style normal !important
 					font-size 0.9rem !important
-					line-height 1.2
-					font-weight 400
-					color $c_text !important
+
+					.rhd-fc-date
+						font-family $ff_body !important
+						font-weight 400
+						line-height 1.75
+
+					.rhd-fc-more
+						margin-top 1em
+						display inline-block
+						-ff-headline()
+						font-size 1.8em
+						transition 0.25s color
+
+						&:hover
+						&:active
+							text-decoration none
+							color $c_sec
 
 
 #front-page-intro
@@ -617,6 +630,15 @@ input[type="submit"]
 
 		p
 			margin 0
+
+
+/* ==========================================================================
+	About Page
+   ========================================================================== */
+
+.page-id-7
+	.intro-content-container
+		display none
 
 
 /* ==========================================================================
@@ -666,6 +688,8 @@ input[type="submit"]
 			margin-top 0.5em
 			color $c_text
 			transition all 0.25s
+			font-weight 400
+			line-height 1.3
 
 	&:hover
 	&:active

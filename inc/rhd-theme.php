@@ -100,21 +100,21 @@ function rhd_navbar_search_form()
 			<a class="close-search" href="#">X</a>
 		</form>
 	';
-	
+
 	echo $output;
 }
 
 
 /**
  * rhd_picture_frame function.
- * 
+ *
  * @access public
  * @param mixed $img_tag
  * @param mixed $class (default: null)
  * @return void
  */
 function rhd_picture_frame( $img_tag, $class = null )
-{	
+{
 	?>
 	<div class="rhd-picture-frame">
 		<div class="framed-picture">
@@ -128,7 +128,7 @@ function rhd_picture_frame( $img_tag, $class = null )
 
 /**
  * rhd_site_intro function.
- * 
+ *
  * @access public
  * @return void
  */
@@ -142,13 +142,13 @@ function rhd_site_intro()
 				<?php rhd_picture_frame( get_the_post_thumbnail( $front, 'large' ), 'intro-image' ); ?>
 			<?php endif ;?>
 		</div>
-		
+
 		<div class="intro-content-container">
 			<div class="intro-hi">Hi!</div>
 			<div class="intro-content">
 				<?php
 				$front_post = get_post( $front );
-				
+
 				echo apply_filters( 'the_content', $front_post->post_content ); ?>
 			</div>
 		</div>
@@ -168,15 +168,12 @@ function rhd_site_intro()
 function soliloquy_featured_content_display_custom_fields( $pcontent, $post, $data )
 {
 	$author_id = $post->post_author;
-	$date = '<span class="rhd-fc-date">' . get_the_time( get_option( 'date_format' ),  $post->ID ) . '</span>';
-	
-	// Remove actual post content from display
-	$pcontent = '';
+	$caption = '<span class="rhd-fc-date">' . get_the_time( get_option( 'date_format' ),  $post->ID ) . '</span><br /><a class="rhd-fc-more" href="' . $post->ID . '" rel="bookmark">Read More</a>';
 
-	// Append custom field values to the existing content
+	// Append custom field values to the existing content (currently overwriting original post content data)
 	// Amend as necessary
-	$pcontent = $date;
+	$pcontent = $caption;
 
-	return $pcontent;
+	return $caption;
 }
 add_filter( 'soliloquy_fc_post_content', 'soliloquy_featured_content_display_custom_fields', 10, 3 );
