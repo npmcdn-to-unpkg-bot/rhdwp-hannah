@@ -472,11 +472,11 @@ function rhd_single_pagination() {
 
 	echo "<nav class='single-pagination'>\n";
 
-	echo ( $next != '' ) ? $next : $spacer;
+	echo ( $next != '' ) ? '<span class="pag-next pag-link">' . $next . '</span>' : $spacer;
 
 	echo  "<div class='pag-sep'></div>\n";
 
-	echo ( $prev != '' ) ? $prev : $spacer;
+	echo ( $prev != '' ) ? '<span class="pag-prev pag-link">' . $prev . '</span>' : $spacer;
 
 	echo "</nav>\n";
 }
