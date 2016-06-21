@@ -108,6 +108,10 @@ input[type="submit"]
 		height 75%
 		-vcenter()
 		right 3em
+		z-index 0
+
+		&.is-active
+			z-index 999
 
 		.search-form
 		div
@@ -119,31 +123,30 @@ input[type="submit"]
 			border none
 
 		.search-form
-			-clearfix()
-
 			.search-field
-				width 130%
+				width 0
 				-vcenter()
 				font-size 1em
-				font-family $ff_body
-				color $c_text
-				background-color $c_bg
-				padding-right 2.3em
+				background-color white
 				right -0.35em
+				-ff-subtitle()
 				letter-spacing 0.5px
-				-placeholder-props( @font-family, @color, 1, normal, normal )
+				padding 0
+				transition 0.5s all ease
 
-				&:focus
+				&.is-active
+					width 130%
 					border-color $c_ter
+					padding 0.5em 2.3em 0.5em 0.5em
 
 			.search-submit
 				width 1.5rem
-				margin-left 0.5em
 				right 0
 				-vcenter()
 				z-index 999
 				background url('../img/search.png') no-repeat center
 				background-size 90% auto
+				transition 0.5s all ease
 
 		.close-search
 			-vcenter()

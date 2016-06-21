@@ -47,6 +47,9 @@ var searchW,
 			$dd.slideToggle();
 		});
 
+		// Navbar search expansion
+		isExpanded = false;
+
 		$(window).on('resize', function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
@@ -65,7 +68,6 @@ var searchW,
 		*/
 
 		toggleBurger();
-		headerSearch();
 
 		// Fix faux-flexbox
 		fixGridLayout();
@@ -117,79 +119,36 @@ var searchW,
 	}
 
 
-	function headerSearch() {
-		// Navbar search functionality
-		setSearchDefaults();
-
-		$('.navbar-search .search-submit').click(function(e){
-			if (!isExpanded) {
-				e.preventDefault();
-				expandSearchBar();
-			}
-		});
-
-		// Close header search by clicking 'X' or ESC
-		$('.close-search').click(function(e){
-			e.preventDefault();
-			collapseSearchBar();
-		});
-
-		$(document).keyup(function(e) {
-			if ( e.keyCode == 27 && isExpanded ) {
-				collapseSearchBar();
-			}
-		});
-	}
-
-
-	function setSearchDefaults() {
-		searchW = $('.navbar-search .search-field').width();
-		searchPT = $('.navbar-search .search-field').css('paddingTop');
-		searchPR = $('.navbar-search .search-field').css('paddingRight');
-		searchPL = $('.navbar-search .search-field').css('paddingLeft');
-		searchB = $('.navbar-search .search-field').css('borderWidth');
-		$('.navbar-search .search-field').css({
-			width: 0,
-			padding: 0,
-			borderWidth: 0
-		});
-
-		isExpanded = false;
-	}
-
-
 	function expandSearchBar() {
 		$('#navbar .widget_rhd_social_icons').fadeOut('fast');
 
-		$('.navbar-search').css('zIndex', 999);
+		$('.navbar-search, .navbar-search .search-field, .navbar-search .search-submit').addClass('is-active');
 
-		$('.navbar-search .search-field')
-			.animate({ borderWidth: searchB }, 100)
-			.animate({
-				width: searchW,
-				paddingTop: searchPT,
-				paddingRight: searchPR,
-				paddingBottom: searchPT,
-				paddingLeft: searchPL
-			}, 'fast', 'easeOutExpo', function(){
-				isExpanded = true;
-				$('.close-search').fadeIn('fast');
-			});
+		$('.navbar-search .search-field').focus();
+
+		$('.close-search').fadeIn('fast');
+
+		isExpanded = true;
 	}
 
 
 	function collapseSearchBar() {
 		$('#navbar .widget_rhd_social_icons').fadeIn('fast');
 
-		$('.navbar-search .search-field').animate({
-			width: 0,
-			padding: 0,
-			borderWidth: 0
-		}, 'fast', 'easeOutExpo', function(){
-			$('.navbar-search').css('zIndex', 0);
-			isExpanded = false;
-			$('.close-search').fadeOut('fast');
-		});
+		$('.navbar-search, .navbar-search .search-field, .navbar-search .search-submit').removeClass('is-active');
+
+		$('.close-search').fadeOut('fast');
+		isExpanded = false;
 	}
 
+
+	function killBlogspotLinks() {
+		$('.entry-content img').each(function(){
+			var a = $(this).parents('a');
+			var link = a.attr('href');
+
+			if ( link.indexOf('blogspot') >= 0 )
+				$(this).unwrap('a');
+		});
+	}
 })(jQuery);
