@@ -20,14 +20,6 @@ var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
 var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
-// Search field globals
-var searchW,
-	searchPT,
-	searchPR,
-	searchPL,
-	searchB,
-	isExpanded;
-
 
 /* ==========================================================================
 	Let 'er rip...
@@ -50,7 +42,7 @@ var searchW,
 
 
 		// Navbar search expansion
-		setSearchDefaults();
+		isExpanded = false;
 
 		$('#header-search .search-submit').click(function(e){
 			if (!isExpanded) {
@@ -137,54 +129,26 @@ var searchW,
 	}
 
 
-	function setSearchDefaults() {
-		searchW = $('#header-search .search-field').width();
-		searchPT = $('#header-search .search-field').css('paddingTop');
-		searchPR = $('#header-search .search-field').css('paddingRight');
-		searchPL = $('#header-search .search-field').css('paddingLeft');
-		searchB = $('#header-search .search-field').css('borderWidth');
-		$('#header-search .search-field').css({
-			width: 0,
-			padding: 0,
-			borderWidth: 0
-		});
-
-		isExpanded = false;
-	}
-
-
 	function expandSearchBar() {
 		$('#navbar .widget_rhd_social_icons').fadeOut('fast');
 
-		$('#header-search').css('zIndex', 999);
+		$('#header-search, #header-search .search-field, #header-search .search-submit').addClass('is-active');
 
-		$('#header-search .search-field')
-			.animate({ borderWidth: searchB }, 100)
-			.animate({
-				width: searchW,
-				paddingTop: searchPT,
-				paddingRight: searchPR,
-				paddingBottom: searchPT,
-				paddingLeft: searchPL
-			}, 'fast', 'easeOutExpo', function(){
-				isExpanded = true;
-				$('.close-search').fadeIn('fast');
-			});
+		$('#header-search .search-field').focus();
+
+		$('.close-search').fadeIn('fast');
+
+		isExpanded = true;
 	}
 
 
 	function collapseSearchBar() {
 		$('#navbar .widget_rhd_social_icons').fadeIn('fast');
 
-		$('#header-search .search-field').animate({
-			width: 0,
-			padding: 0,
-			borderWidth: 0
-		}, 'fast', 'easeOutExpo', function(){
-			$('#header-search').css('zIndex', 0);
-			isExpanded = false;
-			$('.close-search').fadeOut('fast');
-		});
+		$('#header-search, #header-search .search-field, #header-search .search-submit').removeClass('is-active');
+
+		$('.close-search').fadeOut('fast');
+		isExpanded = false;
 	}
 
 
