@@ -21,9 +21,13 @@
 			<p class="entry-details"><?php the_time( get_option( 'date_format' ) ); ?></p>
 		</header><!-- .entry-header -->
 
-		<div class="entry-summary">
-			<?php the_excerpt(); ?>
-		</div><!-- .entry-summary -->
+		<?php if ( ! is_front_page() ) : ?>
+			<div class="entry-summary">
+				<?php the_excerpt(); ?>
+			</div><!-- .entry-summary -->
+		<?php else : ?>
+			<?php rhd_ghost_button( 'Read More', get_the_permalink(), null, 'center', true, true ); ?>
+		<?php endif; ?>
 
 		<footer class="entry-meta">
 			<p><?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>

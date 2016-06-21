@@ -79,8 +79,8 @@ input[type="submit"]
 	display block
 	position relative
 	padding 0.5rem 0
-	border-top 1px solid $c_text
-	border-bottom 1px solid $c_text
+	border-top 2px solid $c_text
+	border-bottom 2px solid $c_text
 	color $c_text
 	z-index 999
 
@@ -93,6 +93,7 @@ input[type="submit"]
 		position absolute
 		top $navHt
 		left 0
+		border-bottom @border-bottom
 		display none
 
 		.site-title
@@ -100,60 +101,63 @@ input[type="submit"]
 			display block
 
 	.navbar-search
-		width 65%
-		height 75%
-		-vcenter()
-		right 3em
+		width 90%
+		height 1.6rem
+		position relative
+		margin 1em auto
 
 		.search-form
 		div
-		input
 			height 100%
 
 		input
-			background-color transparent
 			border none
 
 		.search-form
-			-clearfix()
+			width 100%
 
 			.search-field
-				width 130%
-				-vcenter()
+				width 0
+				-vhcenter()
 				font-size 1em
 				font-family $ff_body
+				background-color $c_bg
 				letter-spacing 0.5px
 				border-radius 0.1em
-				border 1px solid $c_text
-				color $c_text
-				padding-right 2.3em
-				right -0.35em
+				color $c_text_dk
+				padding 0.35em 2.3em 0.35em 0.25em
 				-placeholder-props( @font-family, @color, 1, normal, normal )
+				transition 0.5s all ease
 
-				&:focus
-					border-color $c_ter
+				&.is-active
+					width 75%
+					border 1px solid $c_text_dk
 
 			.search-submit
 				width 1.5rem
-				margin-left 0.5em
-				right 0
-				-vcenter()
+				-vhcenter()
 				z-index 999
 				background url('../img/search.png') no-repeat center
 				background-size 90% auto
+				transition 0.25s all ease
+
+				&.is-active
+					right 18%
 
 		.close-search
 			-vcenter()
-			right 1.7em
-			font-weight 400
+			right 8%
+			-ff-title()
 			color $c_text
-			font-size 1.1em
+			font-size 1.2em
 			display none
 			text-decoration none
+			transition 0.25s color
 
 			&:hover
 			&:active
 				text-decoration @text-decoration
+				color $c_text_dk
 
 
 	@media screen and (min-width 40rem)
@@ -181,9 +185,7 @@ input[type="submit"]
 #site-navigation-container
 	width 100vw
 	text-align center
-	padding-bottom 1rem
 	z-index 999
-	border-bottom 1px solid $c_text
 
 	#site-navigation
 		list-style none

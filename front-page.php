@@ -67,11 +67,6 @@ get_header();
 
 		</div><!-- #content -->
 
-		<?php
-			if ( is_single() ) rhd_single_pagination();
-			else rhd_archive_pagination();
-		?>
-
 	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>

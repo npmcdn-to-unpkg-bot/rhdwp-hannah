@@ -54,10 +54,10 @@
 					<div class="navbar-inner">
 						<div class="nav-dropdown">
 							<?php wp_nav_menu( $nav_args ); ?>
-						</div>
 
-						<div id="header-search">
-							<?php rhd_navbar_search_form(); ?>
+							<div id="header-search">
+								<?php rhd_navbar_search_form( '' ); ?>
+							</div>
 						</div>
 
 						<button id="hamburger" class="c-hamburger c-hamburger--htx">

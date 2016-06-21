@@ -20,13 +20,6 @@ var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
 var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
-// Search field globals
-var searchW,
-	searchPT,
-	searchPR,
-	searchPL,
-	searchB,
-	isExpanded;
 
 /* ==========================================================================
 	Let 'er rip...
@@ -113,7 +106,7 @@ var searchW,
 
 	function headerSearch() {
 		// Navbar search functionality
-		setSearchDefaults();
+		isExpanded = false;
 
 		$('.navbar-search .search-submit').click(function(e){
 			if (!isExpanded) {
@@ -136,54 +129,36 @@ var searchW,
 	}
 
 
-	function setSearchDefaults() {
-		searchW = $('.navbar-search .search-field').width();
-		searchPT = $('.navbar-search .search-field').css('paddingTop');
-		searchPR = $('.navbar-search .search-field').css('paddingRight');
-		searchPL = $('.navbar-search .search-field').css('paddingLeft');
-		searchB = $('.navbar-search .search-field').css('borderWidth');
-		$('.navbar-search .search-field').css({
-			width: 0,
-			padding: 0,
-			borderWidth: 0
-		});
-
-		isExpanded = false;
-	}
-
-
 	function expandSearchBar() {
-		$('#navbar .widget_rhd_social_icons').fadeOut('fast');
-
 		$('.navbar-search').css('zIndex', 999);
 
-		$('.navbar-search .search-field')
-			.animate({ borderWidth: searchB }, 100)
-			.animate({
-				width: searchW,
-				paddingTop: searchPT,
-				paddingRight: searchPR,
-				paddingBottom: searchPT,
-				paddingLeft: searchPL
-			}, 'fast', 'easeOutExpo', function(){
-				isExpanded = true;
-				$('.close-search').fadeIn('fast');
-			});
+		if ( !viewportIsSmall() ) {
+			$('#navbar').addClass('search-is-active');
+			$('#site-navigation-container').animate({opacity: 0.1}, 'fast');
+		}
+
+		$('.navbar-search .search-submit, .navbar-search .search-field').addClass('is-active');
+		$('.navbar-search .search-field').focus();
+
+		$('.close-search').fadeIn('fast');
+
+		isExpanded = true;
 	}
 
 
 	function collapseSearchBar() {
-		$('#navbar .widget_rhd_social_icons').fadeIn('fast');
+		if ( !viewportIsSmall() ) {
+			$('#navbar').removeClass('search-is-active');
+			$('#site-navigation-container').animate({opacity: 1});
+		}
 
-		$('.navbar-search .search-field').animate({
-			width: 0,
-			padding: 0,
-			borderWidth: 0
-		}, 'fast', 'easeOutExpo', function(){
-			$('.navbar-search').css('zIndex', 0);
-			isExpanded = false;
-			$('.close-search').fadeOut('fast');
-		});
+		$('.navbar-search .search-submit, .navbar-search .search-field').removeClass('is-active');
+
+		$('.navbar-search').css('zIndex', 0);
+
+		$('.close-search').fadeOut('fast');
+
+		isExpanded = false;
 	}
 
 })(jQuery);

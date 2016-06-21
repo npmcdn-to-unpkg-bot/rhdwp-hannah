@@ -115,15 +115,15 @@ $updir = '../../../uploads'
 
 -hcenter( $pos = absolute, $offset = 0 )
 	position $pos
-	left 50% + $offset
-	-transform(translateX(-50%))
+	right 50% + $offset
+	-transform(translateX(50%))
 
 
 -vhcenter( $pos = absolute, $hoffset = 0, $voffset = 0 )
 	position $pos
 	top 50% + $hoffset
-	left 50% + $voffset
-	-transform(translate(-50%, -50%))
+	right 50% + $voffset
+	-transform(translate(50%, -50%))
 
 
 -placeholder-props( $famVal, $color = $c_text, $opacity = 1, $weight = normal, $text_transform = normal )
