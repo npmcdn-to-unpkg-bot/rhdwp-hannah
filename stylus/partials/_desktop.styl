@@ -17,13 +17,14 @@
 				-clearfix()
 
 	#site-navigation-container
-		width 45%
+		width 91%
 		display block
 		background transparent
 		position relative
 		box-shadow none
 		float left
 		padding-bottom 0
+		border-bottom none
 		position relative
 		top 0.15em
 
@@ -55,7 +56,6 @@
 
 			#submit
 				width auto
-				padding-left 0.8em
 
 	// Image Strip
 	#primary
@@ -78,10 +78,7 @@
 				display block
 
 	.entry-content
-		img
-		iframe
-			width initial
-			-unwrapper(initial)
+		margin initial
 
 		img
 			&.alignleft
@@ -98,6 +95,24 @@
 		a
 			img
 				@extends .entry-content img
+
+	.post-grid
+		-flexbox()
+
+		& > article
+			width 47%
+			height 36em
+			-flexitem()
+			vertical-align top
+			position relative
+			margin 0.75em 0
+
+			.entry-summary
+				.ghost-button-container
+					position absolute
+					bottom 1.25em
+					-hcenter()
+					margin 0
 
 
 // Fixed-width 320px sidebar
@@ -119,19 +134,19 @@
 
 @media screen and (min-width 58em)
 	#primary
-		width 56%
+		width 55%
 
 
 @media screen and (min-width 62em)
 	#primary
-		width 58%
+		width 57%
 
 
 @media screen and (min-width 64em)
 	#primary
-		width 60%
+		width 59%
 
 
 @media screen and (min-width 66em)
 	#primary
-		width 64%
+		width 63%

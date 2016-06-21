@@ -10,7 +10,7 @@ get_header();
 ?>
 
 	<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'template-parts/metabar' ); ?>
-	
+
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
@@ -23,7 +23,15 @@ get_header();
 					?>
 				<?php endwhile; ?>
 
-				<?php if ( is_single() && comments_open() ) comments_template(); ?>
+				<?php
+				if ( is_single() ) {
+					if ( function_exists( 'rhd_related_posts' ) ) rhd_related_posts( 'rand', 120 );
+					rhd_single_pagination();
+					if ( comments_open() ) comments_template();
+				} else {
+					rhd_archive_pagination();
+				}
+				?>
 
 			<?php else : ?>
 
@@ -58,11 +66,6 @@ get_header();
 			<?php endif; // end have_posts() check ?>
 
 		</div><!-- #content -->
-
-		<?php
-			if ( is_single() ) rhd_single_pagination();
-			else rhd_archive_pagination();
-		?>
 
 	</section><!-- #primary -->
 

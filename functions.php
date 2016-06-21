@@ -472,11 +472,11 @@ function rhd_single_pagination() {
 
 	echo "<nav class='single-pagination'>\n";
 
-	echo ( $next != '' ) ? $next : $spacer;
+	echo ( $next != '' ) ? '<span class="pag-next pag-link">' . $next . '</span>' : $spacer;
 
 	echo  "<div class='pag-sep'></div>\n";
 
-	echo ( $prev != '' ) ? $prev : $spacer;
+	echo ( $prev != '' ) ? '<span class="pag-prev pag-link">' . $prev . '</span>' : $spacer;
 
 	echo "</nav>\n";
 }
@@ -591,15 +591,16 @@ function rhd_get_metabar_search_form( $placeholder = "Search" ) {
  * rhd_navbar_search_form function.
  *
  * @access public
+ * @param string $placeholder (default: "Search")
  * @return void
  */
-function rhd_navbar_search_form()
+function rhd_navbar_search_form( $placeholder = "Search" )
 {
 	echo '
 		<div class="navbar-search">
 			<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
 				<div>
-					<input type="text" value="" class="search-field" name="s" />
+					<input type="text" value="" class="search-field" name="s" placeholder="' . $placeholder . '" />
 					<input type="submit" class="search-submit" value="" />
 				</div>
 				<a class="close-search" href="#">X</a>

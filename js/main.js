@@ -58,12 +58,6 @@ var searchW,
 	function rhdInit() {
 		wpAdminBarPush();
 
-		/*
-		$.slidebars({
-			siteClose: false,
-		});
-		*/
-
 		toggleBurger();
 		headerSearch();
 

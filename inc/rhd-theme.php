@@ -49,7 +49,7 @@ add_filter( 'body_class', 'rhd_body_class' );
  * @return void
  */
 function rhd_custom_excerpt_length( $length) {
-	return 40;
+	return 30;
 }
 add_filter( 'excerpt_length', 'rhd_custom_excerpt_length' );
 

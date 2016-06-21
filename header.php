@@ -45,10 +45,14 @@
 
 	<div id="page" class="hfeed site">
 			<header id="header" class="site-header">
+
+				<div id="masthead">
+					<a class="site-title-link" href="<?php echo home_url(); ?>"><h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
+				</div>
+
 				<div id="navbar">
 					<div class="navbar-inner">
 						<div class="nav-dropdown">
-							<a class="mobile-only" href="<?php echo home_url(); ?>"><h1 class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
 							<?php wp_nav_menu( $nav_args ); ?>
 						</div>
 
@@ -56,14 +60,10 @@
 							<?php rhd_navbar_search_form(); ?>
 						</div>
 
-						<button id="hamburger" class="c-hamburger c-hamburger--rot">
+						<button id="hamburger" class="c-hamburger c-hamburger--htx">
 							<span>Toggle nav</span>
 						</button>
 					</div>
-				</div>
-
-				<div id="masthead">
-					<a class="site-title-link" href="<?php echo home_url(); ?>"><h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
 				</div>
 			</header><!-- #masthead -->
 

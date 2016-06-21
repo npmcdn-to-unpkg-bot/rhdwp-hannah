@@ -41,7 +41,7 @@ body
 a
 	outline 0 !important
 	transition all 0.25s
-	color $c_ter
+	color $c_sec
 	text-decoration none
 
 	&:hover
@@ -61,16 +61,13 @@ textarea
 	transition all 0.25s
 
 	&:focus
-		border-color $off_white
+		border-color $c_text_lt
 
 
 input[type="submit"]
 	cursor pointer
-	font-family $ff_body
-	transition all 0.25s
-
-	&:hover
-		background-color gray
+	-ghost-button-alt()
+	padding 0
 
 
 #page
@@ -79,13 +76,12 @@ input[type="submit"]
 
 #navbar
 	width 100%
-	height $navHt
 	display block
-	position fixed
-	top 0
-	left 0
-	background $c_header
-	color $c_text_lt
+	position relative
+	padding 0.5rem 0
+	border-top 1px solid $c_text
+	border-bottom 1px solid $c_text
+	color $c_text
 	z-index 999
 
 	.navbar-inner
@@ -125,11 +121,14 @@ input[type="submit"]
 				width 130%
 				-vcenter()
 				font-size 1em
-				background-color white
+				font-family $ff_body
+				letter-spacing 0.5px
+				border-radius 0.1em
+				border 1px solid $c_text
+				color $c_text
 				padding-right 2.3em
 				right -0.35em
-				-ff-subtitle()
-				letter-spacing 0.5px
+				-placeholder-props( @font-family, @color, 1, normal, normal )
 
 				&:focus
 					border-color $c_ter
@@ -147,7 +146,7 @@ input[type="submit"]
 			-vcenter()
 			right 1.7em
 			font-weight 400
-			color $c_text_lt
+			color $c_text
 			font-size 1.1em
 			display none
 			text-decoration none
@@ -184,7 +183,7 @@ input[type="submit"]
 	text-align center
 	padding-bottom 1rem
 	z-index 999
-	box-shadow 3px 3px 7px -4px $c_text
+	border-bottom 1px solid $c_text
 
 	#site-navigation
 		list-style none
@@ -212,13 +211,11 @@ input[type="submit"]
 
 			&:hover
 			&:active
-				color $c_ter
+				color $c_text_dk
 
 
 #hamburger
-	top 50%
-	right 1em
-	-vcenter()
+	margin 0 auto
 
 
 #main
@@ -238,7 +235,6 @@ input[type="submit"]
 #colophon
 	width 100%
 	position relative
-	background $c_sec
 
 	.site-info
 		-wrapper(2em, 0, 75%)
@@ -249,7 +245,7 @@ input[type="submit"]
 
 			&:hover
 			&:active
-				color $c_ter
+				color $c_text_dk
 				text-decoration none
 
 		img
@@ -270,9 +266,9 @@ input[type="submit"]
 
 .entry-title
 .page-title
-.widget-title
 	margin-top 0
-	line-height 1
+	line-height 1.2
+	text-transform uppercase
 
 
 .page-title
@@ -284,11 +280,17 @@ input[type="submit"]
 
 .entry-title
 	-ff-title()
+	font-size 1.1em
 
 
 .entry-summary
 	p
 		margin 0
+		line-height 1.5
+		font-size 0.9em
+
+	img
+		display none
 
 
 .entry-content
@@ -318,13 +320,13 @@ input[type="submit"]
 	ul
 		padding-left 1em
 
-	img
 	iframe
-		-wrapper(1em, 1em, 95%)
+		max-width 100%
 
 	img
 		height auto
 		display block
+		-wrapper(1em, 1em, 95%, 100%)
 
 		&.alignleft
 		&.alignright
@@ -345,28 +347,27 @@ input[type="submit"]
 		-clearfix()
 		margin 1em auto
 
-		&:first-child
-			margin-top 0
-
 		.entry-header
 			text-align center
-			margin-bottom 1em
+			-ff-title()
+			text-transform uppercase
+			margin-bottom 0.25em
 
 			a
 				color inherit
 
 				&:hover
 				&:active
-					color $c_ter
+					color $c_sec
 					text-decoration none
 
 			.entry-title
-				margin 0 0 0.25rem 0
+				margin 0
+				text-transform uppercase
 
 			.entry-details
 				margin 0
-				font-size 0.9em
-				-ff-subtitle()
+				font-size 0.8em
 
 				.sep
 					font-size 1.1em
@@ -374,10 +375,18 @@ input[type="submit"]
 		.entry-thumbnail
 			width 100%
 			height auto
+			margin-bottom 0.5em
 
 			img
 				width 100%
 				height auto
+
+
+.post-grid
+	& > article
+		width 100%
+		vertical-align top
+		margin 1em 0
 
 
 .pagination
@@ -439,29 +448,36 @@ input[type="submit"]
 	textarea
 		max-width 100%
 
-	#commentform
+
+#commentform
+	width 100%
+	min-width 18rem
+	max-width 100%
+
+	p
+		margin-bottom 0.75rem
+
+	input
+	textarea
 		width 100%
-		min-width 18rem
-		max-width 100%
+		font-size 0.8em
+		box-sizing border-box
+		padding 0.5em
+		display inline-block
 
-		p
-			margin-bottom 0.75rem
+	#submit
+		width auto
+		cursor pointer
+		padding 0.5em
+		font-size 1rem
 
-		input
-		textarea
-			width 100%
-			font-size 0.8em
-			box-sizing border-box
-			padding 0.5em
-			display inline-block
+	.comment-subscription-form
+		margin initial
 
-		#submit
-			width auto
-			padding-left 0.8em
-			cursor pointer
 
-		.comment-subscription-form
-			margin initial
+#reply-title
+	@extends .entry-title
+	font-size 1.3em
 
 
 /* ==========================================================================
@@ -477,7 +493,10 @@ input[type="submit"]
 		margin-bottom 0
 
 	.widget-title
-		margin-top 0
+		@extends .entry-title
+		font-size 1.2em
+		text-align center
+
 
 
 /* ==========================================================================
