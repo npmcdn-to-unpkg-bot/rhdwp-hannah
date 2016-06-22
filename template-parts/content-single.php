@@ -10,7 +10,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h2 class="entry-title"><?php the_title(); ?></h2>
-		<p class="entry-details"><?php the_time( get_option( 'date_format' ) ); ?></p>
+		<?php rhd_entry_header(); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

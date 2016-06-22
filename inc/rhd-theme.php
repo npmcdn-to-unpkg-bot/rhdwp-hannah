@@ -67,3 +67,15 @@ function rhd_custom_excerpt_read_more( $more ) {
 	return rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', true, false );
 }
 add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
+
+
+/**
+ * rhd_entry_header function.
+ *
+ * @access public
+ * @param string $sep (default: ' &mdash; ')
+ * @return void
+ */
+function rhd_entry_header( $sep = ' &mdash; ' ) {
+	echo '<p class="entry-details">' . get_the_time( get_option( 'date_format' ) ) . ' by <a href="' . get_author_posts_url() . '">' . get_the_author() . '</a>' . $sep . '<a href="' . get_comment_link() . '">Leave a Comment</a></p>';
+}
