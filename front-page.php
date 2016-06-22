@@ -15,7 +15,7 @@ get_header(); ?>
 			<?php if ( function_exists( 'soliloquy' ) ) soliloquy( 'featured-posts', 'slug' ); ?>
 		</section>
 
-		<hr class="goldsep">
+		<hr class="goldsep small">
 
 		<section id="front-page-intro">
 			<?php if ( have_posts() ) : ?>

@@ -567,7 +567,7 @@ input[type="submit"]
 		margin-bottom 0 !important
 
 		.soliloquy-caption
-			width 33%
+			width 95%
 			height auto !important
 			min-width 20rem
 			padding 1em
@@ -585,8 +585,8 @@ input[type="submit"]
 				.soliloquy-fc-title
 					a
 						-ff-title(true)
-						font-size 1.75rem !important
-						font-style normal !important
+						font-size 5vw
+						font-style normal
 						text-decoration none
 						transition 0.25s color
 
@@ -595,20 +595,22 @@ input[type="submit"]
 							color $c_sec
 
 				.soliloquy-fc-content
-					color $c_text !important
-					font-style normal !important
-					font-size 0.9rem !important
+					color $c_text
+					font-style normal
+					margin-top 0
 
 					.rhd-fc-date
-						font-family $ff_body !important
+						font-family $ff_body
 						font-weight 400
 						line-height 1.75
+						font-size 3.5vw
+						text-transform uppercase
 
 					.rhd-fc-more
-						margin-top 1em
+						margin-top 0.5em
 						display inline-block
 						-ff-headline()
-						font-size 1.8em
+						font-size 6vw
 						transition 0.25s color
 
 						&:hover
@@ -661,6 +663,9 @@ input[type="submit"]
 	background-repeat repeat
 	background-size cover
 	margin 0
+
+	&.small
+		height ($sep_h / 2)
 
 
 .rhd-mailchimp-container

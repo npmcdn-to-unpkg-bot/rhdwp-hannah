@@ -54,7 +54,7 @@
 						<!-- social -->
 
 						<?php get_sidebar( 'header' ); ?>
-						
+
 						<div id="header-search">
 							<?php rhd_navbar_search_form(); ?>
 						</div>
@@ -70,8 +70,8 @@
 					<a class="site-title-link" href="<?php echo home_url(); ?>"><img id="site-title" class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
 				</div>
 			</header><!-- #masthead -->
-			
-			<hr class="goldsep">
+
+			<hr class="goldsep <?php echo is_front_page() ? 'small' : ''; ?>">
 
 			<main id="main">
 				<div id="content-wrapper">
