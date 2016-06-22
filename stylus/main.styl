@@ -327,7 +327,7 @@ input[type="submit"]
 
 
 .widget-title
-	color $c_sec
+	color $c_text
 	font-size 2em
 
 
@@ -379,6 +379,38 @@ input[type="submit"]
 		img
 			@extends .entry-content img
 
+	table
+		border-color darken($off_white, 25%) !important
+
+		tr
+		td
+			border-color @border-color
+
+		td
+			padding 0
+			font-size 0.8em
+
+			div
+				-wrapper(0.25em, 0.25em, 95%)
+				float none !important
+				display inline-block !important
+
+				img
+					width auto
+					height auto
+					max-width 100%
+					max-height 100%
+					margin 0 auto
+					display block
+
+				a
+					color inherit
+					text-decoration none
+
+					&:hover
+					&:active
+						color $c_sec
+
 
 .entry-meta
 	p
@@ -402,7 +434,7 @@ input[type="submit"]
 
 				&:hover
 				&:active
-					color $c_ter
+					color $c_sec
 					text-decoration none
 
 			.entry-title
@@ -643,9 +675,11 @@ input[type="submit"]
 	About Page
    ========================================================================== */
 
-.page-id-7
-	.intro-content-container
-		display none
+// Disabled, page is full width
+
+// .page-id-7
+// 	.intro-content-container
+// 		display none
 
 
 /* ==========================================================================

@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-	<?php // if ( $_SESSION['blog_area'] === true ) get_template_part( 'template-parts/metabar' ); ?>
+	<?php rhd_metabar(); ?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">

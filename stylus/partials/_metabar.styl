@@ -9,8 +9,8 @@
 		-wrapper(0,0, 90%)
 		list-style none
 		padding-left 0
-		
-		li
+
+		.rhd-metabar-item
 			width 100%
 			display block
 
@@ -70,7 +70,7 @@
 
 			.rhd-dropdown-title
 				margin-bottom 0.5em
-				
+
 				.dd-title-text
 				.dd-link-text
 					position relative
@@ -129,17 +129,19 @@
 @media screen and (min-width 40em)
 	#primary
 		.blog-metabar
-			padding 0
+			&.layout-wide
+				background green !important
+				padding 0
 
-			.blog-metabar-content
-				-wrapper()
-				-flexbox()
-				top 0.95em
+				.blog-metabar-content
+					-wrapper()
+					-flexbox()
+					top 0.95em
 
-				li
-					width 30%
-					-flexitem()
+					.rhd-metabar-item
+						width 30%
+						-flexitem()
 
-				.blog-search
-					position relative
-					top	0.2em
+					.blog-search
+						position relative
+						top	0.2em

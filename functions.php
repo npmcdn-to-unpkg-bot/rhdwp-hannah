@@ -29,6 +29,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 // Includes
 include_once( 'inc/rhd-ghost-button.php' );
 include_once( 'inc/rhd-theme.php' );
+include_once( 'inc/rhd-metabar.php' );
 include_once( 'inc/rhd-login-admin.php' );
 
 
@@ -273,7 +274,7 @@ function rhd_register_sidebars()
 		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</div>'
 	));
-	
+
 	register_sidebar( array(
 		'name'			=> __( 'Header Widget Area', 'rhd' ),
 		'id'			=> 'header-widget-area',
@@ -593,21 +594,3 @@ function rhd_title_check_hidden( $title )
 	return $title;
 }
 add_filter( 'widget_title', 'rhd_title_check_hidden' );
-
-
-/**
- * rhd_metabar_get_search_form function.
- *
- * @access public
- * @return void
- */
-function rhd_get_metabar_search_form( $placeholder = 'Search' )
-{
-        echo '
-                <form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
-                    <div>
-                        <input type="text" value="" class="search-field" placeholder="' . $placeholder . '" name="s" />
-                        <input type="submit" class="search-submit" value="" />
-                    </div>
-                </form>';
-}
