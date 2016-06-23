@@ -76,7 +76,7 @@ input[type="submit"]
 
 
 #navbar
-	width 100%
+	-wrapper()
 	display block
 	position relative
 	padding 0.5rem 0
@@ -132,7 +132,7 @@ input[type="submit"]
 
 				&.is-active
 					width 75%
-					border 1px solid $c_text_dk
+					border 1px solid $gray
 
 			.search-submit
 				width 1.5rem
@@ -178,7 +178,7 @@ input[type="submit"]
 
 
 .site-title-link
-	-wrapper($navHt + ($navHt/2), 0, 85%, 30rem)
+	-wrapper(1em, 0, 85%, 30rem)
 	display block
 	line-height 1.2
 
@@ -514,6 +514,10 @@ input[type="submit"]
 	Extras
    ========================================================================== */
 
+#graystripe
+	width 100%
+	height 0.875rem
+	background-color $gray
 
 
 /* ==========================================================================

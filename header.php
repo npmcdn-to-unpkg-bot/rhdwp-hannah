@@ -44,27 +44,32 @@
 	?>
 
 	<div id="page" class="hfeed site">
-			<header id="header" class="site-header">
+		<div id="graystripe"></div>
 
-				<div id="masthead">
-					<a class="site-title-link" href="<?php echo home_url(); ?>"><h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
-				</div>
+		<header id="header" class="site-header">
 
-				<div id="navbar">
-					<div class="navbar-inner">
-						<div class="nav-dropdown">
-							<?php wp_nav_menu( $nav_args ); ?>
+			<div id="masthead">
+				<a class="site-title-link" href="<?php echo home_url(); ?>">
+					<h1 class="invisible site-title"><?php bloginfo( 'name' ); ?></h1>
+					<img src="<?php echo RHD_UPLOAD_URL; ?>/2016/06/Lulu-Logo_V1-768x384.jpg" alt="<?php bloginfo( 'name' ); ?>">
+				</a>
+			</div>
 
-							<div id="header-search">
-								<?php rhd_navbar_search_form( '' ); ?>
-							</div>
+			<div id="navbar">
+				<div class="navbar-inner">
+					<div class="nav-dropdown">
+						<?php wp_nav_menu( $nav_args ); ?>
+
+						<div id="header-search">
+							<?php rhd_navbar_search_form( '' ); ?>
 						</div>
-
-						<button id="hamburger" class="c-hamburger c-hamburger--htx">
-							<span>Toggle nav</span>
-						</button>
 					</div>
+
+					<button id="hamburger" class="c-hamburger c-hamburger--htx">
+						<span>Toggle nav</span>
+					</button>
 				</div>
-			</header><!-- #masthead -->
+			</div>
+		</header><!-- #masthead -->
 
 		<main id="main">
