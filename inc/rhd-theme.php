@@ -177,3 +177,10 @@ function soliloquy_featured_content_display_custom_fields( $pcontent, $post, $da
 	return $caption;
 }
 add_filter( 'soliloquy_fc_post_content', 'soliloquy_featured_content_display_custom_fields', 10, 3 );
+
+
+function rhd_entry_details() {
+	?>
+	<p class="entry-details">By <?php the_author(); ?> <span class="sep">|</span> <?php  the_time( get_option( 'date_format' ) ); ?> <span class="sep">|</span> <?php comments_popup_link( 'Leave a Comment', 'One Comment', '% Comments' ); ?></p>
+	<?php
+}

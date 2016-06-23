@@ -12,7 +12,7 @@
 		<h2 class="entry-title">
 			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'rhd' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 		</h2>
-		<p class="entry-details">By <?php the_author(); ?> <span class="sep">|</span> <?php  the_time( get_option( 'date_format' ) ); ?></p>
+		<?php rhd_entry_details(); ?>
 	</header><!-- .entry-header -->
 
 	<?php if ( is_search() ) : // Only display Excerpts for Search ?>

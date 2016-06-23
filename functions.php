@@ -595,3 +595,18 @@ function rhd_title_check_hidden( $title )
 	return $title;
 }
 add_filter( 'widget_title', 'rhd_title_check_hidden' );
+
+
+/**
+ * rhd_is_last_post function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_is_last_post() {
+	global $wp_query;
+
+	if ( $wp_query->current_post + 1 < $wp_query->post_count )
+		return false;
+	else return true;
+}

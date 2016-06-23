@@ -18,6 +18,8 @@ get_header();
 				<?php
 					if ( is_single() ) get_template_part( 'template-parts/content', 'single' );
 					else get_template_part( 'template-parts/content' );
+
+					if ( ! rhd_is_last_post() ) echo "<hr />";
 				?>
 			<?php endwhile; ?>
 
