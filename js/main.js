@@ -141,11 +141,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 	function killBlogspotLinks() {
-		$('.entry-content img').each(function(){
+		$('.entry-content a img').each(function(){
 			var a = $(this).parents('a');
-			var link = a.attr('href');
+			var bsLink = a.attr('href');
 
-			if ( link.indexOf('blogspot') >= 0 )
+			if ( bsLink.indexOf('blogspot') >= 0 )
 				$(this).unwrap('a');
 		});
 	}
