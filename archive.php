@@ -10,7 +10,6 @@ get_header();
 ?>
 
 	<section id="primary" class="site-content">
-		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'template-parts/metabar' ); ?>
 
 		<div id="content" role="main">
 
