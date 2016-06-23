@@ -24,7 +24,24 @@
  * @return void
  */
 function rhd_metabar( $layout = 'wide', $fields = array( 'cats' => true, 'archives' => true, 'search' => true ) ) {
+
+	// count visible fields
+	$i = 0;
+	foreach ( $fields as $field ) {
+		if ( $field === true )
+			++$i;
+	}
+
+	if ( $i == 2 ) $w = '49%';
+	elseif ( $i == 1 ) $w = '100%';
 	?>
+
+	<?php if ( $i < 3 ) : ?>
+		<style>
+				.rhd-metabar.layout-wide .rhd-metabar-content .rhd-metabar-item { width: <?php echo $w; ?>; }
+		</style>
+	<?php endif; ?>
+
 	<div class="rhd-metabar layout-<?php echo $layout; ?>">
 		<div class="rhd-metabar-content">
 			<?php if ( $fields['cats'] === true ) : ?>
@@ -173,9 +190,9 @@ function rhd_metabar_shortcode( $atts ) {
 	extract( shortcode_atts(
 		array(
 			'layout'	=> 'wide',
-			'cats'		=> 'yes',
-			'archives'	=> 'yes',
-			'search'	=> 'yes'
+			'cats'		=> true,
+			'archives'	=> true,
+			'search'	=> true
 		),
 		$atts
 	));
@@ -187,9 +204,13 @@ function rhd_metabar_shortcode( $atts ) {
 		'after_widget'  => '</div>'
 	);
 
-	ob_start();
-	the_widget( 'RHD_Metabar', $atts, $args );
-	$output = ob_get_clean();
+	$fields = array(
+		'cats'		=> $cats,
+		'archives'	=> $archives,
+		'search'	=> $search
+	);
+
+	rhd_metabar( $layout, $fields );
 
 	return $output;
 }
