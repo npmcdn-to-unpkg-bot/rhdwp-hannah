@@ -26,20 +26,8 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
    ========================================================================== */
 
 (function($){
-
 	$(document).ready(function(){
 		rhdInit();
-
-		// Metabar dropdowns
-		$('.rhd-dropdown-title').click(function(e){
-			e.preventDefault();
-
-			var $this = $(this),
-				$dd = $this.siblings('ul');
-
-			$dd.slideToggle();
-		});
-
 
 		// Navbar search expansion
 		isExpanded = false;
