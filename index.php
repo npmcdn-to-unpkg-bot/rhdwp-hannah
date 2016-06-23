@@ -17,7 +17,7 @@ get_header();
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php
 					if ( is_single() ) get_template_part( 'template-parts/content', 'single' );
-					else get_template_part( 'template-parts/content' );
+					else get_template_part( 'template-parts/content', 'excerpt' );
 
 					if ( ! rhd_is_last_post() ) echo "<hr />";
 				?>

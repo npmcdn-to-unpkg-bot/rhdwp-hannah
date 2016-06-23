@@ -2,8 +2,7 @@
 	Setup
    ========================================================================== */
 
-var $window = jQuery(window),
-	$body = jQuery('body'),
+var $body = jQuery('body'),
 	$main = jQuery('#main');
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
@@ -29,13 +28,21 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	$(document).ready(function(){
 		rhdInit();
 
-		// Navbar search expansion
-		isExpanded = false;
-
 		$('#header-search .search-submit').click(function(e){
-			if (!isExpanded) {
-				e.preventDefault();
+			e.preventDefault();
+
+			if ( !$("#header-search").data('expanded') ) {
 				expandSearchBar();
+			} else {
+				// Check that input isn't just whitespace
+				var searchStr = $('#header-search .search-field').val().replace(/^\s+/, '').replace(/\s+$/, '');
+
+				if ( searchStr === '' ) {
+					collapseSearchBar();
+				} else {
+					// Run the search
+					$("#header-search form").submit();
+				}
 			}
 		});
 
@@ -46,7 +53,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		});
 
 		$(document).keyup(function(e) {
-			if ( e.keyCode == 27 && isExpanded ) {
+			if ( e.keyCode == 27 && $("#header-search").data('expanded') ) {
 				collapseSearchBar();
 			}
 		});
@@ -69,6 +76,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Disable old blogspot image links
 		killBlogspotLinks();
+
+		// Set header search form state
+		$("#header-search").data('expanded', false);
 	}
 
 
@@ -126,7 +136,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		$('.close-search').fadeIn('fast');
 
-		isExpanded = true;
+		$("#header-search").data('expanded', true);
 	}
 
 
@@ -136,7 +146,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$('#header-search, #header-search .search-field, #header-search .search-submit').removeClass('is-active');
 
 		$('.close-search').fadeOut('fast');
-		isExpanded = false;
+		$("#header-search").data('expanded', false);
 	}
 
 
