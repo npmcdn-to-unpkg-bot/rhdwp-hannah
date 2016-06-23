@@ -23,6 +23,5 @@
     "jquery.fitvids": "fitvids#^1.1.0",
     "packery": "^2.0.0",
     "Slidebars": "~0.10.3",
-    "gilbitron/Dropit": "dropit#^1.1.1"
   }
 }
