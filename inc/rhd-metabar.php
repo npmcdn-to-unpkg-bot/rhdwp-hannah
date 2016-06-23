@@ -159,14 +159,21 @@ class RHD_Metabar extends WP_Widget {
 			<label for="<?php echo $this->get_field_name( 'layout' ); ?>[tall]">Tall (Stacked)</label>
 			<input id="<?php echo $this->get_field_id( 'layout' ); ?>[tall]" name="<?php echo $this->get_field_name( 'layout' ); ?>" type="radio" value="tall" <?php checked( $layout, 'tall' ); ?>>
 		</p>
-		<p>
-			<label for="<?php echo $this->get_field_name( 'cats' ); ?>">Categories</label>
-			<input id="<?php echo $this->get_field_id( 'cats' ); ?>" name="<?php echo $this->get_field_name( 'cats' ); ?>" class="checkbox" type="checkbox" value="yes" <?php checked( $cats, 'yes' ); ?>>
-			<label for="<?php echo $this->get_field_name( 'archives' ); ?>">Archives</label>
-			<input id="<?php echo $this->get_field_id( 'archives' ); ?>" name="<?php echo $this->get_field_name( 'archives' ); ?>" class="checkbox" type="checkbox" value="yes" <?php checked( $archives, 'yes' ); ?>>
-			<label for="<?php echo $this->get_field_name( 'search' ); ?>">Search</label>
-			<input id="<?php echo $this->get_field_id( 'search' ); ?>" name="<?php echo $this->get_field_name( 'search' ); ?>" class="checkbox" type="checkbox" value="yes" <?php checked( $search, 'yes' ); ?>>
-		</p>
+		<div class="meta-section-controls">
+			<?php _e( 'Enable/Disable sections:' ); ?>
+			<p>
+				<input id="<?php echo $this->get_field_id( 'cats' ); ?>" name="<?php echo $this->get_field_name( 'cats' ); ?>" class="checkbox" type="checkbox" value="yes" <?php checked( $cats, 'yes' ); ?>>
+				<label for="<?php echo $this->get_field_name( 'cats' ); ?>">Categories</label>
+			</p>
+			<p>
+				<input id="<?php echo $this->get_field_id( 'archives' ); ?>" name="<?php echo $this->get_field_name( 'archives' ); ?>" class="checkbox" type="checkbox" value="yes" <?php checked( $archives, 'yes' ); ?>>
+				<label for="<?php echo $this->get_field_name( 'archives' ); ?>">Archives</label>
+			</p>
+			<p>
+				<input id="<?php echo $this->get_field_id( 'search' ); ?>" name="<?php echo $this->get_field_name( 'search' ); ?>" class="checkbox" type="checkbox" value="yes" <?php checked( $search, 'yes' ); ?>>
+				<label for="<?php echo $this->get_field_name( 'search' ); ?>">Search</label>
+			</p>
+		</div>
 
 <?php
 	}
