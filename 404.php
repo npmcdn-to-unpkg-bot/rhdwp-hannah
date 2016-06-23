@@ -8,9 +8,10 @@
 
 get_header(); ?>
 
+<?php rhd_metabar(); ?>
+
 <section id="primary" class="site-content">
 	<div id="content" role="main">
-
 		<section class="error-404 not-found">
 			<header class="page-header">
 				<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'rhd' ); ?></h1>
@@ -22,9 +23,7 @@ get_header(); ?>
 				<?php get_search_form(); ?>
 			</div>
 		</section>
-
 	</div>
-
 </section>
 
 <?php get_sidebar(); ?>

@@ -1,16 +1,14 @@
-.blog-metabar
+.rhd-metabar
 	width 100%
 	height auto
-	padding 1em 0 0.75em 0
-	margin-bottom 1em
+	padding 1em
+	margin 1em auto
 	background $c_sec
 
-	.blog-metabar-content
+	.rhd-metabar-content
 		-wrapper(0,0, 90%)
-		list-style none
-		padding-left 0
-		
-		li
+
+		.rhd-metabar-item
 			width 100%
 			display block
 
@@ -66,11 +64,9 @@
 				background white
 				color gray
 				position relative
-				font-family $ff_body
+				font-family $ff_body !important
 
 			.rhd-dropdown-title
-				margin-bottom 0.5em
-				
 				.dd-title-text
 				.dd-link-text
 					position relative
@@ -90,7 +86,7 @@
 
 				ul
 					width 100%
-					height 30vh
+					max-height 30vh
 					position absolute
 					top 2em
 					overflow-y auto
@@ -121,22 +117,26 @@
 		.blog-search
 			top	0
 
+	&.layout-tall
+		.rhd-dropdown-title
+			margin-bottom 0.5em
+
 
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	#primary
-		.blog-metabar
-			padding 0
+	.rhd-metabar
+		&.layout-wide
+			padding 0 0 0.5em 0
 
-			.blog-metabar-content
+			.rhd-metabar-content
 				-wrapper()
 				-flexbox()
 				top 0.95em
 
-				li
+				.rhd-metabar-item
 					width 30%
 					-flexitem()
 
