@@ -64,13 +64,13 @@
 				background white
 				color gray
 				position relative
-				font-family $ff_body !important
+				font-family $ff_title !important
 
 			.rhd-dropdown-title
 				.dd-title-text
 				.dd-link-text
 					position relative
-					top 0.25em
+					top 0.45em
 
 			.drop
 				text-decoration none
@@ -89,6 +89,7 @@
 					max-height 30vh
 					position absolute
 					top 2em
+					font-family $ff_title
 					overflow-y auto
 					background white
 					padding-left 0
@@ -118,8 +119,13 @@
 			top	0
 
 	&.layout-tall
-		.rhd-dropdown-title
-			margin-bottom 0.5em
+		.rhd-metabar-item
+			.rhd-dropdown-title
+				margin-bottom 0.5em
+
+			&:last-of-type
+				.rhd-dropdown-title
+					margin-bottom 0
 
 
 /* ==========================================================================
