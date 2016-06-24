@@ -25,7 +25,7 @@ html
 	font-size 16px
 	margin 0
 	font-family $ff_body
-	font-weight 300
+	font-weight 400
 	color $c_text
 
 
@@ -90,6 +90,7 @@ input[type="submit"]
 		margin 0
 
 	.nav-dropdown
+		width 100%
 		background $c_bg
 		position absolute
 		top $navHt
@@ -139,6 +140,7 @@ input[type="submit"]
 				-vhcenter()
 				z-index 999
 				background url('../img/search.png') no-repeat center
+				-opacity(0.5)
 				background-size 90% auto
 				transition 0.25s all ease
 
@@ -184,7 +186,7 @@ input[type="submit"]
 
 
 #site-navigation-container
-	width 100vw
+	width 100%
 	text-align center
 	z-index 999
 
@@ -202,15 +204,15 @@ input[type="submit"]
 			a
 				-ff-title()
 				text-transform uppercase
-				color $c_text_dk
+				color $c_text
 
 				&:hover
 				&:active
-					color black
+					color $c_text_dk
 
 			&.current-menu-item
 				a
-					color black
+					color $c_text_dk
 
 
 .site-navigation
@@ -220,7 +222,7 @@ input[type="submit"]
 			text-decoration none
 			transition color 0.25s
 			text-transform uppercase
-			font-weight 300
+			font-weight 400
 
 			&:hover
 			&:active
@@ -253,6 +255,7 @@ input[type="submit"]
 	.site-info
 		-wrapper(2em, 0, 75%)
 		text-align center
+		font-size 0.9em
 
 		a
 			color inherit
@@ -444,6 +447,8 @@ input[type="submit"]
 
 
 .post-grid
+	width 100%
+
 	& > article
 		width 100%
 		vertical-align top

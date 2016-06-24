@@ -25,8 +25,13 @@ get_header();
 
 				<?php
 				if ( is_single() ) {
-					if ( function_exists( 'rhd_related_posts' ) ) rhd_related_posts( 'rand', 120 );
-					rhd_single_pagination();
+					if ( function_exists( 'rhd_related_posts' ) ) rhd_related_posts( 'rand', 720 );
+
+					if ( function_exists( 'wp_pagenavi' ) )
+						wp_pagenavi();
+					else
+						rhd_single_pagination();
+
 					if ( comments_open() ) comments_template();
 				} else {
 					rhd_archive_pagination();

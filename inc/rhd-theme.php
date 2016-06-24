@@ -79,3 +79,15 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 function rhd_entry_header( $sep = ' &mdash; ' ) {
 	echo '<p class="entry-details">' . get_the_time( get_option( 'date_format' ) ) . ' by <a class="author-link" href="' . get_author_posts_url() . '">' . get_the_author() . '</a>' . $sep . '<a href="' . get_comment_link() . '">Leave a Comment</a></p>';
 }
+
+
+function rhd_front_page_query_offset( &$query ) {
+	$offset = 1;
+	$ppp = get_option( 'posts_per_page' );
+
+	if ( $query->is_paged ) {
+		$page_offset = $offset + ( ( $query->query_vars['paged'] -1 ) * $ppp );
+	} else {
+		$query->set( 'offset', $offset );
+	}
+}

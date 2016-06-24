@@ -16,26 +16,39 @@ get_header();
 			<!-- SLIDER -->
 		</div>
 
-		<?php $i = 0; ?>
+		<?php $first = new WP_Query( 'posts_per_page=1' ); ?>
+		<?php if ( $first->have_posts() ) : ?>
+			<?php while ( $first->have_posts() ) : $first->the_post(); ?>
+				<div class="first-post">
+					<?php get_template_part( 'template-parts/content', 'front-post' ); ?>
+				</div>				
+			<?php endwhile; ?>
+		<?php endif; ?>
+
 		<?php if ( have_posts() ) : ?>
+			<?php
+			$q = new WP_Query( 'offset=1' );
+			$i = 0;
+			?>
 
-			<?php while ( have_posts() ) : the_post(); ++$i; ?>
+			<?php while ( $q->have_posts() ) : $q->the_post(); ++$i; ?>
 				<?php if ( $i === 1 ) : ?>
-					<div class="first-post">
-						<?php get_template_part( 'template-parts/content', 'front-post' ); ?>
+					<div class="front-page-posts post-grid">
+				<?php endif; ?>
+
+				<?php get_template_part( 'template-parts/content', 'excerpt' ); ?>
+
+				<?php if ( rhd_is_last_post() ) : ?>
 					</div>
-				<?php else : ?>
-					<?php if ( $i === 2 && ! rhd_is_last_post() ) : ?>
-						<div class="front-page-posts post-grid">
-					<?php endif; ?>
-
-					<?php get_template_part( 'template-parts/content', 'excerpt' ); ?>
-
-					<?php if ( $i !== 2 && rhd_is_last_post() ) : ?>
-						</div>
-					<?php endif; ?>
 				<?php endif; ?>
 			<?php endwhile; ?>
+
+			<?php
+			if ( function_exists( 'wp_pagenavi' ) )
+				wp_pagenavi( array( 'query' => $q ) );
+			else
+				rhd_single_pagination();
+			?>
 
 		<?php else : ?>
 
