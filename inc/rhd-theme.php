@@ -77,5 +77,5 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
  * @return void
  */
 function rhd_entry_header( $sep = ' &mdash; ' ) {
-	echo '<p class="entry-details">' . get_the_time( get_option( 'date_format' ) ) . ' by <a href="' . get_author_posts_url() . '">' . get_the_author() . '</a>' . $sep . '<a href="' . get_comment_link() . '">Leave a Comment</a></p>';
+	echo '<p class="entry-details">' . get_the_time( get_option( 'date_format' ) ) . ' by <a class="author-link" href="' . get_author_posts_url() . '">' . get_the_author() . '</a>' . $sep . '<a href="' . get_comment_link() . '">Leave a Comment</a></p>';
 }
