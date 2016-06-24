@@ -49,7 +49,7 @@ add_filter( 'body_class', 'rhd_body_class' );
  * @return void
  */
 function rhd_custom_excerpt_length( $length) {
-	return 30;
+	return 40;
 }
 add_filter( 'excerpt_length', 'rhd_custom_excerpt_length' );
 
@@ -64,7 +64,7 @@ add_filter( 'excerpt_length', 'rhd_custom_excerpt_length' );
 function rhd_custom_excerpt_read_more( $more ) {
 	global $post;
 
-	return rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', true, false );
+	return rhd_ghost_button( 'Read More', get_permalink( $post ), null, '', true, false );
 }
 add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 

@@ -21,10 +21,10 @@
 
 	.ghost-button
 	.ghost-button-alt
-		padding 0.4em .8em
+		padding 0.5em 0.8em 0.4em 0.8em
 		text-decoration none
 		background-color $c_bg
-		border-width 3px
+		border-width 2px
 		border-style solid
 		border-radius 0.1em
 		display inline-block
@@ -41,29 +41,6 @@
 			color $c_bg
 
 	.ghost-button
-		color $c_ter
-		border-color $c_ter
-
-		&:hover
-		&:active
-			background-color $c_ter
-
-		&:focus
-			border-color $c_ter_lt
-
-		&.filled
-			background-color $c_ter
-			border-color $c_ter
-
-			&:hover
-			&:active
-				background-color $c_sec
-				border-color $c_sec
-
-			&:focus
-				border-color $c_sec_lt
-
-	.ghost-button-alt
 		color $c_sec
 		border-color $c_sec
 
@@ -71,9 +48,32 @@
 		&:active
 			background-color $c_sec
 
+		&:focus
+			border-color $c_sec_lt
+
 		&.filled
 			background-color $c_sec
 			border-color $c_sec
+
+			&:hover
+			&:active
+				background-color $c_ter
+				border-color $c_ter
+
+			&:focus
+				border-color $c_ter_lt
+
+	.ghost-button-alt
+		color $c_ter
+		border-color $c_ter
+
+		&:hover
+		&:active
+			background-color $c_ter
+
+		&.filled
+			background-color $c_ter
+			border-color $c_ter
 
 			&:hover
 			&:active

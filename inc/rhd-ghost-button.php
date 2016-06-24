@@ -19,12 +19,12 @@
  * @param string $content
  * @param mixed $url
  * @param mixed $target (default: '')
- * @param string $align (default: 'center')
+ * @param string $align (default: '')
  * @param mixed $filled (default: false)
  * @param bool $echo (default: false)
  * @return void
  */
-function rhd_ghost_button( $content, $url, $target = '', $align = 'center', $filled = false, $echo = false ) {
+function rhd_ghost_button( $content, $url, $target = '', $align = '', $filled = false, $echo = false ) {
 	$target_att = ( $target ) ? "target={$target}" : '';
 
 	if ( $filled != false ) {
@@ -33,7 +33,9 @@ function rhd_ghost_button( $content, $url, $target = '', $align = 'center', $fil
 		$filled_class = null;
 	}
 
-	$output = "<div class='ghost-button-container gb-align-{$align}'><a href='{$url}' {$target_att} class='ghost-button {$filled_class}'>{$content}</a></div>";
+	$align_class = $align ? "gb-align-$align" : '';
+
+	$output = "<div class='ghost-button-container $align_class'><a href='{$url}' {$target_att} class='ghost-button {$filled_class}'>{$content}</a></div>";
 
 	if ( $echo == true )
 		echo $output;
