@@ -30,16 +30,6 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	$(document).ready(function(){
 		rhdInit();
 
-		// Metabar dropdowns
-		$('.rhd-dropdown-title').click(function(e){
-			e.preventDefault();
-
-			var $this = $(this),
-				$dd = $this.siblings('ul');
-
-			$dd.slideToggle();
-		});
-
 		$(window).on('resize', function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
