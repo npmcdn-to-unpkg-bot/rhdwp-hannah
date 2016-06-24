@@ -95,13 +95,21 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 	function headerSearch() {
-		// Navbar search functionality
-		isExpanded = false;
-
 		$('.navbar-search .search-submit').click(function(e){
-			if (!isExpanded) {
-				e.preventDefault();
+			e.preventDefault();
+
+			if ( !$(".navbar-search").data('expanded') ) {
 				expandSearchBar();
+			} else {
+				// Check that input isn't just whitespace
+				var searchStr = $('.navbar-search .search-field').val().replace(/^\s+/, '').replace(/\s+$/, '');
+
+				if ( searchStr === '' ) {
+					collapseSearchBar();
+				} else {
+					// Run the search
+					$(".navbar-search form").submit();
+				}
 			}
 		});
 
@@ -132,7 +140,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		$('.close-search').fadeIn('fast');
 
-		isExpanded = true;
+		$(".navbar-search").data('expanded', true);
 	}
 
 
@@ -148,7 +156,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		$('.close-search').fadeOut('fast');
 
-		isExpanded = false;
+		$(".navbar-search").data('expanded', false);
 	}
 
 })(jQuery);
