@@ -3,10 +3,9 @@
 	height auto
 	padding 1em
 	margin 1em auto
-	background $c_sec
 
 	.rhd-metabar-content
-		-wrapper(0,0, 90%)
+		width 100%
 
 		.rhd-metabar-item
 			width 100%
@@ -15,8 +14,8 @@
 			.drop
 			.search-submit
 				width 2em
-				height 2em
-				background-color $c_ter
+				height 1.8em
+				background-color $c_sec
 				background-position center
 				background-repeat no-repeat
 				color $c_text
@@ -31,7 +30,7 @@
 
 				&:hover
 				&:active
-					background-color $c_ter_lt
+					background-color $c_sec_lt
 
 			.drop
 				background-image url('../img/d-caret.png')
@@ -59,18 +58,19 @@
 			.rhd-dropdown-title
 			.search-field
 				width 100%
-				height 2em
+				height 1.9em
 				padding-left 0.5em
 				background white
 				color gray
 				position relative
 				font-family $ff_title !important
+				border 1px solid $c_sec
 
 			.rhd-dropdown-title
 				.dd-title-text
 				.dd-link-text
 					position relative
-					top 0.45em
+					top 0.25em
 
 			.drop
 				text-decoration none
@@ -114,7 +114,7 @@
 
 							&:hover
 							&:active
-								background-color $c_ter_lt
+								background-color $c_sec_lt
 		.blog-search
 			top	0
 
