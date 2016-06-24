@@ -168,7 +168,7 @@ function rhd_site_intro()
 function soliloquy_featured_content_display_custom_fields( $pcontent, $post, $data )
 {
 	$author_id = $post->post_author;
-	$caption = '<span class="rhd-fc-date">' . get_the_time( get_option( 'date_format' ),  $post->ID ) . '</span><br /><a class="rhd-fc-more" href="' . $post->ID . '" rel="bookmark">Read More</a>';
+	$caption = '<span class="rhd-fc-date">' . get_the_time( get_option( 'date_format' ),  $post->ID ) . '</span><br /><a class="rhd-fc-more" href="' . get_the_permalink( $post->ID ) . '" rel="bookmark">Read More</a>';
 
 	// Append custom field values to the existing content (currently overwriting original post content data)
 	// Amend as necessary
