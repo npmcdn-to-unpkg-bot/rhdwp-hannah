@@ -3,26 +3,26 @@
    ========================================================================== */
 
 var $window = jQuery(window),
-	$body = jQuery('body'),
-	$main = jQuery('#main');
+	$body = jQuery("body"),
+	$main = jQuery("#main");
 
-var isSingle = ( $body.hasClass('single') ) ? true : false,
-	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
-	isPaged = $body.hasClass('paged');
+var isSingle = ( $body.hasClass("single") ) ? true : false,
+	isGrid = ( $main.hasClass("grid") === true ) ? true : false,
+	isPaged = $body.hasClass("paged");
 
 // wp_data object
 var homeUrl = wp_data.home_url,
 	themeDir = wp_data.theme_dir,
 	imgDir = wp_data.img_dir;
 
-var isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false;
-var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
-var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
-var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
+var isFrontPage = ( $body.hasClass("front-page") === true ) ? true : false;
+var isMobile = ( $body.hasClass("mobile") === true ) ? true : false;
+var isTablet = ( $body.hasClass("tablet") === true ) ? true : false;
+var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 
 
 /* ==========================================================================
-	Let 'er rip...
+	Let "er rip...
    ========================================================================== */
 
 (function($){
@@ -30,7 +30,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	$(document).ready(function(){
 		rhdInit();
 
-		$(window).on('resize', function(){
+		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
 			}
@@ -56,55 +56,47 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	}
 
 
-	function viewportIsSmall() {
-		if ( $(window).width() < 640 )
-			return true;
-		else
-			return false;
-	}
-
-
 	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
 	function toggleBurger() {
 		var toggles = $("#hamburger");
 
 		toggles.click(function(e){
 			e.preventDefault();
-			$(this).toggleClass('is-active');
+			$(this).toggleClass("is-active");
 
-			$('.nav-dropdown').slideToggle();
+			$(".nav-dropdown").slideToggle();
 		});
 	}
 
 
 	function resetToggleBurger() {
-		$('.nav-dropdown').removeAttr('style');
-		$("#hamburger").removeClass('is-active');
+		$(".nav-dropdown").removeAttr("style");
+		$("#hamburger").removeClass("is-active");
 	}
 
 
 	// Faux-flexbox "fix" template (edit for varying column numbers)
 	function fixGridLayout() {
-		var gridCount = $('.post-grid .post-grid-item').length;
+		var gridCount = $(".post-grid .post-grid-item").length;
 
 		if ( gridCount % 3 == 2 ) {
-			$('.post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)').css('float', 'left');
-			$('.post-grid-item:last-of-type').css('margin-left', '3.5%');
+			$(".post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)").css("float", "left");
+			$(".post-grid-item:last-of-type").css("margin-left", "3.5%");
 		}
 	}
 
 
 	function headerSearch() {
-		$('.navbar-search .search-submit').click(function(e){
+		$(".navbar-search .search-submit").click(function(e){
 			e.preventDefault();
 
-			if ( !$(".navbar-search").data('expanded') ) {
+			if ( !$(".navbar-search").data("expanded") ) {
 				expandSearchBar();
 			} else {
-				// Check that input isn't just whitespace
-				var searchStr = $('.navbar-search .search-field').val().replace(/^\s+/, '').replace(/\s+$/, '');
+				// Check that input isn"t just whitespace
+				var searchStr = $(".navbar-search .search-field").val().replace(/^\s+/, "").replace(/\s+$/, "");
 
-				if ( searchStr === '' ) {
+				if ( searchStr === "" ) {
 					collapseSearchBar();
 				} else {
 					// Run the search
@@ -113,14 +105,22 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 			}
 		});
 
-		// Close header search by clicking 'X' or ESC
-		$('.close-search').click(function(e){
+		// Close header search by clicking "X," clicking away from #navbar, or hitting the ESC key
+		$(".close-search").click(function(e){
 			e.preventDefault();
 			collapseSearchBar();
 		});
 
 		$(document).keyup(function(e) {
-			if ( e.keyCode == 27 && isExpanded ) {
+			if ( e.keyCode == 27 && $(".navbar-search").data("expanded", true) ) {
+				collapseSearchBar();
+			}
+		});
+		
+		$(document).mouseup(function(e){
+			var $container = $(".navbar-search .search-field, .navbar-search .search-submit");
+			
+			if (!$container.is(e.target) && $container.has(e.target).length === 0) {
 				collapseSearchBar();
 			}
 		});
@@ -128,35 +128,35 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 	function expandSearchBar() {
-		$('.navbar-search').css('zIndex', 999);
+		$(".navbar-search").css("zIndex", 999);
 
 		if ( !viewportIsSmall() ) {
-			$('#navbar').addClass('search-is-active');
-			$('#site-navigation-container').animate({opacity: 0.1}, 'fast');
+			$("#navbar").addClass("search-is-active");
+			$("#site-navigation-container").animate({opacity: 0.1}, "fast");
 		}
 
-		$('.navbar-search .search-submit, .navbar-search .search-field').addClass('is-active');
-		$('.navbar-search .search-field').focus();
+		$(".navbar-search .search-submit, .navbar-search .search-field").addClass("is-active");
+		$(".navbar-search .search-field").focus();
 
-		$('.close-search').fadeIn('fast');
+		$(".close-search").fadeIn("fast");
 
-		$(".navbar-search").data('expanded', true);
+		$(".navbar-search").data("expanded", true);
 	}
 
 
 	function collapseSearchBar() {
 		if ( !viewportIsSmall() ) {
-			$('#navbar').removeClass('search-is-active');
-			$('#site-navigation-container').animate({opacity: 1});
+			$("#navbar").removeClass("search-is-active");
+			$("#site-navigation-container").animate({opacity: 1});
 		}
 
-		$('.navbar-search .search-submit, .navbar-search .search-field').removeClass('is-active');
+		$(".navbar-search .search-submit, .navbar-search .search-field").removeClass("is-active");
 
-		$('.navbar-search').css('zIndex', 0);
+		$(".navbar-search").css("zIndex", 0);
 
-		$('.close-search').fadeOut('fast');
+		$(".close-search").fadeOut("fast");
 
-		$(".navbar-search").data('expanded', false);
+		$(".navbar-search").data("expanded", false);
 	}
 
 })(jQuery);
