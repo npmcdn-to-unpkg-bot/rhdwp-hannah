@@ -118,7 +118,7 @@ var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 		});
 		
 		$(document).mouseup(function(e){
-			var $container = $(".navbar-search .search-field, .navbar-search .search-submit");
+			var $container = $(".navbar-search");
 			
 			if (!$container.is(e.target) && $container.has(e.target).length === 0) {
 				collapseSearchBar();
