@@ -16,13 +16,6 @@ var isMobile = ( jQuery("body").hasClass("mobile") === true ) ? true : false;
 var isTablet = ( jQuery("body").hasClass("tablet") === true ) ? true : false;
 var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
-// Search field globals
-var searchW,
-	searchPT,
-	searchPR,
-	searchPL,
-	searchB,
-	isExpanded;
 
 /* ==========================================================================
 	Let "er rip...
@@ -33,19 +26,6 @@ var searchW,
 	$(document).ready(function(){
 		rhdInit();
 
-		// Metabar dropdowns
-		$(".rhd-dropdown-title").click(function(e){
-			e.preventDefault();
-
-			var $this = $(this),
-				$dd = $this.siblings("ul");
-
-			$dd.slideToggle();
-		});
-
-		// Navbar search expansion
-		isExpanded = false;
-
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
@@ -55,33 +35,19 @@ var searchW,
 
 
 	function rhdInit() {
-		wpAdminBarPush();
-
-		/*
-		$.slidebars({
-			siteClose: false,
-		});
-		*/
-
 		toggleBurger();
-
-		// Fix faux-flexbox
+		headerSearch();
 		fixGridLayout();
+		wpAdminBarPush();
 	}
 
 
 	function wpAdminBarPush() {
-		$("#wpadminbar").css({
-			top: $("#masthead").height(),
-		});
-	}
-
-
-	function viewportIsSmall() {
-		if ( $(window).width() < 640 )
-			return true;
-		else
-			return false;
+		if ( $("#navbar").css("position") == "fixed" ) {
+			$("#wpadminbar").css({
+				top: $("#masthead").height(),
+			});
+		}
 	}
 
 
@@ -115,36 +81,75 @@ var searchW,
 	}
 
 
+	function headerSearch() {
+		$(".navbar-search .search-submit").click(function(e){
+			e.preventDefault();
+
+			if ( !$(".navbar-search").data("expanded") ) {
+				expandSearchBar();
+			} else {
+				// Check that input isn"t just whitespace
+				var searchStr = $(".navbar-search .search-field").val().replace(/^\s+/, "").replace(/\s+$/, "");
+
+				if ( searchStr === "" ) {
+					collapseSearchBar();
+				} else {
+					// Run the search
+					$(".navbar-search form").submit();
+				}
+			}
+		});
+
+		// Close header search by clicking "X," clicking away from #navbar, or hitting the ESC key
+		$(".close-search").click(function(e){
+			e.preventDefault();
+			collapseSearchBar();
+		});
+
+		$(document).keyup(function(e) {
+			if ( e.keyCode == 27 && $(".navbar-search").data("expanded", true) ) {
+				collapseSearchBar();
+			}
+		});
+		
+		$(document).mouseup(function(e){
+			var $container = $(".navbar-search");
+			
+			if (!$container.is(e.target) && $container.has(e.target).length === 0) {
+				collapseSearchBar();
+			}
+		});
+	}
+
+
 	function expandSearchBar() {
-		$("#navbar .widget_rhd_social_icons").fadeOut("fast");
+		$(".navbar-search").css("zIndex", 999);
 
-		$(".navbar-search, .navbar-search .search-field, .navbar-search .search-submit").addClass("is-active");
+		if ( !viewportIsSmall() ) {
+			$("#navbar").addClass("search-is-active");
+			$("#site-navigation-container").animate({opacity: 0.1}, "fast");
+		}
 
+		$(".navbar-search .search-submit, .navbar-search .search-field").addClass("is-active");
 		$(".navbar-search .search-field").focus();
-
+		$(".navbar-search").data("expanded", true);
+		
 		$(".close-search").fadeIn("fast");
-
-		isExpanded = true;
 	}
 
 
 	function collapseSearchBar() {
-		$("#navbar .widget_rhd_social_icons").fadeIn("fast");
+		if ( !viewportIsSmall() ) {
+			$("#navbar").removeClass("search-is-active");
+			$("#site-navigation-container").animate({opacity: 1});
+		}
 
-		$(".navbar-search, .navbar-search .search-field, .navbar-search .search-submit").removeClass("is-active");
-
+		$(".navbar-search .search-submit, .navbar-search .search-field").removeClass("is-active");
+		$(".navbar-search")
+			.css("zIndex", 0)
+			.data("expanded", false);
+			
 		$(".close-search").fadeOut("fast");
-		isExpanded = false;
 	}
 
-
-	function killBlogspotLinks() {
-		$(".entry-content img").each(function(){
-			var a = $(this).parents("a");
-			var link = a.attr("href");
-
-			if ( link.indexOf("blogspot") >= 0 )
-				$(this).unwrap("a");
-		});
-	}
 })(jQuery);

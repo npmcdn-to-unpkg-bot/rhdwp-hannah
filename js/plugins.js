@@ -69,3 +69,15 @@ jQuery.fn.visibilityToggle = function() {
         return this;
     };
 })(jQuery);
+
+
+/* ==========================================================================
+	viewportIsSmall
+   ========================================================================== */
+
+function viewportIsSmall() {
+	if ( jQuery(window).width() < 640 )
+		return true;
+	else
+		return false;
+}
