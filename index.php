@@ -23,7 +23,7 @@ get_header();
 				?>
 			<?php endwhile; ?>
 
-			<?php if ( is_single() ) rhd_related_posts(); ?>
+			<?php if ( is_single() ) rhd_related_posts( 'rand', 720 ); ?>
 
 			<?php if ( is_single() && comments_open() ) comments_template(); ?>
 
