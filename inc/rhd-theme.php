@@ -81,13 +81,45 @@ function rhd_entry_header( $sep = ' &mdash; ' ) {
 }
 
 
+/**
+ * rhd_front_page_query_offset function.
+ * 
+ * @access public
+ * @param mixed &$query
+ * @return void
+ */
 function rhd_front_page_query_offset( &$query ) {
+	if ( ! $query->is_home() || ! $query->is_main_query() )
+		return;
+	
 	$offset = 1;
 	$ppp = get_option( 'posts_per_page' );
 
 	if ( $query->is_paged ) {
-		$page_offset = $offset + ( ( $query->query_vars['paged'] -1 ) * $ppp );
+		$page_offset = $offset + ( ( $query->query_vars['paged'] - 1 ) * $ppp );
+		
+        $query->set('offset', $page_offset );
 	} else {
 		$query->set( 'offset', $offset );
 	}
 }
+add_action( 'pre_get_posts', 'rhd_front_page_query_offset', 1 );
+
+
+/**
+ * rhd_adjust_offset_pagination function.
+ * 
+ * @access public
+ * @param mixed $found_posts
+ * @param mixed $query
+ * @return void
+ */
+function rhd_adjust_offset_pagination($found_posts, $query) {
+    $offset = 1;
+
+    if ( $query->is_home() && $query->is_main_query() ) {
+        return $found_posts - $offset;
+    }
+    return $found_posts;
+}
+add_filter( 'found_posts', 'rhd_adjust_offset_pagination', 1, 2 );

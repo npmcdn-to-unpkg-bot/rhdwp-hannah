@@ -56,7 +56,12 @@ get_header();
 
 	</div>
 
-	<?php rhd_archive_pagination(); ?>
+	<?php
+	if ( function_exists( 'wp_pagenavi' ) )
+		wp_pagenavi();
+	else
+		rhd_archive_pagination();
+	?>
 
 </section>
 
