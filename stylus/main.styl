@@ -62,7 +62,7 @@ textarea
 	transition all 0.25s
 
 	&:focus
-		border-color $c_text_lt
+		border-color $c_ter
 
 
 input[type="submit"]
@@ -578,6 +578,27 @@ input[type="submit"]
 			.widget-title
 				text-align center
 				-ff-headline()
+				text-transform normal
+				margin-bottom 0.25em
+			
+			input
+				&[type="email"]
+				&[type="text"]
+					font-family $ff_body
+			
+			.rhd-mc-submit
+				-wrapper(1em, 0.5em, 100%)
+				padding 0.2em 0
+				@extend .ghost-button-container .ghost-button-alt.filled
+				
+				&:hover
+				&:active
+					background-color $c_sec
+					border-color $c_sec
+	
+	.rhd-social-icons
+		.rhd-social-icon
+			width 18%
 
 
 /* ==========================================================================
