@@ -14,6 +14,9 @@
 	
 	<aside id="instagram">
 		<!-- INSTAGRABBY -->
+		<div class="chicken">
+			<img src="<?php echo RHD_UPLOAD_URL; ?>/2016/06/chicken.png" alt="chicken">
+		</div>
 	</aside>
 
     <footer id="colophon">
