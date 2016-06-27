@@ -234,7 +234,7 @@ input[type="submit"]
 
 
 #main
-	-wrapper()
+	-wrapper(0, 2em)
 	box-sizing border-box
 
 
@@ -249,13 +249,17 @@ input[type="submit"]
 	width 100%
 	position relative
 	-ff-title()
-	color $c_text_lt
-	text-transform uppercase
+	color $c_bg
+	background-color $gray
+	padding 1em 0
 
 	.site-info
-		-wrapper(2em, 0, 75%)
+		-wrapper(0, 0, 75%)
 		text-align center
 		font-size 0.9em
+		
+		p
+			margin 0
 
 		a
 			color inherit
@@ -599,6 +603,57 @@ input[type="submit"]
 	.rhd-social-icons
 		.rhd-social-icon
 			width 18%
+
+
+/* ==========================================================================
+	Front Page
+   ========================================================================== */
+
+.front-page
+	.first-post
+		padding-bottom 1em
+		margin-bottom 1em
+		border-bottom 2px solid $gray
+
+
+/* ==========================================================================
+	Soliloquy
+   ========================================================================== */
+
+.front-page
+	.soliloquy-container
+		.soliloquy-next
+		.soliloquy-prev
+			background-color $c_text_trans
+			
+		.soliloquy-caption
+			&.soliloquy-caption-bottom
+				width 60%
+				right 1.5em
+				bottom 2em
+				background-color $c_text_trans
+				border-radius 0.1em
+			
+			.soliloquy-caption-inside
+				background transparent 
+				
+				a
+					color $c_bg
+					
+					&:hover
+					&:active
+						color $c_sec
+						
+				.soliloquy-fc-title-link
+					text-align center
+					-ff-title()
+					text-transform uppercase
+					
+				.soliloquy-fc-read-more
+					display block
+					float right
+					margin 0 1em 0.5em
+					-ff-title()
 
 
 /* ==========================================================================

@@ -14,7 +14,7 @@ $paged = get_query_var( 'paged' );
 	<div id="content" role="main">
 
 		<div id="features">
-			<!-- SLIDER -->
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '4610' ); } ?>
 		</div>
 		
 		<?php if ( ! is_paged() ) : ?>
