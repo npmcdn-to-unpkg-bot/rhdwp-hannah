@@ -1,56 +1,50 @@
 .rhd-metabar
 	width 100%
 	height auto
-	padding 1em
+	padding 1em 0
 	margin 1em auto
-	background $c_sec
 
 	.rhd-metabar-content
-		-wrapper(0,0, 90%)
+		width 100%
 
 		.rhd-metabar-item
 			width 100%
 			display block
 
-			.drop
-			.search-submit
+			.rhd-metabutton
 				width 2em
-				height 2em
-				background-color $c_ter
+				height 100%
+				background-color $c_sec
 				background-position center
 				background-repeat no-repeat
 				color $c_text
 				text-transform uppercase
+				text-decoration none
+				text-align center
+				font-weight 400
+				font-size 1em
+				line-height 1.3
 				transition all 0.25s
 				display inline-block
 				position absolute
 				top 0
 				right 0
-				font-weight 400
-				font-size 1em
 
 				&:hover
 				&:active
-					background-color $c_ter_lt
+					background-color $c_sec_lt
 
-			.drop
-				background-image url('../img/d-caret.png')
-				background-size 50% auto
-
-			.search-submit
-				background-image url('../img/search.png')
-				background-size 60% auto
-				border 2px solid $c_ter
-
-				&:hover
-				&:active
-					border-color $c_ter_lt
+				.caret
+				.search-submit
+					width 50%
+					height auto
+					-vhcenter()
 
 			.search-field
-				-placeholder-props( $ff_body, gray, 1, 300, uppercase )
+				-placeholder-props( $ff_title, gray, 1, 400, uppercase )
 				border 2px solid $c_bg
 				transition border-color 0.25s
-				font-weight 300
+				font-weight 400
 				text-transform uppercase
 
 				&:focus
@@ -59,26 +53,18 @@
 			.rhd-dropdown-title
 			.search-field
 				width 100%
-				height 2em
+				height 1.9em
 				padding-left 0.5em
 				background white
 				color gray
 				position relative
-				font-family $ff_body !important
+				font-family $ff_title !important
+				border 1px solid $c_sec
 
 			.rhd-dropdown-title
 				.dd-title-text
-				.dd-link-text
 					position relative
 					top 0.25em
-
-			.drop
-				text-decoration none
-				text-align center
-				line-height 1.3
-
-				.dd-link-text
-					color $c_text
 
 			.rhd-dropdown
 				position relative
@@ -89,6 +75,7 @@
 					max-height 30vh
 					position absolute
 					top 2em
+					font-family $ff_title
 					overflow-y auto
 					background white
 					padding-left 0
@@ -113,13 +100,18 @@
 
 							&:hover
 							&:active
-								background-color $c_ter_lt
+								background-color $c_sec_lt
 		.blog-search
 			top	0
 
 	&.layout-tall
-		.rhd-dropdown-title
-			margin-bottom 0.5em
+		.rhd-metabar-item
+			.rhd-dropdown-title
+				margin-bottom 0.5em
+
+			&:last-of-type
+				.rhd-dropdown-title
+					margin-bottom 0
 
 
 /* ==========================================================================
