@@ -12,12 +12,12 @@ $paged = get_query_var( 'paged' );
 
 <section id="primary" class="site-content">
 	<div id="content" role="main">
-
-		<div id="features">
-			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '4610' ); } ?>
-		</div>
 		
-		<?php if ( ! is_paged() ) : ?>
+		<?php if ( ! is_paged() ) : // For true page 1 ?>
+			<div id="features">
+				<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '4610' ); } ?>
+			</div>
+			
 			<?php $first = new WP_Query( 'posts_per_page=1&ignore_sticky_posts=true' ); ?>
 			<?php if ( $first->have_posts() ) : ?>
 				<?php while ( $first->have_posts() ) : $first->the_post(); ?>
