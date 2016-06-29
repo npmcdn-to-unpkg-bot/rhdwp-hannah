@@ -140,9 +140,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		$('#header-search, #header-search .search-field, #header-search .search-submit').addClass('is-active');
 
-		$('#header-search .search-field').focus();
-
 		$('.close-search').fadeIn('fast');
+		
+		setTimeout(function(){
+		    $("#header-search .search-field").focus();
+		}, 0);
 
 		$("#header-search").data('expanded', true);
 	}

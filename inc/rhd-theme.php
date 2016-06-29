@@ -116,7 +116,7 @@ function rhd_navbar_search_form()
 function rhd_picture_frame( $img_tag, $class = null )
 {
 	?>
-	<div class="rhd-picture-frame">
+	<div class="rhd-picture-frame <?php echo $class; ?>">
 		<div class="framed-picture">
 			<?php echo $img_tag; ?>
 		</div>
