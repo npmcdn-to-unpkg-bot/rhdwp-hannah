@@ -704,7 +704,7 @@ add_action( 'wp_footer', 'rhd_infinite_scroll_more', 3 );
  * @return void
  */
 function rhd_byline( $side ) {
-	$text = "&copy; 2009-2015 Centsational Girl, all rights reserved.<br />"
+	$text = "&copy; 2009-" . date( 'Y' ) . " Centsational Girl, all rights reserved.<br />"
 		. "Centsational Girl and Centsational are both legally registered trademarks.<br />"
 		. "Site by <a href='//roundhouse-designs.com' target='_blank'>Roundhouse Designs</a>\n";
 
