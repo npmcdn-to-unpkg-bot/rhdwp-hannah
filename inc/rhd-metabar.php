@@ -49,8 +49,8 @@ function rhd_metabar( $layout = 'wide', $fields = array( 'cats' => true, 'archiv
 					<div class="rhd-dropdown blog-categories">
 						<div class="rhd-dropdown-title">
 							<span class="dd-title-text">Categories</span>
-							<a class="drop" href="">
-								<!-- caret -->
+							<a class="rhd-metabutton" href="">
+								<img class="caret" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="dropdown button"></a>
 							</a>
 						</div>
 						<ul>
@@ -64,8 +64,8 @@ function rhd_metabar( $layout = 'wide', $fields = array( 'cats' => true, 'archiv
 					<div class="rhd-dropdown blog-archives">
 						<div class="rhd-dropdown-title">
 							<span class="dd-title-text">Archives</span>
-							<a class="drop" href="">
-								<!-- caret -->
+							<a class="rhd-metabutton" href="">
+								<img class="caret" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="dropdown button"></a>
 							</a>
 						</div>
 						<ul>
@@ -99,7 +99,9 @@ function rhd_get_metabar_search_form( $placeholder = 'Search' )
 		<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
 			<div>
 				<input type="text" value="" class="search-field" placeholder="' . $placeholder . '" name="s" />
-				<input type="submit" class="search-submit" value="" />
+				<a href="#" id="search-submit-button" class="rhd-metabutton">
+					<img class="search-submit" src="' . RHD_IMG_DIR . '/search.png" alt="search submit">
+				</a>
 			</div>
 		</form>
 		';
