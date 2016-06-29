@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:51:59 PM on 02-05-2016
+* RHD Dev: Compiled at 9:36:16 PM on 28-06-2016
 ***/
 
 .alignnone {
@@ -1492,6 +1492,7 @@ input[type="submit"]:hover {
   font-weight: 300 !important;
   font-size: 4em;
   margin-top: 0;
+  color: #1e2171;
 }
 .page-id-25 #rhd-color-block-trust .we-are {
   font-family: 'Cheddar Jack', cursive;
