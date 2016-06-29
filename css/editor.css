@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:58:36 PM on 02-05-2016
+* RHD Dev: Compiled at 9:30:02 PM on 28-06-2016
 ***/
 
 /**
@@ -1670,6 +1670,10 @@ body .sb-slidebar .sub-menu {
   }
   #hamburger {
     display: none;
+  }
+  #primary.full-width {
+    width: 100% !important;
+    float: none !important;
   }
   #primary article.strip-active {
     width: 65%;
