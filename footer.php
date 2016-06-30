@@ -23,7 +23,7 @@
         <?php get_sidebar( 'footer' ); ?>
         <div class="site-info">
 			<p>
-				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '&bull;'; ?> Branding by <a href="http://www.minted.com/store/toribeedesign" target="_blank">Tori Bee Design</a> <?php echo ( rhd_is_mobile() ) ? '<br>' : '&bull;'; ?> Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse Designs</a>
+				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '&bull;'; ?> Branding by <a href="http://www.toribeedesign.com/" target="_blank">Tori Bee Design</a> <?php echo ( rhd_is_mobile() ) ? '<br>' : '&bull;'; ?> Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse Designs</a>
             </p>
         </div>
     </footer>
