@@ -19,6 +19,12 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
+		<hr>
+		<p>
+			Categorized as: <?php the_category( ', ' ); ?><br />
+			<?php the_tags( 'Tagged with: ', ' ,' ); ?>
+		</p>
+		
 		<p><?php edit_post_link( __( 'Edit Post', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
 	</footer><!-- .entry-meta -->
 </article><!-- #post -->
