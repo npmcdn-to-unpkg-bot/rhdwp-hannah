@@ -17,40 +17,55 @@
  * rhd_metabar function.
  *
  * @access public
- * @param string $layout (default: 'wide')
- * @param string $fields (default: array( 'cats' => true)
- * @param mixed 'archives' (default: > true)
- * @param mixed 'search' (default: > true ))
+ * @param string $layout (default: '')
+ * @param string $fields['cats'] (default: null)
+ * @param mixed $fields['archives'] (default: null)
+ * @param mixed $fields['search'] (default: null)
  * @return void
  */
-function rhd_metabar( $layout = 'wide', $fields = array( 'cats' => true, 'archives' => true, 'search' => true ) ) {
+function rhd_metabar( $layout = '', array $fields = array() ) {
+
+	// Defaults
+	$layout = ( !$layout ) ? 'wide' : $layout;
+	$fields = array_merge( array(
+		'cats'		=> true,
+		'archives'	=> true,
+		'search'	=> true
+	), $fields );
 
 	// count visible fields
 	$i = 0;
+	
 	foreach ( $fields as $field ) {
 		if ( $field === true )
 			++$i;
 	}
 
-	if ( $i == 2 ) $w = '49%';
-	elseif ( $i == 1 ) $w = '100%';
+	switch ( $i ) {
+		case 1:
+			$class = 'solo';
+			break;
+		
+		case 2:
+			$class = 'duo';
+			break;
+		
+		case 3:
+		default:
+			$class = 'trio';
+			break;
+	}
 	?>
 
-	<?php if ( $i < 3 ) : ?>
-		<style>
-				.rhd-metabar.layout-wide .rhd-metabar-content .rhd-metabar-item { width: <?php echo $w; ?>; }
-		</style>
-	<?php endif; ?>
-
 	<div class="rhd-metabar layout-<?php echo $layout; ?>">
-		<div class="rhd-metabar-content">
+		<div class="rhd-metabar-content <?php echo $class; ?>">
 			<?php if ( $fields['cats'] === true ) : ?>
 				<div class="rhd-metabar-item">
 					<div class="rhd-dropdown blog-categories">
 						<div class="rhd-dropdown-title">
 							<span class="dd-title-text">Categories</span>
-							<a class="drop" href="">
-								<!-- caret -->
+							<a class="rhd-metabutton" href="">
+								<img class="caret" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="dropdown button"></a>
 							</a>
 						</div>
 						<ul>
@@ -64,8 +79,8 @@ function rhd_metabar( $layout = 'wide', $fields = array( 'cats' => true, 'archiv
 					<div class="rhd-dropdown blog-archives">
 						<div class="rhd-dropdown-title">
 							<span class="dd-title-text">Archives</span>
-							<a class="drop" href="">
-								<!-- caret -->
+							<a class="rhd-metabutton" href="">
+								<img class="caret" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="dropdown button"></a>
 							</a>
 						</div>
 						<ul>
@@ -99,7 +114,9 @@ function rhd_get_metabar_search_form( $placeholder = 'Search' )
 		<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
 			<div>
 				<input type="text" value="" class="search-field" placeholder="' . $placeholder . '" name="s" />
-				<input type="submit" class="search-submit" value="" />
+				<a href="#" id="search-submit-button" class="rhd-metabutton">
+					<img class="search-submit" src="' . RHD_IMG_DIR . '/search.png" alt="search submit">
+				</a>
 			</div>
 		</form>
 		';
