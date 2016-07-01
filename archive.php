@@ -10,17 +10,18 @@ get_header();
 ?>
 
 <section id="primary" class="site-content">
-	<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'template_parts/metabar' ); ?>
 
 	<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
 			<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
-
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'excerpt' ); ?>
-			<?php endwhile; ?>
+			
+			<div class="cat-grid">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php get_template_part( 'template-parts/content', 'grid' ); ?>
+				<?php endwhile; ?>
+			</div>
 
 		<?php else : ?>
 

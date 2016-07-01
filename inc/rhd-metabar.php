@@ -17,13 +17,16 @@
  * rhd_metabar function.
  *
  * @access public
- * @param string $layout (default: 'wide')
- * @param string $fields (default: array( 'cats' => true)
- * @param mixed 'archives' (default: > true)
- * @param mixed 'search' (default: > true ))
+ * @param string $layout (default: '')
+ * @param string $fields['cats'] (default: true)
+ * @param mixed $fields['archives'] (default: true)
+ * @param mixed $fields['search'] (default: true )
  * @return void
  */
-function rhd_metabar( $layout = 'wide', $fields = array( 'cats' => true, 'archives' => true, 'search' => true ) ) {
+function rhd_metabar( $layout = '', $fields = array( 'cats' => true, 'archives' => true, 'search' => true ) ) {
+
+	// defaults
+	$layout = ( !$layout ) ? 'wide' : $layout;
 
 	// count visible fields
 	$i = 0;
@@ -32,18 +35,24 @@ function rhd_metabar( $layout = 'wide', $fields = array( 'cats' => true, 'archiv
 			++$i;
 	}
 
-	if ( $i == 2 ) $w = '49%';
-	elseif ( $i == 1 ) $w = '100%';
+	switch ( $i ) {
+		case 1:
+			$class = 'solo';
+			break;
+		
+		case 2:
+			$class = 'duo';
+			break;
+		
+		case 3:
+		default:
+			$class = 'trio';
+			break;
+	}
 	?>
 
-	<?php if ( $i < 3 ) : ?>
-		<style>
-				.rhd-metabar.layout-wide .rhd-metabar-content .rhd-metabar-item { width: <?php echo $w; ?>; }
-		</style>
-	<?php endif; ?>
-
 	<div class="rhd-metabar layout-<?php echo $layout; ?>">
-		<div class="rhd-metabar-content">
+		<div class="rhd-metabar-content <?php echo $class; ?>">
 			<?php if ( $fields['cats'] === true ) : ?>
 				<div class="rhd-metabar-item">
 					<div class="rhd-dropdown blog-categories">

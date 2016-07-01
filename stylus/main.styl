@@ -314,6 +314,7 @@ hr
 .entry-title
 .page-title
 .archive-title
+.cat-title
 	line-height 1.1
 	text-transform uppercase
 	-ff-title()
@@ -328,6 +329,11 @@ hr
 
 .entry-title
 	font-size 1.4em
+
+
+.cat-title
+	text-align center
+	font-size 1.6em
 
 
 .entry-summary
@@ -476,13 +482,48 @@ hr
 				margin-top 1.15em
 
 
+.archive
+	.rhd-metabar
+		&.layout-wide
+			.rhd-metabar-content
+				width 100%
+
+
 .post-grid
+.cat-grid
 	width 100%
 
 	& > article
-		width 100%
 		vertical-align top
+
+
+.post-grid
+	& > article
+		width 100%
 		margin 1em 0
+
+
+.cat-grid
+	-wrapper(0, 0, 100%, 70rem)
+	-flexbox()
+	
+	& > article
+		width 48%
+		margin-top 1em
+		-flexitem()
+		
+		.entry-header
+			text-align center
+			-ff-title()
+		
+			.entry-title
+				font-size 1em
+				margin 0.5em 0 0
+			
+			.entry-date
+				font-size 0.9em
+				margin 0
+			
 
 
 .pagination
@@ -712,7 +753,13 @@ hr
 	top 0
 	left 0
 	z-index 9999
-	
+
+
+.recipe-category
+	padding-bottom 1em
+	margin-bottom 1em
+	border-bottom 1px dotted $gray	
+
 
 .related-title
 	-ff-title()

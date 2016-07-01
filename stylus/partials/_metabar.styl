@@ -39,7 +39,7 @@
 					width 50%
 					height auto
 					-vhcenter()
-					-opacity(0.5)
+					-opacity(0.35)
 
 			.search-field
 				-placeholder-props( $ff_title, gray, 1, 400, uppercase )
@@ -130,8 +130,19 @@
 				top 0.95em
 
 				.rhd-metabar-item
-					width 30%
 					-flexitem()
+
+				&.solo
+					.rhd-metabar-item
+						width 100%
+				
+				&.duo
+					.rhd-metabar-item
+						width 49%
+					
+				&.trio
+					.rhd-metabar-item
+						width 31%
 
 				.blog-search
 					position relative
