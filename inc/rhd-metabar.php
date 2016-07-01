@@ -18,18 +18,24 @@
  *
  * @access public
  * @param string $layout (default: '')
- * @param string $fields['cats'] (default: true)
- * @param mixed $fields['archives'] (default: true)
- * @param mixed $fields['search'] (default: true )
+ * @param string $fields['cats'] (default: null)
+ * @param mixed $fields['archives'] (default: null)
+ * @param mixed $fields['search'] (default: null)
  * @return void
  */
-function rhd_metabar( $layout = '', $fields = array( 'cats' => true, 'archives' => true, 'search' => true ) ) {
+function rhd_metabar( $layout = '', array $fields = array() ) {
 
-	// defaults
+	// Defaults
 	$layout = ( !$layout ) ? 'wide' : $layout;
+	$fields = array_merge( array(
+		'cats'		=> true,
+		'archives'	=> true,
+		'search'	=> true
+	), $fields );
 
 	// count visible fields
 	$i = 0;
+	
 	foreach ( $fields as $field ) {
 		if ( $field === true )
 			++$i;
