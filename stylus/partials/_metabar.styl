@@ -1,7 +1,7 @@
 .rhd-metabar
 	width 100%
 	height auto
-	padding 1em 0
+	padding 1em
 	margin 1em auto
 
 	.rhd-metabar-content
@@ -11,40 +11,45 @@
 			width 100%
 			display block
 
-			.rhd-metabutton
+			.drop
+			.search-submit
 				width 2em
-				height 100%
+				height 1.8em
 				background-color $c_sec
 				background-position center
 				background-repeat no-repeat
 				color $c_text
 				text-transform uppercase
-				text-decoration none
-				text-align center
-				font-weight 400
-				font-size 1em
-				line-height 1.3
 				transition all 0.25s
 				display inline-block
 				position absolute
 				top 0
 				right 0
+				font-weight 400
+				font-size 1em
 
 				&:hover
 				&:active
 					background-color $c_sec_lt
 
-				.caret
-				.search-submit
-					width 50%
-					height auto
-					-vhcenter()
+			.drop
+				background-image url('../img/d-caret.png')
+				background-size 50% auto
+
+			.search-submit
+				background-image url('../img/search.png')
+				background-size 60% auto
+				border 2px solid $c_ter
+
+				&:hover
+				&:active
+					border-color $c_ter_lt
 
 			.search-field
-				-placeholder-props( $ff_title, gray, 1, 400, uppercase )
+				-placeholder-props( $ff_body, gray, 1, 300, uppercase )
 				border 2px solid $c_bg
 				transition border-color 0.25s
-				font-weight 400
+				font-weight 300
 				text-transform uppercase
 
 				&:focus
@@ -63,8 +68,17 @@
 
 			.rhd-dropdown-title
 				.dd-title-text
+				.dd-link-text
 					position relative
 					top 0.25em
+
+			.drop
+				text-decoration none
+				text-align center
+				line-height 1.3
+
+				.dd-link-text
+					color $c_text
 
 			.rhd-dropdown
 				position relative
