@@ -13,7 +13,7 @@
 	</main><!-- #main -->
 	
 	<aside id="instagram">
-		<!-- INSTAGRABBY -->
+		<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'instagram', 'slug' ); } ?>
 		<div class="chicken">
 			<img src="<?php echo RHD_UPLOAD_URL; ?>/2016/06/chicken.png" alt="chicken">
 		</div>
