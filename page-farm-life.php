@@ -1,6 +1,6 @@
 <?php
 /**
- * The "Recipes" page template file.
+ * The "Farm Life" page template file.
  *
  * @package WordPress
  * @subpackage rhd
@@ -13,7 +13,7 @@ get_header(); ?>
 	<?php rhd_metabar( '', array( 'search' => false ) ); ?>
 	
 	<div id="content" role="main">
-		<?php rhd_archive_grid( 'recipes' ); ?>
+		<?php rhd_archive_grid( 'farm-life' ); ?>
 	</div>
 </section>
 

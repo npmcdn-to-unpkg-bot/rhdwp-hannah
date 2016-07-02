@@ -490,7 +490,7 @@ hr
 
 
 .post-grid
-.cat-grid
+.archive-grid
 	width 100%
 
 	& > article
@@ -503,7 +503,25 @@ hr
 		margin 1em 0
 
 
-.cat-grid
+.archive-grid-container
+	padding-bottom 1em
+	margin-bottom 1em
+	border-bottom 1px dotted $gray
+	
+	&:last-of-type
+		margin-bottom 0
+		padding-bottom 0
+		border-bottom none
+
+
+.archive-more
+	margin-bottom 1em
+	
+	.ghost-button-container
+		margin-top 0
+
+
+.archive-grid
 	-wrapper(0, 0, 100%, 70rem)
 	-flexbox()
 	

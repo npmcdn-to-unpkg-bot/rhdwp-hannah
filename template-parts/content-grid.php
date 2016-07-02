@@ -7,9 +7,7 @@
  */
 ?>
 
-<?php // $class = ( is_archive() || is_search() ) ? 'archive-excerpt' : ''; ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class( $class ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-grid-item' ); ?>>
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="entry-thumbnail">
 			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'square' ); ?></a>

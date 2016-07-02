@@ -17,7 +17,7 @@ get_header();
 
 			<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
 			
-			<div class="cat-grid">
+			<div class="archive-grid">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'template-parts/content', 'grid' ); ?>
 				<?php endwhile; ?>
