@@ -69,7 +69,7 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 							</a>
 						</div>
 						<ul>
-							<?php wp_list_categories( 'title_li=' ); ?>
+							<?php rhd_wp_list_all_categories(); ?>
 						</ul>
 					</div>
 				</div>
@@ -99,6 +99,27 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 		</div>
 	</div>
 	<?php
+}
+
+
+/**
+ * rhd_wp_list_all_categories function.
+ * 
+ * @access public
+ * @return void
+ */
+function rhd_wp_list_all_categories() {
+	$all_cats = get_categories();
+	
+	if ( $all_cats ) {
+		?>
+		<?php foreach ( $all_cats as $cat ) : ?>
+			<li class="cat-item cat-item-<?php echo $cat->term_id; ?>">
+				<a href="<?php echo get_category_link( $cat->term_id ); ?>"><?php echo $cat->name; ?></a>
+			</li>
+		<?php endforeach; ?>
+		<?php		
+	}
 }
 
 
