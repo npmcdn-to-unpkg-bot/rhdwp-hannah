@@ -10,7 +10,7 @@
 
 
 /* ==========================================================================
-	Base Functions
+	Base Functions
    ========================================================================== */
 
 /**
@@ -65,7 +65,7 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 						<div class="rhd-dropdown-title">
 							<span class="dd-title-text">Categories</span>
 							<a class="rhd-metabutton" href="">
-								<img class="caret" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="dropdown button"></a>
+								<img class="caret" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="dropdown button">
 							</a>
 						</div>
 						<ul>
@@ -80,7 +80,7 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 						<div class="rhd-dropdown-title">
 							<span class="dd-title-text">Archives</span>
 							<a class="rhd-metabutton" href="">
-								<img class="caret" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="dropdown button"></a>
+								<img class="caret" src="<?php echo RHD_IMG_DIR; ?>/d-caret.png" alt="dropdown button">
 							</a>
 						</div>
 						<ul>
