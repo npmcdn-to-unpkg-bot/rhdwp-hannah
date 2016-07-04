@@ -80,7 +80,7 @@ var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 	function fixGridLayout( gridClass ) {
 		var across = 4;
 		var mLeft = "3.5%";
-		
+
 		$(gridClass).each(function(){
 			// Check for multiple grids on a page using IDs
 			var curGrid = $(this).attr('id');
@@ -88,7 +88,7 @@ var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 				curGrid = "#" + curGrid + " "; // Notice trailing space...
 			else
 				curGrid = "";
-			
+
 			var gridCount = $(curGrid + ".post-grid-item").length;
 
 			if ( gridCount % across !== 0 ) {
@@ -96,7 +96,7 @@ var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 				while ( gridCount > across ) {
 					gridCount -= across;
 				}
-				
+
 				if ( gridCount == 3 ) {
 					$(curGrid + ".post-grid-item:last-of-type, " + curGrid + ".post-grid-item:nth-last-of-type(2), " + curGrid + ".post-grid-item:nth-last-of-type(3)").css("float", "left");
 					$(curGrid + ".post-grid-item:last-of-type, " + curGrid + ".post-grid-item:nth-last-of-type(2)").css("margin-left", mLeft);
@@ -139,10 +139,10 @@ var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 				collapseSearchBar();
 			}
 		});
-		
+
 		$(document).mouseup(function(e){
 			var $container = $(".navbar-search");
-			
+
 			if (!$container.is(e.target) && $container.has(e.target).length === 0) {
 				collapseSearchBar();
 			}

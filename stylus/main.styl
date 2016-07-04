@@ -257,12 +257,15 @@ hr
 	padding 1em 0
 	border-top 3px solid $gray
 	-clearfix()
-	
+
 	.soliloquy-outer-container
 		max-width 100%
-	
+
 	.chicken
-		display none
+		-wrapper(0, 0, 50%)
+
+		img
+			margin-top 1em
 
 
 #colophon
@@ -277,7 +280,7 @@ hr
 		-wrapper(0, 0, 75%)
 		text-align center
 		font-size 0.9em
-		
+
 		p
 			margin 0
 
@@ -501,7 +504,7 @@ hr
 	padding-bottom 1em
 	margin-bottom 1em
 	border-bottom 1px dotted $gray
-	
+
 	&:last-of-type
 		margin-bottom 0
 		padding-bottom 0
@@ -510,7 +513,7 @@ hr
 
 .archive-more
 	margin-bottom 1em
-	
+
 	.ghost-button-container
 		margin-top 0
 
@@ -518,24 +521,24 @@ hr
 .archive-grid
 	-wrapper(0, 0, 100%, 70rem)
 	-flexbox()
-	
+
 	& > article
 		width 48%
 		margin-top 1em
 		-flexitem()
-		
+
 		.entry-header
 			text-align center
 			-ff-title()
-		
+
 			.entry-title
 				font-size 1em
 				margin 0.5em 0 0
-			
+
 			.entry-date
 				font-size 0.9em
 				margin 0
-			
+
 
 
 .pagination
@@ -652,50 +655,50 @@ hr
 		font-size 1em
 		text-transform uppercase
 		text-align center
-	
+
 	.textwidget
-		text-align center		
-	
+		text-align center
+
 	.widget_sp_image-description
 		text-align center
 		-ff-title()
-	
+
 	.widget_rhd_mailchimp_widget
 		.rhd-mailchimp-container
 			padding 0.5em 1em
 			border 3px solid $gray
-			
+
 			.widget-title
 				text-align center
 				-ff-headline()
 				text-transform none
 				margin-bottom 0.25em
-			
+
 			input
 				&[type="email"]
 				&[type="text"]
 					-ff-title()
 					border-color $gray
 					-placeholder-props( $ff_title, $c_text_lt, 1, null, normal )
-					
+
 					&:focus
 						border-color $c_sec
-			
+
 			.rhd-mc-submit
 				-wrapper(0.5em, 0.5em, 100%)
 				padding 0.1em 0
 				-ff-headline()
 				@extend .ghost-button-container .ghost-button-alt.filled
-				
+
 				&:hover
 				&:active
 					background-color $c_sec
 					border-color $c_sec
-	
+
 	.rhd-social-icons
 		.rhd-social-icon
 			width 18%
-	
+
 
 #text-2
 	font-size 0.9em
@@ -706,7 +709,7 @@ hr
    ========================================================================== */
 
 .front-page
-	
+
 	.first-post
 		padding-bottom 1em
 		margin-bottom 1em
@@ -725,7 +728,7 @@ hr
 		.soliloquy-next
 		.soliloquy-prev
 			background-color $c_text_trans
-			
+
 		.soliloquy-caption
 			&.soliloquy-caption-bottom
 				width 60%
@@ -733,22 +736,22 @@ hr
 				bottom 2em
 				background-color $c_text_trans
 				border-radius 0.1em
-			
+
 			.soliloquy-caption-inside
-				background transparent 
-				
+				background transparent
+
 				a
 					color $c_bg
-					
+
 					&:hover
 					&:active
 						color $c_sec
-						
+
 				.soliloquy-fc-title-link
 					text-align center
 					-ff-title()
 					text-transform uppercase
-					
+
 				.soliloquy-fc-read-more
 					display block
 					float right
@@ -773,7 +776,7 @@ hr
 .recipe-category
 	padding-bottom 1em
 	margin-bottom 1em
-	border-bottom 1px dotted $gray	
+	border-bottom 1px dotted $gray
 
 
 .related-title
