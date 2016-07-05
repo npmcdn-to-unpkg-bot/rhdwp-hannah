@@ -33,12 +33,12 @@ get_header(); ?>
 	</section>
 
 	<section id="donation-form-area">
-		<div id="donation-form-container">
-			<?php rhd_donation_form(); ?>
-		</div>
 		<aside id="donation-form-aside" class="widget-area" role="complementary">
 			<?php rhd_donation_allocations(); ?>
 		</aside>
+		<div id="donation-form-container">
+			<?php rhd_donation_form(); ?>
+		</div>
 	</section>
 
 <?php get_footer(); ?>

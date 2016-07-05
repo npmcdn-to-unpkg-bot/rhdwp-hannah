@@ -442,13 +442,13 @@ function rhd_donation_form()
 				<?php endfor; ?>
 			</ul>
 			<div id="donation-custom-amount-container">
-				<span class="donation-custom-amount-currency">$</span><input type="text" id="donation-custom-amount" name="amount" value="" data-an-default="" placeholder="Enter Amount">
+				<span class="donation-custom-amount-currency">$</span><input type="text" id="donation-custom-amount" name="amount" value="" data-an-default="" placeholder="Your Amount">
 			</div>
 		</fieldset>
 		<br />
 		<fieldset>
-			<label for="one-time" class="donation-recur"><input type="radio" id="one-time" name="recurring" value="0">One-time</label>
-			<label for="monthly" class="donation-recur"><input type="radio" id="monthly" name="recurring" value="1" checked>Monthly</label>
+			<label for="one-time" class="donation-recur"><input type="radio" id="one-time" name="recurring" value="0" checked>One-time</label>
+			<label for="monthly" class="donation-recur"><input type="radio" id="monthly" name="recurring" value="1">Monthly</label>
 		</fieldset>
 		<input type="hidden" name="classy-url" id="classy-url" value="<?php echo $meta['_donation_classy_url'][0]; ?>">
 		<input type="submit" value="Donate Now" id="donate-submit">

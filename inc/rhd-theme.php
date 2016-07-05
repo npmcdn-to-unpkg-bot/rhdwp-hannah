@@ -76,7 +76,7 @@ function rhd_wpautop_toggle( $content )
 
 	return $content;
 }
-add_filter( 'the_content', 'rhd_wpautop_toggle', 0 );
+//add_filter( 'the_content', 'rhd_wpautop_toggle', 0 );
 
 
 /**

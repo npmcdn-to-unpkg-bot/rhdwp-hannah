@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:36:16 PM on 28-06-2016
+* RHD Dev: Compiled at 3:09:49 PM on 05-07-2016
 ***/
 
 /**
@@ -1141,7 +1141,7 @@ input[type="submit"]:hover {
   background-color: transparent;
 }
 #page {
-  background-color: #e6e6e6;
+  background-color: #f8f8f8;
 }
 #main {
   box-sizing: border-box;
@@ -1412,6 +1412,11 @@ input[type="submit"]:hover {
 }
 .full-width-header {
   width: 100%;
+  border-bottom: 3px solid #1e2171;
+}
+.full-width-header img {
+  width: 100%;
+  height: auto;
 }
 .full-width-header .soliloquy-container {
   border-bottom: 4px solid #1e2171;
@@ -1454,6 +1459,12 @@ input[type="submit"]:hover {
 #main.rhd-color-block-area #primary .rhd-color-block.rhd-color-block-blue {
   background: #1e2171;
   color: #fff;
+}
+#main.rhd-color-block-area #primary .rhd-color-block.rhd-color-block-sky {
+  background: #f2f8fe;
+  border-top: 3px solid #1e2171;
+  border-bottom: 3px solid #1e2171;
+  color: #1e2171;
 }
 #main.rhd-color-block-area #primary .rhd-color-block.rhd-color-block-white {
   background: #fff;
@@ -1651,12 +1662,12 @@ input[type="submit"]:hover {
 .donation-main-content .page-title {
   text-align: center;
 }
-.donation-main-content .donation-page-thumbnail {
-  width: 100%;
-  max-width: 75rem;
-  position: relative;
-  margin: 1em auto 1em auto;
+.donation-main-content .donation-page-thumbnail img {
+  width: auto;
+  max-width: 100%;
+  margin: 1em auto;
   border: 3px solid #1e2171;
+  display: block;
 }
 #donation-headline {
   width: 100%;
@@ -1665,11 +1676,15 @@ input[type="submit"]:hover {
   font-weight: 300 !important;
   text-align: center;
   color: #fff;
-  background-color: #1e2171;
+  background-color: #f2f8fe;
+  border-top: 3px solid #1e2171;
+  border-bottom: 3px solid #1e2171;
+  color: #1e2171;
 }
 #donation-headline .donation-headline-text {
   font-size: 3em;
   margin: 0;
+  font-weight: normal;
 }
 #donation-intro {
   width: 75%;
@@ -1724,49 +1739,49 @@ input[type="submit"]:hover {
 }
 #donation-form-container #donation-form #donation-custom-amount-container {
   width: 70%;
-  padding: 0.25rem 0 0.25rem 0.5rem;
+  padding: 0.7em 0 0.7em 0.5rem;
   border: 3px solid #1e2171;
   position: relative;
 }
 #donation-form-container #donation-form #donation-custom-amount-container .donation-custom-amount-currency {
-  font-size: 4em;
-  font-family: 'Cheddar Jack', cursive;
-  font-weight: 300 !important;
-  line-height: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3em;
+  color: #1e2171;
+  font-weight: bold;
 }
 #donation-form-container #donation-form #donation-custom-amount-container #donation-custom-amount {
   width: 89%;
   position: absolute;
-  right: 0;
-  top: 48%;
+  right: 0.75em;
+  top: 50%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   border: none;
   color: #1e2171;
-  font-family: 'Cheddar Jack', cursive;
-  font-weight: 300 !important;
-  font-size: 2.6em;
-  padding: 0 0 0 0.25rem;
+  font-size: 1.3em;
+  padding: 0;
 }
 #donation-form-container #donation-form #donation-custom-amount-container #donation-custom-amount::-webkit-input-placeholder {
-  font-family: 'Cheddar Jack', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  color: #808080;
+  color: #1e2171;
 }
 #donation-form-container #donation-form #donation-custom-amount-container #donation-custom-amount:-moz-placeholder {
-  font-family: 'Cheddar Jack', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  color: #808080;
+  color: #1e2171;
 }
 #donation-form-container #donation-form #donation-custom-amount-container #donation-custom-amount::-moz-placeholder {
-  font-family: 'Cheddar Jack', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  color: #808080;
+  color: #1e2171;
 }
 #donation-form-container #donation-form #donation-custom-amount-container #donation-custom-amount:-ms-input-placeholder {
-  font-family: 'Cheddar Jack', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  color: #808080;
+  color: #1e2171;
 }
 #donation-form-container #donation-form .donation-recur {
   margin-right: 1em;
@@ -1797,14 +1812,13 @@ input[type="submit"]:hover {
   border: none;
 }
 #donation-allocations-table td {
-  padding: 0.25em 0;
+  padding: 0.5em 0;
   line-height: 1;
 }
 #donation-allocations-table .donation-allocation-amount {
   width: 40%;
-  font-family: 'Cheddar Jack', cursive;
-  font-weight: 300 !important;
-  font-size: 3em;
+  font-size: 2.5em;
+  font-weight: 800;
   text-align: right;
   padding-right: 1rem;
   border-right: 3px solid #1e2171;
@@ -2039,6 +2053,14 @@ input[type="submit"]:hover {
   .page-id-25 #rhd-color-block-trust .rhd-color-block-content .trust-spell ul li::first-letter {
     padding-right: 0;
   }
+  .page-id-31 .contact-info {
+    width: 45%;
+    float: left;
+  }
+  .page-id-31 .contact-form {
+    width: 45%;
+    float: right;
+  }
 }
 @media screen and (min-width: 60em) {
   #masthead {
@@ -2074,21 +2096,30 @@ input[type="submit"]:hover {
     margin-left: auto;
     margin-right: auto;
   }
-  #donation-form-container {
-    width: 58%;
-    float: left;
-  }
+}
+@media screen and (min-width: 50em) {
   #donation-form-aside {
     width: 40%;
+    float: left;
+  }
+  #donation-form-container {
+    width: 58%;
     float: right;
+    margin-top: 0;
   }
   #donation-form #donation-custom-amount-container #donation-custom-amount {
     width: 94%;
+  }
+  #donation-allocations-table .donation-allocation-amount {
+    font-size: 2em;
   }
 }
 @media screen and (min-width: 58em) {
   #primary {
     width: 56%;
+  }
+  #donation-allocations-table .donation-allocation-amount {
+    font-size: 2.5em;
   }
 }
 @media screen and (min-width: 62em) {

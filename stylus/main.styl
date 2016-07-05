@@ -232,7 +232,7 @@ input[type="submit"]
 
 
 #page
-	background-color $off-white
+	background-color lighten($off-white,7)
 
 
 #main
@@ -521,6 +521,11 @@ input[type="submit"]
 
 .full-width-header
 	width 100%
+	border-bottom 3px solid $navy
+
+	img
+		width 100%
+		height auto
 
 	.soliloquy-container
 		border-bottom 4px solid $navy
@@ -567,6 +572,12 @@ input[type="submit"]
 				&.rhd-color-block-blue
 					background $navy
 					color white
+
+				&.rhd-color-block-sky
+					background $skylight
+					border-top 3px solid $navy
+					border-bottom 3px solid $navy
+					color $navy
 
 				&.rhd-color-block-white
 					background white
@@ -793,8 +804,12 @@ input[type="submit"]
 		text-align center
 
 	.donation-page-thumbnail
-		-wrapper(1em, 1em, 100%)
-		border 3px solid $navy
+		img
+			width auto
+			max-width 100%
+			margin 1em auto
+			border 3px solid $navy
+			display block
 
 
 #donation-headline
@@ -803,11 +818,15 @@ input[type="submit"]
 	-ff-headline()
 	text-align center
 	color white
-	background-color $navy
+	background-color $skylight
+	border-top 3px solid $navy
+	border-bottom 3px solid $navy
+	color $navy
 
 	.donation-headline-text
 		font-size 3em
 		margin 0
+		font-weight normal
 
 
 #donation-intro
@@ -855,27 +874,29 @@ input[type="submit"]
 
 		#donation-custom-amount-container
 			width 70%
-			padding 0.25rem 0 0.25rem 0.5rem
+			padding 0.7em 0 0.7em 0.5rem
 			border 3px solid $navy
 			position relative
 
 			.donation-custom-amount-currency
-				font-size 4em
-				-ff-headline()
-				line-height 1
+				font-family $ff-body
+				font-size 1.3em
+				color $navy
+				font-weight bold
 
 			#donation-custom-amount
 				width 89%
 				position absolute
-				right 0
-				top 48%
+				right 0.75em
+				top 50%
+				font-family $ff-body
+				font-weight bold
 				-transform(translateY(-50%))
 				border none
 				color $navy
-				-ff-headline()
-				font-size 2.6em
-				padding 0 0 0 0.25rem
-				-placeholder-props( $ff-headline, gray, null, 1em )
+				font-size 1.3em
+				padding 0
+				-placeholder-props( $ff-body, $navy, null, 1em )
 
 		.donation-recur
 			margin-right 1em
@@ -908,13 +929,13 @@ input[type="submit"]
 		border none
 
 	td
-		padding 0.25em 0
+		padding 0.5em 0
 		line-height 1
 
 	.donation-allocation-amount
 		width 40%
-		-ff-headline()
-		font-size 3em
+		font-size 2.5em
+		font-weight 800
 		text-align right
 		padding-right 1rem
 		border-right 3px solid $navy
