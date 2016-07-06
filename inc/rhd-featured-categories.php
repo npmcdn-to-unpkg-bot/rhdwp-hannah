@@ -55,12 +55,6 @@ class RHD_Featured_Categories extends WP_Widget {
 			__( 'RHD Featured Categories', 'rhd' ), // Name
 			array( 'description' => __( 'Displays pre-configured featured category links in a widget.', 'rhd' ), ) // Args
 		);
-
-		add_action( 'wp_enqueue_scripts', array( $this, 'display_styles' ) );
-	}
-
-	public function display_styles() {
-		wp_enqueue_style( 'rhd-featured-cats-main', plugin_dir_url(__FILE__) . 'main.css' );
 	}
 
 	public function update( $new_instance, $old_instance ) {
