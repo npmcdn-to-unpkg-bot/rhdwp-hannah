@@ -30,6 +30,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 include_once( 'inc/rhd-ghost-button.php' );
 include_once( 'inc/rhd-theme.php' );
 include_once( 'inc/rhd-metabar.php' );
+include_once( 'inc/rhd-featured-categories.php' );
 include_once( 'inc/rhd-login-admin.php' );
 
 
