@@ -41,6 +41,14 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		$("#donation-custom-amount").autoNumeric('init', {vMin: '0', vMax: '999999'});
 
+		$("#donation-custom-amount").on('focus', function(){
+			$(this).parent("#donation-custom-amount-container").addClass("focus");
+		});
+
+		$("#donation-custom-amount").on('focusout', function(){
+			$(this).parent("#donation-custom-amount-container").removeClass("focus");
+		});
+
 		$("#donation-form").submit(function(){
 			rhdSanitizeDonationAmount();
 			return;
@@ -125,6 +133,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 	function rhdDonateButtonSelect() {
 		$("#donation-form button").on('click', function(){
 			var $this = $(this);
+
+			if ( $this.is("#donation-amount-other") ) {
+				$("#donation-custom-amount").focus();
+			}
+
 			$('#donation-custom-amount').val('');
 
 			if ( $this.hasClass('active') ) {
@@ -133,7 +146,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 				$("#donation-form button").removeClass('active');
 
 				$this.addClass('active');
-				$('#donation-custom-amount').autoNumeric('set', parseInt($(this).val()));
+
+				if ( !$this.is("#donation-amount-other") )
+					$('#donation-custom-amount').autoNumeric('set', parseInt($(this).val()));
 			}
 		});
 	}

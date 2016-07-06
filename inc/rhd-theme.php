@@ -122,7 +122,7 @@ add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );
 function rhd_append_nav_menu_items( $items, $args ){
 	if( $args->theme_location == 'primary' ) {
 		$items .= '<li class="menu-item menu-item-donate">'
-				. do_shortcode( '[ghost-button url="//google.com"]Donate[/ghost-button]' )
+				. do_shortcode( '[ghost-button url="' . home_url( '/give/annual-fund' ) . '"]Donate[/ghost-button]' )
 				. '</li>';
 	}
 

@@ -429,7 +429,7 @@ function rhd_donation_form()
 	$meta = get_post_meta( $post->ID );
 	?>
 
-	<form id="donation-form" action="<?php echo home_url('/donation'); ?>" method="get">
+	<form id="donation-form" action="<?php echo home_url('/process-donation'); ?>" method="get">
 		<fieldset>
 			<legend class="donation-select-label">How much would you like to donate?</legend>
 			<ul>
@@ -440,6 +440,9 @@ function rhd_donation_form()
 						</li>
 					<?php endif; ?>
 				<?php endfor; ?>
+				<li class="donation-selector donation-selector-other">
+					<button type="button" class="donation-set-amount" name="donation-amount-other" id="donation-amount-other" value="other">Other</button>
+				</li>
 			</ul>
 			<div id="donation-custom-amount-container">
 				<span class="donation-custom-amount-currency">$</span><input type="text" id="donation-custom-amount" name="amount" value="" data-an-default="" placeholder="Your Amount">

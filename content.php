@@ -48,8 +48,8 @@
 			<div class="entry-meta-links">
 				<?php
 				if ( ! is_front_page() ) {
-					comments_popup_link( 'No Comments', '1 Comment', '% Comments', 'comments-popup', 'Comments are disabled.' );
-					rhd_post_meta_links();
+					// comments_popup_link( 'No Comments', '1 Comment', '% Comments', 'comments-popup', 'Comments are disabled.' );
+					// rhd_post_meta_links();
 				}
 				?>
 			</div>
