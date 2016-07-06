@@ -31,6 +31,7 @@ html
 
 body
 	@extends html
+	background-color $c_bg
 
 	&.admin-bar
 		#wpadminbar
@@ -51,7 +52,7 @@ a
 
 input
 textarea
-	background-color $c_bg
+	background-color $c_header
 	border 2px solid $c_sec
 	box-sizing border-box
 	padding 0.5em
@@ -93,7 +94,7 @@ input[type="submit"]
 		margin 0
 
 	.nav-dropdown
-		background $c_bg
+		background $c_header
 		position absolute
 		top $navHt
 		left 0
@@ -151,7 +152,7 @@ input[type="submit"]
 		.close-search
 			-vcenter()
 			right 1.7em
-			font-weight 400
+			font-weight 300
 			color $c_text_lt
 			font-size 1.1em
 			display none
@@ -240,6 +241,12 @@ input[type="submit"]
 	box-sizing border-box
 
 
+#content
+	article
+		padding $boxpad
+		background-color white
+
+
 #colophon
 	width 100%
 	position relative
@@ -282,6 +289,7 @@ input[type="submit"]
 .page-title
 .archive-title
 	-ff-headline()
+	text-transform uppercase
 	text-align center
 	font-size 2em
 	margin-bottom 1rem
@@ -485,6 +493,7 @@ input[type="submit"]
 
 	.widget-title
 		@extends .entry-title
+		text-transform uppercase
 		text-align center
 
 
