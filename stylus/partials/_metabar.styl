@@ -7,6 +7,17 @@
 	.rhd-metabar-content
 		width 100%
 
+		&.duo
+			.rhd-metabar-item
+				&:nth-of-type(1)
+					margin-bottom 0.5em
+
+		&.trio
+			.rhd-metabar-item
+				&:nth-of-type(1)
+				&:nth-of-type(2)
+					margin-bottom 0.5em
+
 		.rhd-metabar-item
 			width 100%
 			display block
@@ -34,6 +45,13 @@
 				&:active
 					background-color $c_sec_lt
 
+				&.search-submit-button
+					width 2.05em
+					height 101%
+					border-top 1px solid $c_sec
+					border-right 1px solid $c_sec
+					border-bottom 1px solid $c_sec
+
 				.caret
 				.search-submit
 					width 50%
@@ -42,14 +60,14 @@
 					-opacity(0.35)
 
 			.search-field
-				-placeholder-props( $ff_title, gray, 1, 400, uppercase )
+				-placeholder-props( $ff_body, gray, 1, 300, uppercase )
+				font-weight 300
 				border 2px solid $c_bg
-				transition border-color 0.25s
-				font-weight 400
+				transition background 0.25s
 				text-transform uppercase
 
 				&:focus
-					border-color $c_ter
+					background $near_white
 
 			.rhd-dropdown-title
 			.search-field
@@ -59,13 +77,13 @@
 				background white
 				color gray
 				position relative
-				font-family $ff_title !important
+				font-family $ff_body !important
 				border 1px solid $c_sec
 
 			.rhd-dropdown-title
 				.dd-title-text
 					position relative
-					top 0.2em
+					top 0.15em
 
 			.rhd-dropdown
 				position relative
@@ -76,7 +94,7 @@
 					max-height 30vh
 					position absolute
 					top 2em
-					font-family $ff_title
+					font-family $ff_body
 					overflow-y auto
 					background white
 					padding-left 0
@@ -102,8 +120,8 @@
 							&:hover
 							&:active
 								background-color $c_sec_lt
-		.blog-search
-			top	0
+			.blog-search
+				top	0
 
 	&.layout-tall
 		.rhd-metabar-item
@@ -125,7 +143,7 @@
 			padding 0 0 0.5em 0
 
 			.rhd-metabar-content
-				-wrapper()
+				-wrapper(0, 0, 100%)
 				-flexbox()
 				top 0.95em
 
@@ -133,17 +151,23 @@
 					-flexitem()
 
 				&.solo
+				&.duo
+				&.trio
+					.rhd-metabar-item
+						margin-bottom 0
+
+				&.solo
 					.rhd-metabar-item
 						width 100%
-				
+
 				&.duo
 					.rhd-metabar-item
 						width 49%
-					
+
 				&.trio
 					.rhd-metabar-item
 						width 31%
 
 				.blog-search
 					position relative
-					top	0.2em
+					top	0.12em

@@ -10,7 +10,7 @@
 
 
 /* ==========================================================================
-	Base Functions
+	Base Functions
    ========================================================================== */
 
 /**
@@ -35,7 +35,7 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 
 	// count visible fields
 	$i = 0;
-	
+
 	foreach ( $fields as $field ) {
 		if ( $field === true )
 			++$i;
@@ -45,11 +45,11 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 		case 1:
 			$class = 'solo';
 			break;
-		
+
 		case 2:
 			$class = 'duo';
 			break;
-		
+
 		case 3:
 		default:
 			$class = 'trio';
@@ -69,7 +69,7 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 							</a>
 						</div>
 						<ul>
-							<?php rhd_wp_list_all_categories(); ?>
+							<?php wp_list_categories( 'title_li=' ); ?>
 						</ul>
 					</div>
 				</div>
@@ -103,27 +103,6 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 
 
 /**
- * rhd_wp_list_all_categories function.
- * 
- * @access public
- * @return void
- */
-function rhd_wp_list_all_categories() {
-	$all_cats = get_categories();
-	
-	if ( $all_cats ) {
-		?>
-		<?php foreach ( $all_cats as $cat ) : ?>
-			<li class="cat-item cat-item-<?php echo $cat->term_id; ?>">
-				<a href="<?php echo get_category_link( $cat->term_id ); ?>"><?php echo $cat->name; ?></a>
-			</li>
-		<?php endforeach; ?>
-		<?php		
-	}
-}
-
-
-/**
  * rhd_metabar_get_search_form function.
  *
  * @access public
@@ -135,7 +114,7 @@ function rhd_get_metabar_search_form( $placeholder = 'Search' )
 		<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
 			<div>
 				<input type="text" value="" class="search-field" placeholder="' . $placeholder . '" name="s" />
-				<a href="#" id="search-submit-button" class="rhd-metabutton">
+				<a href="#" class="rhd-metabutton search-submit-button">
 					<img class="search-submit" src="' . RHD_IMG_DIR . '/search.png" alt="search submit">
 				</a>
 			</div>
