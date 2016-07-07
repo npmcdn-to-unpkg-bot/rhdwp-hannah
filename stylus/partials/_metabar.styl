@@ -7,6 +7,17 @@
 	.rhd-metabar-content
 		width 100%
 
+		&.duo
+			.rhd-metabar-item
+				&:nth-of-type(1)
+					margin-bottom 0.5em
+
+		&.trio
+			.rhd-metabar-item
+				&:nth-of-type(1)
+				&:nth-of-type(2)
+					margin-bottom 0.5em
+
 		.rhd-metabar-item
 			width 100%
 			display block
@@ -33,6 +44,13 @@
 				&:hover
 				&:active
 					background-color $c_sec_lt
+
+				&.search-submit-button
+					width 2.05em
+					height 101%
+					border-top 1px solid $c_sec
+					border-right 1px solid $c_sec
+					border-bottom 1px solid $c_sec
 
 				.caret
 				.search-submit
@@ -125,12 +143,18 @@
 			padding 0 0 0.5em 0
 
 			.rhd-metabar-content
-				-wrapper()
+				-wrapper(0, 0, 100%)
 				-flexbox()
 				top 0.95em
 
 				.rhd-metabar-item
 					-flexitem()
+
+				&.solo
+				&.duo
+				&.trio
+					.rhd-metabar-item
+						margin-bottom 0
 
 				&.solo
 					.rhd-metabar-item

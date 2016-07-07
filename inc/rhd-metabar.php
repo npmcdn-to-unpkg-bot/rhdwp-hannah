@@ -35,7 +35,7 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 
 	// count visible fields
 	$i = 0;
-	
+
 	foreach ( $fields as $field ) {
 		if ( $field === true )
 			++$i;
@@ -45,11 +45,11 @@ function rhd_metabar( $layout = '', array $fields = array() ) {
 		case 1:
 			$class = 'solo';
 			break;
-		
+
 		case 2:
 			$class = 'duo';
 			break;
-		
+
 		case 3:
 		default:
 			$class = 'trio';
@@ -114,7 +114,7 @@ function rhd_get_metabar_search_form( $placeholder = 'Search' )
 		<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
 			<div>
 				<input type="text" value="" class="search-field" placeholder="' . $placeholder . '" name="s" />
-				<a href="#" id="search-submit-button" class="rhd-metabutton">
+				<a href="#" class="rhd-metabutton search-submit-button">
 					<img class="search-submit" src="' . RHD_IMG_DIR . '/search.png" alt="search submit">
 				</a>
 			</div>
