@@ -10,7 +10,7 @@ get_header(); ?>
 
 	<section id="primary" class="site-content full-width">
 		<div id="content" role="main">
-			
+
 			<?php if ( have_posts() ) : ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>

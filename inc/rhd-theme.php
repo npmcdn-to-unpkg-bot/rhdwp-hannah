@@ -177,6 +177,12 @@ function rhd_full_header()
 			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '132' ); } ?>
 		</section>
 		<?php
+	} elseif ( is_page_template( 'template-header-image.php' ) ) {
+		?>
+		<section id="page-full-header" class="full-width-header">
+			<?php the_post_thumbnail( 'full' ); ?>
+		</section>
+		<?php
 	} elseif ( rhd_donate_has_full_header() ) { ?>
 		<section id="donate-page-full-header" class="full-width-header">
 			<?php the_post_thumbnail( 'full' ); ?>
