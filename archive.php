@@ -9,14 +9,16 @@
 get_header();
 ?>
 
-<section id="primary" class="site-content">
+<section id="primary" class="site-content full-width">
 
 	<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
 			<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
-			
+
+			<?php rhd_metabar( '', array( 'search' => false ) ); ?>
+
 			<div class="archive-grid">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'template-parts/content', 'grid' ); ?>
@@ -66,5 +68,4 @@ get_header();
 
 </section>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
