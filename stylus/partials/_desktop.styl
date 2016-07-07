@@ -16,34 +16,53 @@
 				box-shadow none
 
 		.navbar-search
-			width 100%
-			height 80%
+			width 16em
+			height 90%
 			-vcenter()
-			right 1%
+			right 0
 			margin 0
-
-			input
-				height 100%
 
 			.search-form
 				.search-field
 					width 0
+					font-size 1em
 					-vhcenter()
 
 					&.is-active
-						width 45%
+						width 100%
 
 				.search-submit
+					width 34px
 					right 0
-					-vcenter()
+					-vcenter(absolute, -2%)
 					background-size 64% auto
+					transition 0.25s all
 
 					&.is-active
-						right 28%
+						right 0
 
 			.close-search
-				right 26%
-				font-size 1.3em
+				right -6%
+				font-size 1.1em
+
+	#header-social
+		width auto
+		-vcenter()
+		right 2em
+		z-index 800
+		margin-top 0
+
+		.widget-rhd-social-icons-header
+			position relative
+			top 0.55em
+
+			.rhd-social-icons
+				line-height 1
+
+				.rhd-social-icon
+					height 20px
+					line-height 1
+					margin 0
 
 	#logo-simple
 		left 0

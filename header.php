@@ -56,6 +56,10 @@
 						<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 						<?php wp_nav_menu( $nav_args ); ?>
 
+						<div id="header-social">
+							<?php echo do_shortcode( '[rhd-social-icons color1="#b6a072" color2="#ecae80" widget_loc="header"]' ); ?>
+						</div>
+
 						<div id="header-search">
 							<?php rhd_navbar_search_form(); ?>
 						</div>

@@ -107,9 +107,10 @@ input[type="submit"]
 
 	.navbar-search
 		width 90%
-		height 1.6rem
+		height 2.25rem
 		position relative
-		margin 1em auto
+		bottom 0.75em
+		margin 0.75rem auto
 
 		.search-form
 		div
@@ -124,13 +125,13 @@ input[type="submit"]
 			.search-field
 				width 0
 				-vhcenter()
-				font-size 1em
+				font-size 1.2em
 				font-family $ff_body
 				background-color $c_header
 				letter-spacing 0.5px
 				border-radius 0.1em
-				color black
-				padding 0.35em 2.3em 0.35em 0.25em
+				color $c_text
+				padding 0.35em 2.3em 0.35em 0.35em
 				-placeholder-props( @font-family, @color, 1, normal, normal )
 				transition 0.5s all ease
 
@@ -139,7 +140,7 @@ input[type="submit"]
 					background-color $c_sec_lt
 
 			.search-submit
-				width 1.5rem
+				width 1.6rem
 				-vhcenter()
 				z-index 999
 				background url('../img/search-gold.png') no-repeat center
@@ -204,7 +205,7 @@ input[type="submit"]
 
 		.menu-item
 			display block
-			font-size 1.1em
+			font-size 1.2em
 			line-height 1.8
 
 			a
@@ -229,6 +230,24 @@ input[type="submit"]
 #hamburger
 	right 1em
 	-vcenter()
+
+
+#header-social
+	-wrapper(1em, 0)
+
+	.widget-rhd-social-icons-header
+		text-align center
+
+		.rhd-social-icons
+			-flexitem()
+			line-height 0
+
+			.rhd-social-icon
+				width 2em
+				height 2em
+				margin 0 0.5em
+				line-height 2
+				-flexbox()
 
 
 #main
