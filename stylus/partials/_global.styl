@@ -8,8 +8,8 @@ $c_sec = #b6a072
 $c_ter = #ecae80
 
 $c_text_lt = lighten($c_text, 35%)
-$c_sec_lt = lighten($c_sec, 35%)
-$c_ter_lt = lighten($c_ter, 35%)
+$c_sec_lt = lighten($c_sec, 80%)
+$c_ter_lt = lighten($c_ter, 80%)
 $off_white = darken(white, 4%)
 $near_white = darken(white, 2%)
 
@@ -119,8 +119,8 @@ $updir = '../../../uploads'
 -vhcenter( $pos = absolute, $hoffset = 0, $voffset = 0 )
 	position $pos
 	top 50% + $hoffset
-	left 50% + $voffset
-	-transform(translate(-50%, -50%))
+	right 50% + $voffset
+	-transform(translate(50%, -50%))
 
 
 -placeholder-props( $famVal, $color = $c_text, $opacity = 1, $weight = normal, $text_transform = normal )

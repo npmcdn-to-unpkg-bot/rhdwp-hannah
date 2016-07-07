@@ -55,10 +55,10 @@
 					<div class="nav-dropdown">
 						<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 						<?php wp_nav_menu( $nav_args ); ?>
-					</div>
 
-					<div id="header-search">
-						<?php rhd_navbar_search_form(); ?>
+						<div id="header-search">
+							<?php rhd_navbar_search_form(); ?>
+						</div>
 					</div>
 
 					<button id="hamburger" class="c-hamburger c-hamburger--rot">

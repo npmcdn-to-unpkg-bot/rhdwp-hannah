@@ -99,55 +99,55 @@ input[type="submit"]
 		top $navHt
 		left 0
 		display none
+		box-shadow 3px 3px 7px -4px $c_text
 
 		.site-title
 			margin-top 1em
 			display block
 
 	.navbar-search
-		width 65%
-		height 75%
-		-vcenter()
-		right 3em
-		z-index 0
-
-		&.is-active
-			z-index 999
+		width 90%
+		height 1.6rem
+		position relative
+		margin 1em auto
 
 		.search-form
 		div
-		input
 			height 100%
 
 		input
-			background-color transparent
 			border none
 
 		.search-form
+			width 100%
+
 			.search-field
 				width 0
-				-vcenter()
+				-vhcenter()
 				font-size 1em
+				font-family $ff_body
 				background-color $c_header
-				right -0.35em
-				-ff-subtitle()
 				letter-spacing 0.5px
-				padding 0
+				border-radius 0.1em
+				color black
+				padding 0.35em 2.3em 0.35em 0.25em
+				-placeholder-props( @font-family, @color, 1, normal, normal )
 				transition 0.5s all ease
 
 				&.is-active
-					width 130%
-					border-color $c_ter
-					padding 0.5em 2.3em 0.5em 0.5em
+					width 75%
+					background-color $c_sec_lt
 
 			.search-submit
 				width 1.5rem
-				right 0
-				-vcenter()
+				-vhcenter()
 				z-index 999
-				background url('../img/search.png') no-repeat center
+				background url('../img/search-gold.png') no-repeat center
 				background-size 90% auto
-				transition 0.5s all ease
+				transition 0.25s all ease
+
+				&.is-active
+					right 18%
 
 		.close-search
 			-vcenter()
@@ -195,9 +195,7 @@ input[type="submit"]
 #site-navigation-container
 	width 100vw
 	text-align center
-	padding-bottom 1rem
 	z-index 999
-	box-shadow 3px 3px 7px -4px $c_text
 
 	#site-navigation
 		list-style none
