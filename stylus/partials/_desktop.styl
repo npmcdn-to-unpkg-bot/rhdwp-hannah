@@ -1,9 +1,7 @@
 @media screen and (min-width 40rem)
-	.mobile-only
-		display none
-
 	#navbar
 		height auto
+		-clearfix()
 
 		.navbar-inner
 			-wrapper(0, 0, 90%)
@@ -28,16 +26,23 @@
 					&.is-active
 						right 0
 
+	#logo-simple
+		left 0
+
+	#site-title
+		display none
+
 	#site-navigation-container
-		width 45%
+		width 51%
 		display block
 		background transparent
 		position relative
 		box-shadow none
 		float left
 		padding-bottom 0
-		position relative
 		top 0.15em
+		left 7em
+		margin 0.5em 0
 
 		#site-navigation
 			line-height 0
@@ -48,7 +53,7 @@
 			.menu-item
 				line-height 2
 				-flexitem()
-				font-size 1rem
+				font-size 0.875rem
 
 	#hamburger
 		display none

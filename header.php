@@ -45,11 +45,14 @@
 
 	<div id="page" class="hfeed site">
 		<header id="header" class="site-header">
-			<div id="navbar">
+			<div id="navbar" class="masthead">
 				<div class="navbar-inner">
-					<div class="nav-dropdown">
-						<?php get_template_part( 'img/inline', 'logo-main.svg' ); ?>
+					<a href="<?php echo home_url(); ?>">
+						<?php get_template_part( 'img/inline', 'logo-simple.svg' ); ?>
+					</a>
+					<?php get_template_part( 'img/inline', 'site-title.svg' ); ?>
 
+					<div class="nav-dropdown">
 						<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
 						<?php wp_nav_menu( $nav_args ); ?>
 					</div>
@@ -63,10 +66,5 @@
 					</button>
 				</div>
 			</div>
-
-			<div id="masthead">
-				<a class="site-title-link" href="<?php echo home_url(); ?>"><h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
-			</div>
 		</header><!-- #masthead -->
-
 	<main id="main">
