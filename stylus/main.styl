@@ -730,6 +730,24 @@ hr
 
 
 /* ==========================================================================
+	Contact
+   ========================================================================== */
+
+.page-id-2275
+	.ninja-forms-cont
+		input
+		textarea
+			border-color $c_text
+
+			&:focus
+				border-color $c_sec
+
+		input
+			&[type="submit"]
+				@extends #secondary .widget_rhd_mailchimp_widget .rhd-mailchimp-container .rhd-mc-submit
+
+
+/* ==========================================================================
 	Soliloquy
    ========================================================================== */
 
@@ -791,6 +809,11 @@ hr
 
 .related-title
 	-ff-title()
+
+
+.ninja-forms-required-items
+.ninja-forms-req-symbol
+	-invisible()
 
 
 /* ==========================================================================
