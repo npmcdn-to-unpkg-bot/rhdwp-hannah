@@ -143,12 +143,28 @@ input[type="submit"]
 				width 1.6rem
 				-vhcenter()
 				z-index 999
-				background url('../img/search-gold.png') no-repeat center
-				background-size 90% auto
 				transition 0.25s all ease
+
+				.search-submit-icon
+					width 100%
+					height auto
+					-vhcenter()
+
+					path
+						fill $c_sec
+						transition 0.25s all
+
+					&:hover
+					&:active
+						path
+							fill $c_ter
 
 				&.is-active
 					right 18%
+
+					.search-submit-icon
+						path
+							fill $c_ter
 
 		.close-search
 			-vcenter()
@@ -389,7 +405,7 @@ input[type="submit"]
 
 		.entry-header
 			text-align center
-			margin-bottom 1em
+			margin 1em 0
 
 			a
 				color inherit

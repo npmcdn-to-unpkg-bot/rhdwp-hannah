@@ -584,7 +584,12 @@ function rhd_navbar_search_form( $placeholder = "Search" )
 			<form method="get" class="search-form" action="' . esc_url( home_url('/') ) . '">
 				<div>
 					<input type="text" value="" class="search-field" name="s" placeholder="' . $placeholder . '" />
-					<input type="submit" class="search-submit" value="" />
+					<!-- <input type="submit" class="search-submit" value="" /> -->
+					<a href="#" class="search-submit">';
+
+						get_template_part( 'img/inline', 'search.svg' );
+
+	echo '
 				</div>
 				<a class="close-search" href="#">X</a>
 			</form>
