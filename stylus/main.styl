@@ -268,7 +268,7 @@ input[type="submit"]
 
 
 #main
-	-wrapper($navHt)
+	-wrapper($navHt, 2em)
 	box-sizing border-box
 
 
@@ -289,11 +289,47 @@ input[type="submit"]
 #colophon
 	width 100%
 	position relative
-	background $c_sec
+
+	.footer-signup
+		width 100%
+		padding 1em 0
+		background black
+		color white
+
+		.rhd-mailchimp-container
+			-wrapper()
+
+			.rhd-mc-text
+			.rhd-mc-submit
+				text-transform uppercase
+
+			.rhd-mc-email
+				-wrapper(0.25em, 0, 80%)
+				border-color black
+				font-family $ff_body
+				font-size 1.1em
+				padding 0.4em 0.375em
+				display block
+
+				&:focus
+					border-color $c_ter
+
+			.rhd-mc-submit
+				color black
+				display block
+				margin 1em auto
+				padding 0.5em 1.5em
+
+				&:hover
+				&:active
+					background $c_ter
+					color white
 
 	.site-info
-		-wrapper(2em, 0, 75%)
+		-wrapper(2em, 2em, 100%)
 		text-align center
+		text-transform uppercase
+		font-size 0.9em
 
 		a
 			color $c_text
@@ -307,12 +343,10 @@ input[type="submit"]
 			width 100%
 			height auto
 
-		#rhd-logo-footer
-			width 1.35em
-			height 1.35em
-			margin 0 0.05em
-			position relative
-			bottom 0.25em
+
+#footer-widget-area
+	width 100%
+	background white
 
 
 /* ==========================================================================
@@ -405,7 +439,7 @@ input[type="submit"]
 
 		.entry-header
 			text-align center
-			margin 1em 0
+			margin 1em 0 1.75em
 
 			a
 				color inherit

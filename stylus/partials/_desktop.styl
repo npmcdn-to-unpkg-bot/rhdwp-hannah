@@ -117,26 +117,6 @@
 				width auto
 				padding-left 0.8em
 
-	// Image Strip
-	#primary
-		-clearfix()
-
-		article
-			&.strip-active
-				width 65%
-				float right
-
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
-
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
-
 	.entry-content
 		img
 		iframe
@@ -159,6 +139,41 @@
 		a
 			img
 				@extends .entry-content img
+
+	#colophon
+		.footer-signup
+			.rhd-mailchimp-container
+				height 3em
+
+				.rhd-mailchimp
+					height 100%
+
+				.rhd-mc-text
+				.rhd-mc-email
+				.rhd-mc-submit
+					-vcenter()
+					display block
+					margin 0
+					font-size 1em
+
+				.rhd-mc-text
+					left 0
+
+					&:after
+						content '\00a0\2192' // ' &rarr;'
+
+				.rhd-mc-email
+					width 16em
+					right 9em
+					margin-right 1em
+
+					&:focus
+						border-color $c_ter
+
+				.rhd-mc-submit
+					right 0
+					padding-top 0.4em
+					padding-bottom 0.4em
 
 
 // Fixed-width 320px sidebar
