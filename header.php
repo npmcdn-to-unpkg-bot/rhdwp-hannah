@@ -47,7 +47,7 @@
 		<header id="header" class="site-header">
 			<div id="navbar" class="masthead">
 				<div class="navbar-inner">
-					<a href="<?php echo home_url(); ?>">
+					<a id="logo-simple-link" href="<?php echo home_url(); ?>">
 						<?php get_template_part( 'img/inline', 'logo-simple.svg' ); ?>
 					</a>
 					<?php get_template_part( 'img/inline', 'site-title.svg' ); ?>
