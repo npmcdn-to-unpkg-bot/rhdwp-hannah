@@ -93,7 +93,6 @@ hr
 	z-index 999
 
 	.navbar-inner
-		height @height
 		margin 0
 
 	.nav-dropdown
@@ -104,6 +103,7 @@ hr
 		left 0
 		border-bottom @border-bottom
 		display none
+		padding-bottom 0.5em
 
 		.site-title
 			margin-top 1em
@@ -689,7 +689,7 @@ hr
 				&[type="text"]
 					-ff-title()
 					border-color $gray
-					-placeholder-props( $ff_title, $c_text_lt, 1, null, normal )
+					-placeholder-props( $ff_title, $c_text_lt, 1, '', normal )
 
 					&:focus
 						border-color $c_sec
