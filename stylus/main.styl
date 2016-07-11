@@ -404,6 +404,49 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	Post Grids / Subcategory Grids
+   ========================================================================== */
+
+.post-grid
+	-flexbox()
+
+	.post-grid-item
+		width 48%
+		-flexitem()
+		vertical-align top
+		margin 0
+
+		.entry-title
+			font-size 1em
+			line-height 1.2
+
+			a
+				color inherit
+				text-decoration none
+
+				&:hover
+				&:active
+					color $c_sec
+
+		.entry-details
+			font-size 0.8em
+
+
+.subcat-grid-container
+	margin-bottom 1em
+	padding-bottom 1em
+	border-bottom 2px solid $c_ter
+
+	&:last-child
+		border-bottom none
+
+
+.cat-more
+	.ghost-button-container
+		margin-top 0
+
+
+/* ==========================================================================
 	Comments
    ========================================================================== */
 
