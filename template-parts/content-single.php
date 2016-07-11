@@ -9,7 +9,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h2 class="entry-title"><?php the_title(); ?></h2>
+		<h2 class="entry-title ff-courier"><?php the_title(); ?></h2>
 		<?php rhd_entry_details(); ?>
 	</header><!-- .entry-header -->
 

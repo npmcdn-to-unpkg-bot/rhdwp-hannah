@@ -57,10 +57,14 @@
 					position absolute
 					top 0
 					left 0
-					-moz-opacity 0.75
-					-webkit-opacity 0.75
-					opacity 0.75
+					-opacity(0.75)
+					transition all 0.25s ease
 
 			.featured-cat-title
 				font-size 4vw
 
+			&:hover
+			&:active
+				.featured-cat-thumbnail
+					.overlay
+						-opacity(0.15)

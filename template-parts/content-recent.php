@@ -13,7 +13,7 @@
 				<div class="recent-post-thumbnail">
 					<?php the_post_thumbnail( 'square' ); ?>
 				</div>
-				<h2 class="entry-title">
+				<h2 class="entry-title ff-courier">
 					<?php the_title(); ?>
 				</h2>
 			</a>

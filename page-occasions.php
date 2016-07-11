@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-	<section id="primary" class="site-content">
+	<section id="primary" class="site-content full-width">
 		<?php while ( have_posts() ) : ?>
 			<?php if ( have_posts() ) : the_post(); ?>
 				<h2 class="page-title"><?php the_title(); ?></h2>
@@ -21,5 +21,4 @@ get_header();
 		<?php endwhile; ?>
 	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-	<section id="primary" class="site-content">
+	<section id="primary" class="site-content full-width">
 
 		<div id="content" role="main">
 			<?php rhd_archive_grid( 'styles' ); ?>
@@ -17,5 +17,4 @@ get_header();
 
 	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
