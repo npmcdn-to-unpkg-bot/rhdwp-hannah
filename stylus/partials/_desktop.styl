@@ -168,6 +168,12 @@
 			margin-bottom 1em
 
 
+	// Category grids
+	.post-grid
+		.post-grid-item
+			width 23%
+
+
 	// Recent Posts
 	.rhd-recent-posts
 		-flexbox()
@@ -180,7 +186,7 @@
 	.entry-content
 		img
 		iframe
-			-unwrapper()
+			-unwrapper(auto)
 			max-width 100%
 
 		img
@@ -197,6 +203,22 @@
 		a
 			img
 				@extends .entry-content img
+
+	// Contact Page
+	.page-id-13
+		.entry-content
+			-clearfix()
+
+			.contact-content
+			.contact-form
+				width 46%
+
+			.contact-content
+				float left
+				margin-top 2em
+
+			.contact-form
+				float right
 
 	#header-widget-area
 		width 16em

@@ -20,12 +20,18 @@ function rhd_featured_categories( $loc = 'default' )
 {
 	?>
 	<ul class="featured-cats featured-cats-<?php echo $loc; ?>">
-		<?php $slugs = array( 'occasions', 'techniques', 'styles' ); ?>
-		<?php foreach ( $slugs as $slug ) : ?>
+		<?php
+		$slugs = array(
+			'occasions'		=> 'category-occasions',
+			'techniques'	=> 'category-techniques',
+			'styles'		=> 'category-styles' );
+		?>
+		<?php foreach ( $slugs as $cat_label => $slug ) : ?>
+
 			<li class="featured-cat category-<?php echo $slug; ?>">
 				<?php $cat = get_category_by_slug( $slug ); ?>
 
-				<a href="<?php echo get_category_link( $cat->term_id ); ?>">
+				<a href="<?php echo home_url( "/{$cat_label}" ); ?>">
 					<?php if ( function_exists( 'z_taxonomy_image' ) ) : ?>
 						<?php $src = z_taxonomy_image_url( $cat->term_id, 'square' ); ?>
 						<div class="featured-cat-thumbnail">
