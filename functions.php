@@ -90,6 +90,7 @@ function rhd_enqueue_scripts()
 		'rhd-plugins',
 		'jquery',
 		'jquery-effects-core',
+		'jquery-visible'
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 

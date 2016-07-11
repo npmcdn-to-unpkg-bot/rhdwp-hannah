@@ -63,10 +63,10 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 				resetToggleBurger();
 			}
 		});
-		
+
 		$(document).mouseup(function(e){
 			var $container = $("#header-search");
-			
+
 			if (!$container.is(e.target) && $container.has(e.target).length === 0) {
 				collapseSearchBar();
 			}
@@ -87,6 +87,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 		// Set header search form state
 		$("#header-search").data('expanded', false);
+
+		// Scroll-fade mini logo
+		hideShowMiniLogo();
 	}
 
 
@@ -141,9 +144,9 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$('#header-search, #header-search .search-field, #header-search .search-submit').addClass('is-active');
 
 		$('.close-search').fadeIn('fast');
-		
+
 		setTimeout(function(){
-		    $("#header-search .search-field").focus();
+			$("#header-search .search-field").focus();
 		}, 0);
 
 		$("#header-search").data('expanded', true);
@@ -167,6 +170,19 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 			if ( bsLink.indexOf('blogspot') >= 0 )
 				$(this).unwrap('a');
+		});
+	}
+
+
+	function hideShowMiniLogo() {
+		$(window).scroll(function(){
+			if ( !viewportIsSmall() ) {
+				if ( !$("#site-title").visible() ) {
+					$(".site-title-mini, #site-navigation-container").addClass("scrolled");
+				} else {
+					$(".site-title-mini, #site-navigation-container").removeClass("scrolled");
+				}
+			}
 		});
 	}
 

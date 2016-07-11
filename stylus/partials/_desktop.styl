@@ -16,16 +16,33 @@
 				background transparent
 				-clearfix()
 
+		.site-title-mini
+			width auto
+			height 86%
+			-opacity(0)
+			transition 0.35s all
+
+			&.scrolled
+				-opacity(1)
+
+			img
+				width auto
+				height 100%
+
+
 	#site-navigation-container
 		width 45%
 		display block
 		background transparent
-		position relative
 		box-shadow none
 		float left
 		padding-bottom 0
 		position relative
 		top 0.15em
+		transition 0.35s all ease
+
+		&.scrolled
+			left 10%
 
 		#site-navigation
 			line-height 0
@@ -134,7 +151,7 @@
 				&:active
 					.featured-cat-thumbnail
 						.overlay
-							-opacity(0.45)
+							-opacity(0.15)
 
 
 	// About Page
