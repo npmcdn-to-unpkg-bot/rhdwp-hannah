@@ -1,10 +1,11 @@
 (function($){
 
 	var ddAnyIsOpen = false;
+	var $ddGlobal = $(".rhd-dropdown > ul");
 
 	$(document).ready(function(){
 
-		$(".rhd-dropdown ul").data("menuState", "closed");
+		$ddGlobal.data("menuState", "closed");
 
 		$(".rhd-dropdown-title").click(function(e){
 			e.preventDefault();
@@ -21,10 +22,8 @@
 		});
 
 		$(document).mouseup(function(e){
-			var $dd = $('.rhd-dropdown ul');
-
-			if ( e.target.id != $dd.attr('class') ) {
-				ddClose($dd);
+			if ( e.target.id != $ddGlobal.attr('class') ) {
+				ddClose($ddGlobal);
 			}
 		});
 
@@ -33,7 +32,7 @@
 
 	function ddOpen( $dd ) {
 		if ( ddAnyIsOpen === true ) {
-			$(".rhd-dropdown ul").slideUp('fast');
+			$dd.slideUp('fast');
 		}
 		$dd.slideDown();
 		ddAnyIsOpen = true;

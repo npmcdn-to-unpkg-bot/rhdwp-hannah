@@ -90,15 +90,17 @@
 				text-transform uppercase
 
 				ul
+					margin 0
+					font-family $ff_title
+
+				> ul
 					width 100%
 					max-height 30vh
 					position absolute
 					top 2em
-					font-family $ff_title
 					overflow-y auto
 					background white
 					padding-left 0
-					margin 0
 					display none
 					z-index 999
 					box-shadow 0 1px 2px -1px rgba(0,0,0,0.5)
@@ -127,6 +129,9 @@
 		.rhd-metabar-item
 			.rhd-dropdown-title
 				margin-bottom 0.5em
+
+				.dd-title-text
+					top 0.25em
 
 			&:last-of-type
 				.rhd-dropdown-title
