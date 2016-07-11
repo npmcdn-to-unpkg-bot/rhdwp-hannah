@@ -95,15 +95,22 @@ input[type="submit"]
 	background $c_header
 	color $c_text_lt
 	z-index 999
+	transition 0.25s height ease
 
 	.navbar-inner
 		height @height
 		margin 0
 
 	.site-title-mini
+		width auto
+		height 84%
 		-vcenter()
-		width 33%
 		left 1em
+		z-index 999
+
+		img
+			width auto
+			height 100%
 
 	.nav-dropdown
 		background $c_bg
@@ -320,7 +327,6 @@ input[type="submit"]
 
 .page-title
 .widget-title
-.cat-title
 	-ff-headline()
 
 
@@ -335,8 +341,7 @@ input[type="submit"]
 
 
 .cat-title
-	font-size 2em
-	margin 1em 0
+	margin 0.5em 0 0 0
 
 	a
 		color inherit
@@ -434,6 +439,9 @@ input[type="submit"]
 
 
 .entry-meta
+	margin-top 1em
+	padding-top 0.5em
+	border-top 1px solid $c_ter_lt
 	p
 		margin 0
 
@@ -483,15 +491,6 @@ input[type="submit"]
 				height auto
 
 
-.post-grid-container
-	margin-bottom 1em
-	padding-bottom 1em
-	border-bottom 2px solid $c_ter
-
-	&:last-child
-		border-bottom none
-
-
 .post-grid
 	-flexbox()
 
@@ -515,6 +514,28 @@ input[type="submit"]
 
 		.entry-details
 			font-size 0.8em
+
+
+.subcat-grid
+	padding-left 0
+
+	.subcat-grid-item
+		margin-bottom 1em
+
+		a
+			color inherit
+			text-decoration none
+
+			.subcat-title
+				transition 0.25s color
+				margin 0.25em 0 0 0
+				font-weight bold
+				font-size 1.3em
+
+			&:hover
+			&:active
+				.subcat-title
+					color $c_sec
 
 
 .cat-more
@@ -553,6 +574,13 @@ input[type="submit"]
 #comments
 	margin 2em auto
 
+	.comment-reply-title
+		font-size 2.8em
+		margin 0.25em 0
+
+	.comments-title
+		font-weight normal
+
 	.comment-list
 		list-style none
 		padding-left 0
@@ -589,6 +617,9 @@ input[type="submit"]
 		p
 			margin-bottom 0.75rem
 
+		label
+			display block
+
 		input
 		textarea
 			width 100%
@@ -599,8 +630,10 @@ input[type="submit"]
 
 		#submit
 			width auto
-			padding-left 0.8em
 			cursor pointer
+			font-size 1em
+			font-family $ff_body
+			-ghost-button()
 
 		.comment-subscription-form
 			margin initial
@@ -628,6 +661,10 @@ input[type="submit"]
 
 		.intro-content
 			font-size 0.9em
+
+	.widget_recent_entries
+		li
+			color $c_ter
 
 
 /* ==========================================================================
@@ -684,8 +721,9 @@ input[type="submit"]
 
 				.soliloquy-fc-title
 					a
-						-ff-title(true)
+						font-family $ff_courier
 						font-size 5vw
+						font-weight bold
 						font-style normal
 						text-decoration none
 						transition 0.25s color
@@ -808,6 +846,11 @@ input[type="submit"]
 .ninja-forms-required-items
 .ninja-forms-req-symbol
 	-invisible()
+
+
+.back-to-top
+	margin 0 auto 2em auto
+	display block
 
 
 // Recent Posts

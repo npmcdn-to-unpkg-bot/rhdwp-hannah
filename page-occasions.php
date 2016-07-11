@@ -15,7 +15,7 @@ get_header();
 				<h2 class="page-title"><?php the_title(); ?></h2>
 
 				<div id="content" role="main">
-					<?php rhd_archive_grid( 'occasions' ); ?>
+					<?php rhd_subcat_grid( 'category-occasions' ); ?>
 				</div><!-- #content -->
 			<?php endif; ?>
 		<?php endwhile; ?>

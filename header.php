@@ -49,6 +49,7 @@
 					<div class="site-title-mini">
 						<a href="<?php echo home_url(); ?>"><img src="<?php echo RHD_UPLOAD_URL; ?>/2016/06/Taheerah-Navbar-Logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 					</div>
+
 					<div class="navbar-inner">
 						<div class="nav-dropdown">
 							<a class="mobile-only" href="<?php echo home_url(); ?>"><img class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>

@@ -208,7 +208,7 @@ function rhd_archive_grid( $parent_slug, $uncat = false ) {
 
 	$parent = get_category_by_slug( $parent_slug );
 	$parent_id = $parent->term_id;
-	$cats = get_terms( 'category', "child_of=$parent_id" );
+	$cats = get_terms( 'category', "child_of={$parent_id}" );
 
 	$q = array(); // Array of queries
 	$i = 0;
@@ -243,4 +243,46 @@ function rhd_archive_grid( $parent_slug, $uncat = false ) {
 		</div>
 		<?php
 	}
+}
+
+
+/**
+ * rhd_subcat_grid function.
+ *
+ * @access public
+ * @param mixed $parent_slug
+ * @param bool $uncat (default: false)
+ * @return void
+ */
+function rhd_subcat_grid ( $parent_slug, $uncat = false ) {
+	$parent = get_category_by_slug( $parent_slug );
+
+	$parent_id = $parent->term_id;
+
+	$cats = get_terms( 'category', "child_of={$parent_id}" );
+	?>
+
+	<?php if ( $cats && ! is_wp_error( $cats ) ) : ?>
+		<ul class="<?php echo $parent_slug; ?>-subcat-grid subcat-grid post-grid">
+			<?php foreach ( $cats as $cat ) : ?>
+				<?php
+
+				// Exclude uncategorized (enabled by default)
+				$cat_id = $cat->term_id;
+				$cat_name = $cat->name;
+				$cat_url = get_category_link( $cat_id );
+
+				if ( $uncat === false && $cat->slug == 'uncategorized' )
+					continue;
+				?>
+
+				<li class="subcat-grid-item post-grid-item">
+					<a href="<?php echo $cat_url; ?>">
+						<?php if ( function_exists( 'z_taxonomy_image' ) ) z_taxonomy_image( $cat->term_id, 'square' ); ?>
+						<h2 class="entry-title subcat-title ff-courier"><?php echo $cat_name; ?></h2>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	<?php endif;
 }

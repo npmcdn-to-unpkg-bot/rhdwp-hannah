@@ -151,7 +151,7 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
  */
 function rhd_pageview_protection()
 {
-	echo '<script language="javascript" type=:text/javascript">if (window!= top) top.location.href = location.href;</script>';
+	echo '<script language="javascript" type="text/javascript">if (window!= top) top.location.href = location.href;</script>';
 }
 add_action( 'wp_head', 'rhd_pageview_protection' );
 
@@ -452,8 +452,7 @@ add_filter( 'shortcode_atts_gallery', 'rhd_gallery_atts', 10, 3 );
  * @param WP_Query $q (default: null)
  * @return void
  */
-function rhd_archive_pagination( WP_Query $q = null )
-{
+function rhd_archive_pagination( WP_Query $q = null ) {
 	global $paged;
 
 	if ( $q ) {
@@ -473,16 +472,18 @@ function rhd_archive_pagination( WP_Query $q = null )
 	$next = $paged + 1;
 	$prev = $paged - 1;
 
-	echo '<nav class="pagination" data-current-page="' . $paged . '">';
+	echo '
+		<nav class="pagination" data-current-page="' . $paged . '">
+			<span class="pag-next pag-link" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
 
-	echo '<span class="pag-next pag-link" data-target-page="' . $next . '">' . get_next_posts_link( '&larr; Older', $max_page ) . '</span>';
+		if ( $sep ) {
+			echo '<div class="pag-sep"></div>';
+		}
 
-	if ( $sep ) {
-		echo '<div class="pag-sep"></div>';
-	}
-
-	echo '<span class="pag-prev pag-link" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>';
-	echo '</nav>';
+	echo '
+			<span class="pag-prev pag-link" data-target-page="' . $prev . '">' . get_previous_posts_link( 'Newer &rarr;' ) . '</span>
+		</nav>
+		';
 }
 
 
@@ -492,19 +493,18 @@ function rhd_archive_pagination( WP_Query $q = null )
  * @access public
  * @return void
  */
-function rhd_single_pagination()
-{
+function rhd_single_pagination() {
 	$next = get_previous_post_link( '%link', '&lt; Older' );
 	$prev = get_next_post_link( '%link', 'Newer &gt;' );
 	$spacer = '<div class="pag-spacer"></div>';
 
 	echo "<nav class='single-pagination'>\n";
 
-	echo ( $next != '' ) ? $next : $spacer;
+	echo ( $next != '' ) ? '<span class="pag-next pag-link">' . $next . '</span>' : $spacer;
 
 	echo  "<div class='pag-sep'></div>\n";
 
-	echo ( $prev != '' ) ? $prev : $spacer;
+	echo ( $prev != '' ) ? '<span class="pag-prev pag-link">' . $prev . '</span>' : $spacer;
 
 	echo "</nav>\n";
 }

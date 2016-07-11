@@ -10,8 +10,11 @@
  */
 ?>
 		</div><!-- #content-wrapper -->
+
 	</main><!-- #main -->
-	
+
+	<span class="back-to-top"><?php rhd_ghost_button( 'Back to Top', '#page', '', 'center', false, true ); ?></span>
+
 	<hr class="goldsep">
 
     <footer id="colophon">

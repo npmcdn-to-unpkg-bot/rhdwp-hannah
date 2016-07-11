@@ -25,6 +25,11 @@ get_header();
 
 			<?php if ( is_single() ) rhd_related_posts( 'rand', 720 ); ?>
 
+			<?php
+				if ( is_single() ) rhd_single_pagination();
+				else rhd_archive_pagination();
+			?>
+
 			<?php if ( is_single() && comments_open() ) comments_template(); ?>
 
 		<?php else : ?>
@@ -60,12 +65,6 @@ get_header();
 		<?php endif; // end have_posts() check ?>
 
 	</div><!-- #content -->
-
-	<?php
-		if ( is_single() ) rhd_single_pagination();
-		else rhd_archive_pagination();
-	?>
-
 </section><!-- #primary -->
 
 <?php get_sidebar(); ?>

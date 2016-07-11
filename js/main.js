@@ -71,6 +71,14 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 				collapseSearchBar();
 			}
 		});
+
+		// Back To Top
+		$(".back-to-top a").click(function(e){
+			e.preventDefault();
+			$('html, body').animate({
+				scrollTop: 0
+			}, 1000, 'swing' );
+		});
 	});
 
 
@@ -101,7 +109,7 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 
 
 	function viewportIsSmall() {
-		if ( $(window).width() < 640 )
+		if ( $(window).width() < 864 )
 			return true;
 		else
 			return false;
@@ -200,9 +208,11 @@ var isDesktop = ( $body.hasClass('desktop') === true ) ? true : false;
 		$(window).scroll(function(){
 			if ( !viewportIsSmall() ) {
 				if ( !$("#site-title").visible() ) {
-					$(".site-title-mini, #site-navigation-container").addClass("scrolled");
+					$("#site-navigation-container").addClass("scrolled");
+					$(".site-title-mini").fadeIn();
 				} else {
-					$(".site-title-mini, #site-navigation-container").removeClass("scrolled");
+					$("#site-navigation-container").removeClass("scrolled");
+					$(".site-title-mini").fadeOut();
 				}
 			}
 		});
