@@ -109,7 +109,7 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 			<?php if ( $query->have_posts() ) : ?>
 				<div id="<?php echo $cat_slug; ?>-grid" class="post-grid">
 					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-						<?php get_template_part( 'template-parts/content', 'grid' ); ?>
+						<?php get_template_part( 'template-parts/content', 'grid-square' ); ?>
 					<?php endwhile; ?>
 				</div>
 				<div class="subcat-more">

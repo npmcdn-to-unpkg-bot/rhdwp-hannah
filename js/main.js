@@ -23,12 +23,37 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 (function($){
 
+	var $grid;
+
 	$(document).ready(function(){
 		rhdInit();
 
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
+			}
+		});
+
+		layoutPackery();
+
+		// Full grid summary expansion
+		$(".post-grid-full .post-grid-item a").click(function(e){
+			e.preventDefault();
+
+			if ( $(this).parents(".post-grid-item").data("expanded") === false ) {
+				// Restore all other items
+				$(".post-grid-item").removeClass("gigante").data("expanded", false);
+
+				$(this).parents(".post-grid-item")
+					.addClass("gigante")
+					.data("expanded", true)
+					.find(".entry-summary")
+						.slideDown();
+
+				$grid.packery('shiftLayout');
+			} else {
+				// Follow the link if expanded
+				location.href = $(this).attr("href");
 			}
 		});
 	});
@@ -38,6 +63,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		toggleBurger();
 		headerSearch();
 		fixGridLayout();
+		$grid = initPackery();
 		wpAdminBarPush();
 	}
 
@@ -60,6 +86,32 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 			$(this).toggleClass("is-active");
 
 			$(".nav-dropdown").slideToggle();
+		});
+	}
+
+
+	function initPackery() {
+		$grid = $(".post-grid-full").packery({
+			initLayout: false,
+			percentPosition: true,
+			columnWidth: '.post-grid-sizer',
+			gutter: '.post-gutter-sizer',
+			itemSelector: '.post-grid-item'
+		});
+
+		return $grid;
+	}
+
+
+	function layoutPackery() {
+		$grid.imagesLoaded().progress(function(){
+			$(".post-grid-full .post-grid-item")
+				.css({
+					marginTop: 0,
+					marginBottom: 0
+				});
+
+			$grid.packery();
 		});
 	}
 

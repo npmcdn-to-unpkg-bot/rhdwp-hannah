@@ -19,8 +19,9 @@ $c_header = white
 $ff_body = 'Montserrat', sans-serif
 $ff_headline = 'Open Sans', sans-serif
 
-$boxpad = 2.5rem
-$boxpadSlim = 1.5rem 2.5rem
+$boxpad = 1rem
+$boxpadSlim = 1rem 2rem
+$boxpadDesk = 2rem
 
 $navHt = 3em
 $navHtDesk = $navHt
@@ -40,6 +41,10 @@ $updir = '../../../uploads'
 
 -boxedSlim()
 	padding $boxpadSlim
+	background $c_header
+
+-boxedBig()
+	padding $boxpadDesk
 	background $c_header
 
 

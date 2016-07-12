@@ -358,10 +358,14 @@ input[type="submit"]
    ========================================================================== */
 
 .page-header
-	-wrapper(0, 1em, auto, 30%)
-	min-width 18.75rem
+	width 100%
 	-boxedSlim()
+	margin-bottom 1em
 
+	.page-title
+	.archive-title
+		line-height 1.1
+		margin 0
 
 .entry-title
 .page-title
@@ -515,7 +519,13 @@ input[type="submit"]
 	-flexbox()
 
 	.post-grid-item
-		width 48%
+	.post-grid-sizer
+		width 49%
+
+	.post-gutter-sizer
+		width 2%
+
+	.post-grid-item
 		-flexitem()
 		vertical-align top
 		margin-bottom 1em
@@ -535,6 +545,16 @@ input[type="submit"]
 
 		.entry-details
 			font-size 0.8em
+
+		.entry-summary
+			font-size 0.9em
+			line-height 1.2
+
+
+.post-grid-full
+	.post-grid-item
+		.entry-summary
+			display none
 
 
 .subcat-grid-container

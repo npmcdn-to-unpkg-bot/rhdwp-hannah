@@ -101,9 +101,18 @@
 		margin-top $navHtDesk
 		padding-top 1em
 
+	#content
+		article
+			padding $boxpadDesk
+
+	.page-header
+		-wrapper(0, 1em, auto, 30%)
+		min-width 18.75rem
+
 	.post-grid
 		.post-grid-item
-			width 23%
+		.post-grid-sizer
+			width 32%
 
 	#comments
 		#commentform
@@ -192,12 +201,21 @@
 			width 100%
 			float none
 
+			.post-grid
+				.post-grid-item
+				.post-grid-sizer
+					width 23%
+
+				.post-gutter-sizer
+					width 2.666666667%
+
 	#secondary
 		width 320px
 		float left
 
 		.widget
 			width 100%
+			padding $boxpadDesk
 
 
 @media screen and (min-width 62em)
