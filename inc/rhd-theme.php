@@ -121,3 +121,28 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 		<?php
 	}
 }
+
+
+/**
+ * rhd_post_grid function.
+ *
+ * @access public
+ * @param WP_Query $q (default: null)
+ * @return void
+ *
+ * If used outside the Loop, must be passed a WP_Query object.
+ */
+function rhd_post_grid( WP_Query $q = null ) {
+	global $wp_query;
+
+	$q = ( $q === null ) ? $q = $wp_query : $q;
+	?>
+	<div class="post-grid post-grid-full">
+		<div class="post-grid-sizer"></div>
+		<div class="post-gutter-sizer"></div>
+		<?php while ( $q->have_posts() ) : $q->the_post(); ?>
+			<?php get_template_part( 'template-parts/content', 'grid-full' ); ?>
+		<?php endwhile; ?>
+	</div>
+	<?php
+}

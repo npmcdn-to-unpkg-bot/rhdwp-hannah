@@ -34,7 +34,7 @@
 				.search-submit
 					width 34px
 					right 0
-					-vcenter(absolute, -2%)
+					-vcenter(absolute, -1%)
 
 					.search-submit-icon
 						width 63%
@@ -101,12 +101,43 @@
 		margin-top $navHtDesk
 		padding-top 1em
 
+	#primary
+		width 100%
+		float right
+		margin-left -($sidebarW)
+
+		&.full-width
+			float none
+			margin-left 0
+
+			#content
+				margin-left 0
+
+			.post-grid
+				.post-grid-item
+				.post-grid-sizer
+					width 23%
+
+				.post-gutter-sizer
+					width 2.666666667%
+
+	#secondary
+		width $sidebarW
+		float left
+
+		.widget
+			width 100%
+			padding $boxpadDesk
+
 	#content
+		margin-left ($sidebarW + 2rem) // fluid sidebar
+
 		article
 			padding $boxpadDesk
 
 	.page-header
 		-wrapper(0, 1em, auto, 30%)
+		max-width 30vw // override for compatible browsers
 		min-width 18.75rem
 
 	.post-grid
@@ -135,11 +166,15 @@
 	.entry-content
 		img
 		iframe
-			width auto
-			margin 0
 			max-width 100%
 
+		iframe
+			margin 0 auto
+			display block
+
 		img
+			width auto
+
 			&.alignleft
 				margin-right 1em
 				float left
@@ -189,50 +224,3 @@
 					right 0
 					padding-top 0.4em
 					padding-bottom 0.4em
-
-
-// Fixed-width 320px sidebar
-@media screen and (min-width 58em)
-	#primary
-		width 56%
-		float right
-
-		&.full-width
-			width 100%
-			float none
-
-			.post-grid
-				.post-grid-item
-				.post-grid-sizer
-					width 23%
-
-				.post-gutter-sizer
-					width 2.666666667%
-
-	#secondary
-		width 320px
-		float left
-
-		.widget
-			width 100%
-			padding $boxpadDesk
-
-
-@media screen and (min-width 62em)
-	#primary
-		width 58%
-
-
-@media screen and (min-width 64em)
-	#primary
-		width 60%
-
-
-@media screen and (min-width 66em)
-	#primary
-		width 64%
-
-
-@media screen and (min-width 72em)
-	#primary
-		width 66%

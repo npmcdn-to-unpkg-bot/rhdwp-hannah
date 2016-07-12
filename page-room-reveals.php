@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file.
+ * The "Room Reveals" page template file.
  *
  * @package WordPress
  * @subpackage rhd
@@ -8,14 +8,25 @@
 
 get_header(); ?>
 
-<section id="primary" class="site-content">
+<section id="primary" class="site-content full-width">
 	<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
+				<header class="page-header">
+					<h2 class="page-title"><?php the_title(); ?></h2>
+				</header>
 
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
+				<?php
+				$args = array(
+					'post_type' => 'post',
+					'category_name' => 'room-reveals'
+				);
+				$q = new WP_Query( $args );
+				?>
+
+				<?php rhd_post_grid( $q ); ?>
 
 			<?php endwhile; ?>
 
@@ -24,5 +35,4 @@ get_header(); ?>
 	</div>
 </section>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

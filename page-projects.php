@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file.
+ * The "Projects" page template file.
  *
  * @package WordPress
  * @subpackage rhd
