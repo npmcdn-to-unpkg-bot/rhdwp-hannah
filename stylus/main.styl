@@ -285,6 +285,10 @@ input[type="submit"]
 		padding $boxpad
 		background-color $c_header
 
+		&.no-box
+			background-color transparent
+			padding inherit
+
 
 #colophon
 	width 100%
@@ -353,6 +357,12 @@ input[type="submit"]
 	Posts & Pages
    ========================================================================== */
 
+.page-header
+	-wrapper(0, 1em, auto, 30%)
+	min-width 18.75rem
+	-boxedSlim()
+
+
 .entry-title
 .page-title
 	margin-top 0
@@ -364,8 +374,12 @@ input[type="submit"]
 	-ff-headline()
 	text-transform uppercase
 	text-align center
-	font-size 2em
+	font-size 2.2em
 	margin-bottom 1rem
+
+
+.page-title
+	margin 0 auto
 
 
 .entry-title
@@ -491,6 +505,62 @@ input[type="submit"]
 	.pag-load-more
 		display block
 		margin 0 auto
+
+
+/* ==========================================================================
+	Post Grids / Subcategory Grids
+   ========================================================================== */
+
+.post-grid
+	-flexbox()
+
+	.post-grid-item
+		width 48%
+		-flexitem()
+		vertical-align top
+		margin 0
+
+		.entry-title
+			font-size 1em
+			line-height 1.2
+			text-align center
+
+			a
+				color inherit
+				text-decoration none
+
+				&:hover
+				&:active
+					color $c_sec
+
+		.entry-details
+			font-size 0.8em
+
+
+.subcat-grid-container
+	margin-bottom 1em
+	padding-bottom 1em
+	border-bottom 2px solid $c_ter
+
+	&:last-child
+		border-bottom none
+
+	.subcat-title
+		text-align center
+		-ff-title()
+		text-transform uppercase
+		font-size 1.5em
+		margin-bottom 0.5em
+
+	.entry-title
+		margin-top 0.5em
+		font-size 0.9em
+		text-transform uppercase
+
+
+.subcat-more
+	.ghost-button-container
+		margin-top 0
 
 
 /* ==========================================================================

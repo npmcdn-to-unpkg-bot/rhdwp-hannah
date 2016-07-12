@@ -20,6 +20,7 @@ $ff_body = 'Montserrat', sans-serif
 $ff_headline = 'Open Sans', sans-serif
 
 $boxpad = 2.5rem
+$boxpadSlim = 1.5rem 2.5rem
 
 $navHt = 3em
 $navHtDesk = $navHt
@@ -32,6 +33,14 @@ $updir = '../../../uploads'
 
 -ff-headline()
 	-ff-title() // Alias
+
+-boxed()
+	padding $boxpad
+	background $c_header
+
+-boxedSlim()
+	padding $boxpadSlim
+	background $c_header
 
 
 /* ==========================================================================

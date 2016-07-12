@@ -101,6 +101,10 @@
 		margin-top $navHtDesk
 		padding-top 1em
 
+	.post-grid
+		.post-grid-item
+			width 23%
+
 	#comments
 		#commentform
 			width 75%
@@ -116,6 +120,8 @@
 			#submit
 				width auto
 				padding-left 0.8em
+				border-width 2px
+				-ghost-button()
 
 	.entry-content
 		img
@@ -181,6 +187,10 @@
 	#primary
 		width 56%
 		float right
+
+		&.full-width
+			width 100%
+			float none
 
 	#secondary
 		width 320px
