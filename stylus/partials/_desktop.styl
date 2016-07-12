@@ -113,17 +113,18 @@
 				@extends .entry-content img
 
 	.post-grid
+	.archive-grid
 		-flexbox()
 
-		& > article
-			width 48.5%
+		> article
+			width 22%
 			-flexitem()
 			margin 1em 0
 
-
-	.archive-grid
-		& > article
-			width 23%
+	.front-page
+		.post-grid
+			> article
+				width 48%
 
 
 	#instagram
