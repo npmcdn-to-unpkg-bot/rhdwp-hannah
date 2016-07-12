@@ -112,7 +112,7 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 						<?php get_template_part( 'template-parts/content', 'grid' ); ?>
 					<?php endwhile; ?>
 				</div>
-				<div class="cat-more">
+				<div class="subcat-more">
 					<?php rhd_ghost_button( 'See More &rarr;', $cat_url, '', 'center', false, true ); ?>
 				</div>
 			<?php endif; ?>
