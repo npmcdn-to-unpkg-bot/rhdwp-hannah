@@ -105,7 +105,7 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 		$query = new WP_Query( $args );
 		?>
 		<div class="<?php echo $parent_slug; ?>-grid-container <?php echo $cat-slug; ?>-subcat-container subcat-grid-container">
-			<h2 class="cat-title"><a href="<?php echo $cat_url; ?>" rel="bookmark"><?php echo $cat_name; ?></a></h2>
+			<h2 class="subcat-title"><a href="<?php echo $cat_url; ?>" rel="bookmark"><?php echo $cat_name; ?></a></h2>
 			<?php if ( $query->have_posts() ) : ?>
 				<div id="<?php echo $cat_slug; ?>-grid" class="post-grid">
 					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
