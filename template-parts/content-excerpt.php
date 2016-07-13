@@ -15,7 +15,7 @@
 			<p class="entry-details">By <?php the_author(); ?> <span class="sep">|</span> <?php  the_time( get_option( 'date_format' ) ); ?></p>
 		</header><!-- .entry-header -->
 
-		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
+		<?php if ( is_search() || is_archive() ) : // Only display Excerpts for Search ?>
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
 			</div><!-- .entry-summary -->

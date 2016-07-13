@@ -35,27 +35,6 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		});
 
 		layoutPackery();
-
-		// Full grid summary expansion
-		$(".post-grid-full .post-grid-item a").click(function(e){
-			e.preventDefault();
-
-			if ( $(this).parents(".post-grid-item").data("expanded") === false ) {
-				// Restore all other items
-				$(".post-grid-item").removeClass("gigante").data("expanded", false);
-
-				$(this).parents(".post-grid-item")
-					.addClass("gigante")
-					.data("expanded", true)
-					.find(".entry-summary")
-						.slideDown();
-
-				$grid.packery('shiftLayout');
-			} else {
-				// Follow the link if expanded
-				location.href = $(this).attr("href");
-			}
-		});
 	});
 
 

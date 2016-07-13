@@ -146,3 +146,103 @@ function rhd_post_grid( WP_Query $q = null ) {
 	</div>
 	<?php
 }
+
+
+/**
+ * rhd_featured_meta function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_featured_meta() {
+	add_meta_box( 'rhd_featured_meta', __( 'Home Page Feature' ), 'rhd_featured_meta_callback', array( 'post', 'page' ), 'side', 'default' );
+}
+add_action( 'add_meta_boxes', 'rhd_featured_meta' );
+
+
+/**
+ * rhd_featured_meta_callback function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_featured_meta_callback( $post ) {
+	wp_nonce_field( basename( __FILE__ ), 'rhd_featured_meta_nonce' );
+	$featured = get_option( 'rhd_featured_post' );
+	$post_is_featured = ( $featured === $post->ID ) ? 'yes' : 'no';
+	echo $featured;
+	?>
+
+	<p>
+		<span class="rhd-row-title"><?php _e( 'Feature this ' . $post->post_type . ' on the home page.', 'rhd' )?></span>
+		<div class="rhd-row-content">
+			<label for="featured-post-checkbox">
+				<input type="checkbox" name="featured-post-checkbox" id="featured-post-checkbox" value="yes" <?php checked( $post_is_featured , 'yes' ); ?> />
+				<input type="hidden" name="featured-post-id" value="<?php echo $post->ID; ?>">
+				<?php _e( 'Featured', 'rhd' )?>
+			</label>
+		</div>
+	</p>
+	<?php
+}
+
+
+/**
+ * rhd_featured_meta_save function.
+ *
+ * @access public
+ * @param mixed $post_id
+ * @return void
+ */
+function rhd_featured_meta_save( $post_id ) {
+	// Checks save status
+	$is_autosave = wp_is_post_autosave( $post_id );
+	$is_revision = wp_is_post_revision( $post_id );
+	$is_valid_nonce = ( isset( $_POST[ 'rhd_nonce' ] ) && wp_verify_nonce( $_POST[ 'rhd_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+
+	// Exits script depending on save status
+	if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+		return;
+	}
+
+	// Checks for input and saves
+	if( isset( $_POST['featured-post-checkbox'] ) ) {
+		update_option( 'rhd_featured_post', $_POST['featured-post-id'] );
+	} else {
+		// Unset the featured post ID completely if this is currently set (user unchecks the box manually)
+		$current = get_option( 'rhd_featured_post' );
+
+		if ( $current == $_POST['featured-post-id'] ) {
+			update_option( 'rhd_featured_post', '' );
+		}
+	}
+
+}
+add_action( 'save_post', 'rhd_featured_meta_save' );
+
+
+/**
+ * rhd_get_featured_post function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_featured_post() {
+	$featured_id = get_option( 'rhd_featured_post' );
+	$featured = get_post( $featured_id );
+
+	if ( $featured ) {
+		$thumb_id = get_post_thumbnail_id( $featured_id );
+		$img = wp_get_attachment_image( $thumb_id, 'medium' );
+		$link = get_permalink( $featured_id );
+	} else {
+		return false;
+	}
+
+	echo "
+		<a href='{$link}' rel='bookmark'>
+			$img
+		</a>
+		";
+}

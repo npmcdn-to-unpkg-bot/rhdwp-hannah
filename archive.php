@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<?php if ( $_SESSION['blog_area'] === true ) rhd_metabar(); ?>
+<?php if ( $_SESSION['blog_area'] === true ) rhd_metabar( '', array( 'search' => false ) ); ?>
 
 <section id="primary" class="site-content">
 
@@ -20,7 +20,7 @@ get_header();
 			<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'excerpt' ); ?>
+				<?php get_template_part( 'template-parts/content' ); ?>
 			<?php endwhile; ?>
 
 		<?php else : ?>

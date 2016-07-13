@@ -99,7 +99,7 @@
 	#main
 		-clearfix()
 		margin-top $navHtDesk
-		padding-top 1em
+		padding-top 2em
 
 	#primary
 		width 100%
@@ -144,6 +144,61 @@
 		.post-grid-item
 		.post-grid-sizer
 			width 32%
+
+	// Front Page
+	#featured-content
+		height 500px
+
+		.featured-content-slider
+		.featured-links
+			height 100%
+			position absolute
+			top 0
+
+		.featured-content-slider
+			width 64.6666667%
+			display block
+			left 0
+
+			.logo-overlay
+				width 32.3333334%
+				height auto
+				position absolute
+				top 2rem
+				left 2rem
+				z-index 300
+
+				img
+					width 100%
+					height auto
+
+			.soliloquy-outer-container
+				height 100%
+
+		.featured-links
+			width 32.3333334%
+			right 0
+
+			.shop-link
+			.featured-single
+				width 100%
+				height 48%
+				position absolute
+				left 0
+				overflow hidden
+
+				img
+					-vcenter()
+
+			.shop-link
+				top 0
+
+				img // TEMPORARY UNTIL WE GET BETTER IMG
+					min-width 100%
+					height 100%
+
+			.featured-single
+				bottom 0
 
 	#comments
 		#commentform
