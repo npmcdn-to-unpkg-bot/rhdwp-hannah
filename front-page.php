@@ -30,7 +30,7 @@ get_header(); ?>
 		<?php
 		$args = array(
 			'post_type' => 'post',
-			'posts_per_page' => 1,
+			'posts_per_page' => 2,
 			'ignore_sticky_posts' => 1,
 			'post__in' => get_option( 'sticky_posts' )
 		);
@@ -38,9 +38,11 @@ get_header(); ?>
 		?>
 		<?php if ( $q->have_posts() ) : ?>
 			<?php while ( $q->have_posts() ) : $q->the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'excerpt' ); ?>
+				<?php get_template_part( 'template-parts/content' ); ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
+
+
 	</div>
 </section>
 
