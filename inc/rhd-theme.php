@@ -94,6 +94,8 @@ function rhd_ghost_button_shortcode( $atts, $content = null )
 		'target' => ''
 	), $atts );
 
+	$url = esc_url( $url );
+
 	extract($a);
 
 	if ( $target != '' )
@@ -101,9 +103,7 @@ function rhd_ghost_button_shortcode( $atts, $content = null )
 	else
 		$target = '';
 
-	$output = "
-		<div class='ghost-button'><a href='{$url}' {$target}>{$content}</a></div>
-	";
+	$output = "<div class='ghost-button'><a href='{$url}' {$target}>{$content}</a></div>";
 
 	return $output;
 }
