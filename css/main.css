@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:34:05 PM on 06-07-2016
+* RHD Dev: Compiled at 11:41:56 AM on 14-07-2016
 ***/
 
 .alignnone {
@@ -1904,7 +1904,47 @@ input[type="submit"]:hover {
 }
 .tribe-events-back {
   text-align: center;
-  font-size: 0.9em;
+  font-size: 0.7em;
+  float: left;
+}
+.tribe-events-schedule {
+  text-align: center;
+}
+.tribe-events-schedule > h2 {
+  margin-bottom: 0.25em;
+}
+.single-tribe_events .tribe-events-event-image {
+  visibility: hidden;
+  position: absolute;
+}
+.tribe-events-list .tribe-events-loop h2.tribe-events-list-event-title,
+.tribe-events-list .tribe-events-loop .tribe-events-event-meta {
+  text-align: center;
+  display: block;
+}
+.tribe-events-list .tribe-events-loop h2.tribe-events-list-event-title .recurringinfo,
+.tribe-events-list .tribe-events-loop .tribe-events-event-meta .recurringinfo {
+  display: inline;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-event-image {
+  width: 100%;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-event-image img {
+  width: auto;
+  margin: 0 auto 0.5em;
+  display: block;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-event-image + .tribe-events-content {
+  width: 100%;
+  float: none;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-list-event-description {
+  text-align: justify;
+  line-height: 1.2;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-gmap {
+  visibility: hidden;
+  position: absolute;
 }
 .single-tribe_events .tribe-events-schedule .tribe-events-cost {
   color: #fff;
@@ -2166,10 +2206,23 @@ input[type="submit"]:hover {
     width: 45%;
     float: right;
   }
-  .tribe-events-back {
-    text-align: left;
-    position: absolute;
-    left: 0;
+  .tribe-events-list .tribe-events-loop h2.tribe-events-list-event-title,
+  .tribe-events-list .tribe-events-loop .tribe-events-event-meta {
+    text-align: center;
+    display: block;
+  }
+  .tribe-events-list .tribe-events-loop h2.tribe-events-list-event-title .recurringinfo,
+  .tribe-events-list .tribe-events-loop .tribe-events-event-meta .recurringinfo {
+    bottom: 3px;
+  }
+  .tribe-events-list .tribe-events-loop .tribe-events-event-image {
+    width: auto;
+  }
+  .tribe-events-list .tribe-events-loop .tribe-events-event-image img {
+    margin: 0;
+  }
+  .tribe-events-schedule {
+    margin-top: 0;
   }
 }
 @media screen and (min-width: 60em) {

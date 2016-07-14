@@ -975,10 +975,54 @@ input[type="submit"]
 
 .tribe-events-back
 	text-align center
-	font-size 0.9em
+	font-size 0.7em
+	float left
+
 
 	a
 		@extends .ghost-button a
+
+
+.tribe-events-schedule
+	text-align center
+
+	> h2
+		margin-bottom 0.25em
+
+
+.single-tribe_events
+	.tribe-events-event-image
+		-invisible()
+
+
+.tribe-events-list
+	.tribe-events-loop
+		h2.tribe-events-list-event-title
+		.tribe-events-event-meta
+			text-align center
+			display block
+
+			.recurringinfo
+				display inline
+
+		.tribe-events-event-image
+			width 100%
+
+			img
+				width auto
+				margin 0 auto 0.5em
+				display block
+
+			+ .tribe-events-content
+				width 100%
+				float none
+
+		.tribe-events-list-event-description
+			text-align justify
+			line-height 1.2
+
+		.tribe-events-gmap
+			-invisible()
 
 
 .single-tribe_events
