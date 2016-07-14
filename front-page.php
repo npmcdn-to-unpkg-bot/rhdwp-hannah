@@ -11,10 +11,12 @@ get_header(); ?>
 <section id="primary" class="site-content">
 	<div id="content" role="main">
 		<?php
+		$paged = rhd_paged();
 		$args = array(
 			'post_type' => 'post',
 			'posts_per_page' => 4,
 			'ignore_sticky_posts' => 1,
+			'paged' => $paged,
 			'post__in' => get_option( 'sticky_posts' )
 		);
 		$q = new WP_Query( $args );
@@ -23,6 +25,8 @@ get_header(); ?>
 			<?php while ( $q->have_posts() ) : $q->the_post(); ?>
 				<?php get_template_part( 'template-parts/content' ); ?>
 			<?php endwhile; ?>
+
+			<?php rhd_archive_pagination( $q ); ?>
 		<?php endif; ?>
 
 

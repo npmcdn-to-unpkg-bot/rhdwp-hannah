@@ -76,10 +76,13 @@
 			<section id="featured-content">
 				<div class="featured-content-wrapper">
 					<div class="featured-content-inner">
-						<div class="featured-content-slider">
-							<img class="logo-overlay" src="<?php echo RHD_IMG_DIR; ?>/logo-full.png" alt="Vintage Revivals">
-							<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'featured-posts', 'slug' ); } ?>
-						</div>
+						<?php if( !rhd_is_mobile() ) : ?>
+							<div class="featured-content-slider">
+								<img class="logo-overlay" src="<?php echo RHD_IMG_DIR; ?>/logo-full.png" alt="Vintage Revivals">
+								<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'featured-posts', 'slug' ); } ?>
+							</div>
+						<?php endif; ?>
+
 						<div class="featured-links">
 							<div class="shop-link">
 								<a href="//shop.vintagerevivals.com" rel="prefetch">
@@ -87,7 +90,10 @@
 								</a>
 							</div>
 							<div class="featured-single">
-								<?php rhd_featured_post(); ?>
+								<?php //rhd_featured_post(); ?>
+								<a href="//shop.vintagerevivals.com" rel="prefetch">
+									<img src="<?php echo RHD_UPLOAD_URL; ?>/2014/10/vintage_revivals_shop_-copy.jpg" alt="The VR Shop">
+								</a>
 							</div>
 						</div>
 					</div>

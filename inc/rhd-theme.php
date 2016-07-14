@@ -80,7 +80,7 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 	$args = array(
 		'post_type'			=> 'post',
-		'posts_per_page'	=> 8,
+		'posts_per_page'	=> 6,
 	);
 
 	$parent = get_category_by_slug( $parent_slug );

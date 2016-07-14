@@ -31,6 +31,7 @@ include_once( 'inc/rhd-ghost-button.php' );
 include_once( 'inc/rhd-theme.php' );
 include_once( 'inc/rhd-metabar.php' );
 include_once( 'inc/rhd-login-admin.php' );
+include_once( 'inc/rhd-room-reveals.php' );
 
 
 // Globally disable WP toolbar
@@ -84,6 +85,7 @@ function rhd_enqueue_scripts() {
 	wp_register_script( 'rhd-metabar', RHD_THEME_DIR . '/js/metabar.js', array( 'jquery' ), null, true );
 	wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/dist/packery.pkgd.min.js', array( 'jquery' ), null, true );
 	wp_register_script( 'imagesloaded', RHD_THEME_DIR . '/js/vendor/imagesloaded/imagesloaded.pkgd.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'soliloquy-resize', RHD_THEME_DIR . '/js/soliloquy-resize.js', array(), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
@@ -97,6 +99,7 @@ function rhd_enqueue_scripts() {
 
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-metabar' );
+	wp_enqueue_script( 'soliloquy-resize' );
 	wp_enqueue_script( 'rhd-main' );
 
 	if ( is_singular() )
@@ -615,4 +618,29 @@ function rhd_is_last_post() {
 	if ( $wp_query->current_post + 1 < $wp_query->post_count )
 		return false;
 	else return true;
+}
+
+
+/**
+ * rhd_paged function.
+ *
+ * @access public
+ * @return void
+ *
+ * Handles pagination ('paged') setup for secondary loops.
+ */
+function rhd_paged() {
+	if ( get_query_var( 'paged' ) )
+		$paged = get_query_var( 'paged' );
+	else {
+		if( get_query_var( 'page' ) )
+		    $my_page = get_query_var( 'page' );
+		else
+			$my_page = 1;
+
+		set_query_var( 'paged', $my_page );
+		$paged = $my_page;
+	}
+
+	return $paged;
 }
