@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:41:56 AM on 14-07-2016
+* RHD Dev: Compiled at 12:10:06 PM on 14-07-2016
 ***/
 
 .alignnone {
@@ -1565,6 +1565,7 @@ input[type="submit"]:hover {
   font-weight: 300 !important;
   font-size: 4em;
   margin-top: 0;
+  margin-bottom: 0.5em;
   color: #1e2171;
 }
 .page-id-25 #rhd-color-block-trust .we-are {
@@ -1610,16 +1611,22 @@ input[type="submit"]:hover {
   font-weight: normal !important;
 }
 /* ==========================================================================
-	Staff Page
+	About Staff Pages
    ========================================================================== */
-.page-id-85 .gallery .gallery-item {
+.page-id-85 .gallery .gallery-item,
+.page-id-75 .gallery .gallery-item,
+.page-id-77 .gallery .gallery-item {
   max-width: 50%;
 }
-.page-id-85 .gallery .gallery-item .gallery-caption {
+.page-id-85 .gallery .gallery-item .gallery-caption,
+.page-id-75 .gallery .gallery-item .gallery-caption,
+.page-id-77 .gallery .gallery-item .gallery-caption {
   font-size: 0.8em;
   padding-top: 0;
 }
-.page-id-85 .gallery .gallery-item img {
+.page-id-85 .gallery .gallery-item img,
+.page-id-75 .gallery .gallery-item img,
+.page-id-77 .gallery .gallery-item img {
   margin-bottom: 0.5em;
 }
 /* ==========================================================================
@@ -2189,7 +2196,9 @@ input[type="submit"]:hover {
   .page-id-25 #rhd-color-block-trust .rhd-color-block-content .trust-spell ul li::first-letter {
     padding-right: 0;
   }
-  .page-id-85 .gallery .gallery-item {
+  .page-id-85 .gallery .gallery-item,
+  .page-id-77 .gallery .gallery-item,
+  .page-id-75 .gallery .gallery-item {
     max-width: 25%;
   }
   #donation-form ul .donation-selector {
