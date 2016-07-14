@@ -11,7 +11,7 @@ get_header();
 
 <?php if ( $_SESSION['blog_area'] === true ) rhd_metabar( '', array( 'search' => false ) ); ?>
 
-<section id="primary" class="site-content">
+<section id="primary" class="site-content full-width">
 
 	<div id="content" role="main">
 
@@ -61,5 +61,4 @@ get_header();
 
 </section>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
