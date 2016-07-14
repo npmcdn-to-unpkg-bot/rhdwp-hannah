@@ -606,3 +606,28 @@ function rhd_is_last_post() {
 		return false;
 	else return true;
 }
+
+
+/**
+ * rhd_paged function.
+ *
+ * @access public
+ * @return void
+ *
+ * Handles pagination ('paged') setup for secondary loops.
+ */
+function rhd_paged() {
+	if ( get_query_var( 'paged' ) )
+		$paged = get_query_var( 'paged' );
+	else {
+		if( get_query_var( 'page' ) )
+		    $my_page = get_query_var( 'page' );
+		else
+			$my_page = 1;
+
+		set_query_var( 'paged', $my_page );
+		$paged = $my_page;
+	}
+
+	return $paged;
+}
