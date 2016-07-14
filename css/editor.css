@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:30:02 PM on 28-06-2016
+* RHD Dev: Compiled at 11:55:40 AM on 14-07-2016
 ***/
 
 /**
@@ -1435,6 +1435,48 @@ body .sb-slidebar .sub-menu {
 .ninja-forms-req-symbol strong {
   font-weight: normal;
 }
+.single-tribe_events .tribe-events-single-event-title {
+  text-align: center;
+}
+.tribe-events-schedule {
+  text-align: center;
+}
+.tribe-events-schedule > h2 {
+  margin-bottom: 0.25em;
+}
+.single-tribe_events .tribe-events-event-image {
+  visibility: hidden;
+  position: absolute;
+}
+.tribe-events-list .tribe-events-loop h2.tribe-events-list-event-title,
+.tribe-events-list .tribe-events-loop .tribe-events-event-meta {
+  text-align: center;
+  display: block;
+}
+.tribe-events-list .tribe-events-loop h2.tribe-events-list-event-title .recurringinfo,
+.tribe-events-list .tribe-events-loop .tribe-events-event-meta .recurringinfo {
+  display: inline;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-event-image {
+  width: 100%;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-event-image img {
+  width: auto;
+  margin: 0 auto 0.5em;
+  display: block;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-event-image + .tribe-events-content {
+  width: 100%;
+  float: none;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-list-event-description {
+  text-align: justify;
+  line-height: 1.2;
+}
+.tribe-events-list .tribe-events-loop .tribe-events-gmap {
+  visibility: hidden;
+  position: absolute;
+}
 .front-page #main,
 .page-id-294 #main {
   margin-top: 0;
@@ -1628,6 +1670,36 @@ body .sb-slidebar .sub-menu {
   #post-306 .entry-content .about-section p,
   #post-6 .entry-content .about-section h2,
   #post-306 .entry-content .about-section h2 {
+    margin-top: 0;
+  }
+  .single-tribe_events .tribe-events-schedule .tribe-events-divider {
+    display: none;
+  }
+  .tribe-events-list .tribe-events-loop .tribe-events-list-separator-month {
+    margin: 1rem 0;
+  }
+  .tribe-events-list .tribe-events-loop .tribe-events-list-separator-month + .type-tribe_events.tribe-events-first {
+    padding-top: 0;
+  }
+  .tribe-events-list .tribe-events-loop h2.tribe-events-list-event-title,
+  .tribe-events-list .tribe-events-loop .tribe-events-event-meta {
+    text-align: center;
+    display: block;
+  }
+  .tribe-events-list .tribe-events-loop h2.tribe-events-list-event-title .recurringinfo,
+  .tribe-events-list .tribe-events-loop .tribe-events-event-meta .recurringinfo {
+    bottom: 3px;
+  }
+  .tribe-events-list .tribe-events-loop .tribe-events-event-cost {
+    display: none;
+  }
+  .tribe-events-list .tribe-events-loop .tribe-events-event-image {
+    width: auto;
+  }
+  .tribe-events-list .tribe-events-loop .tribe-events-event-image img {
+    margin: 0;
+  }
+  .tribe-events-schedule {
     margin-top: 0;
   }
 }
