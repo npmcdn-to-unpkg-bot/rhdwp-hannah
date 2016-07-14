@@ -4,6 +4,7 @@
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
 @require "partials/_metabar.styl"
+@require "partials/_mailchimp.styl"
 @require "partials/_hamburger.styl"
 @require "partials/_ghost-button.styl"
 
@@ -299,18 +300,13 @@ input[type="submit"]
 		width 100%
 		padding 1em 0
 		background black
-		color white
+		color $c_header
 
 		.rhd-mailchimp-container
 			-wrapper()
 
-			.rhd-mc-text
-			.rhd-mc-submit
-				text-transform uppercase
-
 			.rhd-mc-email
 				-wrapper(0.25em, 0, 80%)
-				border-color black
 				font-family $ff_body
 				font-size 1.1em
 				padding 0.4em 0.375em
@@ -318,17 +314,6 @@ input[type="submit"]
 
 				&:focus
 					border-color $c_ter
-
-			.rhd-mc-submit
-				color black
-				display block
-				margin 1em auto
-				padding 0.5em 1.5em
-
-				&:hover
-				&:active
-					background $c_ter
-					color white
 
 	.site-info
 		-wrapper(2em, 2em, 100%)
@@ -351,7 +336,7 @@ input[type="submit"]
 
 #footer-widget-area
 	width 100%
-	background white
+	background $c_header
 
 
 /* ==========================================================================
@@ -697,15 +682,30 @@ input[type="submit"]
 		height auto
 
 
+#rhd_mailchimp_widget-2
+	display none
+
+
 /* ==========================================================================
 	Front Page
    ========================================================================== */
+
+.front-page
+	#main
+		margin-top 0
+		padding-top 0
 
 #featured-content
 	width 100%
 	height auto
 	position relative
-	margin-bottom 1.5em
+	margin $navHt 0 1.5em
+	background $c_header
+	padding $boxpadDesk 0
+	border-bottom 1px solid black
+
+	.featured-content-wrapper
+		-wrapper()
 
 	.featured-content-slider
 		display none

@@ -121,6 +121,27 @@
 			width 100%
 			padding $boxpadDesk
 
+		.widget_rhd_mailchimp_widget
+			display block
+
+			.rhd-mailchimp
+				padding ($boxpad/3)
+				font-size 0.9em
+
+				.rhd-mc-text
+					line-height 1.2
+
+				.rhd-mc-email
+				.rhd-mc-submit
+					font-size 0.9em
+					display block
+
+				.rhd-mc-email
+					-wrapper(0, 0, 75%)
+
+				.rhd-mc-submit
+					-wrapper(0.5em, 0.5em, 50%)
+
 	#content
 		margin-left ($sidebarW + 2rem) // fluid sidebar
 
@@ -139,18 +160,23 @@
 
 	// Front Page
 	#featured-content
-		height 500px
+		.featured-content-wrapper
+			margin-top $boxpad
+			margin-bottom $boxpad
+			display table
+
+		.featured-content-inner
+			display table-row
 
 		.featured-content-slider
 		.featured-links
-			height 100%
-			position absolute
-			top 0
+			display table-cell
 
 		.featured-content-slider
 			width 64.6666667%
+			height 100%
 			display block
-			left 0
+			position relative
 
 			.logo-overlay
 				width 32.3333334%
@@ -164,23 +190,22 @@
 					width 100%
 					height auto
 
-			.soliloquy-outer-container
-				height 100%
-
 		.featured-links
 			width 32.3333334%
-			right 0
+			height 100%
+			float right
 
 			.shop-link
 			.featured-single
 				width 100%
 				height 48%
-				position absolute
-				left 0
 				overflow hidden
+				display block
 
 				img
-					-vcenter()
+					width 100%
+					height auto
+					display block
 
 			.shop-link
 				top 0
