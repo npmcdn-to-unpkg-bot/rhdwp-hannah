@@ -57,7 +57,7 @@
 						<?php wp_nav_menu( $nav_args ); ?>
 
 						<div id="header-social">
-							<?php echo do_shortcode( '[rhd-social-icons color1="#b6a072" color2="#ecae80" widget_loc="header"]' ); ?>
+							<?php echo do_shortcode( '[rhd-social-icons color1="#b6a072" color2="#9d9d9d" widget_loc="header"]' ); ?>
 						</div>
 
 						<div id="header-search">
