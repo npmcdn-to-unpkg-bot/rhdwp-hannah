@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:10:06 PM on 14-07-2016
+* RHD Dev: Compiled at 12:14:27 PM on 14-07-2016
 ***/
 
 /**
@@ -1601,11 +1601,6 @@ input[type="submit"]:hover {
   margin: 0;
   font-weight: normal !important;
 }
-.page-id-85 .gallery .gallery-item,
-.page-id-75 .gallery .gallery-item,
-.page-id-77 .gallery .gallery-item {
-  max-width: 50%;
-}
 .page-id-85 .gallery .gallery-item .gallery-caption,
 .page-id-75 .gallery .gallery-item .gallery-caption,
 .page-id-77 .gallery .gallery-item .gallery-caption {
@@ -1616,6 +1611,11 @@ input[type="submit"]:hover {
 .page-id-75 .gallery .gallery-item img,
 .page-id-77 .gallery .gallery-item img {
   margin-bottom: 0.5em;
+}
+.mobile.page-id-85 .gallery .gallery-item,
+.mobile.page-id-75 .gallery .gallery-item,
+.mobile.page-id-77 .gallery .gallery-item {
+  max-width: 50%;
 }
 #comments {
   margin: 2em auto;
@@ -2165,11 +2165,6 @@ input[type="submit"]:hover {
   }
   .page-id-25 #rhd-color-block-trust .rhd-color-block-content .trust-spell ul li::first-letter {
     padding-right: 0;
-  }
-  .page-id-85 .gallery .gallery-item,
-  .page-id-77 .gallery .gallery-item,
-  .page-id-75 .gallery .gallery-item {
-    max-width: 25%;
   }
   #donation-form ul .donation-selector {
     width: 19%;
