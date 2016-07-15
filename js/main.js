@@ -48,10 +48,16 @@ var $grid = initPackery();
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
+				rhdInstagramFooterResize();
 			}
 		});
 
 		layoutPackery();
+	});
+
+	$(window).load(function(){
+		if ( !viewportIsSmall() )
+			rhdInstagramFooterResize();
 	});
 
 
@@ -59,7 +65,6 @@ var $grid = initPackery();
 		toggleBurger();
 		headerSearch();
 		fixGridLayout();
-		$grid = initPackery();
 		wpAdminBarPush();
 	}
 
@@ -107,6 +112,12 @@ var $grid = initPackery();
 			$(".post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)").css("float", "left");
 			$(".post-grid-item:last-of-type").css("margin-left", "3.5%");
 		}
+	}
+
+
+	function rhdInstagramFooterResize() {
+		var sliderHt = $("#footer-widget-area .soliloquy-viewport").height();
+		$("#footer-widget-area .widget_sp_image").height(sliderHt);
 	}
 
 

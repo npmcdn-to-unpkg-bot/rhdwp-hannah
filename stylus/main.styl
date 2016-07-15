@@ -336,7 +336,30 @@ input[type="submit"]
 
 #footer-widget-area
 	width 100%
+	position relative
 	background $c_header
+	padding-bottom ($boxpad*2)
+
+	.footer-widget-area-inner
+		-wrapper()
+		-clearfix()
+
+	.soliloquy
+		max-width 100%
+
+		.widget-title
+			text-transform uppercase
+			text-align center
+
+		.soliloquy-outer-container
+			-clearfix()
+
+		.soliloquy-viewport
+			border 2px solid $c_header
+
+	.widget_sp_image
+		border 2px solid black
+		margin-top 1em
 
 
 /* ==========================================================================

@@ -11,6 +11,8 @@
 
 <?php if ( is_active_sidebar( 'footer-widget-area' ) ) : ?>
 	<aside id="footer-widget-area" class="widget-area">
-		<?php dynamic_sidebar( 'footer-widget-area' ); ?>
+		<div class="footer-widget-area-inner">
+			<?php dynamic_sidebar( 'footer-widget-area' ); ?>
+		</div>
 	</aside>
 <?php endif; ?>
