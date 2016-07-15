@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<?php if ( $_SESSION['blog_area'] === true ) rhd_metabar('', array( 'search' => false ) ); ?>
+<?php if ( ! is_single() ) rhd_metabar('', array( 'search' => false ) ); ?>
 
 <section id="primary" class="site-content">
 	<div id="content" role="main">

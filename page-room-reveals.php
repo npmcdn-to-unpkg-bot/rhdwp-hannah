@@ -24,7 +24,7 @@ get_header(); ?>
 					'posts_per_page' => -1
 				);
 				$q = new WP_Query( $args );
-				rhd_post_grid( $q, 'room-reveals-grid', 'square' );
+				rhd_post_grid( $q, 'room-reveals across-2', '', 'square', false );
 				?>
 
 			<?php endwhile; ?>

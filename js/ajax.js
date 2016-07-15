@@ -1,18 +1,21 @@
+// Look for a secondary query localization, if not found, set to main query.
+if ( typeof wp_custom_data !== 'undefined' ) {
+	qv = wp_custom_data.query_vars;
+} else {
+	qv = wp_data.query_vars;
+}
+
+function getPage( $elem ){
+	return parseInt( $elem.parents('span').data('target-page') );
+}
+
 (function($){
+/*
+	if ( $(".post-grid").hasClass('packery') )
+		$grid = initPackery();
+*/
 
-	function getPage( $elem ){
-		return parseInt( $elem.parents('span').data('target-page') );
-	}
-
-	// Look for a secondary query localization, if not found, set to main query.
-	if ( typeof wp_custom_data !== 'undefined' ) {
-		qv = wp_custom_data.query_vars;
-	} else {
-		qv = wp_data.query_vars;
-	}
-
-
-	$(document).on('click', '.blog-area .pagination a', function(e){
+	$(document).on('click', '.ajax-pagination .pagination a', function(e){
 
 		e.preventDefault();
 
@@ -29,6 +32,7 @@
 			data: {
 				action: 'ajax_pagination',
 				query_vars: qv,
+				grid_size: $('.post-grid').data('grid-size'),
 				page: page,
 				load_more: loadMore
 			},
@@ -40,7 +44,7 @@
 						scrollTop: 0
 					}, 750, "swing");
 
-					$('.blog-container').find('article').fadeOut('fast', function(){
+					$('.post-grid').find('article').fadeOut('fast', function(){
 						$(this).remove();
 					});
 				}
@@ -54,10 +58,16 @@
 			success: function( html ) {
 				if (loadMore) {
 					$('.pagination').data('current-page', page );
-					$('.blog-container').append(html);
+					$grid.append(html);
+					$('.pagination').appendTo('#primary');
+
+					$grid.packery('reloadItems');
+					$grid.imagesLoaded().progress(function(){
+						$grid.packery('layout');
+					});
 				} else {
 					$('.pagination').data('current-page', page );
-					$('.blog-container').fadeOut(750, function(){
+					$('.post-grid').fadeOut(750, function(){
 						$(this).append(html);
 						$(this).fadeIn();
 					});

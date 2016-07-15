@@ -18,12 +18,29 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 
 /* ==========================================================================
+	Globals
+   ========================================================================== */
+
+function initPackery() {
+	$packery = jQuery(".post-grid.packery").packery({
+		initLayout: false,
+		percentPosition: true,
+		columnWidth: '.post-grid-sizer',
+		gutter: '.post-gutter-sizer',
+		itemSelector: '.post-grid-item'
+	});
+
+	return $packery;
+}
+
+var $grid = initPackery();
+
+
+/* ==========================================================================
 	Let "er rip...
    ========================================================================== */
 
 (function($){
-
-	var $grid;
 
 	$(document).ready(function(){
 		rhdInit();
@@ -69,27 +86,8 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 	}
 
 
-	function initPackery() {
-		$grid = $(".post-grid-full").packery({
-			initLayout: false,
-			percentPosition: true,
-			columnWidth: '.post-grid-sizer',
-			gutter: '.post-gutter-sizer',
-			itemSelector: '.post-grid-item'
-		});
-
-		return $grid;
-	}
-
-
 	function layoutPackery() {
 		$grid.imagesLoaded().progress(function(){
-			$(".post-grid-full .post-grid-item")
-				.css({
-					marginTop: 0,
-					marginBottom: 0
-				});
-
 			$grid.packery();
 		});
 	}

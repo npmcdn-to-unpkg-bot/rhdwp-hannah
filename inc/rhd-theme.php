@@ -106,17 +106,12 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 		?>
 		<div class="<?php echo $parent_slug; ?>-grid-container <?php echo $cat-slug; ?>-subcat-container subcat-grid-container">
 			<h2 class="subcat-title"><a href="<?php echo $cat_url; ?>" rel="bookmark"><?php echo $cat_name; ?></a></h2>
-			<?php if ( $query->have_posts() ) : ?>
-				<div id="<?php echo $cat_slug; ?>-grid" class="post-grid">
-					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-						<?php get_template_part( 'template-parts/content', 'grid-square' ); ?>
-					<?php endwhile; ?>
-				</div>
-				<div class="subcat-more">
-					<?php rhd_ghost_button( 'See More &rarr;', $cat_url, '', 'center', false, true ); ?>
-				</div>
-			<?php endif; ?>
-			<?php unset( $q ); ?>
+
+			<?php rhd_post_grid( $query, '', "{$cat_slug}-grid", 'square', false ); ?>
+
+			<div class="subcat-more">
+				<?php rhd_ghost_button( 'See More &rarr;', $cat_url, '', 'center', false, true ); ?>
+			</div>
 		</div>
 		<?php
 	}
@@ -129,22 +124,28 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
  * @access public
  * @param WP_Query $q (default: null)
  * @param string $class (default: null)
+ * @param string $id (default: null)
  * @param string $size (default: 'full')
+ * @param bool $packery (default: true)
  * @return void
  *
  * If used outside the Loop, must be passed a WP_Query object.
  */
-function rhd_post_grid( WP_Query $q = null, $class = null, $size = 'full' ) {
+function rhd_post_grid( WP_Query $q = null, $class = null, $id = null, $size = 'full', $packery = true ) {
 	global $wp_query;
-
 	$q = ( $q === null ) ? $q = $wp_query : $q;
-	$size = 'grid-' . $size;
+
+	$classes = "post-grid post-grid-$size $class";
+	$classes .= ( $packery ) ? " packery" : "";
 	?>
-	<div class="post-grid post-grid-full <?php echo $class; ?>">
-		<div class="post-grid-sizer"></div>
-		<div class="post-gutter-sizer"></div>
+	<div class="<?php echo $classes; ?>" data-grid-size="<?php echo $size; ?>">
+		<?php if ( $packery ) : ?>
+			<div class="post-grid-sizer"></div>
+			<div class="post-gutter-sizer"></div>
+		<?php endif; ?>
+
 		<?php while ( $q->have_posts() ) : $q->the_post(); ?>
-			<?php get_template_part( 'template-parts/content', $size ); ?>
+			<?php get_template_part( 'template-parts/content', "grid-$size" ); ?>
 		<?php endwhile; ?>
 	</div>
 	<?php

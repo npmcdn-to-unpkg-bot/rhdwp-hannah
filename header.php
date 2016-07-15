@@ -72,7 +72,7 @@
 			</div>
 		</header><!-- #masthead -->
 
-		<?php if ( is_front_page() ) : ?>
+		<?php if ( is_front_page() && get_query_var( 'paged' ) < 2 ) : ?>
 			<section id="featured-content">
 				<div class="featured-content-wrapper">
 					<div class="featured-content-inner">

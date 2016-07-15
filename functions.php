@@ -42,7 +42,7 @@ include_once( 'inc/rhd-cpt.php' );
 	Toggles
    ========================================================================== */
 
-define( 'RHD_AJAX_PAGINATION', false );
+define( 'RHD_AJAX_PAGINATION', true );
 
 
 /* ==========================================================================
@@ -80,7 +80,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
  */
 function rhd_enqueue_scripts() {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
-	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
+	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery', 'packery', 'imagesloaded', 'rhd-main' ), null, false );
 	wp_register_script( 'jquery-visible', RHD_THEME_DIR . '/js/vendor/df-visible/jquery.visible.min.js', array( 'jquery'), null, true );
 	wp_register_script( 'rhd-metabar', RHD_THEME_DIR . '/js/metabar.js', array( 'jquery' ), null, true );
 	wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/dist/packery.pkgd.min.js', array( 'jquery' ), null, true );
@@ -536,12 +536,13 @@ function rhd_ajax_pagination() {
 	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
 	$query_vars['paged'] = $_POST['page'];
 	$posts = new WP_Query( $query_vars );
+	$size = $_POST['grid_size'];
 	$GLOBALS['wp_query'] = $posts;
 
 	if( $posts->have_posts() ) {
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
-			get_template_part( 'template-parts/content' );
+			get_template_part( 'template-parts/content', "grid-$size" );
 		}
 	}
 	wp_reset_postdata();

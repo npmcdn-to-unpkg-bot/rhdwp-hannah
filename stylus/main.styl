@@ -504,6 +504,7 @@ input[type="submit"]
 	.pag-load-more
 		display block
 		margin 0 auto
+		text-align center
 
 
 /* ==========================================================================
@@ -512,6 +513,12 @@ input[type="submit"]
 
 .post-grid
 	-flexbox()
+
+	&.packery
+		.post-grid-item
+			margin-top 0
+			margin-bottom 0
+
 
 	.post-grid-item
 	.post-grid-sizer
@@ -558,7 +565,6 @@ input[type="submit"]
 	.post-grid-item
 		.entry-title
 			margin 0.25em 0
-
 
 
 .subcat-grid-container
@@ -700,6 +706,10 @@ input[type="submit"]
    ========================================================================== */
 
 .front-page
+	&.paged
+		#main
+			margin-top ($navHt*1.5)
+
 	#main
 		margin-top 0
 		padding-top 0
