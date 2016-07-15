@@ -24,14 +24,8 @@ get_header(); ?>
 					'posts_per_page' => -1
 				);
 				$q = new WP_Query( $args );
+				rhd_post_grid( $q, 'room-reveals-grid', 'square' );
 				?>
-
-				<?php if ( $q->have_posts() ) : ?>
-					<div class="post-grid room-reveals-grid">
-						<?php while ( $q->have_posts() ) : $q->the_post(); ?>
-							<?php get_template_part( 'template-parts/content', 'grid-square' ); ?>
-						<?php endwhile; ?>
-				<?php endif; ?>
 
 			<?php endwhile; ?>
 

@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<?php rhd_metabar(); ?>
+<?php rhd_metabar( '', array( 'search' => false ) ); ?>
 
 <section id="primary" class="site-content">
 	<div id="content" role="main">

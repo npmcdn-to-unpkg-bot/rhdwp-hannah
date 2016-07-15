@@ -128,21 +128,23 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
  *
  * @access public
  * @param WP_Query $q (default: null)
- * @param mixed $class (default: null)
+ * @param string $class (default: null)
+ * @param string $size (default: 'full')
  * @return void
  *
  * If used outside the Loop, must be passed a WP_Query object.
  */
-function rhd_post_grid( WP_Query $q = null, $class = null ) {
+function rhd_post_grid( WP_Query $q = null, $class = null, $size = 'full' ) {
 	global $wp_query;
 
 	$q = ( $q === null ) ? $q = $wp_query : $q;
+	$size = 'grid-' . $size;
 	?>
 	<div class="post-grid post-grid-full <?php echo $class; ?>">
 		<div class="post-grid-sizer"></div>
 		<div class="post-gutter-sizer"></div>
 		<?php while ( $q->have_posts() ) : $q->the_post(); ?>
-			<?php get_template_part( 'template-parts/content', 'grid-full' ); ?>
+			<?php get_template_part( 'template-parts/content', $size ); ?>
 		<?php endwhile; ?>
 	</div>
 	<?php
@@ -271,7 +273,7 @@ function rhd_room_reveal_related_posts() {
 	);
 	$tag_q = new WP_Query( $args );
 
-	echo '<div class="page-header"><h2 class="page-title reveal-title">Inside This Reveal...</h2></div>';
+	echo '<div class="page-header reveal-posts-header"><h2 class="page-title reveal-title">Inside This Reveal...</h2></div>';
 
 	rhd_post_grid( $tag_q, 'room-reveal-related-posts' );
 }

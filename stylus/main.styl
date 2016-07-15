@@ -43,7 +43,7 @@ body
 a
 	outline 0 !important
 	transition all 0.25s
-	color $c_ter
+	color $c_sec
 	text-decoration none
 
 	&:hover
@@ -72,7 +72,7 @@ input[type="submit"]
 	transition all 0.25s
 
 	&:hover
-		background-color gray
+		background-color $c_ter
 
 
 #page
@@ -243,7 +243,7 @@ input[type="submit"]
 
 			&:hover
 			&:active
-				color $c_ter
+				color $c_sec
 
 
 #hamburger
@@ -345,12 +345,14 @@ input[type="submit"]
 
 .page-header
 	width 100%
-	-boxedSlim()
 	margin-bottom 1em
+	text-align center
 
 	.page-title
 	.archive-title
+		-boxedSlim()
 		line-height 1.1
+		display inline-block
 		margin 0
 
 	.reveal-title

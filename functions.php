@@ -31,7 +31,7 @@ include_once( 'inc/rhd-ghost-button.php' );
 include_once( 'inc/rhd-theme.php' );
 include_once( 'inc/rhd-metabar.php' );
 include_once( 'inc/rhd-login-admin.php' );
-include_once( 'inc/rhd-room-reveals.php' );
+include_once( 'inc/rhd-cpt.php' );
 
 
 // Globally disable WP toolbar
@@ -224,7 +224,7 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
  * @return void
  */
 function rhd_image_sizes() {
-	add_image_size( 'square', 300, 300, true );
+	add_image_size( 'square', 400, 400, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
