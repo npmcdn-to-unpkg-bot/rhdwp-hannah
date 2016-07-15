@@ -90,15 +90,18 @@
 				text-transform uppercase
 
 				ul
+					margin 0
+					font-family $ff_body
+					text-transform none
+
+				> ul
 					width 100%
 					max-height 30vh
 					position absolute
 					top 2em
-					font-family $ff_body
 					overflow-y auto
 					background white
 					padding-left 0
-					margin 0
 					display none
 					z-index 999
 					box-shadow 0 1px 2px -1px rgba(0,0,0,0.5)
@@ -106,8 +109,8 @@
 					li
 						width 100%
 						background white
-						line-height 1.2
 						display block
+						line-height 1.2
 
 						a
 							width 100%
