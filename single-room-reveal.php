@@ -20,9 +20,7 @@ get_header();
 
 		<?php endif; // end have_posts() check ?>
 
-		<div class="room-reveal-related-posts">
-			<!-- List posts with same "Room Reveal Tag," shared between Posts and Room Reveals -->
-		</div>
+		<?php rhd_room_reveal_related_posts(); ?>
 
 	</div><!-- #content -->
 
