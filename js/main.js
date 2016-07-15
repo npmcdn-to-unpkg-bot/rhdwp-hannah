@@ -55,17 +55,15 @@ var $grid = initPackery();
 		layoutPackery();
 	});
 
-	$(window).load(function(){
-		if ( !viewportIsSmall() )
-			rhdInstagramFooterResize();
-	});
-
 
 	function rhdInit() {
 		toggleBurger();
 		headerSearch();
 		fixGridLayout();
 		wpAdminBarPush();
+
+		if ( !viewportIsSmall() )
+			rhdInstagramFooterResize();
 	}
 
 
@@ -116,8 +114,12 @@ var $grid = initPackery();
 
 
 	function rhdInstagramFooterResize() {
-		var sliderHt = $("#footer-widget-area .soliloquy-viewport").height();
-		$("#footer-widget-area .widget_sp_image").height(sliderHt);
+		var sliderHt;
+
+		$("#footer-widget-area .soliloquy-viewport").imagesLoaded(function(){
+			sliderHt = $("#footer-widget-area .soliloquy-viewport").height();
+			$("#footer-widget-area .widget_sp_image").height(sliderHt);
+		});
 	}
 
 
