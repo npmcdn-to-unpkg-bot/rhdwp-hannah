@@ -69,7 +69,6 @@ textarea
 input[type="submit"]
 	cursor pointer
 	font-family $ff_body
-	-ghost-button()
 
 
 #page
@@ -357,6 +356,10 @@ input[type="submit"]
 	.widget_sp_image
 		border 2px solid black
 		margin-top 1em
+
+		img
+			width 100%
+			height auto
 
 
 /* ==========================================================================
@@ -798,7 +801,15 @@ input[type="submit"]
 
 .ninja-forms-required-items
 .ninja-forms-req-symbol
-        -invisible()
+	-invisible()
+
+
+.error-404
+	input
+		&[type="submit"]
+			padding 0.15em 0.25em
+			margin-top 0.5em
+			color inherit
 
 
 #loading

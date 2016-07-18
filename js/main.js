@@ -57,7 +57,7 @@ var $grid;
 
 	function rhdInit() {
 		$grid = initPackery();
-		
+
 		toggleBurger();
 		headerSearch();
 		fixGridLayout();
@@ -118,8 +118,8 @@ var $grid;
 	function rhdInstagramFooterResize() {
 		var sliderHt;
 
-		$("#footer-widget-area .soliloquy-viewport").imagesLoaded(function(){
-			sliderHt = $("#footer-widget-area .soliloquy-viewport").height();
+		$("#footer-widget-area .soliloquy .soliloquy-slider .soliloquy-image-slide").imagesLoaded(function(){
+			sliderHt = $("#footer-widget-area .soliloquy .soliloquy-slider").height();
 			$("#footer-widget-area .widget_sp_image").height(sliderHt);
 		});
 	}
