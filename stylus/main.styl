@@ -42,7 +42,7 @@ body
 
 a
 	outline 0 !important
-	transition all 0.25s
+	transition color 0.25s ease
 	color $c_sec
 	text-decoration none
 
@@ -69,10 +69,7 @@ textarea
 input[type="submit"]
 	cursor pointer
 	font-family $ff_body
-	transition all 0.25s
-
-	&:hover
-		background-color $c_ter
+	-ghost-button()
 
 
 #page
@@ -532,7 +529,7 @@ input[type="submit"]
 
 .ajax-pagination
 	padding-bottom 4rem
-		
+
 	.pagination
 		width 100%
 		height 3rem
