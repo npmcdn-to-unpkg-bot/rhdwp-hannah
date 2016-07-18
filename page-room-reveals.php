@@ -21,10 +21,11 @@ get_header(); ?>
 				<?php
 				$args = array(
 					'post_type' => 'room-reveal',
-					'posts_per_page' => -1
+					'posts_per_page' => -1,
+					'orderby' => 'menu_order'
 				);
 				$q = new WP_Query( $args );
-				rhd_post_grid( $q, 'room-reveals across-2', '', 'square', false );
+				rhd_post_grid( $q, 'room-reveals across-2', '', 'square_large', false );
 				?>
 
 			<?php endwhile; ?>

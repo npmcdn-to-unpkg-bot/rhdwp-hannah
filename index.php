@@ -20,6 +20,9 @@ get_header();
 				<?php
 					if ( is_single() ) get_template_part( 'template-parts/content', 'single' );
 					else get_template_part( 'template-parts/content' );
+					
+					if ( is_single() && function_exists( 'rhd_related_posts') )
+						rhd_related_posts();
 				?>
 			<?php endwhile; ?>
 

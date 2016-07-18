@@ -119,7 +119,8 @@ function rhd_enqueue_scripts() {
 
 		$data_ajax = array(
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'query_vars' => json_encode( $wp_query->query )
+			'query_vars' => json_encode( $wp_query->query ),
+			'img_dir' => RHD_IMG_DIR
 		);
 		wp_localize_script( 'rhd-ajax', 'wp_data', $data_ajax );
 	}
@@ -225,6 +226,7 @@ add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
  */
 function rhd_image_sizes() {
 	add_image_size( 'square', 400, 400, true );
+	add_image_size( 'square_large', 600, 600, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
@@ -240,7 +242,8 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
  */
 function rhd_add_image_sizes( $sizes ) {
 	$addsizes = array(
-		"square" => __( "Square" )
+		"square" => __( "Square" ),
+		"square_large" => __( "Big Square" )
 	);
 	$newsizes = array_merge( $sizes, $addsizes );
 

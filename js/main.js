@@ -33,7 +33,8 @@ function initPackery() {
 	return $packery;
 }
 
-var $grid = initPackery();
+// Empty var for global Packery instance
+var $grid;
 
 
 /* ==========================================================================
@@ -51,16 +52,17 @@ var $grid = initPackery();
 				rhdInstagramFooterResize();
 			}
 		});
-
-		layoutPackery();
 	});
 
 
 	function rhdInit() {
+		$grid = initPackery();
+		
 		toggleBurger();
 		headerSearch();
 		fixGridLayout();
 		wpAdminBarPush();
+		layoutPackery();
 
 		if ( !viewportIsSmall() )
 			rhdInstagramFooterResize();

@@ -5,6 +5,8 @@ if ( typeof wp_custom_data !== 'undefined' ) {
 	qv = wp_data.query_vars;
 }
 
+var imgDir = wp_data.img_dir;
+
 function getPage( $elem ){
 	return parseInt( $elem.parents('span').data('target-page') );
 }
@@ -38,7 +40,9 @@ function getPage( $elem ){
 			},
 			beforeSend: function() {
 				if (loadMore){
-
+					$("#content")
+						.append("<div id='loading'></div>")
+						.fadeIn();
 				} else {
 					$('html,body').animate({
 						scrollTop: 0
@@ -61,6 +65,10 @@ function getPage( $elem ){
 					$grid.append(html);
 					$('.pagination').appendTo('#primary');
 
+					$("#loading")
+						.fadeOut()
+						.remove();
+					
 					$grid.packery('reloadItems');
 					$grid.imagesLoaded().progress(function(){
 						$grid.packery('layout');

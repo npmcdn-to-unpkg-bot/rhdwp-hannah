@@ -530,6 +530,15 @@ input[type="submit"]
 		text-align center
 
 
+.ajax-pagination
+	padding-bottom 4rem
+		
+	.pagination
+		width 100%
+		height 3rem
+		-hcenter()
+
+
 /* ==========================================================================
 	Post Grids / Subcategory Grids
    ========================================================================== */
@@ -788,6 +797,23 @@ input[type="submit"]
 
 #primary
 	-soliloquy()
+
+
+.ninja-forms-required-items
+.ninja-forms-req-symbol
+        -invisible()
+
+
+#loading
+	width 7rem
+	height @width
+	-vhcenter(fixed)
+	background $c_header_trans url(../img/loading.svg)
+	background-repeat no-repeat
+	background-size 89%
+	background-position center center
+	border-radius 0.2em
+	z-index 999
 
 
 /* ==========================================================================
