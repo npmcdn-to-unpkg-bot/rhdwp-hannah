@@ -15,10 +15,10 @@
 			<p class="entry-details">By <?php the_author(); ?> <span class="sep">|</span> <?php the_time( get_option( 'date_format' ) ); ?> <span class="sep">|</span> <?php comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments' ); ?></p>
 		</header><!-- .entry-header -->
 
-		<?php if ( is_front_page() || is_archive() || is_search() ) : ?>
+		<?php if ( is_front_page() || is_archive() ) : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'rhd' ) ); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'rhd' ), 'after' => '</div>' ) ); ?>
+				<?php the_content(); ?>
+				<?php rhd_ghost_button( 'Read More', get_the_permalink(), '', 'center', false, true ); ?>
 			</div><!-- .entry-content -->
 		<?php else : ?>
 			<div class="entry-summary">

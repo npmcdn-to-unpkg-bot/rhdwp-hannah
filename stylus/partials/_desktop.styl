@@ -190,22 +190,17 @@
 	// Front Page
 	#featured-content
 		.featured-content-wrapper
-			margin-top $boxpad
-			margin-bottom $boxpad
-			display table
-
-		.featured-content-inner
-			display table-row
+			-clearfix()
 
 		.featured-content-slider
 		.featured-links
-			display table-cell
+			position relative
 
 		.featured-content-slider
-			width 100%
-			height 100%
+			width 66.6666667%
+			height auto
 			display block
-			position relative
+			float left
 
 			.logo-overlay
 				width 32.3333334%
@@ -220,27 +215,29 @@
 					height auto
 
 		.featured-links
-			width 32.3333334%
-			height 100%
+			width 33.3333334%
+			float right
 
 			.shop-link
 			.featured-single
 				width 100%
-				height auto
-				position absolute
-				right 0
+				box-sizing content-box
 
 				img
 					width 100%
 					height auto
 					display block
+					padding-left 1em
 
 			.shop-link
-				top 0
 				margin-bottom 0
 
+				img
+					padding-bottom 0.65em
+
 			.featured-single
-				bottom 0
+				img
+					padding-top 0.65em
 
 	#comments
 		#commentform

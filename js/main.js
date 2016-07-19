@@ -50,6 +50,7 @@ var $grid;
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
 				rhdInstagramFooterResize();
+				rhdFeaturedHeight();
 			}
 		});
 	});
@@ -63,9 +64,12 @@ var $grid;
 		fixGridLayout();
 		wpAdminBarPush();
 		layoutPackery();
+		rhdFeaturedHeight();
 
-		if ( !viewportIsSmall() )
+		if ( !viewportIsSmall() ) {
+			rhdFeaturedHeight();
 			rhdInstagramFooterResize();
+		}
 	}
 
 
@@ -112,6 +116,14 @@ var $grid;
 			$(".post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)").css("float", "left");
 			$(".post-grid-item:last-of-type").css("margin-left", "3.5%");
 		}
+	}
+
+
+	function rhdFeaturedHeight() {
+		var newHt = $(".featured-links").height();
+		$("#featured-content .soliloquy-item").imagesLoaded(function(){
+			$("#featured-content .soliloquy-viewport").height(newHt);
+		});
 	}
 
 

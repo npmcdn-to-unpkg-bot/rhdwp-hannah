@@ -15,13 +15,9 @@ get_header(); ?>
 				<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'rhd' ), get_search_query() ); ?></h2>
 			</header>
 
-			<?php if ( have_posts() ) : ?>
+			<?php rhd_post_grid( null, 'search-grid' ); ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/content' ); ?>
-				<?php endwhile; ?>
-
-			<?php else : ?>
+			<?php if ( !have_posts() ) : // No posts found... ?>
 
 				<article id="post-0" class="post no-results not-found">
 
