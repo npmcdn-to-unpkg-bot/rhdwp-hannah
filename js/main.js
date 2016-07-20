@@ -46,6 +46,9 @@ var $grid;
 	$(document).ready(function(){
 		rhdInit();
 
+		// Set Soliloquy Instagram targets to _blank
+		$("#footer-widget-area .soliloquy-link").attr("target", "_blank");
+
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
@@ -121,19 +124,22 @@ var $grid;
 
 	function rhdFeaturedHeight() {
 		var newHt = $(".featured-links").height();
-		$("#featured-content .soliloquy-item").imagesLoaded(function(){
+		$("#featured-content .soliloquy-item").imagesLoaded().always(function(){
 			$("#featured-content .soliloquy-viewport").height(newHt);
 		});
 	}
 
 
 	function rhdInstagramFooterResize() {
-		var sliderHt;
-
-		$("#footer-widget-area .soliloquy .soliloquy-slider .soliloquy-image-slide").imagesLoaded(function(){
-			sliderHt = $("#footer-widget-area .soliloquy .soliloquy-slider").height();
-			$("#footer-widget-area .widget_sp_image").height(sliderHt);
+		$("#footer-widget-area .soliloquy .soliloquy-slider").imagesLoaded().done(function(){
+			rhdSetFooterImageHeight();
 		});
+	}
+
+
+	function rhdSetFooterImageHeight() {
+		var sliderHt = $("#footer-widget-area .soliloquy .soliloquy-slider").height();
+		$("#footer-widget-area .widget_sp_image img").height(sliderHt);
 	}
 
 
