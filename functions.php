@@ -420,6 +420,24 @@ add_filter( 'shortcode_atts_gallery', 'rhd_gallery_atts', 10, 3 );
 
 
 /**
+ * rhd_filter_media_comment_status function.
+ *
+ * @access public
+ * @param mixed $open
+ * @param mixed $post_id
+ * @return void
+ */
+function rhd_filter_media_comment_status( $open, $post_id ) {
+	$post = get_post( $post_id );
+	if( $post->post_type == 'attachment' ) {
+		return false;
+	}
+	return $open;
+}
+add_filter( 'comments_open', 'rhd_filter_media_comment_status', 10 , 2 );
+
+
+/**
  * rhd_archive_pagination function.
  *
  * @access public
