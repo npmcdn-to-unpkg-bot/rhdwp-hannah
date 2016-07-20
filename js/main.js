@@ -34,6 +34,8 @@ var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
 			}
+
+			rhdSquarestagram();
 		});
 	});
 
@@ -43,6 +45,7 @@ var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 
 		toggleBurger();
 		headerSearch();
+		rhdSquarestagram();
 
 		// Fix faux-flexbox
 		fixGridLayout( '.post-grid' );
@@ -180,6 +183,14 @@ var isDesktop = ( $body.hasClass("desktop") === true ) ? true : false;
 		$(".close-search").fadeOut("fast");
 
 		$(".navbar-search").data("expanded", false);
+	}
+
+
+	function rhdSquarestagram() {
+		var itemW = $("#footer-widget-area .soliloquy-item").width();
+		$("#footer-widget-area .soliloquy-item").height( itemW );
+
+		console.log('run');
 	}
 
 })(jQuery);
