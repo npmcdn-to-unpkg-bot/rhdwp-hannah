@@ -269,6 +269,16 @@ function rhd_register_sidebars() {
 	));
 
 	register_sidebar( array(
+		'name'			=> __( 'Featured Content Area', 'rhd' ),
+		'id'			=> 'featured-content-area',
+		'before_title'	=> '<h2 class="widget-title">',
+		'after_title'	=> '</h2>',
+		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
+		'after_widget'  => '</div>',
+		'description'	=> 'This area holds the front page image links that appear next to the Featured Content slider.'
+	));
+
+	register_sidebar( array(
 		'name'			=> __( 'Footer Widget Area', 'rhd' ),
 		'id'			=> 'footer-widget-area',
 		'before_title'	=> '<h2 class="widget-title">',
