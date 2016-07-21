@@ -70,6 +70,18 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 
 
 /**
+ * rhd_modify_read_more_link function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_modify_read_more_link() {
+	return rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', true, false );
+}
+add_filter( 'the_content_more_link', 'rhd_modify_read_more_link' );
+
+
+/**
  * rhd_subcat_grid function.
  *
  * @access public

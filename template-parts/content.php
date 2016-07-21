@@ -18,7 +18,6 @@
 		<?php if ( is_front_page() || is_archive() ) : ?>
 			<div class="entry-content">
 				<?php the_content(); ?>
-				<?php rhd_ghost_button( 'Read More', get_the_permalink(), '', 'center', false, true ); ?>
 			</div><!-- .entry-content -->
 		<?php else : ?>
 			<div class="entry-summary">
