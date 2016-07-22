@@ -23,7 +23,7 @@ $paged = get_query_var( 'paged' );
 				<?php while ( $first->have_posts() ) : $first->the_post(); ?>
 					<?php $latest = array( get_the_id() ); ?>
 					<div class="first-post">
-						<?php get_template_part( 'template-parts/content', 'single' ); ?>
+						<?php get_template_part( 'template-parts/content', 'home' ); ?>
 					</div>
 				<?php endwhile; ?>
 			<?php endif; ?>

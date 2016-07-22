@@ -256,15 +256,6 @@ function rhd_register_sidebars() {
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>'
 	));
-
-	register_sidebar( array(
-		'name'			=> __( 'Footer Widget Area', 'rhd' ),
-		'id'			=> 'footer-widget-area',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
-		'after_widget'  => '</div>'
-	));
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
 
