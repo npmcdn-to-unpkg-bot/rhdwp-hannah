@@ -121,3 +121,17 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 		<?php
 	}
 }
+
+
+/**
+ * rhd_cart_link function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_cart_link() {
+	global $woocommerce;
+	?>
+	<a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'rhd'); ?>">View Cart</a>
+	<?php
+}

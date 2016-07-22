@@ -1,13 +1,14 @@
-@media screen and (min-width 40rem)
+@media screen and (min-width 46rem)
 	.mobile-only
 		display none
 
 	#navbar
-		height auto
+		border-bottom 3px solid $c_sec
 
 		.navbar-inner
 			-wrapper(0, 0, 90%)
 			height auto
+			-clearfix()
 
 			.nav-dropdown
 				position relative
@@ -16,27 +17,40 @@
 				background transparent
 				-clearfix()
 
-		.navbar-search
-			&.is-active
-				width 36.5%
-				right 0
+	#loginbar
+		.loginbar-links
+			margin-right 3rem
 
-			.search-form
-				.search-submit
-					right -2.1em
+	.navbar-search
+		width 35%
 
-					&.is-active
-						right 0
+		&.is-active
+			width 36.5%
+			right 3em
+
+		.search-form
+			.search-submit
+				right 3em
+
+				&.is-active
+					right 1em
+
+	#site-title
+		width auto
+		height 120%
+		position absolute
+		top -37%
+		left 1em
+		z-index 10
 
 	#site-navigation-container
-		width 45%
+		width 66%
 		display block
 		background transparent
 		position relative
-		box-shadow none
-		float left
-		padding-bottom 0
-		top 0.15em
+		padding 2.3em 0 2em
+		border-bottom none
+		float right
 
 		#site-navigation
 			line-height 0
@@ -47,10 +61,25 @@
 			.menu-item
 				line-height 2
 				-flexitem()
-				font-size 1rem
+				font-size 0.8rem
+				position relative
+
+				.sub-menu
+					display none
+					position absolute
+					top 0
+
+				&.menu-item-has-children
+					&:hover
+						.sub-menu
+							display block
 
 	#hamburger
 		display none
+
+	#main
+		-clearfix()
+		margin-top 0
 
 	#primary
 		width 100%
@@ -60,7 +89,7 @@
 		&.full-width
 			float none
 			margin-right 0
-			
+
 			#content
 				margin-right 0
 

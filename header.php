@@ -44,27 +44,27 @@
 	?>
 
 	<div id="page" class="hfeed site">
-			<header id="header" class="site-header">
-				<div id="navbar">
-					<div class="navbar-inner">
-						<div class="nav-dropdown">
-							<a class="mobile-only" href="<?php echo home_url(); ?>"><h1 class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
-							<?php wp_nav_menu( $nav_args ); ?>
-						</div>
+		<header id="header" class="site-header">
+			<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
+			<div id="loginbar">
+				<button id="hamburger" class="c-hamburger c-hamburger--rot">
+					<span>Toggle nav</span>
+				</button>
 
-						<div id="header-search">
-							<?php rhd_navbar_search_form(); ?>
-						</div>
-
-						<button id="hamburger" class="c-hamburger c-hamburger--rot">
-							<span>Toggle nav</span>
-						</button>
+				<div class="loginbar-links"><?php wp_loginout( home_url(), true ); ?> | <?php rhd_cart_link(); ?></div>
+				<div id="header-search">
+					<?php rhd_navbar_search_form(); ?>
+				</div>
+			</div>
+			<div id="navbar">
+				<div class="navbar-inner" id="masthead">
+					<a href="<?php echo home_url(); ?>"><img id="site-title" class="site-title-image" src="<?php echo RHD_UPLOAD_URL; ?>/2016/07/marshalla-logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+					<div class="nav-dropdown">
+						<a class="mobile-only" href="<?php echo home_url(); ?>"><img id="site-title-mobile" class="site-title-image" src="<?php echo RHD_UPLOAD_URL; ?>/2016/07/marshalla-logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+						<?php wp_nav_menu( $nav_args ); ?>
 					</div>
 				</div>
-
-				<div id="masthead">
-					<a class="site-title-link" href="<?php echo home_url(); ?>"><h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
-				</div>
-			</header><!-- #masthead -->
+			</div>
+		</header><!-- #masthead -->
 
 		<main id="main">

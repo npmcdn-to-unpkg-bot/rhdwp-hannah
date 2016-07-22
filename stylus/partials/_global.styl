@@ -3,21 +3,21 @@
    ========================================================================== */
 
 // Variables
-$c_text = #2b2b2b
-$c_sec = #d7ede5
-$c_ter = #f2b485
+$c_text = #000
+$c_sec = #d6d6d6
+$c_ter = #1b6992
 
-$c_text_lt = lighten($c_text, 35%)
+$c_text_lt = #6f6f6f
 $c_sec_lt = lighten($c_sec, 35%)
 $c_ter_lt = lighten($c_ter, 35%)
 $off_white = darken(white, 4%)
 $near_white = darken(white, 2%)
 
 $c_bg = white
-$c_header = $c_ter_lt
+$c_header = #d6d6d6
 
 $ff_body = 'Open Sans', sans-serif
-$ff_headline = 'Dancing Script', cursive
+$ff_headline = $ff_body
 
 $navHt = 3em
 $navHtDesk = 2em
@@ -26,12 +26,10 @@ $sidebarW = 20rem
 $updir = '../../../uploads'
 
 -ff-title()
-	font-family $ff_body
 	font-weight 700
 
 -ff-headline()
-	font-family $ff_headline
-	font-weight normal
+	-ff-title()
 
 
 /* ==========================================================================

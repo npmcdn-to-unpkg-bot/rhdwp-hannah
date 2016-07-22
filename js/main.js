@@ -38,7 +38,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		toggleBurger();
 		headerSearch();
 		fixGridLayout(".post-grid");
-		wpAdminBarPush();
+		//wpAdminBarPush();
 	}
 
 
@@ -156,7 +156,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		$(".navbar-search .search-field").focus();
 		$(".navbar-search").data("expanded", true);
 
-		$(".close-search").fadeIn("fast");
+		//$(".close-search").fadeIn("fast");
 	}
 
 
@@ -171,7 +171,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 			.css("zIndex", 0)
 			.data("expanded", false);
 
-		$(".close-search").fadeOut("fast");
+		//$(".close-search").fadeOut("fast");
 	}
 
 })(jQuery);

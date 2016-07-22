@@ -9,8 +9,6 @@
 get_header();
 ?>
 
-<?php if ( $_SESSION['blog_area'] === true ) rhd_metabar(); ?>
-
 <section id="primary" class="site-content">
 	<div id="content" role="main">
 

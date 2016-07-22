@@ -16,7 +16,7 @@
 // Constants and Globals
 define( "RHD_THEME_DIR", get_template_directory_uri() );
 define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
-define( "RHD_GOOGLE_FONTS", 'Open+Sans:300,700,300italic|Dancing+Script' );
+define( "RHD_GOOGLE_FONTS", 'Open+Sans:400,400i,700' );
 
 $updir = wp_upload_dir();
 define( "RHD_UPLOAD_URL", $updir['baseurl'] );
@@ -257,6 +257,7 @@ function rhd_register_sidebars() {
 		'after_widget'  => '</div>'
 	));
 
+/*
 	register_sidebar( array(
 		'name'			=> __( 'Footer Widget Area', 'rhd' ),
 		'id'			=> 'footer-widget-area',
@@ -265,6 +266,7 @@ function rhd_register_sidebars() {
 		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</div>'
 	));
+*/
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
 
@@ -639,13 +641,37 @@ function rhd_paged() {
 		$paged = get_query_var( 'paged' );
 	else {
 		if( get_query_var( 'page' ) )
-		    $my_page = get_query_var( 'page' );
+		    $rhd_page = get_query_var( 'page' );
 		else
-			$my_page = 1;
+			$rhd_page = 1;
 
-		set_query_var( 'paged', $my_page );
-		$paged = $my_page;
+		set_query_var( 'paged', $rhd_page );
+		$paged = $rhd_page;
 	}
 
 	return $paged;
 }
+
+
+/* ==========================================================================
+	WooCommerce
+   ========================================================================== */
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'rhd_theme_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'rhd_theme_wrapper_end', 10);
+
+function rhd_theme_wrapper_start() {
+	echo '<section id="primary"><div id="content">';
+}
+
+function rhd_theme_wrapper_end() {
+	echo '</div></section>';
+}
+
+function woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'woocommerce_support' );
