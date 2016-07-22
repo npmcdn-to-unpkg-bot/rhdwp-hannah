@@ -64,12 +64,23 @@
 				font-size 0.8rem
 				position relative
 
+				a
+					&:hover
+						color $c_ter
+
 				.sub-menu
+					width 11rem
 					display none
 					position absolute
-					top 0
+					top 1.7rem
+					padding-left 0
+					background $c_bg
 
 				&.menu-item-has-children
+					&:after
+						content: " \25bc"
+						font-size 0.8em
+
 					&:hover
 						.sub-menu
 							display block
