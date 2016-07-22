@@ -215,14 +215,30 @@
 					width 100%
 					height auto
 
+			.soliloquy-container
+				.soliloquy-controls-direction
+				.soliloquy-controls-auto-item
+					a
+						&:hover
+							background $c_sec
+
 		.featured-links
 			width 33.3333334%
 			float right
 
 		.widget_sp_image
 			img
+				max-width 93% !important
 				margin 0
 				display block
+
+			&:first-of-type
+				img
+					margin-bottom 2%
+
+			&:last-of-type
+				img
+					margin-top 2%
 
 	#comments
 		#commentform
