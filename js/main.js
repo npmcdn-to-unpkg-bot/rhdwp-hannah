@@ -52,8 +52,8 @@ var $grid;
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
-				rhdInstagramFooterResize();
 				rhdFeaturedHeight();
+				rhdInstagramFooterResize();
 			}
 		});
 	});
