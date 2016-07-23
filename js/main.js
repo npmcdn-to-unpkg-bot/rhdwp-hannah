@@ -102,7 +102,7 @@ var $grid;
 
 
 	function layoutPackery() {
-		$grid.imagesLoaded().progress(function(){
+		$grid.imagesLoaded().always(function(){
 			$grid.packery();
 		});
 	}
