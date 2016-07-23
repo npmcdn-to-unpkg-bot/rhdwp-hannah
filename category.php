@@ -1,6 +1,6 @@
 <?php
 /**
- * The Archive template file.
+ * The Category template file.
  *
  * @package WordPress
  * @subpackage rhd
@@ -11,17 +11,17 @@ get_header();
 
 <?php if ( $_SESSION['blog_area'] === true ) rhd_metabar( '', array( 'search' => false ) ); ?>
 
-<section id="primary" class="site-content">
+<section id="primary" class="site-content full-width ajax-pagination">
 
 	<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
+			<header class="page-header">
+				<?php the_archive_title( '<h2 class="archive-title">', '</h2>' ); ?>
+			</header>
 
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content' ); ?>
-			<?php endwhile; ?>
+			<?php rhd_post_grid( null, 'category-grid' ); ?>
 
 		<?php else : ?>
 
@@ -57,9 +57,8 @@ get_header();
 
 	</div>
 
-	<?php rhd_archive_pagination(); ?>
+	<?php rhd_load_more(); ?>
 
 </section>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
