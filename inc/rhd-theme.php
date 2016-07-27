@@ -275,7 +275,7 @@ function rhd_room_reveal_related_posts() {
 
 	$args = array(
 		'post_type' => 'post',
-		'posts_per_page' => 6,
+		'posts_per_page' => -1,
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'reveal_tag',
