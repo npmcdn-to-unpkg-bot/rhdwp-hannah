@@ -176,38 +176,45 @@ function rhd_post_grid( WP_Query $q = null, $class = null, $id = null, $size = '
 
 
 /**
- * rhd_featured_meta function.
+ * rhd_post_meta function.
  *
  * @access public
  * @return void
  */
-function rhd_featured_meta() {
-	add_meta_box( 'rhd_featured_meta', __( 'Home Page Feature' ), 'rhd_featured_meta_callback', array( 'post', 'page' ), 'side', 'default' );
+function rhd_post_meta() {
+	add_meta_box( 'rhd_post_meta', __( 'Post Options' ), 'rhd_post_meta_callback', array( 'post', 'page' ), 'side', 'high' );
 }
-add_action( 'add_meta_boxes', 'rhd_featured_meta' );
+add_action( 'add_meta_boxes', 'rhd_post_meta' );
 
 
 /**
- * rhd_featured_meta_callback function.
+ * rhd_post_meta_callback function.
  *
  * @access public
  * @param mixed $post
  * @return void
  */
-function rhd_featured_meta_callback( $post ) {
-	wp_nonce_field( basename( __FILE__ ), 'rhd_featured_meta_nonce' );
+function rhd_post_meta_callback( $post ) {
+	wp_nonce_field( basename( __FILE__ ), 'rhd_post_meta_nonce' );
 	$featured = get_option( 'rhd_featured_post' );
+	$subtitle = get_post_meta( $post->ID, 'rhd_post_subtitle', true );
+
 	$post_is_featured = ( $featured === $post->ID ) ? 'yes' : 'no';
-	echo $featured;
 	?>
 
 	<p>
-		<span class="rhd-row-title"><?php _e( 'Feature this ' . $post->post_type . ' on the home page.', 'rhd' )?></span>
+		<div class="rhd-row-content">
+			<label for="post-subtitle"><?php _e( 'Post Subtitle', 'rhd' )?></label>
+			<input type="text" name="post-subtitle" id="post-subtitle" value="<?php echo $subtitle; ?>" />
+		</div>
+	</p>
+
+	<p>
 		<div class="rhd-row-content">
 			<label for="featured-post-checkbox">
 				<input type="checkbox" name="featured-post-checkbox" id="featured-post-checkbox" value="yes" <?php checked( $post_is_featured , 'yes' ); ?> />
 				<input type="hidden" name="featured-post-id" value="<?php echo $post->ID; ?>">
-				<?php _e( 'Featured', 'rhd' )?>
+				<?php _e( 'Feature this post on the home page.', 'rhd' )?>
 			</label>
 		</div>
 	</p>
@@ -216,24 +223,29 @@ function rhd_featured_meta_callback( $post ) {
 
 
 /**
- * rhd_featured_meta_save function.
+ * rhd_post_meta_save function.
  *
  * @access public
  * @param mixed $post_id
  * @return void
  */
-function rhd_featured_meta_save( $post_id ) {
+function rhd_post_meta_save( $post_id ) {
 	// Checks save status
 	$is_autosave = wp_is_post_autosave( $post_id );
 	$is_revision = wp_is_post_revision( $post_id );
-	$is_valid_nonce = ( isset( $_POST[ 'rhd_nonce' ] ) && wp_verify_nonce( $_POST[ 'rhd_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+	$is_valid_nonce = ( isset( $_POST[ 'rhd_post_meta_nonce' ] ) && wp_verify_nonce( $_POST[ 'rhd_post_meta_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
 
 	// Exits script depending on save status
 	if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
 		return;
 	}
 
-	// Checks for input and saves
+	// Checks for input and saves:
+
+	if( isset( $_POST['post-subtitle'] ) ) {
+		update_post_meta( $post_id, 'rhd_post_subtitle', esc_attr( $_POST['post-subtitle'] ) );
+	}
+
 	if( isset( $_POST['featured-post-checkbox'] ) ) {
 		update_option( 'rhd_featured_post', $_POST['featured-post-id'] );
 	} else {
@@ -246,7 +258,7 @@ function rhd_featured_meta_save( $post_id ) {
 	}
 
 }
-add_action( 'save_post', 'rhd_featured_meta_save' );
+add_action( 'save_post', 'rhd_post_meta_save' );
 
 
 /**

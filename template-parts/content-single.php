@@ -7,8 +7,14 @@
  */
 ?>
 
+<?php $subtitle = get_post_meta( get_the_ID(), 'rhd_post_subtitle', true ); ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+		<?php if ( $subtitle ) : ?>
+			<h3 class="entry-subtitle"><?php echo $subtitle; ?></h3>
+		<?php endif; ?>
+
 		<h2 class="entry-title"><?php the_title(); ?></h2>
 		<p class="entry-details">By <?php the_author(); ?> <span class="sep">&bull;</span> <?php the_time( get_option( 'date_format' ) ); ?></p>
 	</header><!-- .entry-header -->
