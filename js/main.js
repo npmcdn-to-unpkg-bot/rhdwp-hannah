@@ -116,11 +116,13 @@ var $grid;
 
 	// Faux-flexbox "fix" template (edit for varying column numbers)
 	function fixGridLayout() {
-		var gridCount = $(".post-grid .post-grid-item").length;
+		if ( ! $(".post-grid").hasClass("packery") ) {
+			var gridCount = $(".post-grid .post-grid-item").length;
 
-		if ( gridCount % 3 == 2 ) {
-			$(".post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)").css("float", "left");
-			$(".post-grid-item:last-of-type").css("margin-left", "3.5%");
+			if ( gridCount % 3 == 2 ) {
+				$(".post-grid-item:last-of-type, .post-grid-item:nth-last-of-type(2)").css("float", "left");
+				$(".post-grid-item:last-of-type").css("margin-left", "3.5%");
+			}
 		}
 	}
 

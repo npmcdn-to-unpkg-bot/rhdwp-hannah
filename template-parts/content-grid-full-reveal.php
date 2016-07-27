@@ -25,7 +25,6 @@
 	<?php endif; ?>
 
 	<div class="entry-summary">
-		<?php the_content(); ?>
 		<?php rhd_ghost_button( 'Read More', get_the_permalink(), '', 'center', true, true ); ?>
 	</div>
 

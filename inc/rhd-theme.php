@@ -299,5 +299,5 @@ function rhd_room_reveal_related_posts() {
 
 	echo '<div class="page-header reveal-posts-header"><h2 class="page-title reveal-title">Inside This Reveal...</h2></div>';
 
-	rhd_post_grid( $tag_q, 'room-reveal-related-posts' );
+	rhd_post_grid( $tag_q, 'room-reveal-related-posts across-2' );
 }
