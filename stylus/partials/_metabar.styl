@@ -1,140 +1,93 @@
-.rhd-metabar
+#blog-metabar
 	width 100%
 	height auto
-	padding 1em 0
-	margin 1em auto
+	padding 1em 0 0.75em 0
+	background orange
 
-	.rhd-metabar-content
-		width 100%
+	#blog-metabar-content
+		-wrapper(0,0, 90%)
+		list-style none
+		padding-left 0
 
-		&.duo
-		&.trio
-			.rhd-metabar-item
-				&:nth-of-type(1)
-					margin-bottom 0.75em
-
-		&.trio
-			.rhd-metabar-item
-				&:nth-of-type(2)
-					margin-bottom 0.75em
-
-		.rhd-metabar-item
+		li
 			width 100%
+			margin-bottom 0.5em
 			display block
 
-			.rhd-metabutton
+			.drop
+			.search-submit
 				width 2em
-				height 100%
-				background-color $c_sec
-				background-position center
-				background-repeat no-repeat
-				color $c_text
+				height 2em
+				background gray
+				color white
 				text-transform uppercase
-				text-decoration none
-				text-align center
-				font-weight 400
-				font-size 1em
-				line-height 1.3
-				transition all 0.25s
+				-transition(all 0.25s)
 				display inline-block
 				position absolute
 				top 0
 				right 0
-
-				&:hover
-				&:active
-					background-color $c_sec_lt
-
-				&.search-submit-button
-					width 2.05em
-					height 101%
-					border-top 1px solid $c_sec
-					border-right 1px solid $c_sec
-					border-bottom 1px solid $c_sec
-
-				.caret
-				.search-submit
-					width 50%
-					height auto
-					-vhcenter()
-					-opacity(0.35)
+				font-weight 400
+				font-size 1em
 
 			.search-field
-				-placeholder-props( $ff_body, gray, 1, 300, uppercase )
-				font-weight 300
-				border 2px solid $c_bg
-				transition background 0.25s
-				text-transform uppercase
-
-				&:focus
-					background $near_white
+				-placeholder-props( $ff-body, gray, 1)
 
 			.rhd-dropdown-title
 			.search-field
 				width 100%
-				height 1.9em
+				height 2em
 				padding-left 0.5em
 				background white
 				color gray
 				position relative
-				font-family $ff_body !important
-				border 1px solid $c_sec
+				font-family $ff-body
 
 			.rhd-dropdown-title
 				.dd-title-text
+				.dd-link-text
 					position relative
-					top 0.15em
+					top 0.25em
+
+			.drop
+				text-decoration none
+				text-align center
+				line-height 1.3
+
+				.dd-link-text
+					color white
 
 			.rhd-dropdown
 				position relative
 				text-transform uppercase
 
 				ul
-					margin 0
-					font-family $ff_body
-					text-transform none
-
-				> ul
 					width 100%
-					max-height 30vh
 					position absolute
 					top 2em
 					overflow-y auto
 					background white
 					padding-left 0
+					margin 0
 					display none
 					z-index 999
-					box-shadow 0 1px 2px -1px rgba(0,0,0,0.5)
+					box-shadow 0 3px 4px -1px rgba(0,0,0,0.5)
 
 					li
 						width 100%
 						background white
 						display block
-						line-height 1.2
+						padding-left 0.5em
 
 						a
-							width 100%
-							height auto
-							display block
 							color gray
-							padding 0.25em 0 0.25em 0.5em
 							text-decoration none
-							transition all 0.2s
+							-transition(all 0.25s)
 
 							&:hover
 							&:active
-								background-color $c_sec_lt
-			.blog-search
-				top	0
-
-	&.layout-tall
-		.rhd-metabar-item
-			.rhd-dropdown-title
-				margin-bottom 0.5em
-
-			&:last-of-type
-				.rhd-dropdown-title
-					margin-bottom 0
+								color orange
+		#blog-search
+			top	0
 
 
 /* ==========================================================================
@@ -142,36 +95,18 @@
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	.rhd-metabar
-		&.layout-wide
-			padding 0 0 0.5em 0
+	#blog-metabar
+		padding 0
 
-			.rhd-metabar-content
-				-wrapper(0, 0, 100%)
-				-flexbox()
-				top 0.95em
+		#blog-metabar-content
+			-wrapper()
+			-flexbox()
+			top 0.95em
 
-				.rhd-metabar-item
-					-flexitem()
+			li
+				width 30%
+				-flexitem()
 
-				&.solo
-				&.duo
-				&.trio
-					.rhd-metabar-item
-						margin-bottom 0
-
-				&.solo
-					.rhd-metabar-item
-						width 100%
-
-				&.duo
-					.rhd-metabar-item
-						width 49%
-
-				&.trio
-					.rhd-metabar-item
-						width 31%
-
-				.blog-search
-					position relative
-					top	0.12em
+			#blog-search
+				position relative
+				top	0.2em

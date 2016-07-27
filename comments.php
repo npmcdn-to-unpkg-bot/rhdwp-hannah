@@ -24,78 +24,58 @@ if ( post_password_required() )
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				$comments_number = get_comments_number();
-				if ( 1 === $comments_number ) {
-					/* translators: %s: post title */
-					printf( _x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'rhd' ), get_the_title() );
-				} else {
-					printf(
-						/* translators: 1: number of comments, 2: post title */
-						_nx(
-							'%1$s thought on &ldquo;%2$s&rdquo;',
-							'%1$s thoughts on &ldquo;%2$s&rdquo;',
-							$comments_number,
-							'comments title',
-							'rhd'
-						),
-						number_format_i18n( $comments_number ),
-						get_the_title()
-					);
-				}
+				printf( _n( 'One comment', '%1$s comments', get_comments_number(), 'rhd' ),
+					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 			?>
 		</h2>
 
-		<?php the_comments_navigation(); ?>
+		<ol class="commentlist">
+			<?php wp_list_comments(); ?>
+		</ol><!-- .commentlist -->
 
-		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'avatar_size' => 42,
-				) );
-			?>
-		</ol><!-- .comment-list -->
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<nav id="comment-nav-below" class="navigation" role="navigation">
+			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'rhd' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'rhd' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'rhd' ) ); ?></div>
+		</nav>
+		<?php endif; // check for comment navigation ?>
 
-		<?php the_comments_navigation(); ?>
-
-	<?php endif; // Check for have_comments(). ?>
-
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'rhd' ); ?></p>
-	<?php endif; ?>
-
-	<div id="commentform-area">
 		<?php
-			$commenter = wp_get_current_commenter();
-			$req = get_option( 'require_name_email' );
-			$aria_req = ( $req ? " aria-required='true'" : '' );
+		/* If there are no comments and comments are closed, let's leave a note.
+		 * But we only want the note on posts and pages that had comments in the first place.
+		 */
+		if ( ! comments_open() && get_comments_number() ) : ?>
+		<p class="nocomments"><?php _e( 'Comments are closed.' , 'rhd' ); ?></p>
+		<?php endif; ?>
 
-			$comment_args = array(
-				'comment_notes_before' => '<p class="comment-notes">' . __( 'Keep the conversation going! Your email address will not be published.' ) . '</p>',
-				'comment_notes_after' => '',
-				'label_submit' => 'Post',
-				'title_reply' => 'Leave a comment!',
-				'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment <span class="required">*</span>', 'rhd' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-				'fields' => array(
-					'author' =>
-					    '<p class="comment-form-author"><label for="author">' . __( 'Name', 'rhd' ) . '</label> ' .
-					    ( $req ? '<span class="required">*</span>' : '' ) .
-					    '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-					    '" size="30"' . $aria_req . ' /></p>',
+	<?php endif; // have_comments() ?>
 
-					'email' =>
-						'<p class="comment-form-email"><label for="email">' . __( 'Email', 'rhd' ) . '</label> ' .
-						( $req ? '<span class="required">*</span>' : '' ) .
-						'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-						'" size="30"' . $aria_req . ' /></p>'
-				)
-			);
-			comment_form($comment_args);
-		?>
-	</div>
-	
-</div>
+		<div id="commentform-area">
+			<?php
+				$comment_args = array(
+					'comment_notes_before' => '<p class="comment-notes">' . __( 'Keep the conversation going! Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',
+					'comment_notes_after' => '',
+					'label_submit' => 'Post',
+					'title_reply' => 'Leave a comment!',
+					'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment <span class="required">*</span>', 'rhd' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+					'fields' => array(
+						'author' =>
+						    '<p class="comment-form-author"><label for="author">' . __( 'Name', 'rhd' ) . '</label> ' .
+						    ( $req ? '<span class="required">*</span>' : '' ) .
+						    '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+						    '" size="30"' . $aria_req . ' /></p>',
+
+						'email' =>
+							'<p class="comment-form-email"><label for="email">' . __( 'Email', 'rhd' ) . '</label> ' .
+							( $req ? '<span class="required">*</span>' : '' ) .
+							'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+							'" size="30"' . $aria_req . ' /></p>'
+					)
+				);
+				comment_form($comment_args);
+			?>
+		</div>
+
+
+</div><!-- #comments .comments-area -->

@@ -10,61 +10,96 @@
 ?>
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>   <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>     <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>     <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 7]>   <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+	<!--[if IE 7]>     <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+	<!--[if IE 8]>     <html class="no-js lt-ie9"> <![endif]-->
+	<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+	<head>
+		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title><?php wp_title(); ?></title>
-	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+		<!--
+									   _  _
+                                      | || |
+         ____  ___   _   _  ____    _ | || | _    ___   _   _   ___   ____
+        / ___)/ _ \ | | | ||  _ \  / || || || \  / _ \ | | | | /___) / _  )
+       | |   | |_| || |_| || | | |( (_| || | | || |_| || |_| ||___ |( (/ /
+       |_|    \___/  \____||_| |_| \____||_| |_| \___/  \____|(___/  \____)
 
-	<?php wp_head(); ?>
-</head>
+                                     _               _
+                                    | |             (_)
+                                  _ | |  ____   ___  _   ____  ____    ___
+                                 / || | / _  ) /___)| | / _  ||  _ \  /___)
+                                ( (_| |( (/ / |___ || |( ( | || | | ||___ |
+                                 \____| \____)(___/ |_| \_|| ||_| |_|(___/
+                                                       (_____|
 
-<body <?php body_class(); ?>>
-	<!--[if lt IE 7]>
-		<p class="browsehappy">You are using an <strong>outdated</strong> browser. It's time... <a href="//browsehappy.com/">Upgrade your browser</a> to improve your experience. And your life.</p>
-	<![endif]-->
+		-->
 
-	<?php
-	$nav_args = array(
-		'theme_location' => 'primary',
-		'menu_id' => 'site-navigation',
-		'menu_class' => 'site-navigation',
-		'container' => 'nav',
-		'container_id' => 'site-navigation-container',
-		'walker' => new RHD_Walker_Nav
-	);
-	?>
+		<title><?php wp_title(); ?></title>
+		<link rel="profile" href="http://gmpg.org/xfn/11" />
+		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-	<div id="page" class="hfeed site">
-			<header id="header" class="site-header">
-				<div id="navbar">
-					<div class="navbar-inner">
-						<div class="nav-dropdown">
-							<a class="mobile-only" href="<?php echo home_url(); ?>"><h1 class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
-							<?php wp_nav_menu( $nav_args ); ?>
-						</div>
+		<?php wp_head(); ?>
+	</head>
 
-						<div id="header-search">
-							<?php rhd_navbar_search_form(); ?>
-						</div>
+	<body <?php body_class(); ?>>
+		<!--[if lt IE 7]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
 
-						<button id="hamburger" class="c-hamburger c-hamburger--rot">
-							<span>Toggle nav</span>
-						</button>
-					</div>
-				</div>
+		<?php
+		$nav_args_main = array(
+			'theme_location' => 'primary',
+			'menu_id' => 'site-navigation',
+			'menu_class' => 'site-navigation',
+			'container' => 'nav',
+			'container_id' => 'site-navigation-container',
+			'walker' => new RHD_Walker_Nav
+		);
 
-				<div id="masthead">
-					<a class="site-title-link" href="<?php echo home_url(); ?>"><h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
-				</div>
+		$nav_args_sb = array(
+			'theme_location' => 'slidebar',
+			'menu_id' => 'site-navigation-sb',
+			'menu_class' => 'site-navigation',
+			'container' => 'nav',
+			'container_id' => 'site-navigation-sb-container'
+		);
+		?>
+
+		<div class="sb-slidebar sb-right sb-style-push">
+			<?php wp_nav_menu( $nav_args_sb ); ?>
+		</div>
+
+		<div id="page" class="hfeed site sb-site-container">
+			<header id="masthead" class="site-header">
+				<a id="site-title" href="<?php echo home_url(); ?>">
+					<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri(); ?>/img/foundation.svg"></object>
+				</a>
+
+				<?php wp_nav_menu( $nav_args_main ); ?>
+
+				<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htx">
+					<span>Toggle nav</span>
+				</button>
 			</header><!-- #masthead -->
 
-		<main id="main">
+			<?php
+			// get current page ID outside the loop
+			global $wp_query;
+			$id = $wp_query->post->ID;
+			$p = get_post( $id );
+			if ( is_page() && has_shortcode( $p->post_content, 'color-block' ) )
+				$class = "rhd-color-block-area";
+			else
+				$class = 'wrap';
+			?>
+
+			<?php rhd_full_header(); ?>
+
+			<main id="main" class="<?php echo $class; ?>">
+				<?php if ( ! is_front_page() ) : ?>
+					<div id="main-inner">
+				<?php endif; ?>

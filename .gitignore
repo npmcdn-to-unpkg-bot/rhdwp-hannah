@@ -1,6 +1,2 @@
 .htaccess
 *.log
-node_modules/
-css/main.css
-css/enhanced.css
-css/editor.css

@@ -24,41 +24,19 @@
 // Place any jQuery/helper plugins in here.
 
 /* ==========================================================================
-	closestStyle
+   Visiblity Toggle
    ========================================================================== */
 
-// $().closestStyle()
-// find the closest CSS style of a parent for a DOM element and apply it
-// to the selected element. I use this mainly before calling
-// .effect('highlight') so the backgroundColor will mesh properly.
-// @example:
-// $('.row').closestStyle('backgroundColor').effect('highlight');
-//
-// Gist: https://gist.github.com/lifo101/3169552.js
+jQuery.fn.visible = function() {
+    return this.css('visibility', 'visible');
+};
 
-(function($){
-    $.fn.closestStyle = function(attr, val){
-        var me = $(this);
-        me.parents().each(function(i){
-            var c = $(this).css(attr);
-            if (c != 'transparent') {
-                me.css(attr, c);
-                return false; // stop
-            }
-            return true; // strict compliance
-        });
-        return this;
-    };
-})(jQuery);
+jQuery.fn.invisible = function() {
+    return this.css('visibility', 'hidden');
+};
 
-
-/* ==========================================================================
-	viewportIsSmall
-   ========================================================================== */
-
-function viewportIsSmall() {
-	if ( jQuery(window).width() < 640 )
-		return true;
-	else
-		return false;
-}
+jQuery.fn.visibilityToggle = function() {
+    return this.css('visibility', function(i, visibility) {
+        return (visibility == 'visible') ? 'hidden' : 'visible';
+    });
+};

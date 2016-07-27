@@ -10,17 +10,20 @@
  */
 ?>
 
+		<?php if ( ! is_front_page() ) : ?>
+			</div><!-- #main-inner -->
+		<?php endif; ?>
 	</main><!-- #main -->
-
-    <footer id="colophon">
-        <?php get_sidebar( 'footer' ); ?>
-        <div class="site-info">
-			<p>
-				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '| '; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse Designs</a>
-            </p>
-        </div>
-    </footer>
-</div><!-- #page -->
+		<footer id="colophon">
+			<div id="footer-widget-area">
+				<?php get_sidebar( 'footer' ); ?>
+			</div>
+			<div id="footer-hheart-logo">
+				<?php $updir = wp_upload_dir(); ?>
+				<a href="//hospiceheart.org"><img src="<?php echo $updir['baseurl']; ?>/2016/03/Community-Hospice_vertical.png" alt="Community Hospice"></a>
+			</div>
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
 
 <?php wp_footer(); ?>
 </body>

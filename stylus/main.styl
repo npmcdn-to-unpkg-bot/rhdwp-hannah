@@ -1,11 +1,11 @@
 @require "partials/_global.styl"
 @require "partials/_wp-core.styl"
-@require "partials/_defaults.styl"
 @require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
-@require "partials/_metabar.styl"
+@require "partials/_defaults.styl"
 @require "partials/_hamburger.styl"
-@require "partials/_ghost-button.styl"
+@require "partials/_ghost-buttons.styl"
+@require "partials/_plugins.styl"
 
 
 /* ==========================================================================
@@ -13,20 +13,13 @@
    ========================================================================== */
 
 html
-body
-#page
-#main
-	min-height 100%
-
-
-html
-	text-shadow 0 0 1px transparent
 	width 100%
+	height auto
+	text-shadow 0 0 1px transparent
 	font-size 16px
 	margin 0
-	font-family $ff_body
-	font-weight 300
-	color $c_text
+	color $gray
+	font-family $ff-body
 
 
 body
@@ -40,9 +33,11 @@ body
 
 a
 	outline 0 !important
-	transition color 0.25s ease
-	color $c_ter
-	text-decoration none
+
+	&:link
+	&:visited
+		text-decoration none
+		color $sky
 
 	&:hover
 	&:active
@@ -51,214 +46,325 @@ a
 
 input
 textarea
-	background-color $c_bg
-	border 2px solid $c_sec
+	background-color white
+	border 2px solid $sky
 	box-sizing border-box
 	padding 0.5em
-	font-family $ff_body
-	-placeholder-props( $ff_body, gray )
+	font-family $ff-body
+	-placeholder-props( $ff-body, gray )
 	outline 0 !important
 	transition all 0.25s
 
 	&:focus
-		border-color $off_white
+		border-color $mag
+
+
+hr
+	width 85%
+	height 4px !important
+	margin 2em auto !important
+	background-color $navy
 
 
 input[type="submit"]
 	cursor pointer
-	font-family $ff_body
+	font-family $ff-body
 	transition all 0.25s
 
 	&:hover
 		background-color gray
 
 
-#page
-	margin 0
+.cheddar
+	-ff-headline()
 
 
-#navbar
+#masthead
 	width 100%
-	height $navHt
-	display block
-	position fixed
-	top 0
-	left 0
-	background $c_header
-	color $c_text_lt
-	z-index 999
-
-	.navbar-inner
-		height @height
-		margin 0
-
-	.nav-dropdown
-		background $c_bg
-		position absolute
-		top $navHt
-		left 0
-		display none
-
-		.site-title
-			margin-top 1em
-			display block
-
-	.navbar-search
-		width 65%
-		height 75%
-		-vcenter()
-		right 3em
-		z-index 0
-
-		&.is-active
-			z-index 999
-
-		.search-form
-		div
-		input
-			height 100%
-
-		input
-			background-color transparent
-			border none
-
-		.search-form
-			.search-field
-				width 0
-				-vcenter()
-				font-size 1em
-				background-color white
-				right -0.35em
-				-ff-subtitle()
-				letter-spacing 0.5px
-				padding 0
-				transition 0.5s all ease
-
-				&.is-active
-					width 130%
-					border-color $c_ter
-					padding 0.5em 2.3em 0.5em 0.5em
-
-			.search-submit
-				width 1.5rem
-				right 0
-				-vcenter()
-				z-index 999
-				background url('../img/search.png') no-repeat center
-				background-size 90% auto
-				transition 0.5s all ease
-
-		.close-search
-			-vcenter()
-			right 1.7em
-			font-weight 300
-			color $c_text_lt
-			font-size 1.1em
-			display none
-			text-decoration none
-
-			&:hover
-			&:active
-				text-decoration @text-decoration
-
-
-	@media screen and (min-width 40rem)
-		.navbar-search
-			width 36.5%
-			right 0
+	height auto
+	position relative
+	background white
+	border-bottom 4px solid $navy
+	-clearfix()
 
 
 #site-title
-	-wrapper(0, 0, 96%)
-	text-align center
+	width 60%
+	margin 1em 0
+	display inline-block
+	float left
+	position relative
+	left 1em
+	max-width 18rem
 	display block
+	transition left 0.25s
+	transition width 0.25s
+	z-index 1
 
-
-.site-title
-	text-align center
-
-
-.site-title-link
-	-wrapper($navHt + ($navHt/2), 0, 85%, 30rem)
-	display block
-	line-height 1.2
+	object
+		z-index -1
+		pointer-events none
 
 
 #site-navigation-container
-	width 100vw
+	width 100%
 	text-align center
-	padding-bottom 1rem
-	z-index 999
-	box-shadow 3px 3px 7px -4px $c_text
+	display none
 
 	#site-navigation
 		list-style none
 		padding-left 0
-		margin 0.75em 0
+		margin 0
+		-flexbox()
 
 		.menu-item
-			display block
-			font-size 1.1em
-			line-height 1.8
+			-flexitem()
+			text-transform uppercase
+			font-weight 700
+			position relative
 
 			a
-				-ff-title()
-				text-transform uppercase
+				color $navy
+
+				&:hover
+				&:active
+					color $sky
+
+			.ghost-button
+				a
+					background-color $sky
+					color white
+					transition all 0.25s
+					border-color $navy
+
+					&:hover
+					&:active
+						background-color $navy
+
+			.sub-menu
+				width 14em
+				position absolute
+				left -0.5em
+				background-color rgba(255,255,255,0.95)
+				padding-top 0.3em
+				padding-left 0
+				line-height 1.7
+				display none
+				z-index 9999
+
+				.menu-item
+					width 100%
+					height 100%
+					margin 0
+					padding 0.25em 0
+					text-align left
+					transition all 0.25s
+					font-size 1em
+
+					a
+						width 100%
+						height 100%
+						display block
+						padding 0.25em 0.25em 0.25em 0.5em
+
+						&:hover
+						&:active
+							color inherit
+
+					&:hover
+						background-color $sky
+						color $navy
+
+
+
+.sb-slidebar
+	background $navy !important
+
+	#site-navigation-sb-container
+		#site-navigation-sb
+			list-style none
+			font-size 1.4em
+			font-weight 700
+			position relative
+			margin 2em auto
+			line-height 1.4
+
+			a
+				color white
+
+				&:hover
+				&:active
+					color $sky
 
 
 .site-navigation
 	li
 		a
-			color $c_text
+			color $sky
 			text-decoration none
 			transition color 0.25s
-			text-transform uppercase
-			font-weight 300
 
 			&:hover
 			&:active
-				color $c_ter
+				color $mag
+
+		.sub-menu
+			margin-top 0
 
 
 #hamburger
-	right 1em
-	-vcenter()
+	position absolute
+	top 50%
+	right 1rem
+	-transform(translateY(-50%))
+	background transparent
+
+	&.c-hamburger
+		span
+			background-color $navy
+
+			&:before
+			&:after
+				background-color (@background-color)
+
+		&.is-active
+			span
+				background-color transparent
+
+
+#page
+	background-color lighten($off-white,7)
 
 
 #main
-	-wrapper()
-	padding 2em 0
 	box-sizing border-box
+	background white
+
+	&.rhd-color-block-area
+		width 100%
+
+		#primary
+			.entry-content
+				p
+					&:first-child
+					&:last-child
+						margin 0
+
+	&.wrap
+		width 100%
+
+		#main-inner
+			-wrapper(2em, 2em, 85%, 80rem)
+			padding 0
 
 
 #primary
 #secondary
 	width 100%
-	margin-top 1em
 	position relative
 	box-sizing border-box
 
 
+#secondary
+	margin-bottom 2em
+
+
+#content
+	article
+		-wrapper(0, 0, 100%, 80rem)
+		background white
+
+
 #colophon
 	width 100%
+	height auto
+	padding 0.5rem
+	background-color $navy
+	color white
 	position relative
-	background $c_sec
 
-	.site-info
-		-wrapper(2em, 0, 75%)
-		text-align center
+	a
+		color $sky
 
-		a
-			color $c_text
+		&:hover
+		&:active
+			text-decoration underline
 
-			&:hover
-			&:active
-				color $c_ter
-				text-decoration none
+	#footer-widget-area
+		width 100%
+
+		.textwidget
+			text-align center
+
+		.search-form
+			-clearfix()
+			position relative
+
+			input
+				float left
+				padding 0.375rem
+				border none
+				font-family $ff-body
+				font-size 1em
+
+			.search-field
+				width 75%
+				transition background-color 0.25s ease
+				background-color white
+				border-top-right-radius 0
+				border-bottom-right-radius 0
+
+				&:focus
+					background-color $cream
+					outline none
+
+			.search-submit
+				width 25%
+				background-color $sky
+				border-color (@background-color)
+				transition all 0.25s ease
+				position absolute
+				top 0
+				right 0
+				z-index 999
+				border-top-left-radius 0
+				border-bottom-left-radius 0
+
+				&:hover
+				&:active
+					background-color $sky
+					border-color (@background-color)
+					color $navy
+
+		.rhd_social_icons
+			text-align center
+			margin 1em auto
+
+			a
+				width 100%
+				height 100%
+				display block
+				transition background 0.25s
+
+				&:hover
+				&:active
+					background white
+
+	#footer-hheart-logo
+		width 100%
+		height 19em
+		margin 0 auto
+		background white
+		position relative
 
 		img
-			width 100%
-			height auto
+			width auto
+			max-width 100%
+			height 95%
+			position absolute
+			top 50%
+			left 50%
+			-transform(translate(-50%, -50%))
 
 
 /* ==========================================================================
@@ -267,32 +373,28 @@ input[type="submit"]
 
 .entry-title
 .page-title
-	margin-top 0
 	line-height 1
+	margin-top 0
+	color $navy
 
 
 .page-title
-.archive-title
-	-ff-headline()
 	text-align center
-	font-size 2em
-	margin-bottom 1rem
-
-
-.entry-title
-	-ff-title()
+	font-weight 800
+	font-size 1.8em
 
 
 .entry-summary
 	p
-		margin 0
+		margin-bottom 0
 
 
 .entry-content
 	width 100%
+	-clearfix()
 
 	p
-		margin 0.5em auto
+		margin 1em auto
 		text-indent 0
 
 		&[style*="text-align: center"]
@@ -315,15 +417,19 @@ input[type="submit"]
 	ul
 		padding-left 1em
 
-
 	img
 	iframe
-		max-width 100%
+		-wrapper(1em, 1em, 95%)
 
 	img
 		height auto
 		display block
-		-wrapper(1em, 1em, 95%)
+
+		&.mobile-hide
+			-invisible()
+
+		&.bordered
+			border 3px solid $navy
 
 		&.alignleft
 		&.alignright
@@ -335,48 +441,106 @@ input[type="submit"]
 
 
 .entry-meta
+	margin 1em 0 0
+
 	p
 		margin 0
+		display inline-block
+		padding 0.5em 0
+
+	a
+		color $navy
+
+	.comments-popup
+		font-size 1.1em
+		font-weight 700
+		display inline-block
+		padding 1em
+		text-align center
+
+	.post-meta
+		list-style none
+		margin 0
+		padding 0 1em 1em 1em
+		font-size 1em
+		position relative
+
+		.post-meta-item
+			width 100%
+			margin 0.5em 0
+
+			.post-meta-item-title
+				font-weight 700
+				font-size 1.1em
+
+
+#posts-feed
+	.post
+		margin 1em auto
+
+		&:first-of-type
+			margin-top 0
+
+		&:last-of-type
+			margin-bottom 0
+
+		.post-thumbnail
+			width 100%
+			margin-bottom 0.5em
+
+			img
+				width 100%
 
 
 .blog-area
-	article
-		-clearfix()
-		margin 1em auto
+#posts-feed
+	.post
+		.post-inner
+			-clearfix()
 
-		&:first-child
-			margin-top 0
+			.post-content
+				padding 1em
 
 		.entry-header
+			margin 0
 			text-align center
-			margin-bottom 1em
-
-			a
-				color inherit
-
-				&:hover
-				&:active
-					color $c_ter
-					text-decoration none
 
 			.entry-title
 				margin 0 0 0.25rem 0
 
 			.entry-details
 				margin 0
-				font-size 0.9em
-				-ff-subtitle()
+				font-size 0.8em
 
 				.sep
-					font-size 1.1em
+					font-size 0.8em
 
-		.entry-thumbnail
-			width 100%
-			height auto
 
-			img
-				width 100%
-				height auto
+.entry-content
+	.gallery-item
+		.gallery-caption
+			font-weight 700
+			color $navy
+
+
+.full-width-header
+	width 100%
+
+	> img
+		width 100%
+		height auto
+		border-bottom 3px solid $navy
+
+	.soliloquy-container
+		border-bottom 4px solid $navy
+
+
+.page-featured-image
+	width 100%
+	height auto
+
+	img
+		-wrapper(0, 0, auto, 100%)
 
 
 .pagination
@@ -385,70 +549,164 @@ input[type="submit"]
 	font-size 1.1em
 	-clearfix()
 
-	.pag-link
-	.pag-load-more
-		-ghost-button-container()
-
-		a
-			-ghost-button()
+	a
+		@extends .ghost-button a
 
 	.pag-next
+	[rel="prev"]
 		float left
 
 	.pag-prev
+	[rel="next"]
 		float right
-
-	.pag-load-more
-		display block
-		margin 0 auto
 
 
 /* ==========================================================================
-	Post Grids / Subcategory Grids
+	Color Block Content
    ========================================================================== */
 
-.post-grid
-	-flexbox()
+#main
+	&.rhd-color-block-area
+		#primary
+			.rhd-color-block
+				width 100%
+				padding 3em 0
 
-	.post-grid-item
-		width 48%
-		-flexitem()
-		vertical-align top
-		margin 0
+				&:first-child
+					padding-bottom 4em
+					padding-top 0
 
-		.entry-title
-			font-size 1em
-			line-height 1.2
-			text-align center
+				&.rhd-color-block-blue
+					background $navy
+					color white
 
+				&.rhd-color-block-sky
+					background $skylight
+					border-top 3px solid $navy
+					border-bottom 3px solid $navy
+					color $navy
+
+				&.rhd-color-block-white
+					background white
+
+				.rhd-color-block-content
+					-wrapper()
+
+
+.rhd-color-block
+	&.rhd-color-block-blue
+		.ghost-button
 			a
-				color inherit
-				text-decoration none
+				color white
+				border-color white
 
 				&:hover
 				&:active
-					color $c_sec
+					background-color white
+					color $navy
 
-		.entry-details
-			font-size 0.8em
-
-
-.subcat-grid-container
-	margin-bottom 1em
-	padding-bottom 1em
-	border-bottom 2px solid $c_ter
-
-	&:last-child
-		border-bottom none
-
-	.subcat-title
-		padding-bottom 0.25em
-		border-bottom 1px solid $c_sec_lt
+	.ghost-button
+		a
+			background-color transparent
 
 
-.subcat-more
-	.ghost-button-container
-		margin-top 0
+/* ==========================================================================
+	Front / About Page
+   ========================================================================== */
+
+.front-page
+.page-id-25
+	#main
+		&.rhd-color-block-area
+			#primary
+				.rhd-color-block
+					&:first-child
+						padding-top 1em
+
+	#rhd-color-block-intro
+		text-align center
+
+
+.front-page
+	#rhd-color-block-mission
+		h3
+			margin-bottom 0.5rem
+
+		p
+			margin 0.25em 0
+
+	#rhd-color-block-community-grid
+		h3
+			-ff-headline()
+			font-size 4em
+			margin-top 0
+			margin-bottom 0.5em
+			color $navy
+
+
+.page-id-25
+	#rhd-color-block-trust
+		.we-are
+			-ff-headline()
+			font-size 4em
+			margin 1rem 0
+			text-align center
+			display block
+
+		.trust-spell
+			font-size 0.9em
+
+			ul
+				-wrapper(0, 0, 80%)
+				list-style none
+				padding-left 0
+
+				li
+					line-height 1.2
+					margin 0.25em 0
+					text-indent -1.15em
+					padding-left 1em
+
+					&::first-letter
+						font-size 1.75em
+						font-weight 700
+						padding-right 3px
+
+	#rhd-color-block-answer-the-call
+		font-size 3.5em
+		line-height 1.1
+		-ff-headline()
+		text-align center
+		padding 2rem 0 !important
+
+		h3
+			margin 0
+			font-weight normal !important
+
+
+/* ==========================================================================
+	About Staff Pages
+   ========================================================================== */
+
+.page-id-85
+.page-id-75
+.page-id-77
+	.gallery
+		.gallery-item
+			.gallery-caption
+				font-size 0.8em
+				padding-top 0
+
+			img
+				margin-bottom 0.5em
+
+.mobile
+	&.page-id-85
+	&.page-id-75
+	&.page-id-77
+		.gallery
+			.gallery-item
+				max-width 50%
 
 
 /* ==========================================================================
@@ -458,13 +716,13 @@ input[type="submit"]
 #comments
 	margin 2em auto
 
-	.comment-list
+	.commentlist
 		list-style none
 		padding-left 0
 
 		ul
 		ol
-			@extends #comments .comment-list
+			@extends #comments .commentlist
 
 		.children
 			padding 0 1.5em
@@ -474,10 +732,10 @@ input[type="submit"]
 				padding-bottom 1.5em
 
 	.even
-		background $off_white
+		background $off-white
 
 	.odd
-		background $near_white
+		background white
 
 	.comment-body
 		padding 1em
@@ -494,9 +752,6 @@ input[type="submit"]
 		p
 			margin-bottom 0.75rem
 
-		label
-			display block
-
 		input
 		textarea
 			width 100%
@@ -509,8 +764,6 @@ input[type="submit"]
 			width auto
 			padding-left 0.8em
 			cursor pointer
-			border-width 2px
-			-ghost-button()
 
 		.comment-subscription-form
 			margin initial
@@ -529,20 +782,105 @@ input[type="submit"]
 		margin-bottom 0
 
 	.widget-title
-		@extends .entry-title
+		margin 0 0 0.25em 0
 		text-align center
+		font-size 1.3em
+		font-weight 800
+
+
+// MailChimp signup link
+#text-3
+	padding 0.5em
+	border 3px solid $navy
+
+	.ghost-button
+		margin-bottom 0.5em
+
+
+/* ==========================================================================
+	Modern Tribe Events Calendar
+   ========================================================================== */
+
+#tribe-events-bar
+	margin-bottom 0
+
+
+.tribe-events-divider
+	display none
+
+
+.tribe-events-back
+	text-align center
+	font-size 0.7em
+	float left
+
+
+	a
+		@extends .ghost-button a
+
+
+.tribe-events-schedule
+	text-align center
+
+	> h2
+		margin-bottom 0.25em
+
+
+.single-tribe_events
+	.tribe-events-event-image
+		-invisible()
+
+
+.tribe-events-list
+	.tribe-events-loop
+		h2.tribe-events-list-event-title
+		.tribe-events-event-meta
+			text-align center
+			display block
+
+			.recurringinfo
+				display inline
+
+		.tribe-events-event-image
+			width 100%
+
+			img
+				width auto
+				margin 0 auto 0.5em
+				display block
+
+			+ .tribe-events-content
+				width 100%
+				float none
+
+		.tribe-events-list-event-description
+			text-align justify
+			line-height 1.2
+
+		.tribe-events-gmap
+			-invisible()
+
+
+.single-tribe_events
+	.tribe-events-single-event-title
+		@extends .page-title
+
+	.tribe-events-schedule
+		.tribe-events-cost
+			color white
+			line-height 1
+			font-size 1.4em
+			font-weight bold
+			text-transform uppercase
+			padding 0.25em 0.75em 0.3em
+			background $powder
 
 
 /* ==========================================================================
 	Extras
    ========================================================================== */
 
-#primary
-	-soliloquy()
-
-
 .ninja-forms-required-items
-.ninja-forms-req-symbol
 	-invisible()
 
 

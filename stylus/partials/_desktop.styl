@@ -1,86 +1,169 @@
-@media screen and (min-width 40rem)
-	.mobile-only
-		display none
+@media screen and (min-width 40em)
+	#masthead
+		height 6em
+		transition all 0.25s
+		z-index 9999
 
-	#navbar
-		height auto
-
-		.navbar-inner
-			-wrapper(0, 0, 90%)
+		#site-title
+			width 23%
 			height auto
-
-			.nav-dropdown
-				position relative
-				top 0
-				display block
-				background transparent
-				-clearfix()
-
-		.navbar-search
-			&.is-active
-				width 36.5%
-				right 0
-
-			.search-form
-				.search-submit
-					right -2.1em
-
-					&.is-active
-						right 0
+			margin 0
+			position absolute
+			top 50%
+			left 2%
+			-transform(translateY(-50%))
 
 	#site-navigation-container
-		width 45%
+		width 72%
 		display block
-		background transparent
-		position relative
-		box-shadow none
-		float left
-		padding-bottom 0
-		top 0.15em
+		margin-top 0
+		transition all 0.25s
+		position absolute
+		right 2%
+		top 63%
+		-transform(translateY(-50%))
 
-		#site-navigation
-			line-height 0
-			-flexbox()
-			margin 0
-			position relative
-
-			.menu-item
-				line-height 2
-				-flexitem()
-				font-size 1rem
+		.menu-item
+			font-size 0.8em
 
 	#hamburger
 		display none
 
 	#main
-		-clearfix()
+		-wrapper(0, 0, 100%, 80rem)
 
-	#primary
-		width 100%
-		float left
-		margin-right -($sidebarW)
+		&.rhd-color-block-area
 
-		&.full-width
-			float none
-			margin-right 0
-			
-			#content
-				margin-right 0
+		#main-inner
+			-clearfix()
+			padding 2em 0
 
-	#content
-		margin-right ($sidebarW + 2rem) // fluid #primary with added margin
+	#posts-feed
+		&.small-thumbnails
+			.post
+				-clearfix()
 
-	#secondary
-		width $sidebarW
-		float right
+				&.has-post-thumbnail
+					.post-content
+						width 63%
+						float right
 
-		.widget
-			width 100%
-			padding $boxpadDesk
+					.post-thumbnail
+						width 32%
+						max-width 300px
+						float left
+						border none
+						margin-bottom 0
 
-	.post-grid
-		.post-grid-item
-			width 23%
+	//#posts-feed
+	.post
+		border 2px solid $navy
+		border-radius 2px
+
+		.entry-header
+			background $sky_trans
+			padding 1em
+			margin 0
+
+			.entry-title
+				margin 0 0 0.25rem
+
+				a
+					color $navy
+					transition color 0.25s
+
+					&:hover
+					&:active
+						color $sky
+						text-decoration none
+
+	.entry-content
+		img
+		iframe
+			-unwrapper(initial)
+
+		img
+			&.mobile-hide
+				-invisible(false)
+
+			&.alignleft
+				margin-right 1em
+				float left
+
+			&.alignright
+				margin-left 1em
+				float right
+
+			&.aligncenter
+				margin 0 auto
+
+		a
+			img
+				@extends .entry-content img
+
+		.gallery-item
+			img
+				display block
+				margin 0 auto
+
+	.entry-meta
+		.entry-meta-links
+			background-color $sky_trans
+
+			.comments-popup
+				width 100%
+
+			.post-meta
+				margin 0
+				padding 0
+				position relative
+				-clearfix()
+				display table
+				background-color $sky_trans
+
+				.post-meta-item
+					width 50%
+					height 100%
+					display table-cell
+					padding 1em 0
+					vertical-align top
+					text-align center
+					transition all 0.5s ease
+
+					&:hover
+						background-color $sky_half
+
+					a
+						color inherit
+						transition color 0.5s ease
+
+					.post-meta-item-title
+						font-weight 700
+						font-size 1.1em
+
+	#colophon
+		#footer-widget-area
+			width 37%
+
+			#footer-widget-area-left
+				padding-left 1em
+
+			.textwidget
+				text-align left
+
+			.rhd_social_icons
+				text-align left
+
+		#footer-hheart-logo
+			width 300px
+			height 97%
+			position absolute
+			right 0.25rem
+			top 0.25rem
+
+			img
+				max-width 95%
+				height auto
 
 	#comments
 		#commentform
@@ -98,46 +181,180 @@
 				width auto
 				padding-left 0.8em
 
-	// Image Strip
-	#primary
+	// Color Block areas
+	.rhd-color-block-content
 		-clearfix()
+		position relative
 
-		article
-			&.strip-active
-				width 65%
-				float right
 
-		#image-strip
-			width 30%
+	// Front + About
+	.front-page
+	.page-id-25
+		.intro-text
+			width 60%
 			float left
-			margin-right 5%
+
+		.intro-image
+			width 30%
+			position absolute
+			right 0
+			top 50%
+			-transform(translateY(-50%))
 
 			img
-				width 100%
-				height auto
-				margin-bottom 2em
+				-wrapper(0, 0, 100%, 300px)
+
+	// Front Page
+	.front-page
+		#rhd-color-block-intro
+			padding 3em 0
+
+	// About
+	.page-id-25
+		#rhd-color-block-intro
+			padding 3em 0
+
+
+		#rhd-color-block-trust
+			position relative
+
+			.rhd-color-block-content
+				-clearfix()
+
+				.we-are
+					width 40%
+					position absolute
+					top 50%
+					left 25%
+					-transform(translate(-50%, -50%))
+
+				.trust-spell
+					width 59%
+					font-size 1em
+					float right
+
+					ul
+						li
+							&::first-letter
+								padding-right 0
+
+
+	// Contact
+	.page-id-31
+		.contact-info
+			width 45%
+			float left
+
+		.contact-form
+			width 45%
+			float right
+
+	// Events Calendar
+	.tribe-events-list
+		.tribe-events-loop
+			h2.tribe-events-list-event-title
+			.tribe-events-event-meta
+				text-align center
 				display block
 
-	.entry-content
-		iframe
-			max-width 100%
-			margin 0 auto
-			display block
+				.recurringinfo
+					bottom 3px
 
-		img
-			-unwrapper(auto)
+			.tribe-events-event-image
+				width auto
 
-			&.alignleft
-				margin-right 1em
-				float left
+				img
+					margin 0
 
-			&.alignright
-				margin-left 1em
-				float right
+	.tribe-events-schedule
+		margin-top 0
 
-			&.aligncenter
-				margin 0 auto
 
-		a
-			img
-				@extends .entry-content img
+@media screen and (min-width 60em)
+	#masthead
+		height 8em
+
+		#site-title
+			width 20%
+			left 4%
+
+	#site-navigation-container
+		width 60%
+		right 4%
+		top 62%
+
+		.menu-item
+			font-size 0.9em
+
+
+// Fixed-width 340px sidebar
+@media screen and (min-width 40em)
+	#main
+	#donation-form-area
+		-clearfix()
+
+	#primary
+		float left
+
+		&.full-width
+			width 100%
+			float none
+
+	#secondary
+		width 340px
+		float right
+
+		.widget
+			width 300px
+			margin-left auto
+			margin-right auto
+
+
+@media screen and (min-width 50em)
+	#donation-form-aside
+		width 40%
+		float left
+
+	#donation-form-container
+		width 58%
+		float right
+		margin-top 0
+
+	#donation-form
+		#donation-custom-amount-container
+			#donation-custom-amount
+				width 94%
+
+	#donation-allocations-table
+		.donation-allocation-amount
+			font-size 2em
+
+
+@media screen and (min-width 58em)
+	#primary
+		width 56%
+
+	#donation-allocations-table
+		.donation-allocation-amount
+			font-size 2.5em
+
+
+@media screen and (min-width 62em)
+	#primary
+		width 58%
+
+
+@media screen and (min-width 64em)
+	#primary
+		width 60%
+
+
+@media screen and (min-width 66em)
+	#primary
+		width 63%
+
+
+@media screen and (max-width 34em)
+	#colophon
+		#footer-hheart-logo
+			height 13em

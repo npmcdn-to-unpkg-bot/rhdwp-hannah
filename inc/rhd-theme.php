@@ -4,120 +4,140 @@
  *
  * ROUNDHOUSE DESIGNS
  *
- * Add all theme customization functions here.
- *
  * @package WordPress
- * @subpackage rhdwp-hannah
+ * @subpackage rhd
  **/
 
-
- /**
- * rhd_body_class function.
+/**
+ * rhd_post_meta_links function.
  *
  * @access public
  * @return void
  */
-function rhd_body_class( $body_classes ) {
-	// Basic front page & device detection
-	$body_classes[] = ( is_front_page() ) ? 'front-page' : '';
-	$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
-	$body_classes[] = ( wp_is_mobile() && ! rhd_is_mobile() ) ? 'tablet' : '';
-	$body_classes[] = ( ! wp_is_mobile() && ! rhd_is_mobile() ) ? 'desktop' : '';
-
-	session_start();
-
-	if ( is_home() || is_single() || is_archive() || is_search() ) {
-		$body_classes[] = 'blog-area';
-
-		$_SESSION['blog_area'] = true;
-	} else {
-		$_SESSION['blog_area'] = false;
-	}
-
-	session_write_close();
-
-	return $body_classes;
+function rhd_post_meta_links()
+{
+	?>
+	<ul class="post-meta">
+		<li class="post-meta-item post-cats">
+			<span class="post-meta-item-title">Categories</span><br />
+			<?php echo get_the_term_list( get_the_ID(), 'category', '', '<br />', null ); ?>
+		</li>
+		<li class="post-meta-item post-tags">
+			<span class="post-meta-item-title">Tags</span><br />
+			<?php the_tags( '', '<br />' ); ?>
+		</li>
+	</ul>
+	<?php
 }
-add_filter( 'body_class', 'rhd_body_class' );
 
 
 /**
- * rhd_custom_excerpt_length function.
+ * rhd_color_block_shortcode function.
  *
  * @access public
- * @param mixed $length
+ * @param mixed $atts
+ * @param mixed $content (default: null)
  * @return void
  */
-function rhd_custom_excerpt_length( $length) {
-	return 40;
+function rhd_color_block_shortcode( $atts, $content = null )
+{
+	if ( $content )
+		$content = apply_filters( 'the_content', $content );
+
+	$a = shortcode_atts( array(
+		'color' => 'white',
+		'id' => ''
+	), $atts );
+
+	extract($a);
+
+	$id = $id ? "id='rhd-color-block-{$id}'" : '';
+
+	$output = "<section {$id} class='rhd-color-block rhd-color-block-{$color}'><div class='rhd-color-block-content'>{$content}</div></section>";
+
+	return $output;
 }
-add_filter( 'excerpt_length', 'rhd_custom_excerpt_length' );
+add_shortcode( 'color-block', 'rhd_color_block_shortcode' );
 
 
 /**
- * rhd_custom_excerpt_read_more function.
+ * rhd_wpautop_toggle function.
+ *
+ * Disable wpautop for posts using color-block shortcode.
  *
  * @access public
- * @param mixed $more
+ * @param mixed $content
  * @return void
  */
-function rhd_custom_excerpt_read_more( $more ) {
+function rhd_wpautop_toggle( $content )
+{
+	if ( has_shortcode( $content, 'color-block' ) )
+		remove_filter( 'the_content', 'wpautop' );
+
+	return $content;
+}
+//add_filter( 'the_content', 'rhd_wpautop_toggle', 0 );
+
+
+/**
+ * rhd_ghost_button_shortcode function.
+ *
+ * @access public
+ * @param mixed $atts
+ * @param mixed $content (default: null)
+ * @return void
+ */
+function rhd_ghost_button_shortcode( $atts, $content = null )
+{
+	$a = shortcode_atts( array(
+		'url' => '',
+		'target' => ''
+	), $atts );
+
+	$url = esc_url( $url );
+
+	extract($a);
+
+	if ( $target != '' )
+		$target = "target={$target}";
+	else
+		$target = '';
+
+	$output = "<div class='ghost-button'><a href='{$url}' {$target}>{$content}</a></div>";
+
+	return $output;
+}
+add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );
+
+
+
+/**
+ * rhd_full_header function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_full_header()
+{
 	global $post;
 
-	return rhd_ghost_button( 'Read More', get_permalink( $post ), null, 'center', true, false );
-}
-add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
-
-
-/**
- * rhd_subcat_grid function.
- *
- * @access public
- * @param mixed $parent_slug
- * @param bool $uncat (default: false)
- * @return void
- */
-function rhd_subcat_grid( $parent_slug, $uncat = false ) {
-	$args = array(
-		'post_type'			=> 'post',
-		'posts_per_page'	=> 8,
-	);
-
-	$parent = get_category_by_slug( $parent_slug );
-	$parent_id = $parent->term_id;
-	$cats = get_terms( 'category', "child_of=$parent_id" );
-
-	$q = array(); // Array of queries
-	$i = 0;
-	foreach ( $cats as $cat ) {
-		$cat_slug = $cat->slug;
-
-		// Exclude uncategorized (enabled by default)
-		if ( $uncat === false && $cat_slug == 'uncategorized' )
-			continue;
-
-		$args['category_name'] = $cat_slug;
-		$cat = get_category_by_slug( $cat_slug );
-		$cat_id = $cat->term_id;
-		$cat_name = $cat->name;
-		$cat_url = get_category_link( $cat_id );
-
-		$query = new WP_Query( $args );
+	if ( is_front_page() ) {
 		?>
-		<div class="<?php echo $parent_slug; ?>-grid-container <?php echo $cat-slug; ?>-subcat-container subcat-grid-container">
-			<h2 class="subcat-title"><a href="<?php echo $cat_url; ?>" rel="bookmark"><?php echo $cat_name; ?></a></h2>
-			<?php if ( $query->have_posts() ) : ?>
-				<div id="<?php echo $cat_slug; ?>-grid" class="post-grid">
-					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-						<?php get_template_part( 'template-parts/content', 'grid' ); ?>
-					<?php endwhile; ?>
-				</div>
-				<div class="subcat-more">
-					<?php rhd_ghost_button( 'See More &rarr;', $cat_url, '', 'center', false, true ); ?>
-				</div>
-			<?php endif; ?>
-			<?php unset( $q ); ?>
-		</div>
+		<section id="front-page-slideshow" class="full-width-header">
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '130' ); } ?>
+		</section>
+		<?php
+	} elseif ( is_page( 'about' ) ) {
+		?>
+		<section id="about-page-slideshow" class="full-width-header">
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '132' ); } ?>
+		</section>
+		<?php
+	} elseif ( is_page_template( 'template-header-image.php' ) ) {
+		?>
+		<section id="page-full-header" class="full-width-header">
+			<?php the_post_thumbnail( 'full' ); ?>
+		</section>
 		<?php
 	}
 }

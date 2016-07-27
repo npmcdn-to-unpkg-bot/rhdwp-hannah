@@ -1,42 +1,30 @@
 /* ==========================================================================
-	Global Variables
+	Global Stylus Variables
    ========================================================================== */
 
 // Variables
-$c_text = #2b2b2b
-$c_sec = #d7ede5
-$c_ter = #f2b485
+$navy = #1e2171
+$sky = #60adf7
+$skylight = lighten($sky, 30)
+$powder = #a2deff
+$mag = #da0962
+$pink = #ed61af
+$cream = #fff3e2
+$off-white = #E6E6E6
+$gray = #2b2b2b
 
-$c_text_lt = lighten($c_text, 35%)
-$c_sec_lt = lighten($c_sec, 35%)
-$c_ter_lt = lighten($c_ter, 35%)
-$off_white = darken(white, 4%)
-$near_white = darken(white, 2%)
+$sky_half = rgba(80,144,204,0.35)
+$mag_half = rgba(218,9,98,0.35)
+$navy_half = rgba(30,33,113,0.35)
 
-$c_bg = white
-$c_header = $c_ter_lt
+$sky_trans = rgba(80,144,204,0.15)
+$mag_trans = rgba(218,9,98,0.15)
+$navy_trans = rgba(30,33,113,0.15)
 
-$ff_body = 'Open Sans', sans-serif
-$ff_headline = 'Dancing Script', cursive
+$ff-body = 'Open Sans', sans-serif
+$ff-headline = 'Cheddar Jack', cursive
 
-$navHt = 3em
-$navHtDesk = 2em
-$sidebarW = 20rem
-
-$updir = '../../../uploads'
-
--ff-title()
-	font-family $ff_body
-	font-weight 700
-
--ff-headline()
-	font-family $ff_headline
-	font-weight normal
-
-
-/* ==========================================================================
-	Functions
-   ========================================================================== */
+// Functions
 
 -unselectable()
 	-webkit-user-select: none; /* Chrome/Safari */
@@ -46,13 +34,13 @@ $updir = '../../../uploads'
 	user-select: none;
 
 
--invisible( active = true, pos = initial )
-	if active == true
+-invisible( $invis = true )
+	if $invis == true
 		visibility hidden
 		position absolute
 	else
 		visibility visible
-		position pos
+		position inherit
 
 
 -flexbox()
@@ -67,16 +55,24 @@ $updir = '../../../uploads'
 	display inline-block
 
 
--wrapper( $topMargin = 0, $bottomMargin = 0, $customWidth = 85%, $customMax = 80rem )
-	width $customWidth
-	max-width $customMax
+-wrapper( $topMargin = 0, $bottomMargin = 0, $width = 85%, $maxWidth = 75rem )
+	if $topMargin == false
+		$topMargin = 0
+	if $bottomMargin == false
+		$bottomMargin = 0
+
+	width $width
+	max-width $maxWidth
 	position relative
 	margin $topMargin auto $bottomMargin auto
 
 
--unwrapper( $w = 100% )
-	width $w
-	max-width none
+-unwrapper( $w = false )
+	if $w != false
+		width $w
+	else
+		width 100%
+	max-width 100%
 	margin initial
 
 
@@ -104,64 +100,39 @@ $updir = '../../../uploads'
 	transform $n
 
 
--vcenter( $pos = absolute, $offset = 0 )
-	position $pos
-	top 50% + $offset
-	-transform(translateY(-50%))
-
-
--hcenter( $pos = absolute, $offset = 0 )
-	position $pos
-	right 50% + $offset
-	-transform(translateX(50%))
-
-
--vhcenter( $pos = absolute, $hoffset = 0, $voffset = 0 )
-	position $pos
-	top 50% + $hoffset
-	right 50% + $voffset
-	-transform(translate(50%, -50%))
-
-
--placeholder-props( $famVal, $color = $c_text, $opacity = 1, $weight = normal, $text_transform = normal )
+-placeholder-props( $famVal, $color = null, $opacity = null, $size = 1em )
 	&::-webkit-input-placeholder
 		font-family $famVal
-		color $color
-		-opacity( $opacity )
-		font-weight $weight
-		text-transform $text_transform
+		font-size $size
+
+		if $color != null
+			color $color
+
+		if $opacity != null
+			-opacity( $opacity )
 
 	&:-moz-placeholder /* Firefox 18- */
 		font-family $famVal
+		font-size $size
 		color $color
-		-opacity( $opacity )
-		font-weight $weight
-		text-transform $text_transform
+		if $opacity != null
+			-opacity( $opacity )
 
 	&::-moz-placeholder  /* Firefox 19+ */
 		font-family $famVal
+		font-size $size
 		color $color
-		-opacity( $opacity )
-		font-weight $weight
-		text-transform $text_transform
+		if $opacity != null
+			-opacity( $opacity )
 
 	&:-ms-input-placeholder
 		font-family $famVal
+		font-size $size
 		color $color
-		opacity( $opacity )
-		font-weight $weight
-		text-transform $text_transform
+		if $opacity != null
+			opacity( $opacity )
 
 
--soliloquy( $maxHt = 500px, $id = null )
-	if $id == null
-		$elem = '.soliloquy-outer-container'
-	else
-		$base = "#soliloquy-container-"
-		$elem = $base + $id
-
-	{$elem}
-		.soliloquy-slider
-			img
-				width auto
-				max-height $maxHt
+-ff-headline()
+	font-family $ff-headline
+	font-weight 300 !important
