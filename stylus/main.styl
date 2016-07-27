@@ -264,6 +264,11 @@ input[type="submit"]
 				line-height 2
 				-flexbox()
 
+				&.youtube-icon
+					svg
+						position relative
+						right 0.5em
+
 
 #main
 	-wrapper($navHt, 2em)
@@ -573,6 +578,10 @@ input[type="submit"]
 
 			.entry-title
 				margin 0.25em 0
+
+			&.room-reveal
+				.entry-title
+					margin-bottom 1.5em
 
 		.entry-thumbnail
 			margin-top 0.5em

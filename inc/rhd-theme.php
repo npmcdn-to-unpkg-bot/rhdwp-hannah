@@ -100,33 +100,44 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 	$cats = get_terms( 'category', "child_of=$parent_id" );
 
 	$q = array(); // Array of queries
-	$i = 0;
 	foreach ( $cats as $cat ) {
-		$cat_slug = $cat->slug;
-
 		// Exclude uncategorized (enabled by default)
-		if ( $uncat === false && $cat_slug == 'uncategorized' )
+		if ( $uncat === false && $cat->slug == 'uncategorized' )
 			continue;
 
-		$args['category_name'] = $cat_slug;
-		$cat = get_category_by_slug( $cat_slug );
-		$cat_id = $cat->term_id;
-		$cat_name = $cat->name;
-		$cat_url = get_category_link( $cat_id );
-
+		$args['category_name'] = $cat->slug;
+		$cat = get_category_by_slug( $cat->slug );
 		$query = new WP_Query( $args );
-		?>
-		<div class="<?php echo $parent_slug; ?>-grid-container <?php echo $cat-slug; ?>-subcat-container subcat-grid-container">
-			<h2 class="subcat-title"><a href="<?php echo $cat_url; ?>" rel="bookmark"><?php echo $cat_name; ?></a></h2>
 
-			<?php rhd_post_grid( $query, '', "{$cat_slug}-grid", 'square', false ); ?>
-
-			<div class="subcat-more">
-				<?php rhd_ghost_button( 'See More &rarr;', $cat_url, '', 'center', false, true ); ?>
-			</div>
-		</div>
-		<?php
+		rhd_print_subcat_grid( $query, $cat, $parent_slug );
 	}
+}
+
+
+/**
+ * rhd_print_subcat_grid function.
+ *
+ * @access public
+ * @param mixed $query
+ * @param mixed $cat
+ * @param string $class (default: 'default')
+ * @param mixed $title (default: null)
+ * @return void
+ */
+function rhd_print_subcat_grid( $query, $cat, $class = 'default', $title = null ) {
+	$cat_url = get_category_link( $cat->term_id );
+	$title = $title ? $title : $cat->name;
+	?>
+	<div class="<?php echo $class; ?>-grid-container <?php echo $cat->slug; ?>-subcat-container subcat-grid-container">
+		<h2 class="subcat-title"><a href="<?php echo $cat_url; ?>" rel="bookmark"><?php echo $title; ?></a></h2>
+
+		<?php rhd_post_grid( $query, '', "{$cat->slug}-grid", 'square', false ); ?>
+
+		<div class="subcat-more">
+			<?php rhd_ghost_button( 'See More &rarr;', $cat_url, '', 'center', false, true ); ?>
+		</div>
+	</div>
+	<?php
 }
 
 

@@ -25,7 +25,7 @@ get_header(); ?>
 					'orderby' => 'menu_order'
 				);
 				$q = new WP_Query( $args );
-				rhd_post_grid( $q, 'room-reveals across-2', '', 'full', true );
+				rhd_post_grid( $q, 'room-reveals across-2', '', 'full-reveal', true );
 				?>
 
 			<?php endwhile; ?>

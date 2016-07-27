@@ -15,7 +15,7 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'single' ); ?>
+				<?php get_template_part( 'template-parts/content', 'single-reveal' ); ?>
 			<?php endwhile; ?>
 
 		<?php endif; // end have_posts() check ?>
