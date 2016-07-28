@@ -128,9 +128,11 @@ var $grid;
 
 
 	function rhdFeaturedHeight() {
-		var newHt = $(".featured-links").height();
-		$("#featured-content .soliloquy-item").imagesLoaded().done(function(){
-			$("#featured-content .soliloquy-viewport").height(newHt);
+		$(".featured-links").imagesLoaded().always(function(){
+			var newHt = $(".featured-links").height();
+			$("#featured-content .soliloquy-item").imagesLoaded().done(function(){
+				$("#featured-content .soliloquy-viewport").height(newHt);
+			});
 		});
 	}
 
