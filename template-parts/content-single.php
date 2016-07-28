@@ -27,7 +27,7 @@
 	<footer class="entry-meta">
 		<p>
 			<?php the_tags( 'Tags: ', ', ' ); ?><br />
-			Filed under: <?php the_category( ' ,' ); ?>
+			Filed under: <?php the_category( ', ' ); ?>
 		</p>
 		<p><?php edit_post_link( __( 'Edit Post', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
 	</footer><!-- .entry-meta -->

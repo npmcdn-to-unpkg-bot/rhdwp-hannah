@@ -12,10 +12,8 @@ function getPage( $elem ){
 }
 
 (function($){
-/*
 	if ( $(".post-grid").hasClass('packery') )
 		$grid = initPackery();
-*/
 
 	$(document).on('click', '.ajax-pagination .pagination a', function(e){
 
@@ -68,7 +66,7 @@ function getPage( $elem ){
 					$("#loading")
 						.fadeOut()
 						.remove();
-					
+
 					$grid.packery('reloadItems');
 					$grid.imagesLoaded().progress(function(){
 						$grid.packery('layout');

@@ -458,11 +458,13 @@ function rhd_archive_pagination( WP_Query $q = null ) {
 
 	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
 
-	if ( ! is_front_page() ) {
+// 	if ( ! is_front_page() ) {
 		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+/*
 	} else {
 		$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
 	}
+*/
 
 	$next = $paged + 1;
 	$prev = $paged - 1;
