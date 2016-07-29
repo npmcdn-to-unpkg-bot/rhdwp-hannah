@@ -17,7 +17,7 @@
 
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="entry-thumbnail">
-			<?php the_post_thumbnail( 'large' ); ?>
+			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'rhd' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_post_thumbnail( 'large' ); ?></a>
 		</div>
 	<?php endif; ?>
 

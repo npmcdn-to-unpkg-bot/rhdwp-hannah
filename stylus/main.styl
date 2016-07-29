@@ -327,7 +327,7 @@ input[type="submit"]
 
 
 .entry-title
-	-ff-title()
+	-ff-subtitle()
 	color $c_text_lt
 
 
@@ -433,13 +433,14 @@ input[type="submit"]
 					&:active
 						color $c_sec
 
+.single
+	.entry-meta
+		margin-top 1em
+		padding-top 0.5em
+		border-top 1px solid $c_ter_lt
 
-.entry-meta
-	margin-top 1em
-	padding-top 0.5em
-	border-top 1px solid $c_ter_lt
-	p
-		margin 0
+		p
+			margin 0
 
 
 .blog-area
@@ -467,7 +468,6 @@ input[type="submit"]
 
 				&.ff-courier
 					font-size 1.5em
-					font-weight bold
 
 
 			.entry-details
@@ -686,9 +686,15 @@ input[type="submit"]
 				letter-spacing -1px
 				font-size 2.2em
 				color $c_text
+				text-transform lowercase
 
 			.rhd-recent-posts
 				-wrapper(2em, 2em, 90%)
+
+				.recent-post-thumbnail
+					img
+						display block
+						margin 0 auto
 
 
 #front-page-featured-posts
@@ -760,11 +766,13 @@ input[type="submit"]
 
 .site-intro
 	.intro-hi
-		text-align center
+		text-align left
 		color $c_ter
 		font-size 6em
 		-ff-headline()
 		line-height 0.7
+		position relative
+		top 0.5rem
 
 	.intro-content
 		-wrapper()

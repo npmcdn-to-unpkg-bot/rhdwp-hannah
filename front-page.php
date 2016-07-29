@@ -21,7 +21,7 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php rhd_site_intro(); ?>
-					<?php echo do_shortcode( '[rhd-mailchimp title="subscribe and follow" button="Sign Up" fname=true]' ); ?>
+					<?php echo do_shortcode( '[rhd-mailchimp title="subscribe to my newsletter" button="Sign Up" fname=true]' ); ?>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</section>

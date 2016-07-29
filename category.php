@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-	<?php rhd_metabar( '', array('search'=>false)); ?>
+	<?php rhd_metabar( 'wide', $fields = array( 'cats' => true, 'archives' => true, 'search' => false ) ); ?>
 
 	<section id="primary" class="site-content full-width">
 
