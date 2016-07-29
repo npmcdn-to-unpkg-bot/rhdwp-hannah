@@ -184,10 +184,10 @@
 	.entry-content
 		img
 		iframe
-			-unwrapper(100%)
 			max-width 100%
 
 		img
+			-unwrapper(auto)
 			margin 0 auto
 
 			&.alignleft
@@ -197,6 +197,9 @@
 			&.alignright
 				margin-left 1em
 				float right
+
+		iframe
+			-unwrapper(100%)
 
 		a
 			img
