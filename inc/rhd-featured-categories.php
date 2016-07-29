@@ -13,24 +13,29 @@
  * rhd_featured_categories function.
  *
  * @access public
- * @param mixed $loc (default: 'default')
+ * @param string $loc (default: 'default')
+ * @param mixed $exclude (default: null)
  * @return void
  */
-function rhd_featured_categories( $loc = 'default' )
+function rhd_featured_categories( $loc = 'default', $exclude = null )
 {
+	$cats = array( 'occasions', 'techniques', 'styles' );
+
+	if ( in_array( $exclude, $cats ) ) {
+		$style = 'style="text-align: center;"';
+	}
 	?>
-	<ul class="featured-cats featured-cats-<?php echo $loc; ?>">
-		<?php
-		$cats = array( 'occasions', 'techniques', 'styles' );
-		?>
+	<ul class="featured-cats featured-cats-<?php echo $loc; ?>" <?php echo $style; ?>>
 		<?php foreach ( $cats as $cat_slug ) : ?>
+			<?php
+			$cat = get_category_by_slug( $cat_slug );
+			$cat_link = get_category_link( $cat->term_id );
+
+			if ( $cat_slug == $exclude )
+				continue;
+			?>
 
 			<li class="featured-cat category-<?php echo $cat_slug; ?>">
-				<?php
-				$cat = get_category_by_slug( $cat_slug );
-				$cat_link = get_category_link( $cat->term_id );
-				?>
-
 				<a href="<?php echo $cat_link; ?>">
 					<?php if ( function_exists( 'z_taxonomy_image' ) ) : ?>
 						<?php $src = z_taxonomy_image_url( $cat->term_id, 'square' ); ?>

@@ -67,6 +67,13 @@ if ( ! $is_main_cat )
 
 		</div><!-- #content -->
 
+		<?php $exclude = $is_main_cat ? $cat->slug : false; ?>
+
+		<section id="featured-categories">
+			<h2 class="section-title">looking for something else?</h2>
+			<?php rhd_featured_categories( 'category-page', $exclude ); ?>
+		</section>
+
 		<?php
 		if ( ! $is_main_cat ) {
 			rhd_archive_pagination();
