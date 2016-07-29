@@ -705,16 +705,20 @@ input[type="submit"]
 		margin-bottom 0 !important
 
 		.soliloquy-caption
-			-vcenter()
-			bottom 1em
+			-vhcenter()
+			bottom 2em
 
 
 #front-page-video
 	.soliloquy-container
 		.soliloquy-caption
+			-hcenter()
+
 			.soliloquy-caption-inside
 				text-align center
 				font-family $ff_courier !important
+				font-weight normal !important
+				font-size 1.2em !important
 
 
 #front-page-featured-posts
@@ -729,7 +733,6 @@ input[type="submit"]
 			height auto !important
 			min-width 20rem
 			padding 1em
-			-hcenter()
 			background $trans_white
 			border $c_ter_lt 0.5rem solid
 			color $c_text !important
