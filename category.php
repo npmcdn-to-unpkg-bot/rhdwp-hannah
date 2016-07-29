@@ -1,32 +1,34 @@
 <?php
 /**
- * The Archive template file.
+ * The Category template file.
  *
  * @package WordPress
  * @subpackage rhd
  */
 
 get_header();
-?>
 
-	<?php rhd_metabar( 'wide', $fields = array( 'cats' => true, 'archives' => true, 'search' => false ) ); ?>
+$cat = $wp_query->get_queried_object();
+$children = get_terms( $cat->taxonomy, array( 'parent' => $term->term_id, 'hide_empty' => false ) );
+?>
 
 	<section id="primary" class="site-content full-width">
 
 		<div id="content" role="main">
 
+			<h2 class="page-title archive-title"><?php single_cat_title(); ?></h2>
+
 			<?php if ( have_posts() ) : ?>
 
-				<h2 class="page-title archive-title"><?php single_cat_title(); ?></h2>
-
-				<div class="post-grid">
-
-					<?php while ( have_posts() ) : the_post(); ?>
-						<?php get_template_part( 'template-parts/content', 'grid' ); ?>
-					<?php endwhile; ?>
-
-				</div>
-
+				<?php if ( $cat->category_parent == 0 && $children ) : ?>
+					<?php rhd_subcat_grid( $cat->slug ); ?>
+				<?php else : ?>
+					<div class="post-grid">
+						<?php while ( have_posts() ) : the_post(); ?>
+							<?php get_template_part( 'template-parts/content', 'grid' ); ?>
+						<?php endwhile; ?>
+					</div>
+				<?php endif; ?>
 			<?php else : ?>
 
 				<article id="post-0" class="post no-results not-found">
