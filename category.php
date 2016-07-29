@@ -10,6 +10,10 @@ get_header();
 
 $cat = $wp_query->get_queried_object();
 $children = get_terms( $cat->taxonomy, array( 'parent' => $term->term_id, 'hide_empty' => false ) );
+$is_main_cat = ( $cat->category_parent == 0 && $children ) ? true : false;
+
+if ( ! $is_main_cat )
+	$parent = get_category( $cat->category_parent );
 ?>
 
 	<section id="primary" class="site-content full-width">
@@ -20,7 +24,7 @@ $children = get_terms( $cat->taxonomy, array( 'parent' => $term->term_id, 'hide_
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php if ( $cat->category_parent == 0 && $children ) : ?>
+				<?php if ( $is_main_cat ) : ?>
 					<?php rhd_subcat_grid( $cat->slug ); ?>
 				<?php else : ?>
 					<div class="post-grid">
@@ -63,7 +67,12 @@ $children = get_terms( $cat->taxonomy, array( 'parent' => $term->term_id, 'hide_
 
 		</div><!-- #content -->
 
-		<?php rhd_archive_pagination(); ?>
+		<?php
+		if ( ! $is_main_cat ) {
+			rhd_archive_pagination();
+			rhd_ghost_button( "Back to {$parent->cat_name}", get_category_link( $parent->term_id ), '', 'center', false, true );
+		}
+		?>
 
 	</section><!-- #primary -->
 
