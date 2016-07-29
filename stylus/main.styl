@@ -525,7 +525,6 @@ input[type="submit"]
 			.subcat-title
 				transition 0.25s color
 				margin 0.25em 0 0 0
-				font-weight bold
 				font-size 1.3em
 
 			&:hover
@@ -573,6 +572,7 @@ input[type="submit"]
 	.comment-reply-title
 		font-size 2.8em
 		margin 0.25em 0
+		font-weight normal
 
 	.comments-title
 		font-weight normal
@@ -696,6 +696,26 @@ input[type="submit"]
 						display block
 						margin 0 auto
 
+				.entry-title
+					font-weight normal
+
+
+#front-page-featured-posts
+	.soliloquy-container
+		margin-bottom 0 !important
+
+		.soliloquy-caption
+			-vcenter()
+			bottom 1em
+
+
+#front-page-video
+	.soliloquy-container
+		.soliloquy-caption
+			.soliloquy-caption-inside
+				text-align center
+				-ff-courier(true)
+
 
 #front-page-featured-posts
 #front-page-video
@@ -704,17 +724,15 @@ input[type="submit"]
 	margin 0 !important
 
 	.soliloquy-container
-		margin-bottom 0 !important
-
 		.soliloquy-caption
 			width 95%
 			height auto !important
 			min-width 20rem
 			padding 1em
+			-hcenter()
 			background $trans_white
 			border $c_ter_lt 0.5rem solid
 			color $c_text !important
-			-vhcenter()
 			font-style initial
 			display table
 
