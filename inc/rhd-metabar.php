@@ -54,7 +54,7 @@ function rhd_metabar( $layout = 'wide', $fields = array( 'cats' => true, 'archiv
 							</a>
 						</div>
 						<ul>
-							<?php wp_list_categories( 'title_li=' ); ?>
+							<?php wp_list_categories( 'title_li=&exclude=1' ); ?>
 						</ul>
 					</div>
 				</div>
