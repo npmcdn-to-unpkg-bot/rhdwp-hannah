@@ -613,7 +613,7 @@ function rhd_navbar_search_form( $placeholder = "Search" )
 
 						get_template_part( 'img/inline', 'search.svg' );
 
-	echo '
+	echo '			</a>
 				</div>
 				<a class="close-search" href="#">X</a>
 			</form>
