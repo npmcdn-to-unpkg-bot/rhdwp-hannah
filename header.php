@@ -52,7 +52,6 @@
 
 					<div class="navbar-inner">
 						<div class="nav-dropdown">
-							<a class="mobile-only" href="<?php echo home_url(); ?>"><img class="site-title" src="<?php echo RHD_LOGO_SRC; ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
 							<?php wp_nav_menu( $nav_args ); ?>
 						</div>
 						<!-- social -->

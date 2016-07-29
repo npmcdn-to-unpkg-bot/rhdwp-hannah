@@ -286,3 +286,11 @@ function rhd_subcat_grid ( $parent_slug, $uncat = false ) {
 		</ul>
 	<?php endif;
 }
+
+
+function rhd_cat_grid_query( $query ) {
+	if ( $query->is_category() && $query->is_main_query() ) {
+		$query->set( 'posts_per_page', 20 );
+	}
+}
+add_action( 'pre_get_posts', 'rhd_cat_grid_query' );
