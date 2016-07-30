@@ -269,7 +269,7 @@ function rhd_register_sidebars() {
 	));
 
 	register_sidebar( array(
-		'name'			=> __( 'Featured Content Area', 'rhd' ),
+		'name'			=> __( 'Front Page Featured Links (Top)', 'rhd' ),
 		'id'			=> 'featured-content-area',
 		'before_title'	=> '<h2 class="widget-title">',
 		'after_title'	=> '</h2>',
