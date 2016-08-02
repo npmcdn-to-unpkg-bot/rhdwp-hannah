@@ -135,3 +135,22 @@ function rhd_cart_link() {
 	<a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'rhd'); ?>">View Cart</a>
 	<?php
 }
+
+
+
+/**
+ * Redirect user after successful login.
+ *
+ * @param string $redirect_to URL to redirect to.
+ * @param string $request URL the user is coming from.
+ * @param object $user Logged user's data.
+ * @return string
+ */
+function rhd_frontend_login_redirect( $redirect_to, $request, $user ) {
+    if ( $user && $user instanceof WP_User ) {
+        //check for users who can edit posts
+        $redirect_to = $user->has_cap( 'edit_posts' ) ? admin_url() : home_url( '/account' );
+    }
+    return $redirect_to;
+}
+//add_filter( 'login_redirect', 'rhd_frontend_login_redirect', 10, 3 );

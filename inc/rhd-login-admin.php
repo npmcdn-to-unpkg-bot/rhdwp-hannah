@@ -33,7 +33,7 @@ add_filter( 'login_headerurl', 'rhd_branding_login' );
 function rhd_login_message() {
 	echo '<h1 class="rhd-login-site-title">' . get_bloginfo('name') . "</h1>\n";
 }
-add_action( 'login_message', 'rhd_login_message' );
+//add_action( 'login_message', 'rhd_login_message' );
 
 
 /**
@@ -47,7 +47,7 @@ add_action( 'login_message', 'rhd_login_message' );
 function rhd_login() {
 	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/css/rhd-login.css' );
 }
-add_action( 'login_head', 'rhd_login' );
+//add_action( 'login_head', 'rhd_login' );
 
 
 /**

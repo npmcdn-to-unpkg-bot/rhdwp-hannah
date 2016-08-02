@@ -97,12 +97,26 @@ input[type="submit"]
 		right 4rem
 		z-index 10
 
+		p
+			margin 0
+
 		a
 			color @color
 			text-decoration none
 
 			&:hover
 				color $c_ter
+
+		.login-dropdown
+			width 200%
+			position absolute
+			top 1em
+			right 0
+			background $c_sec
+			padding 1em
+			display none
+			font-size 1.2em
+			z-index @z-index
 
 
 .navbar-search
@@ -182,7 +196,7 @@ input[type="submit"]
 	.nav-dropdown
 		background $c_bg
 		position absolute
-		top -3em
+		top -3.2em
 		left 0
 		display none
 
@@ -196,10 +210,9 @@ input[type="submit"]
 
 
 #site-title-mobile
-	margin-top 1em
-	margin-bottom 1em
-	padding 0 2em 1em 2em
-	border-bottom 1px solid $c_ter
+	width auto
+	height ($navHt * 1.25)
+	margin-top 1rem
 
 
 .site-title
@@ -217,12 +230,17 @@ input[type="submit"]
 	line-height 1.2
 
 
+.loginout-mobile
+	text-align center
+
+
 #site-navigation-container
 	width 100vw
 	text-align center
 	padding-bottom 1rem
+	margin-top 1rem
 	z-index 9
-	border-bottom 3px solid $c_sec
+	border-bottom 3px solid $c_text
 
 	#site-navigation
 		list-style none
@@ -271,7 +289,6 @@ input[type="submit"]
 #primary
 #secondary
 	width 100%
-	margin-top 1em
 	position relative
 	box-sizing border-box
 
@@ -581,6 +598,10 @@ input[type="submit"]
 .ninja-forms-required-items
 .ninja-forms-req-symbol
 	-invisible()
+
+
+.desktop-only
+	display none
 
 
 /* ==========================================================================

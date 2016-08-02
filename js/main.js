@@ -31,6 +31,11 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 				resetToggleBurger();
 			}
 		});
+
+		$(".login-frontend").click(function(e){
+			e.preventDefault();
+			$(".login-dropdown").slideToggle();
+		});
 	});
 
 

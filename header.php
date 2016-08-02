@@ -51,7 +51,29 @@
 					<span>Toggle nav</span>
 				</button>
 
-				<div class="loginbar-links"><?php wp_loginout( home_url(), true ); ?> | <?php rhd_cart_link(); ?></div>
+				<div class="loginbar-links desktop-only">
+					<p>
+						<?php if ( ! is_user_logged_in() ) : ?>
+							<a href="<?php echo wp_login_url(); ?>" class="login-frontend">Log In</a>
+						<?php else : ?>
+							<a href="<?php echo wp_logout_url( home_url() ); ?>" class="logout-frontend">Log Out</a>
+							|
+							<a href="<?php echo home_url( '/account' ); ?>">My Account</a>
+						<?php endif; ?>
+						|
+						<?php rhd_cart_link(); ?>
+					</p>
+					<div class="login-dropdown">
+						<?php
+						$args = array(
+							'echo' => true,
+							'remember' => true,
+							'redirect' => site_url( '/account' )
+						);
+						wp_login_form( $args );
+						?>
+					</div>
+				</div>
 				<div id="header-search">
 					<?php rhd_navbar_search_form(); ?>
 				</div>
@@ -61,6 +83,17 @@
 					<a href="<?php echo home_url(); ?>"><img id="site-title" class="site-title-image" src="<?php echo RHD_UPLOAD_URL; ?>/2016/07/marshalla-logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 					<div class="nav-dropdown">
 						<a class="mobile-only" href="<?php echo home_url(); ?>"><img id="site-title-mobile" class="site-title-image" src="<?php echo RHD_UPLOAD_URL; ?>/2016/07/marshalla-logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+						<div class="loginout-mobile mobile-only">
+							<p>
+								<?php wp_loginout( home_url() ); ?>
+								<?php if ( is_user_logged_in() ) : ?>
+									| <a href="<?php echo home_url( '/account' ); ?>">My Account</a>
+								<?php endif; ?>
+								<?php if ( class_exists( 'WooCommerce' ) ) : ?>
+									| <?php rhd_cart_link(); ?>
+								<?php endif; ?>
+							</p>
+						</div>
 						<?php wp_nav_menu( $nav_args ); ?>
 					</div>
 				</div>
