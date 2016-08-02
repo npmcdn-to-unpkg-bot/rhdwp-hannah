@@ -874,6 +874,17 @@ input[type="submit"]
 	-invisible()
 
 
+.ninja-forms-field
+	&[type="submit"]
+		display block
+		margin 0 auto
+
+		&:hover
+		&:active
+			background $c_sec
+			color white
+
+
 .back-to-top
 	margin 0 auto 2em auto
 	display block
@@ -923,6 +934,7 @@ input[type="submit"]
 			width 71%
 			height auto
 			display block
+			margin 0
 			-vhcenter(absolute, 0, -3%)
 
 

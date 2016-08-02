@@ -132,7 +132,6 @@
 			-flexbox()
 
 			.featured-cat
-				width 31%
 				-flexitem()
 
 				.featured-cat-thumbnail
@@ -147,6 +146,11 @@
 					.featured-cat-thumbnail
 						.overlay
 							-opacity(0.15)
+
+	#front-page-categories
+		.featured-cats
+			.featured-cat
+				width 31%
 
 	#featured-categories
 		margin 0 auto
@@ -225,6 +229,11 @@
 
 			.contact-form
 				float right
+
+	.ninja-forms-field
+		&[type="submit"]
+			margin 0
+
 
 	#header-widget-area
 		width 16em

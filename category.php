@@ -69,17 +69,17 @@ if ( ! $is_main_cat )
 
 		<?php $exclude = $is_main_cat ? $cat->slug : false; ?>
 
-		<section id="featured-categories">
-			<h2 class="section-title">looking for something else?</h2>
-			<?php rhd_featured_categories( 'category-page', $exclude ); ?>
-		</section>
-
 		<?php
 		if ( ! $is_main_cat ) {
 			rhd_archive_pagination();
 			rhd_ghost_button( "Back to {$parent->cat_name}", get_category_link( $parent->term_id ), '', 'center', false, true );
 		}
 		?>
+
+		<section id="featured-categories">
+			<h2 class="section-title">looking for something else?</h2>
+			<?php rhd_featured_categories( 'category-page', $exclude, 'centered' ); ?>
+		</section>
 
 	</section><!-- #primary -->
 

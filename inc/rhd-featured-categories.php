@@ -15,17 +15,14 @@
  * @access public
  * @param string $loc (default: 'default')
  * @param mixed $exclude (default: null)
+ * @param mixed $class (default: null)
  * @return void
  */
-function rhd_featured_categories( $loc = 'default', $exclude = null )
+function rhd_featured_categories( $loc = 'default', $exclude = null, $class = null )
 {
 	$cats = array( 'occasions', 'techniques', 'styles' );
-
-	if ( in_array( $exclude, $cats ) ) {
-		$style = 'style="text-align: center;"';
-	}
 	?>
-	<ul class="featured-cats featured-cats-<?php echo $loc; ?>" <?php echo $style; ?>>
+	<ul class="featured-cats featured-cats-<?php echo $loc; ?> <?php echo $class; ?>">
 		<?php foreach ( $cats as $cat_slug ) : ?>
 			<?php
 			$cat = get_category_by_slug( $cat_slug );
