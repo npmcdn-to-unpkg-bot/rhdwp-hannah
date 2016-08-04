@@ -20,6 +20,10 @@
 		</h2>
 	</header><!-- .entry-header -->
 
+	<div class="entry-summary">
+		<?php the_excerpt(); ?>
+	</div>
+
 	<footer class="entry-meta">
 		<p><?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
 	</footer><!-- .entry-meta -->

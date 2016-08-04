@@ -15,13 +15,14 @@ get_header();
 	<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
-
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php
-					if ( is_single() ) get_template_part( 'template-parts/content', 'single' );
-					else get_template_part( 'template-parts/content' );
-				?>
-			<?php endwhile; ?>
+			<div class="post-grid">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php
+						if ( is_single() ) get_template_part( 'template-parts/content', 'single' );
+						else get_template_part( 'template-parts/content' );
+					?>
+				<?php endwhile; ?>
+			</div>
 
 			<?php if ( is_single() && comments_open() ) comments_template(); ?>
 
