@@ -103,26 +103,6 @@
 				width auto
 				padding-left 0.8em
 
-	// Image Strip
-	#primary
-		-clearfix()
-
-		article
-			&.strip-active
-				width 65%
-				float right
-
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
-
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
-
 	.entry-content
 		iframe
 			max-width 100%
@@ -147,11 +127,24 @@
 			img
 				@extends .entry-content img
 
+	#colophon
+		height 20em
+		padding-bottom 0
 
-// @media screen and (min-width 49.5em)
-// 	#site-navigation-container
-// 		width 70%
-//
-// 		#site-navigation
-// 			.menu-item
-// 				font-size 1em
+		.footer-inner
+			-wrapper(0, 0, 96%)
+			height 100%
+
+			& > div
+				width 30% !important
+				-vcenter()
+
+			.site-info
+				left 0
+
+			.social
+				-vhcenter( absolute, 0, 4 )
+				padding-top 0
+
+			.newsletter-cta
+				right 0

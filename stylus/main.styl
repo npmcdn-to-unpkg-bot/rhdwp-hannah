@@ -166,7 +166,7 @@ input[type="submit"]
 
 #main
 	-wrapper()
-	padding 2em 0
+	padding ($navHt+1em) 0 2em 0
 	box-sizing border-box
 
 
@@ -182,22 +182,102 @@ input[type="submit"]
 	width 100%
 	position relative
 	background $c_ter
+	color white
+	padding-bottom 2em
 
 	.site-info
-		-wrapper(2em, 0, 75%)
+		-wrapper(0, 0, 75%)
 		text-align center
 
+		p
+			margin 0
+			padding 1em 0
+
 		a
-			color $c_text
+			color inherit
 
 			&:hover
 			&:active
-				color $c_ter
-				text-decoration none
+				text-decoration underline
 
 		img
 			width 100%
 			height auto
+
+	.social
+		-wrapper()
+		padding-top 2em
+
+		.footer-social
+			width 40%
+			display block
+			margin 0 auto
+			position relative
+			left 3%
+
+		.widget-rhd-social-icons
+			text-align center
+			position relative
+			top 1em
+			padding-bottom 3em
+
+			.rhd-social-icon
+				width 3.5em
+				position relative
+				margin 0 -0.25em
+
+				&:nth-of-type(1)
+				&:nth-of-type(3)
+					bottom 3em
+
+	.newsletter-cta
+		-wrapper()
+
+		.widget-title
+			text-align center
+			margin-top 0
+			font-size 1.3em
+
+		.rhd-mc-subscribe
+			input
+				border none
+
+				&:focus
+					background $off_white
+
+			.rhd-mc-fname
+			.rhd-mc-lname
+			.rhd-mc-email
+				font-family $ff_body
+				-placeholder-props( $ff_body )
+
+			.rhd-mc-fname
+			.rhd-mc-lname
+				width 49%
+
+			.rhd-mc-fname
+				float left
+
+			.rhd-mc-lname
+				float right
+
+			.rhd-mc-email
+			.rhd-mc-submit
+				width 100%
+
+			.rhd-mc-submit
+				margin-left 0
+				-ghost-button()
+				background $c_ter
+				color white
+				border-color white
+				border-width 2px
+				margin-top 0.25em
+
+				&:hover
+				&:active
+					background white
+					color $c_ter
 
 
 /* ==========================================================================

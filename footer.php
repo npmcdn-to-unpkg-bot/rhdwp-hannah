@@ -14,10 +14,26 @@
 
     <footer id="colophon">
         <?php get_sidebar( 'footer' ); ?>
-        <div class="site-info">
-			<p>
-				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '| '; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse Designs</a>
-            </p>
+        <div class="footer-inner">
+	        <div class="social">
+				<?php echo rhd_site_branding( 'icon', 'medium', 'footer-social' ); ?>
+				<?php echo do_shortcode( '[rhd-social-icons shape="circle" color1="#ffffff" color2="#0077c0" widget_loc="footer"]' ); ?>
+	        </div>
+
+	        <div class="newsletter-cta">
+				<?php echo do_shortcode( '[rhd-mailchimp title="Join Our Newsletter" fname=true lname=true button="subscribe"]' ); ?>
+	        </div>
+
+	        <div class="site-info">
+				<p>
+					<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> &amp;<br />
+					Stanislaus Community Foundation<br />
+					<br />
+					<a href="<?php echo home_url( '/privacy-policy' ); ?>" rel="bookmark">Privacy Policy</a> | <a href="<?php echo home_url( 'terms' ); ?>" rel="bookmark">Terms &amp; Conditions</a><br />
+					<br />
+					Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse Designs</a>
+	            </p>
+	        </div>
         </div>
     </footer>
 </div><!-- #page -->

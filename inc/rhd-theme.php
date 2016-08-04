@@ -75,17 +75,19 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
  * @access public
  * @param string $sel (default: 'logo')
  * @param mixed $alt_size (default: null)
+ * @param string $class (default: null)
  * @return void
  */
-function rhd_site_branding( $sel = 'logo', $alt_size = null ) {
+function rhd_site_branding( $sel = 'logo', $alt_size = null, $class = null ) {
 	$images = array(
 		'logo' => 7,
 		'full' => 8,
+		'icon' => 5
 	);
 
 	$size = $alt_size ? $alt_size : 'medium';
 
-	return wp_get_attachment_image( $images[$sel], $size );
+	return wp_get_attachment_image( $images[$sel], $size, "", array( 'class' => $class ) );
 }
 
 
