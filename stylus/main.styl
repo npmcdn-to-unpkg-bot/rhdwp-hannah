@@ -41,7 +41,7 @@ body
 a
 	outline 0 !important
 	transition color 0.25s ease
-	color $c_ter
+	color $c_sec
 	text-decoration none
 
 	&:hover
@@ -88,9 +88,10 @@ input[type="submit"]
 	color $c_text_lt
 	z-index 999
 
-	.navbar-inner
-		height @height
-		margin 0
+
+#masthead
+	height @height
+	margin 0
 
 	.nav-dropdown
 		background $c_bg
@@ -102,70 +103,6 @@ input[type="submit"]
 		.site-title
 			margin-top 1em
 			display block
-
-	.navbar-search
-		width 65%
-		height 75%
-		-vcenter()
-		right 3em
-		z-index 0
-
-		&.is-active
-			z-index 999
-
-		.search-form
-		div
-		input
-			height 100%
-
-		input
-			background-color transparent
-			border none
-
-		.search-form
-			.search-field
-				width 0
-				-vcenter()
-				font-size 1em
-				background-color white
-				right -0.35em
-				-ff-subtitle()
-				letter-spacing 0.5px
-				padding 0
-				transition 0.5s all ease
-
-				&.is-active
-					width 130%
-					border-color $c_ter
-					padding 0.5em 2.3em 0.5em 0.5em
-
-			.search-submit
-				width 1.5rem
-				right 0
-				-vcenter()
-				z-index 999
-				background url('../img/search.png') no-repeat center
-				background-size 90% auto
-				transition 0.5s all ease
-
-		.close-search
-			-vcenter()
-			right 1.7em
-			font-weight 300
-			color $c_text_lt
-			font-size 1.1em
-			display none
-			text-decoration none
-
-			&:hover
-			&:active
-				text-decoration @text-decoration
-
-
-	@media screen and (min-width 40rem)
-		.navbar-search
-			width 36.5%
-			right 0
 
 
 #site-title
@@ -179,9 +116,11 @@ input[type="submit"]
 
 
 .site-title-link
-	-wrapper($navHt + ($navHt/2), 0, 85%, 30rem)
-	display block
-	line-height 1.2
+	img
+		width auto
+		height 90%
+		-vcenter()
+		left 0.5em
 
 
 #site-navigation-container
@@ -242,7 +181,7 @@ input[type="submit"]
 #colophon
 	width 100%
 	position relative
-	background $c_sec
+	background $c_ter
 
 	.site-info
 		-wrapper(2em, 0, 75%)

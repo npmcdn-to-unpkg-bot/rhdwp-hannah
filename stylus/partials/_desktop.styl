@@ -5,38 +5,35 @@
 	#navbar
 		height auto
 
-		.navbar-inner
-			-wrapper(0, 0, 90%)
-			height auto
-
-			.nav-dropdown
+		.site-title-link
+			img
+				width 17%
+				height auto
+				min-width 9.25rem
 				position relative
-				top 0
-				display block
-				background transparent
-				-clearfix()
+				float left
 
-		.navbar-search
-			&.is-active
-				width 36.5%
-				right 0
+	#masthead
+		-wrapper(0, 0, 96%)
+		height auto
+		-clearfix()
 
-			.search-form
-				.search-submit
-					right -2.1em
-
-					&.is-active
-						right 0
+		.nav-dropdown
+			width 75%
+			height @height
+			position relative
+			top initial
+			bottom 0.9em
+			float right
+			display block
+			background transparent
 
 	#site-navigation-container
-		width 45%
+		width 100%
 		display block
 		background transparent
-		position relative
 		box-shadow none
-		float left
-		padding-bottom 0
-		top 0.15em
+		padding 0
 
 		#site-navigation
 			line-height 0
@@ -47,13 +44,21 @@
 			.menu-item
 				line-height 2
 				-flexitem()
-				font-size 1rem
+				font-size 0.9em
+
+				a
+					color $c_sec
+
+					&:hover
+					&:active
+						color $c_sec_lt
 
 	#hamburger
 		display none
 
 	#main
 		-clearfix()
+		margin-top 5rem
 
 	#primary
 		width 100%
@@ -63,7 +68,7 @@
 		&.full-width
 			float none
 			margin-right 0
-			
+
 			#content
 				margin-right 0
 
@@ -141,3 +146,12 @@
 		a
 			img
 				@extends .entry-content img
+
+
+// @media screen and (min-width 49.5em)
+// 	#site-navigation-container
+// 		width 70%
+//
+// 		#site-navigation
+// 			.menu-item
+// 				font-size 1em

@@ -70,6 +70,26 @@ add_filter( 'excerpt_more', 'rhd_custom_excerpt_read_more' );
 
 
 /**
+ * rhd_site_branding function.
+ *
+ * @access public
+ * @param string $sel (default: 'logo')
+ * @param mixed $alt_size (default: null)
+ * @return void
+ */
+function rhd_site_branding( $sel = 'logo', $alt_size = null ) {
+	$images = array(
+		'logo' => 7,
+		'full' => 8,
+	);
+
+	$size = $alt_size ? $alt_size : 'medium';
+
+	return wp_get_attachment_image( $images[$sel], $size );
+}
+
+
+/**
  * rhd_subcat_grid function.
  *
  * @access public
