@@ -13,7 +13,6 @@
 	</main><!-- #main -->
 
     <footer id="colophon">
-        <?php get_sidebar( 'footer' ); ?>
         <div class="footer-inner">
 	        <div class="social">
 				<?php echo rhd_site_branding( 'icon', 'medium', 'footer-social' ); ?>

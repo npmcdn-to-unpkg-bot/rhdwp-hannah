@@ -48,7 +48,7 @@
 			<div id="navbar">
 				<div id="masthead">
 					<a class="site-title-link" href="<?php echo home_url(); ?>">
-						<h1 id="site-title" class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
+						<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
 
 						<?php echo rhd_site_branding(); ?>
 					</a>

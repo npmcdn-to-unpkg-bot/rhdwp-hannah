@@ -106,9 +106,7 @@ input[type="submit"]
 
 
 #site-title
-	-wrapper(0, 0, 96%)
-	text-align center
-	display block
+	-invisible()
 
 
 .site-title
@@ -420,6 +418,29 @@ input[type="submit"]
 	.pag-load-more
 		display block
 		margin 0 auto
+
+
+/* ==========================================================================
+	Full-Width Pages
+   ========================================================================== */
+
+.page-template-template-full-width
+	#main
+		width 100%
+		max-width none
+
+	.entry-content
+		& > *
+			-wrapper(1em, 1em)
+
+		.rhd-full-width
+			width 100%
+			height auto
+			max-width none
+
+			img
+				width @width
+				height @height
 
 
 /* ==========================================================================

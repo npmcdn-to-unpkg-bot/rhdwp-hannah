@@ -27,7 +27,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 
 
 // Includes
-include_once( 'inc/rhd-ghost-button.php' );
+include_once( 'inc/rhd-shortcodes.php' );
 include_once( 'inc/rhd-theme.php' );
 include_once( 'inc/rhd-metabar.php' );
 include_once( 'inc/rhd-login-admin.php' );
@@ -254,15 +254,6 @@ function rhd_register_sidebars() {
 		'before_title'	=> '<h2 class="widget-title">',
 		'after_title'	=> '</h2>',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>'
-	));
-
-	register_sidebar( array(
-		'name'			=> __( 'Footer Widget Area', 'rhd' ),
-		'id'			=> 'footer-widget-area',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</div>'
 	));
 }
