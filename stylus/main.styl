@@ -180,7 +180,7 @@ input[type="submit"]
 	width 100%
 	position relative
 	background $c_ter
-	color white
+	color $c_bg
 	padding-bottom 2em
 
 	.site-info
@@ -267,14 +267,14 @@ input[type="submit"]
 				margin-left 0
 				-ghost-button()
 				background $c_ter
-				color white
-				border-color white
+				color $c_bg
+				border-color $c_bg
 				border-width 2px
 				margin-top 0.25em
 
 				&:hover
 				&:active
-					background white
+					background $c_bg
 					color $c_ter
 
 
@@ -467,6 +467,66 @@ input[type="submit"]
 					min-height 100%
 					-vhcenter()
 					display block
+
+
+/* ==========================================================================
+	CTA Buttons
+   ========================================================================== */
+
+.rhd-cta-buttons
+	.cta-buttons
+		list-style none
+		padding-left 0
+
+		.cta-button-item
+			width 100%
+			display block
+			padding 1em
+
+			&:last-child
+				margin-bottom 0
+
+			.cta-button-link
+				width 100%
+				display inline-block
+				color $c_bg
+				text-decoration none
+
+				.cta-button
+					background $c_sec
+					color $c_bg
+					text-align center
+					padding 1.5em
+					margin-bottom 1em
+					transition background 0.25s ease
+
+					&:hover
+					&:active
+						background $c_sec_lt
+
+					.cta-label
+						-ff-headline()
+						font-size 300%
+						text-transform uppercase
+						margin 0 0 1.5rem 0
+						letter-spacing 0.25em
+						padding-left 6% // centering tweak
+
+					.cta-subtitle
+						font-size 1em
+						font-weight 700
+						line-height 1.2
+
+			.cta-text-desc
+				text-align center
+
+		.cta-break
+			width 100%
+			height 0.25em
+			margin 0.5em 0
+			background $c_quat
+			border none
+
 
 /* ==========================================================================
 	Post Grids / Subcategory Grids
