@@ -16,14 +16,11 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php
-					if ( is_single() ) get_template_part( 'template-parts/content', 'single' );
-					else get_template_part( 'template-parts/content' );
-				?>
-			<?php endwhile; ?>
-
-			<?php if ( is_single() && comments_open() ) comments_template(); ?>
+			<div class="post-grid">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php get_template_part( 'template-parts/content', 'grid' ); ?>
+				<?php endwhile; ?>
+			</div>
 
 		<?php else : ?>
 

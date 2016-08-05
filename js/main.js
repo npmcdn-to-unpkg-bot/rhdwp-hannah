@@ -24,11 +24,16 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 (function($){
 
 	$(document).ready(function(){
+		'use strict';
+
 		rhdInit();
+
+		var parallax = new Scrollax().init();
 
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
+				parallax.reload();
 			}
 		});
 	});
@@ -36,7 +41,6 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 	function rhdInit() {
 		toggleBurger();
-		headerSearch();
 		fixGridLayout(".post-grid");
 		wpAdminBarPush();
 	}
@@ -101,77 +105,4 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 			}
 		});
 	}
-
-
-	function headerSearch() {
-		$(".navbar-search .search-submit").click(function(e){
-			e.preventDefault();
-
-			if ( !$(".navbar-search").data("expanded") ) {
-				expandSearchBar();
-			} else {
-				// Check that input isn"t just whitespace
-				var searchStr = $(".navbar-search .search-field").val().replace(/^\s+/, "").replace(/\s+$/, "");
-
-				if ( searchStr === "" ) {
-					collapseSearchBar();
-				} else {
-					// Run the search
-					$(".navbar-search form").submit();
-				}
-			}
-		});
-
-		// Close header search by clicking "X," clicking away from #navbar, or hitting the ESC key
-		$(".close-search").click(function(e){
-			e.preventDefault();
-			collapseSearchBar();
-		});
-
-		$(document).keyup(function(e) {
-			if ( e.keyCode == 27 && $(".navbar-search").data("expanded", true) ) {
-				collapseSearchBar();
-			}
-		});
-
-		$(document).mouseup(function(e){
-			var $container = $(".navbar-search");
-
-			if (!$container.is(e.target) && $container.has(e.target).length === 0) {
-				collapseSearchBar();
-			}
-		});
-	}
-
-
-	function expandSearchBar() {
-		$(".navbar-search").css("zIndex", 999);
-
-		if ( !viewportIsSmall() ) {
-			$("#navbar").addClass("search-is-active");
-			$("#site-navigation-container").animate({opacity: 0.1}, "fast");
-		}
-
-		$(".navbar-search .search-submit, .navbar-search .search-field").addClass("is-active");
-		$(".navbar-search .search-field").focus();
-		$(".navbar-search").data("expanded", true);
-
-		$(".close-search").fadeIn("fast");
-	}
-
-
-	function collapseSearchBar() {
-		if ( !viewportIsSmall() ) {
-			$("#navbar").removeClass("search-is-active");
-			$("#site-navigation-container").animate({opacity: 1});
-		}
-
-		$(".navbar-search .search-submit, .navbar-search .search-field").removeClass("is-active");
-		$(".navbar-search")
-			.css("zIndex", 0)
-			.data("expanded", false);
-
-		$(".close-search").fadeOut("fast");
-	}
-
 })(jQuery);

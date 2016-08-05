@@ -90,7 +90,7 @@ input[type="submit"]
 
 
 #masthead
-	height @height
+	height $navHt
 	margin 0
 
 	.nav-dropdown
@@ -282,10 +282,37 @@ input[type="submit"]
 	Posts & Pages
    ========================================================================== */
 
-.entry-title
-.page-title
-	margin-top 0
-	line-height 1
+.entry-header
+	text-align center
+	margin-bottom 1em
+
+	a
+		color inherit
+
+		&:hover
+		&:active
+			color $c_ter
+			text-decoration none
+
+	.entry-title
+		margin 0 0 0.25rem 0
+
+	.entry-details
+		margin 0
+		font-size 0.9em
+		-ff-subtitle()
+
+		.sep
+			font-size 1.1em
+
+
+.entry-thumbnail
+	width 100%
+	height auto
+
+	img
+		width 100%
+		height auto
 
 
 .page-title
@@ -294,6 +321,10 @@ input[type="submit"]
 	text-align center
 	font-size 2em
 	margin-bottom 1rem
+
+
+.page-title
+	line-height 1
 
 
 .entry-title
@@ -356,6 +387,12 @@ input[type="submit"]
 		margin 0
 
 
+.entry-details
+	margin 0
+	font-size 0.9em
+	-ff-subtitle()
+
+
 .blog-area
 	article
 		-clearfix()
@@ -363,37 +400,6 @@ input[type="submit"]
 
 		&:first-child
 			margin-top 0
-
-		.entry-header
-			text-align center
-			margin-bottom 1em
-
-			a
-				color inherit
-
-				&:hover
-				&:active
-					color $c_ter
-					text-decoration none
-
-			.entry-title
-				margin 0 0 0.25rem 0
-
-			.entry-details
-				margin 0
-				font-size 0.9em
-				-ff-subtitle()
-
-				.sep
-					font-size 1.1em
-
-		.entry-thumbnail
-			width 100%
-			height auto
-
-			img
-				width 100%
-				height auto
 
 
 .pagination
@@ -421,7 +427,7 @@ input[type="submit"]
 
 
 /* ==========================================================================
-	Full-Width Pages
+	Full-Width Pages ("Big Image" functionality)
    ========================================================================== */
 
 .page-template-template-full-width
@@ -430,18 +436,34 @@ input[type="submit"]
 		max-width none
 
 	.entry-content
+		display block
+
 		& > *
 			-wrapper(1em, 1em)
 
-		.rhd-full-width
+		.rhd-big-image-container
 			width 100%
-			height auto
+			height 500px
+			height 100vh
+			margin 0
 			max-width none
+			position relative
+			overflow hidden
+			display block
 
-			img
-				width @width
-				height @height
+			.rhd-big-image
+				width 100%
+				height 100%
+				display block
+				position absolute
 
+				img
+					width auto
+					height auto
+					min-width 100%
+					min-height 100%
+					-vhcenter()
+					display block
 
 /* ==========================================================================
 	Post Grids / Subcategory Grids
@@ -451,7 +473,7 @@ input[type="submit"]
 	-flexbox()
 
 	.post-grid-item
-		width 48%
+		width 47%
 		-flexitem()
 		vertical-align top
 		margin 0
@@ -460,6 +482,8 @@ input[type="submit"]
 			font-size 1em
 			line-height 1.2
 			text-align center
+			margin-top 1em
+			text-transform uppercase
 
 			a
 				color inherit
