@@ -88,7 +88,7 @@ function rhd_cta_buttons( $parent_class = null ) {
 	for ( $i = 1; $i <=3; $i++ ) {
 		$label = esc_attr( $options["rhd_button_{$i}_label"] );
 		$sub = esc_attr( $options["rhd_button_{$i}_sub"] );
-		$link = esc_url( $options["rhd_button_{$i}_link"] );
+		$link = $link ? esc_url( $options["rhd_button_{$i}_link"] ) : '#';
 		$text = wpautop( $options["rhd_button_{$i}_text"] );
 
 		$output .= "
