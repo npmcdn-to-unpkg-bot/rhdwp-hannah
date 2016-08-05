@@ -19,7 +19,7 @@
 				<?php echo do_shortcode( '[rhd-social-icons shape="circle" color1="#ffffff" color2="#0077c0" widget_loc="footer"]' ); ?>
 	        </div>
 
-	        <div class="newsletter-cta">
+	        <div class="newsletter">
 				<?php echo do_shortcode( '[rhd-mailchimp title="Join Our Newsletter" fname=true lname=true button="subscribe"]' ); ?>
 	        </div>
 

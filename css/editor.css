@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:54:41 AM on 05-08-2016
+* RHD Dev: Compiled at 11:57:08 AM on 05-08-2016
 ***/
 
 /**
@@ -1054,7 +1054,7 @@ img.aligncenter {
 }
 .ghost-button-container .ghost-button,
 .ghost-button-container .ghost-button-alt,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit,
 .pagination .pag-link a,
 .single-pagination .pag-link a,
 .pagination .pag-load-more a,
@@ -1069,12 +1069,12 @@ img.aligncenter {
   display: inline-block;
   transition: all 0.2s;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
 }
 .ghost-button-container .ghost-button:hover,
 .ghost-button-container .ghost-button-alt:hover,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit:hover,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit:hover,
 .pagination .pag-link a:hover,
 .single-pagination .pag-link a:hover,
 .pagination .pag-load-more a:hover,
@@ -1082,7 +1082,7 @@ img.aligncenter {
 #comments #commentform #submit:hover,
 .ghost-button-container .ghost-button:active,
 .ghost-button-container .ghost-button-alt:active,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit:active,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit:active,
 .pagination .pag-link a:active,
 .single-pagination .pag-link a:active,
 .pagination .pag-load-more a:active,
@@ -1093,7 +1093,7 @@ img.aligncenter {
 }
 .ghost-button-container .ghost-button.filled,
 .ghost-button-container .ghost-button-alt.filled,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit.filled,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit.filled,
 .pagination .pag-link a.filled,
 .single-pagination .pag-link a.filled,
 .pagination .pag-load-more a.filled,
@@ -1102,7 +1102,7 @@ img.aligncenter {
   color: #fff;
 }
 .ghost-button-container .ghost-button,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit,
 .pagination .pag-link a,
 .single-pagination .pag-link a,
 .pagination .pag-load-more a,
@@ -1112,14 +1112,14 @@ img.aligncenter {
   border-color: #0077c0;
 }
 .ghost-button-container .ghost-button:hover,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit:hover,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit:hover,
 .pagination .pag-link a:hover,
 .single-pagination .pag-link a:hover,
 .pagination .pag-load-more a:hover,
 .single-pagination .pag-load-more a:hover,
 #comments #commentform #submit:hover,
 .ghost-button-container .ghost-button:active,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit:active,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit:active,
 .pagination .pag-link a:active,
 .single-pagination .pag-link a:active,
 .pagination .pag-load-more a:active,
@@ -1128,7 +1128,7 @@ img.aligncenter {
   background-color: #0077c0;
 }
 .ghost-button-container .ghost-button:focus,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit:focus,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit:focus,
 .pagination .pag-link a:focus,
 .single-pagination .pag-link a:focus,
 .pagination .pag-load-more a:focus,
@@ -1137,7 +1137,7 @@ img.aligncenter {
   border-color: #30b0ff;
 }
 .ghost-button-container .ghost-button.filled,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit.filled,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit.filled,
 .pagination .pag-link a.filled,
 .single-pagination .pag-link a.filled,
 .pagination .pag-load-more a.filled,
@@ -1147,14 +1147,14 @@ img.aligncenter {
   border-color: #0077c0;
 }
 .ghost-button-container .ghost-button.filled:hover,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit.filled:hover,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit.filled:hover,
 .pagination .pag-link a.filled:hover,
 .single-pagination .pag-link a.filled:hover,
 .pagination .pag-load-more a.filled:hover,
 .single-pagination .pag-load-more a.filled:hover,
 #comments #commentform #submit.filled:hover,
 .ghost-button-container .ghost-button.filled:active,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit.filled:active,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit.filled:active,
 .pagination .pag-link a.filled:active,
 .single-pagination .pag-link a.filled:active,
 .pagination .pag-load-more a.filled:active,
@@ -1164,7 +1164,7 @@ img.aligncenter {
   border-color: #00a950;
 }
 .ghost-button-container .ghost-button.filled:focus,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit.filled:focus,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit.filled:focus,
 .pagination .pag-link a.filled:focus,
 .single-pagination .pag-link a.filled:focus,
 .pagination .pag-load-more a.filled:focus,
@@ -1202,7 +1202,7 @@ body {
   font-size: 16px;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: #2b2b2b;
 }
 body.admin-bar #wpadminbar {
@@ -1341,16 +1341,17 @@ input[type="submit"]:hover {
   line-height: 1.8;
 }
 #site-navigation-container #site-navigation .menu-item a {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
   text-transform: uppercase;
+}
+.site-navigation li {
+  font-family: 'BenchNine', sans-serif;
+  font-weight: normal;
 }
 .site-navigation li a {
   color: #2b2b2b;
   text-decoration: none;
   transition: color 0.25s;
   text-transform: uppercase;
-  font-weight: 300;
 }
 .site-navigation li a:hover,
 .site-navigation li a:active {
@@ -1436,42 +1437,31 @@ input[type="submit"]:hover {
 #colophon .social .widget-rhd-social-icons .rhd-social-icon:nth-of-type(3) {
   bottom: 3em;
 }
-#colophon .newsletter-cta {
+#colophon .newsletter {
   width: 85%;
   max-width: 80rem;
   position: relative;
   margin: 0 auto 0 auto;
 }
-#colophon .newsletter-cta .widget-title {
+#colophon .newsletter .widget-title {
   text-align: center;
   margin-top: 0;
   font-size: 1.3em;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe input {
+#colophon .newsletter .rhd-mc-subscribe input {
   border: none;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe input:focus {
+#colophon .newsletter .rhd-mc-subscribe input:focus {
   background: #f5f5f5;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-fname,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-lname,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-email {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-fname,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-lname,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-email {
   font-family: 'Open Sans', sans-serif;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-fname::-webkit-input-placeholder,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-lname::-webkit-input-placeholder,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-email::-webkit-input-placeholder {
-  font-family: 'Open Sans', sans-serif;
-  color: #2b2b2b;
-  -moz-opacity: 1;
-  -webkit-opacity: 1;
-  opacity: 1;
-  font-weight: normal;
-  text-transform: normal;
-}
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-fname:-moz-placeholder,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-lname:-moz-placeholder,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-email:-moz-placeholder {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-fname::-webkit-input-placeholder,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-lname::-webkit-input-placeholder,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-email::-webkit-input-placeholder {
   font-family: 'Open Sans', sans-serif;
   color: #2b2b2b;
   -moz-opacity: 1;
@@ -1480,9 +1470,9 @@ input[type="submit"]:hover {
   font-weight: normal;
   text-transform: normal;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-fname::-moz-placeholder,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-lname::-moz-placeholder,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-email::-moz-placeholder {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-fname:-moz-placeholder,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-lname:-moz-placeholder,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-email:-moz-placeholder {
   font-family: 'Open Sans', sans-serif;
   color: #2b2b2b;
   -moz-opacity: 1;
@@ -1491,29 +1481,40 @@ input[type="submit"]:hover {
   font-weight: normal;
   text-transform: normal;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-fname:-ms-input-placeholder,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-lname:-ms-input-placeholder,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-email:-ms-input-placeholder {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-fname::-moz-placeholder,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-lname::-moz-placeholder,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-email::-moz-placeholder {
+  font-family: 'Open Sans', sans-serif;
+  color: #2b2b2b;
+  -moz-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
+  font-weight: normal;
+  text-transform: normal;
+}
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-fname:-ms-input-placeholder,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-lname:-ms-input-placeholder,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-email:-ms-input-placeholder {
   font-family: 'Open Sans', sans-serif;
   color: #2b2b2b;
   font-weight: normal;
   text-transform: normal;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-fname,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-lname {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-fname,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-lname {
   width: 49%;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-fname {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-fname {
   float: left;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-lname {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-lname {
   float: right;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-email,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-email,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit {
   width: 100%;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit {
   margin-left: 0;
   background: #00a950;
   color: #fff;
@@ -1521,8 +1522,8 @@ input[type="submit"]:hover {
   border-width: 2px;
   margin-top: 0.25em;
 }
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit:hover,
-#colophon .newsletter-cta .rhd-mc-subscribe .rhd-mc-submit:active {
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit:hover,
+#colophon .newsletter .rhd-mc-subscribe .rhd-mc-submit:active {
   background: #fff;
   color: #00a950;
 }
@@ -1558,7 +1559,7 @@ input[type="submit"]:hover {
 }
 .page-title,
 .archive-title {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'BenchNine', sans-serif;
   font-weight: normal;
   text-align: center;
   font-size: 2em;
@@ -1567,10 +1568,14 @@ input[type="submit"]:hover {
 .page-title {
   line-height: 1;
 }
+.page-title-default {
+  visibility: hidden;
+  position: absolute;
+}
 .entry-title,
 #secondary .widget-title {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
 }
 .entry-summary p {
   margin: 0;
@@ -1670,7 +1675,6 @@ input[type="submit"]:hover {
   width: 100%;
   height: 500px;
   height: 100vh;
-  margin: 0;
   max-width: none;
   position: relative;
   overflow: hidden;
@@ -1846,7 +1850,7 @@ input[type="submit"]:hover {
     position: relative;
   }
   #masthead .nav-dropdown {
-    width: 75%;
+    width: 74%;
     height: auto;
     position: absolute;
     top: 50%;
@@ -1869,6 +1873,7 @@ input[type="submit"]:hover {
     text-align: justify;
     margin: 0;
     position: relative;
+    top: 0.2em;
   }
   #site-navigation-container #site-navigation:after {
     width: 100%;
@@ -1878,7 +1883,7 @@ input[type="submit"]:hover {
   #site-navigation-container #site-navigation .menu-item {
     line-height: 2;
     display: inline-block;
-    font-size: 0.9em;
+    font-size: 1.3em;
   }
   #site-navigation-container #site-navigation .menu-item a {
     color: #0077c0;
@@ -1886,6 +1891,10 @@ input[type="submit"]:hover {
   #site-navigation-container #site-navigation .menu-item a:hover,
   #site-navigation-container #site-navigation .menu-item a:active {
     color: #30b0ff;
+  }
+  #site-navigation-container #site-navigation .menu-item.current_page_item a,
+  #site-navigation-container #site-navigation .menu-item.current_page_parent a {
+    color: #00a950;
   }
   #hamburger {
     display: none;
@@ -1987,7 +1996,7 @@ input[type="submit"]:hover {
   #colophon .footer-inner .social .widget-rhd-social-icons {
     padding-bottom: 0;
   }
-  #colophon .footer-inner .newsletter-cta {
+  #colophon .footer-inner .newsletter {
     right: 0;
   }
 }

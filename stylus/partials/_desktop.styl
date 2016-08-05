@@ -22,7 +22,7 @@
 		position relative
 
 		.nav-dropdown
-			width 75%
+			width 74%
 			height @height
 			-vcenter()
 			right 0
@@ -42,11 +42,12 @@
 			-flexbox()
 			margin 0
 			position relative
+			top 0.2em
 
 			.menu-item
 				line-height 2
 				-flexitem()
-				font-size 0.9em
+				font-size 1.3em
 
 				a
 					color $c_sec
@@ -54,6 +55,11 @@
 					&:hover
 					&:active
 						color $c_sec_lt
+
+				&.current_page_item
+				&.current_page_parent
+					a
+						color $c_ter
 
 	#hamburger
 		display none
@@ -147,5 +153,5 @@
 				.widget-rhd-social-icons
 					padding-bottom 0
 
-			.newsletter-cta
+			.newsletter
 				right 0

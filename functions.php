@@ -16,7 +16,7 @@
 // Constants and Globals
 define( "RHD_THEME_DIR", get_template_directory_uri() );
 define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
-define( "RHD_GOOGLE_FONTS", 'Open+Sans:300,700,300italic|Dancing+Script' );
+define( "RHD_GOOGLE_FONTS", 'Open+Sans:400,400i,700,800|BenchNine' );
 
 $updir = wp_upload_dir();
 define( "RHD_UPLOAD_URL", $updir['baseurl'] );
