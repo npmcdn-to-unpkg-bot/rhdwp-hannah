@@ -16,6 +16,7 @@ $near_white = darken(white, 2%)
 
 $c_bg = white
 $c_header = $c_bg
+$c_header_trans = transparentify( $c_header, $c_header, 0.85 )
 
 $ff_body = 'Open Sans', sans-serif
 $ff_headline = 'BenchNine', sans-serif
@@ -166,3 +167,13 @@ $updir = '../../../uploads'
 			img
 				width auto
 				max-height $maxHt
+
+
+-scrollax-img()
+	width auto
+	height auto
+	max-width none
+	min-width 100%
+	min-height 100%
+	-vhcenter()
+	display block

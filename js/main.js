@@ -22,18 +22,30 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
    ========================================================================== */
 
 (function($){
+	var parallax;
 
 	$(document).ready(function(){
 		'use strict';
 
 		rhdInit();
 
-		var parallax = new Scrollax().init();
-
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
 				parallax.reload();
+			}
+
+			setFullWidthDimensions();
+		});
+
+		$(window).on("scroll", function(){
+			var scrollTop = $(window).scrollTop(),
+				navbarBot = $("#navbar").height();
+
+			if ( scrollTop >= navbarBot ) {
+				$("#navbar").addClass( 'trans' );
+			} else {
+				$("#navbar").removeClass( 'trans' );
 			}
 		});
 	});
@@ -43,6 +55,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		toggleBurger();
 		fixGridLayout(".post-grid");
 		wpAdminBarPush();
+		setFullWidthDimensions();
 	}
 
 
@@ -104,5 +117,19 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 				}
 			}
 		});
+	}
+
+
+	function setFullWidthDimensions() {
+		var navHt = $("#navbar").height();
+
+		$(".page-template-template-full-width #main").css({
+			marginTop: $("#navbar").height(),
+			paddingTop: 0
+		});
+
+		$(".rhd-full-width-thumbnail-wrapper").height($(window).height() - navHt);
+
+		parallax = new Scrollax().init();
 	}
 })(jQuery);

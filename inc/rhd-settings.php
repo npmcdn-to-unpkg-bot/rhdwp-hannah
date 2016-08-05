@@ -153,7 +153,7 @@ class RHD_Settings
 		echo '</p>';
 
 		printf(
-			'<p><label for="rhd_button_1_text">Text/Description</label><br />
+			'<p><label for="rhd_button_1_text">Text/Description (HTML tags allowed)</label><br />
 			<textarea id="rhd_button_1_text" name="rhd_theme_settings[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_1_text'] ) ? $this->options['rhd_button_1_text'] : ''
 		);
@@ -184,7 +184,7 @@ class RHD_Settings
 		echo '</p>';
 
 		printf(
-			'<p><label for="rhd_button_2_text">Text/Description</label><br />
+			'<p><label for="rhd_button_2_text">Text/Description (HTML tags allowed) (HTML tags allowed)</label><br />
 			<textarea id="rhd_button_2_text" name="rhd_theme_settings[rhd_button_2_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_2_text'] ) ? $this->options['rhd_button_2_text'] : ''
 		);
@@ -215,7 +215,7 @@ class RHD_Settings
 		echo '</p>';
 
 		printf(
-			'<p><label for="rhd_button_3_text">Text/Description</label><br />
+			'<p><label for="rhd_button_3_text">Text/Description (HTML tags allowed)</label><br />
 			<textarea id="rhd_button_3_text" name="rhd_theme_settings[rhd_button_3_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_3_text'] ) ? $this->options['rhd_button_3_text'] : ''
 		);

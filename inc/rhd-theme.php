@@ -143,3 +143,40 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 		<?php
 	}
 }
+
+
+/**
+ * rhd_full_width_thumbnail function.
+ *
+ * @access public
+ * @param int $thumb_id
+ * @return void
+ */
+function rhd_full_width_thumbnail( $thumb_id ) {
+	global $post;
+
+	$thumb_id = $thumb_id ? $thumb_id : 8;
+	$default = $thumb_id == 8 ? true : false;
+
+	if ( ! $default ) {
+		$scrollax_parent = 'data-scrollax-parent="true"';
+		$scrollax_child = 'data-scrollax="properties: { \'translateY\': \'30%\'}"';
+		$class = 'parallax-thumb';
+	} else {
+		$class = 'default-thumb';
+	}
+
+	$img = wp_get_attachment_image( $thumb_id, 'full' );
+
+	$out =	"<div class=\"rhd-full-width-thumbnail-wrapper {$class}\" {$scrollax_parent}>
+				<div class=\"rhd-full-width-thumbnail\" {$scrollax_child}>
+					{$img}
+				</div>
+			</div>
+			";
+
+	if ( $default )
+		$out .= '<h2 class="page-title mobile-only">' . $post->post_title . '</h2>';
+
+	echo $out;
+}

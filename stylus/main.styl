@@ -87,6 +87,10 @@ input[type="submit"]
 	background $c_header
 	color $c_text_lt
 	z-index 999
+	transition background 0.25s ease
+
+	&.trans
+		background $c_header_trans
 
 
 #masthead
@@ -247,7 +251,7 @@ input[type="submit"]
 			.rhd-mc-lname
 			.rhd-mc-email
 				font-family $ff_body
-				-placeholder-props( $ff_body )
+				-placeholder-props( $ff_body, gray )
 
 			.rhd-mc-fname
 			.rhd-mc-lname
@@ -438,6 +442,10 @@ input[type="submit"]
 	#main
 		width 100%
 		max-width none
+		padding-top $navHt
+
+	#primary
+		margin-top 0
 
 	.entry-content
 		display block
@@ -461,12 +469,25 @@ input[type="submit"]
 				position absolute
 
 				img
-					width auto
-					height auto
-					min-width 100%
-					min-height 100%
-					-vhcenter()
-					display block
+					-scrollax-img()
+
+	.rhd-full-width-thumbnail-wrapper
+		width 100%
+		height 20vh
+		margin-bottom 2em
+		background $off_white
+		position relative
+
+		.rhd-full-width-thumbnail
+			width 100%
+			height 100%
+			position absolute
+			display block
+
+			img
+				width 90%
+				height auto
+				-vhcenter()
 
 
 /* ==========================================================================
