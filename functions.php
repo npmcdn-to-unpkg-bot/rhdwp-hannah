@@ -30,7 +30,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 include_once( 'inc/rhd-theme.php' );
 include_once( 'inc/rhd-shortcodes.php' );
 include_once( 'inc/rhd-metabar.php' );
-include_once( 'inc/rhd-login-admin.php' );
+include_once( 'inc/rhd-branding.php' );
 
 
 // Globally disable WP toolbar
