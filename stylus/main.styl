@@ -485,7 +485,7 @@ input[type="submit"]
 				padding 2em 0
 
 	.rhd-page-header-cta-container
-		-wrapper(0, 0, 75%)
+		-wrapper(0, 0, 85%)
 		color $c_bg
 		z-index 2
 		text-align center
@@ -496,18 +496,22 @@ input[type="submit"]
 			vertical-align middle
 
 			.rhd-page-header-cta-inner
-				min-width 50%
+				width 100%
 				-vhcenter()
 				border-radius 0.1em
 
 				&.bg
-					padding 2em 1em
 					background $c_off_white_trans
 
 		.page-header-headline
-			margin-top 0
+			margin 1rem 0 0.5rem 0
+			line-height 1.1
 			-ff-headline()
 			font-size 3em
+
+		.page-header-text
+		.ghost-button-container
+			margin 0.5rem 0
 
 		.page-header-text
 			font-size 1.2em
