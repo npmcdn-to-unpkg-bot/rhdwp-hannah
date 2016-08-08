@@ -442,7 +442,8 @@ input[type="submit"]
 	#main
 		width 100%
 		max-width none
-		padding-top $navHt
+		padding 0
+		margin-bottom 0
 
 	#primary
 		margin-top 0
@@ -473,21 +474,38 @@ input[type="submit"]
 
 	.rhd-full-width-thumbnail-wrapper
 		width 100%
-		height 20vh
+		height auto
 		margin-bottom 2em
 		background $off_white
 		position relative
 
-		.rhd-full-width-thumbnail
+		&.fixed-bg
 			width 100%
-			height 100%
-			position absolute
-			display block
+			height auto
+			position fixed
+			top $navHt
+			left 0
+			z-index -1
 
-			img
-				width 90%
-				height auto
-				-vhcenter()
+			.rhd-full-width-thumbnail
+				position relative
+
+				img
+					width 100%
+					height auto
+					display block
+
+			& + .full-width-page
+				background $c_bg
+				z-index 2
+				padding @margin-bottom 0
+
+		&.default-thumb
+			margin-top $navHt
+
+			.rhd-full-width-thumbnail
+				-wrapper(0, 0, 90%)
+				padding 2em 0
 
 
 /* ==========================================================================

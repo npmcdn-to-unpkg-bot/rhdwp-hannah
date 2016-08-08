@@ -161,15 +161,15 @@ function rhd_full_width_thumbnail( $thumb_id ) {
 	if ( ! $default ) {
 		$scrollax_parent = 'data-scrollax-parent="true"';
 		$scrollax_child = 'data-scrollax="properties: { \'translateY\': \'30%\'}"';
-		$class = 'parallax-thumb';
+		$class = 'fixed-bg';
 	} else {
 		$class = 'default-thumb';
 	}
 
 	$img = wp_get_attachment_image( $thumb_id, 'full' );
 
-	$out =	"<div class=\"rhd-full-width-thumbnail-wrapper {$class}\" {$scrollax_parent}>
-				<div class=\"rhd-full-width-thumbnail\" {$scrollax_child}>
+	$out =	"<div class=\"rhd-full-width-thumbnail-wrapper {$class}\">
+				<div class=\"rhd-full-width-thumbnail\">
 					{$img}
 				</div>
 			</div>

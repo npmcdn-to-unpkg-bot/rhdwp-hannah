@@ -37,17 +37,6 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 			setFullWidthDimensions();
 		});
-
-		$(window).on("scroll", function(){
-			var scrollTop = $(window).scrollTop(),
-				navbarBot = $("#navbar").height();
-
-			if ( scrollTop >= navbarBot ) {
-				$("#navbar").addClass( 'trans' );
-			} else {
-				$("#navbar").removeClass( 'trans' );
-			}
-		});
 	});
 
 
@@ -123,13 +112,17 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 	function setFullWidthDimensions() {
 		var navHt = $("#navbar").height();
 
-		$(".page-template-template-full-width #main").css({
-			marginTop: $("#navbar").height(),
-			paddingTop: 0
+		$(".rhd-full-width-thumbnail-wrapper").imagesLoaded().done(function(){
+			$(".fixed-bg").css({
+				'top': navHt,
+				'height': $(window).height() - navHt
+			});
+
+			$(".fixed-bg + .full-width-page").css({
+				marginTop: $(".fixed-bg").height() + navHt
+			});
+
+			parallax = new Scrollax().init();
 		});
-
-		$(".rhd-full-width-thumbnail-wrapper").height($(window).height() - navHt);
-
-		parallax = new Scrollax().init();
 	}
 })(jQuery);
