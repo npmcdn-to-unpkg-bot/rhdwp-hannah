@@ -385,8 +385,10 @@ function get_the_slug() {
  *
  * @param $html
  **/
+/*
 add_filter( 'post_thumbnail_html', 'rhd_strip_thumbnail_dimensions', 10 );
 add_filter( 'image_send_to_editor', 'rhd_strip_thumbnail_dimensions', 10 );
+*/
 
 function rhd_strip_thumbnail_dimensions( $html ) {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
