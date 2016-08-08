@@ -448,6 +448,73 @@ input[type="submit"]
 	#primary
 		margin-top 0
 
+	.rhd-full-width-thumbnail-container
+		width 100%
+		height auto
+		background $off_white
+		position relative
+
+		&.fixed-bg
+			width 100%
+			height auto
+			position fixed
+			top $navHt
+			left 0
+			z-index 0
+
+			.rhd-full-width-thumbnail
+				position relative
+
+				img
+					width 100%
+					height auto
+					display block
+
+			& + .full-width-page
+				z-index 2
+				position relative
+
+				.entry-content
+					background $c_bg
+
+		&.default-thumb
+			margin-top $navHt
+
+			.rhd-full-width-thumbnail
+				-wrapper(0, 0, 90%)
+				padding 2em 0
+
+	.rhd-page-header-cta-container
+		-wrapper(0, 0, 75%)
+		color $c_bg
+		z-index 2
+		text-align center
+		display table
+
+		.rhd-page-header-cta
+			display table-cell
+			vertical-align middle
+
+			.rhd-page-header-cta-inner
+				min-width 50%
+				-vhcenter()
+				border-radius 0.1em
+
+				&.bg
+					padding 2em 1em
+					background $c_off_white_trans
+
+		.page-header-headline
+			margin-top 0
+			-ff-headline()
+			font-size 3em
+
+		.page-header-text
+			font-size 1.2em
+
+	.entry-header
+		-invisible()
+
 	.entry-content
 		display block
 
@@ -471,41 +538,6 @@ input[type="submit"]
 
 				img
 					-scrollax-img()
-
-	.rhd-full-width-thumbnail-wrapper
-		width 100%
-		height auto
-		margin-bottom 2em
-		background $off_white
-		position relative
-
-		&.fixed-bg
-			width 100%
-			height auto
-			position fixed
-			top $navHt
-			left 0
-			z-index -1
-
-			.rhd-full-width-thumbnail
-				position relative
-
-				img
-					width 100%
-					height auto
-					display block
-
-			& + .full-width-page
-				background $c_bg
-				z-index 2
-				padding @margin-bottom 0
-
-		&.default-thumb
-			margin-top $navHt
-
-			.rhd-full-width-thumbnail
-				-wrapper(0, 0, 90%)
-				padding 2em 0
 
 
 /* ==========================================================================

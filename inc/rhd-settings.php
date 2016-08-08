@@ -102,18 +102,18 @@ class RHD_Settings
 	{
 		$new_input = array();
 
-		$new_input['rhd_button_1_label'] = ( isset( $input['rhd_button_1_label'] ) ) ? esc_attr( $input['rhd_button_1_label'] ) : '';
-		$new_input['rhd_button_1_sub'] = ( isset( $input['rhd_button_1_sub'] ) ) ? esc_attr( $input['rhd_button_1_sub'] ) : '';
+		$new_input['rhd_button_1_label'] = ( isset( $input['rhd_button_1_label'] ) ) ? sanitize_text_field( $input['rhd_button_1_label'] ) : '';
+		$new_input['rhd_button_1_sub'] = ( isset( $input['rhd_button_1_sub'] ) ) ? sanitize_text_field( $input['rhd_button_1_sub'] ) : '';
 		$new_input['rhd_button_1_link'] = ( isset( $input['rhd_button_1_link'] ) ) ? esc_url_raw( $input['rhd_button_1_link'] ) : '';
 		$new_input['rhd_button_1_text'] = ( isset( $input['rhd_button_1_text'] ) ) ? wp_kses_post( $input['rhd_button_1_text'] ) : '';
 
-		$new_input['rhd_button_2_label'] = ( isset( $input['rhd_button_2_label'] ) ) ? esc_attr( $input['rhd_button_2_label'] ) : '';
-		$new_input['rhd_button_2_sub'] = ( isset( $input['rhd_button_2_sub'] ) ) ? esc_attr( $input['rhd_button_2_sub'] ) : '';
+		$new_input['rhd_button_2_label'] = ( isset( $input['rhd_button_2_label'] ) ) ? sanitize_text_field( $input['rhd_button_2_label'] ) : '';
+		$new_input['rhd_button_2_sub'] = ( isset( $input['rhd_button_2_sub'] ) ) ? sanitize_text_field( $input['rhd_button_2_sub'] ) : '';
 		$new_input['rhd_button_2_link'] = ( isset( $input['rhd_button_2_link'] ) ) ? esc_url_raw( $input['rhd_button_2_link'] ) : '';
 		$new_input['rhd_button_2_text'] = ( isset( $input['rhd_button_2_text'] ) ) ? wp_kses_post( $input['rhd_button_2_text'] ) : '';
 
-		$new_input['rhd_button_3_label'] = ( isset( $input['rhd_button_3_label'] ) ) ? esc_attr( $input['rhd_button_3_label'] ) : '';
-		$new_input['rhd_button_3_sub'] = ( isset( $input['rhd_button_3_sub'] ) ) ? esc_attr( $input['rhd_button_3_sub'] ) : '';
+		$new_input['rhd_button_3_label'] = ( isset( $input['rhd_button_3_label'] ) ) ? sanitize_text_field( $input['rhd_button_3_label'] ) : '';
+		$new_input['rhd_button_3_sub'] = ( isset( $input['rhd_button_3_sub'] ) ) ? sanitize_text_field( $input['rhd_button_3_sub'] ) : '';
 		$new_input['rhd_button_3_link'] = ( isset( $input['rhd_button_3_link'] ) ) ? esc_url_raw( $input['rhd_button_3_link'] ) : '';
 		$new_input['rhd_button_3_text'] = ( isset( $input['rhd_button_3_text'] ) ) ? wp_kses_post( $input['rhd_button_3_text'] ) : '';
 

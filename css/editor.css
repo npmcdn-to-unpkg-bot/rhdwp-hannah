@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:40:53 PM on 08-08-2016
+* RHD Dev: Compiled at 6:36:24 PM on 08-08-2016
 ***/
 
 /**
@@ -1674,6 +1674,85 @@ input[type="submit"]:hover {
 .page-template-template-full-width #primary {
   margin-top: 0;
 }
+.page-template-template-full-width .rhd-full-width-thumbnail-container {
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+  position: relative;
+}
+.page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 3em;
+  left: 0;
+  z-index: 0;
+}
+.page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg .rhd-full-width-thumbnail {
+  position: relative;
+}
+.page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg .rhd-full-width-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg + .full-width-page {
+  z-index: 2;
+  position: relative;
+}
+.page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg + .full-width-page .entry-content {
+  background: #fff;
+}
+.page-template-template-full-width .rhd-full-width-thumbnail-container.default-thumb {
+  margin-top: 3em;
+}
+.page-template-template-full-width .rhd-full-width-thumbnail-container.default-thumb .rhd-full-width-thumbnail {
+  width: 90%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding: 2em 0;
+}
+.page-template-template-full-width .rhd-page-header-cta-container {
+  width: 75%;
+  max-width: 80rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+  color: #fff;
+  z-index: 2;
+  text-align: center;
+  display: table;
+}
+.page-template-template-full-width .rhd-page-header-cta-container .rhd-page-header-cta {
+  display: table-cell;
+  vertical-align: middle;
+}
+.page-template-template-full-width .rhd-page-header-cta-container .rhd-page-header-cta .rhd-page-header-cta-inner {
+  min-width: 50%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  border-radius: 0.1em;
+}
+.page-template-template-full-width .rhd-page-header-cta-container .rhd-page-header-cta .rhd-page-header-cta-inner.bg {
+  padding: 2em 1em;
+  background: rgba(226,226,226,0.35);
+}
+.page-template-template-full-width .rhd-page-header-cta-container .page-header-headline {
+  margin-top: 0;
+  font-family: 'BenchNine', sans-serif;
+  font-weight: normal;
+  font-size: 3em;
+}
+.page-template-template-full-width .rhd-page-header-cta-container .page-header-text {
+  font-size: 1.2em;
+}
+.page-template-template-full-width .entry-header {
+  visibility: hidden;
+  position: absolute;
+}
 .page-template-template-full-width .entry-content {
   display: block;
 }
@@ -1710,44 +1789,6 @@ input[type="submit"]:hover {
   -webkit-transform: translate(50%, -50%);
   transform: translate(50%, -50%);
   display: block;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-wrapper {
-  width: 100%;
-  height: auto;
-  margin-bottom: 2em;
-  background: #f5f5f5;
-  position: relative;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-wrapper.fixed-bg {
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 3em;
-  left: 0;
-  z-index: -1;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-wrapper.fixed-bg .rhd-full-width-thumbnail {
-  position: relative;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-wrapper.fixed-bg .rhd-full-width-thumbnail img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-wrapper.fixed-bg + .full-width-page {
-  background: #fff;
-  z-index: 2;
-  padding: 2em 0;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-wrapper.default-thumb {
-  margin-top: 3em;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-wrapper.default-thumb .rhd-full-width-thumbnail {
-  width: 90%;
-  max-width: 80rem;
-  position: relative;
-  margin: 0 auto 0 auto;
-  padding: 2em 0;
 }
 .rhd-cta-buttons .cta-buttons {
   list-style: none;
@@ -2072,18 +2113,18 @@ input[type="submit"]:hover {
   .page-template-template-full-width #main {
     margin-top: 0;
   }
-  .page-template-template-full-width .rhd-full-width-thumbnail-wrapper.fixed-bg {
+  .page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg {
     height: 100vh;
     top: 0;
     overflow: hidden;
   }
-  .page-template-template-full-width .rhd-full-width-thumbnail-wrapper.fixed-bg .rhd-full-width-thumbnail {
+  .page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg .rhd-full-width-thumbnail {
     width: 100%;
     height: 100%;
     position: absolute;
     display: block;
   }
-  .page-template-template-full-width .rhd-full-width-thumbnail-wrapper.fixed-bg .rhd-full-width-thumbnail img {
+  .page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg .rhd-full-width-thumbnail img {
     width: auto;
     height: auto;
     max-width: none;
@@ -2096,10 +2137,13 @@ input[type="submit"]:hover {
     transform: translate(50%, -50%);
     display: block;
   }
-  .page-template-template-full-width .rhd-full-width-thumbnail-wrapper.default-thumb {
+  .page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg + .full-width-page .entry-content {
+    padding: 2em 0;
+  }
+  .page-template-template-full-width .rhd-full-width-thumbnail-container.default-thumb {
     margin-top: 0;
   }
-  .page-template-template-full-width .rhd-full-width-thumbnail-wrapper.default-thumb .rhd-full-width-thumbnail {
+  .page-template-template-full-width .rhd-full-width-thumbnail-container.default-thumb .rhd-full-width-thumbnail {
     padding: 4em 0;
   }
   .rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link {

@@ -17,7 +17,7 @@ get_header(); ?>
 
 				<?php rhd_full_width_thumbnail( get_post_thumbnail_id() ); ?>
 
-				<?php get_template_part( 'template-parts/content', 'custom-page' ); ?>
+				<?php get_template_part( 'template-parts/content', 'full-width' ); ?>
 
 			<?php endwhile; ?>
 

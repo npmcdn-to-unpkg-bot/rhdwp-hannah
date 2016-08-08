@@ -37,6 +37,11 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 			setFullWidthDimensions();
 		});
+
+		$(window).on("scroll", function(){
+			if ( !viewportIsSmall() )
+				rhdShowHideFeaturedImage();
+		});
 	});
 
 
@@ -45,6 +50,9 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		fixGridLayout(".post-grid");
 		wpAdminBarPush();
 		setFullWidthDimensions();
+
+		if ( !viewportIsSmall() )
+			rhdShowHideFeaturedImage();
 	}
 
 
@@ -112,17 +120,31 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 	function setFullWidthDimensions() {
 		var navHt = $("#navbar").height();
 
-		$(".rhd-full-width-thumbnail-wrapper").imagesLoaded().done(function(){
-			$(".fixed-bg").css({
-				'top': navHt,
-				'height': $(window).height() - navHt
-			});
+		$(".rhd-full-width-thumbnail-container").imagesLoaded().done(function(){
+			if ( !viewportIsSmall() ) {
+				$(".fixed-bg").css({
+					'top': navHt,
+					'height': $(window).height() - navHt
+				});
+			}
 
-			$(".fixed-bg + .full-width-page").css({
-				marginTop: $(".fixed-bg").height() + navHt
+//			$(".fixed-bg + .full-width-page").css('marginTop', $(".fixed-bg").height() + navHt);
+			$(".rhd-page-header-cta-container").css({
+				'height': $(".fixed-bg").height() + 'px',
+				'marginTop': navHt
 			});
-
 			parallax = new Scrollax().init();
 		});
+	}
+
+
+	function rhdShowHideFeaturedImage() {
+		var st = $(window).scrollTop();
+
+		if ( st > $(".fixed-bg").height() ) {
+			$(".fixed-bg").css('visibility', 'hidden');
+		} else {
+			$(".fixed-bg").css('visibility', 'initial');
+		}
 	}
 })(jQuery);
