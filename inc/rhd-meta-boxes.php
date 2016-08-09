@@ -37,25 +37,23 @@ function rhd_page_meta_callback( $post ) {
 		<em>This functionality is automatically disabled if no <a href="#postimagediv">Featured Image</a> is specified.</em>
 	</p>
 
-	<hr noshade=noshade />
-
-	<p>
-		<span class="rhd-row-title"><?php _e( 'Header Style', 'rhd' )?></span>
-		<div class="rhd-row-content">
+	<div class="rhd-row-content">
+		<p>
+			<strong><?php _e( 'Header Overlay Style', 'rhd' )?></strong><br />
 			<label for="rhd-page-overlay-style-cta">
 				<input type="radio" name="rhd-page-overlay-style" id="rhd-page-overlay-style-cta" value="cta" <?php if ( isset( $meta['rhd_page_overlay_style'] ) ) checked( $meta['rhd_page_overlay_style'][0], 'cta' ); ?>>
 				<?php _e( 'Text + Button', 'rhd' )?>
-			</label>
+			</label>&nbsp;
 			<label for="rhd-page-overlay-style-image">
 				<input type="radio" name="rhd-page-overlay-style" id="rhd-page-overlay-style-image" value="image" <?php if ( isset( $meta['rhd_page_overlay_style'] ) ) checked( $meta['rhd_page_overlay_style'][0], 'image' ); ?>>
 				<?php _e( 'Image', 'rhd' )?>
-			</label>
+			</label>&nbsp;
 			<label for="rhd-page-overlay-style-off">
 				<input type="radio" name="rhd-page-overlay-style" id="rhd-page-overlay-style-off" value="off" <?php if ( ( isset( $meta['rhd_page_overlay_style'] ) && $meta['rhd_page_overlay_style'][0] == 'off' ) || ! isset( $meta['rhd_page_overlay_style'] ) ) echo 'checked="checked"'; ?>>
 				<?php _e( 'Off', 'rhd' )?>
 			</label>
-		</div>
 		</p>
+	</div>
 
 	<div id="rhd-page-overlay-cta-options" class="rhd-page-overlay-options" style="display: none;">
 		<p>
@@ -74,10 +72,6 @@ function rhd_page_meta_callback( $post ) {
 			<label for="rhd-page-overlay-button-link" class="rhd-page-overlay-button-link"><?php _e( 'Button Link', 'rhd' )?></label><br />
 			<input type="text" name="rhd-page-overlay-button-link" id="rhd-page-overlay-button-link" class="widefat" value="<?php if ( isset( $meta['rhd_page_overlay_button_link'] ) ) echo $meta['rhd_page_overlay_button_link'][0]; ?>" />
 		</p>
-		<p>
-			<input type="checkbox" name="rhd-page-overlay-bg" id="rhd-page-overlay-bg" value="yes" <?php if ( isset( $meta['rhd_page_overlay_bg'] ) ) checked( $meta['rhd_page_overlay_bg'][0], 'yes' ); ?>  />
-			<label for="rhd-page-overlay-bg" class="rhd-page-overlay-bg"><?php _e( 'Add semi-transparent background', 'rhd' )?></label>
-		</p>
 	</div>
 
 	<div id="rhd-page-overlay-image-options" class="rhd-page-overlay-options" style="display: none;">
@@ -95,6 +89,14 @@ function rhd_page_meta_callback( $post ) {
 			</figure>
 
 			<a href="#" id="rhd-page-overlay-clear-image" style="font-size: 0.8em;">Clear Image</a>
+		</p>
+	</div>
+
+	<div id="rhd-page-overlay-bg-option">
+		<hr noshade="noshade">
+		<p>
+			<input type="checkbox" name="rhd-page-overlay-bg" id="rhd-page-overlay-bg" value="yes" <?php if ( isset( $meta['rhd_page_overlay_bg'] ) ) checked( $meta['rhd_page_overlay_bg'][0], 'yes' ); ?>  />
+			<label for="rhd-page-overlay-bg" class="rhd-page-overlay-bg"><?php _e( 'Add semi-transparent background', 'rhd' )?></label>
 		</p>
 	</div>
 <?php

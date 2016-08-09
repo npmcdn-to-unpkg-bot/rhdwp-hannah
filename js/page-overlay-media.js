@@ -4,6 +4,9 @@
 jQuery(document).ready(function($){
 
 	// Show/hide selected options
+	if ( $("#rhd-page-overlay-style-cta").is(":checked") || $("#rhd-page-overlay-style-image").is(":checked") )
+		$("#rhd-page-overlay-bg-option").show();
+
 	if ( $("#rhd-page-overlay-style-cta").is(":checked") ) {
 		$("#rhd-page-overlay-cta-options").show();
 		$("#rhd-page-overlay-image-options").hide();
@@ -17,11 +20,15 @@ jQuery(document).ready(function($){
 		if ( $(this).attr('value') == 'cta' ) {
 			$("#rhd-page-overlay-cta-options").slideDown();
 			$("#rhd-page-overlay-image-options").slideUp();
+
+			$("#rhd-page-overlay-bg-option").show();
 		} else if ( $(this).attr('value') == 'image' ) {
 			$("#rhd-page-overlay-image-options").slideDown();
 			$("#rhd-page-overlay-cta-options").slideUp();
+
+			$("#rhd-page-overlay-bg-option").show();
 		} else {
-			$("#rhd-page-overlay-cta-options, #rhd-page-overlay-image-options").slideUp();
+			$("#rhd-page-overlay-cta-options, #rhd-page-overlay-image-options, #rhd-page-overlay-bg-option").slideUp();
 		}
 	});
 
