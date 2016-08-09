@@ -192,17 +192,15 @@ function rhd_full_width_thumbnail( $thumb_id ) {
 function rhd_full_width_format_cta( $post_id ) {
 	$meta = get_post_meta( $post_id );
 
-	// Do nothing if not set
-	if ( ! $meta['rhd_page_overlay_style'][0] )
-		return;
-
 	$style = $meta['rhd_page_overlay_style'][0];
 	$classes = array( "rhd-page-style-{$style}" );
 
-	$out =	"
-			<div class=\"rhd-page-overlay-cta-container\">
-				<div class=\"rhd-page-overlay-cta\">
-			";
+	if ( $style && $style != 'off' ) {
+		$out =	"
+				<div class=\"rhd-page-overlay-cta-container\">
+					<div class=\"rhd-page-overlay-cta\">
+				";
+	}
 
 	switch( $style ) {
 		case 'cta':
@@ -238,12 +236,18 @@ function rhd_full_width_format_cta( $post_id ) {
 					. wp_get_attachment_image( $meta['rhd_page_overlay_image'][0], 'large' ) .
 				"</div>";
 			break;
+
+		case 'off':
+		default:
+			break;
 	}
 
-	$out .= '
+	if ( $style && $style != 'off' ) {
+		$out .= '
+					</div>
 				</div>
-			</div>
-			';
+				';
+	}
 
 	return $out;
 }

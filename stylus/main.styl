@@ -489,12 +489,8 @@ input[type="submit"]
 		color $c_bg
 		z-index 2
 		text-align center
-		display table
 
 		.rhd-page-overlay-cta
-			display table-cell
-			vertical-align middle
-
 			.rhd-page-overlay-cta-inner
 				width 100%
 				-vhcenter()
@@ -523,7 +519,7 @@ input[type="submit"]
 		display block
 
 		& > *
-			-wrapper(1em, 1em)
+			-wrapper(2em, 2em)
 
 		.rhd-big-image-container
 			width 100%
@@ -543,6 +539,10 @@ input[type="submit"]
 				img
 					-scrollax-img()
 
+		.entry-meta
+			p
+				margin 0
+
 
 /* ==========================================================================
 	CTA Buttons
@@ -550,9 +550,6 @@ input[type="submit"]
 
 .rhd-cta-buttons
 	.cta-buttons
-		list-style none
-		padding-left 0
-
 		.cta-button-item
 			width 100%
 			display block
@@ -601,6 +598,20 @@ input[type="submit"]
 			margin 0.5em 0
 			background $c_quat
 			border none
+
+	&.front-page
+		.cta-buttons
+			.cta-button-item
+				padding 0.5em
+
+			.cta-button
+				margin-bottom 0
+
+			.cta-text-desc
+				display none
+
+			.cta-break
+				display none
 
 
 /* ==========================================================================

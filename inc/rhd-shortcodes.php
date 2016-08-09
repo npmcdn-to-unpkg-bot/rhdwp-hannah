@@ -83,7 +83,7 @@ function rhd_cta_buttons( $parent_class = null ) {
 
 	$output = "<div class=\"rhd-cta-buttons {$parent_class}\">";
 
-	$output .= '<ul class="cta-buttons">';
+	$output .= '<div class="cta-buttons">';
 
 	for ( $i = 1; $i <=3; $i++ ) {
 		$label = esc_attr( $options["rhd_button_{$i}_label"] );
@@ -92,7 +92,7 @@ function rhd_cta_buttons( $parent_class = null ) {
 		$text = wpautop( $options["rhd_button_{$i}_text"] );
 
 		$output .= "
-					<li class=\"cta-button-item cta-button-item-{$i}\">
+					<div class=\"cta-button-item cta-button-item-{$i}\">
 						<a class=\"cta-button-link\" href=\"{$link}\">
 							<div class=\"cta-button\">
 								<h4 class=\"cta-label\">{$label}</h4>
@@ -100,15 +100,14 @@ function rhd_cta_buttons( $parent_class = null ) {
 							</div>
 						</a>
 						<div class=\"cta-text-desc\">" . $text . "</div>
-					</li>
+					</div>
 					";
 
 		if ( $i < 3 )
 			$output .= '<hr class="cta-break" />';
 	}
 
-	$output .= "</ul>";
-	$output .= "</div>";
+	$output .= "</div></div>";
 
 	return $output;
 }
@@ -116,11 +115,11 @@ function rhd_cta_buttons( $parent_class = null ) {
 
 function rhd_cta_buttons_shortcode( $atts ) {
 	$a = shortcode_atts( array(
-		'parent_class' => null
+		'class' => null
 	), $atts );
 
 	extract( $a );
 
-	return rhd_cta_buttons( $parent_class );
+	return rhd_cta_buttons( $class );
 }
 add_shortcode( 'cta-buttons', 'rhd_cta_buttons_shortcode' );

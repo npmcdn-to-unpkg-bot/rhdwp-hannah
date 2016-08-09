@@ -53,6 +53,17 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 		if ( !viewportIsSmall() )
 			rhdShowHideFeaturedImage();
+
+		if ( isFrontPage ) {
+			var bigHt = 0;
+			$(".rhd-cta-buttons.front-page .cta-button-link").each(function(){
+				if ( bigHt < $(this).height() ) {
+					bigHt = $(this).height();
+				}
+			});
+
+			$(".rhd-cta-buttons.front-page .cta-button-link").height(bigHt);
+		}
 	}
 
 

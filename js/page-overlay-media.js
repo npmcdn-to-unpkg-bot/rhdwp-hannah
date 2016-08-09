@@ -17,10 +17,20 @@ jQuery(document).ready(function($){
 		if ( $(this).attr('value') == 'cta' ) {
 			$("#rhd-page-overlay-cta-options").slideDown();
 			$("#rhd-page-overlay-image-options").slideUp();
-		} else {
+		} else if ( $(this).attr('value') == 'image' ) {
 			$("#rhd-page-overlay-image-options").slideDown();
 			$("#rhd-page-overlay-cta-options").slideUp();
+		} else {
+			$("#rhd-page-overlay-cta-options, #rhd-page-overlay-image-options").slideUp();
 		}
+	});
+
+	$("#rhd-page-overlay-clear-image").click(function(e){
+		e.preventDefault();
+
+		$('#rhd-page-overlay-image-id').attr( 'value', '' );
+        $('#rhd-page-overlay-image img').attr('src', 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==');
+        $('#rhd-page-overlay-image figcaption').text('');
 	});
 
     // Instantiates the variable that holds the media library frame.
