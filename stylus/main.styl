@@ -565,41 +565,40 @@ input[type="submit"]
 		.cta-button-item
 			width 100%
 			display block
-			padding 1em
 
 			&:last-child
 				margin-bottom 0
 
 			.cta-button-link
-				width 100%
-				display inline-block
-				color $c_bg
+				color inherit
 				text-decoration none
 
-				.cta-button
-					background $c_sec
-					color $c_bg
-					text-align center
-					padding 1.5em
-					margin-bottom 1em
-					transition background 0.25s ease
-
-					&:hover
-					&:active
+				&:hover
+				&:active
+					.cta-button
 						background $c_sec_lt
 
-					.cta-label
-						-ff-headline()
-						font-size 300%
-						text-transform uppercase
-						margin 0 0 1.5rem 0
-						letter-spacing 0.25em
-						padding-left 6% // centering tweak
+			.cta-button
+				width 100%
+				background $c_sec
+				color $c_bg
+				text-align center
+				padding 1.5em
+				margin-bottom 0.5em
+				transition background 0.25s ease
 
-					.cta-subtitle
-						font-size 1em
-						font-weight 700
-						line-height 1.2
+				.cta-label
+					-ff-headline()
+					font-size 3em
+					text-transform uppercase
+					margin 0 0 1.5rem 0
+					letter-spacing 0.25em
+					padding-left 6% // centering tweak
+
+				.cta-subtitle
+					font-size 1em
+					font-weight 700
+					line-height 1.2
 
 			.cta-text-desc
 				text-align center
@@ -611,19 +610,71 @@ input[type="submit"]
 			background $c_quat
 			border none
 
-	&.front-page
-		.cta-buttons
-			.cta-button-item
-				padding 0.5em
+.front-page
+	.entry-content
+		.rhd-cta-buttons
+			width 100%
 
-			.cta-button
-				margin-bottom 0
+			.cta-buttons
+				.cta-button-item
+					padding 0.25em 0.5em
 
-			.cta-text-desc
-				display none
+				.cta-button
+					margin-bottom 0
 
-			.cta-break
-				display none
+				.cta-text-desc
+					display none
+
+				.cta-break
+					display none
+
+
+/* ==========================================================================
+	CTA Boxes
+   ========================================================================== */
+
+.rhd-cta-boxes
+	width 100% !important
+	max-width none !important
+	margin 0
+
+	.rhd-cta-box
+		width 100%
+		margin 0.25em 0
+
+		&.donate-cta-box
+			background $c_sec
+			color $c_bg
+			padding 1em
+			text-align center
+
+			.donate-cta-list
+				-wrapper(1em, 1em, 80%)
+				list-style-position outside
+				list-style-type square
+				text-align left
+
+			.ghost-button-container
+				margin-top 2em
+
+				.ghost-button
+					&:hover
+					&:active
+						background $c_ter
+
+		&.front-page-image-cta-box
+			position relative
+
+			.rhd-cta-box-image
+				width 100%
+				height auto
+				margin 0
+
+			.ghost-button-container
+				position absolute
+				-hcenter()
+				bottom 2em
+				margin 0
 
 
 /* ==========================================================================

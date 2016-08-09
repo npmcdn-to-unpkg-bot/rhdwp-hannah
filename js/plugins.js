@@ -56,8 +56,10 @@
 	viewportIsSmall
    ========================================================================== */
 
-function viewportIsSmall() {
-	if ( jQuery(window).width() < 640 )
+function viewportIsSmall( w ) {
+	w = w ? w : 640;
+
+	if ( jQuery(window).width() < w )
 		return true;
 	else
 		return false;

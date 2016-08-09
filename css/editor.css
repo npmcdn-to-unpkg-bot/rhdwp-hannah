@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:45:38 PM on 09-08-2016
+* RHD Dev: Compiled at 4:56:06 PM on 09-08-2016
 ***/
 
 /**
@@ -1063,7 +1063,7 @@ img.aligncenter {
 .pagination .pag-load-more a,
 .single-pagination .pag-load-more a,
 #comments #commentform #submit {
-  padding: 0.4em 0.8em;
+  padding: 0.75em 1em;
   text-decoration: none;
   background-color: #fff;
   border-width: 3px;
@@ -1073,6 +1073,7 @@ img.aligncenter {
   transition: all 0.2s;
   font-family: 'Open Sans', sans-serif;
   font-weight: 800;
+  font-size: 1.2em;
   text-transform: uppercase;
 }
 .ghost-button-container .ghost-button:hover,
@@ -1807,39 +1808,37 @@ input[type="submit"]:hover {
 .rhd-cta-buttons .cta-buttons .cta-button-item {
   width: 100%;
   display: block;
-  padding: 1em;
 }
 .rhd-cta-buttons .cta-buttons .cta-button-item:last-child {
   margin-bottom: 0;
 }
 .rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link {
-  width: 100%;
-  display: inline-block;
-  color: #fff;
+  color: inherit;
   text-decoration: none;
 }
-.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link .cta-button {
+.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link:hover .cta-button,
+.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link:active .cta-button {
+  background: #30b0ff;
+}
+.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button {
+  width: 100%;
   background: #0077c0;
   color: #fff;
   text-align: center;
   padding: 1.5em;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   transition: background 0.25s ease;
 }
-.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link .cta-button:hover,
-.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link .cta-button:active {
-  background: #30b0ff;
-}
-.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link .cta-button .cta-label {
+.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button .cta-label {
   font-family: 'BenchNine', sans-serif;
   font-weight: normal;
-  font-size: 300%;
+  font-size: 3em;
   text-transform: uppercase;
   margin: 0 0 1.5rem 0;
   letter-spacing: 0.25em;
   padding-left: 6%;
 }
-.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link .cta-button .cta-subtitle {
+.rhd-cta-buttons .cta-buttons .cta-button-item .cta-button .cta-subtitle {
   font-size: 1em;
   font-weight: 700;
   line-height: 1.2;
@@ -1854,17 +1853,68 @@ input[type="submit"]:hover {
   background: #d0a02f;
   border: none;
 }
-.rhd-cta-buttons.front-page .cta-buttons .cta-button-item {
-  padding: 0.5em;
+.front-page .entry-content .rhd-cta-buttons {
+  width: 100%;
 }
-.rhd-cta-buttons.front-page .cta-buttons .cta-button {
+.front-page .entry-content .rhd-cta-buttons .cta-buttons .cta-button-item {
+  padding: 0.25em 0.5em;
+}
+.front-page .entry-content .rhd-cta-buttons .cta-buttons .cta-button {
   margin-bottom: 0;
 }
-.rhd-cta-buttons.front-page .cta-buttons .cta-text-desc {
+.front-page .entry-content .rhd-cta-buttons .cta-buttons .cta-text-desc {
   display: none;
 }
-.rhd-cta-buttons.front-page .cta-buttons .cta-break {
+.front-page .entry-content .rhd-cta-buttons .cta-buttons .cta-break {
   display: none;
+}
+.rhd-cta-boxes {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0;
+}
+.rhd-cta-boxes .rhd-cta-box {
+  width: 100%;
+  margin: 0.25em 0;
+}
+.rhd-cta-boxes .rhd-cta-box.donate-cta-box {
+  background: #0077c0;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+.rhd-cta-boxes .rhd-cta-box.donate-cta-box .donate-cta-list {
+  width: 80%;
+  max-width: 80rem;
+  position: relative;
+  margin: 1em auto 1em auto;
+  list-style-position: outside;
+  list-style-type: square;
+  text-align: left;
+}
+.rhd-cta-boxes .rhd-cta-box.donate-cta-box .ghost-button-container {
+  margin-top: 2em;
+}
+.rhd-cta-boxes .rhd-cta-box.donate-cta-box .ghost-button-container .ghost-button:hover,
+.rhd-cta-boxes .rhd-cta-box.donate-cta-box .ghost-button-container .ghost-button:active {
+  background: #00a950;
+}
+.rhd-cta-boxes .rhd-cta-box.front-page-image-cta-box {
+  position: relative;
+}
+.rhd-cta-boxes .rhd-cta-box.front-page-image-cta-box .rhd-cta-box-image {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.rhd-cta-boxes .rhd-cta-box.front-page-image-cta-box .ghost-button-container {
+  position: absolute;
+  position: absolute;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+  bottom: 2em;
+  margin: 0;
 }
 .post-grid {
   text-align: justify;
@@ -2175,56 +2225,43 @@ input[type="submit"]:hover {
   .page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta .rhd-page-overlay-cta-inner.bg {
     padding: 2em 1em;
   }
-  .rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link {
-    width: 40%;
-    min-width: 13.5rem;
+  .rhd-cta-boxes {
+    display: table;
+  }
+  .rhd-cta-boxes.rhd-front-page-image-cta {
+    height: 80vh;
+  }
+  .rhd-cta-boxes .rhd-cta-box {
+    width: 50%;
+    display: table-cell;
     vertical-align: middle;
-    padding-right: 2em;
-    float: left;
-    display: inline-block;
   }
-  .rhd-cta-buttons .cta-buttons .cta-button-item .cta-text-desc {
-    width: 56%;
-    text-align: left;
-    float: right;
+  .rhd-cta-boxes .rhd-cta-box.donate-cta-box:first-child {
+    border-right: 1.5px solid #fff;
   }
-  .rhd-cta-buttons .cta-buttons .cta-break {
-    width: 100%;
-    height: 0.25em;
-    margin: 0.5em 0;
-    background: #d0a02f;
-    border: none;
+  .rhd-cta-boxes .rhd-cta-box.donate-cta-box:last-child {
+    border-left: 1.5px solid #fff;
   }
-  .rhd-cta-buttons.front-page {
-    width: 80%;
-    max-width: 80rem;
-    position: relative;
-    margin: 0 auto 0 auto;
-  }
-  .rhd-cta-buttons.front-page .cta-buttons {
-    text-align: justify;
-  }
-  .rhd-cta-buttons.front-page .cta-buttons:after {
-    width: 100%;
-    display: inline-block;
-    content: '';
-  }
-  .rhd-cta-buttons.front-page .cta-buttons .cta-button-item {
-    width: 32%;
-    height: auto;
-    display: inline-block;
-  }
-  .rhd-cta-buttons.front-page .cta-buttons .cta-button-item .cta-button-link {
-    width: 100%;
-    height: auto;
-    padding-right: 0;
-    float: none;
-    display: block;
-  }
-  .rhd-cta-buttons.front-page .cta-buttons .cta-button-item .cta-button-link .cta-button {
-    width: 100%;
+  .rhd-cta-boxes .rhd-cta-box.front-page-image-cta-box {
     height: 100%;
-    margin-bottom: 0;
+    overflow: hidden;
+  }
+  .rhd-cta-boxes .rhd-cta-box.front-page-image-cta-box .rhd-cta-box-image {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .rhd-cta-boxes .rhd-cta-box.front-page-image-cta-box:first-child .rhd-cta-box-image {
+    right: 0;
+  }
+  .rhd-cta-boxes .rhd-cta-box.front-page-image-cta-box:last-child .rhd-cta-box-image {
+    left: 0;
+  }
+  .rhd-cta-boxes .rhd-cta-box.front-page-image-cta-box .ghost-button-container {
+    bottom: 20%;
   }
   #colophon {
     height: 20em;
@@ -2260,6 +2297,58 @@ input[type="submit"]:hover {
   }
   #colophon .footer-inner .newsletter {
     right: 0;
+  }
+}
+@media screen and (min-width: 50em) {
+  .rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link {
+    width: 40%;
+    min-width: 13.5rem;
+    vertical-align: middle;
+    padding-right: 2em;
+    float: left;
+    display: inline-block;
+  }
+  .rhd-cta-buttons .cta-buttons .cta-button-item .cta-text-desc {
+    width: 56%;
+    text-align: left;
+    float: right;
+  }
+  .rhd-cta-buttons .cta-buttons .cta-break {
+    width: 100%;
+    height: 0.25em;
+    margin: 0.5em 0;
+    background: #d0a02f;
+    border: none;
+  }
+  .front-page .entry-content .cta-buttons {
+    width: 85%;
+    max-width: 80rem;
+    position: relative;
+    margin: 0 auto 0 auto;
+    text-align: justify;
+  }
+  .front-page .entry-content .cta-buttons:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
+  }
+  .front-page .entry-content .cta-buttons .cta-button-item {
+    width: 32%;
+    display: inline-block;
+    padding: 0;
+    vertical-align: top;
+  }
+  .front-page .entry-content .cta-buttons .cta-button-item .cta-button-link {
+    width: 100%;
+    height: auto;
+    padding-right: 0;
+    float: none;
+    display: block;
+  }
+  .front-page .entry-content .cta-buttons .cta-button-item .cta-button {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
   }
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */

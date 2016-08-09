@@ -32,7 +32,13 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
-				parallax.reload();
+				//parallax.reload();
+			}
+
+			if ( !viewportIsSmall(800) ) {
+				frontPageCtaSizing();
+			} else {
+				frontPageCtaSizing('remove');
 			}
 
 			setFullWidthDimensions();
@@ -40,7 +46,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 		$(window).on("scroll", function(){
 			if ( !viewportIsSmall() )
-				rhdShowHideFeaturedImage();
+				showHideFeaturedImage();
 		});
 	});
 
@@ -51,18 +57,14 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		wpAdminBarPush();
 		setFullWidthDimensions();
 
-		if ( !viewportIsSmall() )
-			rhdShowHideFeaturedImage();
+		if ( !viewportIsSmall() ) {
+			showHideFeaturedImage();
+		}
 
-		if ( isFrontPage ) {
-			var bigHt = 0;
-			$(".rhd-cta-buttons.front-page .cta-button-link").each(function(){
-				if ( bigHt < $(this).height() ) {
-					bigHt = $(this).height();
-				}
-			});
-
-			$(".rhd-cta-buttons.front-page .cta-button-link").height(bigHt);
+		if ( !viewportIsSmall(800) ) {
+			if ( isFrontPage ) {
+				frontPageCtaSizing();
+			}
 		}
 	}
 
@@ -143,7 +145,6 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 				});
 			}
 
-//			$(".fixed-bg + .full-width-page").css('marginTop', $(".fixed-bg").height() + navHt);
 			$(".rhd-page-overlay-cta-container").css({
 				'height': $(".fixed-bg").height() + 'px',
 				'marginTop': navHt
@@ -154,13 +155,30 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 
 	// Show/hide to prevent overscrolling the undergrundle...
-	function rhdShowHideFeaturedImage() {
+	function showHideFeaturedImage() {
 		var st = $(window).scrollTop();
 
 		if ( st > $(".fixed-bg").height() ) {
 			$(".fixed-bg").css('visibility', 'hidden');
 		} else {
 			$(".fixed-bg").css('visibility', 'initial');
+		}
+	}
+
+
+	function frontPageCtaSizing( remove ) {
+		remove = remove ? true : false;
+
+		if ( ! remove ) {
+			var maxHt = 0;
+			$(".rhd-cta-buttons.front-page .cta-button-item").each(function(){
+				$(this).css('height', 'auto');
+				if ( maxHt < $(this).outerHeight() ) {
+					maxHt = $(this).height();
+				}
+			}).height(maxHt);
+		} else {
+			$(".rhd-cta-buttons.front-page .cta-button-item").css('height', '');
 		}
 	}
 })(jQuery);
