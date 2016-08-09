@@ -129,13 +129,17 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 
 	function setFullWidthDimensions() {
-		var navHt = $("#navbar").height();
+		$("#navbar, .rhd-full-width-thumbnail-container").imagesLoaded().done(function(){
+			var navHt = $("#navbar").height();
 
-		$(".rhd-full-width-thumbnail-container").imagesLoaded().done(function(){
 			if ( !viewportIsSmall() ) {
 				$(".fixed-bg").css({
 					'top': navHt,
 					'height': $(window).height() - navHt
+				});
+
+				$(".default-thumb").css({
+					'marginTop': navHt
 				});
 			}
 

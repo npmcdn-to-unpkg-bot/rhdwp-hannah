@@ -7,7 +7,12 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'full-width-page' ); ?>>
+<?php
+$class[] = 'full-width-page';
+$class[] = has_post_thumbnail() ? 'fixed-bg-page' : 'default-thumb-page';
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class( implode( " ", $class ) ); ?>>
 	<?php if ( has_post_thumbnail() ) echo rhd_full_width_format_cta( get_the_id() ); ?>
 
 	<header class="entry-header">

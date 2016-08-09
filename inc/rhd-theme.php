@@ -193,7 +193,11 @@ function rhd_full_width_format_cta( $post_id ) {
 	$meta = get_post_meta( $post_id );
 
 	$style = $meta['rhd_page_overlay_style'][0];
+
 	$classes = array( "rhd-page-style-{$style}" );
+
+	$classes[] = ( $meta['rhd_page_overlay_bg'][0] == 'yes' ) ? 'bg' : '';
+	$class = implode( " ", $classes );
 
 	if ( $style && $style != 'off' ) {
 		$out =	"
@@ -206,10 +210,6 @@ function rhd_full_width_format_cta( $post_id ) {
 		case 'cta':
 			$has_content = ( $meta['rhd_page_overlay_headline'] || $meta['rhd_page_overlay_text'] ) ? true : false;
 			$has_button = ( $meta['rhd_page_overlay_button_value'] && $meta['rhd_page_overlay_button_link'] ) ? true : false;
-			$with_bg = ( $meta['rhd_page_overlay_bg'][0] == 'yes' ) ? 'bg' : '';
-
-			$classes[] = $with_bg;
-			$class = implode( " ", $classes );
 
 			$out .= "<div class=\"rhd-page-overlay-cta-inner {$class}\">";
 
@@ -233,7 +233,7 @@ function rhd_full_width_format_cta( $post_id ) {
 		case 'image':
 			$out .= "
 				<div class=\"rhd-page-overlay-cta-inner {$class}\">"
-					. wp_get_attachment_image( $meta['rhd_page_overlay_image'][0], 'large' ) .
+					. wp_get_attachment_image( $meta['rhd_page_overlay_image'][0], 'large', false, array( 'class' => 'rhd-page-overlay-image' ) ) .
 				"</div>";
 			break;
 

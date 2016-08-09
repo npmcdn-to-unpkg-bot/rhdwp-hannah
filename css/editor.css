@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:44:25 PM on 09-08-2016
+* RHD Dev: Compiled at 1:42:48 PM on 09-08-2016
 ***/
 
 /**
@@ -1674,6 +1674,18 @@ input[type="submit"]:hover {
 .page-template-template-full-width #primary {
   margin-top: 0;
 }
+.page-template-template-full-width .full-width-page {
+  position: relative;
+}
+.page-template-template-full-width .full-width-page.fixed-bg-page {
+  z-index: 2;
+}
+.page-template-template-full-width .full-width-page.fixed-bg-page .entry-content {
+  background: #fff;
+}
+.page-template-template-full-width .full-width-page.default-thumb-page {
+  margin-top: 2em;
+}
 .page-template-template-full-width .rhd-full-width-thumbnail-container {
   width: 100%;
   height: auto;
@@ -1695,13 +1707,6 @@ input[type="submit"]:hover {
   width: 100%;
   height: auto;
   display: block;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg + .full-width-page {
-  z-index: 2;
-  position: relative;
-}
-.page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg + .full-width-page .entry-content {
-  background: #fff;
 }
 .page-template-template-full-width .rhd-full-width-thumbnail-container.default-thumb {
   margin-top: 3em;
@@ -1733,6 +1738,13 @@ input[type="submit"]:hover {
 }
 .page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta .rhd-page-overlay-cta-inner.bg {
   background: rgba(226,226,226,0.35);
+}
+.page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta .rhd-page-overlay-cta-inner.rhd-page-style-image {
+  max-height: 100%;
+}
+.page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta .rhd-page-overlay-cta-inner.rhd-page-style-image img {
+  width: auto;
+  max-height: 100%;
 }
 .page-template-template-full-width .rhd-page-overlay-cta-container .page-overlay-headline {
   margin: 1rem 0 0.5rem 0;
@@ -2123,6 +2135,9 @@ input[type="submit"]:hover {
   .page-template-template-full-width #main {
     margin-top: 0;
   }
+  .page-template-template-full-width .full-width-page.fixed-bg-page .entry-content {
+    padding: 2em 0;
+  }
   .page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg {
     height: 100vh;
     top: 0;
@@ -2146,9 +2161,6 @@ input[type="submit"]:hover {
     -webkit-transform: translate(50%, -50%);
     transform: translate(50%, -50%);
     display: block;
-  }
-  .page-template-template-full-width .rhd-full-width-thumbnail-container.fixed-bg + .full-width-page .entry-content {
-    padding: 2em 0;
   }
   .page-template-template-full-width .rhd-full-width-thumbnail-container.default-thumb {
     margin-top: 0;
