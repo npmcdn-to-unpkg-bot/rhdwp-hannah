@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:48:34 PM on 08-08-2016
+* RHD Dev: Compiled at 2:06:20 AM on 09-08-2016
 ***/
 
 /**
@@ -1713,7 +1713,7 @@ input[type="submit"]:hover {
   margin: 0 auto 0 auto;
   padding: 2em 0;
 }
-.page-template-template-full-width .rhd-page-header-cta-container {
+.page-template-template-full-width .rhd-page-overlay-cta-container {
   width: 85%;
   max-width: 80rem;
   position: relative;
@@ -1723,11 +1723,11 @@ input[type="submit"]:hover {
   text-align: center;
   display: table;
 }
-.page-template-template-full-width .rhd-page-header-cta-container .rhd-page-header-cta {
+.page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta {
   display: table-cell;
   vertical-align: middle;
 }
-.page-template-template-full-width .rhd-page-header-cta-container .rhd-page-header-cta .rhd-page-header-cta-inner {
+.page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta .rhd-page-overlay-cta-inner {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -1736,21 +1736,21 @@ input[type="submit"]:hover {
   transform: translate(50%, -50%);
   border-radius: 0.1em;
 }
-.page-template-template-full-width .rhd-page-header-cta-container .rhd-page-header-cta .rhd-page-header-cta-inner.bg {
+.page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta .rhd-page-overlay-cta-inner.bg {
   background: rgba(226,226,226,0.35);
 }
-.page-template-template-full-width .rhd-page-header-cta-container .page-header-headline {
+.page-template-template-full-width .rhd-page-overlay-cta-container .page-overlay-headline {
   margin: 1rem 0 0.5rem 0;
   line-height: 1.1;
   font-family: 'BenchNine', sans-serif;
   font-weight: normal;
   font-size: 3em;
 }
-.page-template-template-full-width .rhd-page-header-cta-container .page-header-text,
-.page-template-template-full-width .rhd-page-header-cta-container .ghost-button-container {
+.page-template-template-full-width .rhd-page-overlay-cta-container .page-overlay-text,
+.page-template-template-full-width .rhd-page-overlay-cta-container .ghost-button-container {
   margin: 0.5rem 0;
 }
-.page-template-template-full-width .rhd-page-header-cta-container .page-header-text {
+.page-template-template-full-width .rhd-page-overlay-cta-container .page-overlay-text {
   font-size: 1.2em;
 }
 .page-template-template-full-width .entry-header {
@@ -2150,12 +2150,12 @@ input[type="submit"]:hover {
   .page-template-template-full-width .rhd-full-width-thumbnail-container.default-thumb .rhd-full-width-thumbnail {
     padding: 4em 0;
   }
-  .page-template-template-full-width .rhd-page-header-cta-container .rhd-page-header-cta .rhd-page-header-cta-inner {
+  .page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta .rhd-page-overlay-cta-inner {
     width: auto;
     min-width: 50%;
   }
-  .page-template-template-full-width .rhd-page-header-cta-container .rhd-page-header-cta .rhd-page-header-cta-inner.bg {
-    paddign: 2em 1em;
+  .page-template-template-full-width .rhd-page-overlay-cta-container .rhd-page-overlay-cta .rhd-page-overlay-cta-inner.bg {
+    padding: 2em 1em;
   }
   .rhd-cta-buttons .cta-buttons .cta-button-item .cta-button-link {
     width: 40%;

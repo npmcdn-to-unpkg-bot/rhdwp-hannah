@@ -129,7 +129,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 			}
 
 //			$(".fixed-bg + .full-width-page").css('marginTop', $(".fixed-bg").height() + navHt);
-			$(".rhd-page-header-cta-container").css({
+			$(".rhd-page-overlay-cta-container").css({
 				'height': $(".fixed-bg").height() + 'px',
 				'marginTop': navHt
 			});
@@ -138,6 +138,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 	}
 
 
+	// Show/hide to prevent overscrolling the undergrundle...
 	function rhdShowHideFeaturedImage() {
 		var st = $(window).scrollTop();
 

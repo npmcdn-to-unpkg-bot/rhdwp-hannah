@@ -8,7 +8,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'full-width-page' ); ?>>
-	<?php if ( has_post_thumbnail() ) echo rhd_full_width_format_featured_cta( $post->ID ); ?>
+	<?php if ( has_post_thumbnail() ) echo rhd_full_width_format_cta( get_the_id() ); ?>
 
 	<header class="entry-header">
 		<h2 class="page-title"><?php the_title(); ?></h2>

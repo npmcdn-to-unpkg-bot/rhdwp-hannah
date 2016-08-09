@@ -154,7 +154,7 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 function rhd_add_page_meta_boxes() {
 	add_meta_box(
 		'rhd_page_meta',
-		__( 'Page Header CTA', 'rhd' ),
+		__( 'Header Overlay', 'rhd' ),
 		'rhd_page_meta_callback',
 		'page',
 		'normal',
@@ -179,32 +179,64 @@ function rhd_page_meta_callback( $post ) {
 ?>
 
 	<p>
-		You may enter an optional bit of content and Call To Action here to be superimposed over this page's main featured image.<br />
+		Choosing an image will cause any text entered to <em>not</em> be displayed.<br />
 		<em>This functionality is automatically disabled if no <a href="#postimagediv">Featured Image</a> is specified.</em>
 	</p>
 
 	<hr noshade=noshade />
 
 	<p>
-		<label for="rhd-page-header-headline" class="rhd-page-header-headline"><?php _e( 'Headline', 'rhd' )?></label><br />
-		<input type="text" name="rhd-page-header-headline" id="rhd-page-header-headline" class="widefat" value="<?php if ( isset ( $meta['rhd_page_header_headline'] ) ) echo $meta['rhd_page_header_headline'][0]; ?>" />
-	</p>
-	<p>
-		<label for="rhd-page-header-text" class="rhd-page-header-text"><?php _e( 'Page Header Text (No HTML allowed)', 'rhd' )?></label><br />
-		<textarea name="rhd-page-header-text" id="rhd-page-header-text" class="widefat"><?php if ( isset ( $meta['rhd_page_header_text'] ) ) echo $meta['rhd_page_header_text'][0]; ?></textarea>
-	</p>
-	<p>
-		<label for="rhd-page-header-button-value" class="rhd-page-header-button-value"><?php _e( 'Button Text', 'rhd' )?></label><br />
-		<input type="text" name="rhd-page-header-button-value" id="rhd-page-header-button-value" class="widefat" value="<?php if ( isset ( $meta['rhd_page_header_button_value'] ) ) echo $meta['rhd_page_header_button_value'][0]; ?>" />
-	</p>
-	<p>
-		<label for="rhd-page-header-button-link" class="rhd-page-header-button-link"><?php _e( 'Button Link', 'rhd' )?></label><br />
-		<input type="text" name="rhd-page-header-button-link" id="rhd-page-header-button-link" class="widefat" value="<?php if ( isset ( $meta['rhd_page_header_button_link'] ) ) echo $meta['rhd_page_header_button_link'][0]; ?>" />
-	</p>
-	<p>
-		<input type="checkbox" name="rhd-page-header-bg" id="rhd-page-header-bg" value="yes" <?php if ( isset ( $meta['rhd_page_header_bg'] ) ) checked( $meta['rhd_page_header_bg'][0], 'yes' ); ?>  />
-		<label for="rhd-page-header-bg" class="rhd-page-header-bg"><?php _e( 'Add semi-transparent background', 'rhd' )?></label>
-	</p>
+		<span class="rhd-row-title"><?php _e( 'Header Style', 'rhd' )?></span>
+		<div class="rhd-row-content">
+			<label for="rhd-page-overlay-style-cta">
+				<input type="radio" name="rhd-page-overlay-style" id="rhd-page-overlay-style-cta" value="cta" <?php if ( isset( $meta['rhd_page_overlay_style'] ) ) checked( $meta['rhd_page_overlay_style'][0], 'cta' ); ?>>
+				<?php _e( 'Text + Button', 'rhd' )?>
+			</label>
+			<label for="rhd-page-overlay-style-image">
+				<input type="radio" name="rhd-page-overlay-style" id="rhd-page-overlay-style-image" value="image" <?php if ( isset( $meta['rhd_page_overlay_style'] ) ) checked( $meta['rhd_page_overlay_style'][0], 'image' ); ?>>
+				<?php _e( 'Image', 'rhd' )?>
+			</label>
+		</div>
+		</p>
+
+	<div id="rhd-page-overlay-cta-options" class="rhd-page-overlay-options" style="display: none;">
+		<p>
+			<label for="rhd-page-overlay-headline" class="rhd-page-overlay-headline"><?php _e( 'Headline', 'rhd' )?></label><br />
+			<input type="text" name="rhd-page-overlay-headline" id="rhd-page-overlay-headline" class="widefat" value="<?php if ( isset( $meta['rhd_page_overlay_headline'] ) ) echo $meta['rhd_page_overlay_headline'][0]; ?>" />
+		</p>
+		<p>
+			<label for="rhd-page-overlay-text" class="rhd-page-overlay-text"><?php _e( 'Page Header Text (No HTML allowed)', 'rhd' )?></label><br />
+			<textarea name="rhd-page-overlay-text" id="rhd-page-overlay-text" class="widefat"><?php if ( isset( $meta['rhd_page_overlay_text'] ) ) echo $meta['rhd_page_overlay_text'][0]; ?></textarea>
+		</p>
+		<p>
+			<label for="rhd-page-overlay-button-value" class="rhd-page-overlay-button-value"><?php _e( 'Button Text', 'rhd' )?></label><br />
+			<input type="text" name="rhd-page-overlay-button-value" id="rhd-page-overlay-button-value" class="widefat" value="<?php if ( isset( $meta['rhd_page_overlay_button_value'] ) ) echo $meta['rhd_page_overlay_button_value'][0]; ?>" />
+		</p>
+		<p>
+			<label for="rhd-page-overlay-button-link" class="rhd-page-overlay-button-link"><?php _e( 'Button Link', 'rhd' )?></label><br />
+			<input type="text" name="rhd-page-overlay-button-link" id="rhd-page-overlay-button-link" class="widefat" value="<?php if ( isset( $meta['rhd_page_overlay_button_link'] ) ) echo $meta['rhd_page_overlay_button_link'][0]; ?>" />
+		</p>
+		<p>
+			<input type="checkbox" name="rhd-page-overlay-bg" id="rhd-page-overlay-bg" value="yes" <?php if ( isset( $meta['rhd_page_overlay_bg'] ) ) checked( $meta['rhd_page_overlay_bg'][0], 'yes' ); ?>  />
+			<label for="rhd-page-overlay-bg" class="rhd-page-overlay-bg"><?php _e( 'Add semi-transparent background', 'rhd' )?></label>
+		</p>
+	</div>
+
+	<div id="rhd-page-overlay-image-options" class="rhd-page-overlay-options" style="display: none;">
+		<p>
+			<?php
+			$att = get_post( $meta['rhd_page_overlay_image'][0] );
+			$image = wp_get_attachment_image_src( absint( $att->ID ), 'medium' );
+			?>
+
+			<input type="hidden" name="rhd-page-overlay-image-id" id="rhd-page-overlay-image-id" value="<?php if ( isset( $meta['rhd_page_overlay_image'] ) ) echo $meta['rhd_page_overlay_image'][0]; ?>" />
+			<input type="button" id="rhd-page-overlay-image-button" class="button" value="<?php _e( 'Select/Upload Image', 'rhd' )?>" />
+			<figure id="rhd-page-overlay-image">
+				<img src="<?php echo isset( $image ) ? $image[0] : ''; ?>" style="width: auto; max-height: 150px;" title="<?php echo $att->post_title; ?>" />
+				<figcaption><?php echo isset( $image ) ? $att->post_title : ''; ?></figcaption>
+			</figure>
+		</p>
+	</div>
 <?php
 }
 
@@ -242,30 +274,65 @@ function rhd_save_page_meta_box_data( $post_id ) {
 	/* OK, it's safe for us to save the data now. */
 
 	// Checks for input and saves if needed
-	if( isset( $_POST['rhd-page-header-headline'] ) ) {
-		update_post_meta( $post_id, 'rhd_page_header_headline', sanitize_text_field( $_POST['rhd-page-header-headline'] ) );
+	if ( isset( $_POST['rhd-page-overlay-style'] ) ) {
+		update_post_meta( $post_id, 'rhd_page_overlay_style', $_POST['rhd-page-overlay-style'] );
 	}
 
-	if( isset( $_POST['rhd-page-header-text'] ) ) {
-		$sanitized = implode( "\n", array_map( 'sanitize_text_field', explode( "\n", $_POST['rhd-page-header-text'] ) ) );
-		update_post_meta( $post_id, 'rhd_page_header_text', $sanitized );
+	if( isset( $_POST['rhd-page-overlay-headline'] ) ) {
+		update_post_meta( $post_id, 'rhd_page_overlay_headline', sanitize_text_field( $_POST['rhd-page-overlay-headline'] ) );
 	}
 
-	if( isset( $_POST['rhd-page-header-button-value'] ) ) {
-		update_post_meta( $post_id, 'rhd_page_header_button_value', sanitize_text_field( $_POST['rhd-page-header-button-value'] ) );
+	if( isset( $_POST['rhd-page-overlay-text'] ) ) {
+		$sanitized = implode( "\n", array_map( 'sanitize_text_field', explode( "\n", $_POST['rhd-page-overlay-text'] ) ) );
+		update_post_meta( $post_id, 'rhd_page_overlay_text', $sanitized );
 	}
 
-	if( isset( $_POST['rhd-page-header-button-link'] ) ) {
-		update_post_meta( $post_id, 'rhd_page_header_button_link', esc_url_raw( $_POST['rhd-page-header-button-link'] ) );
+	if( isset( $_POST['rhd-page-overlay-button-value'] ) ) {
+		update_post_meta( $post_id, 'rhd_page_overlay_button_value', sanitize_text_field( $_POST['rhd-page-overlay-button-value'] ) );
 	}
 
-	if ( isset( $_POST['rhd-page-header-bg'] ) ) {
-		update_post_meta( $post_id, 'rhd_page_header_bg', 'yes' );
+	if( isset( $_POST['rhd-page-overlay-button-link'] ) ) {
+		update_post_meta( $post_id, 'rhd_page_overlay_button_link', esc_url_raw( $_POST['rhd-page-overlay-button-link'] ) );
+	}
+
+	if ( isset( $_POST['rhd-page-overlay-bg'] ) ) {
+		update_post_meta( $post_id, 'rhd_page_overlay_bg', 'yes' );
 	} else {
-		update_post_meta( $post_id, 'rhd_page_header_bg', '' );
+		update_post_meta( $post_id, 'rhd_page_overlay_bg', '' );
+	}
+
+	if ( isset( $_POST['rhd-page-overlay-image-id'] ) ) {
+		update_post_meta( $post_id, 'rhd_page_overlay_image', absint( $_POST['rhd-page-overlay-image-id'] ) );
+	} else {
+		update_post_meta( $post_id, 'rhd_page_overlay_image', '' );
 	}
 }
 add_action( 'save_post', 'rhd_save_page_meta_box_data' );
+
+
+/**
+ * rhd_page_overlay_media_enqueue function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_page_overlay_media_enqueue() {
+    global $typenow;
+    if( $typenow == 'page' ) {
+        wp_enqueue_media();
+
+        // Registers and enqueues the required javascript.
+        wp_register_script( 'rhd-page-overlay-media', RHD_THEME_DIR . '/js/page-overlay-media.js', array( 'jquery' ) );
+        wp_localize_script( 'rhd-page-overlay-media', 'rhd_page_overlay',
+            array(
+                'title' => __( 'Choose or Upload Image', 'rhd' ),
+                'button' => __( 'Select Image', 'rhd' ),
+            )
+        );
+        wp_enqueue_script( 'rhd-page-overlay-media' );
+    }
+}
+add_action( 'admin_enqueue_scripts', 'rhd_page_overlay_media_enqueue' );
 
 
 /**
@@ -306,47 +373,67 @@ function rhd_full_width_thumbnail( $thumb_id ) {
 
 
 /**
- * rhd_full_width_format_featured_cta function.
+ * rhd_full_width_format_cta function.
  *
  * @access public
  * @param mixed $post
  * @return void
  */
-function rhd_full_width_format_featured_cta( $post_id ) {
+function rhd_full_width_format_cta( $post_id ) {
 	$meta = get_post_meta( $post_id );
 
-	$has_content = ( $meta['rhd_page_header_headline'] || $meta['rhd_page_header_text'] ) ? true : false;
-	$has_button = ( $meta['rhd_page_header_button_value'] && $meta['rhd_page_header_button_link'] ) ? true : false;
+	// Do nothing if not set
+	if ( ! $meta['rhd_page_overlay_style'][0] )
+		return;
 
-	$with_bg = ( $meta['rhd_page_header_bg'][0] == 'yes' ) ? 'bg' : '';
+	$style = $meta['rhd_page_overlay_style'][0];
+	$classes = array( "rhd-page-style-{$style}" );
 
-	if ( $has_content || $has_button ) {
-		$out =	"
-				<div class=\"rhd-page-header-cta-container\">
-					<div class=\"rhd-page-header-cta\">
-						<div class=\"rhd-page-header-cta-inner {$with_bg}\">
-				";
+	$out =	"
+			<div class=\"rhd-page-overlay-cta-container\">
+				<div class=\"rhd-page-overlay-cta\">
+			";
 
-		if ( $has_content ) {
-			if ( $meta['rhd_page_header_headline'] ) {
-				$out .= '<h3 class="page-header-headline">' . esc_attr( $meta['rhd_page_header_headline'][0] ) . '</h3>';
+	switch( $style ) {
+		case 'cta':
+			$has_content = ( $meta['rhd_page_overlay_headline'] || $meta['rhd_page_overlay_text'] ) ? true : false;
+			$has_button = ( $meta['rhd_page_overlay_button_value'] && $meta['rhd_page_overlay_button_link'] ) ? true : false;
+			$with_bg = ( $meta['rhd_page_overlay_bg'][0] == 'yes' ) ? 'bg' : '';
+
+			$classes[] = $with_bg;
+			$class = implode( " ", $classes );
+
+			$out .= "<div class=\"rhd-page-overlay-cta-inner {$class}\">";
+
+			if ( $has_content ) {
+				if ( $meta['rhd_page_overlay_headline'] ) {
+					$out .= '<h3 class="page-overlay-headline">' . esc_attr( $meta['rhd_page_overlay_headline'][0] ) . '</h3>';
+				}
+
+				if ( $meta['rhd_page_overlay_text'] ) {
+					$out .= '<p class="page-overlay-text">' . nl2br( $meta['rhd_page_overlay_text'][0] ) . '</p>';
+				}
 			}
 
-			if ( $meta['rhd_page_header_text'] ) {
-				$out .= '<p class="page-header-text">' . nl2br( $meta['rhd_page_header_text'][0] ) . '</p>';
+			if ( $has_button ) {
+				$out .= rhd_ghost_button( esc_attr( $meta['rhd_page_overlay_button_value'][0] ), esc_url( $meta['rhd_page_overlay_button_link'][0] ), '', 'center', true, false );
 			}
-		}
 
-		if ( $has_button ) {
-			$out .= rhd_ghost_button( esc_attr( $meta['rhd_page_header_button_value'][0] ), esc_url( $meta['rhd_page_header_button_link'][0] ), '', 'center', true, false );
-		}
+			$out .= "</div>";
+			break;
 
-		$out .= '
-							</div>
-						</div>
-					</div>
-				';
+		case 'image':
+			$out .= "
+				<div class=\"rhd-page-overlay-cta-inner {$class}\">"
+					. wp_get_attachment_image( $meta['rhd_page_overlay_image'][0], 'large' ) .
+				"</div>";
+			break;
 	}
+
+	$out .= '
+				</div>
+			</div>
+			';
 
 	return $out;
 }
