@@ -50,6 +50,10 @@ function rhd_page_meta_callback( $post ) {
 				<input type="radio" name="rhd-page-overlay-style" id="rhd-page-overlay-style-image" value="image" <?php if ( isset( $meta['rhd_page_overlay_style'] ) ) checked( $meta['rhd_page_overlay_style'][0], 'image' ); ?>>
 				<?php _e( 'Image', 'rhd' )?>
 			</label>
+			<label for="rhd-page-overlay-style-off">
+				<input type="radio" name="rhd-page-overlay-style" id="rhd-page-overlay-style-off" value="off" <?php if ( ( isset( $meta['rhd_page_overlay_style'] ) && $meta['rhd_page_overlay_style'][0] == 'off' ) || ! isset( $meta['rhd_page_overlay_style'] ) ) echo 'checked="checked"'; ?>>
+				<?php _e( 'Off', 'rhd' )?>
+			</label>
 		</div>
 		</p>
 
@@ -86,9 +90,11 @@ function rhd_page_meta_callback( $post ) {
 			<input type="hidden" name="rhd-page-overlay-image-id" id="rhd-page-overlay-image-id" value="<?php if ( isset( $meta['rhd_page_overlay_image'] ) ) echo $meta['rhd_page_overlay_image'][0]; ?>" />
 			<input type="button" id="rhd-page-overlay-image-button" class="button" value="<?php _e( 'Select/Upload Image', 'rhd' )?>" />
 			<figure id="rhd-page-overlay-image">
-				<img src="<?php echo isset( $image ) ? $image[0] : ''; ?>" style="width: auto; max-height: 150px;" title="<?php echo $att->post_title; ?>" />
-				<figcaption><?php echo isset( $image ) ? $att->post_title : ''; ?></figcaption>
+				<img src="<?php echo isset( $image[0] ) ? $image[0] : ''; ?>" style="width: auto; max-height: 150px;" title="<?php echo isset( $image[0] ) ? $att->post_title : ''; ?>" />
+				<figcaption><?php echo isset( $image[0] ) ? $att->post_title : ''; ?></figcaption>
 			</figure>
+
+			<a href="#" id="rhd-page-overlay-clear-image" style="font-size: 0.8em;">Clear Image</a>
 		</p>
 	</div>
 <?php
