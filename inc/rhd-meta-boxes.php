@@ -34,7 +34,7 @@ function rhd_page_meta_callback( $post ) {
 
 	<p>
 		Choosing an image will cause any text entered to <em>not</em> be displayed.<br />
-		<em>This functionality is automatically disabled if no <a href="#postimagediv">Featured Image</a> is specified.</em>
+		<em>This functionality is disabled if no <a href="#postimagediv">Featured Image</a> is specified.</em>
 	</p>
 
 	<div class="rhd-row-content">

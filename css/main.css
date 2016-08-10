@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:27:14 PM on 09-08-2016
+* RHD Dev: Compiled at 7:34:11 PM on 10-08-2016
 ***/
 
 .alignnone {
@@ -2060,6 +2060,34 @@ input[type="submit"]:hover {
   margin-top: 0;
 }
 /* ==========================================================================
+	Testimonial Shortcode
+   ========================================================================== */
+.rhd-testimonial {
+  width: 100%;
+  max-width: 75rem;
+  position: relative;
+  margin: 1em auto 1em auto;
+}
+.rhd-testimonial .testimonial-thumb {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+}
+.rhd-testimonial .testimonial-content .quote {
+  color: #757575;
+  border-left-width: 3px;
+  border-left-color: #757575;
+  margin: 0.5rem auto 0 0;
+  padding-left: 0.5em;
+  line-height: 1.3;
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+.rhd-testimonial .testimonial-content .attribution {
+  text-align: right;
+  margin-top: 0;
+}
+/* ==========================================================================
 	Contact Page
    ========================================================================== */
 .page-id-21 .entry-content .contact-info,
@@ -2340,6 +2368,31 @@ input[type="submit"]:hover {
   }
   .rhd-grid-feed {
     width: 85%;
+  }
+  .rhd-testimonial {
+    display: table;
+  }
+  .rhd-testimonial .testimonial-thumb,
+  .rhd-testimonial .testimonial-content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .rhd-testimonial .testimonial-thumb {
+    width: auto;
+    height: auto;
+    max-width: 300px;
+  }
+  .rhd-testimonial .testimonial-content {
+    padding-left: 5%;
+  }
+  .rhd-testimonial .testimonial-content .quote {
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 5em;
+    font-sisze: 1.8em;
+  }
+  .rhd-testimonial .testimonial-content .attribution {
+    margin-top: -5rem;
   }
   .page-id-21 .entry-content .contact-info,
   .page-id-21 .entry-content .contact-form {
