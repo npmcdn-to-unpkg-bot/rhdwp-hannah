@@ -131,15 +131,36 @@
 			img
 				@extends .entry-content img
 
+	.rhd-grid-feed
+		width 85%
+
+	// Contact Page
+	.page-id-21
+		.entry-content
+			-clearfix()
+
+			.contact-info
+			.contact-form
+				width 48%
+
+			.contact-info
+				float left
+
+			.contact-form
+				float right
+
 	// Full Width Page Template
 	.page-template-template-full-width
 		#main
 			margin-top 0
 
+		#content
+			padding-bottom 2em
+
 		.full-width-page
 			&.fixed-bg-page
 				.entry-content
-					padding 2em 0
+					padding 2em 0 0 0
 
 		.rhd-full-width-thumbnail-container
 			&.fixed-bg
@@ -160,6 +181,7 @@
 				margin-top 0
 
 				.rhd-full-width-thumbnail
+					width 60%
 					padding 4em 0
 
 		.rhd-page-overlay-cta-container
@@ -171,10 +193,80 @@
 					&.bg
 						padding 2em 1em
 
-	// Donate CTA
+	// Front Page
+	.front-page
+		.rhd-page-overlay-cta-container
+			.rhd-page-overlay-cta
+				.rhd-page-overlay-cta-inner
+					&.rhd-page-style-image
+						width 100%
 
+						.rhd-page-overlay-image
+							width 80%
+
+	#colophon
+		height 20em
+		padding-bottom 0
+
+		.footer-inner
+			-wrapper(0, 0, 96%)
+			height 100%
+
+			& > div
+				width 30% !important
+				-vcenter()
+
+			.site-info
+				left 0
+				text-align left
+				font-weight 700
+
+			.social
+				-vhcenter()
+				padding-top 0
+
+				.widget-rhd-social-icons
+					padding-bottom 0
+
+			.newsletter
+				right 0
+
+
+@media screen and (min-width 50em)
+	// CTA Buttons
+	.rhd-cta-buttons
+		.cta-buttons
+			.cta-button-item
+				-clearfix()
+
+				.cta-button
+					width 40%
+					min-width 13.5rem
+					vertical-align middle
+					padding-right 2em
+					float left
+					display inline-block
+
+				.cta-text-desc
+					width 56%
+					text-align left
+					float right
+
+					p
+						&:first-child
+							margin-top 0
+
+			.cta-break
+				width 100%
+				height 0.25em
+				margin 0.5em 0
+				background $c_quat
+				border none
+
+	// Donate CTA
 	.rhd-cta-boxes
 		display table
+		margin $bigBlockMargin 0 !important
 
 		&.rhd-front-page-image-cta
 			height 80vh
@@ -210,59 +302,6 @@
 
 				.ghost-button-container
 					bottom 20%
-
-	#colophon
-		height 20em
-		padding-bottom 0
-
-		.footer-inner
-			-wrapper(0, 0, 96%)
-			height 100%
-
-			& > div
-				width 30% !important
-				-vcenter()
-
-			.site-info
-				left 0
-
-			.social
-				-vhcenter( absolute, 0, -2 )
-				padding-top 0
-
-				.widget-rhd-social-icons
-					padding-bottom 0
-
-			.newsletter
-				right 0
-
-
-@media screen and (min-width 50em)
-	// CTA Buttons
-	.rhd-cta-buttons
-		.cta-buttons
-			.cta-button-item
-				-clearfix()
-
-				.cta-button-link
-					width 40%
-					min-width 13.5rem
-					vertical-align middle
-					padding-right 2em
-					float left
-					display inline-block
-
-				.cta-text-desc
-					width 56%
-					text-align left
-					float right
-
-			.cta-break
-				width 100%
-				height 0.25em
-				margin 0.5em 0
-				background $c_quat
-				border none
 
 	.front-page
 		.entry-content

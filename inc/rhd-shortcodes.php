@@ -142,26 +142,38 @@ add_shortcode( 'cta-buttons', 'rhd_cta_buttons_shortcode' );
  * @return void
  */
 function rhd_donate_cta_shortcode( $atts ) {
-	$output = '
-				<div class="rhd-donate-cta rhd-cta-boxes">
-					<div class="donate-cta-box-1 donate-cta-box rhd-cta-box">
-						<h4>Make a one-time gift to the Stanislaus Futures Fund</h4>
-						<p>You can choose to give however much you would like to a pool of funds to provide annual scholarships and resources to low-income students and other young people from populations underrepresented in college today.</p>
+	$boxes = array();
 
-						<ul class="donate-cta-list">
-							<li class="donate-cta-list-item">$1,000 provides one scholarship</li>
-							<li class="donate-cta-list-item">$2,500 provides 1-2 scholarships </li>
-							<li class="donate-cta-list-item">$5,000 provides 1-2 scholarships plus college access &amp; success services</li>
-						</ul>
-						' . rhd_ghost_button( 'Donate to Stanislaus Futures', 'http://google.com', '', 'center' ) . '
-					</div>
-					<div class="donate-cta-box-2 donate-cta-box rhd-cta-box">
-						<h4>Your Own Named Fund</h4>
+	$boxes = array(
+		1 => array(
+			'content'	=>	'<h4 class="donate-cta-heading">Make a one-time gift to the Stanislaus Futures Fund</h4>
+							<p>You can choose to give however much you would like to a pool of funds to provide annual scholarships and resources to low-income students and other young people from populations underrepresented in college today.</p>
+							<ul class="donate-cta-list">
+								<li class="donate-cta-list-item">$1,000 provides one scholarship</li>
+								<li class="donate-cta-list-item">$2,500 provides 1-2 scholarships </li>
+								<li class="donate-cta-list-item">$5,000 provides 1-2 scholarships plus college access &amp; success services</li>
+							</ul>',
+			'button'	=>	rhd_ghost_button( 'Donate to Stanislaus Futures', 'https://scf.iphiview.com/scf/Donors/GivingOpportunities/OnlineDonation/tabid/542/dispatch/contribution_id$24871_hash$94f33a13cac03ca887fd2d748b8c60b819bb0b89/Default.aspx', '', 'center' )
+		),
+		2 => array(
+			'content'	=>	'<h4 class="donate-cta-heading">Your Own Named Fund</h4>
+							<p>You can establish your own named scholarship fund with a minimum of $10,000 to provide annual scholarships to low-income and underrepresented college students. Your initial contribution will be matched by College Futures Foundation and recipients of your scholarship fund will be tracked throughout their college career.</p>',
+			'button'	=>	rhd_ghost_button( 'Create Your Own Named Fund', home_url( '/named-fund' ), '', 'center' )
+		)
+	);
 
-						<p>You can establish your own named scholarship fund with a minimum of $10,000 to provide annual scholarships to low-income and underrepresented college students. Your initial contribution will be matched by College Futures Foundation and recipients of your scholarship fund will be tracked throughout their college career.</p>						' . rhd_ghost_button( 'Create Your Own Named Fund', 'http://google.com', '', 'center' ) . '
+	$output = '<div class="rhd-donate-cta rhd-cta-boxes">';
+
+	foreach( $boxes as $box => $data ) {
+		$output .= "
+					<div class=\"donate-cta-box-{$box} donate-cta-box rhd-cta-box\">
+						{$data['content']}
+						{$data['button']}
 					</div>
-				</div>
-			';
+					";
+	}
+
+	$output .= '</div>';
 
 	return $output;
 }

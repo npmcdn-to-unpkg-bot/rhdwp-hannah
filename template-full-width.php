@@ -23,6 +23,11 @@ get_header(); ?>
 
 		<?php endif; ?>
 
+		<?php if ( $post->post_name == 'students' || $post->post_name == 'donors' ) rhd_grid_feed( $post->post_name ); ?>
+
+		<div class="entry-meta">
+			<p><?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
+		</div>
 	</div>
 </section>
 

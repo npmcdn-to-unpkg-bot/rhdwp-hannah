@@ -251,3 +251,44 @@ function rhd_full_width_format_cta( $post_id ) {
 
 	return $out;
 }
+
+
+function rhd_grid_feed( $slug ) {
+	$opts = array(
+		'students' => array(
+			'title'	=> 'Success Stories',
+			'args'	=> array(
+				'post_type' => 'post',
+				'posts_per_page' => 3
+			)
+		),
+		'donors' => array(
+			'title'	=> 'Success Stories',
+			'args'	=> array(
+				'post_type' => 'post',
+				'posts_per_page' => 3
+			)
+		)
+	);
+
+	foreach ( $opts as $k => $v ) {
+		$names[] = $k;
+	}
+	if ( ! in_array( $slug, $names) )
+		return;
+
+	$q = new WP_Query( $opts[$slug]['args'] );
+
+	if ( $q->have_posts() ) {
+		echo '<div class="rhd-grid-feed">';
+		echo '<h3 class="page-title">' . $opts[$slug]['title'] . '</h3>';
+		echo '<div class="post-grid">';
+
+		while ( $q->have_posts() ) {
+			$q->the_post();
+			get_template_part( 'template-parts/content', 'grid-only' );
+		}
+
+		echo '</div></div>';
+	}
+}

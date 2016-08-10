@@ -45,8 +45,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		});
 
 		$(window).on("scroll", function(){
-			if ( !viewportIsSmall() )
-				showHideFeaturedImage();
+			showHideFeaturedImage();
 		});
 	});
 
@@ -57,9 +56,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		wpAdminBarPush();
 		setFullWidthDimensions();
 
-		if ( !viewportIsSmall() ) {
-			showHideFeaturedImage();
-		}
+		showHideFeaturedImage();
 
 		if ( !viewportIsSmall(800) ) {
 			if ( isFrontPage ) {
@@ -99,7 +96,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 	// Faux-flexbox "fix" template (edit for varying column numbers)
 	function fixGridLayout( gridClass ) {
-		var across = 4;
+		var across = 3;
 		var mLeft = "3.5%";
 
 		$(gridClass).each(function(){
@@ -146,7 +143,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 			}
 
 			$(".rhd-page-overlay-cta-container").css({
-				'height': $(".fixed-bg").height() + 'px',
+				'height': $(".fixed-bg").height() * 0.95,
 				'marginTop': navHt
 			});
 			parallax = new Scrollax().init();

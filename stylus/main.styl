@@ -76,6 +76,10 @@ input[type="submit"]
 #page
 	margin 0
 
+	strong
+	b
+		font-weight 800
+
 
 #navbar
 	width 100%
@@ -175,9 +179,12 @@ input[type="submit"]
 #primary
 #secondary
 	width 100%
-	margin-top 1em
 	position relative
 	box-sizing border-box
+
+
+#secondary
+	margin-top 1em
 
 
 #colophon
@@ -331,10 +338,6 @@ input[type="submit"]
 	line-height 1
 
 
-.page-title-default
-	-invisible()
-
-
 .entry-title
 	-ff-title()
 
@@ -451,6 +454,9 @@ input[type="submit"]
 	.full-width-page
 		position relative
 
+		.entry-header
+			-invisible()
+
 		&.fixed-bg-page
 			z-index 2
 
@@ -486,7 +492,7 @@ input[type="submit"]
 			margin-top $navHt
 
 			.rhd-full-width-thumbnail
-				-wrapper(0, 0, 90%)
+				-wrapper(0, 0, 80%)
 				padding 2em 0
 
 	.rhd-page-overlay-cta-container
@@ -524,9 +530,6 @@ input[type="submit"]
 		.page-overlay-text
 			font-size 1.2em
 
-	.entry-header
-		-invisible()
-
 	.entry-content
 		display block
 
@@ -541,6 +544,7 @@ input[type="submit"]
 			position relative
 			overflow hidden
 			display block
+			margin $bigBlockMargin 0
 
 			.rhd-big-image
 				width 100%
@@ -565,6 +569,7 @@ input[type="submit"]
 		.cta-button-item
 			width 100%
 			display block
+			margin-top 1.5em
 
 			&:last-child
 				margin-bottom 0
@@ -593,7 +598,7 @@ input[type="submit"]
 					text-transform uppercase
 					margin 0 0 1.5rem 0
 					letter-spacing 0.25em
-					padding-left 6% // centering tweak
+					padding-left 5% // centering tweak
 
 				.cta-subtitle
 					font-size 1em
@@ -602,6 +607,9 @@ input[type="submit"]
 
 			.cta-text-desc
 				text-align center
+
+				p
+					margin 1em 0
 
 		.cta-break
 			width 100%
@@ -648,6 +656,9 @@ input[type="submit"]
 			padding 1em
 			text-align center
 
+			.donate-cta-heading
+				font-size 1.1em
+
 			.donate-cta-list
 				-wrapper(1em, 1em, 80%)
 				list-style-position outside
@@ -685,7 +696,7 @@ input[type="submit"]
 	-flexbox()
 
 	.post-grid-item
-		width 47%
+		width 31%
 		-flexitem()
 		vertical-align top
 		margin 0
@@ -709,6 +720,48 @@ input[type="submit"]
 			font-size 0.8em
 
 
+.rhd-grid-feed
+	-wrapper(0, 0, 95%)
+	color $c_text_alt
+
+	.page-title
+		-ff-subtitle()
+		margin 0 0 3.5rem
+		font-size 1.2em
+		text-transform uppercase
+
+	.post-grid
+		.post-grid-item
+			.entry-thumbnail
+				position relative
+
+				a
+					color $c_bg
+
+			.entry-header
+				width 100%
+				height 100%
+				margin-bottom 0
+				position absolute
+				top 0
+				left 0
+				z-index 10
+				background-color transparentify( $c_bg, $c_text_lt, 0.15 )
+				transition 0.35s background-color ease
+
+				.entry-title
+					width 96%
+					-hcenter()
+					bottom 10%
+					z-index 15
+					font-size 1.4em
+					margin 0
+					transition 0.35s font-size
+
+				&:hover
+					background-color transparentify( $c_text, 0.05 )
+
+
 .subcat-grid-container
 	margin-bottom 1em
 	padding-bottom 1em
@@ -725,6 +778,17 @@ input[type="submit"]
 .subcat-more
 	.ghost-button-container
 		margin-top 0
+
+
+/* ==========================================================================
+	Contact Page
+   ========================================================================== */
+
+.page-id-21
+	.entry-content
+		.contact-info
+		.contact-form
+			margin 1em 0
 
 
 /* ==========================================================================
@@ -820,6 +884,44 @@ input[type="submit"]
 .ninja-forms-required-items
 .ninja-forms-req-symbol
 	-invisible()
+
+
+.page-template-default
+	#main
+		margin-top 0
+
+
+.big-notch
+	width 100%
+	height 2rem
+	overflow hidden
+	margin-top -(@height)
+
+	.big-notch-inner
+		height 100%
+		max-width 75rem
+		margin 0 auto
+		position relative
+
+		&:before
+		&:after
+			width 2000px
+			height 100%
+			content ''
+			position absolute
+			top 0
+			background $c_bg
+
+		&:before
+			left 100%
+
+		&:after
+			right 100%
+
+		svg
+			height 100%
+			fill $c_bg
+			float right
 
 
 /* ==========================================================================

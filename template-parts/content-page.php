@@ -7,9 +7,9 @@
  */
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'page-deault' ); ?>>
 		<header class="entry-header">
-			<h2 class="page-title page-title-default"><?php the_title(); ?></h2>
+			<h2 class="page-title"><?php the_title(); ?></h2>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">
