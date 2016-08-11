@@ -185,17 +185,68 @@ function rhd_front_page_image_cta( $atts ) {
 	$image2 = wp_get_attachment_image( 122, 'large', false, array( 'class' => 'rhd-cta-box-image' ) );
 
 	$output = '
-				<div class="rhd-front-page-image-cta rhd-cta-boxes">
-					<div class="front-page-image-cta-box-1 front-page-image-cta-box rhd-cta-box">'
-						. $image1
-						. rhd_ghost_button( 'Student Assistance', 'http://google.com', '', 'center', true )
-					. '</div>
-					<div class="front-page-image-cta-box-2 front-page-image-cta-box rhd-cta-box">'						. $image2
-						. rhd_ghost_button( 'Help Students', 'http://google.com', '', 'center', true )
-					. '</div>
-				</div>
-			';
+		<div class="rhd-front-page-image-cta rhd-cta-boxes">
+			<div class="front-page-image-cta-box-1 front-page-image-cta-box rhd-cta-box">'
+				. $image1
+				. rhd_ghost_button( 'Student Assistance', 'http://google.com', '', 'center', true )
+			. '</div>
+			<div class="front-page-image-cta-box-2 front-page-image-cta-box rhd-cta-box">'					. $image2
+				. rhd_ghost_button( 'Help Students', 'http://google.com', '', 'center', true )
+			. '</div>
+		</div>
+	';
 
 	return $output;
 }
 add_shortcode( 'front-page-image-cta', 'rhd_front_page_image_cta' );
+
+
+/**
+ * rhd_infographic_shortcode function.
+ *
+ * @access public
+ * @param mixed $atts
+ * @param mixed $content (default: null)
+ * @return void
+ */
+function rhd_infographic_shortcode( $atts, $content = null ) {
+	if ( ! $content )
+		return;
+
+	$a = shortcode_atts( array(
+        'image' => 'right'
+    ), $atts );
+
+	extract( $a );
+
+	if ( $image == 'right' ) {
+		$img_pos = 'right';
+		$cap_pos = 'left';
+	} else {
+		$img_pos = 'left';
+		$cap_pos = 'right';
+	}
+
+	$content = trim( strip_tags( $content, '<img>' ) );
+	$pieces = array();
+
+	preg_match( '/<img(.*?)>/', $content, $matches );
+	$img = $matches[0];
+	$img = str_replace( 'class="', 'class="rhd-infographic-image ' . $img_pos . ' ', $img);
+
+	$caption = '<figcaption class="rhd-infographic-caption ' . $cap_pos . '">' . strip_tags( $content ) . '</figcaption>';
+
+	// Chicken or the egg...
+	if ( stripos( $content, '<img' ) == 0 ) {
+		$pieces[0] = $img;
+		$pieces[1] = $caption;
+	} else {
+		$pieces[0] = $caption;
+		$pieces[1] = $img;
+	}
+
+	$output = '<div class="rhd-infographic"><figure>' . $pieces[0] . $pieces[1] . '</figure></div>';
+
+	return $output;
+}
+add_shortcode( 'infographic', 'rhd_infographic_shortcode' );

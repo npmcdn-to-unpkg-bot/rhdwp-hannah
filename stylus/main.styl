@@ -70,6 +70,14 @@ input[type="submit"]
 	transition all 0.25s
 
 
+hr
+	width 100%
+	height 0.25rem
+	margin 0.5em 0
+	background $c_quat
+	border none
+
+
 #page
 	margin 0
 
@@ -495,7 +503,7 @@ input[type="submit"]
 				padding 2em 0
 
 	.rhd-page-overlay-cta-container
-		-wrapper(0, 3em, 85%)
+		-wrapper(0, 0, 85%)
 		color $c_bg
 		z-index 2
 		text-align center
@@ -531,6 +539,9 @@ input[type="submit"]
 
 	.entry-content
 		display block
+
+		&.entry-content-special
+			padding-top 3em
 
 		& > *
 			-wrapper(2em, 2em)
@@ -610,13 +621,6 @@ input[type="submit"]
 				p
 					margin 1em 0
 
-		.cta-break
-			width 100%
-			height 0.25em
-			margin 0.5em 0
-			background $c_quat
-			border none
-
 .front-page
 	.entry-content
 		.rhd-cta-buttons
@@ -691,6 +695,15 @@ input[type="submit"]
 				-hcenter()
 				bottom 2em
 				margin 0
+
+
+/* ==========================================================================
+	Infographics
+   ========================================================================== */
+
+.rhd-infographic
+	.rhd-infographic-caption
+		text-align center
 
 
 /* ==========================================================================
@@ -808,6 +821,25 @@ input[type="submit"]
 		.attribution
 			text-align right
 			margin-top 0
+
+
+/* ==========================================================================
+	Partners Page
+   ========================================================================== */
+
+.page-id-19
+	.gallery-columns-2
+		.gallery-item
+			img
+				max-width 400px
+				margin 0 auto
+				display block
+
+	.gallery
+		.gallery-item
+			img
+				width auto
+				max-width 100%
 
 
 /* ==========================================================================

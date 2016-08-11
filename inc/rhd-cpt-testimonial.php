@@ -199,11 +199,6 @@ function rhd_testimonial_display_shortcode( $atts ) {
 	);
 	$q = get_posts( $args );
 
-	ob_start();
-	print_r( $q );
-	$str = ob_get_clean();
-	error_log( $str );
-
 	if ( ! $q ) {
 		return;
 	} else {
