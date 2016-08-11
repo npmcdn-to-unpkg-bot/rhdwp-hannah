@@ -25,8 +25,8 @@
 
 	        <div class="site-info">
 				<p>
-					<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> &amp;<br />
-					Stanislaus Community Foundation<br />
+					<?php echo '&copy;' . date( 'Y' ); ?> <a href="<?php echo home_url(); ?>"><?php echo bloginfo( 'name' ); ?></a> &amp;<br />
+					<a href="http://www.stanislauscommunityfoundation.org">Stanislaus Community Foundation</a><br />
 					<br />
 					<a href="<?php echo home_url( '/privacy-policy' ); ?>" rel="bookmark">Privacy Policy</a> | <a href="<?php echo home_url( 'terms' ); ?>" rel="bookmark">Terms &amp; Conditions</a><br />
 					<br />

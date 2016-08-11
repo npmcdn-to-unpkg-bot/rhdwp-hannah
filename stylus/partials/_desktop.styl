@@ -73,12 +73,18 @@
 		float left
 		margin-right -($sidebarW)
 
+		#content
+			padding-right 2rem
+			border-right 1px solid $off_white
+
 		&.full-width
 			float none
 			margin-right 0
 
 			#content
 				margin-right 0
+				padding-right 0
+				border-right none
 
 	#content
 		margin-right ($sidebarW + 2rem) // fluid #primary with added margin
@@ -87,9 +93,9 @@
 		width $sidebarW
 		float right
 
-		.widget
-			width 100%
-			padding 1em
+	#rhd_metabar-2
+		.rhd-metabar
+			padding-top 0
 
 	#comments
 		#commentform
@@ -131,8 +137,49 @@
 			img
 				@extends .entry-content img
 
+	.post-grid
+		.post-grid-item
+			width 48%
+
 	.rhd-grid-feed
 		width 85%
+
+		.post-grid
+			.post-grid-item
+				width 31%
+
+	.big-notch
+		width 100%
+		height 2rem
+		overflow hidden
+		margin-top -(@height)
+		display block
+
+		.big-notch-inner
+			height 100%
+			max-width 75rem
+			margin 0 auto
+			position relative
+
+			&:before
+			&:after
+				width 2000px
+				height 100%
+				content ''
+				position absolute
+				top 0
+				background $c_bg
+
+			&:before
+				left 100%
+
+			&:after
+				right 100%
+
+			svg
+				height 100%
+				fill $c_bg
+				float right
 
 	// Testimonials
 	.rhd-testimonial
@@ -211,6 +258,8 @@
 					padding 4em 0
 
 		.rhd-page-overlay-cta-container
+			margin-bottom 0
+
 			.rhd-page-overlay-cta
 				.rhd-page-overlay-cta-inner
 					width auto
@@ -221,6 +270,9 @@
 
 	// Front Page
 	.front-page
+		#content
+			padding-bottom 0
+
 		.rhd-page-overlay-cta-container
 			.rhd-page-overlay-cta
 				.rhd-page-overlay-cta-inner
@@ -239,7 +291,7 @@
 			height 100%
 
 			& > div
-				width 30% !important
+				width 30%
 				-vcenter()
 
 			.site-info
@@ -255,7 +307,13 @@
 					padding-bottom 0
 
 			.newsletter
+				width 26%
 				right 0
+
+				.rhd-mc-fname
+				.rhd-mc-lname
+				.rhd-mc-email
+					margin 0.2em auto
 
 
 @media screen and (min-width 50em)
@@ -292,10 +350,10 @@
 	// Donate CTA
 	.rhd-cta-boxes
 		display table
-		margin $bigBlockMargin 0 !important
+		margin $bigBlockMargin 0
 
 		&.rhd-front-page-image-cta
-			height 80vh
+			height 1000vh
 
 		.rhd-cta-box
 			width 50%

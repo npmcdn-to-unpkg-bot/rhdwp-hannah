@@ -143,7 +143,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 			}
 
 			$(".rhd-page-overlay-cta-container").css({
-				'height': $(".fixed-bg").height() * 0.95,
+				'height': $(".fixed-bg").height(),
 				'marginTop': navHt
 			});
 			parallax = new Scrollax().init();

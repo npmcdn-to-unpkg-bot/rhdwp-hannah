@@ -133,8 +133,8 @@ function rhd_testimonial_meta_callback( $post ) {
 
 function rhd_testimonial_meta_sc_callback( $post ) {
 	?>
-	<p>This shortcode can be used in any Post/Page content area.</p>
-	<p style="text-align: center; font-weight: bold;">[testimonial id="<?php echo $post->ID; ?>"]</p>
+	<p>This shortcode can be used in any Post or Page content area.</p>
+	<p style="text-align: center; font-weight: bold;">[testimonial name="<?php echo $post->post_name; ?>"]</p>
 	<?php
 }
 
@@ -187,20 +187,37 @@ add_action( 'save_post', 'rhd_save_testimonial_meta_box_data' );
 
 function rhd_testimonial_display_shortcode( $atts ) {
 	$a = shortcode_atts( array(
-		'id' => null
+		'name' => null
 	), $atts );
 
 	extract( $a );
 
-	$test = get_post( $id );
-	if ( ! $test ) {
+	$args = array(
+		'post_type' => 'testimonial',
+		'name' => $name,
+		'posts_per_page' => 1
+	);
+	$q = get_posts( $args );
+
+	ob_start();
+	print_r( $q );
+	$str = ob_get_clean();
+	error_log( $str );
+
+	if ( ! $q ) {
 		return;
 	} else {
+		$test = $q[0];
 		setup_postdata( $GLOBALS['post'] =& $test );
+
 		$id = get_the_ID();
+
 		$meta = get_post_meta( $id );
 		$quote = isset( $meta['rhd_testimonial_text'] ) ? esc_textarea( $meta['rhd_testimonial_text'][0] ) : '';
 		$attrib = isset( $meta['rhd_testimonial_attr'] ) ? array_map( 'esc_attr', explode( "\n", $meta['rhd_testimonial_attr'][0] ) ) : '';
+
+		// Trim quotation marks, if present
+		$quote = preg_replace( '/^&amp;(quot;|apos;|lsquo;|ldquo;)(.*?)&amp;(quot;|apos;|lsquo;|ldquo;)$/', "$2", $quote );
 
 		$out = "<div class=\"rhd-testimonial-{$id} rhd-testimonial\">"
 				. get_the_post_thumbnail( $id, 'medium', array( 'class' => 'testimonial-thumb' ) )
