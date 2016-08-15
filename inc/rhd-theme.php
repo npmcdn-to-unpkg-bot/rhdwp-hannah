@@ -175,9 +175,6 @@ function rhd_full_width_thumbnail( $thumb_id ) {
 			</div>
 			";
 
-	if ( $default )
-		$out .= '<h2 class="page-title mobile-only">' . $post->post_title . '</h2>';
-
 	echo $out;
 }
 

@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:42:34 PM on 11-08-2016
+* RHD Dev: Compiled at 11:19:08 AM on 15-08-2016
 ***/
 
 .alignnone {
@@ -519,6 +519,7 @@ input[type="checkbox"] {
 .invisible {
   visibility: hidden;
   position: absolute;
+  margin: 0;
 }
 .alignleft {
   text-align: left;
@@ -1611,9 +1612,6 @@ hr {
   visibility: hidden;
   position: absolute;
 }
-.page-default {
-  padding-top: 3em;
-}
 .entry-summary p {
   margin: 0;
 }
@@ -1717,6 +1715,7 @@ hr {
 }
 .page-template-template-full-width .full-width-page.fixed-bg-page .entry-content {
   background: #fff;
+  padding-top: 3em;
 }
 .page-template-template-full-width .full-width-page.default-thumb-page {
   margin-top: 2em;
@@ -1800,9 +1799,6 @@ hr {
 }
 .page-template-template-full-width .entry-content {
   display: block;
-}
-.page-template-template-full-width .entry-content.entry-content-special {
-  padding-top: 3em;
 }
 .page-template-template-full-width .entry-content > * {
   width: 85%;
@@ -2350,6 +2346,9 @@ hr {
   #comments #commentform #submit {
     width: auto;
     padding-left: 0.8em;
+  }
+  .page-default {
+    padding-top: 3em;
   }
   .entry-content iframe {
     max-width: 100%;

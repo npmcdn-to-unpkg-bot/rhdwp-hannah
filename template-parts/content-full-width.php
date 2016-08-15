@@ -19,7 +19,7 @@ $class[] = has_post_thumbnail() ? 'fixed-bg-page' : 'default-thumb-page';
 	<?php endif; ?>
 
 	<header class="entry-header">
-		<h2 class="page-title"><?php the_title(); ?></h2>
+		<h2 class="page-title invisible"><?php the_title(); ?></h2>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content entry-content-special">
