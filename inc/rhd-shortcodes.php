@@ -73,7 +73,12 @@ add_shortcode( 'ghost-button', 'rhd_ghost_button_shortcode' );
  * @return void
  */
 function rhd_big_image_image_shortcode( $atts, $content = "" ) {
-	return '<div class="rhd-big-image-container" data-scrollax-parent="true"><div class="rhd-big-image" data-scrollax="properties: { \'translateY\': \'30%\' }">' . $content . '</div></div>';
+	preg_match( '/<img class=".*?wp-image-([0-9]*)/', $content, $matches );
+	$att_id = $matches[1];
+
+	$img = wp_get_attachment_image( $att_id, 'full' );
+
+	return '<div class="rhd-big-image-container" data-scrollax-parent="true"><div class="rhd-big-image" data-scrollax="properties: { \'translateY\': \'30%\' }">' . $img . '</div></div>';
 }
 add_shortcode( 'big-image', 'rhd_big_image_image_shortcode' );
 
@@ -95,7 +100,7 @@ function rhd_cta_buttons( $parent_class = null ) {
 	for ( $i = 1; $i <= 3; $i++ ) {
 		$label = esc_attr( $options["rhd_button_{$i}_label"] );
 		$sub = esc_attr( $options["rhd_button_{$i}_sub"] );
-		$link = $link ? esc_url( $options["rhd_button_{$i}_link"] ) : false;
+		$link = $options["rhd_button_{$i}_link"] ? esc_url( $options["rhd_button_{$i}_link"] ) : false;
 		$text = wpautop( $options["rhd_button_{$i}_text"] );
 
 		$output .= "<div class=\"cta-button-item cta-button-item-{$i}\">";
@@ -142,35 +147,29 @@ add_shortcode( 'cta-buttons', 'rhd_cta_buttons_shortcode' );
  * @return void
  */
 function rhd_donate_cta_shortcode( $atts ) {
+	$options = get_option( 'rhd_theme_settings' );
+	$max_boxes = 2;
+
 	$boxes = array();
 
-	$boxes = array(
-		1 => array(
-			'content'	=>	'<h4 class="donate-cta-heading">Make a one-time gift to the Stanislaus Futures Fund</h4>
-							<p>You can choose to give however much you would like to a pool of funds to provide annual scholarships and resources to low-income students and other young people from populations underrepresented in college today.</p>
-							<ul class="donate-cta-list">
-								<li class="donate-cta-list-item">$1,000 provides one scholarship</li>
-								<li class="donate-cta-list-item">$2,500 provides 1-2 scholarships </li>
-								<li class="donate-cta-list-item">$5,000 provides 1-2 scholarships plus college access &amp; success services</li>
-							</ul>',
-			'button'	=>	rhd_ghost_button( 'Donate to Stanislaus Futures', 'https://scf.iphiview.com/scf/Donors/GivingOpportunities/OnlineDonation/tabid/542/dispatch/contribution_id$24871_hash$94f33a13cac03ca887fd2d748b8c60b819bb0b89/Default.aspx', '', 'center' )
-		),
-		2 => array(
-			'content'	=>	'<h4 class="donate-cta-heading">Your Own Named Fund</h4>
-							<p>You can establish your own named scholarship fund with a minimum of $10,000 to provide annual scholarships to low-income and underrepresented college students. Your initial contribution will be matched by College Futures Foundation and recipients of your scholarship fund will be tracked throughout their college career.</p>',
-			'button'	=>	rhd_ghost_button( 'Create Your Own Named Fund', home_url( '/named-fund' ), '', 'center' )
-		)
-	);
+	for ( $i = 1; $i <= $max_boxes; $i++ ) {
+		$boxes[$i] = array(
+			'heading'	=> $options["rhd_donate_cta_area_{$i}_heading"],
+			'content'	=> $options["rhd_donate_cta_area_{$i}_content"],
+			'button'	=> rhd_ghost_button( esc_attr( $options["rhd_donate_cta_area_{$i}_button_label"] ), esc_url( $options["rhd_donate_cta_area_{$i}_button_link"], '', 'center' ) )
+		);
+	}
 
 	$output = '<div class="rhd-donate-cta rhd-cta-boxes">';
 
 	foreach( $boxes as $box => $data ) {
-		$output .= "
-					<div class=\"donate-cta-box-{$box} donate-cta-box rhd-cta-box\">
-						{$data['content']}
-						{$data['button']}
-					</div>
-					";
+		$heading = '<h4 class="donate-cta-heading">' . strip_tags( $data['heading'], '<br>' ) . '</h4>';
+		$content = apply_filters( 'the_content', $heading . $data['content'] );
+		$button = $data['button'];
+
+		$output .= "<div class=\"donate-cta-box-{$box} donate-cta-box rhd-cta-box\">";
+		$output .= $content . $button;
+		$output .= '</div>';
 	}
 
 	$output .= '</div>';
@@ -188,10 +187,10 @@ function rhd_front_page_image_cta( $atts ) {
 		<div class="rhd-front-page-image-cta rhd-cta-boxes">
 			<div class="front-page-image-cta-box-1 front-page-image-cta-box rhd-cta-box">'
 				. $image1
-				. rhd_ghost_button( 'Student Assistance', 'http://google.com', '', 'center', true )
+				. rhd_ghost_button( 'For Students', 'http://google.com', '', 'center', true )
 			. '</div>
 			<div class="front-page-image-cta-box-2 front-page-image-cta-box rhd-cta-box">'					. $image2
-				. rhd_ghost_button( 'Help Students', 'http://google.com', '', 'center', true )
+				. rhd_ghost_button( 'For Donors', 'http://google.com', '', 'center', true )
 			. '</div>
 		</div>
 	';

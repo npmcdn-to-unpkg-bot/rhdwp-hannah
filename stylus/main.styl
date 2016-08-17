@@ -661,8 +661,9 @@ hr
 
 			.donate-cta-heading
 				font-size 1.1em
+				line-height 1.4
 
-			.donate-cta-list
+			ul
 				-wrapper(1em, 1em, 80%)
 				list-style-position outside
 				list-style-type square
@@ -744,6 +745,12 @@ hr
 
 	.post-grid
 		.post-grid-item
+			width 100%
+			margin-bottom 1em
+
+			&:last-of-type
+				margin-bottom 0
+
 			.entry-thumbnail
 				position relative
 
@@ -758,8 +765,9 @@ hr
 				top 0
 				left 0
 				z-index 10
-				background-color transparentify( $c_bg, $c_text_lt, 0.15 )
-				transition 0.35s background-color ease
+				color $c_text
+				background-color transparentify( $c_bg, $c_text_lt, 0.35 )
+				transition 0.35s background-color ease, 0.35s color ease
 
 				.entry-title
 					width 96%
@@ -772,6 +780,7 @@ hr
 
 				&:hover
 					background-color transparentify( $c_text, 0.05 )
+					color $c_bg
 
 
 .subcat-grid-container

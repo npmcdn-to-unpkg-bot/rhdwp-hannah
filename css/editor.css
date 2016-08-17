@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:19:08 AM on 15-08-2016
+* RHD Dev: Compiled at 4:51:22 PM on 17-08-2016
 ***/
 
 /**
@@ -1918,8 +1918,9 @@ hr {
 }
 .rhd-cta-boxes .rhd-cta-box.donate-cta-box .donate-cta-heading {
   font-size: 1.1em;
+  line-height: 1.4;
 }
-.rhd-cta-boxes .rhd-cta-box.donate-cta-box .donate-cta-list {
+.rhd-cta-boxes .rhd-cta-box.donate-cta-box ul {
   width: 80%;
   max-width: 75rem;
   position: relative;
@@ -2004,6 +2005,13 @@ hr {
   font-size: 1.2em;
   text-transform: uppercase;
 }
+.rhd-grid-feed .post-grid .post-grid-item {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.rhd-grid-feed .post-grid .post-grid-item:last-of-type {
+  margin-bottom: 0;
+}
 .rhd-grid-feed .post-grid .post-grid-item .entry-thumbnail {
   position: relative;
 }
@@ -2018,8 +2026,9 @@ hr {
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: rgba(255,255,255,0.15);
-  transition: 0.35s background-color ease;
+  color: #2b2b2b;
+  background-color: rgba(255,255,255,0.35);
+  transition: 0.35s background-color ease, 0.35s color ease;
 }
 .rhd-grid-feed .post-grid .post-grid-item .entry-header .entry-title {
   width: 96%;
@@ -2038,6 +2047,7 @@ hr {
 }
 .rhd-grid-feed .post-grid .post-grid-item .entry-header:hover {
   background-color: rgba(0,0,0,0.05);
+  color: #fff;
 }
 .subcat-grid-container {
   margin-bottom: 1em;
@@ -2344,6 +2354,7 @@ hr {
   }
   .rhd-grid-feed .post-grid .post-grid-item {
     width: 31%;
+    margin-bottom: 0;
   }
   .big-notch {
     width: 100%;
@@ -2650,13 +2661,6 @@ hr {
     display: inline-block;
     padding: 0;
     vertical-align: top;
-  }
-  .front-page .entry-content .cta-buttons .cta-button-item .cta-button-link {
-    width: 100%;
-    height: auto;
-    padding-right: 0;
-    float: none;
-    display: block;
   }
   .front-page .entry-content .cta-buttons .cta-button-item .cta-button {
     width: 100%;

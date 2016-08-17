@@ -28,7 +28,7 @@
 					<?php echo '&copy;' . date( 'Y' ); ?> <a href="<?php echo home_url(); ?>"><?php echo bloginfo( 'name' ); ?></a> &amp;<br />
 					<a href="http://www.stanislauscommunityfoundation.org">Stanislaus Community Foundation</a><br />
 					<br />
-					<a href="<?php echo home_url( '/privacy-policy' ); ?>" rel="bookmark">Privacy Policy</a> | <a href="<?php echo home_url( 'terms' ); ?>" rel="bookmark">Terms &amp; Conditions</a><br />
+					<a href="<?php echo home_url( '/privacy-policy' ); ?>" rel="bookmark">Privacy Policy</a><br />
 					<br />
 					Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse Designs</a>
 	            </p>

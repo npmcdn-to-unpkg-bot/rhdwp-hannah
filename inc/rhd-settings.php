@@ -25,7 +25,7 @@ class RHD_Settings
 	*/
 	public function rhd_admin_menu()
 	{
-		add_submenu_page( 'options-general.php', 'SF Theme Settings', 'SF Theme Settings', 'manage_options', 'rhd_settings', array( $this, 'create_admin_page' ) );
+		add_submenu_page( 'options-general.php', 'SF Site Settings', 'SF Site Settings', 'manage_options', 'rhd_settings', array( $this, 'create_admin_page' ) );
 	}
 
 	/**
@@ -68,6 +68,13 @@ class RHD_Settings
 			'rhd-settings-admin'
 		);
 
+		add_settings_section(
+			'rhd_donate_cta_settings',
+			'Donation CTA',
+			array( $this, 'print_donate_cta_section_info' ),
+			'rhd-settings-admin'
+		);
+
 		add_settings_field(
 			'rhd_button_1',
 			'Button 1: ',
@@ -90,6 +97,22 @@ class RHD_Settings
 			array( $this, 'button_3_cb' ),
 			'rhd-settings-admin',
 			'rhd_cta_button_settings'
+		);
+
+		add_settings_field(
+			'rhd_donate_cta_1',
+			'Area 1: ',
+			array( $this, 'donate_cta_area_1_cb' ),
+			'rhd-settings-admin',
+			'rhd_donate_cta_settings'
+		);
+
+		add_settings_field(
+			'rhd_donate_cta_2',
+			'Area 2: ',
+			array( $this, 'donate_cta_area_2_cb' ),
+			'rhd-settings-admin',
+			'rhd_donate_cta_settings'
 		);
 	}
 
@@ -117,6 +140,16 @@ class RHD_Settings
 		$new_input['rhd_button_3_link'] = ( isset( $input['rhd_button_3_link'] ) ) ? esc_url_raw( $input['rhd_button_3_link'] ) : '';
 		$new_input['rhd_button_3_text'] = ( isset( $input['rhd_button_3_text'] ) ) ? wp_kses_post( $input['rhd_button_3_text'] ) : '';
 
+		$new_input['rhd_donate_cta_area_1_heading'] = ( isset( $input['rhd_donate_cta_area_1_heading'] ) ) ? strip_tags( $input['rhd_donate_cta_area_1_heading'], '<br>' ) : '';
+		$new_input['rhd_donate_cta_area_1_content'] = ( isset( $input['rhd_donate_cta_area_1_content'] ) ) ? wp_kses_post( $input['rhd_donate_cta_area_1_content'] ) : '';
+		$new_input['rhd_donate_cta_area_1_button_label'] = ( isset( $input['rhd_donate_cta_area_1_button_label'] ) ) ? sanitize_text_field( $input['rhd_donate_cta_area_1_button_label'] ) : '';
+		$new_input['rhd_donate_cta_area_1_button_link'] = ( isset( $input['rhd_donate_cta_area_1_button_link'] ) ) ? esc_url_raw( $input['rhd_donate_cta_area_1_button_link'] ) : '';
+
+		$new_input['rhd_donate_cta_area_2_heading'] = ( isset( $input['rhd_donate_cta_area_2_heading'] ) ) ? strip_tags( $input['rhd_donate_cta_area_2_heading'], '<br>' ) : '';
+		$new_input['rhd_donate_cta_area_2_content'] = ( isset( $input['rhd_donate_cta_area_2_content'] ) ) ? wp_kses_post( $input['rhd_donate_cta_area_2_content'] ) : '';
+		$new_input['rhd_donate_cta_area_2_button_label'] = ( isset( $input['rhd_donate_cta_area_2_button_label'] ) ) ? sanitize_text_field( $input['rhd_donate_cta_area_2_button_label'] ) : '';
+		$new_input['rhd_donate_cta_area_2_button_link'] = ( isset( $input['rhd_donate_cta_area_2_button_link'] ) ) ? esc_url_raw( $input['rhd_donate_cta_area_2_button_link'] ) : '';
+
 		return $new_input;
 	}
 
@@ -126,6 +159,11 @@ class RHD_Settings
 	public function print_cta_buttons_section_info()
 	{
 		print '<p>This section controls the blue CTA buttons found throughout the site.</p>';
+	}
+
+	public function print_donate_cta_section_info()
+	{
+		print '<p>This section controls the content for the blue call to action areas on the Donate page (and where else the [donate-cta] shortcode is used).</p>';
 	}
 
 	/**
@@ -159,9 +197,7 @@ class RHD_Settings
 		);
 	}
 
-	/**
-	* Input callbacks
-	*/
+
 	public function button_2_cb( $args )
 	{
 		printf(
@@ -190,9 +226,7 @@ class RHD_Settings
 		);
 	}
 
-	/**
-	* Input callbacks
-	*/
+
 	public function button_3_cb( $args )
 	{
 		printf(
@@ -218,6 +252,62 @@ class RHD_Settings
 			'<p><label for="rhd_button_3_text">Text/Description (HTML tags allowed)</label><br />
 			<textarea id="rhd_button_3_text" name="rhd_theme_settings[rhd_button_3_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_3_text'] ) ? $this->options['rhd_button_3_text'] : ''
+		);
+	}
+
+
+	public function donate_cta_area_1_cb( $args )
+	{
+		printf(
+			'<p><label for="rhd_donate_cta_area_1_heading">Heading (HTML line breaks only)</label><br />
+			<input type="text" id="rhd_donate_cta_area_1_heading" name="rhd_theme_settings[rhd_donate_cta_area_1_heading]" class="widefat" value="%s" /></p>',
+			isset( $this->options['rhd_donate_cta_area_1_heading'] ) ? $this->options['rhd_donate_cta_area_1_heading'] : ''
+		);
+
+		printf(
+			'<p><label for="rhd_donate_cta_area_1_content">Text (HTML is allowed)</label><br />
+			<textarea id="rhd_donate_cta_area_1_content" name="rhd_theme_settings[rhd_donate_cta_area_1_content]" class="widefat" rows="5">%s</textarea>',
+			isset( $this->options['rhd_donate_cta_area_1_content'] ) ? $this->options['rhd_donate_cta_area_1_content'] : ''
+		);
+
+		printf(
+			'<p><label for="rhd_donate_cta_area_1_button_label">Button Label</label><br />
+			<input type="text" id="rhd_donate_cta_area_1_button_label" name="rhd_theme_settings[rhd_donate_cta_area_1_button_label]" class="widefat" value="%s" /></p>',
+			isset( $this->options['rhd_donate_cta_area_1_button_label'] ) ? $this->options['rhd_donate_cta_area_1_button_label'] : ''
+		);
+
+		printf(
+			'<p><label for="rhd_donate_cta_area_1_button_link">Button Link</label><br />
+			<input type="url" id="rhd_donate_cta_area_1_button_link" name="rhd_theme_settings[rhd_donate_cta_area_1_button_link]" class="widefat" value="%s" /></p>',
+			isset( $this->options['rhd_donate_cta_area_1_button_link'] ) ? $this->options['rhd_donate_cta_area_1_button_link'] : ''
+		);
+	}
+
+
+	public function donate_cta_area_2_cb( $args )
+	{
+		printf(
+			'<p><label for="rhd_donate_cta_area_2_heading">Heading (HTML line breaks only)</label><br />
+			<input type="text" id="rhd_donate_cta_area_2_heading" name="rhd_theme_settings[rhd_donate_cta_area_2_heading]" class="widefat" value="%s" /></p>',
+			isset( $this->options['rhd_donate_cta_area_2_heading'] ) ? $this->options['rhd_donate_cta_area_2_heading'] : ''
+		);
+
+		printf(
+			'<p><label for="rhd_donate_cta_area_2_content">Text (HTML is allowed)</label><br />
+			<textarea id="rhd_donate_cta_area_2_content" name="rhd_theme_settings[rhd_donate_cta_area_2_content]" class="widefat" rows="5">%s</textarea>',
+			isset( $this->options['rhd_donate_cta_area_2_content'] ) ? $this->options['rhd_donate_cta_area_2_content'] : ''
+		);
+
+		printf(
+			'<p><label for="rhd_donate_cta_area_2_button_label">Button Label</label><br />
+			<input type="text" id="rhd_donate_cta_area_2_button_label" name="rhd_theme_settings[rhd_donate_cta_area_2_button_label]" class="widefat" value="%s" /></p>',
+			isset( $this->options['rhd_donate_cta_area_2_button_label'] ) ? $this->options['rhd_donate_cta_area_2_button_label'] : ''
+		);
+
+		printf(
+			'<p><label for="rhd_donate_cta_area_2_button_link">Button Link</label><br />
+			<input type="url" id="rhd_donate_cta_area_2_button_link" name="rhd_theme_settings[rhd_donate_cta_area_2_button_link]" class="widefat" value="%s" /></p>',
+			isset( $this->options['rhd_donate_cta_area_2_button_link'] ) ? $this->options['rhd_donate_cta_area_2_button_link'] : ''
 		);
 	}
 }
