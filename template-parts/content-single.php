@@ -11,6 +11,7 @@
 	<header class="entry-header">
 		<h2 class="entry-title"><?php the_title(); ?></h2>
 		<p class="entry-details"><?php the_time( get_option( 'date_format' ) ); ?></p>
+		<?php if ( has_post_thumbnail( ) ) the_post_thumbnail( 'large' ); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -22,4 +23,3 @@
 		<p><?php edit_post_link( __( 'Edit Post', 'rhd' ), '<span class="edit-link">', '</span>' ); ?></p>
 	</footer><!-- .entry-meta -->
 </article><!-- #post -->
-

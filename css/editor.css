@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:51:22 PM on 17-08-2016
+* RHD Dev: Compiled at 5:02:33 PM on 17-08-2016
 ***/
 
 /**
@@ -1691,6 +1691,14 @@ hr {
 .single-pagination .pag-load-more {
   display: block;
   margin: 0 auto;
+}
+.single-post .entry-header .entry-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.single-post .entry-header .wp-post-image {
+  margin-top: 0.5em;
 }
 .page-template-template-full-width #main {
   width: 100%;
