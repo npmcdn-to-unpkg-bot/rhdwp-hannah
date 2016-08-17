@@ -228,14 +228,12 @@ function rhd_full_width_format_cta( $post_id ) {
 			break;
 
 		case 'image':
-			$out .= "
-				<div class=\"rhd-page-overlay-cta-inner {$class}\">"
+			$out .= "<div class=\"rhd-page-overlay-cta-inner {$class}\">"
 					. wp_get_attachment_image( $meta['rhd_page_overlay_image'][0], 'large', false, array( 'class' => 'rhd-page-overlay-image' ) ) .
 				"</div>";
 			break;
 
 		case 'off':
-		default:
 			break;
 	}
 
