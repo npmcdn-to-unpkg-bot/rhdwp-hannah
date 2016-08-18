@@ -101,3 +101,5 @@
 		</header><!-- #masthead -->
 
 		<main id="main">
+
+			<?php if ( function_exists( 'soliloquy' ) && is_front_page() ) { soliloquy( 'home-slider', 'slug' ); } ?>

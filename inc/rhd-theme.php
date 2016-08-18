@@ -131,8 +131,14 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
  */
 function rhd_cart_link() {
 	global $woocommerce;
+
+	$items = $woocommerce->cart->get_cart_contents_count();
+
+	if ( $items > 0 )
+		$items = "({$items})";
 	?>
-	<a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'rhd'); ?>">View Cart</a>
+
+	<a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'rhd'); ?>">View Cart <?php echo $items; ?></a>
 	<?php
 }
 

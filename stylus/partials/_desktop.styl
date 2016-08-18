@@ -1,4 +1,4 @@
-@media screen and (min-width 46rem)
+@media screen and (min-width 48rem)
 	.mobile-only
 		display none
 
@@ -120,7 +120,50 @@
 
 		.widget
 			width 100%
-			padding $boxpadDesk
+
+	#colophon
+		height 19em
+		padding-bottom 0
+
+		.footer-inner
+			-wrapper(0, 0, 96%)
+			height 100%
+
+			& > div
+				width 30%
+				-vcenter()
+
+			.site-info
+				left 0
+				text-align left
+				font-weight 700
+
+			.social
+				-hcenter()
+				bottom 0
+				padding-top 0
+
+				.widget-rhd-social-icons
+					width 100%
+					padding-bottom 0
+					position absolute
+					bottom 3em
+
+					.footer-feather
+						width 40%
+						margin 0
+						-hcenter(absolute, 12.4)
+						top initial
+						bottom 0
+
+			.newsletter
+				width 26%
+				right 0
+
+				.rhd-mc-fname
+				.rhd-mc-lname
+				.rhd-mc-email
+					margin 0.2em auto
 
 	.post-grid
 		.post-grid-item
