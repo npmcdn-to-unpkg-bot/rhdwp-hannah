@@ -32,7 +32,6 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
-				//parallax.reload();
 			}
 
 			if ( !viewportIsSmall(800) ) {

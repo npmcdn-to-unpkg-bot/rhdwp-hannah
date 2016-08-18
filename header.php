@@ -39,7 +39,6 @@
 		'menu_class' => 'site-navigation',
 		'container' => 'nav',
 		'container_id' => 'site-navigation-container',
-		'walker' => new RHD_Walker_Nav
 	);
 	?>
 

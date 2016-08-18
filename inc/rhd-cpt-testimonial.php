@@ -9,7 +9,7 @@
  **/
 
 
-function testimonial_init() {
+function rhd_testimonial_init() {
 	register_post_type( 'testimonial', array(
 		'labels'            => array(
 			'name'                => __( 'Testimonials', 'rhd' ),
@@ -43,9 +43,9 @@ function testimonial_init() {
 	) );
 
 }
-add_action( 'init', 'testimonial_init' );
+add_action( 'init', 'rhd_testimonial_init' );
 
-function testimonial_updated_messages( $messages ) {
+function rhd_testimonial_updated_messages( $messages ) {
 	global $post;
 
 	$permalink = get_permalink( $post );
@@ -69,7 +69,7 @@ function testimonial_updated_messages( $messages ) {
 
 	return $messages;
 }
-add_filter( 'post_updated_messages', 'testimonial_updated_messages' );
+add_filter( 'post_updated_messages', 'rhd_testimonial_updated_messages' );
 
 
 // SAMPLE META BOX

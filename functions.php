@@ -25,6 +25,12 @@ define( "RHD_UPLOAD_URL", $updir['baseurl'] );
 // Disable Editor
 define( 'DISALLOW_FILE_EDIT', true );
 
+function remove_customize_page(){
+	global $submenu;
+	unset($submenu['themes.php'][6]); // remove customize link
+}
+add_action( 'admin_menu', 'remove_customize_page');
+
 
 // Includes
 include_once( 'inc/rhd-shortcodes.php' );
@@ -162,20 +168,6 @@ add_action( 'wp_head', 'rhd_pageview_protection' );
    ========================================================================== */
 
 /**
- * rhd_init function.
- *
- * Description: Anything to be performed during 'init' action
- *
- * @access public
- * @return void
- */
-function rhd_init() {
-	// Register taxonomies and things if ya dig it
-}
-add_action( 'init', 'rhd_init' );
-
-
-/**
  * rhd_theme_setup function.
  *
  * @access public
@@ -267,22 +259,6 @@ function rhd_register_sidebars() {
 add_action( 'widgets_init', 'rhd_register_sidebars' );
 
 
-// Menus
-
-/**
- * RHD_Walker_Nav class.
- *
- * Adds newlines after each </li> closing tag.
- *
- * @extends Walker_Nav_Menu
- */
-class RHD_Walker_Nav extends Walker_Nav_Menu {
-	function end_el( &$output, $item, $depth = 0, $args = array() ) {
-		$output .= "</li>\n";
-	}
-}
-
-
 /* ==========================================================================
    Helpers
    ========================================================================== */
@@ -353,21 +329,6 @@ function get_the_slug() {
 	$slug = $post_data['post_name'];
 	return $slug;
 }
-
-
-/**
- * Function: rhd_strip_thumbnail_dimensions
- *
- * Strip WP inline image dimensions
- *
- * @param $html
- **/
-function rhd_strip_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
-}
-// add_filter( 'post_thumbnail_html', 'rhd_strip_thumbnail_dimensions', 10 );
-// add_filter( 'image_send_to_editor', 'rhd_strip_thumbnail_dimensions', 10 );
 
 
 /**
