@@ -130,16 +130,24 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
  * @return void
  */
 function rhd_cart_link() {
-	global $woocommerce;
+	if ( ! is_page( 'cart' ) && ! is_page( 'checkout' ) ) {
+		global $woocommerce;
 
-	$items = $woocommerce->cart->get_cart_contents_count();
+		$href = $woocommerce->cart->get_cart_url();
+		$title = 'View your shopping cart';
 
-	if ( $items > 0 )
-		$items = "({$items})";
-	?>
+		$items = $woocommerce->cart->get_cart_contents_count();
+		$text = 'View Cart';
 
-	<a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'rhd'); ?>">View Cart <?php echo $items; ?></a>
-	<?php
+		if ( $items > 0 )
+			$text .= " ({$items})"; // leading space
+	} else {
+		$href = home_url();
+		$title = 'Back to Shop';
+		$text = 'Continue Shopping';
+	}
+
+	echo "<a href=\"{$href}\" title=\"{$title}\">{$text}</a>";
 }
 
 

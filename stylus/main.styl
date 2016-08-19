@@ -694,6 +694,38 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	WooCommerce
+   ========================================================================== */
+
+.woocommerce
+	a
+		&.button
+			transition background-color 0.35s ease
+
+			&.alt
+				background-color $c_ter
+				color $c_bg
+
+				&:hover
+				&:active
+					background-color $c_quat
+
+
+.woocommerce-cart
+	table
+		&.cart
+			.product-thumbnail
+				padding 0
+				position relative
+
+				img
+					-wrapper(0.5rem, 0.5rem, 90%)
+					height auto
+					max-height 10em
+					display block
+
+
+/* ==========================================================================
 	Extras
    ========================================================================== */
 

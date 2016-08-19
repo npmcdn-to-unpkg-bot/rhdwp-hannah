@@ -664,7 +664,7 @@ add_action('woocommerce_before_main_content', 'rhd_theme_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'rhd_theme_wrapper_end', 10);
 
 function rhd_theme_wrapper_start() {
-	echo '<section id="primary" class="full-width"><div id="content">';
+	echo '<section id="primary" class="site-content full-width"><div id="content">';
 }
 
 function rhd_theme_wrapper_end() {

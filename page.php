@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<section id="primary" class="site-content">
+<section id="primary" class="site-content full-width">
 	<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -24,5 +24,4 @@ get_header(); ?>
 	</div>
 </section>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

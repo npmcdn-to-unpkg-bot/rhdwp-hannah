@@ -185,26 +185,6 @@
 				width auto
 				padding-left 0.8em
 
-	// Image Strip
-	#primary
-		-clearfix()
-
-		article
-			&.strip-active
-				width 65%
-				float right
-
-		#image-strip
-			width 30%
-			float left
-			margin-right 5%
-
-			img
-				width 100%
-				height auto
-				margin-bottom 2em
-				display block
-
 	.entry-content
 		iframe
 			max-width 100%
@@ -228,3 +208,6 @@
 		a
 			img
 				@extends .entry-content img
+
+	.woocommerce table.cart td.actions #coupon_code.input-text
+		width 10em
