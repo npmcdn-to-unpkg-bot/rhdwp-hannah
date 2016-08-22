@@ -57,7 +57,7 @@ class RHD_Settings
 	{
 		register_setting(
 			'rhd_site_settings', // Option group
-			'rhd_general_settings', // Option name
+			'rhd_general_options', // Option name
 			array( $this, 'sanitize' ) // Sanitize
 		);
 
