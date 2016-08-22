@@ -1,6 +1,6 @@
 <?php
 /**
- * RHD Theme Settings
+ * RHD Site Settings
  *
  * Admin Settings Page (starter)
  */
@@ -25,7 +25,7 @@ class RHD_Settings
 	*/
 	public function rhd_admin_menu()
 	{
-		add_submenu_page( 'options-general.php', 'SF Theme Settings', 'SF Theme Settings', 'manage_options', 'rhd_settings', array( $this, 'create_admin_page' ) );
+		add_submenu_page( 'options-general.php', 'RHD Site Settings', 'RHD Site Settings', 'manage_options', 'rhd_settings', array( $this, 'create_admin_page' ) );
 	}
 
 	/**
@@ -34,14 +34,14 @@ class RHD_Settings
 	public function create_admin_page()
 	{
 		// Set class property
-		$this->options = get_option( 'rhd_theme_settings' );
+		$this->options = get_option( 'rhd_site_settings' );
 	?>
 	<div class="wrap">
-		<h2>Stanislaus Futures Theme Settings</h2>
+		<h2>RHD Site Settings</h2>
 		<form method="post" action="options.php">
 			<?php
 				// This prints out all hidden setting fields
-				settings_fields( 'rhd_theme_settings' );
+				settings_fields( 'rhd_site_settings' );
 				do_settings_sections( 'rhd-settings-admin' );
 				submit_button();
 			?>
@@ -56,15 +56,15 @@ class RHD_Settings
 	public function rhd_register_settings()
 	{
 		register_setting(
-			'rhd_theme_settings', // Option group
-			'rhd_theme_settings', // Option name
+			'rhd_site_settings', // Option group
+			'rhd_site_settings', // Option name
 			array( $this, 'sanitize' ) // Sanitize
 		);
 
 		add_settings_section(
-			'rhd_cta_button_settings',
+			'rhd_sample_button_settings',
 			'Call to Action Buttons',
-			array( $this, 'print_cta_buttons_section_info' ),
+			array( $this, 'print_sample_buttons_section_info' ),
 			'rhd-settings-admin'
 		);
 
@@ -73,23 +73,7 @@ class RHD_Settings
 			'Button 1: ',
 			array( $this, 'button_1_cb' ),
 			'rhd-settings-admin',
-			'rhd_cta_button_settings'
-		);
-
-		add_settings_field(
-			'rhd_button_2',
-			'Button 2: ',
-			array( $this, 'button_2_cb' ),
-			'rhd-settings-admin',
-			'rhd_cta_button_settings'
-		);
-
-		add_settings_field(
-			'rhd_button_3',
-			'Button 3: ',
-			array( $this, 'button_3_cb' ),
-			'rhd-settings-admin',
-			'rhd_cta_button_settings'
+			'rhd_sample_button_settings'
 		);
 	}
 
@@ -107,25 +91,15 @@ class RHD_Settings
 		$new_input['rhd_button_1_link'] = ( isset( $input['rhd_button_1_link'] ) ) ? esc_url_raw( $input['rhd_button_1_link'] ) : '';
 		$new_input['rhd_button_1_text'] = ( isset( $input['rhd_button_1_text'] ) ) ? wp_kses_post( $input['rhd_button_1_text'] ) : '';
 
-		$new_input['rhd_button_2_label'] = ( isset( $input['rhd_button_2_label'] ) ) ? sanitize_text_field( $input['rhd_button_2_label'] ) : '';
-		$new_input['rhd_button_2_sub'] = ( isset( $input['rhd_button_2_sub'] ) ) ? sanitize_text_field( $input['rhd_button_2_sub'] ) : '';
-		$new_input['rhd_button_2_link'] = ( isset( $input['rhd_button_2_link'] ) ) ? esc_url_raw( $input['rhd_button_2_link'] ) : '';
-		$new_input['rhd_button_2_text'] = ( isset( $input['rhd_button_2_text'] ) ) ? wp_kses_post( $input['rhd_button_2_text'] ) : '';
-
-		$new_input['rhd_button_3_label'] = ( isset( $input['rhd_button_3_label'] ) ) ? sanitize_text_field( $input['rhd_button_3_label'] ) : '';
-		$new_input['rhd_button_3_sub'] = ( isset( $input['rhd_button_3_sub'] ) ) ? sanitize_text_field( $input['rhd_button_3_sub'] ) : '';
-		$new_input['rhd_button_3_link'] = ( isset( $input['rhd_button_3_link'] ) ) ? esc_url_raw( $input['rhd_button_3_link'] ) : '';
-		$new_input['rhd_button_3_text'] = ( isset( $input['rhd_button_3_text'] ) ) ? wp_kses_post( $input['rhd_button_3_text'] ) : '';
-
 		return $new_input;
 	}
 
 	/**
 	* Print the Section text
 	*/
-	public function print_cta_buttons_section_info()
+	public function print_sample_buttons_section_info()
 	{
-		print '<p>This section controls the blue CTA buttons found throughout the site.</p>';
+		print '<p>Some sample inputs.</p>';
 	}
 
 	/**
@@ -135,89 +109,27 @@ class RHD_Settings
 	{
 		printf(
 			'<p><label for="rhd_button_1_label">Label</label><br />
-			<input type="text" id="rhd_button_1_label" name="rhd_theme_settings[rhd_button_1_label]" value="%s" /></p>',
+			<input type="text" id="rhd_button_1_label" name="rhd_site_settings[rhd_button_1_label]" value="%s" /></p>',
 			isset( $this->options['rhd_button_1_label'] ) ? $this->options['rhd_button_1_label'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_1_sub">Subtitle</label><br />
-			<input type="text" id="rhd_button_1_sub" name="rhd_theme_settings[rhd_button_1_sub]" class="widefat"  value="%s" /></p>',
+			<input type="text" id="rhd_button_1_sub" name="rhd_site_settings[rhd_button_1_sub]" class="widefat"  value="%s" /></p>',
 			isset( $this->options['rhd_button_1_sub'] ) ? $this->options['rhd_button_1_sub'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_1_link">Link</label><br />
-			<input type="url" id="rhd_button_1_link" name="rhd_theme_settings[rhd_button_1_link]" class="widefat" value="%s" /></p>',
+			<input type="url" id="rhd_button_1_link" name="rhd_site_settings[rhd_button_1_link]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_button_1_link'] ) ? $this->options['rhd_button_1_link'] : ''
 		);
 		echo '</p>';
 
 		printf(
 			'<p><label for="rhd_button_1_text">Text/Description (HTML tags allowed)</label><br />
-			<textarea id="rhd_button_1_text" name="rhd_theme_settings[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
+			<textarea id="rhd_button_1_text" name="rhd_site_settings[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_1_text'] ) ? $this->options['rhd_button_1_text'] : ''
-		);
-	}
-
-	/**
-	* Input callbacks
-	*/
-	public function button_2_cb( $args )
-	{
-		printf(
-			'<p><label for="rhd_button_2_label">Label</label><br />
-			<input type="text" id="rhd_button_2_label" name="rhd_theme_settings[rhd_button_2_label]" value="%s" /></p>',
-			isset( $this->options['rhd_button_2_label'] ) ? $this->options['rhd_button_2_label'] : ''
-		);
-
-		printf(
-			'<p><label for="rhd_button_2_sub">Subtitle</label><br />
-			<input type="text" id="rhd_button_2_sub" name="rhd_theme_settings[rhd_button_2_sub]" class="widefat"  value="%s" /></p>',
-			isset( $this->options['rhd_button_2_sub'] ) ? $this->options['rhd_button_2_sub'] : ''
-		);
-
-		printf(
-			'<p><label for="rhd_button_2_link">Link</label><br />
-			<input type="url" id="rhd_button_2_link" name="rhd_theme_settings[rhd_button_2_link]" class="widefat" value="%s" /></p>',
-			isset( $this->options['rhd_button_2_link'] ) ? $this->options['rhd_button_2_link'] : ''
-		);
-		echo '</p>';
-
-		printf(
-			'<p><label for="rhd_button_2_text">Text/Description (HTML tags allowed) (HTML tags allowed)</label><br />
-			<textarea id="rhd_button_2_text" name="rhd_theme_settings[rhd_button_2_text]" class="widefat" rows="5">%s</textarea></p>',
-			isset( $this->options['rhd_button_2_text'] ) ? $this->options['rhd_button_2_text'] : ''
-		);
-	}
-
-	/**
-	* Input callbacks
-	*/
-	public function button_3_cb( $args )
-	{
-		printf(
-			'<p><label for="rhd_button_3_label">Label</label><br />
-			<input type="text" id="rhd_button_3_label" name="rhd_theme_settings[rhd_button_3_label]" value="%s" /></p>',
-			isset( $this->options['rhd_button_3_label'] ) ? $this->options['rhd_button_3_label'] : ''
-		);
-
-		printf(
-			'<p><label for="rhd_button_3_sub">Subtitle</label><br />
-			<input type="text" id="rhd_button_3_sub" name="rhd_theme_settings[rhd_button_3_sub]" class="widefat"  value="%s" /></p>',
-			isset( $this->options['rhd_button_3_sub'] ) ? $this->options['rhd_button_3_sub'] : ''
-		);
-
-		printf(
-			'<p><label for="rhd_button_3_link">Link</label><br />
-			<input type="url" id="rhd_button_3_link" name="rhd_theme_settings[rhd_button_3_link]" class="widefat" value="%s" /></p>',
-			isset( $this->options['rhd_button_3_link'] ) ? $this->options['rhd_button_3_link'] : ''
-		);
-		echo '</p>';
-
-		printf(
-			'<p><label for="rhd_button_3_text">Text/Description (HTML tags allowed)</label><br />
-			<textarea id="rhd_button_3_text" name="rhd_theme_settings[rhd_button_3_text]" class="widefat" rows="5">%s</textarea></p>',
-			isset( $this->options['rhd_button_3_text'] ) ? $this->options['rhd_button_3_text'] : ''
 		);
 	}
 }
