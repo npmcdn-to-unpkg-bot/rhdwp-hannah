@@ -135,4 +135,4 @@ class RHD_Settings
 }
 
 if( is_admin() )
-	$rhd_settings_page = new rhd_settings();
+	$rhd_settings_page = new RHD_Settings();
