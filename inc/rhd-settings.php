@@ -34,7 +34,7 @@ class RHD_Settings
 	public function create_admin_page()
 	{
 		// Set class property
-		$this->options = get_option( 'rhd_site_settings' );
+		$this->options = get_option( 'rhd_general_options' );
 	?>
 	<div class="wrap">
 		<h2>RHD Site Settings</h2>
@@ -57,7 +57,7 @@ class RHD_Settings
 	{
 		register_setting(
 			'rhd_site_settings', // Option group
-			'rhd_site_settings', // Option name
+			'rhd_general_settings', // Option name
 			array( $this, 'sanitize' ) // Sanitize
 		);
 
@@ -70,7 +70,7 @@ class RHD_Settings
 
 		add_settings_field(
 			'rhd_button_1',
-			'Button 1: ',
+			'Sample Button 1: ',
 			array( $this, 'button_1_cb' ),
 			'rhd-settings-admin',
 			'rhd_sample_button_settings'
@@ -109,26 +109,26 @@ class RHD_Settings
 	{
 		printf(
 			'<p><label for="rhd_button_1_label">Label</label><br />
-			<input type="text" id="rhd_button_1_label" name="rhd_site_settings[rhd_button_1_label]" value="%s" /></p>',
+			<input type="text" id="rhd_button_1_label" name="rhd_general_options[rhd_button_1_label]" value="%s" /></p>',
 			isset( $this->options['rhd_button_1_label'] ) ? $this->options['rhd_button_1_label'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_1_sub">Subtitle</label><br />
-			<input type="text" id="rhd_button_1_sub" name="rhd_site_settings[rhd_button_1_sub]" class="widefat"  value="%s" /></p>',
+			<input type="text" id="rhd_button_1_sub" name="rhd_general_options[rhd_button_1_sub]" class="widefat"  value="%s" /></p>',
 			isset( $this->options['rhd_button_1_sub'] ) ? $this->options['rhd_button_1_sub'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_1_link">Link</label><br />
-			<input type="url" id="rhd_button_1_link" name="rhd_site_settings[rhd_button_1_link]" class="widefat" value="%s" /></p>',
+			<input type="url" id="rhd_button_1_link" name="rhd_general_options[rhd_button_1_link]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_button_1_link'] ) ? $this->options['rhd_button_1_link'] : ''
 		);
 		echo '</p>';
 
 		printf(
 			'<p><label for="rhd_button_1_text">Text/Description (HTML tags allowed)</label><br />
-			<textarea id="rhd_button_1_text" name="rhd_site_settings[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
+			<textarea id="rhd_button_1_text" name="rhd_general_options[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_1_text'] ) ? $this->options['rhd_button_1_text'] : ''
 		);
 	}
