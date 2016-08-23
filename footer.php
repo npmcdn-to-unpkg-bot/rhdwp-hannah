@@ -20,7 +20,7 @@
 	        </div>
 
 	        <div class="newsletter">
-				<?php echo do_shortcode( '[rhd-mailchimp title="Join Our Newsletter" fname=true lname=true button="subscribe"]' ); ?>
+				<?php echo do_shortcode( '[rhd-mailchimp title="Join Our Newsletter" list_id="b1d0d80c77" fname=true lname=true button="subscribe"]' ); ?>
 	        </div>
 
 	        <div class="site-info">

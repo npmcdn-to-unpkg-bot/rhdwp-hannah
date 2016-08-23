@@ -34,14 +34,14 @@ class RHD_Settings
 	public function create_admin_page()
 	{
 		// Set class property
-		$this->options = get_option( 'rhd_theme_settings' );
+		$this->options = get_option( 'rhd_site_settings' );
 	?>
 	<div class="wrap">
 		<h2>Stanislaus Futures Theme Settings</h2>
 		<form method="post" action="options.php">
 			<?php
 				// This prints out all hidden setting fields
-				settings_fields( 'rhd_theme_settings' );
+				settings_fields( 'rhd_site_settings' );
 				do_settings_sections( 'rhd-settings-admin' );
 				submit_button();
 			?>
@@ -56,8 +56,8 @@ class RHD_Settings
 	public function rhd_register_settings()
 	{
 		register_setting(
-			'rhd_theme_settings', // Option group
-			'rhd_theme_settings', // Option name
+			'rhd_site_settings', // Option group
+			'rhd_site_settings', // Option name
 			array( $this, 'sanitize' ) // Sanitize
 		);
 
@@ -173,26 +173,26 @@ class RHD_Settings
 	{
 		printf(
 			'<p><label for="rhd_button_1_label">Label</label><br />
-			<input type="text" id="rhd_button_1_label" name="rhd_theme_settings[rhd_button_1_label]" value="%s" /></p>',
+			<input type="text" id="rhd_button_1_label" name="rhd_site_settings[rhd_button_1_label]" value="%s" /></p>',
 			isset( $this->options['rhd_button_1_label'] ) ? $this->options['rhd_button_1_label'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_1_sub">Subtitle</label><br />
-			<input type="text" id="rhd_button_1_sub" name="rhd_theme_settings[rhd_button_1_sub]" class="widefat"  value="%s" /></p>',
+			<input type="text" id="rhd_button_1_sub" name="rhd_site_settings[rhd_button_1_sub]" class="widefat"  value="%s" /></p>',
 			isset( $this->options['rhd_button_1_sub'] ) ? $this->options['rhd_button_1_sub'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_1_link">Link</label><br />
-			<input type="url" id="rhd_button_1_link" name="rhd_theme_settings[rhd_button_1_link]" class="widefat" value="%s" /></p>',
+			<input type="url" id="rhd_button_1_link" name="rhd_site_settings[rhd_button_1_link]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_button_1_link'] ) ? $this->options['rhd_button_1_link'] : ''
 		);
 		echo '</p>';
 
 		printf(
 			'<p><label for="rhd_button_1_text">Text/Description (HTML tags allowed)</label><br />
-			<textarea id="rhd_button_1_text" name="rhd_theme_settings[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
+			<textarea id="rhd_button_1_text" name="rhd_site_settings[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_1_text'] ) ? $this->options['rhd_button_1_text'] : ''
 		);
 	}
@@ -202,26 +202,26 @@ class RHD_Settings
 	{
 		printf(
 			'<p><label for="rhd_button_2_label">Label</label><br />
-			<input type="text" id="rhd_button_2_label" name="rhd_theme_settings[rhd_button_2_label]" value="%s" /></p>',
+			<input type="text" id="rhd_button_2_label" name="rhd_site_settings[rhd_button_2_label]" value="%s" /></p>',
 			isset( $this->options['rhd_button_2_label'] ) ? $this->options['rhd_button_2_label'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_2_sub">Subtitle</label><br />
-			<input type="text" id="rhd_button_2_sub" name="rhd_theme_settings[rhd_button_2_sub]" class="widefat"  value="%s" /></p>',
+			<input type="text" id="rhd_button_2_sub" name="rhd_site_settings[rhd_button_2_sub]" class="widefat"  value="%s" /></p>',
 			isset( $this->options['rhd_button_2_sub'] ) ? $this->options['rhd_button_2_sub'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_2_link">Link</label><br />
-			<input type="url" id="rhd_button_2_link" name="rhd_theme_settings[rhd_button_2_link]" class="widefat" value="%s" /></p>',
+			<input type="url" id="rhd_button_2_link" name="rhd_site_settings[rhd_button_2_link]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_button_2_link'] ) ? $this->options['rhd_button_2_link'] : ''
 		);
 		echo '</p>';
 
 		printf(
 			'<p><label for="rhd_button_2_text">Text/Description (HTML tags allowed) (HTML tags allowed)</label><br />
-			<textarea id="rhd_button_2_text" name="rhd_theme_settings[rhd_button_2_text]" class="widefat" rows="5">%s</textarea></p>',
+			<textarea id="rhd_button_2_text" name="rhd_site_settings[rhd_button_2_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_2_text'] ) ? $this->options['rhd_button_2_text'] : ''
 		);
 	}
@@ -231,26 +231,26 @@ class RHD_Settings
 	{
 		printf(
 			'<p><label for="rhd_button_3_label">Label</label><br />
-			<input type="text" id="rhd_button_3_label" name="rhd_theme_settings[rhd_button_3_label]" value="%s" /></p>',
+			<input type="text" id="rhd_button_3_label" name="rhd_site_settings[rhd_button_3_label]" value="%s" /></p>',
 			isset( $this->options['rhd_button_3_label'] ) ? $this->options['rhd_button_3_label'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_3_sub">Subtitle</label><br />
-			<input type="text" id="rhd_button_3_sub" name="rhd_theme_settings[rhd_button_3_sub]" class="widefat"  value="%s" /></p>',
+			<input type="text" id="rhd_button_3_sub" name="rhd_site_settings[rhd_button_3_sub]" class="widefat"  value="%s" /></p>',
 			isset( $this->options['rhd_button_3_sub'] ) ? $this->options['rhd_button_3_sub'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_button_3_link">Link</label><br />
-			<input type="url" id="rhd_button_3_link" name="rhd_theme_settings[rhd_button_3_link]" class="widefat" value="%s" /></p>',
+			<input type="url" id="rhd_button_3_link" name="rhd_site_settings[rhd_button_3_link]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_button_3_link'] ) ? $this->options['rhd_button_3_link'] : ''
 		);
 		echo '</p>';
 
 		printf(
 			'<p><label for="rhd_button_3_text">Text/Description (HTML tags allowed)</label><br />
-			<textarea id="rhd_button_3_text" name="rhd_theme_settings[rhd_button_3_text]" class="widefat" rows="5">%s</textarea></p>',
+			<textarea id="rhd_button_3_text" name="rhd_site_settings[rhd_button_3_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_3_text'] ) ? $this->options['rhd_button_3_text'] : ''
 		);
 	}
@@ -260,25 +260,25 @@ class RHD_Settings
 	{
 		printf(
 			'<p><label for="rhd_donate_cta_area_1_heading">Heading (HTML line breaks only)</label><br />
-			<input type="text" id="rhd_donate_cta_area_1_heading" name="rhd_theme_settings[rhd_donate_cta_area_1_heading]" class="widefat" value="%s" /></p>',
+			<input type="text" id="rhd_donate_cta_area_1_heading" name="rhd_site_settings[rhd_donate_cta_area_1_heading]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_donate_cta_area_1_heading'] ) ? $this->options['rhd_donate_cta_area_1_heading'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_donate_cta_area_1_content">Text (HTML is allowed)</label><br />
-			<textarea id="rhd_donate_cta_area_1_content" name="rhd_theme_settings[rhd_donate_cta_area_1_content]" class="widefat" rows="5">%s</textarea>',
+			<textarea id="rhd_donate_cta_area_1_content" name="rhd_site_settings[rhd_donate_cta_area_1_content]" class="widefat" rows="5">%s</textarea>',
 			isset( $this->options['rhd_donate_cta_area_1_content'] ) ? $this->options['rhd_donate_cta_area_1_content'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_donate_cta_area_1_button_label">Button Label</label><br />
-			<input type="text" id="rhd_donate_cta_area_1_button_label" name="rhd_theme_settings[rhd_donate_cta_area_1_button_label]" class="widefat" value="%s" /></p>',
+			<input type="text" id="rhd_donate_cta_area_1_button_label" name="rhd_site_settings[rhd_donate_cta_area_1_button_label]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_donate_cta_area_1_button_label'] ) ? $this->options['rhd_donate_cta_area_1_button_label'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_donate_cta_area_1_button_link">Button Link</label><br />
-			<input type="url" id="rhd_donate_cta_area_1_button_link" name="rhd_theme_settings[rhd_donate_cta_area_1_button_link]" class="widefat" value="%s" /></p>',
+			<input type="url" id="rhd_donate_cta_area_1_button_link" name="rhd_site_settings[rhd_donate_cta_area_1_button_link]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_donate_cta_area_1_button_link'] ) ? $this->options['rhd_donate_cta_area_1_button_link'] : ''
 		);
 	}
@@ -288,25 +288,25 @@ class RHD_Settings
 	{
 		printf(
 			'<p><label for="rhd_donate_cta_area_2_heading">Heading (HTML line breaks only)</label><br />
-			<input type="text" id="rhd_donate_cta_area_2_heading" name="rhd_theme_settings[rhd_donate_cta_area_2_heading]" class="widefat" value="%s" /></p>',
+			<input type="text" id="rhd_donate_cta_area_2_heading" name="rhd_site_settings[rhd_donate_cta_area_2_heading]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_donate_cta_area_2_heading'] ) ? $this->options['rhd_donate_cta_area_2_heading'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_donate_cta_area_2_content">Text (HTML is allowed)</label><br />
-			<textarea id="rhd_donate_cta_area_2_content" name="rhd_theme_settings[rhd_donate_cta_area_2_content]" class="widefat" rows="5">%s</textarea>',
+			<textarea id="rhd_donate_cta_area_2_content" name="rhd_site_settings[rhd_donate_cta_area_2_content]" class="widefat" rows="5">%s</textarea>',
 			isset( $this->options['rhd_donate_cta_area_2_content'] ) ? $this->options['rhd_donate_cta_area_2_content'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_donate_cta_area_2_button_label">Button Label</label><br />
-			<input type="text" id="rhd_donate_cta_area_2_button_label" name="rhd_theme_settings[rhd_donate_cta_area_2_button_label]" class="widefat" value="%s" /></p>',
+			<input type="text" id="rhd_donate_cta_area_2_button_label" name="rhd_site_settings[rhd_donate_cta_area_2_button_label]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_donate_cta_area_2_button_label'] ) ? $this->options['rhd_donate_cta_area_2_button_label'] : ''
 		);
 
 		printf(
 			'<p><label for="rhd_donate_cta_area_2_button_link">Button Link</label><br />
-			<input type="url" id="rhd_donate_cta_area_2_button_link" name="rhd_theme_settings[rhd_donate_cta_area_2_button_link]" class="widefat" value="%s" /></p>',
+			<input type="url" id="rhd_donate_cta_area_2_button_link" name="rhd_site_settings[rhd_donate_cta_area_2_button_link]" class="widefat" value="%s" /></p>',
 			isset( $this->options['rhd_donate_cta_area_2_button_link'] ) ? $this->options['rhd_donate_cta_area_2_button_link'] : ''
 		);
 	}

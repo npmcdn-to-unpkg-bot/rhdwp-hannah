@@ -91,7 +91,7 @@ add_shortcode( 'big-image', 'rhd_big_image_image_shortcode' );
  * @return void
  */
 function rhd_cta_buttons( $parent_class = null ) {
-	$options = get_option( 'rhd_theme_settings' );
+	$options = get_option( 'rhd_site_settings' );
 
 	$output = "<div class=\"rhd-cta-buttons {$parent_class}\">";
 
@@ -147,7 +147,7 @@ add_shortcode( 'cta-buttons', 'rhd_cta_buttons_shortcode' );
  * @return void
  */
 function rhd_donate_cta_shortcode( $atts ) {
-	$options = get_option( 'rhd_theme_settings' );
+	$options = get_option( 'rhd_site_settings' );
 	$max_boxes = 2;
 
 	$boxes = array();
@@ -187,10 +187,10 @@ function rhd_front_page_image_cta( $atts ) {
 		<div class="rhd-front-page-image-cta rhd-cta-boxes">
 			<div class="front-page-image-cta-box-1 front-page-image-cta-box rhd-cta-box">'
 				. $image1
-				. rhd_ghost_button( 'For Students', 'http://google.com', '', 'center', true )
+				. rhd_ghost_button( 'For Students', home_url( '/students' ), '', 'center', true )
 			. '</div>
 			<div class="front-page-image-cta-box-2 front-page-image-cta-box rhd-cta-box">'					. $image2
-				. rhd_ghost_button( 'For Donors', 'http://google.com', '', 'center', true )
+				. rhd_ghost_button( 'For Donors', home_url( '/donors' ), '', 'center', true )
 			. '</div>
 		</div>
 	';

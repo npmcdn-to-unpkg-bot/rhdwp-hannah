@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:02:33 PM on 17-08-2016
+* RHD Dev: Compiled at 6:10:16 PM on 23-08-2016
 ***/
 
 .alignnone {
@@ -1703,6 +1703,9 @@ hr {
 .single-post .entry-header .wp-post-image {
   margin-top: 0.5em;
 }
+.single-post .entry-content p {
+  margin: 1em 0;
+}
 /* ==========================================================================
 	Full-Width Pages ("Big Image" functionality)
    ========================================================================== */
@@ -2114,6 +2117,16 @@ hr {
 .rhd-testimonial .testimonial-content .attribution {
   text-align: right;
   margin-top: 0;
+}
+/* ==========================================================================
+	Donate Page
+   ========================================================================== */
+.page-id-17 .entry-content .gallery-columns-2 .gallery-item {
+  max-width: none;
+}
+.page-id-17 .entry-content .gallery-columns-2 .gallery-item img {
+  width: 100%;
+  height: auto;
 }
 /* ==========================================================================
 	Partners Page
@@ -2713,5 +2726,9 @@ hr {
     width: 100%;
     height: 100%;
     margin-bottom: 0;
+  }
+  .page-id-17 .entry-content .gallery-columns-2 .gallery-item {
+    max-width: 50%;
+    vertical-align: middle;
   }
 }
