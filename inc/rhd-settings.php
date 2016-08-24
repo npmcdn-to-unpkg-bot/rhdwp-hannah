@@ -61,6 +61,7 @@ class RHD_Settings
 			array( $this, 'sanitize' ) // Sanitize
 		);
 
+		/*
 		add_settings_section(
 			'rhd_sample_button_settings',
 			'Call to Action Buttons',
@@ -75,6 +76,7 @@ class RHD_Settings
 			'rhd-settings-admin',
 			'rhd_sample_button_settings'
 		);
+		*/
 	}
 
 	/**
