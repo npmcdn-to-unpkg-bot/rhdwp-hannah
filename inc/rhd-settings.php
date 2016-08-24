@@ -64,7 +64,7 @@ class RHD_Settings
 		/*
 		add_settings_section(
 			'rhd_sample_button_settings',
-			'Call to Action Buttons',
+			'Sample Buttons',
 			array( $this, 'print_sample_buttons_section_info' ),
 			'rhd-settings-admin'
 		);
