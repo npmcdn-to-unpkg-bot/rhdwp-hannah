@@ -45,7 +45,7 @@ add_action( 'login_message', 'rhd_login_message' );
  * @return void
  */
 function rhd_login() {
-	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/inc/css/rhd-login.css' );
+	wp_enqueue_style( 'rhd_login', get_stylesheet_directory_uri() . '/css/admin.css' );
 }
 add_action( 'login_head', 'rhd_login' );
 
@@ -57,7 +57,7 @@ add_action( 'login_head', 'rhd_login' );
  * @return void
  */
 function rhd_admin() {
-	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/inc/css/rhd-admin.css' );
+	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/css/admin.css' );
 }
 add_action( 'admin_head', 'rhd_admin' );
 
@@ -69,6 +69,6 @@ add_action( 'admin_head', 'rhd_admin' );
  * @return void
  */
 function rhd_footer_admin () {
-	return '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
+	return 'Built and hosted by <a href="//roundhouse-designs.com" target="_blank">Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs</a>. Powered by <a href="//wordpress.org">WordPress.org</a>. &copy ' . date( "Y" );
 }
 add_filter( 'admin_footer_text', 'rhd_footer_admin' );
