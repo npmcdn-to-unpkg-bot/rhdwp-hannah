@@ -32,7 +32,7 @@ include_once( 'inc/rhd-metabar.php' );
 include_once( 'inc/rhd-branding.php' );
 include_once( 'inc/rhd-settings.php' );
 include_once( 'inc/rhd-theme.php' );
-// include_once( 'inc/rhd-meta-boxes.php' );
+include_once( 'inc/rhd-fancy-full-width.php' );
 
 
 // Globally disable WP toolbar
@@ -82,15 +82,21 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 function rhd_enqueue_scripts() {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'rhd-ajax', RHD_THEME_DIR . '/js/ajax.js', array( 'jquery' ), null, true );
-	wp_register_script( 'jquery-visible', RHD_THEME_DIR . '/js/vendor/df-visible/jquery.visible.min.js', array( 'jquery'), null, true );
 	wp_register_script( 'rhd-metabar', RHD_THEME_DIR . '/js/metabar.js', array( 'jquery' ), null, true );
+
+	// Optional scripts and Dependencies
+	wp_register_script( 'parallax', RHD_THEME_DIR . '/js/parallax.js', array( 'jquery', 'scrollax' ), null, true );
+	wp_register_script( 'scrollax', RHD_THEME_DIR . '/js/vendor/Scrollax.js/scrollax.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'imagesloaded', RHD_THEME_DIR . '/js/vendor/imagesloaded/imagesloaded.pkgd.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'jquery-visible', RHD_THEME_DIR . '/js/vendor/df-visible/jquery.visible.min.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
-		'jquery-effects-core'
+		'jquery-effects-core',
+		'imagesloaded'
 	);
-	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
+	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, true );
 
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-metabar' );
@@ -99,16 +105,12 @@ function rhd_enqueue_scripts() {
 	if ( is_singular() )
 		wp_enqueue_script( 'comment-reply' );
 
-	// Localize data for client-side use
-	global $wp_query;
-	$data = array(
-		'home_url' => home_url(),
-		'theme_dir' => RHD_THEME_DIR,
-		'img_dir' => RHD_IMG_DIR,
-	);
-	wp_localize_script( 'rhd-main', 'wp_data', $data );
+	// Enable optional JS, and localize data for client-side use
+	$options = get_option( 'rhd_general_options' );
 
-	if ( RHD_AJAX_PAGINATION ) {
+	if ( isset( $options['rhd_enable_ajax_pagination'] ) ) {
+		global $wp_query;
+
 		wp_enqueue_script( 'rhd-ajax' );
 
 		$data_ajax = array(
@@ -117,8 +119,26 @@ function rhd_enqueue_scripts() {
 		);
 		wp_localize_script( 'rhd-ajax', 'wp_data', $data_ajax );
 	}
+
+	if ( ! empty( $options['rhd_enable_parallax'] ) ) {
+		wp_enqueue_script( 'scrollax' );
+		add_action( 'wp_footer', 'rhd_hook_scrollax_init' );
+	}
+	wp_enqueue_script( 'rhd-main' );
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_scripts' );
+
+
+/**
+ * rhd_hook_scrollax_init function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_hook_scrollax_init() {
+	$output = '<script type="text/javascript">jQuery(document).ready(function(){parallax = new Scrollax().init();});</script>';
+	echo $output;
+}
 
 
 /**
@@ -147,7 +167,7 @@ add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
  * @return void
  */
 function rhd_pageview_protection() {
-	echo '<script language="javascript" type="text/javascript">if (window!= top) top.location.href = location.href;</script>';
+	echo '<script type="text/javascript">if (window!= top) top.location.href = location.href;</script>';
 }
 add_action( 'wp_head', 'rhd_pageview_protection' );
 

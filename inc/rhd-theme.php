@@ -24,17 +24,9 @@ function rhd_body_class( $body_classes ) {
 	$body_classes[] = ( wp_is_mobile() && ! rhd_is_mobile() ) ? 'tablet' : '';
 	$body_classes[] = ( ! wp_is_mobile() && ! rhd_is_mobile() ) ? 'desktop' : '';
 
-	session_start();
-
 	if ( is_home() || is_single() || is_archive() || is_search() ) {
 		$body_classes[] = 'blog-area';
-
-		$_SESSION['blog_area'] = true;
-	} else {
-		$_SESSION['blog_area'] = false;
 	}
-
-	session_write_close();
 
 	return $body_classes;
 }

@@ -6,11 +6,6 @@ var isSingle = ( jQuery("body").hasClass("single") ) ? true : false,
 	isGrid = ( jQuery("main").hasClass("grid") === true ) ? true : false,
 	isPaged = jQuery("body").hasClass("paged");
 
-// wp_data object
-var homeUrl = wp_data.home_url,
-	themeDir = wp_data.theme_dir,
-	imgDir = wp_data.img_dir;
-
 var isFrontPage = ( jQuery("body").hasClass("front-page") === true ) ? true : false;
 var isMobile = ( jQuery("body").hasClass("mobile") === true ) ? true : false;
 var isTablet = ( jQuery("body").hasClass("tablet") === true ) ? true : false;
@@ -22,23 +17,32 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
    ========================================================================== */
 
 (function($){
-
 	$(document).ready(function(){
+		'use strict';
+
 		rhdInit();
 
 		$(window).on("resize", function(){
 			if ( !viewportIsSmall() ) {
 				resetToggleBurger();
 			}
+
+			setFullWidthDimensions();
+		});
+
+		$(window).on("scroll", function(){
+			showHideFeaturedImage();
 		});
 	});
 
 
 	function rhdInit() {
 		toggleBurger();
-		headerSearch();
 		fixGridLayout(".post-grid");
 		wpAdminBarPush();
+		setFullWidthDimensions();
+
+		showHideFeaturedImage();
 	}
 
 
@@ -72,7 +76,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 
 	// Faux-flexbox "fix" template (edit for varying column numbers)
 	function fixGridLayout( gridClass ) {
-		var across = 4;
+		var across = 3;
 		var mLeft = "3.5%";
 
 		$(gridClass).each(function(){
@@ -86,7 +90,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 			var gridCount = $(curGrid + ".post-grid-item").length;
 
 			if ( gridCount % across !== 0 ) {
-				console.log( curGrid + " gridCount: " + gridCount );
+
 				while ( gridCount > across ) {
 					gridCount -= across;
 				}
@@ -103,75 +107,37 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 	}
 
 
-	function headerSearch() {
-		$(".navbar-search .search-submit").click(function(e){
-			e.preventDefault();
+	function setFullWidthDimensions() {
+		$("#navbar, .rhd-full-width-thumbnail-container").imagesLoaded().done(function(){
+			var navHt = $("#navbar").height();
 
-			if ( !$(".navbar-search").data("expanded") ) {
-				expandSearchBar();
-			} else {
-				// Check that input isn"t just whitespace
-				var searchStr = $(".navbar-search .search-field").val().replace(/^\s+/, "").replace(/\s+$/, "");
+			if ( !viewportIsSmall() ) {
+				$(".fixed-bg").css({
+					'top': navHt,
+					'height': $(window).height() - navHt
+				});
 
-				if ( searchStr === "" ) {
-					collapseSearchBar();
-				} else {
-					// Run the search
-					$(".navbar-search form").submit();
-				}
+				$(".default-thumb").css({
+					'marginTop': navHt
+				});
 			}
-		});
 
-		// Close header search by clicking "X," clicking away from #navbar, or hitting the ESC key
-		$(".close-search").click(function(e){
-			e.preventDefault();
-			collapseSearchBar();
-		});
-
-		$(document).keyup(function(e) {
-			if ( e.keyCode == 27 && $(".navbar-search").data("expanded", true) ) {
-				collapseSearchBar();
-			}
-		});
-
-		$(document).mouseup(function(e){
-			var $container = $(".navbar-search");
-
-			if (!$container.is(e.target) && $container.has(e.target).length === 0) {
-				collapseSearchBar();
-			}
+			$(".rhd-page-overlay-cta-container").css({
+				'height': $(".fixed-bg").height(),
+				'marginTop': navHt
+			});
 		});
 	}
 
 
-	function expandSearchBar() {
-		$(".navbar-search").css("zIndex", 999);
+	// Show/hide to prevent overscrolling the undergrundle...
+	function showHideFeaturedImage() {
+		var st = $(window).scrollTop();
 
-		if ( !viewportIsSmall() ) {
-			$("#navbar").addClass("search-is-active");
-			$("#site-navigation-container").animate({opacity: 0.1}, "fast");
+		if ( st > $(".fixed-bg").height() ) {
+			$(".fixed-bg").css('visibility', 'hidden');
+		} else {
+			$(".fixed-bg").css('visibility', 'initial');
 		}
-
-		$(".navbar-search .search-submit, .navbar-search .search-field").addClass("is-active");
-		$(".navbar-search .search-field").focus();
-		$(".navbar-search").data("expanded", true);
-
-		$(".close-search").fadeIn("fast");
 	}
-
-
-	function collapseSearchBar() {
-		if ( !viewportIsSmall() ) {
-			$("#navbar").removeClass("search-is-active");
-			$("#site-navigation-container").animate({opacity: 1});
-		}
-
-		$(".navbar-search .search-submit, .navbar-search .search-field").removeClass("is-active");
-		$(".navbar-search")
-			.css("zIndex", 0)
-			.data("expanded", false);
-
-		$(".close-search").fadeOut("fast");
-	}
-
 })(jQuery);

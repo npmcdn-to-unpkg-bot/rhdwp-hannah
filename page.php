@@ -6,7 +6,8 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+?>
 
 <section id="primary" class="site-content">
 	<div id="content" role="main">
