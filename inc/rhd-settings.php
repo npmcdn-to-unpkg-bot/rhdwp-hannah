@@ -31,7 +31,8 @@ class RHD_Settings
 	*/
 	public function create_admin_page() {
 		// Set class property
-		$this->options = get_option( 'rhd_general_options' );
+		$this->general = get_option( 'rhd_general_options' );
+		$this->display = get_option( 'rhd_display_options' );
 	?>
 	<div class="wrap">
 		<h2>RHD Site Settings</h2>
@@ -39,6 +40,7 @@ class RHD_Settings
 			<?php
 				// This prints out all hidden setting fields
 				settings_fields( 'rhd_site_settings' );
+				settings_fields( 'rhd_display_settings' );
 				do_settings_sections( 'rhd-settings-admin' );
 				submit_button();
 			?>
@@ -55,6 +57,12 @@ class RHD_Settings
 			'rhd_site_settings', // Option group
 			'rhd_general_options', // Option name
 			array( $this, 'sanitize' ) // Sanitize
+		);
+
+		register_setting(
+			'rhd_display_settings',
+			'rhd_display_options',
+			array( $this, 'sanitize' )
 		);
 
 		add_settings_section(
@@ -74,7 +82,7 @@ class RHD_Settings
 
 		add_settings_section(
 			'rhd_custom_data_settings',
-			'General Site Fields',
+			get_bloginfo( 'name' ) . ' Options',
 			array( $this, 'print_custom_data_info' ),
 			'rhd-settings-admin'
 		);
@@ -112,10 +120,6 @@ class RHD_Settings
 		echo '<p>Site-wide display options. Please confirm with <a href="mailto:admin@roundhouse-designs.com">Roundhouse Designs</a> before altering these settings.</p>';
 	}
 
-	public function print_sample_buttons_section_info() {
-		echo '<p>Some sample inputs.</p>';
-	}
-
 	public function print_custom_data_info()
 	{
 		print '<p></p>';
@@ -124,49 +128,22 @@ class RHD_Settings
 	/**
 	* Input callbacks
 	*/
-	public function display_options_cb( $args ) {
-		$output = '<p><input type="checkbox" id="rhd_enable_parallax" name="rhd_general_options[rhd_enable_parallax]" value="yes" ' . checked( 'yes', $this->options['rhd_enable_parallax'], false ) . ' />
-			<label for="rhd_enable_parallax">Enable [big-image] parallax effects</label></p>';
-
-		$output .= '<p><input type="checkbox" id="rhd_enable_ajax_pagination" name="rhd_general_options[rhd_enable_ajax_pagination]" value="yes" ' . checked( 'yes', $this->options['rhd_enable_ajax_pagination'], false ) . ' />
-			<label for="rhd_enable_ajax_pagination">Enable base AJAX post functionality</label></p>';
-
-		echo $output;
-	}
-
-	public function button_1_cb( $args ) {
-		printf(
-			'<p><label for="rhd_button_1_label">Label</label><br />
-			<input type="text" id="rhd_button_1_label" name="rhd_general_options[rhd_button_1_label]" value="%s" /></p>',
-			isset( $this->options['rhd_button_1_label'] ) ? $this->options['rhd_button_1_label'] : ''
-		);
-
-		printf(
-			'<p><label for="rhd_button_1_sub">Subtitle</label><br />
-			<input type="text" id="rhd_button_1_sub" name="rhd_general_options[rhd_button_1_sub]" class="widefat"  value="%s" /></p>',
-			isset( $this->options['rhd_button_1_sub'] ) ? $this->options['rhd_button_1_sub'] : ''
-		);
-
-		printf(
-			'<p><label for="rhd_button_1_link">Link</label><br />
-			<input type="url" id="rhd_button_1_link" name="rhd_general_options[rhd_button_1_link]" class="widefat" value="%s" /></p>',
-			isset( $this->options['rhd_button_1_link'] ) ? $this->options['rhd_button_1_link'] : ''
-		);
-		echo '</p>';
-
-		printf(
-			'<p><label for="rhd_button_1_text">Text/Description (HTML tags allowed)</label><br />
-			<textarea id="rhd_button_1_text" name="rhd_general_options[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
-			isset( $this->options['rhd_button_1_text'] ) ? $this->options['rhd_button_1_text'] : ''
-		);
-	}
-
 	public function rhd_custom_data_contact_cb( $args )
 	{
 		printf(
 			'<textarea id="rhd_custom_data_contact_html" name="rhd_general_options[rhd_custom_data_contact_html]" cols="60" rows="7">%s</textarea>',
-			isset( $this->options['rhd_custom_data_contact_html'] ) ? $this->options['rhd_custom_data_contact_html'] : ''
+			isset( $this->display['rhd_custom_data_contact_html'] ) ? $this->display['rhd_custom_data_contact_html'] : ''
 		);
+	}
+
+	public function display_options_cb( $args ) {
+		$output = '<p><input type="checkbox" id="rhd_enable_parallax" name="rhd_display_options[rhd_enable_parallax]" value="yes" ' . checked( 'yes', $this->general['rhd_enable_parallax'], false ) . ' />
+			<label for="rhd_enable_parallax">Enable [big-image] parallax effects</label></p>';
+
+		$output .= '<p><input type="checkbox" id="rhd_enable_ajax_pagination" name="rhd_display_options[rhd_enable_ajax_pagination]" value="yes" ' . checked( 'yes', $this->general['rhd_enable_ajax_pagination'], false ) . ' />
+			<label for="rhd_enable_ajax_pagination">Enable base AJAX post functionality</label></p>';
+
+		echo $output;
 	}
 }
 

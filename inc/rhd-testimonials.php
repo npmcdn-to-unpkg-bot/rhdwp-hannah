@@ -123,7 +123,7 @@ function rhd_testimonial_meta_callback( $post ) {
 
 	<p>
 		<label for="rhd-testimonial-attr"><?php _e( 'Attribution/Speaker/Author' ); ?>
-			<span style="font-style: italic;">Using multiple lines is allowed.</span>
+			<span style="font-style: italic;">(Using multiple lines is allowed; Please omit leading &ldquo;&mdash;&rdquo;)</span>
 			<textarea type="text" id="rhd-testimomnial-attr" name="rhd-testimonial-attr" class="widefat" rows="3"><?php if ( isset( $meta['rhd_testimonial_attr'] ) ) echo $meta['rhd_testimonial_attr'][0]; ?></textarea>
 		</label>
 	</p>

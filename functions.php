@@ -106,7 +106,7 @@ function rhd_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 
 	// Enable optional JS, and localize data for client-side use
-	$options = get_option( 'rhd_general_options' );
+	$options = get_option( 'rhd_display_options' );
 
 	if ( isset( $options['rhd_enable_ajax_pagination'] ) ) {
 		global $wp_query;

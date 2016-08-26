@@ -47,18 +47,14 @@
 		<header id="header" class="site-header">
 			<div id="navbar">
 				<div class="navbar-inner">
-					<div class="nav-dropdown">
-						<a class="mobile-only" href="<?php echo home_url(); ?>"><h1 class="site-title"><?php bloginfo( 'name' ); ?></h1></a>
-						<?php wp_nav_menu( $nav_args ); ?>
+					<div class="navbar-logo">
+						<?php echo wp_get_attachment_image( 6, 'medium' ); ?>
 					</div>
 
-					<div id="header-search">
-						<?php rhd_navbar_search_form(); ?>
+					<div class="navbar-contact">
+						<?php $options = get_option( 'rhd_general_options' ); ?>
+						<p><?php echo wp_kses_post( $options['rhd_custom_data_contact_html'] ); ?></p>
 					</div>
-
-					<button id="hamburger" class="c-hamburger c-hamburger--rot">
-						<span>Toggle nav</span>
-					</button>
 				</div>
 			</div>
 
