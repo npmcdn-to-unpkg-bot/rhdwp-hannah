@@ -20,6 +20,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery.fitvids": "fitvids#^1.1.0"
+    "jquery.fitvids": "fitvids#^1.1.0",
+    "Scrollax.js": "^1.0.0",
+    "imagesloaded": "^4.1.0"
   }
 }

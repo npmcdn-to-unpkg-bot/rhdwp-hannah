@@ -7,9 +7,9 @@
  */
 function rhd_add_page_meta_boxes() {
 	add_meta_box(
-		'rhd_page_meta',
+		'rhd_page_overlay_cta_meta',
 		__( 'Header Overlay', 'rhd' ),
-		'rhd_page_meta_callback',
+		'rhd_page_overlay_cta_meta_callback',
 		'page',
 		'normal',
 		'high'
@@ -17,29 +17,30 @@ function rhd_add_page_meta_boxes() {
 }
 add_action( 'add_meta_boxes', 'rhd_add_page_meta_boxes' );
 
+
 /**
- * rhd_page_meta_callback function.
+ * rhd_page_overlay_cta_meta_callback function.
  *
  * @access public
  * @param mixed $post
  * @return void
  */
-function rhd_page_meta_callback( $post ) {
+function rhd_page_overlay_cta_meta_callback( $post ) {
 
 	// Add an nonce field so we can check for it later.
-	wp_nonce_field( 'rhd_page_meta_meta_box', 'rhd_page_meta_meta_box_nonce' );
+	wp_nonce_field( 'rhd_page_overlay_cta_meta_meta_box', 'rhd_page_overlay_cta_meta_meta_box_nonce' );
 
 	$meta = get_post_meta( $post->ID );
 ?>
 
 	<p>
 		Choosing an image will cause any text entered to <em>not</em> be displayed.<br />
-		<em>This functionality is automatically disabled if no <a href="#postimagediv">Featured Image</a> is specified.</em>
+		<em>This functionality is automatically enabled when the "Fancy Full Width" template is seleted and a <a href="#postimagediv">Featured Image</a> is set.</em>
 	</p>
 
 	<div class="rhd-row-content">
 		<p>
-			<strong><?php _e( 'Header Overlay Style', 'rhd' )?></strong><br />
+			<strong><?php _e( 'Header Overlay Style', 'rhd' ); ?></strong><br />
 			<label for="rhd-page-overlay-style-cta">
 				<input type="radio" name="rhd-page-overlay-style" id="rhd-page-overlay-style-cta" value="cta" <?php if ( isset( $meta['rhd_page_overlay_style'] ) ) checked( $meta['rhd_page_overlay_style'][0], 'cta' ); ?>>
 				<?php _e( 'Text + Button', 'rhd' )?>
@@ -105,12 +106,12 @@ function rhd_page_meta_callback( $post ) {
 function rhd_save_page_meta_box_data( $post_id ) {
 
 	// Check if our nonce is set.
-	if ( ! isset( $_POST['rhd_page_meta_meta_box_nonce'] ) ) {
+	if ( ! isset( $_POST['rhd_page_overlay_cta_meta_meta_box_nonce'] ) ) {
 		return;
 	}
 
 	// Verify that the nonce is valid.
-	if ( ! wp_verify_nonce( $_POST['rhd_page_meta_meta_box_nonce'], 'rhd_page_meta_meta_box' ) ) {
+	if ( ! wp_verify_nonce( $_POST['rhd_page_overlay_cta_meta_meta_box_nonce'], 'rhd_page_overlay_cta_meta_meta_box' ) ) {
 		return;
 	}
 
@@ -195,3 +196,137 @@ function rhd_page_overlay_media_enqueue() {
     }
 }
 add_action( 'admin_enqueue_scripts', 'rhd_page_overlay_media_enqueue' );
+
+
+/**
+ * rhd_full_width_cta_overlay function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_full_width_cta_overlay( $post_id ) {
+	$meta = get_post_meta( $post_id );
+
+	$style = $meta['rhd_page_overlay_style'][0];
+
+	$classes = array( "rhd-page-style-{$style}" );
+
+	$classes[] = ( $meta['rhd_page_overlay_bg'][0] == 'yes' ) ? 'bg' : '';
+	$class = implode( " ", $classes );
+
+	$enabled = ( $style && ( $style != 'off' && $style !== false ) ) ? true : false;
+
+	if ( $enabled ) {
+		$out =	"
+				<div class=\"rhd-page-overlay-cta-container\">
+					<div class=\"rhd-page-overlay-cta\">
+						<div class=\"rhd-page-overlay-cta-inner {$class}\">
+				";
+	}
+
+	switch( $style ) {
+		case 'cta':
+			$has_content = ( $meta['rhd_page_overlay_headline'] || $meta['rhd_page_overlay_text'] ) ? true : false;
+			$has_button = ( $meta['rhd_page_overlay_button_value'] && $meta['rhd_page_overlay_button_link'] ) ? true : false;
+
+			if ( $has_content ) {
+				if ( $meta['rhd_page_overlay_headline'] ) {
+					$out .= '<h3 class="page-overlay-headline">' . esc_attr( $meta['rhd_page_overlay_headline'][0] ) . '</h3>';
+				}
+
+				if ( $meta['rhd_page_overlay_text'] ) {
+					$out .= '<p class="page-overlay-text">' . nl2br( $meta['rhd_page_overlay_text'][0] ) . '</p>';
+				}
+			}
+
+			if ( $has_button ) {
+				$out .= rhd_ghost_button( esc_attr( $meta['rhd_page_overlay_button_value'][0] ), esc_url( $meta['rhd_page_overlay_button_link'][0] ), '', 'center', true, false );
+			}
+			break;
+
+		case 'image':
+			$out .= wp_get_attachment_image( $meta['rhd_page_overlay_image'][0], 'large', false, array( 'class' => 'rhd-page-overlay-image' ) );
+			break;
+
+		case 'off':
+			break;
+	}
+
+	if ( $enabled ) {
+		$out .= '
+						</div>
+					</div>
+				</div>
+				';
+	}
+
+	return $out;
+}
+
+
+/**
+ * rhd_full_width_thumbnail function.
+ *
+ * @access public
+ * @param int $thumb_id
+ * @return void
+ */
+function rhd_full_width_thumbnail( $thumb_id ) {
+	global $post;
+
+	$thumb_id = $thumb_id ? $thumb_id : 8;
+	$default = $thumb_id == 8 ? true : false;
+
+	if ( ! $default ) {
+		$class = 'fixed-bg';
+	} else {
+		$class = 'default-thumb';
+	}
+
+	$img = wp_get_attachment_image( $thumb_id, 'full' );
+
+	$out =	"<div class=\"rhd-full-width-thumbnail-container {$class}\">";
+
+	$out .= "
+				<div class=\"rhd-full-width-thumbnail\">
+					{$img}
+				</div>
+			</div>
+			";
+
+	echo $out;
+}
+
+
+/* ==========================================================================
+	"Big Image" Shortcode
+   ========================================================================== */
+
+/**
+ * rhd_big_image_image_shortcode function.
+ *
+ * @access public
+ * @param mixed $atts
+ * @param string $content (default: "")
+ * @return void
+ */
+function rhd_big_image_image_shortcode( $atts, $content ) {
+	preg_match( '/<img class=".*?wp-image-([0-9]*)/', $content, $matches );
+
+	if ( $matches[0] ) {
+		$att_id = $matches[1];
+		$img = wp_get_attachment_image( $att_id, 'full' );
+
+		$output = '
+			<div class="rhd-big-image-container" data-scrollax-parent="true">
+				<div class="rhd-big-image" data-scrollax="properties: { \'translateY\': \'30%\' }">' . $img . '</div>
+			</div>
+		';
+	} else {
+		$output = false;
+	}
+
+	return $output;
+}
+add_shortcode( 'big-image', 'rhd_big_image_image_shortcode' );

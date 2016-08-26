@@ -1,0 +1,253 @@
+.page-template-template-ffw
+	#main
+		width 100%
+		max-width none
+		padding 0
+		margin-bottom 0
+
+	#primary
+		margin-top 0
+
+	.full-width-page
+		position relative
+
+		&.fixed-bg-page
+			z-index 2
+
+			.entry-content
+				background $c_bg
+				padding-top 3em
+
+		&.default-thumb-page
+			margin-top 2em
+
+	.rhd-full-width-thumbnail-container
+		width 100%
+		height auto
+		background $off_white
+		position relative
+
+		&.fixed-bg
+			width 100%
+			height auto
+			position fixed
+			top $navHt
+			left 0
+			z-index 0
+
+			.rhd-full-width-thumbnail
+				position relative
+
+				img
+					width 100%
+					height auto
+					display block
+
+		&.default-thumb
+			margin-top $navHt
+
+			.rhd-full-width-thumbnail
+				-wrapper(0, 0, 80%)
+				padding 2em 0
+
+		.page-overlay-headline
+			margin 1rem 0 0.5rem 0
+			line-height 1.1
+			-ff-headline()
+			font-size 3em
+
+		.page-overlay-text
+		.ghost-button-container
+			margin 0.5rem 0
+
+		.page-overlay-text
+			font-size 1.2em
+
+	.entry-content
+		display block
+
+		& > *
+			-wrapper(2em, 2em)
+
+		.rhd-big-image-container
+			width 100%
+			height 500px
+			height 100vh
+			max-width none
+			position relative
+			overflow hidden
+			display block
+			margin $bigBlockMargin 0
+
+			.rhd-big-image
+				width 100%
+				height 100%
+				display block
+				position absolute
+
+				img
+					-scrollax-img()
+
+		.entry-meta
+			p
+				margin 0
+
+
+.rhd-page-overlay-cta-container
+	-wrapper(0, 0, 85%)
+	color $c_bg
+	z-index 2
+	text-align center
+
+	.rhd-page-overlay-cta
+		.rhd-page-overlay-cta-inner
+			width 100%
+			-vhcenter()
+			border-radius 0.1em
+
+			&.bg
+				background $c_off_white_trans
+
+			&.rhd-page-style-image
+				max-height 100%
+
+				img
+					width auto
+					max-height 100%
+
+	.page-overlay-headline
+		margin 1rem 0 0.5rem 0
+		line-height 1.1
+		-ff-headline()
+		font-size 3em
+
+	.page-overlay-text
+	.ghost-button-container
+		margin 0.5rem 0
+
+	.page-overlay-text
+		font-size 1.2em
+
+
+@media screen and (min-width $responsiveSize)
+	.page-template-template-ffw
+		#main
+			margin-top 0
+
+		#content
+			padding-bottom 2em
+			margin-left 0
+			margin-right 0
+
+		.full-width-page
+			&.fixed-bg-page
+				.entry-content
+					padding 2em 0 0 0
+
+		.entry-content
+			.rhd-infographic
+				width 100%
+				max-width none
+				margin 0
+
+				figure
+					-wrapper()
+					padding 1em 0
+					position relative
+					-clearfix()
+
+				.rhd-infographic-image
+					width 49%
+					display block
+					top 0
+					float none
+					position relative
+
+					&.left
+						float left
+
+					&.right
+						float right
+
+				.rhd-infographic-caption
+					width 49%
+					-vcenter()
+					text-align center
+					font-size 1.5em
+					-ff-subtitle()
+					line-height 1.3
+
+					&.left
+						left 0
+						padding-left 5%
+
+					&.right
+						right 0
+						padding-right 2%
+
+
+		.rhd-full-width-thumbnail-container
+			&.fixed-bg
+				height 100vh
+				top 0
+				overflow hidden
+
+				.rhd-full-width-thumbnail
+					width 100%
+					height 100%
+					position absolute
+					display block
+
+					img
+						-scrollax-img()
+
+			&.default-thumb
+				margin-top 0
+
+				.rhd-full-width-thumbnail
+					width 60%
+					padding 4em 0
+
+	.rhd-page-overlay-cta-container
+		margin-bottom 0
+
+		.rhd-page-overlay-cta
+			.rhd-page-overlay-cta-inner
+				width auto
+				min-width 50%
+
+				&.bg
+					padding 2em 1em
+
+		& + .big-notch
+			width 100%
+			height 2rem
+			overflow hidden
+			margin-top -(@height)
+			display block
+
+			.big-notch-inner
+				height 100%
+				max-width 75rem
+				margin 0 auto
+				position relative
+
+				&:before
+				&:after
+					width 2000px
+					height 100%
+					content ''
+					position absolute
+					top 0
+					background $c_bg
+
+				&:before
+					left 100%
+
+				&:after
+					right 100%
+
+				svg
+					height 100%
+					fill $c_bg
+					float right

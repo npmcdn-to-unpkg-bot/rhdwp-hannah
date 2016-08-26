@@ -12,6 +12,7 @@ $c_sec_lt = lighten($c_sec, 35%)
 $c_ter_lt = lighten($c_ter, 35%)
 $off_white = darken(white, 4%)
 $near_white = darken(white, 2%)
+$c_off_white_trans = transparentify( $off_white, 0.35 )
 
 $c_bg = white
 $c_header = $c_ter_lt
@@ -22,6 +23,9 @@ $ff_headline = 'Dancing Script', cursive
 $navHt = 3em
 $navHtDesk = 2em
 $sidebarW = 20rem
+$bigBlockMargin = 3rem
+
+$responsiveSize = 40rem
 
 $updir = '../../../uploads'
 
@@ -168,3 +172,13 @@ $updir = '../../../uploads'
 			img
 				width auto
 				max-height $maxHt
+
+
+-scrollax-img()
+	width auto
+	height auto
+	max-width none
+	min-width 100%
+	min-height 100%
+	-vhcenter()
+	display block
