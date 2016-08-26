@@ -33,7 +33,7 @@ include_once( 'inc/rhd-branding.php' );
 include_once( 'inc/rhd-settings.php' );
 include_once( 'inc/rhd-theme.php' );
 include_once( 'inc/rhd-fancy-full-width.php' );
-
+include_once( 'inc/rhd-testimonials.php' );
 
 // Globally disable WP toolbar
 // add_filter( 'show_admin_bar', '__return_false' );

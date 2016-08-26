@@ -72,22 +72,20 @@ class RHD_Settings
 			'rhd_display_options_settings'
 		);
 
-		/*
 		add_settings_section(
-			'rhd_sample_button_settings',
-			'Sample Buttons',
-			array( $this, 'print_sample_buttons_section_info' ),
+			'rhd_custom_data_settings',
+			'General Site Fields',
+			array( $this, 'print_custom_data_info' ),
 			'rhd-settings-admin'
 		);
 
 		add_settings_field(
-			'rhd_button_1',
-			'Sample Button 1: ',
-			array( $this, 'button_1_cb' ),
+			'rhd_custom_data_contact',
+			"Contact Information <br /> (HTML tags allowed): ",
+			array( $this, 'rhd_custom_data_contact_cb' ),
 			'rhd-settings-admin',
-			'rhd_sample_button_settings'
+			'rhd_custom_data_settings'
 		);
-		*/
 	}
 
 	/**
@@ -102,10 +100,7 @@ class RHD_Settings
 		$new_input['rhd_enable_parallax'] = ( isset( $input['rhd_enable_parallax'] ) ) ? 'yes' : '';
 		$new_input['rhd_enable_ajax_pagination'] = ( isset( $input['rhd_enable_ajax_pagination'] ) ) ? 'yes' : '';
 
-		$new_input['rhd_button_1_label'] = ( isset( $input['rhd_button_1_label'] ) ) ? sanitize_text_field( $input['rhd_button_1_label'] ) : '';
-		$new_input['rhd_button_1_sub'] = ( isset( $input['rhd_button_1_sub'] ) ) ? sanitize_text_field( $input['rhd_button_1_sub'] ) : '';
-		$new_input['rhd_button_1_link'] = ( isset( $input['rhd_button_1_link'] ) ) ? esc_url_raw( $input['rhd_button_1_link'] ) : '';
-		$new_input['rhd_button_1_text'] = ( isset( $input['rhd_button_1_text'] ) ) ? wp_kses_post( $input['rhd_button_1_text'] ) : '';
+		$new_input['rhd_custom_data_contact_html'] = ( isset( $input['rhd_custom_data_contact_html'] ) ) ? wp_kses_post( $input['rhd_custom_data_contact_html'] ) : '';
 
 		return $new_input;
 	}
@@ -119,6 +114,11 @@ class RHD_Settings
 
 	public function print_sample_buttons_section_info() {
 		echo '<p>Some sample inputs.</p>';
+	}
+
+	public function print_custom_data_info()
+	{
+		print '<p></p>';
 	}
 
 	/**
@@ -158,6 +158,14 @@ class RHD_Settings
 			'<p><label for="rhd_button_1_text">Text/Description (HTML tags allowed)</label><br />
 			<textarea id="rhd_button_1_text" name="rhd_general_options[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
 			isset( $this->options['rhd_button_1_text'] ) ? $this->options['rhd_button_1_text'] : ''
+		);
+	}
+
+	public function rhd_custom_data_contact_cb( $args )
+	{
+		printf(
+			'<textarea id="rhd_custom_data_contact_html" name="rhd_general_options[rhd_custom_data_contact_html]" cols="60" rows="7">%s</textarea>',
+			isset( $this->options['rhd_custom_data_contact_html'] ) ? $this->options['rhd_custom_data_contact_html'] : ''
 		);
 	}
 }
