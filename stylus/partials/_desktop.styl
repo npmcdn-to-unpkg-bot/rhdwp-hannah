@@ -38,6 +38,7 @@
 					&.is-active
 						right 0
 
+
 	#site-navigation-container
 		width 45%
 		display block
@@ -123,3 +124,23 @@
 		a
 			img
 				@extends .entry-content img
+
+		p
+			-clearfix() // Image floaters
+
+	// Overrides
+	.rhd-page-overlay-cta-container
+		.rhd-page-overlay-cta
+			.rhd-page-overlay-cta-inner
+				width 85%
+				top initial
+				bottom 8%
+
+				.page-overlay-headline
+					display inline-block;
+					width 40%
+					float left
+
+				.ghost-button-container
+					float right
+					font-size 1.8em

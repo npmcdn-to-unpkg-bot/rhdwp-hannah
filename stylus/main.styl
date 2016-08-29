@@ -189,6 +189,7 @@ input[type="submit"]
 	position relative
 	margin-top 2em
 	background $c_sec
+	color white
 
 	.site-info
 		-wrapper(0, 0, 75%)
@@ -199,12 +200,11 @@ input[type="submit"]
 			padding 1em 0
 
 		a
-			color $c_text
+			color inherit
 
 			&:hover
 			&:active
-				color $c_ter
-				text-decoration none
+				text-decoration underline
 
 		img
 			width 100%
@@ -530,6 +530,7 @@ input[type="submit"]
 #page
 	.ghost-button
 		color black
+		background white
 		-ff-title()
 		text-transform none
 		border 2px solid $c_text
@@ -537,6 +538,7 @@ input[type="submit"]
 		&:hover
 		&:active
 			color white
+			background black
 
 
 /* ==========================================================================
