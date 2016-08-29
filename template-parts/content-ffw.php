@@ -13,6 +13,8 @@ $class[] = has_post_thumbnail() ? 'fixed-bg-page' : 'default-thumb-page';
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( implode( " ", $class ) ); ?>>
+	<?php rhd_full_width_thumbnail( get_post_thumbnail_id() ); ?>
+
 	<?php if ( has_post_thumbnail() ) : ?>
 		<?php echo rhd_full_width_cta_overlay( get_the_id() ); ?>
 		<?php get_template_part( 'template-parts/svg', 'big-notch' ); ?>

@@ -79,13 +79,15 @@ input[type="submit"]
 	margin 0
 
 
+#masthead
+	-invisible()
+
+
 #navbar
 	width 100%
 	height $navHt
 	display block
-	position fixed
-	top 0
-	left 0
+	position relative
 	background $c_header
 	color $c_text_lt
 	z-index 999
@@ -465,6 +467,33 @@ input[type="submit"]
 
 
 /* ==========================================================================
+	One-Page styles
+   ========================================================================== */
+
+.rhd-page-overlay-cta-container
+	.page-overlay-headline
+		font-style italic
+		font-size 2em
+		margin-top 0.5rem
+
+
+.page-template-template-ffw
+	.rhd-full-width-thumbnail-container
+		position relative !important //override
+		top 0 !important
+
+	.full-width-page
+		& .fixed-bg-page
+			.entry-content
+				padding-top 0
+
+
+.rhd-page-overlay-cta-container
+	-hcenter()
+	top 0
+
+
+/* ==========================================================================
 	Widget Areas & Sidebars
    ========================================================================== */
 
@@ -496,6 +525,18 @@ input[type="submit"]
 
 .big-notch
 	display none
+
+
+#page
+	.ghost-button
+		color black
+		-ff-title()
+		text-transform none
+		border 2px solid $c_text
+
+		&:hover
+		&:active
+			color white
 
 
 /* ==========================================================================

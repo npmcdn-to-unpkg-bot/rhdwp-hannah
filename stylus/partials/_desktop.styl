@@ -5,8 +5,18 @@
 	#navbar
 		height $navHtDesk
 
+		.navbar-logo
+			left 0
+			right initial
+
+		.navbar-contact
+			width 30rem
+			-vcenter()
+			right 0
+			display block
+
 		.navbar-inner
-			-wrapper(0, 0, 90%)
+			-wrapper(0, 0, 90%, none)
 			height @height
 
 			.nav-dropdown

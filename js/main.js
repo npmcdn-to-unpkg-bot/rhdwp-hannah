@@ -30,9 +30,11 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 			setFullWidthDimensions();
 		});
 
+		/*
 		$(window).on("scroll", function(){
 			showHideFeaturedImage();
 		});
+		*/
 	});
 
 
@@ -41,8 +43,7 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 		fixGridLayout(".post-grid");
 		wpAdminBarPush();
 		setFullWidthDimensions();
-
-		showHideFeaturedImage();
+		//showHideFeaturedImage();
 	}
 
 
@@ -117,14 +118,16 @@ var isDesktop = ( jQuery("body").hasClass("desktop") === true ) ? true : false;
 					'height': $(window).height() - navHt
 				});
 
+/*
 				$(".default-thumb").css({
 					'marginTop': navHt
 				});
+*/
 			}
 
 			$(".rhd-page-overlay-cta-container").css({
 				'height': $(".fixed-bg").height(),
-				'marginTop': navHt
+				//'marginTop': navHt
 			});
 		});
 	}

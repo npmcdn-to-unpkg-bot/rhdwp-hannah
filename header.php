@@ -52,8 +52,8 @@
 					</div>
 
 					<div class="navbar-contact">
-						<?php $options = get_option( 'rhd_general_options' ); ?>
-						<p><?php echo wp_kses_post( $options['rhd_custom_data_contact_html'] ); ?></p>
+						<?php $options = get_option( 'rhd_site_options' ); ?>
+						<p><?php echo preg_replace( '/\\n/', '<br />', $options['rhd_custom_data_contact_html'] ); ?></p>
 					</div>
 				</div>
 			</div>

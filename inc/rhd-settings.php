@@ -9,7 +9,8 @@ class RHD_Settings
 	/**
 	* Holds the values to be used in the fields callbacks
 	*/
-	private $options;
+	private $site;
+	private $display;
 
 	/**
 	* Start up
@@ -31,8 +32,13 @@ class RHD_Settings
 	*/
 	public function create_admin_page() {
 		// Set class property
-		$this->general = get_option( 'rhd_general_options' );
+		$this->site = get_option( 'rhd_general_options' );
 		$this->display = get_option( 'rhd_display_options' );
+
+		ob_start();
+		print_r( $this->site );
+		$str = ob_get_clean();
+		error_log( $str );
 	?>
 	<div class="wrap">
 		<h2>RHD Site Settings</h2>
@@ -54,45 +60,45 @@ class RHD_Settings
 	*/
 	public function rhd_register_settings() {
 		register_setting(
-			'rhd_site_settings', // Option group
-			'rhd_general_options', // Option name
-			array( $this, 'sanitize' ) // Sanitize
-		);
-
-		register_setting(
 			'rhd_display_settings',
 			'rhd_display_options',
 			array( $this, 'sanitize' )
 		);
 
+		register_setting(
+			'rhd_site_settings', // Option group
+			'rhd_general_options', // Option name
+			array( $this, 'sanitize' ) // Sanitize
+		);
+
 		add_settings_section(
 			'rhd_display_options_settings',
-			'Display Options',
+			'Site Display Settings',
 			array( $this, 'print_display_options_settings_section_info' ),
 			'rhd-settings-admin'
 		);
 
-		add_settings_field(
-			'rhd_display_options',
-			'Enable Parallax Effects',
-			array( $this, 'display_options_cb' ),
-			'rhd-settings-admin',
-			'rhd_display_options_settings'
-		);
-
 		add_settings_section(
-			'rhd_custom_data_settings',
+			'rhd_general_options_settings',
 			get_bloginfo( 'name' ) . ' Options',
 			array( $this, 'print_custom_data_info' ),
 			'rhd-settings-admin'
 		);
 
 		add_settings_field(
-			'rhd_custom_data_contact',
-			"Contact Information <br /> (HTML tags allowed): ",
-			array( $this, 'rhd_custom_data_contact_cb' ),
+			'rhd_display_options',
+			'Options',
+			array( $this, 'display_options_cb' ),
 			'rhd-settings-admin',
-			'rhd_custom_data_settings'
+			'rhd_display_options_settings'
+		);
+
+		add_settings_field(
+			'rhd_general_options',
+			"HTML tags allowed: a, br, strong, em",
+			array( $this, 'site_options_cb' ),
+			'rhd-settings-admin',
+			'rhd_general_options_settings'
 		);
 	}
 
@@ -105,15 +111,15 @@ class RHD_Settings
 	{
 		$new_input = array();
 
+		$new_input['rhd_custom_data_contact_html'] = ( isset( $input['rhd_custom_data_contact_html'] ) ) ? wp_kses_data( $input['rhd_custom_data_contact_html'] ) : '';
+
 		$new_input['rhd_enable_parallax'] = ( isset( $input['rhd_enable_parallax'] ) ) ? 'yes' : '';
 		$new_input['rhd_enable_ajax_pagination'] = ( isset( $input['rhd_enable_ajax_pagination'] ) ) ? 'yes' : '';
-
-		$new_input['rhd_custom_data_contact_html'] = ( isset( $input['rhd_custom_data_contact_html'] ) ) ? wp_kses_post( $input['rhd_custom_data_contact_html'] ) : '';
 
 		return $new_input;
 	}
 
-	/**
+ 	/**
 	* Print the Section text
 	*/
 	public function print_display_options_settings_section_info() {
@@ -122,25 +128,26 @@ class RHD_Settings
 
 	public function print_custom_data_info()
 	{
-		print '<p></p>';
+		echo '<p>Contact Information</p>';
 	}
 
 	/**
 	* Input callbacks
 	*/
-	public function rhd_custom_data_contact_cb( $args )
+	public function site_options_cb( $args )
 	{
-		printf(
-			'<textarea id="rhd_custom_data_contact_html" name="rhd_general_options[rhd_custom_data_contact_html]" cols="60" rows="7">%s</textarea>',
-			isset( $this->display['rhd_custom_data_contact_html'] ) ? $this->display['rhd_custom_data_contact_html'] : ''
-		);
+		$output = '<textarea id="rhd_custom_data_contact_html" name="rhd_general_options[rhd_custom_data_contact_html]" cols="60" rows="7">';
+		$output .= ( isset( $this->site['rhd_custom_data_contact_html'] ) ) ? $this->site['rhd_custom_data_contact_html'] : '';
+		$output .= '</textarea>';
+
+		echo $output;
 	}
 
 	public function display_options_cb( $args ) {
-		$output = '<p><input type="checkbox" id="rhd_enable_parallax" name="rhd_display_options[rhd_enable_parallax]" value="yes" ' . checked( 'yes', $this->general['rhd_enable_parallax'], false ) . ' />
+		$output = '<p><input type="checkbox" id="rhd_enable_parallax" name="rhd_display_options[rhd_enable_parallax]" value="yes" ' . checked( 'yes', $this->display['rhd_enable_parallax'], false ) . ' />
 			<label for="rhd_enable_parallax">Enable [big-image] parallax effects</label></p>';
 
-		$output .= '<p><input type="checkbox" id="rhd_enable_ajax_pagination" name="rhd_display_options[rhd_enable_ajax_pagination]" value="yes" ' . checked( 'yes', $this->general['rhd_enable_ajax_pagination'], false ) . ' />
+		$output .= '<p><input type="checkbox" id="rhd_enable_ajax_pagination" name="rhd_display_options[rhd_enable_ajax_pagination]" value="yes" ' . checked( 'yes', $this->display['rhd_enable_ajax_pagination'], false ) . ' />
 			<label for="rhd_enable_ajax_pagination">Enable base AJAX post functionality</label></p>';
 
 		echo $output;

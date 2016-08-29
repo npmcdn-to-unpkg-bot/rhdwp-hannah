@@ -21,7 +21,7 @@ $ff_body = 'Avenir Next', sans-serif
 $ff_headline = 'Times New Roman', serif
 
 $navHt = 5em
-$navHtDesk = 6em
+$navHtDesk = 7em
 $sidebarW = 20rem
 $bigBlockMargin = 3rem
 
@@ -30,12 +30,11 @@ $responsiveSize = 40rem
 $updir = '../../../uploads'
 
 -ff-title()
-	font-family $ff_body
+	font-family $ff_headline
 	font-weight 700
 
 -ff-headline()
-	font-family $ff_headline
-	font-weight normal
+	-ff-title()
 
 
 /* ==========================================================================
