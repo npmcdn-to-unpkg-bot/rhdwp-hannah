@@ -272,6 +272,7 @@ function rhd_full_width_cta_overlay( $post_id ) {
  * @param int $thumb_id
  * @return void
  */
+//TODO Build default image system instead of hard-coded default id
 function rhd_full_width_thumbnail( $thumb_id ) {
 	global $post;
 

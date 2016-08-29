@@ -106,9 +106,9 @@ function rhd_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 
 	// Enable optional JS, and localize data for client-side use
-	$options = get_option( 'rhd_general_options' );
+	$options = get_option( 'rhd_site_settings' );
 
-	if ( isset( $options['rhd_enable_ajax_pagination'] ) ) {
+	if ( isset( $options['enable_ajax_pagination'] ) ) {
 		global $wp_query;
 
 		wp_enqueue_script( 'rhd-ajax' );
@@ -120,7 +120,7 @@ function rhd_enqueue_scripts() {
 		wp_localize_script( 'rhd-ajax', 'wp_data', $data_ajax );
 	}
 
-	if ( ! empty( $options['rhd_enable_parallax'] ) ) {
+	if ( ! empty( $options['enable_parallax'] ) ) {
 		wp_enqueue_script( 'scrollax' );
 		add_action( 'wp_footer', 'rhd_hook_scrollax_init' );
 	}
