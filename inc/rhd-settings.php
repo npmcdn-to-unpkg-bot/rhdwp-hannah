@@ -68,28 +68,11 @@ function rhd_register_settings() {
 
 	add_settings_field(
 		'rhd_custom_data_address',
-		'Business Address (Basic HTML Only)',
+		'Business Contact',
 		'custom_data_address_cb',
 		'rhd-settings-admin',
 		'rhd_custom_data'
 	);
-
-	/*
-	add_settings_section(
-		'rhd_sample_button_settings',
-		'Sample Buttons',
-		'print_sample_buttons_section_info',
-		'rhd-settings-admin'
-	);
-
-	add_settings_field(
-		'rhd_button_1',
-		'Sample Button 1: ',
-		'button_1_cb',
-		'rhd-settings-admin',
-		'rhd_sample_button_settings'
-	);
-	*/
 }
 add_action( 'admin_init', 'rhd_register_settings' );
 
@@ -106,6 +89,7 @@ function sanitize( $input )
 	$new_input['enable_ajax_pagination'] = ( $input['enable_ajax_pagination'] == 'yes' ) ? 'yes' : '';
 
 	$new_input['custom_data_address'] = ( isset( $input['custom_data_address'] ) ) ? wp_kses_data( $input['custom_data_address'] ) : '';
+	$new_input['custom_data_email'] = ( isset( $input['custom_data_email'] ) ) ? sanitize_email( $input['custom_data_email'] ) : '';
 
 	$new_input['rhd_button_1_label'] = ( isset( $input['rhd_button_1_label'] ) ) ? sanitize_text_field( $input['rhd_button_1_label'] ) : '';
 	$new_input['rhd_button_1_sub'] = ( isset( $input['rhd_button_1_sub'] ) ) ? sanitize_text_field( $input['rhd_button_1_sub'] ) : '';
@@ -123,11 +107,7 @@ function print_display_options_settings_section_info() {
 }
 
 function print_custom_data_section_info() {
-	echo '<p>' . get_bloginfo( 'name' ) . ' Custom Data</p>';
-}
-
-function print_sample_buttons_section_info() {
-	echo '<p>Some sample inputs.</p>';
+	echo '<p></p>';
 }
 
 /**
@@ -149,37 +129,15 @@ function display_options_cb( $args ) {
 function custom_data_address_cb( $args ) {
 	global $options;
 
-	$output = '<p><textarea id="custom_data_address" name="rhd_site_settings[custom_data_address]" rows="7" cols="70">' . $options['custom_data_address'] . '</textarea>';
+	$output = '<p>
+				<label for="custom_data_address">Basic HTML allowed</label><br />
+				<textarea id="custom_data_address" name="rhd_site_settings[custom_data_address]" rows="7" cols="70">' . $options['custom_data_address'] . '</textarea>
+				</p>';
+
+	$output .= '<p>
+				<label for="custom_data_email">Contact Email</label>
+				<input id="custom_data_email" name="rhd_site_settings[custom_data_email]" class="widefat" value="' . $options['custom_data_email'] . '" />
+				</p>';
 
 	echo $output;
-}
-
-
-function button_1_cb( $args ) {
-	global $options;
-
-	printf(
-		'<p><label for="rhd_button_1_label">Label</label><br />
-		<input type="text" id="rhd_button_1_label" name="rhd_site_settings[rhd_button_1_label]" value="%s" /></p>',
-		isset( $options['rhd_button_1_label'] ) ? $options['rhd_button_1_label'] : ''
-	);
-
-	printf(
-		'<p><label for="rhd_button_1_sub">Subtitle</label><br />
-		<input type="text" id="rhd_button_1_sub" name="rhd_site_settings[rhd_button_1_sub]" class="widefat"  value="%s" /></p>',
-		isset( $options['rhd_button_1_sub'] ) ? $options['rhd_button_1_sub'] : ''
-	);
-
-	printf(
-		'<p><label for="rhd_button_1_link">Link</label><br />
-		<input type="url" id="rhd_button_1_link" name="rhd_site_settings[rhd_button_1_link]" class="widefat" value="%s" /></p>',
-		isset( $options['rhd_button_1_link'] ) ? $options['rhd_button_1_link'] : ''
-	);
-	echo '</p>';
-
-	printf(
-		'<p><label for="rhd_button_1_text">Text/Description (HTML tags allowed)</label><br />
-		<textarea id="rhd_button_1_text" name="rhd_site_settings[rhd_button_1_text]" class="widefat" rows="5">%s</textarea></p>',
-		isset( $options['rhd_button_1_text'] ) ? $options['rhd_button_1_text'] : ''
-	);
 }

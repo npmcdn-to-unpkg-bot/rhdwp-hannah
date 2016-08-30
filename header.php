@@ -52,8 +52,7 @@
 					</div>
 
 					<div class="navbar-contact">
-						<?php $options = get_option( 'rhd_site_settings' ); ?>
-						<p><?php echo preg_replace( '/\\n/', '<br />', $options['custom_data_address'] ); ?></p>
+						<?php rhd_ayesh_address(); ?>
 					</div>
 				</div>
 			</div>

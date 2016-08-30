@@ -187,9 +187,53 @@ input[type="submit"]
 #colophon
 	width 100%
 	position relative
-	margin-top 2em
-	background $c_sec
-	color white
+	padding 2em 0 1em
+
+	.footer-inner
+		background $c_sec
+		color white
+
+	.widget-area
+		-wrapper(1em, 1em)
+
+		.widget
+			width 100%
+			padding 1em 0
+
+			.field-wrap
+				margin-bottom 0.5em
+
+		.widget-title
+			text-align center
+			font-size 1.8em
+
+		.footer-widgets-right
+			.rhd-hard-widget
+				color white
+				text-align right
+
+				a
+					color inherit
+
+		input
+		textarea
+			border-color white
+			font-family $ff_body
+			-placeholder-props( $ff_body, black )
+
+			&[type="submit"]
+				display block
+				margin 0 auto
+
+				&:hover
+					background black
+					border-color @background
+					color white
+
+		.agm-google_map-widget div[id^="map_"]
+		.agm-google_map-widget
+			width 100%
+
 
 	.site-info
 		-wrapper(0, 0, 75%)
@@ -217,8 +261,11 @@ input[type="submit"]
 
 .entry-title
 .page-title
+.widget-title
 	margin-top 0
 	line-height 1
+	-ff-title()
+	letter-spacing 1px
 
 
 .page-title

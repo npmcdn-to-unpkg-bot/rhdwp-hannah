@@ -14,6 +14,8 @@
 			-vcenter()
 			right 0
 			display block
+			text-align right
+			font-size 0.8em
 
 		.navbar-inner
 			-wrapper(0, 0, 90%, none)
@@ -127,6 +129,33 @@
 
 		p
 			-clearfix() // Image floaters
+
+	#colophon
+		.widget-area
+			width 100%
+			-clearfix()
+
+		.footer-widgets-left
+		.footer-widgets-right
+			width 40%
+			position relative
+
+		.footer-widgets-left
+			float left
+
+			.widget-title
+				text-align left
+
+			input
+				&[type="submit"]
+					float left
+
+		.footer-widgets-right
+			float right
+
+			.widget-title
+				text-align right
+
 
 	// Overrides
 	.rhd-page-overlay-cta-container

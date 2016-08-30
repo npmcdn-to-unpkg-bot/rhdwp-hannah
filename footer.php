@@ -12,14 +12,16 @@
 
 	</main><!-- #main -->
 
-    <footer id="colophon">
-        <?php get_sidebar( 'footer' ); ?>
-        <div class="site-info">
+	<footer id="colophon">
+		<div class="footer-inner">
+			<?php get_sidebar( 'footer' ); ?>
+		</div>
+		<div class="site-info">
 			<p>
-				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '| '; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse Designs</a>
-            </p>
-        </div>
-    </footer>
+			<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '| '; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse Designs</a>
+			</p>
+		</div>
+	</footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

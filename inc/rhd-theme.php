@@ -113,3 +113,21 @@ function rhd_subcat_grid( $parent_slug, $uncat = false ) {
 		<?php
 	}
 }
+
+
+/**
+ * rhd_ayesh_address function.
+ *
+ * @access public
+ * @param bool $show_email (default: false)
+ * @return void
+ */
+function rhd_ayesh_address( $show_email = false) {
+	$options = get_option( 'rhd_site_settings' );
+	echo '<p>' . preg_replace( '/\\n/', '<br />', $options['custom_data_address'] );
+
+	if ( $show_email === true )
+		echo "<br />Email: <a href=\"mailto:{$options['custom_data_email']}\">{$options['custom_data_email']}</a>";
+
+	echo '</p>';
+}
